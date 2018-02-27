@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>MySQL - Daniel Hoherd's tech notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MySQL";
+    var mkdocs_page_input_path = "mysql.md";
+    var mkdocs_page_url = "/mysql/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3d_printing/">3d printing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3ds/">3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../airport/">Airport</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amiibo/">Amiibo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Ansible</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../apfs/">Apfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aptly/">Aptly</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atomicparsley/">AtomicParsley</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atop/">Atop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../avahi/">Avahi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awk/">Awk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awless/">Awless</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awscli/">Awscli</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backups/">Backups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../badblocks/">Badblocks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bash/">Bash</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bc/">Bc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bind/">Bind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blkid/">Blkid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bpf/">Bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../centos/">CentOS 7</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ceph/">Ceph</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chkconfig/">Chkconfig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chocolatey/">Chocolatey</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chronos/">Chronos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cobbler/">Cobbler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conjure-up/">Conjure up</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../consul/">Consul</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cowsay/">Cowsay</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cron/">Cron</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curl/">Curl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../date/">Date</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dcfldd/">Dcfldd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dd-wrt/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">DevOps lifecycle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dig/">Dig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dmidecode/">Dmidecode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dns/">Dns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dsrc/">Dsrc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../du/">Du</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../duplicity/">Duplicity</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eleduino/">Eleduino SpotPear touchscreen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exiftool/">Exiftool</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fedramp/">Fedramp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ffmpeg/">Ffmpeg</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../figlet/">Figlet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../file-downloaders/">File downloaders</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../find/">Find</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../findmnt/">Findmnt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../flask/">Flask</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fortune/">Fortune</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../geodata/">Geodata</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitolite/">Gitolite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glances/">Glances</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../golang/">Golang</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-earth/">Google earth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-sheets/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google/">Google</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphicsmagick/">GraphicsMagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../grub/">Grub</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hadoop/">Hadoop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../home-assistant/">Home assistant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hp/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../htop/">Htop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../httpstat/">Httpstat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iTunes/">iTunes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iftop/">Iftop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../image-formats/">Image formats</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../imagemagick/">ImageMagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../img2xterm/">Img2xterm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../innotop/">Innotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../inotify/">Inotify</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iotop/">Iotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ip/">Ip</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iperf/">Iperf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ipmi/">Ipmi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iptables/">Iptables</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jargon/">Jargon</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jdupes/">Jdupes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jmespath/">Jmespath</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jot/">Jot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jpeginfo/">Jpeginfo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jq/">Jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jupyter/">Jupyter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybase/">Keybase</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../kubernetes/">Kubernetes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../launchd/">Launchd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ldap/">Ldap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lego-mindstorms/">Lego mindstorms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linksys/">Linksys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux-performance-monitoring/">Linux performance monitoring</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux/">Linux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsblk/">Lsblk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsof/">Lsof</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lvm/">Lvm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lxc/">Lxc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../machine-learning/">Machine learning</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mdraid/">Mdraid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../micropython/">Micropython</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mqtt/">Mqtt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mutt/">Mutt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../myrepos/">Myrepos</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">MySQL</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#mysql">MySQL</a></li>
+    
+
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#show-variables-of-the-running-server">Show variables of the running server</a></li>
+        
+            <li><a class="toctree-l3" href="#enable-bin-logging">Enable bin logging</a></li>
+        
+            <li><a class="toctree-l3" href="#show-how-a-table-was-created">Show how a table was created</a></li>
+        
+            <li><a class="toctree-l3" href="#create-a-table">Create a table</a></li>
+        
+            <li><a class="toctree-l3" href="#create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key</a></li>
+        
+            <li><a class="toctree-l3" href="#show-what-processes-are-running">Show what processes are running</a></li>
+        
+            <li><a class="toctree-l3" href="#dump-databases-to-sql-files">Dump databases to sql files</a></li>
+        
+            <li><a class="toctree-l3" href="#duplicate-a-database">Duplicate a database</a></li>
+        
+            <li><a class="toctree-l3" href="#dump-the-schema-of-a-database-with-no-actual-data">Dump the schema of a database with no actual data</a></li>
+        
+            <li><a class="toctree-l3" href="#show-privileges">Show privileges</a></li>
+        
+            <li><a class="toctree-l3" href="#create-a-new-user">Create a new user</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-a-user">Delete a user</a></li>
+        
+            <li><a class="toctree-l3" href="#grant-privileges">Grant Privileges</a></li>
+        
+            <li><a class="toctree-l3" href="#change-root-password">Change root password</a></li>
+        
+            <li><a class="toctree-l3" href="#create-statements">Create statements</a></li>
+        
+            <li><a class="toctree-l3" href="#table-alters">Table Alters</a></li>
+        
+            <li><a class="toctree-l3" href="#table-inserts">Table Inserts</a></li>
+        
+            <li><a class="toctree-l3" href="#table-updates">Table Updates</a></li>
+        
+            <li><a class="toctree-l3" href="#table-selects">Table Selects</a></li>
+        
+            <li><a class="toctree-l3" href="#statement-explanations">Statement explanations</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#misc">Misc</a></li>
+    
+
+    <li class="toctree-l2"><a href="#recommended-reading">Recommended reading</a></li>
+    
+
+    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../namei/">Namei</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../netgear/">Netgear</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nethogs/">Nethogs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networking/">Networking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networksetup/">Networksetup</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ntop/">Ntop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osquery/">Osquery</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ostinato/">Ostinato</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osx/">Osx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pac/">Pac</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pandoc/">Pandoc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../passwords/">Passwords</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../perl/">Perl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pgp/">Pgp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../philips-hue/">Philips hue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../php/">Php</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plex/">Plex</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powershell/">Powershell</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powertop/">Powertop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../procurve/">Procurve</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps/">Ps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps_mem/">Ps mem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../psp/">Psp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../puppet/">Puppet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pv/">Pv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../python/">Python</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../q/">Q</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../raspberry-pi/">Raspberry pi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../redis/">Redis</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rhel/">Rhel</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../robotics/">Robotics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rpm/">Rpm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rrd/">Rrd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rsync/">Rsync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../saltstack/">Saltstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../samsung/">Samsung</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../screenshot/">Screenshot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdr/">Sdr</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sed/">Sed</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../selinux/">Selinux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../semver/">Semver</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sensu/">Sensu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sgdisk/">Sgdisk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../shutdown/">Shutdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sips/">Sips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartctl/">Smartctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartstack/">Smartstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snap/">Snap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snmp/">Snmp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../solo/">Solo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sort/">Sort</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sphinx/">Sphinx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../split/">Split</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../splunk/">Splunk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sqlite/">Sqlite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ss/">Ss</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssh/">Ssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sshuttle/">Sshuttle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stat/">Stat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sudo/">Sudo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../swagger/">Swagger</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysctl/">Sysctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysdig/">Sysdig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../systemd/">Systemd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tcpdump/">Tcpdump</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../time/">Time</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tls/">Tls</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top-variant-list/">Top variant list</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top/">Top</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../touch/">Touch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ubuntu/">Ubuntu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upstart/">Upstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vagrant/">Vagrant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../videos/">Videos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vim/">Vim</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wget/">Wget</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../winbind/">Winbind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wuzz/">Wuzz</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yaml/">Yaml</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../youtube-dl/">Youtube dl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yum/">Yum</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zfs/">Zfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zookeeper/">Zookeeper</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>MySQL</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mysql">MySQL</h1>
+<p>"MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language. The MySQL development project has made its source code available under the terms of the GNU General Public License, as well as under a variety of proprietary agreements. MySQL was owned and sponsored by a single for-profit firm, the Swedish company MySQL AB, and is now owned by Oracle Corporation." - <a href="https://en.wikipedia.org/wiki/MySQL">https://en.wikipedia.org/wiki/MySQL</a></p>
+<h1 id="examples">Examples</h1>
+<h2 id="show-variables-of-the-running-server">Show variables of the running server</h2>
+<pre><code>mysqladmin variables
+</code></pre>
+
+<h2 id="enable-bin-logging">Enable bin logging</h2>
+<p>Edit /etc/my.cnf:</p>
+<pre><code>log-bin=/var/lib/mysql/mysql-bin
+</code></pre>
+
+<h2 id="show-how-a-table-was-created">Show how a table was created</h2>
+<pre><code>SHOW CREATE TABLE table_name \G
+</code></pre>
+
+<h2 id="create-a-table">Create a table</h2>
+<pre><code>CREATE TABLE photo_sizes (
+  `photo_id` char(32) NOT NULL,
+  `format` mediumtext,
+  `width` mediumtext,
+  `height` mediumtext,
+  `source` mediumtext,
+  `url` mediumtext,
+  PRIMARY KEY(`photo_id`)
+) ;
+</code></pre>
+
+<h2 id="create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key</h2>
+<pre><code>CREATE TABLE `photo_sizes` (
+  `photo_id` char(32) NOT NULL,
+  `format` char(32) NOT NULL DEFAULT '',
+  `width` mediumtext,
+  `height` mediumtext,
+  `source` mediumtext,
+  `url` mediumtext,
+  PRIMARY KEY (`photo_id`,`format`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+</code></pre>
+
+<h2 id="show-what-processes-are-running">Show what processes are running</h2>
+<pre><code>show processlist;
+</code></pre>
+
+<h2 id="dump-databases-to-sql-files">Dump databases to sql files</h2>
+<p>All databases</p>
+<pre><code>mysqldump -u root -phunter2 --all-databases | gzip -9 &gt; ~/$(date +%F-%H%m).sql.gz
+</code></pre>
+
+<p>Or just a single database</p>
+<pre><code>mysqldump -u root -phunter2 my_favorite_db | gzip -9 &gt; ~/my_favorite_db-$(date +%F-%H%m).sql.gz
+</code></pre>
+
+<h2 id="duplicate-a-database">Duplicate a database</h2>
+<pre><code>sudo mysqldump -v mogilefs | sudo mysql -D mogilefs_sjc
+</code></pre>
+
+<h2 id="dump-the-schema-of-a-database-with-no-actual-data">Dump the schema of a database with no actual data</h2>
+<pre><code>sudo mysqldump --no-data dbname &gt; schema.sql
+</code></pre>
+
+<h2 id="show-privileges">Show privileges</h2>
+<pre><code>show GRANTS ;
+</code></pre>
+
+<h2 id="create-a-new-user">Create a new user</h2>
+<pre><code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'some_pass';
+GRANT ALL PRIVILEGES ON databasename.* TO 'newuser'@'localhost' WITH GRANT OPTION;
+</code></pre>
+
+<h2 id="delete-a-user">Delete a user</h2>
+<pre><code>DROP USER 'user_name'@'localhost';
+DELETE from mysql.db where User = 'user_name';
+</code></pre>
+
+<h2 id="grant-privileges">Grant Privileges</h2>
+<pre><code>GRANT ALL ON database.* TO 'newuser'@'localhost';
+</code></pre>
+
+<h2 id="change-root-password">Change root password</h2>
+<pre><code>/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h hostname password 'new-password'
+</code></pre>
+
+<p>or...</p>
+<pre><code>UPDATE mysql.user SET Password=PASSWORD('SomeNewPassword') WHERE User='user_name' AND Host='localhost';
+</code></pre>
+
+<h2 id="create-statements">Create statements</h2>
+<h3 id="create-an-index-on-table-images-for-column-rating_count">Create an index on table images for column rating_count</h3>
+<pre><code>create index rating_count on images (rating_count) ;
+</code></pre>
+
+<h3 id="drop-an-index-from-a-table">Drop an index from a table</h3>
+<pre><code>drop index rating_count on images ;
+</code></pre>
+
+<h2 id="table-alters">Table Alters</h2>
+<h3 id="add-a-column">Add a column</h3>
+<pre><code>alter table flixplor add o_width char(12);
+</code></pre>
+
+<h3 id="drop-a-column">Drop a column</h3>
+<pre><code>alter table flixplor drop column o_width;
+</code></pre>
+
+<h3 id="change-the-type-of-a-column">Change the type of a column</h3>
+<pre><code>alter table flixplor modify o_height mediumint ;
+</code></pre>
+
+<h3 id="add-a-current-timestamp-column">Add a current timestamp column</h3>
+<pre><code>alter table images add last_updated timestamp not null default current_timestamp on update current_timestamp;
+</code></pre>
+
+<h3 id="change-the-table-engine-to-innodb">Change the table engine to innodb</h3>
+<pre><code>ALTER TABLE images ENGINE=INNODB;
+</code></pre>
+
+<h3 id="change-a-tables-encoding">Change a table's encoding</h3>
+<pre><code>alter table raw_flickr_data CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
+</code></pre>
+
+<h2 id="table-inserts">Table Inserts</h2>
+<h3 id="add-a-record">Add a record</h3>
+<h2 id="table-updates">Table Updates</h2>
+<h3 id="update-if-key-exists">Update if key exists</h3>
+<ul>
+<li><a href="http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html">http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
+</ul>
+<h3 id="update-some-fields-in-a-record">Update some fields in a record</h3>
+<h2 id="table-selects">Table Selects</h2>
+<h3 id="select-values-and-dont-show-duplicates">Select values and don't show duplicates</h3>
+<pre><code>SELECT col from servers group by col ;
+</code></pre>
+
+<h3 id="select-photo_id-and-discard-duplicates-uniq">Select photo_id and discard duplicates (uniq)</h3>
+<pre><code>SELECT photo_id from photo_sizes group by photo_id ;
+</code></pre>
+
+<h3 id="select-and-count-unique-pairs-of-columns">Select and count unique pairs of columns</h3>
+<pre><code>SELECT model, unit, count(*) as n from servers group by model, unit having n &gt; 1 order by model asc ;
+</code></pre>
+
+<h3 id="select-the-count-of-rows-in-a-table">Select the count of rows in a table</h3>
+<pre><code>SELECT count(*) from flixplor where o_height &gt; 100 ;
+</code></pre>
+
+<h3 id="do-some-math-to-create-a-new-column-during-a-select">Do some math to create a new column during a select</h3>
+<pre><code>SELECT photo_id,last_retrieval,o_height,o_width,(o_height * o_width) as pixels from flixplor
+where last_reposted &lt; from_unixtime('1384268667') or last_reposted is NULL
+order by (o_height * o_width) limit 10 ;
+</code></pre>
+
+<h3 id="transform-datetime-into-a-date-diff">Transform datetime into a date diff</h3>
+<p>This selects the number of hours since the given datestamp instead of the datestamp itself.</p>
+<pre><code>SELECT TIMESTAMPDIFF(HOUR, date_taken, NOW()) from photos ;
+</code></pre>
+
+<p>See also DATEDIFF.</p>
+<h2 id="statement-explanations">Statement explanations</h2>
+<p>The EXPLAIN statement can give you additional info about how complex your statement is.</p>
+<h3 id="explain-select">Explain select</h3>
+<pre><code>mysql&gt; explain SELECT *,(rating_sum / rating_count) as average from images where (rating_sum / rating_count) &gt; 20 or rating_count=0 ORDER BY RAND() LIMIT 1 ;
++----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
+| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows   | Extra                                        |
++----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
+|  1 | SIMPLE      | images | ALL  | rating_count  | NULL | NULL    | NULL | 301937 | Using where; Using temporary; Using filesort |
++----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+
+<h1 id="misc">Misc</h1>
+<ul>
+<li>Complete statement with \G for different output format</li>
+<li><code>ERROR 1045 (28000)</code> may be caused by invalid hostname in connect command.  Replace the --host token with the full hostname of the db server.  Or, restart mysql and try again.</li>
+</ul>
+<h1 id="recommended-reading">Recommended reading</h1>
+<ul>
+<li>MySQL (5th Edition) (Developer's Library)</li>
+<li>High Performance MySQL: Optimization, Backups, Replication, and More</li>
+</ul>
+<h1 id="see-also">See Also</h1>
+<ul>
+<li><a href="http://www.sqlalchemy.org/">http://www.sqlalchemy.org/</a> - ORM, better for abstracting database in code</li>
+<li><a href="http://www.mycli.net/">http://www.mycli.net/</a> - A better CLI for MySQL</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../namei/" class="btn btn-neutral float-right" title="Namei">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../myrepos/" class="btn btn-neutral" title="Myrepos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../myrepos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../namei/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

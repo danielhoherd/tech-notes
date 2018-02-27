@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Apfs - Daniel Hoherd's tech notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Apfs";
+    var mkdocs_page_input_path = "apfs.md";
+    var mkdocs_page_url = "/apfs/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3d_printing/">3d printing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3ds/">3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../airport/">Airport</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amiibo/">Amiibo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Ansible</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Apfs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+
+    <li class="toctree-l2"><a href="#file-clones">File clones</a></li>
+    
+
+    <li class="toctree-l2"><a href="#snapshots">Snapshots</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#create-a-snapshot">Create a snapshot</a></li>
+        
+            <li><a class="toctree-l3" href="#show-snapshots">Show snapshots</a></li>
+        
+            <li><a class="toctree-l3" href="#mount-a-snapshot">Mount a snapshot</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-a-snapshot">Delete a snapshot</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-all-snapshots">Delete all snapshots</a></li>
+        
+            <li><a class="toctree-l3" href="#thin-out-snapshots">Thin out snapshots</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#see-also">See also</a></li>
+    
+
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aptly/">Aptly</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atomicparsley/">Atomicparsley</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atop/">Atop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../avahi/">Avahi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awk/">Awk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awless/">Awless</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awscli/">Awscli</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backups/">Backups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../badblocks/">Badblocks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bash/">Bash</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bc/">Bc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bind/">Bind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blkid/">Blkid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bpf/">Bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../centos/">Centos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ceph/">Ceph</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chkconfig/">Chkconfig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chocolatey/">Chocolatey</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chronos/">Chronos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cobbler/">Cobbler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conjure-up/">Conjure up</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../consul/">Consul</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cowsay/">Cowsay</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cron/">Cron</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curl/">Curl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../date/">Date</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dcfldd/">Dcfldd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dd-wrt/">Dd wrt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">Devops</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dig/">Dig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dmidecode/">Dmidecode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dns/">Dns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dsrc/">Dsrc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../du/">Du</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../duplicity/">Duplicity</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eleduino/">Eleduino</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exiftool/">Exiftool</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fedramp/">Fedramp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ffmpeg/">Ffmpeg</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../figlet/">Figlet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../file-downloaders/">File downloaders</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../find/">Find</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../findmnt/">Findmnt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../flask/">Flask</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fortune/">Fortune</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../geodata/">Geodata</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitolite/">Gitolite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glances/">Glances</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../golang/">Golang</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-earth/">Google earth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-sheets/">Google sheets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google/">Google</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphicsmagick/">Graphicsmagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../grub/">Grub</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hadoop/">Hadoop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../home-assistant/">Home assistant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hp/">Hp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../htop/">Htop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../httpstat/">Httpstat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iTunes/">iTunes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iftop/">Iftop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../image-formats/">Image formats</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../imagemagick/">Imagemagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../img2xterm/">Img2xterm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../innotop/">Innotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../inotify/">Inotify</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iotop/">Iotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ip/">Ip</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iperf/">Iperf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ipmi/">Ipmi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iptables/">Iptables</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jargon/">Jargon</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jdupes/">Jdupes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jmespath/">Jmespath</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jot/">Jot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jpeginfo/">Jpeginfo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jq/">Jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jupyter/">Jupyter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybase/">Keybase</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../kubernetes/">Kubernetes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../launchd/">Launchd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ldap/">Ldap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lego-mindstorms/">Lego mindstorms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linksys/">Linksys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux-performance-monitoring/">Linux performance monitoring</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux/">Linux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsblk/">Lsblk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsof/">Lsof</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lvm/">Lvm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lxc/">Lxc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../machine-learning/">Machine learning</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mdraid/">Mdraid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../micropython/">Micropython</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mqtt/">Mqtt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mutt/">Mutt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../myrepos/">Myrepos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mysql/">Mysql</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../namei/">Namei</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../netgear/">Netgear</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nethogs/">Nethogs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networking/">Networking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networksetup/">Networksetup</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ntop/">Ntop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osquery/">Osquery</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ostinato/">Ostinato</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osx/">Osx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pac/">Pac</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pandoc/">Pandoc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../passwords/">Passwords</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../perl/">Perl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pgp/">Pgp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../philips-hue/">Philips hue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../php/">Php</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plex/">Plex</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powershell/">Powershell</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powertop/">Powertop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../procurve/">Procurve</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps/">Ps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps_mem/">Ps mem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../psp/">Psp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../puppet/">Puppet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pv/">Pv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../python/">Python</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../q/">Q</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../raspberry-pi/">Raspberry pi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../redis/">Redis</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rhel/">Rhel</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../robotics/">Robotics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rpm/">Rpm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rrd/">Rrd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rsync/">Rsync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../saltstack/">Saltstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../samsung/">Samsung</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../screenshot/">Screenshot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdr/">Sdr</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sed/">Sed</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../selinux/">Selinux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../semver/">Semver</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sensu/">Sensu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sgdisk/">Sgdisk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../shutdown/">Shutdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sips/">Sips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartctl/">Smartctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartstack/">Smartstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snap/">Snap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snmp/">Snmp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../solo/">Solo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sort/">Sort</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sphinx/">Sphinx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../split/">Split</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../splunk/">Splunk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sqlite/">Sqlite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ss/">Ss</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssh/">Ssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sshuttle/">Sshuttle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stat/">Stat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sudo/">Sudo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../swagger/">Swagger</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysctl/">Sysctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysdig/">Sysdig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../systemd/">Systemd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tcpdump/">Tcpdump</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../time/">Time</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tls/">Tls</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top-variant-list/">Top variant list</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top/">Top</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../touch/">Touch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ubuntu/">Ubuntu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upstart/">Upstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vagrant/">Vagrant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../videos/">Videos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vim/">Vim</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wget/">Wget</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../winbind/">Winbind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wuzz/">Wuzz</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yaml/">Yaml</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../youtube-dl/">Youtube dl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yum/">Yum</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zfs/">Zfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zookeeper/">Zookeeper</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Apfs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Notes here are current as of macOS 10.13, and don't apply specifically to any other devices that run APFS.</p>
+<h1 id="usage">Usage</h1>
+<pre><code>$ diskutil apfs
+2017-11-04 18:23:55-0700
+Usage:  diskutil [quiet] ap[fs] &lt;verb&gt; &lt;options&gt;
+        where &lt;verb&gt; is as follows:
+
+     list                (Show status of all current APFS Containers)
+     convert             (Nondestructively convert from HFS to APFS)
+     create              (Create a new APFS Container with one APFS Volume)
+     createContainer     (Create a new empty APFS Container)
+     deleteContainer     (Delete an APFS Container and reformat disks to HFS)
+     resizeContainer     (Resize an APFS Container and its disk space usage)
+     addVolume           (Export a new APFS Volume from an APFS Container)
+     deleteVolume        (Remove an APFS Volume from its APFS Container)
+     eraseVolume         (Erase contents of, but keep, an APFS Volume)
+     changeVolumeRole    (Change the Role metadata bits of an APFS Volume)
+     unlockVolume        (Unlock an encrypted APFS Volume which is locked)
+     lockVolume          (Lock an encrypted APFS Volume (diskutil unmount))
+     listCryptoUsers     (List cryptographic users of encrypted APFS Volume)
+     changePassphrase    (Change the passphrase of a cryptographic user)
+     setPassphraseHint   (Set or clear passphrase hint of a cryptographic user)
+     encryptVolume       (Start async encryption of an unencrypted APFS Volume)
+     decryptVolume       (Start async decryption of an encrypted APFS Volume)
+     updatePreboot       (Update the APFS Volume's related APFS Preboot Volume)
+
+diskutil apfs &lt;verb&gt; with no options will provide help on that verb
+</code></pre>
+
+<h1 id="file-clones">File clones</h1>
+<p>APFS supports deduplicated file copies, which it calls clonefiles. Copying a file by option-dragging it in Finder creates a clonefile. To create a clonefile on the CLI use <code>cp -c src dst</code>. Creating clonefiless of any size file is instantaneous because no file data is actually being copied. This differs from hard links because if you modify the clone, only the new blocks will be written to disk, and the source of the cloned file will not be modified.</p>
+<h1 id="snapshots">Snapshots</h1>
+<p>Snapshots appear to be tied pretty directly to Time Machine, and do not appear to be general purpose. There appear to be many limitations in how they can be used, and what information you can get about them.</p>
+<p>There was previously a tool called <code>apfs_snapshot</code> but it was removed before macOS 10.13 was released.</p>
+<h2 id="create-a-snapshot">Create a snapshot</h2>
+<p>You cannot choose a name for your snapshot, it is tied to the date the snapshot was taken in the form of YYYY-MM-DD-HHMMSS.</p>
+<pre><code>$ sudo tmutil localsnapshot
+Created local snapshot with date: 2017-11-04-183728
+</code></pre>
+
+<h2 id="show-snapshots">Show snapshots</h2>
+<pre><code>$ sudo tmutil listlocalsnapshots /
+com.apple.TimeMachine.2017-11-01-161748
+com.apple.TimeMachine.2017-11-02-100755
+com.apple.TimeMachine.2017-11-03-084837
+com.apple.TimeMachine.2017-11-04-182813
+</code></pre>
+
+<h2 id="mount-a-snapshot">Mount a snapshot</h2>
+<pre><code>$ mkdir snap_test
+$ sudo mount_apfs -s com.apple.TimeMachine.2017-11-04-192829 / &quot;${PWD}/snap_test&quot;
+</code></pre>
+
+<h2 id="delete-a-snapshot">Delete a snapshot</h2>
+<p>You can only delete snapshots based off of their date.</p>
+<pre><code>$ sudo tmutil deletelocalsnapshots 2017-11-04-183813
+Deleted local snapshot '2017-11-04-183813'
+</code></pre>
+
+<h2 id="delete-all-snapshots">Delete all snapshots</h2>
+<pre><code>/usr/bin/tmutil listlocalsnapshots / | while read -r X ; do
+  tmutil deletelocalsnapshots &quot;${X##*.}&quot;
+done
+</code></pre>
+
+<h2 id="thin-out-snapshots">Thin out snapshots</h2>
+<p>On the given drive, reclaim the given space by thinning out snapshots. As of tmutil 4.0.0, you cannot use any data unit other than bytes. (EG: 1G or 1GB will not work)</p>
+<pre><code>$ sudo tmutil thinlocalsnapshots / 250000000
+Thinned local snapshots:
+2017-11-04-184425
+2017-11-04-184433
+2017-11-04-184440
+</code></pre>
+
+<h1 id="see-also">See also</h1>
+<pre><code>/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util
+/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_invert
+/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_preflight_converter
+/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs_stats
+</code></pre>
+
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Apple_File_System">Apple File System</a></li>
+<li><a href="https://youtu.be/VUXUECpIGR0">Rich Trouton - Storing our digital lives - Mac filesystems from MFS to APFS</a></li>
+<li><a href="https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Introduction/Introduction.html">Apple File System Guide</a></li>
+<li><a href="http://www.russbishop.net/apple-file-system">Russ Bishop - Apple File System</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../aptly/" class="btn btn-neutral float-right" title="Aptly">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ansible/" class="btn btn-neutral" title="Ansible"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ansible/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../aptly/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

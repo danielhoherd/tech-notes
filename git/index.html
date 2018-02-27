@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Git - Daniel Hoherd's tech notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git";
+    var mkdocs_page_input_path = "git.md";
+    var mkdocs_page_url = "/git/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3d_printing/">3d printing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3ds/">3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../airport/">Airport</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amiibo/">Amiibo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Ansible</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../apfs/">Apfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aptly/">Aptly</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atomicparsley/">AtomicParsley</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atop/">Atop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../avahi/">Avahi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awk/">Awk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awless/">Awless</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awscli/">Awscli</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backups/">Backups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../badblocks/">Badblocks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bash/">Bash</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bc/">Bc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bind/">Bind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blkid/">Blkid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bpf/">Bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../centos/">CentOS 7</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ceph/">Ceph</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chkconfig/">Chkconfig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chocolatey/">Chocolatey</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chronos/">Chronos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cobbler/">Cobbler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conjure-up/">Conjure up</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../consul/">Consul</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cowsay/">Cowsay</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cron/">Cron</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curl/">Curl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../date/">Date</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dcfldd/">Dcfldd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dd-wrt/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">DevOps lifecycle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dig/">Dig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dmidecode/">Dmidecode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dns/">Dns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dsrc/">Dsrc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../du/">Du</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../duplicity/">Duplicity</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eleduino/">Eleduino SpotPear touchscreen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exiftool/">Exiftool</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fedramp/">Fedramp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ffmpeg/">Ffmpeg</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../figlet/">Figlet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../file-downloaders/">File downloaders</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../find/">Find</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../findmnt/">Findmnt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../flask/">Flask</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fortune/">Fortune</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../geodata/">Geodata</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Git</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#git-init">git init</a></li>
+        
+            <li><a class="toctree-l3" href="#git-clone">git clone</a></li>
+        
+            <li><a class="toctree-l3" href="#git-filesystem-operations">git filesystem operations</a></li>
+        
+            <li><a class="toctree-l3" href="#git-status">git status</a></li>
+        
+            <li><a class="toctree-l3" href="#git-commit">git commit</a></li>
+        
+            <li><a class="toctree-l3" href="#git-config">git config</a></li>
+        
+            <li><a class="toctree-l3" href="#git-diff">git diff</a></li>
+        
+            <li><a class="toctree-l3" href="#git-blame">git blame</a></li>
+        
+            <li><a class="toctree-l3" href="#git-log">git log</a></li>
+        
+            <li><a class="toctree-l3" href="#git-show">git show</a></li>
+        
+            <li><a class="toctree-l3" href="#git-branches">git branches</a></li>
+        
+            <li><a class="toctree-l3" href="#git-merge">git merge</a></li>
+        
+            <li><a class="toctree-l3" href="#remotes">remotes</a></li>
+        
+            <li><a class="toctree-l3" href="#git-reset">git reset</a></li>
+        
+            <li><a class="toctree-l3" href="#git-clean">git clean</a></li>
+        
+            <li><a class="toctree-l3" href="#misc-tricks">Misc tricks</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitolite/">Gitolite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glances/">Glances</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../golang/">Golang</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-earth/">Google earth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-sheets/">Google sheets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google/">Google</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphicsmagick/">Graphicsmagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../grub/">Grub</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hadoop/">Hadoop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../home-assistant/">Home assistant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hp/">Hp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../htop/">Htop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../httpstat/">Httpstat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iTunes/">iTunes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iftop/">Iftop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../image-formats/">Image formats</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../imagemagick/">Imagemagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../img2xterm/">Img2xterm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../innotop/">Innotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../inotify/">Inotify</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iotop/">Iotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ip/">Ip</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iperf/">Iperf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ipmi/">Ipmi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iptables/">Iptables</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jargon/">Jargon</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jdupes/">Jdupes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jmespath/">Jmespath</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jot/">Jot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jpeginfo/">Jpeginfo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jq/">Jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jupyter/">Jupyter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybase/">Keybase</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../kubernetes/">Kubernetes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../launchd/">Launchd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ldap/">Ldap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lego-mindstorms/">Lego mindstorms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linksys/">Linksys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux-performance-monitoring/">Linux performance monitoring</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux/">Linux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsblk/">Lsblk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsof/">Lsof</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lvm/">Lvm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lxc/">Lxc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../machine-learning/">Machine learning</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mdraid/">Mdraid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../micropython/">Micropython</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mqtt/">Mqtt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mutt/">Mutt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../myrepos/">Myrepos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mysql/">Mysql</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../namei/">Namei</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../netgear/">Netgear</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nethogs/">Nethogs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networking/">Networking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networksetup/">Networksetup</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ntop/">Ntop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osquery/">Osquery</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ostinato/">Ostinato</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osx/">Osx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pac/">Pac</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pandoc/">Pandoc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../passwords/">Passwords</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../perl/">Perl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pgp/">Pgp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../philips-hue/">Philips hue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../php/">Php</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plex/">Plex</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powershell/">Powershell</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powertop/">Powertop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../procurve/">Procurve</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps/">Ps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps_mem/">Ps mem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../psp/">Psp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../puppet/">Puppet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pv/">Pv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../python/">Python</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../q/">Q</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../raspberry-pi/">Raspberry pi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../redis/">Redis</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rhel/">Rhel</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../robotics/">Robotics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rpm/">Rpm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rrd/">Rrd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rsync/">Rsync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../saltstack/">Saltstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../samsung/">Samsung</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../screenshot/">Screenshot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdr/">Sdr</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sed/">Sed</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../selinux/">Selinux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../semver/">Semver</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sensu/">Sensu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sgdisk/">Sgdisk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../shutdown/">Shutdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sips/">Sips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartctl/">Smartctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartstack/">Smartstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snap/">Snap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snmp/">Snmp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../solo/">Solo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sort/">Sort</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sphinx/">Sphinx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../split/">Split</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../splunk/">Splunk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sqlite/">Sqlite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ss/">Ss</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssh/">Ssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sshuttle/">Sshuttle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stat/">Stat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sudo/">Sudo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../swagger/">Swagger</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysctl/">Sysctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysdig/">Sysdig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../systemd/">Systemd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tcpdump/">Tcpdump</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../time/">Time</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tls/">Tls</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top-variant-list/">Top variant list</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top/">Top</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../touch/">Touch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ubuntu/">Ubuntu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upstart/">Upstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vagrant/">Vagrant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../videos/">Videos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vim/">Vim</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wget/">Wget</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../winbind/">Winbind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wuzz/">Wuzz</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yaml/">Yaml</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../youtube-dl/">Youtube dl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yum/">Yum</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zfs/">Zfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zookeeper/">Zookeeper</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Git</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>baddass version control</p>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="http://gitref.org/">http://gitref.org/</a></li>
+<li><a href="http://repo.or.cz/w/git.git/blob/HEAD:/contrib/completion/git-completion.bash">http://repo.or.cz/w/git.git/blob/HEAD:/contrib/completion/git-completion.bash</a></li>
+<li><a href="http://git-scm.com/book/en/Getting-Started-Git-Basics">http://git-scm.com/book/en/Getting-Started-Git-Basics</a></li>
+<li><a href="http://git-scm.com/book/en/Git-on-the-Server-Setting-Up-the-Server">http://git-scm.com/book/en/Git-on-the-Server-Setting-Up-the-Server</a></li>
+<li><a href="http://scottchacon.com/2011/08/31/github-flow.html">http://scottchacon.com/2011/08/31/github-flow.html</a></li>
+<li><a href="https://guides.github.com/introduction/flow/index.html">https://guides.github.com/introduction/flow/index.html</a></li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></li>
+<li><a href="https://training.github.com/kit/intermediate/">https://training.github.com/kit/intermediate/</a> - Training</li>
+<li><a href="https://github.com/git/git/tree/master/Documentation/RelNotes">https://github.com/git/git/tree/master/Documentation/RelNotes</a> - Release Notes</li>
+</ul>
+<h1 id="examples">Examples</h1>
+<h2 id="git-init">git init</h2>
+<h3 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD</h3>
+<pre><code>git init
+echo &quot;&quot; &gt;&gt; .gitignore
+echo &quot;# Ignore other unneeded files.
+*.swp
+*~
+.DS_Store&quot; &gt;&gt; .gitignore
+</code></pre>
+
+<h2 id="git-clone">git clone</h2>
+<h3 id="clone-a-local-repo">Clone a local repo</h3>
+<pre><code>git clone /path/to/repo
+</code></pre>
+
+<h3 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh</h3>
+<pre><code>git clone user@ssh_server:/opt/git/project
+</code></pre>
+
+<h2 id="git-filesystem-operations">git filesystem operations</h2>
+<h3 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo</h3>
+<pre><code>git add .
+</code></pre>
+
+<h3 id="rename-a-file-in-the-git-repo">Rename a file in the git repo</h3>
+<p>This also renames the filesystem file.</p>
+<pre><code>git mv README.rdoc README.md
+</code></pre>
+
+<h3 id="delete-a-file-from-the-repo">Delete a file from the repo</h3>
+<pre><code>git rm filename
+</code></pre>
+
+<h2 id="git-status">git status</h2>
+<h3 id="check-the-status-of-git">Check the status of git</h3>
+<pre><code>git status
+</code></pre>
+
+<h2 id="git-commit">git commit</h2>
+<h3 id="commit-the-current-changes">Commit the current changes</h3>
+<pre><code>git commit -m &quot;Initial commit&quot;
+</code></pre>
+
+<h3 id="commit-all-changes-with-commit-a">Commit all changes with commit -a</h3>
+<pre><code>git commit -a -m &quot;Improve the README file&quot;
+</code></pre>
+
+<h3 id="skip-git-commit-hooks">Skip git commit hooks</h3>
+<pre><code>git commit --no-verify
+</code></pre>
+
+<h2 id="git-config">git config</h2>
+<p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
+<ul>
+<li>Local = per-repo settings. IE: stored in .git/config directory for the repo</li>
+<li>Global = per-user settings. IE: stored in ~/.gitconfig</li>
+<li>System = per-system settings, found in /etc/ or wherever git is looking for system settings.</li>
+</ul>
+<h3 id="git-client-setup">Git client setup</h3>
+<p>This creates and modifies ~/.gitconfig with some parameters:</p>
+<pre><code>git config --global user.name &quot;Daniel Hoherd&quot;
+git config --global user.email daniel.hoherd@gmail.com
+git config --global alias.co checkout
+git config --global core.editor &quot;vim&quot;
+git config --global merge.tool vimdiff
+git config --global log.date iso
+</code></pre>
+
+<h3 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params</h3>
+<pre><code>git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
+git config --replace-all svn-remote.svn.fetch ops:refs/remotes/trunk
+git config --add svn-remote.svn.preserve-empty-dirs true
+git config --unset svn-remote.svn.branches
+git config --unset svn-remote.svn.tags
+git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
+</code></pre>
+
+<h3 id="export-your-gitconfig-in-a-git-config-friendly-format">Export your .gitconfig in a git config friendly format</h3>
+<pre><code>git config --list
+</code></pre>
+
+<h2 id="git-diff">git diff</h2>
+<p>Show differences between objects and stuff.</p>
+<h3 id="diff-between-staged-and-committed">diff between staged and committed</h3>
+<p>This is useful when you're adding files that were not previously in the repo alongside changes to existing files, since a bare <code>git diff</code> before adding the files will only show changes to files that were already in the repo.</p>
+<pre><code>git diff --staged
+</code></pre>
+
+<h3 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences</h3>
+<pre><code>git diff --color-words
+</code></pre>
+
+<h3 id="machine-readable-word-diff">Machine readable word diff</h3>
+<pre><code>git diff --word-diff
+</code></pre>
+
+<h3 id="diff-and-ignore-whitespace">Diff and ignore whitespace</h3>
+<p>This does not ignore line ending changes or blank line insertion and removals.</p>
+<pre><code>git diff -w
+</code></pre>
+
+<h3 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date</h3>
+<pre><code>git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
+</code></pre>
+
+<h3 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time</h3>
+<pre><code>git whatchanged --since=&quot;18 hours ago&quot; -p
+</code></pre>
+
+<p>or...</p>
+<pre><code>git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
+</code></pre>
+
+<h2 id="git-blame">git blame</h2>
+<p><code>git blame</code> shows information about the commit associated with each line of a file.</p>
+<h3 id="simple-usage">Simple usage</h3>
+<pre><code>git blame &lt;filename&gt;
+</code></pre>
+
+<h3 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame</h3>
+<p>When somebody has reformatted code but didn't make any code changes, this will show the prior commits where something more than whitespace changed.</p>
+<pre><code>git blame -w &lt;filename&gt;
+</code></pre>
+
+<h2 id="git-log">git log</h2>
+<p>Shows commit history.</p>
+<h3 id="view-the-commit-history">View the commit history</h3>
+<pre><code>git log
+</code></pre>
+
+<h3 id="show-one-log-entry">Show one log entry</h3>
+<pre><code>git log -1
+</code></pre>
+
+<h3 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string</h3>
+<p>This searches the content of the diff, not the commit message.</p>
+<pre><code>git log -S search_string
+</code></pre>
+
+<h3 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex</h3>
+<pre><code>git log --grep='[Ww]hitespace'
+</code></pre>
+
+<h3 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days</h3>
+<pre><code>git log --since=3.days modules/profile_sensu
+</code></pre>
+
+<h3 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits</h3>
+<p>Useful for seeing TZ settings.</p>
+<pre><code>git log --format=raw -5
+</code></pre>
+
+<h3 id="really-pretty-logs">Really pretty logs</h3>
+<pre><code>log --graph --oneline --decorate --all
+</code></pre>
+
+<h2 id="git-show">git show</h2>
+<h3 id="show-the-changes-from-a-specific-sha">Show the changes from a specific sha</h3>
+<pre><code>git show f73f9ec7c07e
+</code></pre>
+
+<h3 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given sha</h3>
+<p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given sha.</p>
+<pre><code>git show f73f9ec7c07e:dir/filename.yaml
+</code></pre>
+
+<h2 id="git-branches">git branches</h2>
+<p>Branches are an integral part of git. They allow you to work on distinct changes without mixing them all up together.</p>
+<h3 id="create-a-branch">Create a branch</h3>
+<pre><code>git checkout -b readme-fix
+</code></pre>
+
+<h3 id="check-which-branch-youre-in">Check which branch you're in</h3>
+<pre><code>git branch
+</code></pre>
+
+<h3 id="rename-move-a-branch">Rename (move) a branch</h3>
+<pre><code>git branch -m oldname newname
+</code></pre>
+
+<h2 id="git-merge">git merge</h2>
+<p>This lets you merge two branches.</p>
+<h3 id="merge-branch-with-master">Merge branch with master</h3>
+<pre><code>git checkout master
+git merge readme-fix-branch
+git branch -d readme-fix-branch
+</code></pre>
+
+<h3 id="disable-fast-forward-merges">disable fast-forward merges</h3>
+<p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
+<pre><code>git config --global merge.ff false
+</code></pre>
+
+<h2 id="remotes">remotes</h2>
+<h3 id="add-a-remote">Add a remote</h3>
+<pre><code>git remote add upstream https://github.com/danielhoherd/homepass
+</code></pre>
+
+<h3 id="push-to-a-specific-remote">Push to a specific remote</h3>
+<pre><code># push to the master branch of the remote named upstream
+git push upstream master
+</code></pre>
+
+<h3 id="alter-the-source-of-origin">Alter the source of origin</h3>
+<p>If you move your repo to another location, use this command to change the upstream URL:</p>
+<pre><code>git remote set-url origin https://user@newhost/newpath/reponame
+</code></pre>
+
+<h2 id="git-reset">git reset</h2>
+<p><code>git reset</code> allows you to reset your state to what it was at a previous point.</p>
+<h3 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally</h3>
+<p>The reflog is a log of what steps have been performed locally. You can view the reflog, then reset to a prior state.</p>
+<pre><code>git reflog # show all HEAD changes
+git reset --hard 45e0ae5 # reset all git tracked state to 45e0ae5
+</code></pre>
+
+<p>Alternately, you can use a date:</p>
+<pre><code>git reflog --date=iso # absolute date based reflog references
+git reset &quot;HEAD@{2015-03-25 14:45:30 -0700}&quot; --hard
+</code></pre>
+
+<h3 id="hard-reset-of-local-changes">Hard reset of local changes</h3>
+<p>This will abandon all local changes and resolve merge conflicts</p>
+<pre><code>git fetch origin
+git reset --hard origin/master
+</code></pre>
+
+<h2 id="git-clean">git clean</h2>
+<h3 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories</h3>
+<p>This is useful after your reset to a prior state. It deletes all files and directories that show up in the untracked section of <code>git status</code></p>
+<pre><code>git clean -ffdx
+</code></pre>
+
+<h2 id="misc-tricks">Misc tricks</h2>
+<h3 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h3>
+<pre><code>find /var/www/html/mediawiki/ -name .git | while read -r X ; do
+  pushd &quot;$(dirname &quot;${X}&quot;)&quot; &amp;&amp; \
+  [ $(git remote -v | wc -l) -gt 0 ] &amp;&amp; \
+  git pull &amp;&amp; \
+  popd ;
+done ;
+</code></pre>
+
+<h3 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date</h3>
+<pre><code>git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
+--pretty=format:'%ad %h%d %an | %s %n' --date=iso -1 | sort | nl -ba
+</code></pre>
+
+<h3 id="branch-cleanup">Branch cleanup</h3>
+<pre><code>git gc --prune=now
+git remote prune origin
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../gitolite/" class="btn btn-neutral float-right" title="Gitolite">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../geodata/" class="btn btn-neutral" title="Geodata"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../geodata/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../gitolite/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

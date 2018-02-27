@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Python - Daniel Hoherd's tech notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python";
+    var mkdocs_page_input_path = "python.md";
+    var mkdocs_page_url = "/python/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3d_printing/">3d printing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3ds/">3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../airport/">Airport</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amiibo/">Amiibo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Ansible</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../apfs/">Apfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aptly/">Aptly</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atomicparsley/">AtomicParsley</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atop/">Atop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../avahi/">Avahi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awk/">Awk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awless/">Awless</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awscli/">Awscli</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backups/">Backups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../badblocks/">Badblocks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bash/">Bash</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bc/">Bc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bind/">Bind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blkid/">Blkid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bpf/">Bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../centos/">CentOS 7</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ceph/">Ceph</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chkconfig/">Chkconfig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chocolatey/">Chocolatey</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chronos/">Chronos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cobbler/">Cobbler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conjure-up/">Conjure up</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../consul/">Consul</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cowsay/">Cowsay</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cron/">Cron</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curl/">Curl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../date/">Date</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dcfldd/">Dcfldd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dd-wrt/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">DevOps lifecycle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dig/">Dig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dmidecode/">Dmidecode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dns/">Dns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dsrc/">Dsrc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../du/">Du</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../duplicity/">Duplicity</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eleduino/">Eleduino SpotPear touchscreen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exiftool/">Exiftool</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fedramp/">Fedramp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ffmpeg/">Ffmpeg</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../figlet/">Figlet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../file-downloaders/">File downloaders</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../find/">Find</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../findmnt/">Findmnt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../flask/">Flask</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fortune/">Fortune</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../geodata/">Geodata</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitolite/">Gitolite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glances/">Glances</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../golang/">Golang</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-earth/">Google earth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-sheets/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google/">Google</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphicsmagick/">GraphicsMagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../grub/">Grub</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hadoop/">Hadoop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../home-assistant/">Home assistant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hp/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../htop/">Htop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../httpstat/">Httpstat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iTunes/">iTunes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iftop/">Iftop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../image-formats/">Image formats</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../imagemagick/">ImageMagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../img2xterm/">Img2xterm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../innotop/">Innotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../inotify/">Inotify</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iotop/">Iotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ip/">Ip</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iperf/">Iperf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ipmi/">Ipmi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iptables/">Iptables</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jargon/">Jargon</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jdupes/">Jdupes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jmespath/">Jmespath</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jot/">Jot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jpeginfo/">Jpeginfo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jq/">Jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jupyter/">Jupyter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybase/">Keybase</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../kubernetes/">Kubernetes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../launchd/">Launchd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ldap/">Ldap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lego-mindstorms/">Lego mindstorms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linksys/">Linksys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux-performance-monitoring/">Linux performance monitoring</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux/">Linux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsblk/">Lsblk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsof/">Lsof</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lvm/">Lvm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lxc/">Lxc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../machine-learning/">Machine learning</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mdraid/">Mdraid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../micropython/">Micropython</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mqtt/">Mqtt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mutt/">Mutt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../myrepos/">Myrepos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mysql/">MySQL</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../namei/">Namei</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../netgear/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nethogs/">Nethogs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networking/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networksetup/">Networksetup</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ntop/">Ntop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osquery/">Osquery</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ostinato/">Ostinato</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osx/">Osx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pac/">Example pac file</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pandoc/">Pandoc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../passwords/">Passwords</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../perl/">Perl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pgp/">Pgp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../philips-hue/">Philips hue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../php/">Php</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plex/">Plex</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powershell/">Powershell</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powertop/">Powertop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../procurve/">Procurve</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps/">Ps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps_mem/">Ps mem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../psp/">Psp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../puppet/">Puppet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pv/">Pv</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Python</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#tips-and-techniques">Tips and techniques</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#variable-names">Variable names</a></li>
+        
+            <li><a class="toctree-l3" href="#virtual-environments">Virtual Environments</a></li>
+        
+            <li><a class="toctree-l3" href="#import-module-from-absolute-path">Import module from absolute path</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#debugging">Debugging</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#verbose-environment-var">Verbose environment var</a></li>
+        
+            <li><a class="toctree-l3" href="#follow-the-flow-of-a-python-script">Follow the flow of a python script</a></li>
+        
+            <li><a class="toctree-l3" href="#enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends</a></li>
+        
+            <li><a class="toctree-l3" href="#enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily</a></li>
+        
+            <li><a class="toctree-l3" href="#print-variables-from-the-local-scope">Print variables from the local scope</a></li>
+        
+            <li><a class="toctree-l3" href="#inspect-things">Inspect things</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#various-links">Various links</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#decorator-links">Decorator links</a></li>
+        
+            <li><a class="toctree-l3" href="#modules">Modules</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../q/">Q</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../raspberry-pi/">Raspberry pi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../redis/">Redis</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rhel/">Rhel</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../robotics/">Robotics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rpm/">Rpm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rrd/">Rrd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rsync/">Rsync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../saltstack/">Saltstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../samsung/">Samsung</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../screenshot/">Screenshot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdr/">Sdr</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sed/">Sed</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../selinux/">Selinux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../semver/">Semver</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sensu/">Sensu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sgdisk/">Sgdisk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../shutdown/">Shutdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sips/">Sips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartctl/">Smartctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartstack/">Smartstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snap/">Snap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snmp/">Snmp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../solo/">Solo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sort/">Sort</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sphinx/">Sphinx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../split/">Split</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../splunk/">Splunk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sqlite/">Sqlite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ss/">Ss</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssh/">Ssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sshuttle/">Sshuttle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stat/">Stat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sudo/">Sudo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../swagger/">Swagger</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysctl/">Sysctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysdig/">Sysdig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../systemd/">Systemd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tcpdump/">Tcpdump</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../time/">Time</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tls/">Tls</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top-variant-list/">Top variant list</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top/">Top</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../touch/">Touch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ubuntu/">Ubuntu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upstart/">Upstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vagrant/">Vagrant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../videos/">Videos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vim/">Vim</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wget/">Wget</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../winbind/">Winbind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wuzz/">Wuzz</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yaml/">Yaml</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../youtube-dl/">Youtube dl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yum/">Yum</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zfs/">Zfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zookeeper/">Zookeeper</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Python</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>"Python is a programming language that lets you work more quickly and integrate your systems more effectively." - <a href="https://www.python.org/">https://www.python.org/</a></p>
+<h1 id="tips-and-techniques">Tips and techniques</h1>
+<ul>
+<li>Don't use <code>assert</code> statements for regular validation. <code>assert</code> statements can be disabled at the interpreter level, which would vastly change the flow of your code if they were used widespread.</li>
+</ul>
+<h2 id="variable-names">Variable names</h2>
+<ul>
+<li><code>_varname</code> - Semi-private. Basically a convention that developers use to indicate that the scope of a variable is local, but this locality is not enforced by the interpreter.</li>
+<li><code>__varname</code> - Private variable in name, but not in logic or security. The interpreter mangles the name of the var to make it globally unique, but it is still globally accessible.</li>
+<li><code>var_</code> - Used to get around shadowing built-in variable names. EG: <code>list_</code> won't conflict with <code>list()</code></li>
+<li><code>__magic_method__</code> - See <a href="http://www.diveintopython3.net/special-method-names.html">http://www.diveintopython3.net/special-method-names.html</a></li>
+</ul>
+<h2 id="virtual-environments">Virtual Environments</h2>
+<p>Virtual environments isolate your project away from the system's python interpreter and modules, so you can have full control over what code is available to your project. This makes it easy to develop, debug, and deploy to a new system. It's basically always a good idea to use a virtual environment. You will thank yourself later by learning this one up front.</p>
+<h3 id="virtual-environments-using-venv">Virtual environments using venv</h3>
+<h4 id="creating-a-venv">Creating a venv</h4>
+<pre><code>echo &quot;venv&quot; &gt;&gt; .gitignore
+virtualenv venv
+. venv/bin/activate
+pip install requests
+pip freeze &gt; requirements.txt
+# write code, interact with it, whatever
+deactivate
+</code></pre>
+
+<h4 id="recreating-a-venv">Recreating a venv</h4>
+<pre><code>virtualenv venv
+. venv/bin/activate
+pip install -r requirements.txt
+# write code, interact with it, whatever
+deactivate
+</code></pre>
+
+<h4 id="use-venv-to-work-around-missing-pip">Use venv to work around missing pip</h4>
+<p>This is mostly useful for installing for your user, since if you can't install pip you won't be able to install into system-wide locations.</p>
+<pre><code>virtualenv venv --system-site-packages &amp;&amp; venv/bin/pip install --user $PACKAGENAME &amp;&amp; rm -rf venv
+</code></pre>
+
+<h3 id="virtual-environments-with-pipenv">Virtual environments with pipenv</h3>
+<p>"Pipenv — the officially recommended Python packaging tool from Python.org, free (as in freedom). Pipenv is a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world. Windows is a first–class citizen, in our world." - <a href="https://docs.pipenv.org">https://docs.pipenv.org</a></p>
+<p><code>pipenv</code> is the new-school 2017 way of doing virtual environments. pipenv creates a file called <code>Pipfile</code> whenever you install packages using the <code>pipenv</code> command. Once you have created a pipenv for the CWD, any subdirs will use that pipenv and not create new environments when you issue pipenv commands. This is a more robust system, but as of 2017 is not widely used.</p>
+<p>When using pipenv, any packages using <code>pip install</code> are not included in the virtual environment. You must use <code>pipenv install</code>.</p>
+<h4 id="creating-a-virtual-environment-using-pipenv">Creating a virtual environment using pipenv</h4>
+<pre><code>cd project_dir
+pipenv --three  # to create a python 3 virtual environment
+pipenv install bpython boto3
+pipenv shell  # this spawns a subshell with the new python environment
+# interact with your python environment
+exit
+</code></pre>
+
+<h4 id="recreate-a-pipenv">Recreate a pipenv</h4>
+<pre><code>cd project_dir
+pipenv shell  # This automatically enforces the environment described in Pipfile
+# interact with your python environment
+exit
+</code></pre>
+
+<h2 id="import-module-from-absolute-path">Import module from absolute path</h2>
+<pre><code>sys.path.append('/Users/username/code/somedir')
+import module # from somedir
+</code></pre>
+
+<h1 id="debugging">Debugging</h1>
+<h2 id="verbose-environment-var">Verbose environment var</h2>
+<p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE</a></p>
+<pre><code>export PYTHONVERBOSE=1
+# or...
+python -v pip search beets
+</code></pre>
+
+<h2 id="follow-the-flow-of-a-python-script">Follow the flow of a python script</h2>
+<p>This is equivalent to <code>bash -x</code> / <code>bash -o xtrace</code>, but is probably even more useful because it prefixes the name of the file and the line number to what is actually being executed, which aids in debugging large projects.</p>
+<pre><code>python -m trace --trace foo.py
+</code></pre>
+
+<h2 id="enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends</h2>
+<p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT</a></p>
+<p>This works when your code causes an exception, but none of your code will actually be executed, you will simply be dropped into a shell, which is not very useful.</p>
+<pre><code>export PYTHONINSPECT=1
+# or...
+sudo python -i ./ps_mem.py
+</code></pre>
+
+<h2 id="enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily</h2>
+<p><a href="https://docs.python.org/3/library/pdb.html">https://docs.python.org/3/library/pdb.html</a></p>
+<pre><code>import pdb; pdb.set_trace()
+</code></pre>
+
+<p>After inspecting...</p>
+<pre><code>continue
+</code></pre>
+
+<h2 id="print-variables-from-the-local-scope">Print variables from the local scope</h2>
+<pre><code>for var in dir():
+    print &quot;Debug: {0} = {1}&quot;.format(var,eval(var))
+</code></pre>
+
+<h2 id="inspect-things">Inspect things</h2>
+<pre><code>&gt;&gt;&gt; import inspect
+&gt;&gt;&gt; inspect.getargspec(inspect.getargspec)
+ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
+</code></pre>
+
+<h1 id="various-links">Various links</h1>
+<ul>
+<li><a href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks">A gallery of interesting Jupyter and IPython Notebooks</a></li>
+<li><a href="http://nicolas.kruchten.com/content/2015/09/jupyter_pivottablejs/">Drag'n'drop Pivot Tables and Charts in Jupyter</a></li>
+<li><a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">Code Like a Pythonista: Idiomatic Python</a></li>
+<li><a href="http://www.diveintopython3.net/">Dive Into Python 3</a></li>
+<li><a href="https://developers.google.com/edu/python/?csw=1">Google's Python Class</a></li>
+<li><a href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a></li>
+<li><a href="http://interactivepython.org/courselib/static/thinkcspy/index.html">How to Think Like a Computer Scientist</a> - iPython notebook on python data science</li>
+<li><a href="http://ivory.idyll.org/articles/advanced-swc/">Intermediate and Advanced Software Carpentry in Python</a></li>
+<li><a href="http://www.learnpython.org/">Learn Python dot org</a></li>
+<li><a href="https://www.pythonsheets.com">Python Cheatsheets</a></li>
+<li><a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">The Flask Mega-Tutorial</a></li>
+<li><a href="http://norvig.com/python-iaq.html">The Python IAQ: Infrequently Answered Questions</a></li>
+<li><a href="http://halfcooked.com/presentations/pyconau2013/why_I_use_pytest.html">Why I use py.test and you probably should too</a></li>
+<li><a href="https://www.youtube.com/channel/UCrJhliKNQ8g0qoE_zvL8eVg">PyCon 2017 videos</a></li>
+</ul>
+<h2 id="decorator-links">Decorator links</h2>
+<ul>
+<li><a href="https://wiki.python.org/moin/PythonDecoratorLibrary">https://wiki.python.org/moin/PythonDecoratorLibrary</a></li>
+<li><a href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484">http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484</a></li>
+<li><a href="http://ains.co/blog/things-which-arent-magic-flask-part-1.html">http://ains.co/blog/things-which-arent-magic-flask-part-1.html</a></li>
+</ul>
+<h2 id="modules">Modules</h2>
+<ul>
+<li><a href="https://github.com/jonathanslenders/ptpython">https://github.com/jonathanslenders/ptpython</a> - improved python REPL</li>
+<li><a href="https://docs.python.org/3/library/sched.html">https://docs.python.org/3/library/sched.html</a> - cross-platform cron-like scheduler</li>
+<li><a href="https://pypi.python.org/pypi/colorama">https://pypi.python.org/pypi/colorama</a> - cross-platform colorized terminal output</li>
+<li><a href="https://pypi.python.org/pypi/begins/">https://pypi.python.org/pypi/begins/</a> - Simplified CLI arguments</li>
+<li><a href="https://pypi.python.org/pypi/watchdog">https://pypi.python.org/pypi/watchdog</a> - cross-platform filesystem events API</li>
+<li><a href="https://github.com/giampaolo/psutil/">https://github.com/giampaolo/psutil/</a> - system information</li>
+<li><a href="https://github.com/timothycrosley/hug">https://github.com/timothycrosley/hug</a> - simplified web API creation</li>
+<li><a href="http://python-future.org">http://python-future.org</a> - "python-future is the missing compatibility layer between Python 2 and Python 3. It allows you to use a single, clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead."</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../q/" class="btn btn-neutral float-right" title="Q">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../pv/" class="btn btn-neutral" title="Pv"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../pv/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../q/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

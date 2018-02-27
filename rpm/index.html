@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Rpm - Daniel Hoherd's tech notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Rpm";
+    var mkdocs_page_input_path = "rpm.md";
+    var mkdocs_page_url = "/rpm/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3d_printing/">3d printing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3ds/">3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../airport/">Airport</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amiibo/">Amiibo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Ansible</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../apfs/">Apfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aptly/">Aptly</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atomicparsley/">AtomicParsley</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atop/">Atop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../avahi/">Avahi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awk/">Awk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awless/">Awless</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awscli/">Awscli</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backups/">Backups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../badblocks/">Badblocks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bash/">Bash</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bc/">Bc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bind/">Bind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blkid/">Blkid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bpf/">Bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../centos/">CentOS 7</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ceph/">Ceph</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chkconfig/">Chkconfig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chocolatey/">Chocolatey</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chronos/">Chronos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cobbler/">Cobbler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conjure-up/">Conjure up</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../consul/">Consul</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cowsay/">Cowsay</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cron/">Cron</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curl/">Curl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../date/">Date</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dcfldd/">Dcfldd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dd-wrt/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">DevOps lifecycle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dig/">Dig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dmidecode/">Dmidecode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dns/">Dns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dsrc/">Dsrc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../du/">Du</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../duplicity/">Duplicity</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eleduino/">Eleduino SpotPear touchscreen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exiftool/">Exiftool</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fedramp/">Fedramp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ffmpeg/">Ffmpeg</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../figlet/">Figlet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../file-downloaders/">File downloaders</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../find/">Find</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../findmnt/">Findmnt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../flask/">Flask</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fortune/">Fortune</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../geodata/">Geodata</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitolite/">Gitolite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glances/">Glances</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../golang/">Golang</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-earth/">Google earth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-sheets/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google/">Google</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphicsmagick/">GraphicsMagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../grub/">Grub</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hadoop/">Hadoop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../home-assistant/">Home assistant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hp/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../htop/">Htop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../httpstat/">Httpstat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iTunes/">iTunes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iftop/">Iftop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../image-formats/">Image formats</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../imagemagick/">ImageMagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../img2xterm/">Img2xterm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../innotop/">Innotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../inotify/">Inotify</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iotop/">Iotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ip/">Ip</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iperf/">Iperf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ipmi/">Ipmi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iptables/">Iptables</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jargon/">Jargon</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jdupes/">Jdupes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jmespath/">Jmespath</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jot/">Jot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jpeginfo/">Jpeginfo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jq/">Jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jupyter/">Jupyter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybase/">Keybase</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../kubernetes/">Kubernetes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../launchd/">Launchd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ldap/">Ldap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lego-mindstorms/">Lego mindstorms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linksys/">Linksys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux-performance-monitoring/">Linux performance monitoring</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux/">Linux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsblk/">Lsblk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsof/">Lsof</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lvm/">Lvm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lxc/">Lxc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../machine-learning/">Machine learning</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mdraid/">Mdraid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../micropython/">Micropython</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mqtt/">Mqtt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mutt/">Mutt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../myrepos/">Myrepos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mysql/">MySQL</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../namei/">Namei</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../netgear/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nethogs/">Nethogs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networking/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networksetup/">Networksetup</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ntop/">Ntop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osquery/">Osquery</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ostinato/">Ostinato</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osx/">Osx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pac/">Example pac file</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pandoc/">Pandoc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../passwords/">Passwords</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../perl/">Perl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pgp/">Pgp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../philips-hue/">Philips hue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../php/">Php</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plex/">Plex</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powershell/">Powershell</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powertop/">Powertop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../procurve/">Procurve</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps/">Ps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps_mem/">Ps mem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../psp/">Psp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../puppet/">Puppet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pv/">Pv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../python/">Python</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../q/">Q</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../raspberry-pi/">Raspberry pi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../redis/">Redis</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rhel/">Rhel</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../robotics/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Rpm</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#tricks">Tricks</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#show-installed-keys">Show installed keys</a></li>
+        
+            <li><a class="toctree-l3" href="#show-extended-info-about-all-keys">Show extended info about all keys</a></li>
+        
+            <li><a class="toctree-l3" href="#show-information-about-an-rpm-file">Show information about an rpm file</a></li>
+        
+            <li><a class="toctree-l3" href="#show-all-installed-packages-and-when-they-were-installed">Show all installed packages and when they were installed</a></li>
+        
+            <li><a class="toctree-l3" href="#show-information-about-the-installed-wget-package">Show information about the installed wget package</a></li>
+        
+            <li><a class="toctree-l3" href="#output-formatted-information-about-packages">Output formatted information about packages</a></li>
+        
+            <li><a class="toctree-l3" href="#show-which-package-installed-a-file">Show which package installed a file</a></li>
+        
+            <li><a class="toctree-l3" href="#show-all-files-that-were-installed-by-package-wget">Show all files that were installed by package wget</a></li>
+        
+            <li><a class="toctree-l3" href="#show-all-files-in-a-package-that-is-not-yet-installed">Show all files in a package that is not yet installed</a></li>
+        
+            <li><a class="toctree-l3" href="#show-which-documentation-files-get-installed-with-a-package">Show which documentation files get installed with a package</a></li>
+        
+            <li><a class="toctree-l3" href="#show-what-has-changed-on-the-system-since-installing-a-package">Show what has changed on the system since installing a package</a></li>
+        
+            <li><a class="toctree-l3" href="#show-installation-and-uninstallation-scripts">Show installation and uninstallation scripts</a></li>
+        
+            <li><a class="toctree-l3" href="#check-the-integrity-of-an-rpm">Check the integrity of an RPM</a></li>
+        
+            <li><a class="toctree-l3" href="#show-which-packages-are-hogging-all-the-space">Show which packages are hogging all the space</a></li>
+        
+            <li><a class="toctree-l3" href="#show-a-table-about-rpm-files-versions-and-creators-in-a-directory">Show a table about RPM files versions and creators in a directory</a></li>
+        
+            <li><a class="toctree-l3" href="#show-what-files-were-installed-into-varlog">Show what files were installed into /var/log</a></li>
+        
+            <li><a class="toctree-l3" href="#rebuild-a-corrupt-rpm-db">Rebuild a corrupt rpm db</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rrd/">Rrd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rsync/">Rsync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../saltstack/">Saltstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../samsung/">Samsung</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../screenshot/">Screenshot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdr/">Sdr</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sed/">Sed</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../selinux/">Selinux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../semver/">Semver</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sensu/">Sensu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sgdisk/">Sgdisk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../shutdown/">Shutdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sips/">Sips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartctl/">Smartctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartstack/">Smartstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snap/">Snap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snmp/">Snmp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../solo/">Solo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sort/">Sort</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sphinx/">Sphinx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../split/">Split</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../splunk/">Splunk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sqlite/">Sqlite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ss/">Ss</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssh/">Ssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sshuttle/">Sshuttle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stat/">Stat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sudo/">Sudo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../swagger/">Swagger</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysctl/">Sysctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysdig/">Sysdig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../systemd/">Systemd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tcpdump/">Tcpdump</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../time/">Time</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tls/">Tls</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top-variant-list/">Top variant list</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top/">Top</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../touch/">Touch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ubuntu/">Ubuntu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upstart/">Upstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vagrant/">Vagrant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../videos/">Videos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vim/">Vim</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wget/">Wget</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../winbind/">Winbind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wuzz/">Wuzz</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yaml/">Yaml</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../youtube-dl/">Youtube dl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yum/">Yum</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zfs/">Zfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zookeeper/">Zookeeper</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Rpm</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Redhat Package Manager. "rpm is a powerful Package Manager, which can be used to build, install, query, verify, update, and erase individual software packages." - <code>man rpm</code></p>
+<h1 id="tricks">Tricks</h1>
+<h2 id="show-installed-keys">Show installed keys</h2>
+<pre><code>rpm -qa gpg-pubkey
+</code></pre>
+
+<h2 id="show-extended-info-about-all-keys">Show extended info about all keys</h2>
+<pre><code>rpm -qa gpg-pubkey | xargs -n1 -P1 rpm -qi
+</code></pre>
+
+<h2 id="show-information-about-an-rpm-file">Show information about an rpm file</h2>
+<pre><code>rpm -qpi
+</code></pre>
+
+<h2 id="show-all-installed-packages-and-when-they-were-installed">Show all installed packages and when they were installed</h2>
+<pre><code>rpm -qa --last
+</code></pre>
+
+<h2 id="show-information-about-the-installed-wget-package">Show information about the installed wget package</h2>
+<pre><code>rpm -qi wget
+</code></pre>
+
+<h2 id="output-formatted-information-about-packages">Output formatted information about packages</h2>
+<pre><code>rpm -qa --queryformat &quot;%{NAME} %{PACKAGER} %{URL}\n&quot; tomcat7
+</code></pre>
+
+<p>More info on queryformat: <a href="http://www.rpm.org/max-rpm/ch-queryformat-tags.html">http://www.rpm.org/max-rpm/ch-queryformat-tags.html</a></p>
+<h2 id="show-which-package-installed-a-file">Show which package installed a file</h2>
+<pre><code>rpm -qf /usr/bin/wget
+</code></pre>
+
+<h2 id="show-all-files-that-were-installed-by-package-wget">Show all files that were installed by package wget</h2>
+<pre><code>rpm -ql wget
+</code></pre>
+
+<h2 id="show-all-files-in-a-package-that-is-not-yet-installed">Show all files in a package that is not yet installed</h2>
+<pre><code>rpm -qpl ~/downloads/wget-1.10.2-78.i586.rpm
+</code></pre>
+
+<h2 id="show-which-documentation-files-get-installed-with-a-package">Show which documentation files get installed with a package</h2>
+<pre><code>rpm -qd wget
+</code></pre>
+
+<h2 id="show-what-has-changed-on-the-system-since-installing-a-package">Show what has changed on the system since installing a package</h2>
+<p>This will verify file integrity and show you what has changed for each file.</p>
+<pre><code>rpm -V openssl
+</code></pre>
+
+<h2 id="show-installation-and-uninstallation-scripts">Show installation and uninstallation scripts</h2>
+<pre><code>rpm -qp --scripts foo.rpm
+</code></pre>
+
+<h2 id="check-the-integrity-of-an-rpm">Check the integrity of an RPM</h2>
+<pre><code>rpm -K ~/downloads/filename.rpm
+</code></pre>
+
+<h2 id="show-which-packages-are-hogging-all-the-space">Show which packages are hogging all the space</h2>
+<pre><code>rpm -qa --queryformat &quot;%{SIZE} %{NAME}\n&quot; |sort -rn |head -n50 | column -t
+</code></pre>
+
+<h2 id="show-a-table-about-rpm-files-versions-and-creators-in-a-directory">Show a table about RPM files versions and creators in a directory</h2>
+<pre><code>rpm -qp --queryformat &quot;%{NAME},%{VERSION},%{PACKAGER}\n&quot; * | column -s, -t
+</code></pre>
+
+<h2 id="show-what-files-were-installed-into-varlog">Show what files were installed into /var/log</h2>
+<pre><code>rpm -qa --filesbypkg | grep &quot; /var/log&quot; # space before /var is necessary to weed out things like /usr/var
+</code></pre>
+
+<h2 id="rebuild-a-corrupt-rpm-db">Rebuild a corrupt rpm db</h2>
+<pre><code>rm -rf /var/lib/rpm/__db*
+rpm --rebuilddb
+</code></pre>
+
+<h1 id="see-also">See Also</h1>
+<ul>
+<li>How to create RPMs - <a href="http://fedoraproject.org/wiki/How_to_create_an_RPM_package">http://fedoraproject.org/wiki/How_to_create_an_RPM_package</a></li>
+<li>yum - supplement to rpm command</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rrd/" class="btn btn-neutral float-right" title="Rrd">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../robotics/" class="btn btn-neutral" title="Links"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../robotics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../rrd/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

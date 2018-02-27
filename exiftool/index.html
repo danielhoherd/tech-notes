@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Exiftool - Daniel Hoherd's tech notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Exiftool";
+    var mkdocs_page_input_path = "exiftool.md";
+    var mkdocs_page_url = "/exiftool/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3d_printing/">3d printing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3ds/">3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../airport/">Airport</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amazon/">Links</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../amiibo/">Amiibo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Ansible</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../apfs/">Apfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aptly/">Aptly</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atomicparsley/">AtomicParsley</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../atop/">Atop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../avahi/">Avahi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awk/">Awk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awless/">Awless</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../awscli/">Awscli</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backups/">Backups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../badblocks/">Badblocks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bash/">Bash</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bc/">Bc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bind/">Bind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../blkid/">Blkid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bpf/">Bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../centos/">CentOS 7</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ceph/">Ceph</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chkconfig/">Chkconfig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chocolatey/">Chocolatey</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../chronos/">Chronos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cobbler/">Cobbler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conjure-up/">Conjure up</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../consul/">Consul</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cowsay/">Cowsay</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cron/">Cron</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curl/">Curl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../date/">Date</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dcfldd/">Dcfldd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dd-wrt/">Netgear R7000</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">DevOps lifecycle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dig/">Dig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dmidecode/">Dmidecode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dns/">Dns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dsrc/">Dsrc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../du/">Du</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../duplicity/">Duplicity</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eleduino/">Eleduino SpotPear touchscreen</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Exiftool</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#tricks">Tricks</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#strip-all-tags">Strip all tags</a></li>
+        
+            <li><a class="toctree-l3" href="#show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them</a></li>
+        
+            <li><a class="toctree-l3" href="#expanded-basic-usage">Expanded basic usage</a></li>
+        
+            <li><a class="toctree-l3" href="#add-missing-lens-data-on-rokinon-85mm">Add missing lens data on Rokinon 85mm</a></li>
+        
+            <li><a class="toctree-l3" href="#correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</a></li>
+        
+            <li><a class="toctree-l3" href="#set-all-dates-to-something-obviously-wrong-useful-for-scanned-images">Set all dates to something obviously wrong (useful for scanned images)</a></li>
+        
+            <li><a class="toctree-l3" href="#rename-gpx-files-based-on-the-capture-time">Rename GPX files based on the capture time</a></li>
+        
+            <li><a class="toctree-l3" href="#rename-files-to-their-original-date-and-time-using-a-lower-case-file-extension">Rename files to their original date and time using a lower case file extension</a></li>
+        
+            <li><a class="toctree-l3" href="#rename-files-using-a-combination-of-tags">Rename files using a combination of tags</a></li>
+        
+            <li><a class="toctree-l3" href="#set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</a></li>
+        
+            <li><a class="toctree-l3" href="#generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes</a></li>
+        
+            <li><a class="toctree-l3" href="#generate-rsync-commands-for-files-matching-a-string">Generate rsync commands for files matching a string</a></li>
+        
+            <li><a class="toctree-l3" href="#rename-files-to-their-shuttercount">Rename files to their ShutterCount</a></li>
+        
+            <li><a class="toctree-l3" href="#rename-files-based-on-a-set-of-possible-names">Rename files based on a set of possible names</a></li>
+        
+            <li><a class="toctree-l3" href="#use-testname-tag-target-to-test-what-files-would-be-renamed-to">Use TestName tag target to test what files would be renamed to</a></li>
+        
+            <li><a class="toctree-l3" href="#rename-music-files-in-a-directory">Rename music files in a directory</a></li>
+        
+            <li><a class="toctree-l3" href="#move-short-videos-to-one-dir-long-videos-to-another-dir">Move short videos to one dir, long videos to another dir</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fedramp/">Fedramp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ffmpeg/">Ffmpeg</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../figlet/">Figlet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../file-downloaders/">File downloaders</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../find/">Find</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../findmnt/">Findmnt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../flask/">Flask</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fortune/">Fortune</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../geodata/">Geodata</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitolite/">Gitolite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glances/">Glances</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../golang/">Golang</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-earth/">Google earth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google-sheets/">Google sheets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google/">Google</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphicsmagick/">Graphicsmagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../grub/">Grub</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hadoop/">Hadoop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../home-assistant/">Home assistant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hp/">Hp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../htop/">Htop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../httpstat/">Httpstat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iTunes/">iTunes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iftop/">Iftop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../image-formats/">Image formats</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../imagemagick/">Imagemagick</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../img2xterm/">Img2xterm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../innotop/">Innotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../inotify/">Inotify</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iotop/">Iotop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ip/">Ip</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iperf/">Iperf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ipmi/">Ipmi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../iptables/">Iptables</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jargon/">Jargon</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jdupes/">Jdupes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jmespath/">Jmespath</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jot/">Jot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jpeginfo/">Jpeginfo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jq/">Jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jupyter/">Jupyter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybase/">Keybase</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../kubernetes/">Kubernetes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../launchd/">Launchd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ldap/">Ldap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lego-mindstorms/">Lego mindstorms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linksys/">Linksys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux-performance-monitoring/">Linux performance monitoring</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linux/">Linux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsblk/">Lsblk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lsof/">Lsof</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lvm/">Lvm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lxc/">Lxc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../machine-learning/">Machine learning</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mdraid/">Mdraid</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../micropython/">Micropython</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mqtt/">Mqtt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mutt/">Mutt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../myrepos/">Myrepos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mysql/">Mysql</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../namei/">Namei</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../netgear/">Netgear</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nethogs/">Nethogs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networking/">Networking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networksetup/">Networksetup</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ntop/">Ntop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osquery/">Osquery</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ostinato/">Ostinato</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../osx/">Osx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pac/">Pac</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pandoc/">Pandoc</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../passwords/">Passwords</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../perl/">Perl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pgp/">Pgp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../philips-hue/">Philips hue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../php/">Php</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plex/">Plex</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powershell/">Powershell</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../powertop/">Powertop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../procurve/">Procurve</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps/">Ps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ps_mem/">Ps mem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../psp/">Psp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../puppet/">Puppet</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pv/">Pv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../python/">Python</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../q/">Q</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../raspberry-pi/">Raspberry pi</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../redis/">Redis</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rhel/">Rhel</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../robotics/">Robotics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rpm/">Rpm</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rrd/">Rrd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rsync/">Rsync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../saltstack/">Saltstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../samsung/">Samsung</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../screenshot/">Screenshot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sdr/">Sdr</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sed/">Sed</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../selinux/">Selinux</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../semver/">Semver</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sensu/">Sensu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sgdisk/">Sgdisk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../shutdown/">Shutdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sips/">Sips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartctl/">Smartctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartstack/">Smartstack</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snap/">Snap</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snmp/">Snmp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../solo/">Solo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sort/">Sort</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sphinx/">Sphinx</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../split/">Split</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../splunk/">Splunk</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sqlite/">Sqlite</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ss/">Ss</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssh/">Ssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sshuttle/">Sshuttle</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stat/">Stat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sudo/">Sudo</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../swagger/">Swagger</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysctl/">Sysctl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sysdig/">Sysdig</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../systemd/">Systemd</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tcpdump/">Tcpdump</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../time/">Time</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tls/">Tls</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top-variant-list/">Top variant list</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../top/">Top</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../touch/">Touch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ubuntu/">Ubuntu</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upstart/">Upstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vagrant/">Vagrant</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../videos/">Videos</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vim/">Vim</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wget/">Wget</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../winbind/">Winbind</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../wuzz/">Wuzz</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yaml/">Yaml</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../youtube-dl/">Youtube dl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../yum/">Yum</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zfs/">Zfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zookeeper/">Zookeeper</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Exiftool</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>CLI Tool to read and write image metadata for many kinds of images.</p>
+<ul>
+<li><a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">http://www.sno.phy.queensu.ca/~phil/exiftool/</a></li>
+</ul>
+<h1 id="tricks">Tricks</h1>
+<h2 id="strip-all-tags">Strip all tags</h2>
+<pre><code>exiftool -all= filename.jpg
+</code></pre>
+
+<h2 id="show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them</h2>
+<pre><code>exiftool -S filename.jpg
+</code></pre>
+
+<h2 id="expanded-basic-usage">Expanded basic usage</h2>
+<pre><code>exiftool -a -u -G:1:2 filename
+</code></pre>
+
+<h2 id="add-missing-lens-data-on-rokinon-85mm">Add missing lens data on Rokinon 85mm</h2>
+<pre><code>exiftool \
+  -overwrite_original \
+  -LensModel='Rokinon 85mm f/1.4' \
+  -FocalLength='85' \
+  -LongFocal='85' \
+  -ShortFocal='85' \
+  filename.dng
+</code></pre>
+
+<h2 id="correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</h2>
+<pre><code># exiftool -AllDates-='Y:M:D H:M:S'
+exiftool -AllDates+='0:0:0 0:1:56'
+</code></pre>
+
+<h2 id="set-all-dates-to-something-obviously-wrong-useful-for-scanned-images">Set all dates to something obviously wrong (useful for scanned images)</h2>
+<pre><code>exiftool -alldates='1900:01:01 01:01:01' *
+</code></pre>
+
+<h2 id="rename-gpx-files-based-on-the-capture-time">Rename GPX files based on the capture time</h2>
+<p>You will end up with a filename like <code>2013-09-30-23-35-40.gpx</code> based off of the <em>first</em> trkpt timestamp.</p>
+<pre><code>exiftool -d '%Y%m%d-%H-%M-%S' '-FileName&lt;${GpxTrkTrksegTrkptTime;tr/ /-/;tr/:/-/;tr(/Z/)()d;}%-c.gpx' *.gpx
+</code></pre>
+
+<h2 id="rename-files-to-their-original-date-and-time-using-a-lower-case-file-extension">Rename files to their original date and time using a lower case file extension</h2>
+<pre><code>exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&quot; *.jpg
+</code></pre>
+
+<h2 id="rename-files-using-a-combination-of-tags">Rename files using a combination of tags</h2>
+<p>The '%-c' string here adds a '-1' if there are two of the same target filename, and increments if there are more, but is null for unique filenames.</p>
+<pre><code>exiftool -d '%Y%m%d-%H-%M-%S' '-FileName&lt;${CreateDate;}_${Headline;}%-c.%e'
+</code></pre>
+
+<h2 id="set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</h2>
+<pre><code>exiftool &quot;-FileModifyDate&lt;DateTimeOriginal&quot; *.jpg
+</code></pre>
+
+<h2 id="generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes</h2>
+<pre><code>find /src_dir/ -iname '*.dng' |
+  xargs  exiftool -p '$filename,$Model,$FileSize#' 2&gt;/dev/null |
+  sort   -t, -k3 -n |
+  column -s, -t
+</code></pre>
+
+<h2 id="generate-rsync-commands-for-files-matching-a-string">Generate rsync commands for files matching a string</h2>
+<pre><code>exiftool -d &quot;%s&quot; -p 'rsync -aP $filename ~/Desktop/Stuff/ # $VideoFrameRate' 201411{2,3}* | grep -v '# 29\.'
+</code></pre>
+
+<h2 id="rename-files-to-their-shuttercount">Rename files to their ShutterCount</h2>
+<p>Filenames will not be changed if ShutterCount field is not populated.</p>
+<pre><code>exiftool -P '-filename&lt;${ShutterCount;}.%e' *.dng
+</code></pre>
+
+<h2 id="rename-files-based-on-a-set-of-possible-names">Rename files based on a set of possible names</h2>
+<p>Exiftool will use the last parameter where all variables are present.</p>
+<pre><code>exiftool -P -d '%F-%H-%M-%S' \
+  '-filename&lt;${DateTimeOriginal} - ${Make;}.%e' \
+  '-filename&lt;${CreateDate} - ${Make;}.%e' \
+  '-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;}.%e' \
+  '-filename&lt;${CreateDate} - ${Make;} - ${Model;}.%e' \
+  '-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;} - ${ShutterCount}.%e' \
+  '-filename&lt;${CreateDate} - ${Make;} - ${Model;} - ${ShutterCount}.%e' \
+  *.dng
+</code></pre>
+
+<h2 id="use-testname-tag-target-to-test-what-files-would-be-renamed-to">Use TestName tag target to test what files would be renamed to</h2>
+<p>This block builds an array of possible tags to use as a filename, creates an exiftool argument string from that array, then tests what files would be named to. This is useful when dealing with files from various sources that don't all use the same tag to store the original media creation time. By using <code>TestName</code> instead of <code>FileName</code> as the target, we observe what would occur, essentially a dry-run, instead of actually renaming the files.</p>
+<p>There is a funky behavior of %-c when you operate on a file that should ideally not be renamed. Exiftool will toggle back and forth each run appending and removing <code>-1</code>.</p>
+<p>This assumes GNU xargs for the <code>-r</code> flag.</p>
+<pre><code>#!/usr/bin/env bash
+set -x
+
+# The last valid variable from this list is used as the filename source
+create_date_sources=(
+  TrackCreateDate
+  RIFF:DateTimeOriginal
+  MediaCreateDate
+  FileModifyDate
+  DateTimeOriginal
+  CreateDate
+)
+
+for opt in &quot;${create_date_sources[@]}&quot; ; do
+  args+=( &quot;-TestName&lt;${opt}&quot; ) ;
+done ;
+
+args+=( '-d' './%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le' )
+
+find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;${args[@]}&quot;
+</code></pre>
+
+<h2 id="rename-music-files-in-a-directory">Rename music files in a directory</h2>
+<p>There is a big gotcha here, which is that slashes will create directories where they appear, which can cause serious problems. The <code>${Tag;s/\//_/}</code> syntax replaces <code>/</code> with <code>_</code>, but there may be other characters that can cause unexpected results. This is a great place to use <code>-TestName</code> to inspect what would change before using <code>-FileName</code> to make the changes.</p>
+<pre><code>exiftool \
+  '-FileName&lt;${Artist;s/\//_/} - ${Title;s/\//_/}.%e' \
+  '-FileName&lt;${Artist;s/\//_/} - ${Album;s/\//_/} - ${Title;s/\//_/}.%e' \
+  *.mp3 *.m4a
+</code></pre>
+
+<h2 id="move-short-videos-to-one-dir-long-videos-to-another-dir">Move short videos to one dir, long videos to another dir</h2>
+<p>In iOS, if you have Live Photo enabled it creates little movies each time you take a photo. While these can be very interesting context around photos, they can be quite irritating if you're playing through a collection of videos where these are mixed with videos of more moderate duration. The following code snip separates videos with a duration of more than 10 seconds from those with equal or lesser duration.</p>
+<pre><code># -TestName is used here so it does not destroy data. Replace this with FileName to make this actually work.
+# $Duration# has the # sign appended to make this tag machine readable so it can accurately be compared.
+# We must use perl's numeric comparisons (&gt;, &lt;=), not string comparisons (gt, le)
+# exiftool does not support if else syntax, so for the else condition you must run a second command.
+
+long_args=(  &quot;-TestName&lt;${opt}&quot; '-d' &quot;${working_path}/long/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot;  '-if' '${Duration#} &gt;  10' )
+short_args=( &quot;-TestName&lt;${opt}&quot; '-d' &quot;${working_path}/short/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot; '-if' '${Duration#} &lt;= 10' )
+
+find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${long_args[@]}&quot;
+find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${short_args[@]}&quot;
+</code></pre>
+
+<h1 id="see-also">See Also</h1>
+<ul>
+<li><a href="../graphicsmagick">graphicsmagick</a></li>
+<li><a href="../imagemagick">imagemagick</a></li>
+<li><a href="../jpeginfo">jpeginfo</a></li>
+<li><a href="../sips">sips</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../fedramp/" class="btn btn-neutral float-right" title="Fedramp">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../eleduino/" class="btn btn-neutral" title="Eleduino SpotPear touchscreen"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../eleduino/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../fedramp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
