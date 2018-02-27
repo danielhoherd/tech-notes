@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Bind - Daniel Hoherd's tech notes</title>
+  <title>Cryptsetup - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Bind";
-    var mkdocs_page_input_path = "bind.md";
-    var mkdocs_page_url = "/bind/";
+    var mkdocs_page_name = "Cryptsetup";
+    var mkdocs_page_input_path = "cryptsetup.md";
+    var mkdocs_page_url = "/cryptsetup/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -152,26 +152,9 @@
     <a class="" href="../bc/">Bc</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Bind</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#bind">Bind</a></li>
-    
-
-    <li class="toctree-l2"><a href="#flush-records">Flush records</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#flush-a-single-record">Flush a single record</a></li>
-        
-            <li><a class="toctree-l3" href="#flush-all-records">Flush all records</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../bind/">Bind</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -186,7 +169,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../centos/">Centos</a>
+    <a class="" href="../centos/">CentOS 7</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -234,9 +217,12 @@
     <a class="" href="../cron/">Cron</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../cryptsetup/">Cryptsetup</a>
+    <a class="current" href="./">Cryptsetup</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1091,7 +1077,7 @@
     
       
     
-    <li>Bind</li>
+    <li>Cryptsetup</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1101,20 +1087,10 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="bind">Bind</h1>
-<p>BIND, or named, is the most widely used Domain Name System (DNS) software on the Internet.</p>
-<ul>
-<li>https://www.isc.org/downloads/bind/doc/</li>
-<li>https://en.wikipedia.org/wiki/BIND</li>
-</ul>
-<h1 id="flush-records">Flush records</h1>
-<h2 id="flush-a-single-record">Flush a single record</h2>
-<pre><code>rndc flushname github.com
-</code></pre>
-
-<h2 id="flush-all-records">Flush all records</h2>
-<pre><code>rndc flush
-</code></pre>
+                <p>"Cryptsetup is utility used to conveniently setup disk encryption based
+on DMCrypt kernel module." - <a href="https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md">https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md</a></p>
+<p>"LUKS is the standard for Linux hard disk encryption. By providing a standard on-disk-format, it does not
+only facilitate compatibility among distributions, but also provides secure management of multiple user passwords." - <a href="https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md">https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md</a></p>
               
             </div>
           </div>
@@ -1122,10 +1098,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../blkid/" class="btn btn-neutral float-right" title="Blkid">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../curl/" class="btn btn-neutral float-right" title="Curl">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../bc/" class="btn btn-neutral" title="Bc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cron/" class="btn btn-neutral" title="Cron"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1151,10 +1127,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../bc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../cron/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../blkid/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../curl/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
