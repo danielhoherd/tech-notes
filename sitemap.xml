@@ -187,6 +187,14 @@
 
     
     <url>
+     <loc>/bosh/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/bpf/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
@@ -491,6 +499,14 @@
 
     
     <url>
+     <loc>/genicam/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/geodata/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
@@ -580,6 +596,14 @@
     
     <url>
      <loc>/handbrake/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/helm/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -1092,6 +1116,14 @@
     
     <url>
      <loc>/procurve/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/protobuf/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
