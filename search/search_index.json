@@ -3427,7 +3427,7 @@
         },
         {
             "location": "/make/",
-            "text": "GNU make\n\n\nAutomatic variables\n\n\n$ cat Makefile\nall: foo_one foo_two\n\nfoo_%: bar_a bar_b\n    echo $*: this is $@ and it requires $^\n\nbar_%: baz\n    echo $*: this is $@ and it requires $^\n\nbaz:\n    echo this is baz\n\n$ make\necho this is baz\nthis is baz\necho a: this is bar_a and it requires baz\na: this is bar_a and it requires baz\necho b: this is bar_b and it requires baz\nb: this is bar_b and it requires baz\necho one: this is foo_one and it requires bar_a bar_b\none: this is foo_one and it requires bar_a bar_b\necho two: this is foo_two and it requires bar_a bar_b\ntwo: this is foo_two and it requires bar_a bar_b\n\n\n\n\nLinks\n\n\n\n\nAutomatic Variables",
+            "text": "GNU make\n\n\nAutomatic variables\n\n\n$ cat Makefile\nall: foo_one foo_two\n\nfoo_%: bar_a bar_b\n    echo $*: this is $@ and it requires $^\n\nbar_%: baz\n    echo $*: this is $@ and it requires $^\n\nbaz:\n    echo this is baz\n\n$ make\necho this is baz\nthis is baz\necho a: this is bar_a and it requires baz\na: this is bar_a and it requires baz\necho b: this is bar_b and it requires baz\nb: this is bar_b and it requires baz\necho one: this is foo_one and it requires bar_a bar_b\none: this is foo_one and it requires bar_a bar_b\necho two: this is foo_two and it requires bar_a bar_b\ntwo: this is foo_two and it requires bar_a bar_b\n\n\n\n\nLinks\n\n\n\n\nhttps://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html\n\n\nhttps://www.gnu.org/software/make/manual/html_node/Standard-Targets.html",
             "title": "Make"
         },
         {
@@ -3437,7 +3437,7 @@
         },
         {
             "location": "/make/#links",
-            "text": "Automatic Variables",
+            "text": "https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html  https://www.gnu.org/software/make/manual/html_node/Standard-Targets.html",
             "title": "Links"
         },
         {
