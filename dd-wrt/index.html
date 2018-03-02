@@ -256,43 +256,9 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#2015-12-24-v30-r28598-kongac">2015-12-24 v3.0-r28598 kongac</a></li>
+            <li><a class="toctree-l3" href="#restart-script">Restart script</a></li>
         
-            <li><a class="toctree-l3" href="#2015-12-03-v30-r28600m-kongac">2015-12-03 v3.0-r28600M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-01-18-v30-r31160m-kongac">2017-01-18 v3.0-r31160M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-03-10-v30-r31520m-kongac">2017-03-10 v3.0-r31520M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-03-26-v30-r31575m-kongac">2017-03-26 v3.0-r31575M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-03-26-v30-r31780m-kongac">2017-03-26 v3.0-r31780M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-03-31-v30-r31800m-kongac">2017-03-31 v3.0-r31800M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-04-08-v30-r31830m-kongac">2017-04-08 v3.0-r31830M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-04-16-v30-r31870m-kongac">2017-04-16 v3.0-r31870M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-04-30-v30-r31920m-kongac">2017-04-30 v3.0-r31920M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-05-11-v30-r31980m-kongac">2017-05-11 v3.0-r31980M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-06-03-v30-r32170m-kongac">2017-06-03 v3.0-r32170M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-08-02-dd-wrt-v30-r33000m-kongac">2017-08-02 DD-WRT v3.0-r33000M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-10-22-dd-wrt-v30-r33575m-kongac">2017-10-22 DD-WRT v3.0-r33575M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-11-03-dd-wrt-v30-r33655m-kongac">2017-11-03 DD-WRT v3.0-r33655M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2017-11-03-dd-wrt-v30-r33675m-kongac">2017-11-03 DD-WRT v3.0-r33675M kongac</a></li>
-        
-            <li><a class="toctree-l3" href="#2018-01-03-dd-wrt-v30-r34320m-kongac-c-2017-newmedia-net-gmbh">2018-01-03 DD-WRT v3.0-r34320M kongac (c) 2017 NewMedia-NET GmbH</a></li>
-        
-            <li><a class="toctree-l3" href="#2018-02-11-dd-wrt-v30-r34900m-kongac-c-2018-newmedia-net-gmbh">2018-02-11 DD-WRT v3.0-r34900M kongac (c) 2018 NewMedia-NET GmbH</a></li>
-        
-            <li><a class="toctree-l3" href="#2018-02-19-dd-wrt-v30-r35030m-kongac-c-2018-newmedia-net-gmbh">2018-02-19 DD-WRT v3.0-r35030M kongac (c) 2018 NewMedia-NET GmbH</a></li>
+            <li><a class="toctree-l3" href="#version-notes">Version notes</a></li>
         
         </ul>
     
@@ -1167,90 +1133,99 @@
 <li><a href="https://www.myopenrouter.com/downloads/dd-wrt-r7000">https://www.myopenrouter.com/downloads/dd-wrt-r7000</a></li>
 <li><a href="http://www.desipro.de/ddwrt/K3-AC-Arm/">http://www.desipro.de/ddwrt/K3-AC-Arm/</a></li>
 </ul>
-<h2 id="2015-12-24-v30-r28598-kongac">2015-12-24 v3.0-r28598 kongac</h2>
+<h2 id="restart-script">Restart script</h2>
+<p>This device with dd-wrt has caused me so much trouble I have to monitor it and reboot it when it fails. Here is a short script to do that. I have this set up in cron to run every 5 minutes. The router will not reboot unless it's been up for 10 minutes.</p>
+<pre><code>fping -q google.com || {
+  date '+%F %T%z Router is locked up. Restarting it.' | tee -a &quot;${HOME}/router_reboot.log&quot;
+  ssh root@192.168.1.1 'set -x ; uptime ; awk &quot;int(\$1) &lt; 600 { exit 1 }&quot; /proc/uptime &amp;&amp; reboot ;' | tee -a &quot;${HOME}/router_reboot.log&quot;
+}
+</code></pre>
+
+<h2 id="version-notes">Version notes</h2>
+<h3 id="2015-12-24-v30-r28598-kongac">2015-12-24 v3.0-r28598 kongac</h3>
 <ul>
 <li>Cannot edit DHCP reservations. Only can push and pop from the list, but cannot edit the added entries.</li>
 </ul>
-<h2 id="2015-12-03-v30-r28600m-kongac">2015-12-03 v3.0-r28600M kongac</h2>
+<h3 id="2015-12-03-v30-r28600m-kongac">2015-12-03 v3.0-r28600M kongac</h3>
 <ul>
 <li>No observed differences from v3.0-r28598</li>
 </ul>
-<h2 id="2017-01-18-v30-r31160m-kongac">2017-01-18 v3.0-r31160M kongac</h2>
+<h3 id="2017-01-18-v30-r31160m-kongac">2017-01-18 v3.0-r31160M kongac</h3>
 <ul>
 <li>General instability. Periodic lockups requiring power cycle to fix.</li>
 <li>Potential weirdness playing with other wifi access points, unable to roam from this to Airport AC as I used to.</li>
 </ul>
-<h2 id="2017-03-10-v30-r31520m-kongac">2017-03-10 v3.0-r31520M kongac</h2>
+<h3 id="2017-03-10-v30-r31520m-kongac">2017-03-10 v3.0-r31520M kongac</h3>
 <ul>
 <li><a href="http://www.dd-wrt.com/phpBB2/viewtopic.php?p=1071890">http://www.dd-wrt.com/phpBB2/viewtopic.php?p=1071890</a></li>
 <li>Installed 2017-03-20</li>
 <li>Experienced hard lock within 24 hours, had to power cycle to fix. Found posts in dd-wrt forum about other folks experiencing the same issue.</li>
 </ul>
-<h2 id="2017-03-26-v30-r31575m-kongac">2017-03-26 v3.0-r31575M kongac</h2>
+<h3 id="2017-03-26-v30-r31575m-kongac">2017-03-26 v3.0-r31575M kongac</h3>
 <ul>
 <li>Installed on 2017-03-21</li>
 <li>Appears to have fixed the hard lock-ups</li>
 </ul>
-<h2 id="2017-03-26-v30-r31780m-kongac">2017-03-26 v3.0-r31780M kongac</h2>
+<h3 id="2017-03-26-v30-r31780m-kongac">2017-03-26 v3.0-r31780M kongac</h3>
 <ul>
 <li>Installed on 2017-03-31 via <code>ddup --flash-latest</code>. First attempt failed. Rebooted, and second attempt worked.</li>
 <li>Never had any problems with this</li>
 </ul>
-<h2 id="2017-03-31-v30-r31800m-kongac">2017-03-31 v3.0-r31800M kongac</h2>
+<h3 id="2017-03-31-v30-r31800m-kongac">2017-03-31 v3.0-r31800M kongac</h3>
 <ul>
 <li>Installed on 2017-04-01</li>
 <li>1 router lockup 3 days after installation</li>
 <li>2 router lockups on day 4</li>
 </ul>
-<h2 id="2017-04-08-v30-r31830m-kongac">2017-04-08 v3.0-r31830M kongac</h2>
+<h3 id="2017-04-08-v30-r31830m-kongac">2017-04-08 v3.0-r31830M kongac</h3>
 <ul>
 <li>Installed on 2017-04-07</li>
 <li>Locked up after 10 days</li>
 </ul>
-<h2 id="2017-04-16-v30-r31870m-kongac">2017-04-16 v3.0-r31870M kongac</h2>
+<h3 id="2017-04-16-v30-r31870m-kongac">2017-04-16 v3.0-r31870M kongac</h3>
 <ul>
 <li>Installed on 2017-04-17</li>
 <li>Router locked up after 4 days</li>
 </ul>
-<h2 id="2017-04-30-v30-r31920m-kongac">2017-04-30 v3.0-r31920M kongac</h2>
+<h3 id="2017-04-30-v30-r31920m-kongac">2017-04-30 v3.0-r31920M kongac</h3>
 <ul>
 <li>Installed on 2017-05-02</li>
 <li>Had periodic lockups</li>
 </ul>
-<h2 id="2017-05-11-v30-r31980m-kongac">2017-05-11 v3.0-r31980M kongac</h2>
+<h3 id="2017-05-11-v30-r31980m-kongac">2017-05-11 v3.0-r31980M kongac</h3>
 <ul>
 <li>Installed on 2017-05-14</li>
 <li>Experienced wifi problem, dhcp problem, and routing problems within 24 hours</li>
 <li>Experienced the same problems within 12 hours after reboot</li>
 <li>Uptime peak is 9 days</li>
 </ul>
-<h2 id="2017-06-03-v30-r32170m-kongac">2017-06-03 v3.0-r32170M kongac</h2>
+<h3 id="2017-06-03-v30-r32170m-kongac">2017-06-03 v3.0-r32170M kongac</h3>
 <ul>
 <li>Installed on 2017-06-08</li>
 <li>Sometimes wireless clients are unable to connect to the network.</li>
 <li>Sometimes the router becomes inaccessable to clients even though it is still up.</li>
 </ul>
-<h2 id="2017-08-02-dd-wrt-v30-r33000m-kongac">2017-08-02 DD-WRT v3.0-r33000M kongac</h2>
+<h3 id="2017-08-02-dd-wrt-v30-r33000m-kongac">2017-08-02 DD-WRT v3.0-r33000M kongac</h3>
 <ul>
 <li>Installed on 2017-08-05</li>
 <li>Quite stable</li>
 </ul>
-<h2 id="2017-10-22-dd-wrt-v30-r33575m-kongac">2017-10-22 DD-WRT v3.0-r33575M kongac</h2>
+<h3 id="2017-10-22-dd-wrt-v30-r33575m-kongac">2017-10-22 DD-WRT v3.0-r33575M kongac</h3>
 <ul>
 <li>Installed on 2017-10-22</li>
 <li>Seeing lock-ups and wifi unavailability after 24 hours</li>
 <li>Seeing more lock-ups and wifi unavailability hours after restart</li>
 </ul>
-<h2 id="2017-11-03-dd-wrt-v30-r33655m-kongac">2017-11-03 DD-WRT v3.0-r33655M kongac</h2>
+<h3 id="2017-11-03-dd-wrt-v30-r33655m-kongac">2017-11-03 DD-WRT v3.0-r33655M kongac</h3>
 <ul>
 <li>Installed on 2017-11-04</li>
 <li>WiFi instability observed within hours</li>
 </ul>
-<h2 id="2017-11-03-dd-wrt-v30-r33675m-kongac">2017-11-03 DD-WRT v3.0-r33675M kongac</h2>
+<h3 id="2017-11-03-dd-wrt-v30-r33675m-kongac">2017-11-03 DD-WRT v3.0-r33675M kongac</h3>
 <ul>
 <li>2017-12-25: Discovered this firmware had been installed</li>
 </ul>
-<h2 id="2018-01-03-dd-wrt-v30-r34320m-kongac-c-2017-newmedia-net-gmbh">2018-01-03 DD-WRT v3.0-r34320M kongac (c) 2017 NewMedia-NET GmbH</h2>
+<h3 id="2018-01-03-dd-wrt-v30-r34320m-kongac-c-2017-newmedia-net-gmbh">2018-01-03 DD-WRT v3.0-r34320M kongac (c) 2017 NewMedia-NET GmbH</h3>
 <ul>
 <li>Installed on 2018-01-16</li>
 <li>DD-WRT v3.0-r34320M kongac (c) 2017 NewMedia-NET GmbH</li>
@@ -1258,14 +1233,14 @@
 <li>http://www.desipro.de/ddwrt/K3-AC-Arm/TEST/dd-wrt.v24-K3_AC_ARM_STD.bin</li>
 <li>Frequent lock-ups</li>
 </ul>
-<h2 id="2018-02-11-dd-wrt-v30-r34900m-kongac-c-2018-newmedia-net-gmbh">2018-02-11 DD-WRT v3.0-r34900M kongac (c) 2018 NewMedia-NET GmbH</h2>
+<h3 id="2018-02-11-dd-wrt-v30-r34900m-kongac-c-2018-newmedia-net-gmbh">2018-02-11 DD-WRT v3.0-r34900M kongac (c) 2018 NewMedia-NET GmbH</h3>
 <ul>
 <li>Installed on 2018-02-16</li>
 <li>DD-WRT v3.0-r34900M kongac (c) 2018 NewMedia-NET GmbH</li>
 <li>Release: 02/11/18</li>
 <li>Very unstable wifi</li>
 </ul>
-<h2 id="2018-02-19-dd-wrt-v30-r35030m-kongac-c-2018-newmedia-net-gmbh">2018-02-19 DD-WRT v3.0-r35030M kongac (c) 2018 NewMedia-NET GmbH</h2>
+<h3 id="2018-02-19-dd-wrt-v30-r35030m-kongac-c-2018-newmedia-net-gmbh">2018-02-19 DD-WRT v3.0-r35030M kongac (c) 2018 NewMedia-NET GmbH</h3>
 <ul>
 <li>Installed on 2018-02-24 (?)</li>
 <li>DD-WRT v3.0-r35030M kongac (c) 2018 NewMedia-NET GmbH</li>
