@@ -4946,6 +4946,11 @@
             "title": "See also"
         },
         {
+            "location": "/rook/",
+            "text": "\"File, Block, and Object Storage Services for your Cloud-Native Environments\" - \nhttps://rook.io/",
+            "title": "Rook"
+        },
+        {
             "location": "/ros/",
             "text": "\"The Robot Operating System (ROS) is a set of software libraries and tools that help you build robot applications. From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS has what you need for your next robotics project. And it's all open source.\" - \nhttp://www.ros.org\n\n\nLinks\n\n\n\n\nROS tutorials - \nhttp://wiki.ros.org/ROS/Tutorials\n\n\nROS Turtle Example - \nhttp://wiki.ros.org/turtlesim/Tutorials\n\n\nAutoware built on top of ROS for Self-driving cars - \nhttps://github.com/CPFL/Autoware\n\n\nRobot Operating System for ev3 - \nhttp://wiki.ros.org/Robots/EV3",
             "title": "Ros"

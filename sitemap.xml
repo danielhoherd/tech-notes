@@ -1235,6 +1235,14 @@
 
     
     <url>
+     <loc>/rook/</loc>
+     <lastmod>2018-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/ros/</loc>
      <lastmod>2018-03-02</lastmod>
      <changefreq>daily</changefreq>
