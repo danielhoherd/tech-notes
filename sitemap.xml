@@ -1235,6 +1235,14 @@
 
     
     <url>
+     <loc>/ros/</loc>
+     <lastmod>2018-03-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/rpm/</loc>
      <lastmod>2018-03-01</lastmod>
      <changefreq>daily</changefreq>

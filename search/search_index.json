@@ -4936,6 +4936,16 @@
             "title": "See also"
         },
         {
+            "location": "/ros/",
+            "text": "\"The Robot Operating System (ROS) is a set of software libraries and tools that help you build robot applications. From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS has what you need for your next robotics project. And it's all open source.\" - \nhttp://www.ros.org\n\n\nLinks\n\n\n\n\nROS tutorials - \nhttp://wiki.ros.org/ROS/Tutorials\n\n\nROS Turtle Example - \nhttp://wiki.ros.org/turtlesim/Tutorials\n\n\nAutoware built on top of ROS for Self-driving cars - \nhttps://github.com/CPFL/Autoware\n\n\nRobot Operating System for ev3 - \nhttp://wiki.ros.org/Robots/EV3",
+            "title": "Ros"
+        },
+        {
+            "location": "/ros/#links",
+            "text": "ROS tutorials -  http://wiki.ros.org/ROS/Tutorials  ROS Turtle Example -  http://wiki.ros.org/turtlesim/Tutorials  Autoware built on top of ROS for Self-driving cars -  https://github.com/CPFL/Autoware  Robot Operating System for ev3 -  http://wiki.ros.org/Robots/EV3",
+            "title": "Links"
+        },
+        {
             "location": "/rpm/",
             "text": "Redhat Package Manager. \"rpm is a powerful Package Manager, which can be used to build, install, query, verify, update, and erase individual software packages.\" - \nman rpm\n\n\nTricks\n\n\nShow installed keys\n\n\nrpm -qa gpg-pubkey\n\n\n\n\nShow extended info about all keys\n\n\nrpm -qa gpg-pubkey | xargs -n1 -P1 rpm -qi\n\n\n\n\nShow information about an rpm file\n\n\nrpm -qpi\n\n\n\n\nShow all installed packages and when they were installed\n\n\nrpm -qa --last\n\n\n\n\nShow information about the installed wget package\n\n\nrpm -qi wget\n\n\n\n\nOutput formatted information about packages\n\n\nrpm -qa --queryformat \"%{NAME} %{PACKAGER} %{URL}\\n\" tomcat7\n\n\n\n\nMore info on queryformat: \nhttp://www.rpm.org/max-rpm/ch-queryformat-tags.html\n\n\nShow which package installed a file\n\n\nrpm -qf /usr/bin/wget\n\n\n\n\nShow all files that were installed by package wget\n\n\nrpm -ql wget\n\n\n\n\nShow all files in a package that is not yet installed\n\n\nrpm -qpl ~/downloads/wget-1.10.2-78.i586.rpm\n\n\n\n\nShow which documentation files get installed with a package\n\n\nrpm -qd wget\n\n\n\n\nShow what has changed on the system since installing a package\n\n\nThis will verify file integrity and show you what has changed for each file.\n\n\nrpm -V openssl\n\n\n\n\nShow installation and uninstallation scripts\n\n\nrpm -qp --scripts foo.rpm\n\n\n\n\nCheck the integrity of an RPM\n\n\nrpm -K ~/downloads/filename.rpm\n\n\n\n\nShow which packages are hogging all the space\n\n\nrpm -qa --queryformat \"%{SIZE} %{NAME}\\n\" |sort -rn |head -n50 | column -t\n\n\n\n\nShow a table about RPM files versions and creators in a directory\n\n\nrpm -qp --queryformat \"%{NAME},%{VERSION},%{PACKAGER}\\n\" * | column -s, -t\n\n\n\n\nShow what files were installed into /var/log\n\n\nrpm -qa --filesbypkg | grep \" /var/log\" # space before /var is necessary to weed out things like /usr/var\n\n\n\n\nRebuild a corrupt rpm db\n\n\nrm -rf /var/lib/rpm/__db*\nrpm --rebuilddb\n\n\n\n\nSee Also\n\n\n\n\nHow to create RPMs - \nhttp://fedoraproject.org/wiki/How_to_create_an_RPM_package\n\n\nyum - supplement to rpm command",
             "title": "Rpm"
