@@ -852,8 +852,13 @@
         },
         {
             "location": "/ceph/",
-            "text": "\"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability.\" - \nhttps://ceph.com\n\n\nLinks\n\n\n\n\nCeph Intro & Architectural Overview - \nhttps://youtu.be/7I9uxoEhUdY",
+            "text": "\"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability.\" - \nhttps://ceph.com\n\n\nExamples\n\n\nsudo ceph-disk activate-all\n\n\nLinks\n\n\n\n\nCeph Intro & Architectural Overview - \nhttps://youtu.be/7I9uxoEhUdY",
             "title": "Ceph"
+        },
+        {
+            "location": "/ceph/#examples",
+            "text": "sudo ceph-disk activate-all",
+            "title": "Examples"
         },
         {
             "location": "/ceph/#links",
@@ -3052,7 +3057,7 @@
         },
         {
             "location": "/kubernetes/",
-            "text": "\"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.\" - \nhttps://kubernetes.io/docs/whatisk8s\n\n\ncli usage\n\n\nkubeadm\n\n\n\"kubeadm: easily bootstrap a secure Kubernetes cluster.\" - \nkubeadm --help\n\n\n\n\nhttps://github.com/kubernetes/kubeadm\n\n\n\n\nkubectl\n\n\n\"kubectl controls the Kubernetes cluster manager.\" - \nkubectl --help\n\n\n\n\n\n\nhttps://github.com/kubernetes/kubectl\n\n\n\n\n\n\nkubectl get nodes\n\n\n\n\n\n\nInstallation\n\n\nsudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -\nsudo apt install -y apt-transport-https ca-certificates curl software-properties-common\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable\"\nsudo add-apt-repository \"deb http://apt.kubernetes.io/ kubernetes-xenial main\"\nsudo apt update\nsudo apt install -y kubelet kubeadm kubectl\n\n\n\n\nLinks\n\n\n\n\nhttps://kubernetes.io/docs/setup/independent/create-cluster-kubeadm\n\n\nhttps://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster\n\n\nhttps://docs.projectcalico.org/v3.0/introduction/",
+            "text": "\"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.\" - \nhttps://kubernetes.io/docs/whatisk8s\n\n\ncli usage\n\n\nkubeadm\n\n\n\"kubeadm: easily bootstrap a secure Kubernetes cluster.\" - \nkubeadm --help\n\n\n\n\nhttps://github.com/kubernetes/kubeadm\n\n\n\n\nkubectl\n\n\n\"kubectl controls the Kubernetes cluster manager.\" - \nkubectl --help\n\n\n\n\n\n\nhttps://github.com/kubernetes/kubectl\n\n\n\n\n\n\nkubectl get nodes\n\n\n\n\nkubectl config get-contexts\n\n\nkubectl config use-context foo\n\n\nkubectl describe pod foo\n\n\n\n\nInstallation\n\n\nsudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -\nsudo apt install -y apt-transport-https ca-certificates curl software-properties-common\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable\"\nsudo add-apt-repository \"deb http://apt.kubernetes.io/ kubernetes-xenial main\"\nsudo apt update\nsudo apt install -y kubelet kubeadm kubectl\n\n\n\n\nLinks\n\n\n\n\nhttps://kubernetes.io/docs/setup/independent/create-cluster-kubeadm\n\n\nhttps://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster\n\n\nhttps://docs.projectcalico.org/v3.0/introduction/\n\n\nhttps://kubernetes.io/docs/reference/glossary/",
             "title": "Kubernetes"
         },
         {
@@ -3067,7 +3072,7 @@
         },
         {
             "location": "/kubernetes/#kubectl",
-            "text": "\"kubectl controls the Kubernetes cluster manager.\" -  kubectl --help    https://github.com/kubernetes/kubectl    kubectl get nodes",
+            "text": "\"kubectl controls the Kubernetes cluster manager.\" -  kubectl --help    https://github.com/kubernetes/kubectl    kubectl get nodes   kubectl config get-contexts  kubectl config use-context foo  kubectl describe pod foo",
             "title": "kubectl"
         },
         {
@@ -3077,7 +3082,7 @@
         },
         {
             "location": "/kubernetes/#links",
-            "text": "https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm  https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster  https://docs.projectcalico.org/v3.0/introduction/",
+            "text": "https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm  https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster  https://docs.projectcalico.org/v3.0/introduction/  https://kubernetes.io/docs/reference/glossary/",
             "title": "Links"
         },
         {
