@@ -4947,7 +4947,7 @@
         },
         {
             "location": "/rook/",
-            "text": "\"File, Block, and Object Storage Services for your Cloud-Native Environments\" - \nhttps://rook.io/",
+            "text": "\"File, Block, and Object Storage Services for your Cloud-Native Environments\" - \nhttps://rook.io/\n\n\nRook is based on ceph.",
             "title": "Rook"
         },
         {
