@@ -251,6 +251,14 @@
 
     
     <url>
+     <loc>/cncf/</loc>
+     <lastmod>2018-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/cobbler/</loc>
      <lastmod>2018-03-02</lastmod>
      <changefreq>daily</changefreq>

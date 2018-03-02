@@ -921,6 +921,11 @@
             "title": "Links"
         },
         {
+            "location": "/cncf/",
+            "text": "\"CNCF serves as the vendor-neutral home for many of the fastest-growing projects on GitHub, including Kubernetes, Prometheus and Envoy, fostering collaboration between the industry\u2019s top developers, end users, and vendors.\" - \nhttps://www.cncf.io",
+            "title": "Cncf"
+        },
+        {
             "location": "/cobbler/",
             "text": "\"Cobbler is a Linux installation server that allows for rapid setup of network installation environments.\" -- \nhttp://cobbler.github.io\n\n\nNotes\n\n\n\n\nVersions prior to 2.6.9 can no longer auto-download loaders\n\n\n\n\nLinks\n\n\n\n\nhttps://cobbler.github.io/\n\n\nhttps://cobbler.github.io/manuals/quickstart/\n\n\nhttps://download.opensuse.org/repositories/home:/libertas-ict:/cobbler26/CentOS_CentOS-6/noarch/\n - Newer than epel CentOS 6 rpms\n\n\nhttps://github.com/rhinstaller/pykickstart",
             "title": "Cobbler"
