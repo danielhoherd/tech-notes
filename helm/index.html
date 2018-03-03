@@ -437,6 +437,15 @@
     <a class="current" href="./">Helm</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#show-notes-for-a-deployed-service">Show notes for a deployed service</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -1128,6 +1137,9 @@
             <div class="section">
               
                 <p>"The Kubernetes Package Manager" - <a href="https://github.com/kubernetes/helm">https://github.com/kubernetes/helm</a></p>
+<h1 id="tips">Tips</h1>
+<h2 id="show-notes-for-a-deployed-service">Show notes for a deployed service</h2>
+<p>Notes are printed when you install a service, but they can be viewed again by running <code>helm status &lt;release_name&gt;</code> where <release_name> is one of the releases from <code>helm list</code>.</p>
               
             </div>
           </div>

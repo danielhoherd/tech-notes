@@ -2512,8 +2512,18 @@
         },
         {
             "location": "/helm/",
-            "text": "\"The Kubernetes Package Manager\" - \nhttps://github.com/kubernetes/helm",
+            "text": "\"The Kubernetes Package Manager\" - \nhttps://github.com/kubernetes/helm\n\n\nTips\n\n\nShow notes for a deployed service\n\n\nNotes are printed when you install a service, but they can be viewed again by running \nhelm status <release_name>\n where \n is one of the releases from \nhelm list\n.",
             "title": "Helm"
+        },
+        {
+            "location": "/helm/#tips",
+            "text": "",
+            "title": "Tips"
+        },
+        {
+            "location": "/helm/#show-notes-for-a-deployed-service",
+            "text": "Notes are printed when you install a service, but they can be viewed again by running  helm status <release_name>  where   is one of the releases from  helm list .",
+            "title": "Show notes for a deployed service"
         },
         {
             "location": "/home-assistant/",
