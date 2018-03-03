@@ -917,12 +917,12 @@
         },
         {
             "location": "/circleci/",
-            "text": "\"CircleCI's continuous integration and delivery platform makes it easy for teams of all sizes to rapidly build and release quality software at scale. Build for Linux, macOS, and Android, in the cloud or behind your firewall.\" - \nhttps://circleci.com/\n\n\nLinks\n\n\n\n\nhttps://circleci.com/docs/2.0/configuration-reference/\n\n\nhttps://circleci.com/docs/2.0/sample-config/\n\n\nhttps://circleci.com/docs/2.0/circleci-images/",
+            "text": "\"CircleCI's continuous integration and delivery platform makes it easy for teams of all sizes to rapidly build and release quality software at scale. Build for Linux, macOS, and Android, in the cloud or behind your firewall.\" - \nhttps://circleci.com/\n\n\nLinks\n\n\n\n\nhttps://circleci.com/docs/2.0/configuration-reference/\n\n\nhttps://circleci.com/docs/2.0/sample-config/\n\n\nhttps://circleci.com/docs/2.0/circleci-images/\n\n\nhttps://circleci.com/docs/2.0/workflows/",
             "title": "Circleci"
         },
         {
             "location": "/circleci/#links",
-            "text": "https://circleci.com/docs/2.0/configuration-reference/  https://circleci.com/docs/2.0/sample-config/  https://circleci.com/docs/2.0/circleci-images/",
+            "text": "https://circleci.com/docs/2.0/configuration-reference/  https://circleci.com/docs/2.0/sample-config/  https://circleci.com/docs/2.0/circleci-images/  https://circleci.com/docs/2.0/workflows/",
             "title": "Links"
         },
         {
