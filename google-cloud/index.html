@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Date - Daniel Hoherd's tech notes</title>
+  <title>Google cloud - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Date";
-    var mkdocs_page_input_path = "date.md";
-    var mkdocs_page_url = "/date/";
+    var mkdocs_page_name = "Google cloud";
+    var mkdocs_page_input_path = "google-cloud.md";
+    var mkdocs_page_url = "/google-cloud/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -242,48 +242,9 @@
     <a class="" href="../curl/">Curl</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Date</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#gnu-date">GNU date</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#show-adjusted-datetime">Show adjusted date/time</a></li>
-        
-            <li><a class="toctree-l3" href="#convert-a-string-date-to-epoch-seconds">Convert a string date to epoch seconds</a></li>
-        
-            <li><a class="toctree-l3" href="#convert-epoch-seconds-to-string-date">Convert epoch seconds to string date</a></li>
-        
-            <li><a class="toctree-l3" href="#output-various-rfc-3339-time-formats">Output various RFC 3339 time formats</a></li>
-        
-            <li><a class="toctree-l3" href="#show-and-number-all-previous-weeks-from-one-year-ago">Show and number all previous weeks from one year ago</a></li>
-        
-            <li><a class="toctree-l3" href="#show-and-number-all-weeks-from-the-point-i-started-working-at-zoosk">Show and number all weeks from the point I started working at Zoosk</a></li>
-        
-            <li><a class="toctree-l3" href="#show-how-many-seconds-old-i-am">Show how many seconds old I am</a></li>
-        
-            <li><a class="toctree-l3" href="#show-subsecond-date-without-going-full-nano">Show subsecond date, without going full nano</a></li>
-        
-            <li><a class="toctree-l3" href="#sleep-until-the-next-5-minute-0-seconds-mark">Sleep until the next 5 minute 0 seconds mark</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#bsd-date">BSD date</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#show-adjusted-datetime_1">Show adjusted date/time</a></li>
-        
-            <li><a class="toctree-l3" href="#convert-epoch-seconds-to-string-date_1">Convert epoch seconds to string date</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../date/">Date</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -293,7 +254,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dd-wrt/">Dd wrt</a>
+    <a class="" href="../dd-wrt/">Netgear R7000</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -313,7 +274,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../devops/">Devops</a>
+    <a class="" href="../devops/">DevOps lifecycle</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -358,7 +319,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../eleduino/">Eleduino</a>
+    <a class="" href="../eleduino/">Eleduino SpotPear touchscreen</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -436,9 +397,15 @@
     <a class="" href="../golang/">Golang</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../google-cloud/">Google cloud</a>
+    <a class="current" href="./">Google cloud</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1158,7 +1125,7 @@
     
       
     
-    <li>Date</li>
+    <li>Google cloud</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1168,60 +1135,11 @@
           <div role="main">
             <div class="section">
               
-                <p>The <code>date</code> shell command</p>
-<p>date behaves differently between gnu and bsd. In OS X you can install gnu date by doing <code>brew install coreutils</code></p>
-<h2 id="gnu-date">GNU date</h2>
-<h3 id="show-adjusted-datetime">Show adjusted date/time</h3>
-<pre><code>date -d -2month # two months ago
-date -d +1hour # one hour in the future
-date -d +15minute
-date -d &quot;last week + 1 hour&quot;
-date -d &quot;january 10 1978 + 5 years&quot; +%a
-</code></pre>
-
-<h3 id="convert-a-string-date-to-epoch-seconds">Convert a string date to epoch seconds</h3>
-<pre><code>date -d &quot;Fri Sep  7  2:00 2012&quot; +%s
-</code></pre>
-
-<h3 id="convert-epoch-seconds-to-string-date">Convert epoch seconds to string date</h3>
-<pre><code>date -d @1375899534
-</code></pre>
-
-<h3 id="output-various-rfc-3339-time-formats">Output various RFC 3339 time formats</h3>
-<pre><code>date --rfc-3339=date
-date --rfc-3339=seconds
-date --rfc-3339=ns
-</code></pre>
-
-<h3 id="show-and-number-all-previous-weeks-from-one-year-ago">Show and number all previous weeks from one year ago</h3>
-<pre><code>for X in {1..53} ; do printf &quot;%02s &quot; ${X} ; date -d -49weeks-2days+${X}week &quot;+%b %d %Y&quot; ; done ;
-</code></pre>
-
-<h3 id="show-and-number-all-weeks-from-the-point-i-started-working-at-zoosk">Show and number all weeks from the point I started working at Zoosk</h3>
-<pre><code>for X in {1..90} ; do printf &quot;%02s &quot; ${X} ; date -d &quot;June 10 2013 - 1 week + ${X} week&quot; &quot;+%a %b %d %Y&quot; ; done ;
-</code></pre>
-
-<h3 id="show-how-many-seconds-old-i-am">Show how many seconds old I am</h3>
-<pre><code>echo &quot;$(date +%s) - $(date -d &quot;January 10 1978 7:46pm&quot; +%s)&quot; | bc
-</code></pre>
-
-<h3 id="show-subsecond-date-without-going-full-nano">Show subsecond date, without going full nano</h3>
-<pre><code>for X in {1..100} ; do date +%s.%N | cut -c1-15 ; done ;
-</code></pre>
-
-<h3 id="sleep-until-the-next-5-minute-0-seconds-mark">Sleep until the next 5 minute 0 seconds mark</h3>
-<pre><code>while sleep $(date &quot;+60 - %S.%N&quot; | bc) 240 ; do date &quot;+%F %T.%N&quot; ; done ;
-</code></pre>
-
-<h2 id="bsd-date">BSD date</h2>
-<h3 id="show-adjusted-datetime_1">Show adjusted date/time</h3>
-<pre><code>date -v-2m # two months ago
-date -v+1H # one hour in the future
-</code></pre>
-
-<h3 id="convert-epoch-seconds-to-string-date_1">Convert epoch seconds to string date</h3>
-<pre><code>date -r 1514308711
-</code></pre>
+                <p>"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK" - <a href="https://cloud.google.com/sdk/docs/">https://cloud.google.com/sdk/docs/</a></p>
+<h1 id="examples">Examples</h1>
+<ul>
+<li><code>gcloud container images list</code></li>
+</ul>
               
             </div>
           </div>
@@ -1229,10 +1147,10 @@ date -v+1H # one hour in the future
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dcfldd/" class="btn btn-neutral float-right" title="Dcfldd">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../google-earth/" class="btn btn-neutral float-right" title="Google earth">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../curl/" class="btn btn-neutral" title="Curl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../golang/" class="btn btn-neutral" title="Golang"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1258,10 +1176,10 @@ date -v+1H # one hour in the future
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../curl/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../golang/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../dcfldd/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../google-earth/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
