@@ -2372,12 +2372,17 @@
         },
         {
             "location": "/google-cloud/",
-            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\nExamples\n\n\n\n\ngcloud container images list",
+            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\n\n\nExamples\n\n\n\n\ngcloud container images list\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world",
             "title": "Google cloud"
         },
         {
+            "location": "/google-cloud/#links",
+            "text": "https://cloud.google.com/container-registry/docs/quickstart",
+            "title": "Links"
+        },
+        {
             "location": "/google-cloud/#examples",
-            "text": "gcloud container images list",
+            "text": "gcloud container images list  gcloud docker -- pull gcr.io/project-id/hello-world",
             "title": "Examples"
         },
         {
