@@ -573,7 +573,15 @@
         </ul>
     
 
-    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    <li class="toctree-l2"><a href="#quick-and-dirty-installations">Quick and dirty installations</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#kubespray">kubespray</a></li>
+        
+            <li><a class="toctree-l3" href="#manually-on-ubuntu-16">Manually on Ubuntu 16</a></li>
+        
+        </ul>
     
 
     <li class="toctree-l2"><a href="#links">Links</a></li>
@@ -1162,9 +1170,15 @@
 </li>
 <li><code>kubectl config get-contexts</code></li>
 <li><code>kubectl config use-context foo</code></li>
+<li><code>kubectl get pods</code></li>
 <li><code>kubectl describe pod foo</code></li>
 </ul>
-<h1 id="installation">Installation</h1>
+<h1 id="quick-and-dirty-installations">Quick and dirty installations</h1>
+<h2 id="kubespray">kubespray</h2>
+<ul>
+<li><a href="https://github.com/kubernetes-incubator/kubespray">https://github.com/kubernetes-incubator/kubespray</a></li>
+</ul>
+<h2 id="manually-on-ubuntu-16">Manually on Ubuntu 16</h2>
 <pre><code>sudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
