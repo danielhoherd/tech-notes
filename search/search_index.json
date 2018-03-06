@@ -3966,6 +3966,11 @@
             "title": "See also"
         },
         {
+            "location": "/openvpn/",
+            "text": "\"Your private path to access network resources and services securely\" - \nhttps://openvpn.net/",
+            "title": "Openvpn"
+        },
+        {
             "location": "/osquery/",
             "text": "\"SQL powered operating system instrumentation, monitoring, and analytics.\"\n\n\noquery runs locally and allows you to inspect your host using sql queries. Tables exist for a variety of useful data, such as file hashes, process list, last user login, etc..\n\n\nLinks\n\n\n\n\nhttps://github.com/facebook/osquery\n\n\nhttps://osquery.readthedocs.io\n\n\nhttps://osquery.io/schema/\n\n\nhttps://github.com/UtahDave/salt-vagrant-demo\n\n\nhttps://www.digitalocean.com/community/tutorials/how-to-monitor-your-system-security-with-osquery-on-ubuntu-16-04\n\n\nhttps://kolide.com/fleet\n - osquery fleet/cluster system",
             "title": "Osquery"
@@ -6949,6 +6954,11 @@
             "location": "/yum/#see-also",
             "text": "rpm - interact with rpms directly  https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html",
             "title": "See Also"
+        },
+        {
+            "location": "/zerotier/",
+            "text": "\"ZeroTier delivers the capabilities of VPNs, SDN, and SD-WAN with a single system. Manage all your connected resources across both local and wide area networks as if the whole world is a single data center.\" - \nhttps://www.zerotier.com/",
+            "title": "Zerotier"
         },
         {
             "location": "/zfs/",
