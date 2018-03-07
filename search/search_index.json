@@ -1681,6 +1681,11 @@
             "title": "Duplicity"
         },
         {
+            "location": "/education/",
+            "text": "https://www.coursera.org/\n\n\nhttps://www.edx.org/\n\n\nhttps://www.udemy.com/",
+            "title": "Education"
+        },
+        {
             "location": "/eleduino/",
             "text": "Eleduino SpotPear touchscreen\n\n\nTaken from \nhttps://github.com/notro/rpi-firmware/issues/6#issuecomment-63180647\n, this is tested to work on Raspbian 7 (wheezy) and 8 (jessie).\n\n\nupdate the firmware to support FBTFT\n\n\nsudo apt-get install -y rpi-update\nsudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=builtin rpi-update\nsudo reboot\n\n\n\n\nModify boot args to enable the device\n\n\nsed -i \"s/$/ \\\nfbtft_device.custom \\\nfbtft_device.name=fb_ili9340 \\\nfbtft_device.gpios=dc:22,reset:27 \\\nfbtft_device.bgr=1 \\\nfbtft_device.speed=48000000/\" /boot/cmdline.txt\n\n\n\n\nEnable console on boot\n\n\nsed -i \"s/$/ \\\nfbcon=map:10 \\\nfbcon=font:ProFont6x11 \\\nlogo.nologo/\" /boot/cmdline.txt\n\n\n\n\nRotation etc..\n\n\nsed -i \"s/$/ \\\ndma.dmachans=0x7f35 \\\nconsole=tty1 \\\nconsoleblank=0 \\\nfbtft_device.fps=50 \\\nfbtft_device.rotate=270/\" /boot/cmdline.txt\n\n\n\n\nSort and unique /boot/cmdline.txt\n\n\ncat /boot/cmdline.txt | \\\ntee /root/cmdline.txt-$(date +%s) | \\\ntr \" \" \"\\n\" | \\\nsort -u | \\\ntr \"\\n\" \" \" > /boot/cmdline.txt",
             "title": "Eleduino SpotPear touchscreen"
