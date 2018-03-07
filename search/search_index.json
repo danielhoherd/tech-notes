@@ -1832,7 +1832,7 @@
         },
         {
             "location": "/ffmpeg/",
-            "text": "ffmpeg is a tool for editing movie files.\n\n\n\n\nhttps://ffmpeg.org\n\n\n\n\nExamples\n\n\nConvert container format\n\n\nfor X in *.mov ; do ffmpeg -i \"${X}\" -c copy -map 0 \"${X%.mov}.mp4\" ; done ;\n\n\n\n\nTime Lapse\n\n\nGenerate a movie from an image sequence like 001.jpg-999.jpg\n\n\nffmpeg -r 10 -b 1800 -i %03d.jpg test1800.mp4\n\n\nRename files as a sequence:\n\n\ni=0 ;\nfind . -type f |\n  while read -r F ; do\n    let i=${i}+1 ;\n    fn=$(printf %06d ${i}) ;\n    mv \"${F}\" \"${fn}.jpg\" ;\n  done ;\n\n\n\n\nSample some of the middle of the time-lapse\n\n\nffmpeg -pattern_type sequence -start_number 3000 -r 30 -i %06d.jpg -s 1440x1080 -frames 120 \"$(date +%F_%T).mp4\"\n\n\nTurn these images into a video\n\n\nffmpeg -pattern_type sequence -r 30 -i %06d.jpg -s 1440x1080 \"$(date +%F_%T).mp4\"\n\n\nAudio Replace\n\n\nReplace the audio of DSC_4436.AVI with 01 Gymnopedie 1.mp3 and limit the duration of the output so the music doesn't play beyond the end of the video.\n\n\nffmpeg -t 00:00:47.99 -i DSC_4436.AVI -i \"01 Gymnopedie 1.mp3\" -map 0:0 -map 1:0 -vcodec copy -acodec copy output.AVI\n\n\nSlow down video to half speed, drop audio\n\n\nffmpeg -i DHO_8751.MOV -an -vf \"setpts=(2/1)*PTS\" output.mp4\n\n\nExtract two seconds worth of frames at 24fps starting at 15m\n\n\nffmpeg -i movie.mkv -r 24 -t 00:00:02.00 -ss 00:15:00 temp/movie-%4d.jpg",
+            "text": "ffmpeg is a tool for editing movie files.\n\n\n\n\nhttps://ffmpeg.org\n\n\n\n\nExamples\n\n\nConvert container format\n\n\nfor X in *.mov ; do ffmpeg -i \"${X}\" -c copy -map 0 \"${X%.mov}.mp4\" ; done ;\n\n\n\n\nTime Lapse\n\n\nGenerate a movie from an image sequence like 001.jpg-999.jpg\n\n\nffmpeg -r 10 -b 1800 -i %03d.jpg test1800.mp4\n\n\nRename files as a sequence:\n\n\ni=0 ;\nfind . -type f |\n  while read -r F ; do\n    let i=${i}+1 ;\n    fn=$(printf %06d ${i}) ;\n    mv \"${F}\" \"${fn}.jpg\" ;\n  done ;\n\n\n\n\nSample some of the middle of the time-lapse\n\n\nffmpeg -pattern_type sequence -start_number 3000 -r 30 -i %06d.jpg -s 1440x1080 -frames 120 \"$(date +%F_%T).mp4\"\n\n\nTurn these images into a video\n\n\nffmpeg -pattern_type sequence -r 30 -i %06d.jpg -s 1440x1080 \"$(date +%F_%T).mp4\"\n\n\nAudio Replace\n\n\nReplace the audio of DSC_4436.AVI with 01 Gymnopedie 1.mp3 and limit the duration of the output so the music doesn't play beyond the end of the video.\n\n\nffmpeg -t 00:00:47.99 -i DSC_4436.AVI -i \"01 Gymnopedie 1.mp3\" -map 0:0 -map 1:0 -vcodec copy -acodec copy output.AVI\n\n\nSlow down video to half speed, drop audio\n\n\nffmpeg -i DHO_8751.MOV -an -vf \"setpts=(2/1)*PTS\" output.mp4\n\n\nExtract two seconds worth of frames at 24fps starting at 15m\n\n\nffmpeg -i movie.mkv -r 24 -t 00:00:02.00 -ss 00:15:00 temp/movie-%4d.jpg\n\n\nDetect errors in files\n\n\nffmpeg -v error -i 20091024-08-46-00.mpg -f null - 2>> error.log",
             "title": "Ffmpeg"
         },
         {
@@ -1884,6 +1884,11 @@
             "location": "/ffmpeg/#extract-two-seconds-worth-of-frames-at-24fps-starting-at-15m",
             "text": "ffmpeg -i movie.mkv -r 24 -t 00:00:02.00 -ss 00:15:00 temp/movie-%4d.jpg",
             "title": "Extract two seconds worth of frames at 24fps starting at 15m"
+        },
+        {
+            "location": "/ffmpeg/#detect-errors-in-files",
+            "text": "ffmpeg -v error -i 20091024-08-46-00.mpg -f null - 2>> error.log",
+            "title": "Detect errors in files"
         },
         {
             "location": "/figlet/",

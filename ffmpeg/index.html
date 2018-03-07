@@ -356,6 +356,8 @@
         
             <li><a class="toctree-l3" href="#extract-two-seconds-worth-of-frames-at-24fps-starting-at-15m">Extract two seconds worth of frames at 24fps starting at 15m</a></li>
         
+            <li><a class="toctree-l3" href="#detect-errors-in-files">Detect errors in files</a></li>
+        
         </ul>
     
 
@@ -1197,6 +1199,8 @@ find . -type f |
 <p><code>ffmpeg -i DHO_8751.MOV -an -vf "setpts=(2/1)*PTS" output.mp4</code></p>
 <h2 id="extract-two-seconds-worth-of-frames-at-24fps-starting-at-15m">Extract two seconds worth of frames at 24fps starting at 15m</h2>
 <p><code>ffmpeg -i movie.mkv -r 24 -t 00:00:02.00 -ss 00:15:00 temp/movie-%4d.jpg</code></p>
+<h2 id="detect-errors-in-files">Detect errors in files</h2>
+<p><code>ffmpeg -v error -i 20091024-08-46-00.mpg -f null - 2&gt;&gt; error.log</code></p>
               
             </div>
           </div>
