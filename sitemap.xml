@@ -827,6 +827,14 @@
 
     
     <url>
+     <loc>/keel/</loc>
+     <lastmod>2018-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/keybase/</loc>
      <lastmod>2018-03-07</lastmod>
      <changefreq>daily</changefreq>

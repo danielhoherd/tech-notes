@@ -3081,6 +3081,11 @@
             "title": "Links"
         },
         {
+            "location": "/keel/",
+            "text": "\"Automated Kubernetes deployment updates\" - \nhttps://github.com/keel-hq/keel\n\n\n\"Kubectl is the new SSH. If you are using it to update production workloads, you are doing it wrong.\" - \nhttps://keel.sh/",
+            "title": "Keel"
+        },
+        {
             "location": "/keybase/",
             "text": "Keybase is a free, open source security app. It's also a public directory of people.\n\n\n\n\nKeybase.io\n\n\nIntroducing the Keybase filesystem\n\n\nGithub.com/Keybase\n\n\n\n\nMy ID\n\n\n\n\nhttps://keybase.io/hoherd\n\n\nkeybase id hoherd",
             "title": "Keybase"
