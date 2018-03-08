@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>MySQL - Daniel Hoherd's tech notes</title>
+  <title>Jwt - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "MySQL";
-    var mkdocs_page_input_path = "mysql.md";
-    var mkdocs_page_url = "/mysql/";
+    var mkdocs_page_name = "Jwt";
+    var mkdocs_page_input_path = "jwt.md";
+    var mkdocs_page_url = "/jwt/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -562,9 +562,12 @@
     <a class="" href="../jupyter/">Jupyter</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../jwt/">Jwt</a>
+    <a class="current" href="./">Jwt</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -667,71 +670,9 @@
     <a class="" href="../myrepos/">Myrepos</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">MySQL</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#mysql">MySQL</a></li>
-    
-
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#show-variables-of-the-running-server">Show variables of the running server</a></li>
-        
-            <li><a class="toctree-l3" href="#enable-bin-logging">Enable bin logging</a></li>
-        
-            <li><a class="toctree-l3" href="#show-how-a-table-was-created">Show how a table was created</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-table">Create a table</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key</a></li>
-        
-            <li><a class="toctree-l3" href="#show-what-processes-are-running">Show what processes are running</a></li>
-        
-            <li><a class="toctree-l3" href="#dump-databases-to-sql-files">Dump databases to sql files</a></li>
-        
-            <li><a class="toctree-l3" href="#duplicate-a-database">Duplicate a database</a></li>
-        
-            <li><a class="toctree-l3" href="#dump-the-schema-of-a-database-with-no-actual-data">Dump the schema of a database with no actual data</a></li>
-        
-            <li><a class="toctree-l3" href="#show-privileges">Show privileges</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-new-user">Create a new user</a></li>
-        
-            <li><a class="toctree-l3" href="#delete-a-user">Delete a user</a></li>
-        
-            <li><a class="toctree-l3" href="#grant-privileges">Grant Privileges</a></li>
-        
-            <li><a class="toctree-l3" href="#change-root-password">Change root password</a></li>
-        
-            <li><a class="toctree-l3" href="#create-statements">Create statements</a></li>
-        
-            <li><a class="toctree-l3" href="#table-alters">Table Alters</a></li>
-        
-            <li><a class="toctree-l3" href="#table-inserts">Table Inserts</a></li>
-        
-            <li><a class="toctree-l3" href="#table-updates">Table Updates</a></li>
-        
-            <li><a class="toctree-l3" href="#table-selects">Table Selects</a></li>
-        
-            <li><a class="toctree-l3" href="#statement-explanations">Statement explanations</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#misc">Misc</a></li>
-    
-
-    <li class="toctree-l2"><a href="#recommended-reading">Recommended reading</a></li>
-    
-
-    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
-    
-
-    </ul>
+    <a class="" href="../mysql/">Mysql</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1206,7 +1147,7 @@
     
       
     
-    <li>MySQL</li>
+    <li>Jwt</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1216,192 +1157,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="mysql">MySQL</h1>
-<p>"MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language. The MySQL development project has made its source code available under the terms of the GNU General Public License, as well as under a variety of proprietary agreements. MySQL was owned and sponsored by a single for-profit firm, the Swedish company MySQL AB, and is now owned by Oracle Corporation." - <a href="https://en.wikipedia.org/wiki/MySQL">https://en.wikipedia.org/wiki/MySQL</a></p>
-<h1 id="examples">Examples</h1>
-<h2 id="show-variables-of-the-running-server">Show variables of the running server</h2>
-<pre><code>mysqladmin variables
-</code></pre>
-
-<h2 id="enable-bin-logging">Enable bin logging</h2>
-<p>Edit /etc/my.cnf:</p>
-<pre><code>log-bin=/var/lib/mysql/mysql-bin
-</code></pre>
-
-<h2 id="show-how-a-table-was-created">Show how a table was created</h2>
-<pre><code>SHOW CREATE TABLE table_name \G
-</code></pre>
-
-<h2 id="create-a-table">Create a table</h2>
-<pre><code>CREATE TABLE photo_sizes (
-  `photo_id` char(32) NOT NULL,
-  `format` mediumtext,
-  `width` mediumtext,
-  `height` mediumtext,
-  `source` mediumtext,
-  `url` mediumtext,
-  PRIMARY KEY(`photo_id`)
-) ;
-</code></pre>
-
-<h2 id="create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key</h2>
-<pre><code>CREATE TABLE `photo_sizes` (
-  `photo_id` char(32) NOT NULL,
-  `format` char(32) NOT NULL DEFAULT '',
-  `width` mediumtext,
-  `height` mediumtext,
-  `source` mediumtext,
-  `url` mediumtext,
-  PRIMARY KEY (`photo_id`,`format`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1
-</code></pre>
-
-<h2 id="show-what-processes-are-running">Show what processes are running</h2>
-<pre><code>show processlist;
-</code></pre>
-
-<h2 id="dump-databases-to-sql-files">Dump databases to sql files</h2>
-<p>All databases</p>
-<pre><code>mysqldump -u root -phunter2 --all-databases | gzip -9 &gt; ~/$(date +%F-%H%m).sql.gz
-</code></pre>
-
-<p>Or just a single database</p>
-<pre><code>mysqldump -u root -phunter2 my_favorite_db | gzip -9 &gt; ~/my_favorite_db-$(date +%F-%H%m).sql.gz
-</code></pre>
-
-<h2 id="duplicate-a-database">Duplicate a database</h2>
-<pre><code>sudo mysqldump -v mogilefs | sudo mysql -D mogilefs_sjc
-</code></pre>
-
-<h2 id="dump-the-schema-of-a-database-with-no-actual-data">Dump the schema of a database with no actual data</h2>
-<pre><code>sudo mysqldump --no-data dbname &gt; schema.sql
-</code></pre>
-
-<h2 id="show-privileges">Show privileges</h2>
-<pre><code>show GRANTS ;
-</code></pre>
-
-<h2 id="create-a-new-user">Create a new user</h2>
-<pre><code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'some_pass';
-GRANT ALL PRIVILEGES ON databasename.* TO 'newuser'@'localhost' WITH GRANT OPTION;
-</code></pre>
-
-<h2 id="delete-a-user">Delete a user</h2>
-<pre><code>DROP USER 'user_name'@'localhost';
-DELETE from mysql.db where User = 'user_name';
-</code></pre>
-
-<h2 id="grant-privileges">Grant Privileges</h2>
-<pre><code>GRANT ALL ON database.* TO 'newuser'@'localhost';
-</code></pre>
-
-<h2 id="change-root-password">Change root password</h2>
-<pre><code>/usr/bin/mysqladmin -u root password 'new-password'
-/usr/bin/mysqladmin -u root -h hostname password 'new-password'
-</code></pre>
-
-<p>or...</p>
-<pre><code>UPDATE mysql.user SET Password=PASSWORD('SomeNewPassword') WHERE User='user_name' AND Host='localhost';
-</code></pre>
-
-<h2 id="create-statements">Create statements</h2>
-<h3 id="create-an-index-on-table-images-for-column-rating_count">Create an index on table images for column rating_count</h3>
-<pre><code>create index rating_count on images (rating_count) ;
-</code></pre>
-
-<h3 id="drop-an-index-from-a-table">Drop an index from a table</h3>
-<pre><code>drop index rating_count on images ;
-</code></pre>
-
-<h2 id="table-alters">Table Alters</h2>
-<h3 id="add-a-column">Add a column</h3>
-<pre><code>alter table flixplor add o_width char(12);
-</code></pre>
-
-<h3 id="drop-a-column">Drop a column</h3>
-<pre><code>alter table flixplor drop column o_width;
-</code></pre>
-
-<h3 id="change-the-type-of-a-column">Change the type of a column</h3>
-<pre><code>alter table flixplor modify o_height mediumint ;
-</code></pre>
-
-<h3 id="add-a-current-timestamp-column">Add a current timestamp column</h3>
-<pre><code>alter table images add last_updated timestamp not null default current_timestamp on update current_timestamp;
-</code></pre>
-
-<h3 id="change-the-table-engine-to-innodb">Change the table engine to innodb</h3>
-<pre><code>ALTER TABLE images ENGINE=INNODB;
-</code></pre>
-
-<h3 id="change-a-tables-encoding">Change a table's encoding</h3>
-<pre><code>alter table raw_flickr_data CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
-</code></pre>
-
-<h2 id="table-inserts">Table Inserts</h2>
-<h3 id="add-a-record">Add a record</h3>
-<h2 id="table-updates">Table Updates</h2>
-<h3 id="update-if-key-exists">Update if key exists</h3>
-<ul>
-<li><a href="http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html">http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
-</ul>
-<h3 id="update-some-fields-in-a-record">Update some fields in a record</h3>
-<h2 id="table-selects">Table Selects</h2>
-<h3 id="select-values-and-dont-show-duplicates">Select values and don't show duplicates</h3>
-<pre><code>SELECT col from servers group by col ;
-</code></pre>
-
-<h3 id="select-photo_id-and-discard-duplicates-uniq">Select photo_id and discard duplicates (uniq)</h3>
-<pre><code>SELECT photo_id from photo_sizes group by photo_id ;
-</code></pre>
-
-<h3 id="select-and-count-unique-pairs-of-columns">Select and count unique pairs of columns</h3>
-<pre><code>SELECT model, unit, count(*) as n from servers group by model, unit having n &gt; 1 order by model asc ;
-</code></pre>
-
-<h3 id="select-the-count-of-rows-in-a-table">Select the count of rows in a table</h3>
-<pre><code>SELECT count(*) from flixplor where o_height &gt; 100 ;
-</code></pre>
-
-<h3 id="do-some-math-to-create-a-new-column-during-a-select">Do some math to create a new column during a select</h3>
-<pre><code>SELECT photo_id,last_retrieval,o_height,o_width,(o_height * o_width) as pixels from flixplor
-where last_reposted &lt; from_unixtime('1384268667') or last_reposted is NULL
-order by (o_height * o_width) limit 10 ;
-</code></pre>
-
-<h3 id="transform-datetime-into-a-date-diff">Transform datetime into a date diff</h3>
-<p>This selects the number of hours since the given datestamp instead of the datestamp itself.</p>
-<pre><code>SELECT TIMESTAMPDIFF(HOUR, date_taken, NOW()) from photos ;
-</code></pre>
-
-<p>See also DATEDIFF.</p>
-<h2 id="statement-explanations">Statement explanations</h2>
-<p>The EXPLAIN statement can give you additional info about how complex your statement is.</p>
-<h3 id="explain-select">Explain select</h3>
-<pre><code>mysql&gt; explain SELECT *,(rating_sum / rating_count) as average from images where (rating_sum / rating_count) &gt; 20 or rating_count=0 ORDER BY RAND() LIMIT 1 ;
-+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
-| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows   | Extra                                        |
-+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
-|  1 | SIMPLE      | images | ALL  | rating_count  | NULL | NULL    | NULL | 301937 | Using where; Using temporary; Using filesort |
-+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
-1 row in set (0.00 sec)
-</code></pre>
-
-<h1 id="misc">Misc</h1>
-<ul>
-<li>Complete statement with \G for different output format</li>
-<li><code>ERROR 1045 (28000)</code> may be caused by invalid hostname in connect command.  Replace the --host token with the full hostname of the db server.  Or, restart mysql and try again.</li>
-</ul>
-<h1 id="recommended-reading">Recommended reading</h1>
-<ul>
-<li>MySQL (5th Edition) (Developer's Library)</li>
-<li>High Performance MySQL: Optimization, Backups, Replication, and More</li>
-</ul>
-<h1 id="see-also">See Also</h1>
-<ul>
-<li><a href="http://www.sqlalchemy.org/">http://www.sqlalchemy.org/</a> - ORM, better for abstracting database in code</li>
-<li><a href="http://www.mycli.net/">http://www.mycli.net/</a> - A better CLI for MySQL</li>
-</ul>
+                <p>"JSON Web Token (JWT) is an open standard (<a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA." - <a href="https://jwt.io/introduction/">https://jwt.io/introduction/</a></p>
               
             </div>
           </div>
@@ -1409,10 +1165,10 @@ order by (o_height * o_width) limit 10 ;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../namei/" class="btn btn-neutral float-right" title="Namei">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../keel/" class="btn btn-neutral float-right" title="Keel">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../myrepos/" class="btn btn-neutral" title="Myrepos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../jupyter/" class="btn btn-neutral" title="Jupyter"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1438,10 +1194,10 @@ order by (o_height * o_width) limit 10 ;
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../myrepos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../jupyter/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../namei/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../keel/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
