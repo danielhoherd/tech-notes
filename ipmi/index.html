@@ -570,6 +570,8 @@
         
             <li><a class="toctree-l3" href="#how-to-fix-devipmi-errors">How to fix /dev/ipmi errors</a></li>
         
+            <li><a class="toctree-l3" href="#reset-the-admin-password-to-admin-on-a-supermicro-bmc">Reset the ADMIN password to ADMIN on a Supermicro BMC</a></li>
+        
         </ul>
     
 
@@ -1281,6 +1283,10 @@ ipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on
 <pre><code>modprobe ipmi_msghandler
 modprobe ipmi_devintf
 modprobe ipmi_si
+</code></pre>
+
+<h2 id="reset-the-admin-password-to-admin-on-a-supermicro-bmc">Reset the ADMIN password to ADMIN on a Supermicro BMC</h2>
+<pre><code>sudo ipmitool -I open user set password 2 ADMIN
 </code></pre>
 
 <h1 id="see-also">See Also</h1>

@@ -599,6 +599,8 @@
         
             <li><a class="toctree-l3" href="#kubespray">kubespray</a></li>
         
+            <li><a class="toctree-l3" href="#ansible-on-ubuntu-16">Ansible on Ubuntu 16</a></li>
+        
             <li><a class="toctree-l3" href="#manually-on-ubuntu-16">Manually on Ubuntu 16</a></li>
         
         </ul>
@@ -1208,7 +1210,15 @@
 <ul>
 <li><a href="https://github.com/kubernetes-incubator/kubespray">https://github.com/kubernetes-incubator/kubespray</a></li>
 </ul>
+<h2 id="ansible-on-ubuntu-16">Ansible on Ubuntu 16</h2>
+<p><a href="https://github.com/entercloudsuite/ansible-kubernetes">https://github.com/entercloudsuite/ansible-kubernetes</a></p>
+<pre><code>ansible-galaxy install entercloudsuite.kubernetes
+</code></pre>
+
 <h2 id="manually-on-ubuntu-16">Manually on Ubuntu 16</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></li>
+</ul>
 <pre><code>sudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
