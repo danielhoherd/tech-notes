@@ -329,6 +329,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../ethtool/">Ethtool</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../exiftool/">Exiftool</a>
 	    </li>
           
@@ -585,6 +590,8 @@
     <li class="toctree-l2"><a href="#cli-usage">cli usage</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l3" href="#multiple-configs">Multiple configs</a></li>
         
             <li><a class="toctree-l3" href="#kubeadm">kubeadm</a></li>
         
@@ -1186,6 +1193,11 @@
               
                 <p>"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure." - <a href="https://kubernetes.io/docs/whatisk8s">https://kubernetes.io/docs/whatisk8s</a></p>
 <h1 id="cli-usage">cli usage</h1>
+<h2 id="multiple-configs">Multiple configs</h2>
+<p>The default config is <code>~/.kube/config</code>, but if you want to use multiple configs you can do this:</p>
+<pre><code>export KUBECONFIG=&quot;${HOME}/.kube/config:${HOME}/code/kubespray/artifacts/admin.conf&quot;
+</code></pre>
+
 <h2 id="kubeadm">kubeadm</h2>
 <p>"kubeadm: easily bootstrap a secure Kubernetes cluster." - <code>kubeadm --help</code></p>
 <ul>
