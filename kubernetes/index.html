@@ -1195,9 +1195,10 @@
 <h1 id="cli-usage">cli usage</h1>
 <h2 id="multiple-configs">Multiple configs</h2>
 <p>The default config is <code>~/.kube/config</code>, but if you want to use multiple configs you can do this:</p>
-<pre><code>export KUBECONFIG=&quot;${HOME}/.kube/config:${HOME}/code/kubespray/artifacts/admin.conf&quot;
+<pre><code>export KUBECONFIG=&quot;${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config&quot;
 </code></pre>
 
+<p>I have seen weird problems when the order of configs is changed, such as <code>certificate-authority-data</code> and <code>client-certificate-data</code> being missing.</p>
 <h2 id="kubeadm">kubeadm</h2>
 <p>"kubeadm: easily bootstrap a secure Kubernetes cluster." - <code>kubeadm --help</code></p>
 <ul>
@@ -1229,7 +1230,7 @@
 
 <h2 id="manually-on-ubuntu-16">Manually on Ubuntu 16</h2>
 <ul>
-<li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></li>
+<li>First install Docker - <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></li>
 </ul>
 <pre><code>sudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -1241,6 +1242,7 @@ sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 </code></pre>
 
+<p>Then start at <code>kubeadm init</code> on this guide: <a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm</a></li>
