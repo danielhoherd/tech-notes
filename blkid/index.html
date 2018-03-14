@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Blkid - Daniel Hoherd's tech notes</title>
+  <title>blkid - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Blkid";
+    var mkdocs_page_name = "blkid";
     var mkdocs_page_input_path = "blkid.md";
     var mkdocs_page_url = "/blkid/";
   </script>
@@ -54,7 +54,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../3d_printing/">3d printing</a>
+    <a class="" href="../3d_printing/">3D Printing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -64,22 +64,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../airport/">Airport</a>
+    <a class="" href="../airport/">Apple Airport</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+    <a class="" href="../amazon-ec2/">Amazon EC2</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../amazon/">Links</a>
+    <a class="" href="../amazon/">Amazon</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../amiibo/">Amiibo</a>
+    <a class="" href="../amiibo/">Nintendo Amiibo</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -89,7 +89,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../apfs/">Apfs</a>
+    <a class="" href="../apfs/">Apple APFS</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -104,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../atop/">Atop</a>
+    <a class="" href="../atop/">atop</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -114,22 +114,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../awk/">Awk</a>
+    <a class="" href="../awk/">awk</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../awless/">Awless</a>
+    <a class="" href="../awless/">awless</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+    <a class="" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../awscli/">Awscli</a>
+    <a class="" href="../awscli/">Amazon awscli</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -139,17 +139,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../badblocks/">Badblocks</a>
+    <a class="" href="../badblocks/">badblocks</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../bash/">Bash</a>
+    <a class="" href="../bash/">GNU bash</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../bc/">Bc</a>
+    <a class="" href="../bc/">GNU bc</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -159,9 +159,12 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Blkid</a>
+    <a class="current" href="./">blkid</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#blkid">blkid</a></li>
+    
+
     <li class="toctree-l2"><a href="#examples">Examples</a></li>
     
         <ul>
@@ -1164,7 +1167,7 @@
     
       
     
-    <li>Blkid</li>
+    <li>blkid</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1174,7 +1177,8 @@
           <div role="main">
             <div class="section">
               
-                <p>"The blkid program is the command-line interface to working with the libblkid(3) library. It can determine the type of content (e.g. filesystem or swap) that a block device holds, and also attributes (tokens, NAME=value pairs) from the content metadata (e.g. LABEL or UUID fields). blkid has two main forms of operation: either searching for a device with a specific NAME=value pair, or displaying NAME=value pairs for one or more specified devices." - <code>man blkid</code></p>
+                <h1 id="blkid">blkid</h1>
+<p>"The blkid program is the command-line interface to working with the libblkid(3) library. It can determine the type of content (e.g. filesystem or swap) that a block device holds, and also attributes (tokens, NAME=value pairs) from the content metadata (e.g. LABEL or UUID fields). blkid has two main forms of operation: either searching for a device with a specific NAME=value pair, or displaying NAME=value pairs for one or more specified devices." - <code>man blkid</code></p>
 <h1 id="examples">Examples</h1>
 <h2 id="simple-usage">Simple usage</h2>
 <p>Here is the output of <code>blkid</code> on an <a href="../ubuntu">Ubuntu</a> 16.04 <a href="../vagrant">Vagrant</a> box:</p>

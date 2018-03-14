@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Badblocks - Daniel Hoherd's tech notes</title>
+  <title>badblocks - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Badblocks";
+    var mkdocs_page_name = "badblocks";
     var mkdocs_page_input_path = "badblocks.md";
     var mkdocs_page_url = "/badblocks/";
   </script>
@@ -54,7 +54,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../3d_printing/">3d printing</a>
+    <a class="" href="../3d_printing/">3D Printing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -64,22 +64,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../airport/">Airport</a>
+    <a class="" href="../airport/">Apple Airport</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../amazon-ec2/">Amazon ec2</a>
+    <a class="" href="../amazon-ec2/">Amazon EC2</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../amazon/">Links</a>
+    <a class="" href="../amazon/">Amazon</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../amiibo/">Amiibo</a>
+    <a class="" href="../amiibo/">Nintendo Amiibo</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -89,7 +89,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../apfs/">Apfs</a>
+    <a class="" href="../apfs/">Apple APFS</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -104,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../atop/">Atop</a>
+    <a class="" href="../atop/">atop</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -114,22 +114,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../awk/">Awk</a>
+    <a class="" href="../awk/">awk</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../awless/">Awless</a>
+    <a class="" href="../awless/">awless</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../aws-cloudformation/">Aws cloudformation</a>
+    <a class="" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../awscli/">Awscli</a>
+    <a class="" href="../awscli/">Amazon awscli</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -139,9 +139,12 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Badblocks</a>
+    <a class="current" href="./">badblocks</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#badblocks">badblocks</a></li>
+    
+
     <li class="toctree-l2"><a href="#examples">Examples</a></li>
     
         <ul>
@@ -1164,7 +1167,7 @@
     
       
     
-    <li>Badblocks</li>
+    <li>badblocks</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1174,7 +1177,8 @@
           <div role="main">
             <div class="section">
               
-                <p>badblocks is a program to test storage devices for bad blocks. - <a href="https://wiki.archlinux.org/index.php/badblocks">https://wiki.archlinux.org/index.php/badblocks</a></p>
+                <h1 id="badblocks">badblocks</h1>
+<p>badblocks is a program to test storage devices for bad blocks. - <a href="https://wiki.archlinux.org/index.php/badblocks">https://wiki.archlinux.org/index.php/badblocks</a></p>
 <h1 id="examples">Examples</h1>
 <h2 id="destroy-all-data-on-a-disk-while-logging-bad-blocks">Destroy all data on a disk while logging bad blocks</h2>
 <pre><code># -v verbose output writes error info to stderr
@@ -1188,10 +1192,10 @@ badblocks -v -s -w -b 4096 -t random -o ~/sdc.txt /dev/sdc
 
 <h1 id="see-also">See also</h1>
 <ul>
-<li>dcfldd</li>
-<li>dd</li>
-<li>ddrescue</li>
-<li>pv</li>
+<li><a href="../dcfldd">dcfldd</a></li>
+<li><a href="../dd">dd</a></li>
+<li><a href="../ddrescue">ddrescue</a></li>
+<li><a href="../pv">pv</a></li>
 </ul>
               
             </div>
