@@ -5741,6 +5741,16 @@
             "title": "See Also"
         },
         {
+            "location": "/serverless/",
+            "text": "serverless\n\n\n\"Serverless is your toolkit for deploying and operating serverless architectures. Focus on your application, not your infrastructure.\" - \nhttps://serverless.com/",
+            "title": "serverless"
+        },
+        {
+            "location": "/serverless/#serverless",
+            "text": "\"Serverless is your toolkit for deploying and operating serverless architectures. Focus on your application, not your infrastructure.\" -  https://serverless.com/",
+            "title": "serverless"
+        },
+        {
             "location": "/sgdisk/",
             "text": "\"sgdisk - Command-line GUID partition table (GPT) manipulator for Linux and Unix\" - man sgdisk\n\n\nExamples\n\n\nRandomize GUIDs to ensure uniqueness after cloning\n\n\nsgdisk --randomize-guids /dev/sdz\n\n\n\n\nPrint info about partitions on a disk\n\n\nsgdisk -p /dev/sdz\n\n\n\n\nPrint last block number of the largest available section of the disk\n\n\nsgdisk -E /dev/sdz\n\n\n\n\nCreate a new partition\n\n\nThe syntax is partitionNumber:firstBlock:lastBlock\n\n\nsgdisk -n 1:2048:732566636 /dev/sdz\n\n\n\n\nPrint extended info about the first partition on /dev/sda\n\n\nsgdisk -i 1 /dev/sdz\n\n\n\n\nBackup a GUID partition table\n\n\nsgdisk -b ~/sdz_partition_backup /dev/sdz\n\n\n\n\nRestore a GUID partition table\n\n\nsgdisk -l ~/sdz_partition_backup /dev/sdz\n\n\n\n\nCreate a new partition\n\n\nThis creates a 4th partition that is 50G using the default starting point (0 is default)\n\n\nsgdisk /dev/sdz --new=4:0:+50G\n\n\n\n\nDelete the 4th partition\n\n\nsgdisk /dev/sdz -d 4\n\n\n\n\nCreate a new partition number 4 that fills the biggest available section of the disk\n\n\nsgdisk /dev/sdz -N 4\n\n\n\n\nGrab the name of a partition\n\n\n# sloppy, doesn't handle spaces or single quotes\nsgdisk /dev/sdk -i 1 | grep '^Partition name' | awk '{print $NF}' | sed \"s/'//g\"",
             "title": "Sgdisk"
