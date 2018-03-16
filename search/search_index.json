@@ -2172,7 +2172,7 @@
         },
         {
             "location": "/gige-vision/",
-            "text": "GigE Vision\n\n\n\"GigE Vision is an interface standard introduced in 2006 for high-performance industrial cameras. It provides a framework for transmitting high-speed video and related control data over Ethernet networks. The distribution of software or development, manufacture or sale of hardware that implement the standard, require the payment of annual licensing fees.\" - \nhttps://en.wikipedia.org/wiki/GigE_Vision\n\n\nTechnology\n\n\n\n\nGigE Vision Control Protocol (GVCP)\n\n\nGigE Vision Stream Protocol (GVSP)\n\n\nGigE Device Discovery Mechanism",
+            "text": "GigE Vision\n\n\n\"GigE Vision is an interface standard introduced in 2006 for high-performance industrial cameras. It provides a framework for transmitting high-speed video and related control data over Ethernet networks. The distribution of software or development, manufacture or sale of hardware that implement the standard, require the payment of annual licensing fees.\" - \nhttps://en.wikipedia.org/wiki/GigE_Vision\n\n\nTechnology\n\n\n\n\nGigE Vision Control Protocol (GVCP)\n\n\nGigE Vision Stream Protocol (GVSP)\n\n\nGigE Device Discovery Mechanism\n\n\n\n\nSee also\n\n\n\n\nhttp://www.emva.org/standards-technology/genicam/",
             "title": "GigE Vision"
         },
         {
@@ -2184,6 +2184,11 @@
             "location": "/gige-vision/#technology",
             "text": "GigE Vision Control Protocol (GVCP)  GigE Vision Stream Protocol (GVSP)  GigE Device Discovery Mechanism",
             "title": "Technology"
+        },
+        {
+            "location": "/gige-vision/#see-also",
+            "text": "http://www.emva.org/standards-technology/genicam/",
+            "title": "See also"
         },
         {
             "location": "/git/",
