@@ -547,6 +547,14 @@
 
     
     <url>
+     <loc>/gige-vision/</loc>
+     <lastmod>2018-03-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/git/</loc>
      <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
