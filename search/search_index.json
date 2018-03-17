@@ -1447,7 +1447,7 @@
         },
         {
             "location": "/ddrescue/",
-            "text": "\"GNU ddrescue - Data recovery tool.  Copies data from one file or block device to another, trying to rescue the good parts first in case of read errors.\" \u2013 \nman ddrescue\n\n\nThere are actually two tools called ddrescue: dd_rescue and gddrescue.  gddrescue is the best.\n\n\n\n\nSoftware home page - \nhttp://www.gnu.org/software/ddrescue/\n\n\nInstruction Manual - \nhttp://www.gnu.org/software/ddrescue/manual/ddrescue_manual.html\n\n\n\n\nExamples\n\n\nAttempt to mirror an entire hard disk\n\n\nddrescue -f -n --min-read-rate=500000 /dev/source_disk /dev/target_disk ~/ddrescue.log\n\n\n\n\nWipe a hard disk and log bad sectors\n\n\nsudo ddrescue --force /dev/zero /dev/disk/by-id/ata-foo ~/ddrescue-ata-foo.log\n\n\n\n\nAttempt to continue the mirror of a hard disk\n\n\nddrescue -f -n -A /dev/source_disk /dev/target_disk ~/ddrescue.log\n\n\n\n\nWipe the good sectors of a failing disk\n\n\nThis requires a valid rescue log file mapping out the good sectors that were recovered.\n\n\nddrescue --fill=+ --force /dev/zero /dev/bad_drive ~/bad_drive_wipe.log\n\n\n\n\nSee Also\n\n\n\n\ndcfldd\n\n\ndd\n\n\npv",
+            "text": "\"GNU ddrescue - Data recovery tool.  Copies data from one file or block device to another, trying to rescue the good parts first in case of read errors.\" \u2013 \nman ddrescue\n\n\nThere are actually two tools called ddrescue: dd_rescue and gddrescue.  gddrescue is the best.\n\n\n\n\nSoftware home page - \nhttp://www.gnu.org/software/ddrescue/\n\n\nInstruction Manual - \nhttp://www.gnu.org/software/ddrescue/manual/ddrescue_manual.html\n\n\n\n\nExamples\n\n\nAttempt to mirror an entire hard disk\n\n\nddrescue -f -n --min-read-rate=500000 /dev/source_disk /dev/target_disk ~/ddrescue.log\n\n\n\n\nThis uses the minimum read rate to skip sctors that may be bad on the input device.\n\n\nWipe a hard disk and log bad sectors\n\n\nsudo ddrescue --force /dev/zero /dev/disk/by-id/ata-foo ~/ddrescue-ata-foo.log\n\n\n\n\nYou can re-run this exact same command to resume the wipe of a hard disk.\n\n\nAttempt to continue the mirror of a hard disk\n\n\nddrescue -f -n -A /dev/source_disk /dev/target_disk ~/ddrescue.log\n\n\n\n\nWipe the good sectors of a failing disk\n\n\nThis requires a valid rescue log file mapping out the good sectors that were recovered.\n\n\nddrescue --fill=+ --force /dev/zero /dev/bad_drive ~/bad_drive_wipe.log\n\n\n\n\nSee Also\n\n\n\n\ndcfldd\n\n\ndd\n\n\npv",
             "title": "Ddrescue"
         },
         {
@@ -1457,12 +1457,12 @@
         },
         {
             "location": "/ddrescue/#attempt-to-mirror-an-entire-hard-disk",
-            "text": "ddrescue -f -n --min-read-rate=500000 /dev/source_disk /dev/target_disk ~/ddrescue.log",
+            "text": "ddrescue -f -n --min-read-rate=500000 /dev/source_disk /dev/target_disk ~/ddrescue.log  This uses the minimum read rate to skip sctors that may be bad on the input device.",
             "title": "Attempt to mirror an entire hard disk"
         },
         {
             "location": "/ddrescue/#wipe-a-hard-disk-and-log-bad-sectors",
-            "text": "sudo ddrescue --force /dev/zero /dev/disk/by-id/ata-foo ~/ddrescue-ata-foo.log",
+            "text": "sudo ddrescue --force /dev/zero /dev/disk/by-id/ata-foo ~/ddrescue-ata-foo.log  You can re-run this exact same command to resume the wipe of a hard disk.",
             "title": "Wipe a hard disk and log bad sectors"
         },
         {
