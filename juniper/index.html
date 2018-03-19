@@ -581,6 +581,8 @@
         
             <li><a class="toctree-l3" href="#default-credentials">Default credentials</a></li>
         
+            <li><a class="toctree-l3" href="#load-configuration-from-terminal">Load configuration from terminal</a></li>
+        
             <li><a class="toctree-l3" href="#some-example-terminal-buffer">Some example terminal buffer</a></li>
         
         </ul>
@@ -1202,6 +1204,30 @@
 <li>root:<empty></li>
 <li>admin:abc123</li>
 </ul>
+<h2 id="load-configuration-from-terminal">Load configuration from terminal</h2>
+<p>I have experienced errors when pasting into <code>screen /dev/tty.usbserial</code>, but having iTerm2 paste at 256 bytes per second appears to fix them.</p>
+<pre><code>Amnesiac (ttyu0)
+
+login: root
+
+--- JUNOS 13.2X51-D35.3 built 2015-04-09 20:48:22 UTC
+root@:RE:0% cli
+{master:0}
+root&gt; configure
+Entering configuration mode
+Users currently editing the configuration:
+  autodconfig (pid 1291) on since 2018-01-06 17:32:28 UTC
+      exclusive
+
+{master:0}[edit]
+root# load override terminal
+[Type ^D at a new line to end input]
+</code></pre>
+
+<p>Then:
+0. paste your config
+0. press <code>ctrl-d</code>
+0. run <code>commit</code></p>
 <h2 id="some-example-terminal-buffer">Some example terminal buffer</h2>
 <pre><code>login: root
 
