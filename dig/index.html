@@ -1214,6 +1214,10 @@
 <p>This is the most accurate way to get a DNS record as it will appear to anybody else on the internet who has not queried it before, and will show you all the DNS steps involved in the resolution.</p>
 <pre><code>dig +trace yelp.com
 </code></pre>
+
+<p>If this doesn't give you a trace you must specify an alternate DNS server</p>
+<pre><code>dig @8.8.8.8 +trace renovo.auto
+</code></pre>
               
             </div>
           </div>
