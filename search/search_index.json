@@ -4291,6 +4291,11 @@
             "title": "Migration"
         },
         {
+            "location": "/outline/",
+            "text": "\"Journalists need safe access to information to research issues, communicate with sources, and report the news. Outline lets news organizations easily provide their network safer access to the open internet.\" - \nhttps://getoutline.org/\n\n\nOutline is a self hosted VPN that is geared around easy setup.\n\n\n\n\nSource code available at \nhttps://github.com/jigsaw-code",
+            "title": "Outline"
+        },
+        {
             "location": "/pac/",
             "text": "Example pac file\n\n\nThe following pac file will\n\n\n\n\nRedirect all traffic destined to \n192.168.1.0/24\n to a proxy running on \nlocalhost:47000\n, but only if we do not have an ip address in that subnet\n\n\nRedirect all traffic destined to \n172.16.0.0/16\n to a proxy running on \nlocalhost:33001\n\n\nAll other traffic bypasses the proxy.\n\n\n\n\nfunction FindProxyForURL(url, host) {\n  if ((isInNet(host, \"192.168.1.0\", \"255.255.255.0\"))\n  && (! isInNet(myIpAddress(), \"192.168.1.0\", \"255.255.255.0\"))) {\n    return \"SOCKS5 localhost:47000\" ;\n  } else if (isInNet(host, \"172.16.0.0\", \"255.255.0.0\")) {\n    return \"SOCKS5 localhost:33001\" ;\n  } else {\n    return \"DIRECT\" ;\n  }\n}\n\n\n\n\nLinks\n\n\n\n\nhttp://findproxyforurl.com/official-toolset\n\n\nhttps://github.com/pacparser/pacparser",
             "title": "Example pac file"
@@ -4319,6 +4324,11 @@
             "location": "/pandoc/#convert-a-doc-from-mediawiki-to-markdown",
             "text": "pandoc -f mediawiki -t markdown nfs.mediawiki > nfs.md",
             "title": "Convert a doc from mediawiki to markdown"
+        },
+        {
+            "location": "/panopticlick/",
+            "text": "\"Panopticlick will analyze how well your browser and add-ons protect you against online tracking techniques. We\u2019ll also see if your system is uniquely configured\u2014and thus identifiable\u2014even if you are using privacy-protective software.\" - \nhttps://panopticlick.eff.org/",
+            "title": "Panopticlick"
         },
         {
             "location": "/passwords/",

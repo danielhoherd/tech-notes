@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Python - Daniel Hoherd's tech notes</title>
+  <title>Outline - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Python";
-    var mkdocs_page_input_path = "python.md";
-    var mkdocs_page_url = "/python/";
+    var mkdocs_page_name = "Outline";
+    var mkdocs_page_input_path = "outline.md";
+    var mkdocs_page_url = "/outline/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -742,14 +742,17 @@
     <a class="" href="../osx/">Osx</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../outline/">Outline</a>
+    <a class="current" href="./">Outline</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../pac/">Example pac file</a>
+    <a class="" href="../pac/">Pac</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -842,55 +845,9 @@
     <a class="" href="../pv/">Pv</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Python</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#tips-and-techniques">Tips and techniques</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#variable-names">Variable names</a></li>
-        
-            <li><a class="toctree-l3" href="#virtual-environments">Virtual Environments</a></li>
-        
-            <li><a class="toctree-l3" href="#import-module-from-absolute-path">Import module from absolute path</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#debugging">Debugging</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#verbose-environment-var">Verbose environment var</a></li>
-        
-            <li><a class="toctree-l3" href="#follow-the-flow-of-a-python-script">Follow the flow of a python script</a></li>
-        
-            <li><a class="toctree-l3" href="#enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends</a></li>
-        
-            <li><a class="toctree-l3" href="#enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily</a></li>
-        
-            <li><a class="toctree-l3" href="#print-variables-from-the-local-scope">Print variables from the local scope</a></li>
-        
-            <li><a class="toctree-l3" href="#inspect-things">Inspect things</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#various-links">Various links</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#decorator-links">Decorator links</a></li>
-        
-            <li><a class="toctree-l3" href="#modules">Modules</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../python/">Python</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1220,7 +1177,7 @@
     
       
     
-    <li>Python</li>
+    <li>Outline</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1230,143 +1187,10 @@
           <div role="main">
             <div class="section">
               
-                <p>"Python is a programming language that lets you work more quickly and integrate your systems more effectively." - <a href="https://www.python.org/">https://www.python.org/</a></p>
-<h1 id="tips-and-techniques">Tips and techniques</h1>
+                <p>"Journalists need safe access to information to research issues, communicate with sources, and report the news. Outline lets news organizations easily provide their network safer access to the open internet." - <a href="https://getoutline.org/">https://getoutline.org/</a></p>
+<p>Outline is a self hosted VPN that is geared around easy setup.</p>
 <ul>
-<li>Don't use <code>assert</code> statements for regular validation. <code>assert</code> statements can be disabled at the interpreter level, which would vastly change the flow of your code if they were used widespread.</li>
-</ul>
-<h2 id="variable-names">Variable names</h2>
-<ul>
-<li><code>_varname</code> - Semi-private. Basically a convention that developers use to indicate that the scope of a variable is local, but this locality is not enforced by the interpreter.</li>
-<li><code>__varname</code> - Private variable in name, but not in logic or security. The interpreter mangles the name of the var to make it globally unique, but it is still globally accessible.</li>
-<li><code>var_</code> - Used to get around shadowing built-in variable names. EG: <code>list_</code> won't conflict with <code>list()</code></li>
-<li><code>__magic_method__</code> - See <a href="http://www.diveintopython3.net/special-method-names.html">http://www.diveintopython3.net/special-method-names.html</a></li>
-</ul>
-<h2 id="virtual-environments">Virtual Environments</h2>
-<p>Virtual environments isolate your project away from the system's python interpreter and modules, so you can have full control over what code is available to your project. This makes it easy to develop, debug, and deploy to a new system. It's basically always a good idea to use a virtual environment. You will thank yourself later by learning this one up front.</p>
-<h3 id="virtual-environments-using-venv">Virtual environments using venv</h3>
-<h4 id="creating-a-venv">Creating a venv</h4>
-<pre><code>echo &quot;venv&quot; &gt;&gt; .gitignore
-virtualenv venv
-. venv/bin/activate
-pip install requests
-pip freeze &gt; requirements.txt
-# write code, interact with it, whatever
-deactivate
-</code></pre>
-
-<h4 id="recreating-a-venv">Recreating a venv</h4>
-<pre><code>virtualenv venv
-. venv/bin/activate
-pip install -r requirements.txt
-# write code, interact with it, whatever
-deactivate
-</code></pre>
-
-<h4 id="use-venv-to-work-around-missing-pip">Use venv to work around missing pip</h4>
-<p>This is mostly useful for installing for your user, since if you can't install pip you won't be able to install into system-wide locations.</p>
-<pre><code>virtualenv venv --system-site-packages &amp;&amp; venv/bin/pip install --user $PACKAGENAME &amp;&amp; rm -rf venv
-</code></pre>
-
-<h3 id="virtual-environments-with-pipenv">Virtual environments with pipenv</h3>
-<p>"Pipenv — the officially recommended Python packaging tool from Python.org, free (as in freedom). Pipenv is a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world. Windows is a first–class citizen, in our world." - <a href="https://docs.pipenv.org">https://docs.pipenv.org</a></p>
-<p><code>pipenv</code> is the new-school 2017 way of doing virtual environments. pipenv creates a file called <code>Pipfile</code> whenever you install packages using the <code>pipenv</code> command. Once you have created a pipenv for the CWD, any subdirs will use that pipenv and not create new environments when you issue pipenv commands. This is a more robust system, but as of 2017 is not widely used.</p>
-<p>When using pipenv, any packages using <code>pip install</code> are not included in the virtual environment. You must use <code>pipenv install</code>.</p>
-<h4 id="creating-a-virtual-environment-using-pipenv">Creating a virtual environment using pipenv</h4>
-<pre><code>cd project_dir
-pipenv --three  # to create a python 3 virtual environment
-pipenv install bpython boto3
-pipenv shell  # this spawns a subshell with the new python environment
-# interact with your python environment
-exit
-</code></pre>
-
-<h4 id="recreate-a-pipenv">Recreate a pipenv</h4>
-<pre><code>cd project_dir
-pipenv shell  # This automatically enforces the environment described in Pipfile
-# interact with your python environment
-exit
-</code></pre>
-
-<h2 id="import-module-from-absolute-path">Import module from absolute path</h2>
-<pre><code>sys.path.append('/Users/username/code/somedir')
-import module # from somedir
-</code></pre>
-
-<h1 id="debugging">Debugging</h1>
-<h2 id="verbose-environment-var">Verbose environment var</h2>
-<p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE</a></p>
-<pre><code>export PYTHONVERBOSE=1
-# or...
-python -v pip search beets
-</code></pre>
-
-<h2 id="follow-the-flow-of-a-python-script">Follow the flow of a python script</h2>
-<p>This is equivalent to <code>bash -x</code> / <code>bash -o xtrace</code>, but is probably even more useful because it prefixes the name of the file and the line number to what is actually being executed, which aids in debugging large projects.</p>
-<pre><code>python -m trace --trace foo.py
-</code></pre>
-
-<h2 id="enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends</h2>
-<p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT</a></p>
-<p>This works when your code causes an exception, but none of your code will actually be executed, you will simply be dropped into a shell, which is not very useful.</p>
-<pre><code>export PYTHONINSPECT=1
-# or...
-sudo python -i ./ps_mem.py
-</code></pre>
-
-<h2 id="enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily</h2>
-<p><a href="https://docs.python.org/3/library/pdb.html">https://docs.python.org/3/library/pdb.html</a></p>
-<pre><code>import pdb; pdb.set_trace()
-</code></pre>
-
-<p>After inspecting...</p>
-<pre><code>continue
-</code></pre>
-
-<h2 id="print-variables-from-the-local-scope">Print variables from the local scope</h2>
-<pre><code>for var in dir():
-    print &quot;Debug: {0} = {1}&quot;.format(var,eval(var))
-</code></pre>
-
-<h2 id="inspect-things">Inspect things</h2>
-<pre><code>&gt;&gt;&gt; import inspect
-&gt;&gt;&gt; inspect.getargspec(inspect.getargspec)
-ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
-</code></pre>
-
-<h1 id="various-links">Various links</h1>
-<ul>
-<li><a href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks">A gallery of interesting Jupyter and IPython Notebooks</a></li>
-<li><a href="http://nicolas.kruchten.com/content/2015/09/jupyter_pivottablejs/">Drag'n'drop Pivot Tables and Charts in Jupyter</a></li>
-<li><a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">Code Like a Pythonista: Idiomatic Python</a></li>
-<li><a href="http://www.diveintopython3.net/">Dive Into Python 3</a></li>
-<li><a href="https://developers.google.com/edu/python/?csw=1">Google's Python Class</a></li>
-<li><a href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a></li>
-<li><a href="http://interactivepython.org/courselib/static/thinkcspy/index.html">How to Think Like a Computer Scientist</a> - iPython notebook on python data science</li>
-<li><a href="http://ivory.idyll.org/articles/advanced-swc/">Intermediate and Advanced Software Carpentry in Python</a></li>
-<li><a href="http://www.learnpython.org/">Learn Python dot org</a></li>
-<li><a href="https://www.pythonsheets.com">Python Cheatsheets</a></li>
-<li><a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">The Flask Mega-Tutorial</a></li>
-<li><a href="http://norvig.com/python-iaq.html">The Python IAQ: Infrequently Answered Questions</a></li>
-<li><a href="http://halfcooked.com/presentations/pyconau2013/why_I_use_pytest.html">Why I use py.test and you probably should too</a></li>
-<li><a href="https://www.youtube.com/channel/UCrJhliKNQ8g0qoE_zvL8eVg">PyCon 2017 videos</a></li>
-</ul>
-<h2 id="decorator-links">Decorator links</h2>
-<ul>
-<li><a href="https://wiki.python.org/moin/PythonDecoratorLibrary">https://wiki.python.org/moin/PythonDecoratorLibrary</a></li>
-<li><a href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484">http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484</a></li>
-<li><a href="http://ains.co/blog/things-which-arent-magic-flask-part-1.html">http://ains.co/blog/things-which-arent-magic-flask-part-1.html</a></li>
-</ul>
-<h2 id="modules">Modules</h2>
-<ul>
-<li><a href="https://github.com/jonathanslenders/ptpython">https://github.com/jonathanslenders/ptpython</a> - improved python REPL</li>
-<li><a href="https://docs.python.org/3/library/sched.html">https://docs.python.org/3/library/sched.html</a> - cross-platform cron-like scheduler</li>
-<li><a href="https://pypi.python.org/pypi/colorama">https://pypi.python.org/pypi/colorama</a> - cross-platform colorized terminal output</li>
-<li><a href="https://pypi.python.org/pypi/begins/">https://pypi.python.org/pypi/begins/</a> - Simplified CLI arguments</li>
-<li><a href="https://pypi.python.org/pypi/watchdog">https://pypi.python.org/pypi/watchdog</a> - cross-platform filesystem events API</li>
-<li><a href="https://github.com/giampaolo/psutil/">https://github.com/giampaolo/psutil/</a> - system information</li>
-<li><a href="https://github.com/timothycrosley/hug">https://github.com/timothycrosley/hug</a> - simplified web API creation</li>
-<li><a href="http://python-future.org">http://python-future.org</a> - "python-future is the missing compatibility layer between Python 2 and Python 3. It allows you to use a single, clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead."</li>
+<li>Source code available at <a href="https://github.com/jigsaw-code">https://github.com/jigsaw-code</a></li>
 </ul>
               
             </div>
@@ -1375,10 +1199,10 @@ ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../q/" class="btn btn-neutral float-right" title="Q">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pac/" class="btn btn-neutral float-right" title="Pac">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../pv/" class="btn btn-neutral" title="Pv"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../osx/" class="btn btn-neutral" title="Osx"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1404,10 +1228,10 @@ ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../pv/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../osx/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../q/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../pac/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
