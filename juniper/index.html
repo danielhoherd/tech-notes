@@ -585,6 +585,8 @@
         
             <li><a class="toctree-l3" href="#some-example-terminal-buffer">Some example terminal buffer</a></li>
         
+            <li><a class="toctree-l3" href="#ex4300-os-install">EX4300 OS install</a></li>
+        
         </ul>
     
 
@@ -1290,6 +1292,17 @@ root# show chassis
 auto-image-upgrade;
 
 {master:0}[edit]
+</code></pre>
+
+<h2 id="ex4300-os-install">EX4300 OS install</h2>
+<ul>
+<li><a href="https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB20551&amp;cat=SWITCHING&amp;actp=LIST#USB">https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB20551&amp;cat=SWITCHING&amp;actp=LIST#USB</a></li>
+</ul>
+<p>After copying the install image to a usb disk and inserting it into the EX4300</p>
+<pre><code>mount_msdosfs /dev/da1s1 /mnt
+cp /mnt/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz /var/tmp/
+cli
+request system software add /var/tmp/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz
 </code></pre>
 
 <h1 id="links">Links</h1>
