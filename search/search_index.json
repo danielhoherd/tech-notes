@@ -2511,6 +2511,21 @@
             "title": "Branch cleanup"
         },
         {
+            "location": "/gitlab/",
+            "text": "Gitlab\n\n\n\"GitLab is a web-based Git-repository manager with wiki and issue-tracking features, using an open-source license, developed by GitLab Inc.\" - \nhttps://en.wikipedia.org/wiki/GitLab\n\n\nLinks\n\n\n\n\nhttps://docs.gitlab.com/omnibus/settings/configuration.html",
+            "title": "Gitlab"
+        },
+        {
+            "location": "/gitlab/#gitlab",
+            "text": "\"GitLab is a web-based Git-repository manager with wiki and issue-tracking features, using an open-source license, developed by GitLab Inc.\" -  https://en.wikipedia.org/wiki/GitLab",
+            "title": "Gitlab"
+        },
+        {
+            "location": "/gitlab/#links",
+            "text": "https://docs.gitlab.com/omnibus/settings/configuration.html",
+            "title": "Links"
+        },
+        {
             "location": "/gitolite/",
             "text": "\"Gitolite allows you to setup git hosting on a central server, with fine-grained access control and many more powerful features.\" - \nhttp://gitolite.com\n\n\nExamples\n\n\nGet info about available repositories\n\n\nssh git@gitserver info",
             "title": "Gitolite"
@@ -2642,7 +2657,7 @@
         },
         {
             "location": "/grub/",
-            "text": "\"GNU GRUB is a Multiboot boot loader. It was derived from GRUB, the GRand Unified Bootloader, which was originally designed and implemented by Erich Stefan Boleyn.\" - \nhttps://www.gnu.org/software/grub/\n\n\nExamples\n\n\nDisable onboard frame buffer\n\n\nI used this configuration to get text mode linux to boot on a Mac Mini with a bad graphics card that would not load a desktop environment. The machine was locking up at boot in OS X. Hardware test would boot with a striped color anomalies, but would never finish. Ubuntu Xenial would not boot correctly even to text mode without these settings.\n\n\nIn \n/etc/default/grub\n:\n\n\nGRUB_CMDLINE_LINUX_DEFAULT=\"video=vesafb:off nofb vga=normal nomodeset\"\n\n\n\n\nNotable commands, files and dirs\n\n\n\n\n/boot/grub/grub.cfg\n - The grub config that is actually used at boot\n\n\n/etc/grub.d\n - A directory with some of the configs that are combined to create /boot/grub/grub.cfg\n\n\n/etc/default/grub\n - Default grub options\n\n\nupdate-grub\n - Used to regenerate \n/boot/grub/grub.cfg\n\n\ngrub-set-default\n - Used to configure the default menu entry during reboot, only for bare metal machines\n\n\ngrub-set-default-legacy-ec2\n - Used to configure the default menu entry on ec2 machines grub-set-default-legacy-ec2",
+            "text": "\"GNU GRUB is a Multiboot boot loader. It was derived from GRUB, the GRand Unified Bootloader, which was originally designed and implemented by Erich Stefan Boleyn.\" - \nhttps://www.gnu.org/software/grub/\n\n\nExamples\n\n\nDisable onboard frame buffer\n\n\nI used this configuration to get text mode linux to boot on a Mac Mini with a bad graphics card that would not load a desktop environment. The machine was locking up at boot in OS X. Hardware test would boot with a striped color anomalies, but would never finish. Ubuntu Xenial would not boot correctly even to text mode without these settings.\n\n\nIn \n/etc/default/grub\n:\n\n\nGRUB_CMDLINE_LINUX_DEFAULT=\"video=vesafb:off nofb vga=normal nomodeset\"\n\n\n\n\nPlay a tune when reaching the grub menu\n\n\n# Super Mario mushroom powerup\nGRUB_INIT_TUNE=\"1750 523 1 392 1 523 1 659 1 784 1 1047 1 784 1 415 1 523 1 622 1 831 1 622 1 831 1 1046 1 1244 1 1661 1 1244 1 466 1 587 1 698 1 932 1 1195 1 1397 1 1865 1 1397 1\"\n\n\n\n\nYou can test these tunes from within linux:\n\n\nexport GRUB_INIT_TUNE=\"220 900 2 1000 2 800 2 400 2 600 3\"\ngrub-init-tune\n\n\n\n\nNotable commands, files and dirs\n\n\n\n\n/boot/grub/grub.cfg\n - The grub config that is actually used at boot\n\n\n/etc/grub.d\n - A directory with some of the configs that are combined to create /boot/grub/grub.cfg\n\n\n/etc/default/grub\n - Default grub options\n\n\nupdate-grub\n - Used to regenerate \n/boot/grub/grub.cfg\n\n\ngrub-set-default\n - Used to configure the default menu entry during reboot, only for bare metal machines\n\n\ngrub-set-default-legacy-ec2\n - Used to configure the default menu entry on ec2 machines grub-set-default-legacy-ec2",
             "title": "Grub"
         },
         {
@@ -2654,6 +2669,11 @@
             "location": "/grub/#disable-onboard-frame-buffer",
             "text": "I used this configuration to get text mode linux to boot on a Mac Mini with a bad graphics card that would not load a desktop environment. The machine was locking up at boot in OS X. Hardware test would boot with a striped color anomalies, but would never finish. Ubuntu Xenial would not boot correctly even to text mode without these settings.  In  /etc/default/grub :  GRUB_CMDLINE_LINUX_DEFAULT=\"video=vesafb:off nofb vga=normal nomodeset\"",
             "title": "Disable onboard frame buffer"
+        },
+        {
+            "location": "/grub/#play-a-tune-when-reaching-the-grub-menu",
+            "text": "# Super Mario mushroom powerup\nGRUB_INIT_TUNE=\"1750 523 1 392 1 523 1 659 1 784 1 1047 1 784 1 415 1 523 1 622 1 831 1 622 1 831 1 1046 1 1244 1 1661 1 1244 1 466 1 587 1 698 1 932 1 1195 1 1397 1 1865 1 1397 1\"  You can test these tunes from within linux:  export GRUB_INIT_TUNE=\"220 900 2 1000 2 800 2 400 2 600 3\"\ngrub-init-tune",
+            "title": "Play a tune when reaching the grub menu"
         },
         {
             "location": "/grub/#notable-commands-files-and-dirs",
@@ -3242,13 +3262,18 @@
         },
         {
             "location": "/juniper/",
-            "text": "Juniper\n\n\n\"We bring simplicity to networking with products, solutions, and services that connect the world.\" - \nhttps://www.juniper.net/us/en/company/\n\n\nExamples\n\n\nDefault credentials\n\n\n\n\nroot:\n\n\nadmin:abc123\n\n\n\n\nLoad configuration from terminal\n\n\nI have experienced errors when pasting into \nscreen /dev/tty.usbserial\n, but having iTerm2 paste at 256 bytes per second appears to fix them.\n\n\nAmnesiac (ttyu0)\n\nlogin: root\n\n--- JUNOS 13.2X51-D35.3 built 2015-04-09 20:48:22 UTC\nroot@:RE:0% cli\n{master:0}\nroot> configure\nEntering configuration mode\nUsers currently editing the configuration:\n  autodconfig (pid 1291) on since 2018-01-06 17:32:28 UTC\n      exclusive\n\n{master:0}[edit]\nroot# load override terminal\n[Type ^D at a new line to end input]\n\n\n\n\nThen:\n0. paste your config\n0. press \nctrl-d\n\n0. run \ncommit\n\n\nSome example terminal buffer\n\n\nlogin: root\n\n--- JUNOS 13.2X51-D35.3 built 2015-04-09 20:48:22 UTC\nroot@:RE:0% cli\n{master:0}\nroot> set cli screen-length 75\nScreen length set to 75\n\n{master:0}\nroot> configure\nEntering configuration mode\n\n{master:0}[edit]\nroot# show ?\nPossible completions:\n  <[Enter]>            Execute this command\n> access               Network access configuration\n> access-profile       Access profile for this instance\n> accounting-options   Accounting data configuration\n+ apply-groups         Groups from which to inherit configuration data\n> chassis              Chassis configuration\n> class-of-service     Class-of-service configuration\n> diameter             Diameter protocol layer\n> event-options        Event processing configuration\n> firewall             Define a firewall configuration\n> forwarding-options   Configure options to control packet forwarding\n> groups               Configuration groups\n> interfaces           Interface configuration\n> jsrc                 JSRC partition configuration\n> jsrc-partition       JSRC partition configuration\n> multi-chassis\n> multicast-snooping-options  Multicast snooping option configuration\n> poe                  Power-over-Ethernet options\n> policy-options       Policy option configuration\n> protocols            Routing protocol configuration\n> routing-instances    Routing instance configuration\n> routing-options      Protocol-independent routing option configuration\n> security             Security configuration\n> services             System services\n> snmp                 Simple Network Management Protocol configuration\n> switch-options       Options for default routing-instance of type virtual-switch\n> system               System parameters\n> unified-edge\n> virtual-chassis      Virtual chassis configuration\n> vlans                VLAN configuration\n  |                    Pipe through a command\n{master:0}[edit]\nroot# show chassis\nauto-image-upgrade;\n\n{master:0}[edit]\n\n\n\n\nEX4300 OS install\n\n\n\n\nhttps://kb.juniper.net/InfoCenter/index?page=content&id=KB20551&cat=SWITCHING&actp=LIST#USB\n\n\n\n\nAfter copying the install image to a usb disk and inserting it into the EX4300\n\n\nmount_msdosfs /dev/da1s1 /mnt\ncp /mnt/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz /var/tmp/\ncli\nrequest system software add /var/tmp/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz\n\n\n\n\nLinks\n\n\n\n\nhttps://www.juniper.net/documentation/en_US/junos/topics/concept/junos-cli-overview.html",
+            "text": "Juniper\n\n\n\"We bring simplicity to networking with products, solutions, and services that connect the world.\" - \nhttps://www.juniper.net/us/en/company/\n\n\nInterface Names\n\n\nhttps://www.juniper.net/documentation/en_US/junos/topics/concept/interfaces-interface-naming-overview.html\n\n\n\n\nae: Aggregated Ethernet interface\n\n\neg: 100-Gigabit Ethernet interfaces\n\n\nge: Gigabit Ethernet interface\n\n\nxe: 10-Gigabit Ethernet interface\n\n\n\n\nExamples\n\n\nDefault credentials\n\n\n\n\nroot:\n\n\nadmin:abc123\n\n\n\n\nLoad configuration from terminal\n\n\nI have experienced errors when pasting into \nscreen /dev/tty.usbserial\n, but having iTerm2 paste at 256 bytes per second appears to fix them.\n\n\nAmnesiac (ttyu0)\n\nlogin: root\n\n--- JUNOS 13.2X51-D35.3 built 2015-04-09 20:48:22 UTC\nroot@:RE:0% cli\n{master:0}\nroot> configure\nEntering configuration mode\nUsers currently editing the configuration:\n  autodconfig (pid 1291) on since 2018-01-06 17:32:28 UTC\n      exclusive\n\n{master:0}[edit]\nroot# load override terminal\n[Type ^D at a new line to end input]\n\n\n\n\nThen:\n0. paste your config\n0. press \nctrl-d\n\n0. run \ncommit\n\n\nSome example terminal buffer\n\n\nlogin: root\n\n--- JUNOS 13.2X51-D35.3 built 2015-04-09 20:48:22 UTC\nroot@:RE:0% cli\n{master:0}\nroot> set cli screen-length 75\nScreen length set to 75\n\n{master:0}\nroot> configure\nEntering configuration mode\n\n{master:0}[edit]\nroot# show ?\nPossible completions:\n  <[Enter]>            Execute this command\n> access               Network access configuration\n> access-profile       Access profile for this instance\n> accounting-options   Accounting data configuration\n+ apply-groups         Groups from which to inherit configuration data\n> chassis              Chassis configuration\n> class-of-service     Class-of-service configuration\n> diameter             Diameter protocol layer\n> event-options        Event processing configuration\n> firewall             Define a firewall configuration\n> forwarding-options   Configure options to control packet forwarding\n> groups               Configuration groups\n> interfaces           Interface configuration\n> jsrc                 JSRC partition configuration\n> jsrc-partition       JSRC partition configuration\n> multi-chassis\n> multicast-snooping-options  Multicast snooping option configuration\n> poe                  Power-over-Ethernet options\n> policy-options       Policy option configuration\n> protocols            Routing protocol configuration\n> routing-instances    Routing instance configuration\n> routing-options      Protocol-independent routing option configuration\n> security             Security configuration\n> services             System services\n> snmp                 Simple Network Management Protocol configuration\n> switch-options       Options for default routing-instance of type virtual-switch\n> system               System parameters\n> unified-edge\n> virtual-chassis      Virtual chassis configuration\n> vlans                VLAN configuration\n  |                    Pipe through a command\n{master:0}[edit]\nroot# show chassis\nauto-image-upgrade;\n\n{master:0}[edit]\n\n\n\n\nEX4300 OS install\n\n\n\n\nhttps://kb.juniper.net/InfoCenter/index?page=content&id=KB20551&cat=SWITCHING&actp=LIST#USB\n\n\n\n\nAfter copying the install image to a usb disk and inserting it into the EX4300\n\n\nmount_msdosfs /dev/da1s1 /mnt\ncp /mnt/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz /var/tmp/\ncli\nrequest system software add /var/tmp/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz\n\n\n\n\nLinks\n\n\n\n\nhttps://www.juniper.net/documentation/en_US/junos/topics/concept/junos-cli-overview.html",
             "title": "Juniper"
         },
         {
             "location": "/juniper/#juniper",
             "text": "\"We bring simplicity to networking with products, solutions, and services that connect the world.\" -  https://www.juniper.net/us/en/company/",
             "title": "Juniper"
+        },
+        {
+            "location": "/juniper/#interface-names",
+            "text": "https://www.juniper.net/documentation/en_US/junos/topics/concept/interfaces-interface-naming-overview.html   ae: Aggregated Ethernet interface  eg: 100-Gigabit Ethernet interfaces  ge: Gigabit Ethernet interface  xe: 10-Gigabit Ethernet interface",
+            "title": "Interface Names"
         },
         {
             "location": "/juniper/#examples",
@@ -4082,13 +4107,18 @@
         },
         {
             "location": "/networking/",
-            "text": "Links\n\n\n\n\nhttps://en.wikipedia.org/wiki/Reserved_IP_addresses\n\n\n\n\nSee also\n\n\n\n\nbind\n - DNS server\n\n\niftop\n - interface top\n\n\nip\n command for linux\n\n\niperf\n - network performance testing\n\n\niptables\n - linux firewall\n\n\nlinksys\n - soho network hardware vendor\n\n\nnetgear\n - network hardware vendor\n\n\nnetworksetup\n - Mac OSX configuration tool for network settings in System Preferences\n\n\nntop\n - network top\n\n\nOSI model\n - The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to its underlying internal structure and technology.\n\n\npac\n - dynamic proxy configuration\n\n\nprocurve\n - HP managed networking",
+            "text": "Links\n\n\n\n\nhttps://en.wikipedia.org/wiki/Reserved_IP_addresses\n\n\n\n\nSwitching architecture\n\n\nhttp://searchnetworking.techtarget.com/feature/What-are-data-center-class-switches\n\n\nThree tiers of switches:\n- Core Switches: High speed switching. Only talk to other Core Switches, typically over fiber optic links >= 10G.\n- Distribution Switches: Policy based switching. Connects the Core and Access tiers together, Access Switches to other Access Switches, and performs QoS, policy based packet forwarding and firewalling. Typically fiber optic >= 10G.\n- Access Switches: End user connectivity, high density ethernet. Supports port-based policies, PoE. Typically 1G ethernet with fiber optic uplinks.\n\n\nSee also\n\n\n\n\nbind\n - DNS server\n\n\niftop\n - interface top\n\n\nip\n command for linux\n\n\niperf\n - network performance testing\n\n\niptables\n - linux firewall\n\n\nlinksys\n - soho network hardware vendor\n\n\nnetgear\n - network hardware vendor\n\n\nnetworksetup\n - Mac OSX configuration tool for network settings in System Preferences\n\n\nntop\n - network top\n\n\nOSI model\n - The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to its underlying internal structure and technology.\n\n\npac\n - dynamic proxy configuration\n\n\nprocurve\n - HP managed networking",
             "title": "Links"
         },
         {
             "location": "/networking/#links",
             "text": "https://en.wikipedia.org/wiki/Reserved_IP_addresses",
             "title": "Links"
+        },
+        {
+            "location": "/networking/#switching-architecture",
+            "text": "http://searchnetworking.techtarget.com/feature/What-are-data-center-class-switches  Three tiers of switches:\n- Core Switches: High speed switching. Only talk to other Core Switches, typically over fiber optic links >= 10G.\n- Distribution Switches: Policy based switching. Connects the Core and Access tiers together, Access Switches to other Access Switches, and performs QoS, policy based packet forwarding and firewalling. Typically fiber optic >= 10G.\n- Access Switches: End user connectivity, high density ethernet. Supports port-based policies, PoE. Typically 1G ethernet with fiber optic uplinks.",
+            "title": "Switching architecture"
         },
         {
             "location": "/networking/#see-also",
@@ -6922,13 +6952,23 @@
         },
         {
             "location": "/ubuntu/",
-            "text": "Versions overview\n\n\n\n\n\n\n\n\nCodename\n\n\nUbuntu Version\n\n\nEOL\n\n\nInit\n\n\nRuby\n\n\nPython\n\n\nbash\n\n\n\n\n\n\n\n\n\n\nZesty\n\n\n17.04\n\n\n2018-01\n\n\nsystemd\n\n\n\n\n\n\n\n\n\n\n\n\nYakkety\n\n\n16.10\n\n\n2017-07\n\n\nsystemd\n\n\n\n\n\n\n\n\n\n\n\n\nXenial\n\n\n16.04 LTS\n\n\n2021-04\n\n\nsystemd\n\n\n\n\n2.7.12 / 3.5\n\n\n4.3.46\n\n\n\n\n\n\nTrusty\n\n\n14.04 LTS\n\n\n2019-04\n\n\nUpstart\n\n\n1.9.3\n\n\n2.7.6\n\n\n4.3.11\n\n\n\n\n\n\nPrecise\n\n\n12.04 LTS\n\n\n2017-04\n\n\nUpstart\n\n\n1.8.7\n\n\n\n\n\n\n\n\n\n\nLucid\n\n\n10.04 LTS\n\n\n2015-04\n\n\nUpstart\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinks\n\n\n\n\nUbuntu Kernel Support and Schedules\n\n\nList of releases",
+            "text": "Versions overview\n\n\n\n\n\n\n\n\nCodename\n\n\nUbuntu Version\n\n\nEOL\n\n\nInit\n\n\nRuby\n\n\nPython\n\n\nbash\n\n\n\n\n\n\n\n\n\n\nZesty\n\n\n17.04\n\n\n2018-01\n\n\nsystemd\n\n\n\n\n\n\n\n\n\n\n\n\nYakkety\n\n\n16.10\n\n\n2017-07\n\n\nsystemd\n\n\n\n\n\n\n\n\n\n\n\n\nXenial\n\n\n16.04 LTS\n\n\n2021-04\n\n\nsystemd\n\n\n\n\n2.7.12 / 3.5\n\n\n4.3.46\n\n\n\n\n\n\nTrusty\n\n\n14.04 LTS\n\n\n2019-04\n\n\nUpstart\n\n\n1.9.3\n\n\n2.7.6\n\n\n4.3.11\n\n\n\n\n\n\nPrecise\n\n\n12.04 LTS\n\n\n2017-04\n\n\nUpstart\n\n\n1.8.7\n\n\n\n\n\n\n\n\n\n\nLucid\n\n\n10.04 LTS\n\n\n2015-04\n\n\nUpstart\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTips\n\n\nValidate the /etc/network/interfaces file\n\n\nIf this works it will print out a series of commands that would be run to configure the interfaces. If it fails it will tell you some information about the failure.\n\n\nsudo ifup --no-act eth0\n\n\n\n\nLinks\n\n\n\n\nUbuntu Kernel Support and Schedules\n\n\nList of releases",
             "title": "Versions overview"
         },
         {
             "location": "/ubuntu/#versions-overview",
             "text": "Codename  Ubuntu Version  EOL  Init  Ruby  Python  bash      Zesty  17.04  2018-01  systemd       Yakkety  16.10  2017-07  systemd       Xenial  16.04 LTS  2021-04  systemd   2.7.12 / 3.5  4.3.46    Trusty  14.04 LTS  2019-04  Upstart  1.9.3  2.7.6  4.3.11    Precise  12.04 LTS  2017-04  Upstart  1.8.7      Lucid  10.04 LTS  2015-04  Upstart",
             "title": "Versions overview"
+        },
+        {
+            "location": "/ubuntu/#tips",
+            "text": "",
+            "title": "Tips"
+        },
+        {
+            "location": "/ubuntu/#validate-the-etcnetworkinterfaces-file",
+            "text": "If this works it will print out a series of commands that would be run to configure the interfaces. If it fails it will tell you some information about the failure.  sudo ifup --no-act eth0",
+            "title": "Validate the /etc/network/interfaces file"
         },
         {
             "location": "/ubuntu/#links",

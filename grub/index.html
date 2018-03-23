@@ -399,6 +399,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../gitlab/">Gitlab</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../gitolite/">Gitolite</a>
 	    </li>
           
@@ -447,6 +452,8 @@
         <ul>
         
             <li><a class="toctree-l3" href="#disable-onboard-frame-buffer">Disable onboard frame buffer</a></li>
+        
+            <li><a class="toctree-l3" href="#play-a-tune-when-reaching-the-grub-menu">Play a tune when reaching the grub menu</a></li>
         
         </ul>
     
@@ -1205,6 +1212,16 @@
 <p>I used this configuration to get text mode linux to boot on a Mac Mini with a bad graphics card that would not load a desktop environment. The machine was locking up at boot in OS X. Hardware test would boot with a striped color anomalies, but would never finish. Ubuntu Xenial would not boot correctly even to text mode without these settings.</p>
 <p>In <code>/etc/default/grub</code>:</p>
 <pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;video=vesafb:off nofb vga=normal nomodeset&quot;
+</code></pre>
+
+<h2 id="play-a-tune-when-reaching-the-grub-menu">Play a tune when reaching the grub menu</h2>
+<pre><code># Super Mario mushroom powerup
+GRUB_INIT_TUNE=&quot;1750 523 1 392 1 523 1 659 1 784 1 1047 1 784 1 415 1 523 1 622 1 831 1 622 1 831 1 1046 1 1244 1 1661 1 1244 1 466 1 587 1 698 1 932 1 1195 1 1397 1 1865 1 1397 1&quot;
+</code></pre>
+
+<p>You can test these tunes from within linux:</p>
+<pre><code>export GRUB_INIT_TUNE=&quot;220 900 2 1000 2 800 2 400 2 600 3&quot;
+grub-init-tune
 </code></pre>
 
 <h1 id="notable-commands-files-and-dirs">Notable commands, files and dirs</h1>
