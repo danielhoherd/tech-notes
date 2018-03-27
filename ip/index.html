@@ -399,11 +399,6 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../gitlab/">Gitlab</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../gitolite/">Gitolite</a>
 	    </li>
           
@@ -542,6 +537,8 @@
             <li><a class="toctree-l3" href="#show-interfaces-that-would-route-to-a-given-network-address">Show interfaces that would route to a given network address</a></li>
         
             <li><a class="toctree-l3" href="#show-negotiated-speeds-for-all-interfaces">Show negotiated speeds for all interfaces</a></li>
+        
+            <li><a class="toctree-l3" href="#set-mtu-for-a-specific-route">Set MTU for a specific route</a></li>
         
         </ul>
     
@@ -1240,6 +1237,13 @@
 <pre><code>ip -o link show | awk -F: '{print $2}' | while read -r X ; do
   sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo
 done | column -t -s:
+</code></pre>
+
+<h2 id="set-mtu-for-a-specific-route">Set MTU for a specific route</h2>
+<ul>
+<li><a href="http://lartc.org/howto/lartc.cookbook.mtu-discovery.html">http://lartc.org/howto/lartc.cookbook.mtu-discovery.html</a></li>
+</ul>
+<pre><code>ip route add default via 10.0.0.1 mtu 296
 </code></pre>
               
             </div>

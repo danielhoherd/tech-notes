@@ -90,6 +90,17 @@
     <li class="toctree-l2"><a href="#ansible">Ansible</a></li>
     
 
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#run-a-playbook-and-prompt-for-sudo-password">Run a playbook and prompt for sudo password</a></li>
+        
+            <li><a class="toctree-l3" href="#validate-and-inspect-your-inventory-file">Validate and inspect your inventory file</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -401,11 +412,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="../git/">Git</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gitlab/">Gitlab</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1204,6 +1210,14 @@
 <li><a href="http://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1">http://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1</a></li>
 <li><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/">http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/</a></li>
 </ul>
+<h1 id="examples">Examples</h1>
+<h2 id="run-a-playbook-and-prompt-for-sudo-password">Run a playbook and prompt for sudo password</h2>
+<pre><code>ansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml
+</code></pre>
+
+<h2 id="validate-and-inspect-your-inventory-file">Validate and inspect your inventory file</h2>
+<pre><code>ansible-inventory -i inventory/hosts.yml --list
+</code></pre>
               
             </div>
           </div>

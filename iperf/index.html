@@ -399,11 +399,6 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../gitlab/">Gitlab</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../gitolite/">Gitolite</a>
 	    </li>
           
@@ -533,6 +528,15 @@
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    <li class="toctree-l2"><a href="#example-usage">Example usage</a></li>
+    
+
+    <li class="toctree-l2"><a href="#example-server-receiving-side">Example server (receiving side)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#example-client-sending-side">Example client (sending side)</a></li>
     
 
     </ul>
@@ -1200,6 +1204,14 @@
 <ul>
 <li>Sample usage - <a href="https://fasterdata.es.net/performance-testing/network-troubleshooting-tools/iperf/">https://fasterdata.es.net/performance-testing/network-troubleshooting-tools/iperf/</a></li>
 </ul>
+<h1 id="example-usage">Example usage</h1>
+<h1 id="example-server-receiving-side">Example server (receiving side)</h1>
+<pre><code>iperf3 -s
+</code></pre>
+
+<h1 id="example-client-sending-side">Example client (sending side)</h1>
+<pre><code>iperf3 -c remote-hostname --interval 0.5 --omit 2 --time 30 --set-mss 1460
+</code></pre>
               
             </div>
           </div>
