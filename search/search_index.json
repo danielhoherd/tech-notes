@@ -1806,6 +1806,21 @@
             "title": "Links"
         },
         {
+            "location": "/dtrace/",
+            "text": "dtrace\n\n\n\"dynamic tracing compiler and tracing utility\" - \nman dtrace\n\n\nLinks\n\n\n\n\nhttp://www.brendangregg.com/DTrace/dtrace_oneliners.txt",
+            "title": "dtrace"
+        },
+        {
+            "location": "/dtrace/#dtrace",
+            "text": "\"dynamic tracing compiler and tracing utility\" -  man dtrace",
+            "title": "dtrace"
+        },
+        {
+            "location": "/dtrace/#links",
+            "text": "http://www.brendangregg.com/DTrace/dtrace_oneliners.txt",
+            "title": "Links"
+        },
+        {
             "location": "/du/",
             "text": "\"estimate file space usage\" - \nman du\n\n\nExamples\n\n\nSummarize low level directory uage\n\n\nWhen a partition fills up this is a good place to begin looking. Some flags may not be available, such as \nsort -h\n\n\n# -x      --one-file-system\n# -d 3    --max-depth=3\n# -h      --human-readable\nsudo du -x -d 3 -h / | sort -h",
             "title": "Du"
@@ -6484,6 +6499,31 @@
             "location": "/stat/#gnu-stat-c-variables",
             "text": "The valid format sequences for files (without --filesystem):   %a - Access rights in octal  %A - Access rights in human readable form  %b - Number of blocks allocated (see %B)  %B - The size in bytes of each block reported by %b  %C - SELinux security context string  %d - Device number in decimal  %D - Device number in hex  %f - Raw mode in hex  %F - File type  %g - Group ID of owner  %G - Group name of owner  %h - Number of hard links  %i - Inode number  %n - File name  %N - Quoted file name with dereference if symbolic link  %o - I/O block size  %s - Total size, in bytes  %t - Major device type in hex  %T - Minor device type in hex  %u - User ID of owner  %U - User name of owner  %x - Time of last access  %X - Time of last access as seconds since Epoch  %y - Time of last modification  %Y - Time of last modification as seconds since Epoch  %z - Time of last change  %Z - Time of last change as seconds since Epoch Valid format sequences for file systems:  %a - Free blocks available to non-superuser  %b - Total data blocks in file system  %c - Total file nodes in file system  %d - Free file nodes in file system  %f - Free blocks in file system  %C - SELinux security context string  %i - File System ID in hex  %l - Maximum length of filenames  %n - File name  %s - Block size (for faster transfers)  %S - Fundamental block size (for block counts)  %t - Type in hex  %T - Type in human readable form",
             "title": "GNU stat -c variables"
+        },
+        {
+            "location": "/strace/",
+            "text": "strace\n\n\nstrace\n is a tool to trace system calls and signals in Linux.\n\n\nExamples\n\n\nTrace a running process\n\n\nstrace\u00a0-p\u00a05789\n\n\n\n\nTrace only exec calls of a command and all child processes\n\n\nstrace\u00a0-f\u00a0-eexecve\u00a0cf-agent\u00a0-K",
+            "title": "strace"
+        },
+        {
+            "location": "/strace/#strace",
+            "text": "strace  is a tool to trace system calls and signals in Linux.",
+            "title": "strace"
+        },
+        {
+            "location": "/strace/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/strace/#trace-a-running-process",
+            "text": "strace\u00a0-p\u00a05789",
+            "title": "Trace a running process"
+        },
+        {
+            "location": "/strace/#trace-only-exec-calls-of-a-command-and-all-child-processes",
+            "text": "strace\u00a0-f\u00a0-eexecve\u00a0cf-agent\u00a0-K",
+            "title": "Trace only exec calls of a command and all child processes"
         },
         {
             "location": "/sudo/",
