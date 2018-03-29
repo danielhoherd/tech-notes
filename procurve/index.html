@@ -1240,62 +1240,62 @@
               
                 <p><a href="../wiki/Procurve" title="wikilink">Procurve</a> switches from <a href="../HP" title="wikilink">HP</a> offer cheap layer 2 and layer 3 switching.</p>
 <h1 id="copy-config-files">Copy config files</h1>
-<p><code>scp user@switch:cfg/startup-config ./</code><br />
-<code>scp user@switch:cfg/running-config ./</code></p>
+<p><code>scp user@switch:cfg/startup-config ./</code><br />
+<code>scp user@switch:cfg/running-config ./</code></p>
 <h1 id="firmware-update">Firmware update</h1>
 <ul>
 <li>Via ssh: <code>linuxclient$ scp /path/to/image user@switch-hostname:/os/primary</code></li>
 <li>Via tftp: <code>switch# copy tftp flash 172.28.115.151 flashfilename.swi primary</code> <em>This doesn't always work, try scp if it fails.</em></li>
 </ul>
 <p>Then on the switch...</p>
-<p><code>system boot flash primary</code></p>
+<p><code>system boot flash primary</code></p>
 <h1 id="config-examples">Config Examples</h1>
 <h3 id="set-an-ip-for-the-default-vlan">Set an IP# for the default VLAN</h3>
-<pre><code>interface vlan 1 ip address 172.28.115.234 255.255.255.0
-ip default-gateway 172.28.115.1
+<pre><code>interface vlan 1 ip address 172.28.115.234 255.255.255.0
+ip default-gateway 172.28.115.1
 </code></pre>
 
 <h3 id="set-up-additional-vlans">Set up additional VLANs</h3>
-<pre><code>vlan 100 untagged 2  
-vlan 100 ip address 172.28.100.1  
-vlan 102 untagged 3  
-vlan 102 ip address 172.28.102.1
+<pre><code>vlan 100 untagged 2  
+vlan 100 ip address 172.28.100.1  
+vlan 102 untagged 3  
+vlan 102 ip address 172.28.102.1
 </code></pre>
 
 <h3 id="enable-routing-between-connected-networks">Enable routing between connected networks</h3>
-<p><code>ip routing</code></p>
+<p><code>ip routing</code></p>
 <h3 id="set-up-sntp-clock">Set up SNTP clock</h3>
-<pre><code>sntp server 172.28.111.16   
-timesync sntp   
-sntp 120  
-sntp unicast
+<pre><code>sntp server 172.28.111.16  
+timesync sntp  
+sntp 120  
+sntp unicast
 </code></pre>
 
 <h3 id="alter-dst-settings">Alter DST settings</h3>
-<p><code>time daylight-time-rule User-defined begin-date 3/8 end-date 11/1</code></p>
+<p><code>time daylight-time-rule User-defined begin-date 3/8 end-date 11/1</code></p>
 <h3 id="enable-ssh">Enable SSH</h3>
-<pre><code>crypto key generate ssh  
-ip ssh  
-ip ssh version 2  
-ip ssh filetransfer
+<pre><code>crypto key generate ssh  
+ip ssh  
+ip ssh version 2  
+ip ssh filetransfer
 </code></pre>
 
 <h3 id="disable-telnet">Disable telnet</h3>
-<p><code>no telnet-server</code></p>
+<p><code>no telnet-server</code></p>
 <h3 id="set-up-snmp">Set up snmp</h3>
-<p><code>snmp-server community "foobar" Operator</code></p>
+<p><code>snmp-server community "foobar" Operator</code></p>
 <h3 id="set-up-a-vlan-112-port-group">Set up a VLAN 112 port group</h3>
-<p><code>vlan 112 untagged 6-12</code></p>
+<p><code>vlan 112 untagged 6-12</code></p>
 <h3 id="set-two-groups-of-ports-as-a-trunks-eg-to-use-with-vmware-in-static-lacp">Set two groups of ports as a trunks (eg: to use with VMware in static LACP)</h3>
-<pre><code>trunk 1-4 trk1 trunk  
-trunk 5-8 trk2 trunk
+<pre><code>trunk 1-4 trk1 trunk  
+trunk 5-8 trk2 trunk
 </code></pre>
 
 <h3 id="set-up-vlan-multiplexing">Set up VLAN multiplexing</h3>
-<pre><code>vlan 114 tagged 24  
-vlan 115 tagged 24  
-vlan 114 tagged Trk1  
-vlan 115 tagged Trk1
+<pre><code>vlan 114 tagged 24  
+vlan 115 tagged 24  
+vlan 114 tagged Trk1  
+vlan 115 tagged Trk1
 </code></pre>
 
 <h1 id="see-also">See Also</h1>

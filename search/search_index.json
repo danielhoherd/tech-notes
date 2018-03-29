@@ -127,12 +127,12 @@
         },
         {
             "location": "/ansible/",
-            "text": "Ansible\n\n\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://docs.ansible.com/intro_inventory.html\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\n\n\nExamples\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nansible-inventory -i inventory/hosts.yml --list",
+            "text": "Ansible\n\n\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://docs.ansible.com/intro_inventory.html\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\n\n\nExamples\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nansible-inventory -i inventory/hosts.yml --list",
             "title": "Ansible"
         },
         {
             "location": "/ansible/#ansible",
-            "text": "https://docs.ansible.com/playbooks_best_practices.html  https://docs.ansible.com/intro_inventory.html  http://docs.ansible.com/ansible/latest/list_of_all_modules.html  https://galaxy.ansible.com  http://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1  http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/",
+            "text": "https://docs.ansible.com/playbooks_best_practices.html  https://docs.ansible.com/intro_inventory.html  http://docs.ansible.com/ansible/latest/list_of_all_modules.html  https://galaxy.ansible.com  http://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1  http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/  http://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html  - Targeting hosts",
             "title": "Ansible"
         },
         {
@@ -287,7 +287,7 @@
         },
         {
             "location": "/awk/",
-            "text": "awk\n\n\n\"pattern-directed scanning and processing language\" - \nman awk\n\n\nExamples\n\n\nSome of these require GNU awk.\n\n\nPrint the first column of a file\n\n\nawk '${print $1}' filename.txt\n\n\n\n\nPrint column 2 if column 1 matches a string\n\n\nps aux | awk '$1 == \"root\" {print $2}'\n\n\n\n\nSort a file by line lengths\n\n\nawk\u00a0'{print\u00a0length,\u00a0$0}' testfile.txt\u00a0|\u00a0sort\u00a0-n\n\n\n\n\nTDL to CSV\n\n\nawk '{gsub(\"\\t\",\"\\\",\\\"\",$0); print;}' | sed 's#^#\"#;s#$#\"#;'\n\n\n\n\nPrint the first column of every other line\n\n\n% is the modulus operator, which finds the remainder after an integer\ndivide.\n\n\nawk\u00a0'NR\u00a0%\u00a02\u00a0==\u00a00\u00a0{\u00a0print\u00a0$1\u00a0}'\n\n\n\n\nPrint only even numbered lines\n\n\nls\u00a0|\u00a0awk\u00a0'NR\u00a0%\u00a02\u00a0==\u00a00\u00a0{\u00a0print\u00a0$0\u00a0}'\n\n\n\n\nPrint only odd numbered lines\n\n\nls\u00a0|\u00a0awk\u00a0'NR\u00a0%\u00a02\u00a0!=\u00a00\u00a0{\u00a0print\u00a0$0\u00a0}'\n\n\n\n\nPrint even numbered lines on the same line before odd numbered lines\n\n\nawk\u00a0'{if\u00a0(NR%2==0)\u00a0{\u00a0print\u00a0$0\u00a0\"\u00a0\"\u00a0prev\u00a0}\u00a0else\u00a0{\u00a0prev=$0\u00a0}}'\n\n\n\n\nSum all the first columns of each line in a file\n\n\nawk\u00a0'{sum\u00a0+=\u00a0$1}\u00a0END\u00a0{print\u00a0sum}'\u00a0filename\n\n\n\n\nSplit file by recurring string\n\n\nThis will create a new file every time the string \"SERVER\" is found, essentially splitting the file by that string. Concatenating all of the output files would create the original file (potentially adding an extra newline).\n\n\nawk '/SERVER/{n++}{print >\"out\" sprintf(\"%02d\", n) \".txt\" }' example.txt\n\n\n\n\nShow count of syslog messages per minute\n\n\nawk\u00a0-F:\u00a0{'print\u00a0$1\u00a0`\u201c`:`\u201d`\u00a0$2'}\u00a0/var/log/messages\u00a0|uniq\u00a0-c\n\n\n\n\nShow count of root logins per minute\n\n\nawk -F: '/root/{print $1 \":\" $2}' /var/log/auth.log |uniq -c\n\n\n\n\nPrint lines in ls where UID is numeric\n\n\nls\u00a0-la\u00a0|\u00a0awk\u00a0'$3\u00a0~/[0-9]/{print}'\n\n\n\n\nShow only zfs snapshots whose size is zero\n\n\nzfs\u00a0list\u00a0-t\u00a0snapshot\u00a0|\u00a0awk\u00a0'$2\u00a0==\u00a00'\n\n\n\n\nPrint a line if the third field does not match a regex\n\n\ntcpdump\u00a0-r\u00a0ops1prod-syn.cap\u00a0|\u00a0sort\u00a0-k2\u00a0|\u00a0awk\u00a0'$3\u00a0!~\u00a0/ztmis.prod/\u00a0{\u00a0print\u00a0}'\n\n\n\n\nShow 500 errors in a standard apache access log\n\n\nawk\u00a0'$9\u00a0~\u00a0/5[0-9][0-9]/'\u00a0www_zoosk_access.log\n\n\n\n\nShow total rss and vsz count for all cronolog processes\n\n\nps\u00a0aux\u00a0|\n  grep\u00a0-i\u00a0cronolo[g]\u00a0|\n  awk\u00a0'{vsz\u00a0+=\u00a0$5;\u00a0rss\u00a0+=\u00a0$6}\u00a0END\u00a0{print\u00a0\"vsz\u00a0total\u00a0=\u00a0\"vsz\u00a0;\u00a0print\u00a0\"rss\u00a0total\u00a0=\u00a0\"rss}'\n\n\n\n\nGet IPv4 address on BSD/OSX\n\n\nifconfig | awk '$1 == \"inet\" && $2 != \"127.0.0.1\" {print $2}'\n\n\n\n\nGet IPv6 address on BSD/OSX\n\n\nifconfig | awk '$1 == \"inet6\" && $2 !~ \"::1|.*lo\" {print $2}'\n\n\n\n\nPrint the last element\n\n\nls\u00a0-la\u00a0|\u00a0awk\u00a0-F\"\u00a0\"\u00a0'{print\u00a0$NF}'\n\n\n\n\nPrint 2nd to last element\n\n\nls\u00a0-la\u00a0|\u00a0awk\u00a0-F\"\u00a0\"\u00a0'{print\u00a0$(NF\u00a0-\u00a01)}'\n\n\n\n\nPrint the previous line on string match\n\n\nThis works by storing the previous line. If the current line matches the regex, the previous line is printed from the stored value.\n\n\n$ awk '/32 host/ { print previous_line } {previous_line=$0}' /proc/net/fib_trie | column -t | sort -u\n|--  10.134.243.137\n|--  127.0.0.1\n|--  169.50.9.172\n\n\n\n\nSee Also\n\n\n\n\nhttp://www.grymoire.com/Unix/Awk.html",
+            "text": "awk\n\n\n\"pattern-directed scanning and processing language\" - \nman awk\n\n\nExamples\n\n\nSome of these require GNU awk.\n\n\nPrint the first column of a file\n\n\nawk '${print $1}' filename.txt\n\n\n\n\nPrint column 2 if column 1 matches a string\n\n\nps aux | awk '$1 == \"root\" {print $2}'\n\n\n\n\nSort a file by line lengths\n\n\nawk '{print length, $0}' testfile.txt | sort -n\n\n\n\n\nTDL to CSV\n\n\nawk '{gsub(\"\\t\",\"\\\",\\\"\",$0); print;}' | sed 's#^#\"#;s#$#\"#;'\n\n\n\n\nPrint the first column of every other line\n\n\n% is the modulus operator, which finds the remainder after an integer\ndivide.\n\n\nawk 'NR % 2 == 0 { print $1 }'\n\n\n\n\nPrint only even numbered lines\n\n\nls | awk 'NR % 2 == 0 { print $0 }'\n\n\n\n\nPrint only odd numbered lines\n\n\nls | awk 'NR % 2 != 0 { print $0 }'\n\n\n\n\nPrint even numbered lines on the same line before odd numbered lines\n\n\nawk '{if (NR%2==0) { print $0 \" \" prev } else { prev=$0 }}'\n\n\n\n\nPrint sum all the first columns of each line in a file\n\n\nawk '{sum += $1} END {print sum}' filename\n\n\n\n\nPrint sum and average of the first column of a file\n\n\nawk '{sum += $1} END {avg = sum/NR ; printf \"Sum:     %s\\nAverage: %s\\n\", sum, avg}' foo.txt\n\n\n\n\nSplit file by recurring string\n\n\nThis will create a new file every time the string \"SERVER\" is found, essentially splitting the file by that string. Concatenating all of the output files would create the original file (potentially adding an extra newline).\n\n\nawk '/SERVER/{n++}{print >\"out\" sprintf(\"%02d\", n) \".txt\" }' example.txt\n\n\n\n\nShow count of syslog messages per minute\n\n\nawk -F: {'print $1 `\u201c`:`\u201d` $2'} /var/log/messages |uniq -c\n\n\n\n\nShow count of root logins per minute\n\n\nawk -F: '/root/{print $1 \":\" $2}' /var/log/auth.log |uniq -c\n\n\n\n\nPrint lines in ls where UID is numeric\n\n\nls -la | awk '$3 ~/[0-9]/{print}'\n\n\n\n\nShow only zfs snapshots whose size is zero\n\n\nzfs list -t snapshot | awk '$2 == 0'\n\n\n\n\nPrint a line if the third field does not match a regex\n\n\ntcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'\n\n\n\n\nShow 500 errors in a standard apache access log\n\n\nawk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log\n\n\n\n\nShow total rss and vsz count for all cronolog processes\n\n\nps aux |\n  grep -i cronolo[g] |\n  awk '{vsz += $5; rss += $6} END {print \"vsz total = \"vsz ; print \"rss total = \"rss}'\n\n\n\n\nGet IPv4 address on BSD/OSX\n\n\nifconfig | awk '$1 == \"inet\" && $2 != \"127.0.0.1\" {print $2}'\n\n\n\n\nGet IPv6 address on BSD/OSX\n\n\nifconfig | awk '$1 == \"inet6\" && $2 !~ \"::1|.*lo\" {print $2}'\n\n\n\n\nPrint the last element\n\n\nls -la | awk -F\" \" '{print $NF}'\n\n\n\n\nPrint 2nd to last element\n\n\nls -la | awk -F\" \" '{print $(NF - 1)}'\n\n\n\n\nPrint the previous line on string match\n\n\nThis works by storing the previous line. If the current line matches the regex, the previous line is printed from the stored value.\n\n\n$ awk '/32 host/ { print previous_line } {previous_line=$0}' /proc/net/fib_trie | column -t | sort -u\n|--  10.134.243.137\n|--  127.0.0.1\n|--  169.50.9.172\n\n\n\n\nSee Also\n\n\n\n\nhttp://www.grymoire.com/Unix/Awk.html",
             "title": "awk"
         },
         {
@@ -312,7 +312,7 @@
         },
         {
             "location": "/awk/#sort-a-file-by-line-lengths",
-            "text": "awk\u00a0'{print\u00a0length,\u00a0$0}' testfile.txt\u00a0|\u00a0sort\u00a0-n",
+            "text": "awk '{print length, $0}' testfile.txt | sort -n",
             "title": "Sort a file by line lengths"
         },
         {
@@ -322,28 +322,33 @@
         },
         {
             "location": "/awk/#print-the-first-column-of-every-other-line",
-            "text": "% is the modulus operator, which finds the remainder after an integer\ndivide.  awk\u00a0'NR\u00a0%\u00a02\u00a0==\u00a00\u00a0{\u00a0print\u00a0$1\u00a0}'",
+            "text": "% is the modulus operator, which finds the remainder after an integer\ndivide.  awk 'NR % 2 == 0 { print $1 }'",
             "title": "Print the first column of every other line"
         },
         {
             "location": "/awk/#print-only-even-numbered-lines",
-            "text": "ls\u00a0|\u00a0awk\u00a0'NR\u00a0%\u00a02\u00a0==\u00a00\u00a0{\u00a0print\u00a0$0\u00a0}'",
+            "text": "ls | awk 'NR % 2 == 0 { print $0 }'",
             "title": "Print only even numbered lines"
         },
         {
             "location": "/awk/#print-only-odd-numbered-lines",
-            "text": "ls\u00a0|\u00a0awk\u00a0'NR\u00a0%\u00a02\u00a0!=\u00a00\u00a0{\u00a0print\u00a0$0\u00a0}'",
+            "text": "ls | awk 'NR % 2 != 0 { print $0 }'",
             "title": "Print only odd numbered lines"
         },
         {
             "location": "/awk/#print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines",
-            "text": "awk\u00a0'{if\u00a0(NR%2==0)\u00a0{\u00a0print\u00a0$0\u00a0\"\u00a0\"\u00a0prev\u00a0}\u00a0else\u00a0{\u00a0prev=$0\u00a0}}'",
+            "text": "awk '{if (NR%2==0) { print $0 \" \" prev } else { prev=$0 }}'",
             "title": "Print even numbered lines on the same line before odd numbered lines"
         },
         {
-            "location": "/awk/#sum-all-the-first-columns-of-each-line-in-a-file",
-            "text": "awk\u00a0'{sum\u00a0+=\u00a0$1}\u00a0END\u00a0{print\u00a0sum}'\u00a0filename",
-            "title": "Sum all the first columns of each line in a file"
+            "location": "/awk/#print-sum-all-the-first-columns-of-each-line-in-a-file",
+            "text": "awk '{sum += $1} END {print sum}' filename",
+            "title": "Print sum all the first columns of each line in a file"
+        },
+        {
+            "location": "/awk/#print-sum-and-average-of-the-first-column-of-a-file",
+            "text": "awk '{sum += $1} END {avg = sum/NR ; printf \"Sum:     %s\\nAverage: %s\\n\", sum, avg}' foo.txt",
+            "title": "Print sum and average of the first column of a file"
         },
         {
             "location": "/awk/#split-file-by-recurring-string",
@@ -352,7 +357,7 @@
         },
         {
             "location": "/awk/#show-count-of-syslog-messages-per-minute",
-            "text": "awk\u00a0-F:\u00a0{'print\u00a0$1\u00a0`\u201c`:`\u201d`\u00a0$2'}\u00a0/var/log/messages\u00a0|uniq\u00a0-c",
+            "text": "awk -F: {'print $1 `\u201c`:`\u201d` $2'} /var/log/messages |uniq -c",
             "title": "Show count of syslog messages per minute"
         },
         {
@@ -362,27 +367,27 @@
         },
         {
             "location": "/awk/#print-lines-in-ls-where-uid-is-numeric",
-            "text": "ls\u00a0-la\u00a0|\u00a0awk\u00a0'$3\u00a0~/[0-9]/{print}'",
+            "text": "ls -la | awk '$3 ~/[0-9]/{print}'",
             "title": "Print lines in ls where UID is numeric"
         },
         {
             "location": "/awk/#show-only-zfs-snapshots-whose-size-is-zero",
-            "text": "zfs\u00a0list\u00a0-t\u00a0snapshot\u00a0|\u00a0awk\u00a0'$2\u00a0==\u00a00'",
+            "text": "zfs list -t snapshot | awk '$2 == 0'",
             "title": "Show only zfs snapshots whose size is zero"
         },
         {
             "location": "/awk/#print-a-line-if-the-third-field-does-not-match-a-regex",
-            "text": "tcpdump\u00a0-r\u00a0ops1prod-syn.cap\u00a0|\u00a0sort\u00a0-k2\u00a0|\u00a0awk\u00a0'$3\u00a0!~\u00a0/ztmis.prod/\u00a0{\u00a0print\u00a0}'",
+            "text": "tcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'",
             "title": "Print a line if the third field does not match a regex"
         },
         {
             "location": "/awk/#show-500-errors-in-a-standard-apache-access-log",
-            "text": "awk\u00a0'$9\u00a0~\u00a0/5[0-9][0-9]/'\u00a0www_zoosk_access.log",
+            "text": "awk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log",
             "title": "Show 500 errors in a standard apache access log"
         },
         {
             "location": "/awk/#show-total-rss-and-vsz-count-for-all-cronolog-processes",
-            "text": "ps\u00a0aux\u00a0|\n  grep\u00a0-i\u00a0cronolo[g]\u00a0|\n  awk\u00a0'{vsz\u00a0+=\u00a0$5;\u00a0rss\u00a0+=\u00a0$6}\u00a0END\u00a0{print\u00a0\"vsz\u00a0total\u00a0=\u00a0\"vsz\u00a0;\u00a0print\u00a0\"rss\u00a0total\u00a0=\u00a0\"rss}'",
+            "text": "ps aux |\n  grep -i cronolo[g] |\n  awk '{vsz += $5; rss += $6} END {print \"vsz total = \"vsz ; print \"rss total = \"rss}'",
             "title": "Show total rss and vsz count for all cronolog processes"
         },
         {
@@ -397,12 +402,12 @@
         },
         {
             "location": "/awk/#print-the-last-element",
-            "text": "ls\u00a0-la\u00a0|\u00a0awk\u00a0-F\"\u00a0\"\u00a0'{print\u00a0$NF}'",
+            "text": "ls -la | awk -F\" \" '{print $NF}'",
             "title": "Print the last element"
         },
         {
             "location": "/awk/#print-2nd-to-last-element",
-            "text": "ls\u00a0-la\u00a0|\u00a0awk\u00a0-F\"\u00a0\"\u00a0'{print\u00a0$(NF\u00a0-\u00a01)}'",
+            "text": "ls -la | awk -F\" \" '{print $(NF - 1)}'",
             "title": "Print 2nd to last element"
         },
         {
@@ -897,7 +902,7 @@
         },
         {
             "location": "/centos/",
-            "text": "CentOS\n\n\nCentOS 7\n\n\n\n\nReleased 2014-07-07\n\n\n\n\nNew things in CentOS 7\n\n\n\n\nfirewalld\n\u00a0manages\u00a0the\u00a0firewall\n\n\nhostnamectl\n changes\u00a0the\u00a0hostname\u00a0and\u00a0applies\u00a0the\u00a0setting\u00a0immediately\n\n\njournalctl\n shows log files of services launched by systemd\n\n\nsystemctl\n\u00a0manages systemd services\n\n\n\n\nInitial setup\n\n\nSet up some base parameters on a fresh instance\n\n\nyum\u00a0install\u00a0-y\u00a0bash-completion\u00a0bc\u00a0curl\u00a0git\u00a0lsof\u00a0mlocate\u00a0mutt\u00a0net-snmp\u00a0ntpd\u00a0smartmontools\u00a0strace\u00a0sysstat\u00a0vim\u00a0wget  \nln\u00a0-sf\u00a0/usr/share/zoneinfo/America/Los_Angeles\u00a0/etc/localtime  \nntpdate\u00a0{0..3}.pool.ntp.org  \nsystemctl\u00a0start\u00a0ntpd\n\n\n\n\nCentOS 6\n\n\n\n\nReleased 2011-07-10\n\n\n\n\nCentOS 6 Initial Setup\n\n\n\n\nyum\u00a0install\u00a0-y\u00a0ntp  \nchkconfig\u00a0--levels\u00a0345\u00a0ntpd\u00a0on\u00a0&&\u00a0ntpdate\u00a0time.apple.com\u00a0&&\u00a0service\u00a0ntpd\u00a0start  \nyum\u00a0upgrade\u00a0-y  \nyum\u00a0install\u00a0-y\u00a0arping\u00a0avahi\u00a0avahi-tools\u00a0bc\u00a0bind-utils\u00a0curl\u00a0elinks\u00a0fping\u00a0lsof\u00a0net-snmp\u00a0man\u00a0mlocate\u00a0mutt\u00a0openssh\u00a0openssh-clients\u00a0openssh-server\u00a0perl-Crypt-SSLeay\u00a0perl-libwww-perl\u00a0rsync\u00a0strace\u00a0vim\u00a0wget\u00a0yum-cron\nln\u00a0-sf\u00a0/usr/share/zoneinfo/America/Los_Angeles\u00a0/etc/localtime  \nchkconfig\u00a0--levels\u00a0345\u00a0yum-cron\u00a0on\u00a0&&\u00a0service\u00a0yum-cron\u00a0start  \nyum\u00a0install\u00a0-y\u00a0dcfldd\u00a0nfs-utils\u00a0smartmontools\u00a0dmidecode\u00a0lshw\u00a0dstat\u00a0htop\u00a0iotop  \nchkconfig\u00a0--levels\u00a0345\u00a0smartd\u00a0on\u00a0&&\u00a0service\u00a0smartd\u00a0start\n\n\n\n\nTweaks and Tricks\n\n\nGet past protected lib problems\n\n\nyum\u00a0update\u00a0--setopt=protected_multilib=false\u00a0--skip-broken\n\n\nEnable DHCP Hostname for DNS resolution\n\n\nadd \u201c\nDHCP_HOSTNAME=whatever\n\u201d to\n/etc/sysconfig/network-scripts/ifcfg-eth0\n\n\nInstall OS from USB\n\n\n\n\nFrom Windows: \nhttp://iso2usb.sourceforge.net/\n\n\nFrom Linux: \nhttps://fedoraproject.org/wiki/Livecd-iso-to-disk\n\n\n\n\nShow installed repository keys\n\n\nrpm\u00a0-q\u00a0gpg-pubkey\u00a0--qf\u00a0'%{name}-%{version}-%{release}\u00a0-->\u00a0%{summary}\\n'\n\n\nDHCP with DDNS hostname\n\n\nModel your /etc/sysconfig/network-scripts/ifcfg-eth0 like this:\n\n\nTYPE=Ethernet\nDEVICE=eth0\nONBOOT=yes\nBOOTPROTO=dhcp\n# Without the following line, dhclient will not update /etc/resolv.conf and may not get an IP address at all\nDHCP_HOSTNAME=some_hostname\n\n\n\n\n\n\nTo configure your hostname, edit /etc/sysconfig/network and add HOSTNAME=\n\n\nYou also may need to delete these files:\n\n\n\n\nrm -f /etc/dhclient-eth?.conf /var/lib/dhclient/dhclient-eth?.leases /etc/udev/rules.d/70-persistent-net.rules /etc/sysconfig/network-scripts/ifcfg-eth1\n\n\n\n\nConfiguration to auth against \nMicrosoft\n AD\n\n\n\n\nhttp://www.uncompiled.com/using-winbind-in-centos-6-for-active-director\n worked perfectly with \nsamba\n and \nwinbind\n\n\n\n\nBond Configs\n\n\n$\u00a0cat\u00a0/etc/modprobe.d/bond0.conf\u00a0  \nalias\u00a0bond0\u00a0bonding  \noptions\u00a0bond0\u00a0max_bonds=1\u00a0fail_over_mac=2\u00a0mode=1\u00a0num_grat_arp=2\u00a0primary=em1\u00a0primary_reselect=1\u00a0arp_validate=1\u00a0arp_interval=100\u00a0arp_ip_target=10.1.5.15,10.1.1.1\n\n\n\n\nSee Also\n\n\n\n\nchkconfig\n\n\nrpm\n\n\nselinux\n - \nhttp://wiki.centos.org/HowTos/SELinux\n\n\nyum",
+            "text": "CentOS\n\n\nCentOS 7\n\n\n\n\nReleased 2014-07-07\n\n\n\n\nNew things in CentOS 7\n\n\n\n\nfirewalld\n manages the firewall\n\n\nhostnamectl\n changes the hostname and applies the setting immediately\n\n\njournalctl\n shows log files of services launched by systemd\n\n\nsystemctl\n manages systemd services\n\n\n\n\nInitial setup\n\n\nSet up some base parameters on a fresh instance\n\n\nyum install -y bash-completion bc curl git lsof mlocate mutt net-snmp ntpd smartmontools strace sysstat vim wget  \nln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  \nntpdate {0..3}.pool.ntp.org  \nsystemctl start ntpd\n\n\n\n\nCentOS 6\n\n\n\n\nReleased 2011-07-10\n\n\n\n\nCentOS 6 Initial Setup\n\n\n\n\nyum install -y ntp  \nchkconfig --levels 345 ntpd on && ntpdate time.apple.com && service ntpd start  \nyum upgrade -y  \nyum install -y arping avahi avahi-tools bc bind-utils curl elinks fping lsof net-snmp man mlocate mutt openssh openssh-clients openssh-server perl-Crypt-SSLeay perl-libwww-perl rsync strace vim wget yum-cron\nln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  \nchkconfig --levels 345 yum-cron on && service yum-cron start  \nyum install -y dcfldd nfs-utils smartmontools dmidecode lshw dstat htop iotop  \nchkconfig --levels 345 smartd on && service smartd start\n\n\n\n\nTweaks and Tricks\n\n\nGet past protected lib problems\n\n\nyum update --setopt=protected_multilib=false --skip-broken\n\n\nEnable DHCP Hostname for DNS resolution\n\n\nadd \u201c\nDHCP_HOSTNAME=whatever\n\u201d to\n/etc/sysconfig/network-scripts/ifcfg-eth0\n\n\nInstall OS from USB\n\n\n\n\nFrom Windows: \nhttp://iso2usb.sourceforge.net/\n\n\nFrom Linux: \nhttps://fedoraproject.org/wiki/Livecd-iso-to-disk\n\n\n\n\nShow installed repository keys\n\n\nrpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\\n'\n\n\nDHCP with DDNS hostname\n\n\nModel your /etc/sysconfig/network-scripts/ifcfg-eth0 like this:\n\n\nTYPE=Ethernet\nDEVICE=eth0\nONBOOT=yes\nBOOTPROTO=dhcp\n# Without the following line, dhclient will not update /etc/resolv.conf and may not get an IP address at all\nDHCP_HOSTNAME=some_hostname\n\n\n\n\n\n\nTo configure your hostname, edit /etc/sysconfig/network and add HOSTNAME=\n\n\nYou also may need to delete these files:\n\n\n\n\nrm -f /etc/dhclient-eth?.conf /var/lib/dhclient/dhclient-eth?.leases /etc/udev/rules.d/70-persistent-net.rules /etc/sysconfig/network-scripts/ifcfg-eth1\n\n\n\n\nConfiguration to auth against \nMicrosoft\n AD\n\n\n\n\nhttp://www.uncompiled.com/using-winbind-in-centos-6-for-active-director\n worked perfectly with \nsamba\n and \nwinbind\n\n\n\n\nBond Configs\n\n\n$ cat /etc/modprobe.d/bond0.conf  \nalias bond0 bonding  \noptions bond0 max_bonds=1 fail_over_mac=2 mode=1 num_grat_arp=2 primary=em1 primary_reselect=1 arp_validate=1 arp_interval=100 arp_ip_target=10.1.5.15,10.1.1.1\n\n\n\n\nSee Also\n\n\n\n\nchkconfig\n\n\nrpm\n\n\nselinux\n - \nhttp://wiki.centos.org/HowTos/SELinux\n\n\nyum",
             "title": "CentOS"
         },
         {
@@ -912,12 +917,12 @@
         },
         {
             "location": "/centos/#new-things-in-centos-7",
-            "text": "firewalld \u00a0manages\u00a0the\u00a0firewall  hostnamectl  changes\u00a0the\u00a0hostname\u00a0and\u00a0applies\u00a0the\u00a0setting\u00a0immediately  journalctl  shows log files of services launched by systemd  systemctl \u00a0manages systemd services",
+            "text": "firewalld  manages the firewall  hostnamectl  changes the hostname and applies the setting immediately  journalctl  shows log files of services launched by systemd  systemctl  manages systemd services",
             "title": "New things in CentOS 7"
         },
         {
             "location": "/centos/#initial-setup",
-            "text": "Set up some base parameters on a fresh instance  yum\u00a0install\u00a0-y\u00a0bash-completion\u00a0bc\u00a0curl\u00a0git\u00a0lsof\u00a0mlocate\u00a0mutt\u00a0net-snmp\u00a0ntpd\u00a0smartmontools\u00a0strace\u00a0sysstat\u00a0vim\u00a0wget  \nln\u00a0-sf\u00a0/usr/share/zoneinfo/America/Los_Angeles\u00a0/etc/localtime  \nntpdate\u00a0{0..3}.pool.ntp.org  \nsystemctl\u00a0start\u00a0ntpd",
+            "text": "Set up some base parameters on a fresh instance  yum install -y bash-completion bc curl git lsof mlocate mutt net-snmp ntpd smartmontools strace sysstat vim wget  \nln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  \nntpdate {0..3}.pool.ntp.org  \nsystemctl start ntpd",
             "title": "Initial setup"
         },
         {
@@ -927,7 +932,7 @@
         },
         {
             "location": "/centos/#centos-6-initial-setup",
-            "text": "yum\u00a0install\u00a0-y\u00a0ntp  \nchkconfig\u00a0--levels\u00a0345\u00a0ntpd\u00a0on\u00a0&&\u00a0ntpdate\u00a0time.apple.com\u00a0&&\u00a0service\u00a0ntpd\u00a0start  \nyum\u00a0upgrade\u00a0-y  \nyum\u00a0install\u00a0-y\u00a0arping\u00a0avahi\u00a0avahi-tools\u00a0bc\u00a0bind-utils\u00a0curl\u00a0elinks\u00a0fping\u00a0lsof\u00a0net-snmp\u00a0man\u00a0mlocate\u00a0mutt\u00a0openssh\u00a0openssh-clients\u00a0openssh-server\u00a0perl-Crypt-SSLeay\u00a0perl-libwww-perl\u00a0rsync\u00a0strace\u00a0vim\u00a0wget\u00a0yum-cron\nln\u00a0-sf\u00a0/usr/share/zoneinfo/America/Los_Angeles\u00a0/etc/localtime  \nchkconfig\u00a0--levels\u00a0345\u00a0yum-cron\u00a0on\u00a0&&\u00a0service\u00a0yum-cron\u00a0start  \nyum\u00a0install\u00a0-y\u00a0dcfldd\u00a0nfs-utils\u00a0smartmontools\u00a0dmidecode\u00a0lshw\u00a0dstat\u00a0htop\u00a0iotop  \nchkconfig\u00a0--levels\u00a0345\u00a0smartd\u00a0on\u00a0&&\u00a0service\u00a0smartd\u00a0start",
+            "text": "yum install -y ntp  \nchkconfig --levels 345 ntpd on && ntpdate time.apple.com && service ntpd start  \nyum upgrade -y  \nyum install -y arping avahi avahi-tools bc bind-utils curl elinks fping lsof net-snmp man mlocate mutt openssh openssh-clients openssh-server perl-Crypt-SSLeay perl-libwww-perl rsync strace vim wget yum-cron\nln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  \nchkconfig --levels 345 yum-cron on && service yum-cron start  \nyum install -y dcfldd nfs-utils smartmontools dmidecode lshw dstat htop iotop  \nchkconfig --levels 345 smartd on && service smartd start",
             "title": "CentOS 6 Initial Setup"
         },
         {
@@ -937,7 +942,7 @@
         },
         {
             "location": "/centos/#get-past-protected-lib-problems",
-            "text": "yum\u00a0update\u00a0--setopt=protected_multilib=false\u00a0--skip-broken",
+            "text": "yum update --setopt=protected_multilib=false --skip-broken",
             "title": "Get past protected lib problems"
         },
         {
@@ -952,7 +957,7 @@
         },
         {
             "location": "/centos/#show-installed-repository-keys",
-            "text": "rpm\u00a0-q\u00a0gpg-pubkey\u00a0--qf\u00a0'%{name}-%{version}-%{release}\u00a0-->\u00a0%{summary}\\n'",
+            "text": "rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\\n'",
             "title": "Show installed repository keys"
         },
         {
@@ -967,7 +972,7 @@
         },
         {
             "location": "/centos/#bond-configs",
-            "text": "$\u00a0cat\u00a0/etc/modprobe.d/bond0.conf\u00a0  \nalias\u00a0bond0\u00a0bonding  \noptions\u00a0bond0\u00a0max_bonds=1\u00a0fail_over_mac=2\u00a0mode=1\u00a0num_grat_arp=2\u00a0primary=em1\u00a0primary_reselect=1\u00a0arp_validate=1\u00a0arp_interval=100\u00a0arp_ip_target=10.1.5.15,10.1.1.1",
+            "text": "$ cat /etc/modprobe.d/bond0.conf  \nalias bond0 bonding  \noptions bond0 max_bonds=1 fail_over_mac=2 mode=1 num_grat_arp=2 primary=em1 primary_reselect=1 arp_validate=1 arp_interval=100 arp_ip_target=10.1.5.15,10.1.1.1",
             "title": "Bond Configs"
         },
         {
@@ -1002,7 +1007,7 @@
         },
         {
             "location": "/chkconfig/",
-            "text": "chkconfig\n\n\nchkconfig is a tool to interact with sys-v init scripts on centos/rhel hosts.\n\n\nExamples\n\n\nList services and their runlevels\n\n\nchkconfig\u00a0--list\n\n\nTurn on mysql at runlevels 3 and 5\n\n\nchkconfig\u00a0--level\u00a035\u00a0mysql\u00a0on\n\n\nSee Also\n\n\n\n\nupdate-rc.d\n - similar feature for ubuntu sysvinit",
+            "text": "chkconfig\n\n\nchkconfig is a tool to interact with sys-v init scripts on centos/rhel hosts.\n\n\nExamples\n\n\nList services and their runlevels\n\n\nchkconfig --list\n\n\nTurn on mysql at runlevels 3 and 5\n\n\nchkconfig --level 35 mysql on\n\n\nSee Also\n\n\n\n\nupdate-rc.d\n - similar feature for ubuntu sysvinit",
             "title": "chkconfig"
         },
         {
@@ -1017,12 +1022,12 @@
         },
         {
             "location": "/chkconfig/#list-services-and-their-runlevels",
-            "text": "chkconfig\u00a0--list",
+            "text": "chkconfig --list",
             "title": "List services and their runlevels"
         },
         {
             "location": "/chkconfig/#turn-on-mysql-at-runlevels-3-and-5",
-            "text": "chkconfig\u00a0--level\u00a035\u00a0mysql\u00a0on",
+            "text": "chkconfig --level 35 mysql on",
             "title": "Turn on mysql at runlevels 3 and 5"
         },
         {
@@ -2932,7 +2937,7 @@
         },
         {
             "location": "/iotop/",
-            "text": "iotop tracks disk I/O by process, and prints a summary report that is refreshed every interval.\n\n\nLinux Examples\n\n\nShow cumulative stats for processes actually using IO\n\n\niotop\u00a0-oa\n\n\nSee also\n\n\n\n\nTop variant list",
+            "text": "iotop tracks disk I/O by process, and prints a summary report that is refreshed every interval.\n\n\nLinux Examples\n\n\nShow cumulative stats for processes actually using IO\n\n\niotop -oa\n\n\nSee also\n\n\n\n\nTop variant list",
             "title": "Iotop"
         },
         {
@@ -2942,7 +2947,7 @@
         },
         {
             "location": "/iotop/#show-cumulative-stats-for-processes-actually-using-io",
-            "text": "iotop\u00a0-oa",
+            "text": "iotop -oa",
             "title": "Show cumulative stats for processes actually using IO"
         },
         {
@@ -3152,7 +3157,7 @@
         },
         {
             "location": "/jdupes/",
-            "text": "\"finds and performs actions upon duplicate files\" - \nman jdupes\n\n\njdupes\n is based on \nfdupes\n and is not written in java as the name may lead you to assume.\n\n\nExamples\n\n\nRecursively find all duplicates in a dir\n\n\njdupes\u00a0-r\u00a0/path/to/dir\n\n\n\n\nCreate hard-links of any duplicate files\n\n\njdupes -r -L /path/\n\n\n\n\nLinks\n\n\n\n\nhttps://github.com/jbruchon/jdupes",
+            "text": "\"finds and performs actions upon duplicate files\" - \nman jdupes\n\n\njdupes\n is based on \nfdupes\n and is not written in java as the name may lead you to assume.\n\n\nExamples\n\n\nRecursively find all duplicates in a dir\n\n\njdupes -r /path/to/dir\n\n\n\n\nCreate hard-links of any duplicate files\n\n\njdupes -r -L /path/\n\n\n\n\nLinks\n\n\n\n\nhttps://github.com/jbruchon/jdupes",
             "title": "Jdupes"
         },
         {
@@ -3162,7 +3167,7 @@
         },
         {
             "location": "/jdupes/#recursively-find-all-duplicates-in-a-dir",
-            "text": "jdupes\u00a0-r\u00a0/path/to/dir",
+            "text": "jdupes -r /path/to/dir",
             "title": "Recursively find all duplicates in a dir"
         },
         {
@@ -3562,7 +3567,7 @@
         },
         {
             "location": "/linux/",
-            "text": "\"Linux is a family of free and open-source software operating systems built around the Linux kernel.\" - \nhttps://en.wikipedia.org/wiki/Linux\n\n\nMost linux distros are built on GNU tools, and this article is relevant in distinguishing the importance GNU plays in the linux ecosystem: \nhttps://www.gnu.org/gnu/why-gnu-linux.en.html\n\n\nPerformance monitoring\n\n\n\n\nLinux Load Averages: Solving the Mystery\n\n\nBrendan Gregg's Linux Performance page\n\n\nNotes from the Linux Performance Monitoring talk at Velocity 2015\n\n\n\n\nTricks\n\n\nConfigure a system to reboot on kernel panic\n\n\nThese lines should be added to \nsysctl.conf\n\n\n#\u00a0Reboot\u00a0after\u00a010\u00a0seconds\u00a0if\u00a0kernel\u00a0panics\nkernel.panic\u00a0=\u00a010  \n#\u00a0Treat\u00a0all\u00a0oopses\u00a0as\u00a0panics  \nkernel.panic_on_oops\u00a0=\u00a01\n\n\n\n\nForce reboot on corrupt system\n\n\nFor times that commands like \nreboot\n and \nshutdown\n are not available.\n\n\necho\u00a01\u00a0>\u00a0/proc/sys/kernel/sysrq\necho\u00a0b\u00a0>\u00a0/proc/sysrq-trigger\n\n\n\n\nSee also\n\n\n\n\nlxc\n\n\n\n\nDistros\n\n\n\n\nrhel\n\n\nubuntu\n\n\n\n\nInit systems\n\n\n\n\nsystemd\n\n\nupstart\n\n\n\n\nFilesystems\n\n\n\n\nFilesystem Heirarchy Standards: \nhttp://www.pathname.com/fhs/pub/fhs-2.3.html\n\n\nLVM\n\n\nZFS",
+            "text": "\"Linux is a family of free and open-source software operating systems built around the Linux kernel.\" - \nhttps://en.wikipedia.org/wiki/Linux\n\n\nMost linux distros are built on GNU tools, and this article is relevant in distinguishing the importance GNU plays in the linux ecosystem: \nhttps://www.gnu.org/gnu/why-gnu-linux.en.html\n\n\nPerformance monitoring\n\n\n\n\nLinux Load Averages: Solving the Mystery\n\n\nBrendan Gregg's Linux Performance page\n\n\nNotes from the Linux Performance Monitoring talk at Velocity 2015\n\n\n\n\nTricks\n\n\nConfigure a system to reboot on kernel panic\n\n\nThese lines should be added to \nsysctl.conf\n\n\n# Reboot after 10 seconds if kernel panics\nkernel.panic = 10  \n# Treat all oopses as panics  \nkernel.panic_on_oops = 1\n\n\n\n\nForce reboot on corrupt system\n\n\nFor times that commands like \nreboot\n and \nshutdown\n are not available.\n\n\necho 1 > /proc/sys/kernel/sysrq\necho b > /proc/sysrq-trigger\n\n\n\n\nSee also\n\n\n\n\nlxc\n\n\n\n\nDistros\n\n\n\n\nrhel\n\n\nubuntu\n\n\n\n\nInit systems\n\n\n\n\nsystemd\n\n\nupstart\n\n\n\n\nFilesystems\n\n\n\n\nFilesystem Heirarchy Standards: \nhttp://www.pathname.com/fhs/pub/fhs-2.3.html\n\n\nLVM\n\n\nZFS",
             "title": "Linux"
         },
         {
@@ -3577,12 +3582,12 @@
         },
         {
             "location": "/linux/#configure-a-system-to-reboot-on-kernel-panic",
-            "text": "These lines should be added to  sysctl.conf  #\u00a0Reboot\u00a0after\u00a010\u00a0seconds\u00a0if\u00a0kernel\u00a0panics\nkernel.panic\u00a0=\u00a010  \n#\u00a0Treat\u00a0all\u00a0oopses\u00a0as\u00a0panics  \nkernel.panic_on_oops\u00a0=\u00a01",
+            "text": "These lines should be added to  sysctl.conf  # Reboot after 10 seconds if kernel panics\nkernel.panic = 10  \n# Treat all oopses as panics  \nkernel.panic_on_oops = 1",
             "title": "Configure a system to reboot on kernel panic"
         },
         {
             "location": "/linux/#force-reboot-on-corrupt-system",
-            "text": "For times that commands like  reboot  and  shutdown  are not available.  echo\u00a01\u00a0>\u00a0/proc/sys/kernel/sysrq\necho\u00a0b\u00a0>\u00a0/proc/sysrq-trigger",
+            "text": "For times that commands like  reboot  and  shutdown  are not available.  echo 1 > /proc/sys/kernel/sysrq\necho b > /proc/sysrq-trigger",
             "title": "Force reboot on corrupt system"
         },
         {
@@ -4682,7 +4687,7 @@
         },
         {
             "location": "/powertop/",
-            "text": "\"PowerTOP is a Linux tool to diagnose issues with power consumption and power management.\" - \nhttps://01.org/powertop/\n\n\nExamples\n\n\nGenerate an html power report\n\n\npowertop\u00a0--html=powertop.html\n\n\n\n\nSee also\n\n\n\n\nTop variant list",
+            "text": "\"PowerTOP is a Linux tool to diagnose issues with power consumption and power management.\" - \nhttps://01.org/powertop/\n\n\nExamples\n\n\nGenerate an html power report\n\n\npowertop --html=powertop.html\n\n\n\n\nSee also\n\n\n\n\nTop variant list",
             "title": "Powertop"
         },
         {
@@ -4692,7 +4697,7 @@
         },
         {
             "location": "/powertop/#generate-an-html-power-report",
-            "text": "powertop\u00a0--html=powertop.html",
+            "text": "powertop --html=powertop.html",
             "title": "Generate an html power report"
         },
         {
@@ -4702,17 +4707,17 @@
         },
         {
             "location": "/procurve/",
-            "text": "Procurve\n switches from \nHP\n offer cheap layer 2 and layer 3 switching.\n\n\nCopy config files\n\n\nscp\u00a0user@switch:cfg/startup-config\u00a0./\n\n\nscp\u00a0user@switch:cfg/running-config\u00a0./\n\n\nFirmware update\n\n\n\n\nVia ssh: \nlinuxclient$ scp /path/to/image user@switch-hostname:/os/primary\n\n\nVia tftp: \nswitch# copy tftp flash 172.28.115.151 flashfilename.swi primary\n \nThis doesn't always work, try scp if it fails.\n\n\n\n\nThen on the switch...\n\n\nsystem\u00a0boot\u00a0flash\u00a0primary\n\n\nConfig Examples\n\n\nSet an IP# for the default VLAN\n\n\ninterface\u00a0vlan\u00a01\u00a0ip\u00a0address\u00a0172.28.115.234\u00a0255.255.255.0\nip\u00a0default-gateway\u00a0172.28.115.1\n\n\n\n\nSet up additional VLANs\n\n\nvlan\u00a0100\u00a0untagged\u00a02  \nvlan\u00a0100\u00a0ip\u00a0address\u00a0172.28.100.1  \nvlan\u00a0102\u00a0untagged\u00a03  \nvlan\u00a0102\u00a0ip\u00a0address\u00a0172.28.102.1\n\n\n\n\nEnable routing between connected networks\n\n\nip\u00a0routing\n\n\nSet up SNTP clock\n\n\nsntp\u00a0server\u00a0172.28.111.16\u00a0  \ntimesync\u00a0sntp\u00a0  \nsntp\u00a0120  \nsntp\u00a0unicast\n\n\n\n\nAlter DST settings\n\n\ntime\u00a0daylight-time-rule\u00a0User-defined\u00a0begin-date\u00a03/8\u00a0end-date\u00a011/1\n\n\nEnable SSH\n\n\ncrypto\u00a0key\u00a0generate\u00a0ssh  \nip\u00a0ssh  \nip\u00a0ssh\u00a0version\u00a02  \nip\u00a0ssh\u00a0filetransfer\n\n\n\n\nDisable telnet\n\n\nno\u00a0telnet-server\n\n\nSet up snmp\n\n\nsnmp-server\u00a0community\u00a0\"foobar\"\u00a0Operator\n\n\nSet up a VLAN 112 port group\n\n\nvlan\u00a0112\u00a0untagged\u00a06-12\n\n\nSet two groups of ports as a trunks (eg: to use with VMware in static LACP)\n\n\ntrunk\u00a01-4\u00a0trk1\u00a0trunk  \ntrunk\u00a05-8\u00a0trk2\u00a0trunk\n\n\n\n\nSet up VLAN multiplexing\n\n\nvlan\u00a0114\u00a0tagged\u00a024  \nvlan\u00a0115\u00a0tagged\u00a024  \nvlan\u00a0114\u00a0tagged\u00a0Trk1  \nvlan\u00a0115\u00a0tagged\u00a0Trk1\n\n\n\n\nSee Also\n\n\n\n\nPlenty of config examples: \nhttps://www.cs.uwaterloo.ca\n\n\n\n\nExample Config\n\n\nhostname \"HP-CORE-0\"\nsnmp-server location \"Cup1-Closet1\"\nmax-vlans 64\ntime timezone -480\ntime daylight-time-rule User-defined begin-date 3/8 end-date 11/1\nconsole inactivity-timer 5\nno web-management\nweb-management ssl\nno telnet-server\ninterface 2\n   name \"Load Test Cluster\"\nexit\ninterface 5\n   name \"hq-vm-1\"\nexit\ninterface 6\n   name \"hq-vm-1\"\nexit\ninterface 8\n   name \"beast\"\nexit\ninterface 10\n   name \"Winserv\"\nexit\ninterface 12\n   name \"IT\"\nexit\ninterface 13\n   name \"Services\"\nexit\ninterface 14\n   name \"IT\"\nexit\ninterface 15\n   name \"IT\"\nexit\ninterface 16\n   name \"IT\"\nexit\ninterface 17\n   name \"beast\"\nexit\ninterface 18\n   name \"VPN\"\nexit\ninterface 19\n   name \"IT\"\nexit\ninterface 20\n   name \"IT\"\nexit\ninterface 21\n   name \"Radio Station\"\nexit\ninterface 22\n   name \"AT&T Network\"\nexit\ninterface 23\n   name \"HP-CORE trunk\"\nexit\ninterface 24\n   name \"Jun1-trunk\"\nexit\nip default-gateway 10.8.100.1\nsntp server 10.8.5.220\nip routing\ntimesync sntp\nsntp unicast\nsnmp-server community \"public\" Unrestricted\nsnmp-server host 10.8.5.189 \"public\"\nvlan 1\n   name \"DEFAULT_VLAN\"\n   untagged 4,14\n   no ip address\n   tagged 23\n   no untagged 1-3,5-13,15-22,24\n   exit\nvlan 101\n   name \"Services\"\n   untagged 3,8,10,15,19\n   ip address 10.8.1.1 255.255.255.0\n   ip helper-address 10.8.5.220\n   tagged 2,5-6,23-24\n   exit\nvlan 102\n   name \"LoadTest\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 2,5-6,15,23-24\n   exit\nvlan 103\n   name \"QATest\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23\n   exit\nvlan 104\n   name \"PS\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 105\n   name \"IT\"\n   untagged 1,5-6,9,12-13,16,20\n   ip address 10.8.5.1 255.255.255.0\n   ip helper-address 10.8.5.220\n   tagged 2,15,23-24\n   exit\nvlan 110\n   name \"Wireless\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 111\n   name \"Eng\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 113\n   name \"SW2\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 23\n   exit\nvlan 112\n   name \"SW1\"\n   untagged 21\n   ip address 10.8.12.1 255.255.255.0\n   ip helper-address 10.8.5.220\n   tagged 23\n   exit\nvlan 100\n   name \"Backbone\"\n   ip address 10.8.100.100 255.255.255.0\n   tagged 23-24\n   exit\nvlan 114\n   name \"Upstairs\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 23-24\n   exit\nvlan 106\n   name \"VPN\"\n   untagged 18\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 188\n   name \"OldNet\"\n   untagged 11,17\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 23-24\n   exit\nvlan 42\n   name \"ATT\"\n   untagged 22\n   tagged 23-24\n   exit\nvlan 107\n   name \"DMZ\"\n   untagged 7\n   ip helper-address 10.8.5.220\n   tagged 15,24\n   exit\nvlan 109\n   name \"Jail\"\n   tagged 23-24\n   exit\ndhcp-relay option 82 keep\nip route 0.0.0.0 0.0.0.0 10.8.100.1\nip route 10.8.11.0 255.255.255.0 10.8.100.101\nip route 10.8.3.0 255.255.255.0 10.8.100.101\nip route 10.172.188.0 255.255.255.0 10.8.100.1\nip route 10.8.13.0 255.255.255.0 10.8.100.101\nip route 10.8.2.0 255.255.255.0 10.8.100.1\nip route 10.8.10.0 255.255.255.0 10.8.100.1\nip route 10.8.7.0 255.255.255.0 10.8.100.1\nip route 10.8.4.0 255.255.255.0 10.8.100.1\nip route 10.8.14.0 255.255.255.0 10.8.100.102\nip route 10.8.9.0 255.255.255.0 10.8.100.1\nstack commander \"HP-CORE\"\nstack auto-grab\nstack member 1 mac-address 0016b90b4ea0\nstack member 2 mac-address 0016b968df40\nspanning-tree\nip ssh\nip ssh filetransfer\nno tftp client\nno tftp server\npassword manager\npassword operator",
+            "text": "Procurve\n switches from \nHP\n offer cheap layer 2 and layer 3 switching.\n\n\nCopy config files\n\n\nscp user@switch:cfg/startup-config ./\n\n\nscp user@switch:cfg/running-config ./\n\n\nFirmware update\n\n\n\n\nVia ssh: \nlinuxclient$ scp /path/to/image user@switch-hostname:/os/primary\n\n\nVia tftp: \nswitch# copy tftp flash 172.28.115.151 flashfilename.swi primary\n \nThis doesn't always work, try scp if it fails.\n\n\n\n\nThen on the switch...\n\n\nsystem boot flash primary\n\n\nConfig Examples\n\n\nSet an IP# for the default VLAN\n\n\ninterface vlan 1 ip address 172.28.115.234 255.255.255.0\nip default-gateway 172.28.115.1\n\n\n\n\nSet up additional VLANs\n\n\nvlan 100 untagged 2  \nvlan 100 ip address 172.28.100.1  \nvlan 102 untagged 3  \nvlan 102 ip address 172.28.102.1\n\n\n\n\nEnable routing between connected networks\n\n\nip routing\n\n\nSet up SNTP clock\n\n\nsntp server 172.28.111.16  \ntimesync sntp  \nsntp 120  \nsntp unicast\n\n\n\n\nAlter DST settings\n\n\ntime daylight-time-rule User-defined begin-date 3/8 end-date 11/1\n\n\nEnable SSH\n\n\ncrypto key generate ssh  \nip ssh  \nip ssh version 2  \nip ssh filetransfer\n\n\n\n\nDisable telnet\n\n\nno telnet-server\n\n\nSet up snmp\n\n\nsnmp-server community \"foobar\" Operator\n\n\nSet up a VLAN 112 port group\n\n\nvlan 112 untagged 6-12\n\n\nSet two groups of ports as a trunks (eg: to use with VMware in static LACP)\n\n\ntrunk 1-4 trk1 trunk  \ntrunk 5-8 trk2 trunk\n\n\n\n\nSet up VLAN multiplexing\n\n\nvlan 114 tagged 24  \nvlan 115 tagged 24  \nvlan 114 tagged Trk1  \nvlan 115 tagged Trk1\n\n\n\n\nSee Also\n\n\n\n\nPlenty of config examples: \nhttps://www.cs.uwaterloo.ca\n\n\n\n\nExample Config\n\n\nhostname \"HP-CORE-0\"\nsnmp-server location \"Cup1-Closet1\"\nmax-vlans 64\ntime timezone -480\ntime daylight-time-rule User-defined begin-date 3/8 end-date 11/1\nconsole inactivity-timer 5\nno web-management\nweb-management ssl\nno telnet-server\ninterface 2\n   name \"Load Test Cluster\"\nexit\ninterface 5\n   name \"hq-vm-1\"\nexit\ninterface 6\n   name \"hq-vm-1\"\nexit\ninterface 8\n   name \"beast\"\nexit\ninterface 10\n   name \"Winserv\"\nexit\ninterface 12\n   name \"IT\"\nexit\ninterface 13\n   name \"Services\"\nexit\ninterface 14\n   name \"IT\"\nexit\ninterface 15\n   name \"IT\"\nexit\ninterface 16\n   name \"IT\"\nexit\ninterface 17\n   name \"beast\"\nexit\ninterface 18\n   name \"VPN\"\nexit\ninterface 19\n   name \"IT\"\nexit\ninterface 20\n   name \"IT\"\nexit\ninterface 21\n   name \"Radio Station\"\nexit\ninterface 22\n   name \"AT&T Network\"\nexit\ninterface 23\n   name \"HP-CORE trunk\"\nexit\ninterface 24\n   name \"Jun1-trunk\"\nexit\nip default-gateway 10.8.100.1\nsntp server 10.8.5.220\nip routing\ntimesync sntp\nsntp unicast\nsnmp-server community \"public\" Unrestricted\nsnmp-server host 10.8.5.189 \"public\"\nvlan 1\n   name \"DEFAULT_VLAN\"\n   untagged 4,14\n   no ip address\n   tagged 23\n   no untagged 1-3,5-13,15-22,24\n   exit\nvlan 101\n   name \"Services\"\n   untagged 3,8,10,15,19\n   ip address 10.8.1.1 255.255.255.0\n   ip helper-address 10.8.5.220\n   tagged 2,5-6,23-24\n   exit\nvlan 102\n   name \"LoadTest\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 2,5-6,15,23-24\n   exit\nvlan 103\n   name \"QATest\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23\n   exit\nvlan 104\n   name \"PS\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 105\n   name \"IT\"\n   untagged 1,5-6,9,12-13,16,20\n   ip address 10.8.5.1 255.255.255.0\n   ip helper-address 10.8.5.220\n   tagged 2,15,23-24\n   exit\nvlan 110\n   name \"Wireless\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 111\n   name \"Eng\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 113\n   name \"SW2\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 23\n   exit\nvlan 112\n   name \"SW1\"\n   untagged 21\n   ip address 10.8.12.1 255.255.255.0\n   ip helper-address 10.8.5.220\n   tagged 23\n   exit\nvlan 100\n   name \"Backbone\"\n   ip address 10.8.100.100 255.255.255.0\n   tagged 23-24\n   exit\nvlan 114\n   name \"Upstairs\"\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 23-24\n   exit\nvlan 106\n   name \"VPN\"\n   untagged 18\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 15,23-24\n   exit\nvlan 188\n   name \"OldNet\"\n   untagged 11,17\n   no ip address\n   ip helper-address 10.8.5.220\n   tagged 23-24\n   exit\nvlan 42\n   name \"ATT\"\n   untagged 22\n   tagged 23-24\n   exit\nvlan 107\n   name \"DMZ\"\n   untagged 7\n   ip helper-address 10.8.5.220\n   tagged 15,24\n   exit\nvlan 109\n   name \"Jail\"\n   tagged 23-24\n   exit\ndhcp-relay option 82 keep\nip route 0.0.0.0 0.0.0.0 10.8.100.1\nip route 10.8.11.0 255.255.255.0 10.8.100.101\nip route 10.8.3.0 255.255.255.0 10.8.100.101\nip route 10.172.188.0 255.255.255.0 10.8.100.1\nip route 10.8.13.0 255.255.255.0 10.8.100.101\nip route 10.8.2.0 255.255.255.0 10.8.100.1\nip route 10.8.10.0 255.255.255.0 10.8.100.1\nip route 10.8.7.0 255.255.255.0 10.8.100.1\nip route 10.8.4.0 255.255.255.0 10.8.100.1\nip route 10.8.14.0 255.255.255.0 10.8.100.102\nip route 10.8.9.0 255.255.255.0 10.8.100.1\nstack commander \"HP-CORE\"\nstack auto-grab\nstack member 1 mac-address 0016b90b4ea0\nstack member 2 mac-address 0016b968df40\nspanning-tree\nip ssh\nip ssh filetransfer\nno tftp client\nno tftp server\npassword manager\npassword operator",
             "title": "Procurve"
         },
         {
             "location": "/procurve/#copy-config-files",
-            "text": "scp\u00a0user@switch:cfg/startup-config\u00a0./  scp\u00a0user@switch:cfg/running-config\u00a0./",
+            "text": "scp user@switch:cfg/startup-config ./  scp user@switch:cfg/running-config ./",
             "title": "Copy config files"
         },
         {
             "location": "/procurve/#firmware-update",
-            "text": "Via ssh:  linuxclient$ scp /path/to/image user@switch-hostname:/os/primary  Via tftp:  switch# copy tftp flash 172.28.115.151 flashfilename.swi primary   This doesn't always work, try scp if it fails.   Then on the switch...  system\u00a0boot\u00a0flash\u00a0primary",
+            "text": "Via ssh:  linuxclient$ scp /path/to/image user@switch-hostname:/os/primary  Via tftp:  switch# copy tftp flash 172.28.115.151 flashfilename.swi primary   This doesn't always work, try scp if it fails.   Then on the switch...  system boot flash primary",
             "title": "Firmware update"
         },
         {
@@ -4722,57 +4727,57 @@
         },
         {
             "location": "/procurve/#set-an-ip-for-the-default-vlan",
-            "text": "interface\u00a0vlan\u00a01\u00a0ip\u00a0address\u00a0172.28.115.234\u00a0255.255.255.0\nip\u00a0default-gateway\u00a0172.28.115.1",
+            "text": "interface vlan 1 ip address 172.28.115.234 255.255.255.0\nip default-gateway 172.28.115.1",
             "title": "Set an IP# for the default VLAN"
         },
         {
             "location": "/procurve/#set-up-additional-vlans",
-            "text": "vlan\u00a0100\u00a0untagged\u00a02  \nvlan\u00a0100\u00a0ip\u00a0address\u00a0172.28.100.1  \nvlan\u00a0102\u00a0untagged\u00a03  \nvlan\u00a0102\u00a0ip\u00a0address\u00a0172.28.102.1",
+            "text": "vlan 100 untagged 2  \nvlan 100 ip address 172.28.100.1  \nvlan 102 untagged 3  \nvlan 102 ip address 172.28.102.1",
             "title": "Set up additional VLANs"
         },
         {
             "location": "/procurve/#enable-routing-between-connected-networks",
-            "text": "ip\u00a0routing",
+            "text": "ip routing",
             "title": "Enable routing between connected networks"
         },
         {
             "location": "/procurve/#set-up-sntp-clock",
-            "text": "sntp\u00a0server\u00a0172.28.111.16\u00a0  \ntimesync\u00a0sntp\u00a0  \nsntp\u00a0120  \nsntp\u00a0unicast",
+            "text": "sntp server 172.28.111.16  \ntimesync sntp  \nsntp 120  \nsntp unicast",
             "title": "Set up SNTP clock"
         },
         {
             "location": "/procurve/#alter-dst-settings",
-            "text": "time\u00a0daylight-time-rule\u00a0User-defined\u00a0begin-date\u00a03/8\u00a0end-date\u00a011/1",
+            "text": "time daylight-time-rule User-defined begin-date 3/8 end-date 11/1",
             "title": "Alter DST settings"
         },
         {
             "location": "/procurve/#enable-ssh",
-            "text": "crypto\u00a0key\u00a0generate\u00a0ssh  \nip\u00a0ssh  \nip\u00a0ssh\u00a0version\u00a02  \nip\u00a0ssh\u00a0filetransfer",
+            "text": "crypto key generate ssh  \nip ssh  \nip ssh version 2  \nip ssh filetransfer",
             "title": "Enable SSH"
         },
         {
             "location": "/procurve/#disable-telnet",
-            "text": "no\u00a0telnet-server",
+            "text": "no telnet-server",
             "title": "Disable telnet"
         },
         {
             "location": "/procurve/#set-up-snmp",
-            "text": "snmp-server\u00a0community\u00a0\"foobar\"\u00a0Operator",
+            "text": "snmp-server community \"foobar\" Operator",
             "title": "Set up snmp"
         },
         {
             "location": "/procurve/#set-up-a-vlan-112-port-group",
-            "text": "vlan\u00a0112\u00a0untagged\u00a06-12",
+            "text": "vlan 112 untagged 6-12",
             "title": "Set up a VLAN 112 port group"
         },
         {
             "location": "/procurve/#set-two-groups-of-ports-as-a-trunks-eg-to-use-with-vmware-in-static-lacp",
-            "text": "trunk\u00a01-4\u00a0trk1\u00a0trunk  \ntrunk\u00a05-8\u00a0trk2\u00a0trunk",
+            "text": "trunk 1-4 trk1 trunk  \ntrunk 5-8 trk2 trunk",
             "title": "Set two groups of ports as a trunks (eg: to use with VMware in static LACP)"
         },
         {
             "location": "/procurve/#set-up-vlan-multiplexing",
-            "text": "vlan\u00a0114\u00a0tagged\u00a024  \nvlan\u00a0115\u00a0tagged\u00a024  \nvlan\u00a0114\u00a0tagged\u00a0Trk1  \nvlan\u00a0115\u00a0tagged\u00a0Trk1",
+            "text": "vlan 114 tagged 24  \nvlan 115 tagged 24  \nvlan 114 tagged Trk1  \nvlan 115 tagged Trk1",
             "title": "Set up VLAN multiplexing"
         },
         {
@@ -5212,7 +5217,7 @@
         },
         {
             "location": "/raspberry-pi/",
-            "text": "A small computer, good for running linux.\n\n\n\n\nhttp://www.raspberrypi.org\n\n\nFedora Remix for Pi - \nhttp://www.raspberrypi.org/archives/805\n\n\n\n\nSoftware\n\n\nRaspbian\n\n\ndpkg-reconfigure\u00a0locales\n\n\nHass.io\n\n\n\"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.\" - \nhttps://home-assistant.io/hassio/\n\n\nSpillPassPi\n\n\nV1\n\n\nRetired.\n\n\n'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=5\n\n\nV2\n\n\n'A Simple Homebrew Plug and Play 2DS/3DS/N3DS StreetPass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=169\n\n\nHomepass\n\n\n\"Nintendo 3DS homepass resources and software.\" - \nhttps://github.com/danielhoherd/homepass/tree/master/RaspberryPi",
+            "text": "A small computer, good for running linux.\n\n\n\n\nhttp://www.raspberrypi.org\n\n\nFedora Remix for Pi - \nhttp://www.raspberrypi.org/archives/805\n\n\n\n\nSoftware\n\n\nRaspbian\n\n\ndpkg-reconfigure locales\n\n\nHass.io\n\n\n\"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.\" - \nhttps://home-assistant.io/hassio/\n\n\nSpillPassPi\n\n\nV1\n\n\nRetired.\n\n\n'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=5\n\n\nV2\n\n\n'A Simple Homebrew Plug and Play 2DS/3DS/N3DS StreetPass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=169\n\n\nHomepass\n\n\n\"Nintendo 3DS homepass resources and software.\" - \nhttps://github.com/danielhoherd/homepass/tree/master/RaspberryPi",
             "title": "Raspberry pi"
         },
         {
@@ -5222,7 +5227,7 @@
         },
         {
             "location": "/raspberry-pi/#raspbian",
-            "text": "dpkg-reconfigure\u00a0locales",
+            "text": "dpkg-reconfigure locales",
             "title": "Raspbian"
         },
         {
@@ -6507,7 +6512,7 @@
         },
         {
             "location": "/strace/",
-            "text": "strace\n\n\nstrace\n is a tool to trace system calls and signals in Linux.\n\n\nExamples\n\n\nTrace a running process\n\n\nstrace\u00a0-p\u00a05789\n\n\n\n\nTrace only exec calls of a command and all child processes\n\n\nstrace\u00a0-f\u00a0-eexecve\u00a0cf-agent\u00a0-K",
+            "text": "strace\n\n\nstrace\n is a tool to trace system calls and signals in Linux.\n\n\nExamples\n\n\nTrace a running process\n\n\nstrace -p 5789\n\n\n\n\nTrace only exec calls of a command and all child processes\n\n\nstrace -f -eexecve cf-agent -K",
             "title": "strace"
         },
         {
@@ -6522,12 +6527,12 @@
         },
         {
             "location": "/strace/#trace-a-running-process",
-            "text": "strace\u00a0-p\u00a05789",
+            "text": "strace -p 5789",
             "title": "Trace a running process"
         },
         {
             "location": "/strace/#trace-only-exec-calls-of-a-command-and-all-child-processes",
-            "text": "strace\u00a0-f\u00a0-eexecve\u00a0cf-agent\u00a0-K",
+            "text": "strace -f -eexecve cf-agent -K",
             "title": "Trace only exec calls of a command and all child processes"
         },
         {
@@ -6892,7 +6897,7 @@
         },
         {
             "location": "/tls/",
-            "text": "TLS is Transport Layer Security. It used to be called SSL: the Secure Sockets Layer. It has to do with encrypted IP traffic and stuff stuff.\n\n\nApache SSL steps\n\n\n\n\nGenerate a host key: \nopenssl genrsa -out foo.com.key 2048\n\n\nGenerate a CSR from that key: \nopenssl req -new -key foo.com.key -out foo.com.csr\n\n\n\n\nTo set up VirtualHosts, follow this template: \nhttp://wiki.apache.org/httpd/NameBasedSSLVHosts\n\n\nExamples\n\n\nShow info about a pem file\n\n\nopenssl\u00a0x509\u00a0-noout\u00a0-text\u00a0-in\u00a0foo.pem\n\n\n\n\nShow certificate options\n\n\nopenssl x509 -text -in foo.crt\n\n\n\n\nValidate a keys / cert pair\n\n\nTo validate that a particular key was used to generate a certificate, useful for testing https key/crt files, do the following and make sure the modulus sections match:\n\n\nopenssl\u00a0rsa\u00a0\u00a0-noout\u00a0-text\u00a0-in\u00a0server.key\u00a0|\u00a0grep\u00a0-i\u00a0-A9\u00a0modulus\nopenssl\u00a0x509\u00a0-noout\u00a0-text\u00a0-in\u00a0server.crt\u00a0|\u00a0grep\u00a0-i\u00a0-A9\u00a0modulus\n\n\n\n\nOr\n\n\ndiff <(openssl rsa -in my.key -modulus | grep Modulus) <(openssl x509 -in my.crt -modulus | grep Modulus)\n\n\n\n\nOr as a function:\n\n\nfunction cert-key-compare {\n    if [[ \"$1\" != *key* ]] || [[ \"$2\" != *cert* ]] ; then\n        echo \"usage: cert-key-compare key certificate\" ;\n    else\n        diff \\\n      <(openssl rsa  -in $1 -modulus 2>/dev/null | grep Modulus) \\\n      <(openssl x509 -in $2 -modulus 2>/dev/null | grep Modulus) \\\n      > /dev/null && echo \"key and crt match.\" || echo \"key and crt do not match\"\n    fi\n}\n\n\n\n\nSee some information about a server's certificate\n\n\nopenssl\u00a0s_client\u00a0-connect\u00a0linuxforums.org:443\n\n\n\n\nEncrypt a file\n\n\nopenssl\u00a0enc\u00a0-aes-256-cbc\u00a0-salt\u00a0-in\u00a0yourfile\u00a0-out\u00a0yourfile.enc\n\n\n\n\nDecrypt a file\n\n\nopenssl\u00a0enc\u00a0-aes-256-cbc\u00a0-d\u00a0-in\u00a0encryptedfile.enc\u00a0-out\u00a0decryptedfile\n\n\n\n\nEncrypt / Decrypt bash functions\n\n\nfunction encrypt_file() { openssl enc -aes-256-cbc -salt -in \"${1}\" -out \"${1}.enc\" ; }\nfunction decrypt_file() { openssl enc -aes-256-cbc -d -in \"${1}\" -out \"${1}.dec\" ; }\n\n\n\n\nLinks\n\n\n\n\nAn overview of the SSL or TLS handshake\n\n\nThe Transport Layer Security (TLS) Protocol Version 1.2 - \nhttps://tools.ietf.org/html/rfc5246",
+            "text": "TLS is Transport Layer Security. It used to be called SSL: the Secure Sockets Layer. It has to do with encrypted IP traffic and stuff stuff.\n\n\nApache SSL steps\n\n\n\n\nGenerate a host key: \nopenssl genrsa -out foo.com.key 2048\n\n\nGenerate a CSR from that key: \nopenssl req -new -key foo.com.key -out foo.com.csr\n\n\n\n\nTo set up VirtualHosts, follow this template: \nhttp://wiki.apache.org/httpd/NameBasedSSLVHosts\n\n\nExamples\n\n\nShow info about a pem file\n\n\nopenssl x509 -noout -text -in foo.pem\n\n\n\n\nShow certificate options\n\n\nopenssl x509 -text -in foo.crt\n\n\n\n\nValidate a keys / cert pair\n\n\nTo validate that a particular key was used to generate a certificate, useful for testing https key/crt files, do the following and make sure the modulus sections match:\n\n\nopenssl rsa  -noout -text -in server.key | grep -i -A9 modulus\nopenssl x509 -noout -text -in server.crt | grep -i -A9 modulus\n\n\n\n\nOr\n\n\ndiff <(openssl rsa -in my.key -modulus | grep Modulus) <(openssl x509 -in my.crt -modulus | grep Modulus)\n\n\n\n\nOr as a function:\n\n\nfunction cert-key-compare {\n    if [[ \"$1\" != *key* ]] || [[ \"$2\" != *cert* ]] ; then\n        echo \"usage: cert-key-compare key certificate\" ;\n    else\n        diff \\\n      <(openssl rsa  -in $1 -modulus 2>/dev/null | grep Modulus) \\\n      <(openssl x509 -in $2 -modulus 2>/dev/null | grep Modulus) \\\n      > /dev/null && echo \"key and crt match.\" || echo \"key and crt do not match\"\n    fi\n}\n\n\n\n\nSee some information about a server's certificate\n\n\nopenssl s_client -connect linuxforums.org:443\n\n\n\n\nEncrypt a file\n\n\nopenssl enc -aes-256-cbc -salt -in yourfile -out yourfile.enc\n\n\n\n\nDecrypt a file\n\n\nopenssl enc -aes-256-cbc -d -in encryptedfile.enc -out decryptedfile\n\n\n\n\nEncrypt / Decrypt bash functions\n\n\nfunction encrypt_file() { openssl enc -aes-256-cbc -salt -in \"${1}\" -out \"${1}.enc\" ; }\nfunction decrypt_file() { openssl enc -aes-256-cbc -d -in \"${1}\" -out \"${1}.dec\" ; }\n\n\n\n\nLinks\n\n\n\n\nAn overview of the SSL or TLS handshake\n\n\nThe Transport Layer Security (TLS) Protocol Version 1.2 - \nhttps://tools.ietf.org/html/rfc5246",
             "title": "Tls"
         },
         {
@@ -6907,7 +6912,7 @@
         },
         {
             "location": "/tls/#show-info-about-a-pem-file",
-            "text": "openssl\u00a0x509\u00a0-noout\u00a0-text\u00a0-in\u00a0foo.pem",
+            "text": "openssl x509 -noout -text -in foo.pem",
             "title": "Show info about a pem file"
         },
         {
@@ -6917,22 +6922,22 @@
         },
         {
             "location": "/tls/#validate-a-keys-cert-pair",
-            "text": "To validate that a particular key was used to generate a certificate, useful for testing https key/crt files, do the following and make sure the modulus sections match:  openssl\u00a0rsa\u00a0\u00a0-noout\u00a0-text\u00a0-in\u00a0server.key\u00a0|\u00a0grep\u00a0-i\u00a0-A9\u00a0modulus\nopenssl\u00a0x509\u00a0-noout\u00a0-text\u00a0-in\u00a0server.crt\u00a0|\u00a0grep\u00a0-i\u00a0-A9\u00a0modulus  Or  diff <(openssl rsa -in my.key -modulus | grep Modulus) <(openssl x509 -in my.crt -modulus | grep Modulus)  Or as a function:  function cert-key-compare {\n    if [[ \"$1\" != *key* ]] || [[ \"$2\" != *cert* ]] ; then\n        echo \"usage: cert-key-compare key certificate\" ;\n    else\n        diff \\\n      <(openssl rsa  -in $1 -modulus 2>/dev/null | grep Modulus) \\\n      <(openssl x509 -in $2 -modulus 2>/dev/null | grep Modulus) \\\n      > /dev/null && echo \"key and crt match.\" || echo \"key and crt do not match\"\n    fi\n}",
+            "text": "To validate that a particular key was used to generate a certificate, useful for testing https key/crt files, do the following and make sure the modulus sections match:  openssl rsa  -noout -text -in server.key | grep -i -A9 modulus\nopenssl x509 -noout -text -in server.crt | grep -i -A9 modulus  Or  diff <(openssl rsa -in my.key -modulus | grep Modulus) <(openssl x509 -in my.crt -modulus | grep Modulus)  Or as a function:  function cert-key-compare {\n    if [[ \"$1\" != *key* ]] || [[ \"$2\" != *cert* ]] ; then\n        echo \"usage: cert-key-compare key certificate\" ;\n    else\n        diff \\\n      <(openssl rsa  -in $1 -modulus 2>/dev/null | grep Modulus) \\\n      <(openssl x509 -in $2 -modulus 2>/dev/null | grep Modulus) \\\n      > /dev/null && echo \"key and crt match.\" || echo \"key and crt do not match\"\n    fi\n}",
             "title": "Validate a keys / cert pair"
         },
         {
             "location": "/tls/#see-some-information-about-a-servers-certificate",
-            "text": "openssl\u00a0s_client\u00a0-connect\u00a0linuxforums.org:443",
+            "text": "openssl s_client -connect linuxforums.org:443",
             "title": "See some information about a server's certificate"
         },
         {
             "location": "/tls/#encrypt-a-file",
-            "text": "openssl\u00a0enc\u00a0-aes-256-cbc\u00a0-salt\u00a0-in\u00a0yourfile\u00a0-out\u00a0yourfile.enc",
+            "text": "openssl enc -aes-256-cbc -salt -in yourfile -out yourfile.enc",
             "title": "Encrypt a file"
         },
         {
             "location": "/tls/#decrypt-a-file",
-            "text": "openssl\u00a0enc\u00a0-aes-256-cbc\u00a0-d\u00a0-in\u00a0encryptedfile.enc\u00a0-out\u00a0decryptedfile",
+            "text": "openssl enc -aes-256-cbc -d -in encryptedfile.enc -out decryptedfile",
             "title": "Decrypt a file"
         },
         {
@@ -6957,7 +6962,7 @@
         },
         {
             "location": "/top/",
-            "text": "top is a CLI tool to show running processes.\n\n\nGNU top Usage\n\n\n\n\nChange the number of displayed processes with \nn\n\n\nDisplay all CPUs with \n1\n\n\nKill a process with \nk\n\n\nRenice a process with \nr\n\n\nSave current display as default in \n~/.toprc\n with \nW\n\n\nShow or hide idle processes with \ni\n\n\nSort output with \nO\n\n\n\n\nBSD top Usage\n\n\nStart top sorted by cpu\n\n\ntop\u00a0-u\n\n\n\n\nSee also\n\n\n\n\nTop variant list",
+            "text": "top is a CLI tool to show running processes.\n\n\nGNU top Usage\n\n\n\n\nChange the number of displayed processes with \nn\n\n\nDisplay all CPUs with \n1\n\n\nKill a process with \nk\n\n\nRenice a process with \nr\n\n\nSave current display as default in \n~/.toprc\n with \nW\n\n\nShow or hide idle processes with \ni\n\n\nSort output with \nO\n\n\n\n\nBSD top Usage\n\n\nStart top sorted by cpu\n\n\ntop -u\n\n\n\n\nSee also\n\n\n\n\nTop variant list",
             "title": "Top"
         },
         {
@@ -6972,7 +6977,7 @@
         },
         {
             "location": "/top/#start-top-sorted-by-cpu",
-            "text": "top\u00a0-u",
+            "text": "top -u",
             "title": "Start top sorted by cpu"
         },
         {

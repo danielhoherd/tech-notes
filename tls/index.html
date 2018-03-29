@@ -1233,7 +1233,7 @@
 <p>To set up VirtualHosts, follow this template: <a href="http://wiki.apache.org/httpd/NameBasedSSLVHosts">http://wiki.apache.org/httpd/NameBasedSSLVHosts</a></p>
 <h1 id="examples">Examples</h1>
 <h3 id="show-info-about-a-pem-file">Show info about a pem file</h3>
-<pre><code>openssl x509 -noout -text -in foo.pem
+<pre><code>openssl x509 -noout -text -in foo.pem
 </code></pre>
 
 <h2 id="show-certificate-options">Show certificate options</h2>
@@ -1242,8 +1242,8 @@
 
 <h2 id="validate-a-keys-cert-pair">Validate a keys / cert pair</h2>
 <p>To validate that a particular key was used to generate a certificate, useful for testing https key/crt files, do the following and make sure the modulus sections match:</p>
-<pre><code>openssl rsa  -noout -text -in server.key | grep -i -A9 modulus
-openssl x509 -noout -text -in server.crt | grep -i -A9 modulus
+<pre><code>openssl rsa  -noout -text -in server.key | grep -i -A9 modulus
+openssl x509 -noout -text -in server.crt | grep -i -A9 modulus
 </code></pre>
 
 <p>Or</p>
@@ -1264,15 +1264,15 @@ openssl x509 -noout -text -in server.crt | grep -i -A9 modulus
 </code></pre>
 
 <h2 id="see-some-information-about-a-servers-certificate">See some information about a server's certificate</h2>
-<pre><code>openssl s_client -connect linuxforums.org:443
+<pre><code>openssl s_client -connect linuxforums.org:443
 </code></pre>
 
 <h2 id="encrypt-a-file">Encrypt a file</h2>
-<pre><code>openssl enc -aes-256-cbc -salt -in yourfile -out yourfile.enc
+<pre><code>openssl enc -aes-256-cbc -salt -in yourfile -out yourfile.enc
 </code></pre>
 
 <h2 id="decrypt-a-file">Decrypt a file</h2>
-<pre><code>openssl enc -aes-256-cbc -d -in encryptedfile.enc -out decryptedfile
+<pre><code>openssl enc -aes-256-cbc -d -in encryptedfile.enc -out decryptedfile
 </code></pre>
 
 <h2 id="encrypt-decrypt-bash-functions">Encrypt / Decrypt bash functions</h2>

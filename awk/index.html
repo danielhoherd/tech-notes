@@ -140,7 +140,9 @@
         
             <li><a class="toctree-l3" href="#print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines">Print even numbered lines on the same line before odd numbered lines</a></li>
         
-            <li><a class="toctree-l3" href="#sum-all-the-first-columns-of-each-line-in-a-file">Sum all the first columns of each line in a file</a></li>
+            <li><a class="toctree-l3" href="#print-sum-all-the-first-columns-of-each-line-in-a-file">Print sum all the first columns of each line in a file</a></li>
+        
+            <li><a class="toctree-l3" href="#print-sum-and-average-of-the-first-column-of-a-file">Print sum and average of the first column of a file</a></li>
         
             <li><a class="toctree-l3" href="#split-file-by-recurring-string">Split file by recurring string</a></li>
         
@@ -1267,7 +1269,7 @@
 </code></pre>
 
 <h2 id="sort-a-file-by-line-lengths">Sort a file by line lengths</h2>
-<pre><code>awk '{print length, $0}' testfile.txt | sort -n
+<pre><code>awk '{print length, $0}' testfile.txt | sort -n
 </code></pre>
 
 <h2 id="tdl-to-csv">TDL to CSV</h2>
@@ -1277,23 +1279,27 @@
 <h2 id="print-the-first-column-of-every-other-line">Print the first column of every other line</h2>
 <p>% is the modulus operator, which finds the remainder after an integer
 divide.</p>
-<pre><code>awk 'NR % 2 == 0 { print $1 }'
+<pre><code>awk 'NR % 2 == 0 { print $1 }'
 </code></pre>
 
 <h2 id="print-only-even-numbered-lines">Print only even numbered lines</h2>
-<pre><code>ls | awk 'NR % 2 == 0 { print $0 }'
+<pre><code>ls | awk 'NR % 2 == 0 { print $0 }'
 </code></pre>
 
 <h2 id="print-only-odd-numbered-lines">Print only odd numbered lines</h2>
-<pre><code>ls | awk 'NR % 2 != 0 { print $0 }'
+<pre><code>ls | awk 'NR % 2 != 0 { print $0 }'
 </code></pre>
 
 <h2 id="print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines">Print even numbered lines on the same line before odd numbered lines</h2>
-<pre><code>awk '{if (NR%2==0) { print $0 &quot; &quot; prev } else { prev=$0 }}'
+<pre><code>awk '{if (NR%2==0) { print $0 &quot; &quot; prev } else { prev=$0 }}'
 </code></pre>
 
-<h2 id="sum-all-the-first-columns-of-each-line-in-a-file">Sum all the first columns of each line in a file</h2>
-<pre><code>awk '{sum += $1} END {print sum}' filename
+<h2 id="print-sum-all-the-first-columns-of-each-line-in-a-file">Print sum all the first columns of each line in a file</h2>
+<pre><code>awk '{sum += $1} END {print sum}' filename
+</code></pre>
+
+<h2 id="print-sum-and-average-of-the-first-column-of-a-file">Print sum and average of the first column of a file</h2>
+<pre><code>awk '{sum += $1} END {avg = sum/NR ; printf &quot;Sum:     %s\nAverage: %s\n&quot;, sum, avg}' foo.txt
 </code></pre>
 
 <h2 id="split-file-by-recurring-string">Split file by recurring string</h2>
@@ -1302,7 +1308,7 @@ divide.</p>
 </code></pre>
 
 <h2 id="show-count-of-syslog-messages-per-minute">Show count of syslog messages per minute</h2>
-<pre><code>awk -F: {'print $1 `“`:`”` $2'} /var/log/messages |uniq -c
+<pre><code>awk -F: {'print $1 `“`:`”` $2'} /var/log/messages |uniq -c
 </code></pre>
 
 <h2 id="show-count-of-root-logins-per-minute">Show count of root logins per minute</h2>
@@ -1310,25 +1316,25 @@ divide.</p>
 </code></pre>
 
 <h2 id="print-lines-in-ls-where-uid-is-numeric">Print lines in ls where UID is numeric</h2>
-<pre><code>ls -la | awk '$3 ~/[0-9]/{print}'
+<pre><code>ls -la | awk '$3 ~/[0-9]/{print}'
 </code></pre>
 
 <h2 id="show-only-zfs-snapshots-whose-size-is-zero">Show only zfs snapshots whose size is zero</h2>
-<pre><code>zfs list -t snapshot | awk '$2 == 0'
+<pre><code>zfs list -t snapshot | awk '$2 == 0'
 </code></pre>
 
 <h2 id="print-a-line-if-the-third-field-does-not-match-a-regex">Print a line if the third field does not match a regex</h2>
-<pre><code>tcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'
+<pre><code>tcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'
 </code></pre>
 
 <h2 id="show-500-errors-in-a-standard-apache-access-log">Show 500 errors in a standard apache access log</h2>
-<pre><code>awk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log
+<pre><code>awk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log
 </code></pre>
 
 <h2 id="show-total-rss-and-vsz-count-for-all-cronolog-processes">Show total rss and vsz count for all cronolog processes</h2>
-<pre><code>ps aux |
-  grep -i cronolo[g] |
-  awk '{vsz += $5; rss += $6} END {print &quot;vsz total = &quot;vsz ; print &quot;rss total = &quot;rss}'
+<pre><code>ps aux |
+  grep -i cronolo[g] |
+  awk '{vsz += $5; rss += $6} END {print &quot;vsz total = &quot;vsz ; print &quot;rss total = &quot;rss}'
 </code></pre>
 
 <h2 id="get-ipv4-address-on-bsdosx">Get IPv4 address on BSD/OSX</h2>
@@ -1340,11 +1346,11 @@ divide.</p>
 </code></pre>
 
 <h2 id="print-the-last-element">Print the last element</h2>
-<pre><code>ls -la | awk -F&quot; &quot; '{print $NF}'
+<pre><code>ls -la | awk -F&quot; &quot; '{print $NF}'
 </code></pre>
 
 <h2 id="print-2nd-to-last-element">Print 2nd to last element</h2>
-<pre><code>ls -la | awk -F&quot; &quot; '{print $(NF - 1)}'
+<pre><code>ls -la | awk -F&quot; &quot; '{print $(NF - 1)}'
 </code></pre>
 
 <h2 id="print-the-previous-line-on-string-match">Print the previous line on string match</h2>

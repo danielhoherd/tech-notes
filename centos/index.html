@@ -1232,17 +1232,17 @@
 </ul>
 <h2 id="new-things-in-centos-7">New things in CentOS 7</h2>
 <ul>
-<li><a href="../firewalld">firewalld</a> manages the firewall</li>
-<li><a href="../hostnamectl">hostnamectl</a> changes the hostname and applies the setting immediately</li>
+<li><a href="../firewalld">firewalld</a> manages the firewall</li>
+<li><a href="../hostnamectl">hostnamectl</a> changes the hostname and applies the setting immediately</li>
 <li><a href="../journalctl">journalctl</a> shows log files of services launched by systemd</li>
-<li><a href="../systemctl">systemctl</a> manages systemd services</li>
+<li><a href="../systemctl">systemctl</a> manages systemd services</li>
 </ul>
 <h2 id="initial-setup">Initial setup</h2>
 <p>Set up some base parameters on a fresh instance</p>
-<pre><code>yum install -y bash-completion bc curl git lsof mlocate mutt net-snmp ntpd smartmontools strace sysstat vim wget  
-ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  
-ntpdate {0..3}.pool.ntp.org  
-systemctl start ntpd
+<pre><code>yum install -y bash-completion bc curl git lsof mlocate mutt net-snmp ntpd smartmontools strace sysstat vim wget  
+ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  
+ntpdate {0..3}.pool.ntp.org  
+systemctl start ntpd
 </code></pre>
 
 <h1 id="centos-6">CentOS 6</h1>
@@ -1251,19 +1251,19 @@ systemctl start ntpd
 </ul>
 <h2 id="centos-6-initial-setup">CentOS 6 Initial Setup</h2>
 <hr />
-<pre><code>yum install -y ntp  
-chkconfig --levels 345 ntpd on &amp;&amp; ntpdate time.apple.com &amp;&amp; service ntpd start  
-yum upgrade -y  
-yum install -y arping avahi avahi-tools bc bind-utils curl elinks fping lsof net-snmp man mlocate mutt openssh openssh-clients openssh-server perl-Crypt-SSLeay perl-libwww-perl rsync strace vim wget yum-cron
-ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  
-chkconfig --levels 345 yum-cron on &amp;&amp; service yum-cron start  
-yum install -y dcfldd nfs-utils smartmontools dmidecode lshw dstat htop iotop  
-chkconfig --levels 345 smartd on &amp;&amp; service smartd start
+<pre><code>yum install -y ntp  
+chkconfig --levels 345 ntpd on &amp;&amp; ntpdate time.apple.com &amp;&amp; service ntpd start  
+yum upgrade -y  
+yum install -y arping avahi avahi-tools bc bind-utils curl elinks fping lsof net-snmp man mlocate mutt openssh openssh-clients openssh-server perl-Crypt-SSLeay perl-libwww-perl rsync strace vim wget yum-cron
+ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  
+chkconfig --levels 345 yum-cron on &amp;&amp; service yum-cron start  
+yum install -y dcfldd nfs-utils smartmontools dmidecode lshw dstat htop iotop  
+chkconfig --levels 345 smartd on &amp;&amp; service smartd start
 </code></pre>
 
 <h2 id="tweaks-and-tricks">Tweaks and Tricks</h2>
 <h3 id="get-past-protected-lib-problems">Get past protected lib problems</h3>
-<p><code>yum update --setopt=protected_multilib=false --skip-broken</code></p>
+<p><code>yum update --setopt=protected_multilib=false --skip-broken</code></p>
 <h3 id="enable-dhcp-hostname-for-dns-resolution">Enable DHCP Hostname for DNS resolution</h3>
 <p>add “<code>DHCP_HOSTNAME=whatever</code>” to
 /etc/sysconfig/network-scripts/ifcfg-eth0</p>
@@ -1273,7 +1273,7 @@ chkconfig --levels 345 smartd on &amp;&amp; service smartd start
 <li>From Linux: <a href="https://fedoraproject.org/wiki/Livecd-iso-to-disk">https://fedoraproject.org/wiki/Livecd-iso-to-disk</a></li>
 </ul>
 <h3 id="show-installed-repository-keys">Show installed repository keys</h3>
-<p><code>rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt; %{summary}\n'</code></p>
+<p><code>rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --&gt; %{summary}\n'</code></p>
 <h3 id="dhcp-with-ddns-hostname">DHCP with DDNS hostname</h3>
 <p>Model your /etc/sysconfig/network-scripts/ifcfg-eth0 like this:</p>
 <pre><code>TYPE=Ethernet
@@ -1296,9 +1296,9 @@ DHCP_HOSTNAME=some_hostname
 <li><a href="http://www.uncompiled.com/using-winbind-in-centos-6-for-active-director">http://www.uncompiled.com/using-winbind-in-centos-6-for-active-director</a> worked perfectly with <a href="../samba">samba</a> and <a href="../winbind">winbind</a></li>
 </ul>
 <h3 id="bond-configs">Bond Configs</h3>
-<pre><code>$ cat /etc/modprobe.d/bond0.conf   
-alias bond0 bonding  
-options bond0 max_bonds=1 fail_over_mac=2 mode=1 num_grat_arp=2 primary=em1 primary_reselect=1 arp_validate=1 arp_interval=100 arp_ip_target=10.1.5.15,10.1.1.1
+<pre><code>$ cat /etc/modprobe.d/bond0.conf  
+alias bond0 bonding  
+options bond0 max_bonds=1 fail_over_mac=2 mode=1 num_grat_arp=2 primary=em1 primary_reselect=1 arp_validate=1 arp_interval=100 arp_ip_target=10.1.5.15,10.1.1.1
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
