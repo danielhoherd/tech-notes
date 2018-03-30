@@ -982,7 +982,7 @@
         },
         {
             "location": "/ceph/",
-            "text": "Ceph\n\n\n\"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability.\" - \nhttps://ceph.com\n\n\nGlossary\n\n\nhttp://docs.ceph.com/docs/master/glossary/\n\n\n\n\nCeph OSD: The Ceph OSD software, which interacts with a logical disk (OSD).\n\n\nCephFS: The POSIX filesystem components of Ceph.\n\n\nMDS: (Ceph Metadata Server) The Ceph metadata software.\n\n\nMGR: (Ceph Manager) The Ceph manager software, which collects all the state from the whole cluster in one place.\n\n\nMON: (Ceph Monitor) The Ceph monitor software.\n\n\nOSD: (Object Storage Device) A physical or logical storage unit.\n\n\nRADOS: Reliable Autonomic Distributed Object Store.\n\n\nRBD: The block storage component of Ceph.\n\n\nRGW: The S3/Swift gateway component of Ceph.\n\n\n\n\nExamples\n\n\nsudo ceph-disk activate-all\n\n\nLinks\n\n\n\n\nCeph Intro & Architectural Overview - \nhttps://youtu.be/7I9uxoEhUdY\n\n\nhttp://docs.ceph.com/docs/master/start/quick-ceph-deploy/\n\n\nhttp://docs.ceph.com/ceph-ansible/master/",
+            "text": "Ceph\n\n\n\"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability.\" - \nhttps://ceph.com\n\n\nGlossary\n\n\nhttp://docs.ceph.com/docs/master/glossary/\n\n\n\n\nCeph OSD: The Ceph OSD software, which interacts with a logical disk (OSD).\n\n\nCephFS: The POSIX filesystem components of Ceph.\n\n\nMDS: (Ceph Metadata Server) The Ceph metadata software.\n\n\nMGR: (Ceph Manager) The Ceph manager software, which collects all the state from the whole cluster in one place.\n\n\nMON: (Ceph Monitor) The Ceph monitor software.\n\n\nOSD: (Object Storage Device) A physical or logical storage unit.\n\n\nRADOS: Reliable Autonomic Distributed Object Store.\n\n\nRBD: The block storage component of Ceph.\n\n\nRGW: The S3/Swift gateway component of Ceph.\n\n\n\n\nExamples\n\n\nsudo ceph-disk activate-all\n\n\nLinks\n\n\n\n\nCeph Intro & Architectural Overview - \nhttps://youtu.be/7I9uxoEhUdY\n\n\nhttp://docs.ceph.com/docs/master/start/quick-ceph-deploy/\n\n\nhttp://docs.ceph.com/docs/master/rados/operations/operating/\n\n\nhttp://docs.ceph.com/ceph-ansible/master/",
             "title": "Ceph"
         },
         {
@@ -1002,7 +1002,7 @@
         },
         {
             "location": "/ceph/#links",
-            "text": "Ceph Intro & Architectural Overview -  https://youtu.be/7I9uxoEhUdY  http://docs.ceph.com/docs/master/start/quick-ceph-deploy/  http://docs.ceph.com/ceph-ansible/master/",
+            "text": "Ceph Intro & Architectural Overview -  https://youtu.be/7I9uxoEhUdY  http://docs.ceph.com/docs/master/start/quick-ceph-deploy/  http://docs.ceph.com/docs/master/rados/operations/operating/  http://docs.ceph.com/ceph-ansible/master/",
             "title": "Links"
         },
         {
