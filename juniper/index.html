@@ -590,6 +590,8 @@
         
             <li><a class="toctree-l3" href="#some-example-terminal-buffer">Some example terminal buffer</a></li>
         
+            <li><a class="toctree-l3" href="#remove-virtual-chassis-from-an-ex4300">Remove virtual-chassis from an EX4300</a></li>
+        
             <li><a class="toctree-l3" href="#ex4300-os-install">EX4300 OS install</a></li>
         
         </ul>
@@ -1304,6 +1306,25 @@ auto-image-upgrade;
 {master:0}[edit]
 </code></pre>
 
+<h2 id="remove-virtual-chassis-from-an-ex4300">Remove virtual-chassis from an EX4300</h2>
+<pre><code>request virtual-chassis vc-port delete pic-slot 1 port 0
+request virtual-chassis vc-port delete pic-slot 1 port 1
+request virtual-chassis vc-port delete pic-slot 1 port 2
+request virtual-chassis vc-port delete pic-slot 1 port 3
+</code></pre>
+
+<p>You can validate this by looking for the following interfaces. If you do not see the <code>et-0/1/{0..3}</code> interfaces then the virtual-chassis may still exist in full or in part.</p>
+<pre><code>root&gt; show interfaces terse | match et-
+et-0/1/0                up    up
+et-0/1/0.0              up    up   eth-switch
+et-0/1/1                up    up
+et-0/1/1.0              up    up   eth-switch
+et-0/1/2                up    up
+et-0/1/2.0              up    up   aenet    --&gt; ae0.0
+et-0/1/3                up    up
+et-0/1/3.0              up    up   aenet    --&gt; ae0.0
+</code></pre>
+
 <h2 id="ex4300-os-install">EX4300 OS install</h2>
 <ul>
 <li><a href="https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB20551&amp;cat=SWITCHING&amp;actp=LIST#USB">https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB20551&amp;cat=SWITCHING&amp;actp=LIST#USB</a></li>
@@ -1318,6 +1339,7 @@ request system software add /var/tmp/jinstall-ex-4300-14.1X53-D45.3-domestic-sig
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://www.juniper.net/documentation/en_US/junos/topics/concept/junos-cli-overview.html">https://www.juniper.net/documentation/en_US/junos/topics/concept/junos-cli-overview.html</a></li>
+<li><a href="https://www.juniper.net/documentation/en_US/junos/topics/task/configuration/virtual-chassis-mx-series-vc-ports-deleting.html">https://www.juniper.net/documentation/en_US/junos/topics/task/configuration/virtual-chassis-mx-series-vc-ports-deleting.html</a></li>
 </ul>
               
             </div>
