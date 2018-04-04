@@ -594,6 +594,8 @@
         
             <li><a class="toctree-l3" href="#ex4300-os-install">EX4300 OS install</a></li>
         
+            <li><a class="toctree-l3" href="#clear-a-dhcp-client-lease">Clear a DHCP client lease</a></li>
+        
         </ul>
     
 
@@ -1334,6 +1336,25 @@ et-0/1/3.0              up    up   aenet    --&gt; ae0.0
 cp /mnt/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz /var/tmp/
 cli
 request system software add /var/tmp/jinstall-ex-4300-14.1X53-D45.3-domestic-signed.tgz
+</code></pre>
+
+<h2 id="clear-a-dhcp-client-lease">Clear a DHCP client lease</h2>
+<pre><code>root@junos&gt; show dhcp server binding
+IP address        Session Id  Hardware address   Expires     State      Interface
+10.8.52.6         2           00:1e:7c:f8:be:34  85166       BOUND      irb.100
+10.8.52.9         5           6c:c1:11:4e:52:8c  86299       BOUND      irb.100
+10.8.52.5         3           d8:fa:97:b8:1a:dd  85222       BOUND      irb.100
+
+{master:0}
+root@junos&gt; clear dhcp server binding 2
+
+{master:0}
+root@junos&gt; show dhcp server binding
+IP address        Session Id  Hardware address   Expires     State      Interface
+10.8.52.9         5           6c:c1:11:4e:52:8c  86275       BOUND      irb.100
+10.8.52.5         3           d8:fa:97:b8:1a:dd  85198       BOUND      irb.100
+
+{master:0}
 </code></pre>
 
 <h1 id="links">Links</h1>
