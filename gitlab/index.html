@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Mqtt - Daniel Hoherd's tech notes</title>
+  <title>Gitlab - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Mqtt";
-    var mkdocs_page_input_path = "mqtt.md";
-    var mkdocs_page_url = "/mqtt/";
+    var mkdocs_page_name = "Gitlab";
+    var mkdocs_page_input_path = "gitlab.md";
+    var mkdocs_page_url = "/gitlab/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -402,9 +402,24 @@
     <a class="" href="../git/">Git</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../gitlab/">Gitlab</a>
+    <a class="current" href="./">Gitlab</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#gitlab">Gitlab</a></li>
+    
+
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#skip-ci-via-commit-message">Skip CI via commit message</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -434,7 +449,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../google-sheets/">Links</a>
+    <a class="" href="../google-sheets/">Google sheets</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -444,7 +459,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../graphicsmagick/">GraphicsMagick</a>
+    <a class="" href="../graphicsmagick/">Graphicsmagick</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -474,7 +489,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../hp/">Links</a>
+    <a class="" href="../hp/">Hp</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -504,7 +519,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../imagemagick/">ImageMagick</a>
+    <a class="" href="../imagemagick/">Imagemagick</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -677,12 +692,9 @@
     <a class="" href="../micropython/">Micropython</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Mqtt</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../mqtt/">Mqtt</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1192,7 +1204,7 @@
     
       
     
-    <li>Mqtt</li>
+    <li>Gitlab</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1202,7 +1214,29 @@
           <div role="main">
             <div class="section">
               
-                <p>'MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol.' - <a href="http://mqtt.org/">http://mqtt.org/</a></p>
+                <h1 id="gitlab">Gitlab</h1>
+<p>"A single application for the complete DevOps lifecycle" - <a href="https://about.gitlab.com">https://about.gitlab.com</a></p>
+<h1 id="examples">Examples</h1>
+<h2 id="skip-ci-via-commit-message">Skip CI via commit message</h2>
+<p><a href="https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs">https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs</a></p>
+<pre><code>#!/usr/bin/env bash
+# Skip CI if all changed files are inside dir &quot;foo/&quot;
+
+set -x
+regex='^foo\/'
+
+files=( $(git diff --cached --name-only --diff-filter=ACM ) )
+for X in &quot;${files[@]}&quot; ; do
+  # If any file is not inside dir foo exit 0
+  if [[ ! &quot;$X&quot; =~ $regex ]] ; then
+    exit 0
+  fi
+done
+
+# If we've made it here, all changed files are inside dir foo/
+# so we append '[no ci]' to commit message to skip CI in Gitlab
+echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
+</code></pre>
               
             </div>
           </div>
@@ -1210,10 +1244,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mutt/" class="btn btn-neutral float-right" title="Mutt">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../gitolite/" class="btn btn-neutral float-right" title="Gitolite">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../micropython/" class="btn btn-neutral" title="Micropython"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../git/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1239,10 +1273,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../micropython/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../git/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../mutt/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../gitolite/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

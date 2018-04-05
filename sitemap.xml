@@ -571,6 +571,14 @@
 
     
     <url>
+     <loc>/gitlab/</loc>
+     <lastmod>2018-04-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/gitolite/</loc>
      <lastmod>2018-04-05</lastmod>
      <changefreq>daily</changefreq>
