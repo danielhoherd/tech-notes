@@ -127,7 +127,7 @@
         },
         {
             "location": "/ansible/",
-            "text": "Ansible\n\n\n\n\nhttps://docs.ansible.com/intro_inventory.html\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\n\n\nModules\n\n\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_repository_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/user_module.html\n\n\n\n\nExamples\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nansible-inventory -i inventory/hosts.yml --list\n\n\n\n\nUse arbitrary groups in static inventory file\n\n\n$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client",
+            "text": "Ansible\n\n\n\n\nhttps://docs.ansible.com/intro_inventory.html\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\n\n\nModules\n\n\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_repository_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/sysctl_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/user_module.html\n\n\n\n\nExamples\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nansible-inventory -i inventory/hosts.yml --list\n\n\n\n\nUse arbitrary groups in static inventory file\n\n\n$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client",
             "title": "Ansible"
         },
         {
@@ -137,7 +137,7 @@
         },
         {
             "location": "/ansible/#modules",
-            "text": "http://docs.ansible.com/ansible/latest/list_of_all_modules.html  http://docs.ansible.com/ansible/latest/modules/apt_module.html  http://docs.ansible.com/ansible/latest/modules/apt_repository_module.html  http://docs.ansible.com/ansible/latest/modules/user_module.html",
+            "text": "http://docs.ansible.com/ansible/latest/list_of_all_modules.html  http://docs.ansible.com/ansible/latest/modules/apt_module.html  http://docs.ansible.com/ansible/latest/modules/apt_repository_module.html  http://docs.ansible.com/ansible/latest/modules/sysctl_module.html  http://docs.ansible.com/ansible/latest/modules/user_module.html",
             "title": "Modules"
         },
         {
@@ -5489,6 +5489,16 @@
             "location": "/rrd/#links",
             "text": "https://oss.oetiker.ch/rrdtool/tut/rrd-beginners.en.html",
             "title": "Links"
+        },
+        {
+            "location": "/rst/",
+            "text": "reStructuredText\n\n\n\n\nhttp://rst.ninjs.org/",
+            "title": "reStructuredText"
+        },
+        {
+            "location": "/rst/#restructuredtext",
+            "text": "http://rst.ninjs.org/",
+            "title": "reStructuredText"
         },
         {
             "location": "/rsync/",
