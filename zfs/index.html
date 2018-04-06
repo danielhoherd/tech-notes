@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Zfs - Daniel Hoherd's tech notes</title>
+  <title>ZFS - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Zfs";
+    var mkdocs_page_name = "ZFS";
     var mkdocs_page_input_path = "zfs.md";
     var mkdocs_page_url = "/zfs/";
   </script>
@@ -1104,7 +1104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../ubuntu/">Versions overview</a>
+    <a class="" href="../ubuntu/">Ubuntu Linux</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1114,7 +1114,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vagrant/">Vagrant</a>
+    <a class="" href="../vagrant/">vagrant</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1124,7 +1124,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vim/">modelines</a>
+    <a class="" href="../vim/">vim</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1134,39 +1134,42 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../winbind/">Winbind</a>
+    <a class="" href="../winbind/">winbind</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../wuzz/">Wuzz</a>
+    <a class="" href="../wuzz/">wuzz</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../yaml/">Yaml</a>
+    <a class="" href="../yaml/">yaml</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../youtube-dl/">Youtube dl</a>
+    <a class="" href="../youtube-dl/">youtube-dl</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../yum/">Yum</a>
+    <a class="" href="../yum/">yum</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../zerotier/">Zerotier</a>
+    <a class="" href="../zerotier/">ZeroTier</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Zfs</a>
+    <a class="current" href="./">ZFS</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#zfs">ZFS</a></li>
+    
+
     <li class="toctree-l2"><a href="#links">Links</a></li>
     
 
@@ -1217,7 +1220,7 @@
         </ul>
     
 
-    <li class="toctree-l2"><a href="#zfs">zfs</a></li>
+    <li class="toctree-l2"><a href="#zfs_1">zfs</a></li>
     
         <ul>
         
@@ -1332,7 +1335,7 @@
     
       
     
-    <li>Zfs</li>
+    <li>ZFS</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1342,7 +1345,8 @@
           <div role="main">
             <div class="section">
               
-                <p>ZFS is the Zetabyte File System.</p>
+                <h1 id="zfs">ZFS</h1>
+<p>ZFS is the Zetabyte File System.</p>
 <h1 id="links">Links</h1>
 <ul>
 <li>OpenZFS - <a href="http://open-zfs.org">http://open-zfs.org</a></li>
@@ -1437,7 +1441,7 @@ zpool status -D z2
 
 <h2 id="replace-a-disk-in-a-zpool">Replace a disk in a zpool</h2>
 <pre><code># Replace the first disk with the second in the tank pool
-zpool replace -f tank /dev/disk/by-id/ata-ST3000DM001-9YN166_W1F09CW9 /dev/disk/by-id/ata-ST3000DM001-9YN166_Z1F0N9S7 
+zpool replace -f tank /dev/disk/by-id/ata-ST3000DM001-9YN166_W1F09CW9 /dev/disk/by-id/ata-ST3000DM001-9YN166_Z1F0N9S7
 </code></pre>
 
 <h3 id="real-example">Real example</h3>
@@ -1477,7 +1481,7 @@ config:
 errors: No known data errors
 </code></pre>
 
-<h1 id="zfs">zfs</h1>
+<h1 id="zfs_1">zfs</h1>
 <h2 id="show-differences-between-current-filesystem-state-and-snapshot-state">show differences between current filesystem state and snapshot state</h2>
 <pre><code>zfs diff tank tank@snap
 </code></pre>
@@ -1646,7 +1650,7 @@ dkms install -m zfs -v &quot;${zfs_version}&quot; --force
         <a href="../zookeeper/" class="btn btn-neutral float-right" title="Zookeeper">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../zerotier/" class="btn btn-neutral" title="Zerotier"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../zerotier/" class="btn btn-neutral" title="ZeroTier"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
