@@ -4317,7 +4317,7 @@
         },
         {
             "location": "/ntp/",
-            "text": "NTP\n\n\n\"Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks. In operation since before 1985, NTP is one of the oldest Internet protocols in current use.\" - \nhttps://en.wikipedia.org/wiki/Network_Time_Protocol\n\n\nLinks\n\n\n\n\nRFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification\n\n\ntime\n - Notes on time technologies\n\n\nptp\n - Precision Time Protocol\n\n\nUnderstanding and mitigating NTP-based DDoS attacks\n\n\nGoogle Public NTP: Leap Smear\n\n\nFive different ways to handle leap seconds with NTP\n\n\nThe Unix leap second mess\n\n\nntp.org FAQ: What happens during a Leap Second?\n\n\nThe Raspberry Pi as a Stratum-1 NTP Server\n\n\nNTP vs PTP: Network Timing Smackdown!",
+            "text": "NTP\n\n\n\"Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks. In operation since before 1985, NTP is one of the oldest Internet protocols in current use.\" - \nhttps://en.wikipedia.org/wiki/Network_Time_Protocol\n\n\nLinks\n\n\n\n\nRFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification\n\n\nUnderstanding and mitigating NTP-based DDoS attacks\n\n\nGoogle Public NTP: Leap Smear\n\n\nFive different ways to handle leap seconds with NTP\n\n\nThe Unix leap second mess\n\n\nntp.org FAQ: What happens during a Leap Second?\n\n\nThe Raspberry Pi as a Stratum-1 NTP Server\n\n\nNTP vs PTP: Network Timing Smackdown!\n\n\n\n\nSee Also\n\n\n\n\ntime\n - Notes on time technologies\n\n\nptp\n - Precision Time Protocol",
             "title": "NTP"
         },
         {
@@ -4327,8 +4327,13 @@
         },
         {
             "location": "/ntp/#links",
-            "text": "RFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification  time  - Notes on time technologies  ptp  - Precision Time Protocol  Understanding and mitigating NTP-based DDoS attacks  Google Public NTP: Leap Smear  Five different ways to handle leap seconds with NTP  The Unix leap second mess  ntp.org FAQ: What happens during a Leap Second?  The Raspberry Pi as a Stratum-1 NTP Server  NTP vs PTP: Network Timing Smackdown!",
+            "text": "RFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification  Understanding and mitigating NTP-based DDoS attacks  Google Public NTP: Leap Smear  Five different ways to handle leap seconds with NTP  The Unix leap second mess  ntp.org FAQ: What happens during a Leap Second?  The Raspberry Pi as a Stratum-1 NTP Server  NTP vs PTP: Network Timing Smackdown!",
             "title": "Links"
+        },
+        {
+            "location": "/ntp/#see-also",
+            "text": "time  - Notes on time technologies  ptp  - Precision Time Protocol",
+            "title": "See Also"
         },
         {
             "location": "/openvpn/",
