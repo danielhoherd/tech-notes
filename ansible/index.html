@@ -97,6 +97,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#show-a-list-of-installed-modules">Show a list of installed modules</a></li>
+        
             <li><a class="toctree-l3" href="#run-a-playbook-and-prompt-for-sudo-password">Run a playbook and prompt for sudo password</a></li>
         
             <li><a class="toctree-l3" href="#validate-and-inspect-your-inventory-file">Validate and inspect your inventory file</a></li>
@@ -756,6 +758,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../ntp/">Ntp</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../openvpn/">Openvpn</a>
 	    </li>
           
@@ -862,6 +869,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../pssh/">Pssh</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ptp/">Ptp</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1096,6 +1108,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../tcl/">Tcl</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../tcpdump/">Tcpdump</a>
 	    </li>
           
@@ -1234,6 +1251,7 @@
 <li><a href="http://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1">http://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1</a></li>
 <li><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/">http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/</a></li>
 <li><a href="http://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html">http://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html</a> - Targeting hosts</li>
+<li><a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable">http://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable</a></li>
 </ul>
 <h1 id="modules">Modules</h1>
 <ul>
@@ -1244,6 +1262,10 @@
 <li><a href="http://docs.ansible.com/ansible/latest/modules/user_module.html">http://docs.ansible.com/ansible/latest/modules/user_module.html</a></li>
 </ul>
 <h1 id="examples">Examples</h1>
+<h2 id="show-a-list-of-installed-modules">Show a list of installed modules</h2>
+<pre><code>ansible-doc --list
+</code></pre>
+
 <h2 id="run-a-playbook-and-prompt-for-sudo-password">Run a playbook and prompt for sudo password</h2>
 <pre><code>ansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml
 </code></pre>
