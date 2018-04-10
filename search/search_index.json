@@ -4317,7 +4317,7 @@
         },
         {
             "location": "/ntp/",
-            "text": "NTP\n\n\n\"Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks. In operation since before 1985, NTP is one of the oldest Internet protocols in current use.\" - \nhttps://en.wikipedia.org/wiki/Network_Time_Protocol\n\n\nLinks\n\n\n\n\nRFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification\n\n\ntime\n - Notes on time technologies\n\n\nptp\n - Precision Time Protocol\n\n\nUnderstanding and mitigating NTP-based DDoS attacks\n\n\nGoogle Public NTP: Leap Smear\n\n\nFive different ways to handle leap seconds with NTP\n\n\nThe Unix leap second mess\n\n\nntp.org FAQ: What happens during a Leap Second?",
+            "text": "NTP\n\n\n\"Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks. In operation since before 1985, NTP is one of the oldest Internet protocols in current use.\" - \nhttps://en.wikipedia.org/wiki/Network_Time_Protocol\n\n\nLinks\n\n\n\n\nRFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification\n\n\ntime\n - Notes on time technologies\n\n\nptp\n - Precision Time Protocol\n\n\nUnderstanding and mitigating NTP-based DDoS attacks\n\n\nGoogle Public NTP: Leap Smear\n\n\nFive different ways to handle leap seconds with NTP\n\n\nThe Unix leap second mess\n\n\nntp.org FAQ: What happens during a Leap Second?\n\n\nThe Raspberry Pi as a Stratum-1 NTP Server\n\n\nNTP vs PTP: Network Timing Smackdown!",
             "title": "NTP"
         },
         {
@@ -4327,7 +4327,7 @@
         },
         {
             "location": "/ntp/#links",
-            "text": "RFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification  time  - Notes on time technologies  ptp  - Precision Time Protocol  Understanding and mitigating NTP-based DDoS attacks  Google Public NTP: Leap Smear  Five different ways to handle leap seconds with NTP  The Unix leap second mess  ntp.org FAQ: What happens during a Leap Second?",
+            "text": "RFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification  time  - Notes on time technologies  ptp  - Precision Time Protocol  Understanding and mitigating NTP-based DDoS attacks  Google Public NTP: Leap Smear  Five different ways to handle leap seconds with NTP  The Unix leap second mess  ntp.org FAQ: What happens during a Leap Second?  The Raspberry Pi as a Stratum-1 NTP Server  NTP vs PTP: Network Timing Smackdown!",
             "title": "Links"
         },
         {
@@ -4947,7 +4947,7 @@
         },
         {
             "location": "/ptp/",
-            "text": "ptp\n\n\n\"The Precision Time Protocol (PTP) is a protocol used to synchronize clocks throughout a computer network. On a local area network, it achieves clock accuracy in the sub-microsecond range, making it suitable for measurement and control systems.\" - \nhttps://en.wikipedia.org/wiki/Precision_Time_Protocol\n\n\nLinks\n\n\n\n\nRFC 8173: Precision Time Protocol Version 2 (PTPv2)\n\n\nPrecision System Synchronization with the IEEE-1588 Precision Time Protocol (PTP)\n\n\nGigE Vision\n\n\n\n\nSee Also\n\n\n\n\ntime\n - Notes on time technologies\n\n\nptp\n - Precision Time Protocol",
+            "text": "ptp\n\n\n\"The Precision Time Protocol (PTP) is a protocol used to synchronize clocks throughout a computer network. On a local area network, it achieves clock accuracy in the sub-microsecond range, making it suitable for measurement and control systems.\" - \nhttps://en.wikipedia.org/wiki/Precision_Time_Protocol\n\n\nLinks\n\n\n\n\nRFC 8173: Precision Time Protocol Version 2 (PTPv2)\n\n\nPrecision System Synchronization with the IEEE-1588 Precision Time Protocol (PTP)\n\n\nGigE Vision\n\n\nNTP vs PTP: Network Timing Smackdown!\n\n\n\n\nSee Also\n\n\n\n\ntime\n - Notes on time technologies\n\n\nptp\n - Precision Time Protocol",
             "title": "ptp"
         },
         {
@@ -4957,7 +4957,7 @@
         },
         {
             "location": "/ptp/#links",
-            "text": "RFC 8173: Precision Time Protocol Version 2 (PTPv2)  Precision System Synchronization with the IEEE-1588 Precision Time Protocol (PTP)  GigE Vision",
+            "text": "RFC 8173: Precision Time Protocol Version 2 (PTPv2)  Precision System Synchronization with the IEEE-1588 Precision Time Protocol (PTP)  GigE Vision  NTP vs PTP: Network Timing Smackdown!",
             "title": "Links"
         },
         {
