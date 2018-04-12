@@ -2617,12 +2617,32 @@
         },
         {
             "location": "/golang/",
-            "text": "\"Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.\" - \nhttps://golang.org/\n\n\nLinks\n\n\n\n\nhttp://www.golangbootcamp.com/book/intro",
+            "text": "\"Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.\" - \nhttps://golang.org/\n\n\nLinks\n\n\n\n\nhttp://www.golangbootcamp.com/book/intro\n\n\n\n\nExamples\n\n\nView default go environment\n\n\ngo env\n\n\n\n\nBuild code found on github\n\n\nget github.com/solarkennedy/uq\nbuild github.com/solarkennedy/uq\n\n\n\n\nLinks\n\n\n\n\nhttps://golang.org/cmd/go/\n\n\nhttps://gopkg.in",
             "title": "Golang"
         },
         {
             "location": "/golang/#links",
             "text": "http://www.golangbootcamp.com/book/intro",
+            "title": "Links"
+        },
+        {
+            "location": "/golang/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/golang/#view-default-go-environment",
+            "text": "go env",
+            "title": "View default go environment"
+        },
+        {
+            "location": "/golang/#build-code-found-on-github",
+            "text": "get github.com/solarkennedy/uq\nbuild github.com/solarkennedy/uq",
+            "title": "Build code found on github"
+        },
+        {
+            "location": "/golang/#links_1",
+            "text": "https://golang.org/cmd/go/  https://gopkg.in",
             "title": "Links"
         },
         {
@@ -3617,7 +3637,7 @@
         },
         {
             "location": "/linux/",
-            "text": "\"Linux is a family of free and open-source software operating systems built around the Linux kernel.\" - \nhttps://en.wikipedia.org/wiki/Linux\n\n\nMost linux distros are built on GNU tools, and this article is relevant in distinguishing the importance GNU plays in the linux ecosystem: \nhttps://www.gnu.org/gnu/why-gnu-linux.en.html\n\n\nPerformance monitoring\n\n\n\n\nLinux Load Averages: Solving the Mystery\n\n\nBrendan Gregg's Linux Performance page\n\n\nNotes from the Linux Performance Monitoring talk at Velocity 2015\n\n\n\n\nTricks\n\n\nConfigure a system to reboot on kernel panic\n\n\nThese lines should be added to \nsysctl.conf\n\n\n# Reboot after 10 seconds if kernel panics\nkernel.panic = 10  \n# Treat all oopses as panics  \nkernel.panic_on_oops = 1\n\n\n\n\nForce reboot on corrupt system\n\n\nFor times that commands like \nreboot\n and \nshutdown\n are not available.\n\n\necho 1 > /proc/sys/kernel/sysrq\necho b > /proc/sysrq-trigger\n\n\n\n\nSee also\n\n\n\n\nlxc\n\n\n\n\nDistros\n\n\n\n\nrhel\n\n\nubuntu\n\n\n\n\nInit systems\n\n\n\n\nsystemd\n\n\nupstart\n\n\n\n\nFilesystems\n\n\n\n\nFilesystem Heirarchy Standards: \nhttp://www.pathname.com/fhs/pub/fhs-2.3.html\n\n\nLVM\n\n\nZFS",
+            "text": "\"Linux is a family of free and open-source software operating systems built around the Linux kernel.\" - \nhttps://en.wikipedia.org/wiki/Linux\n\n\nMost linux distros are built on GNU tools, and this article is relevant in distinguishing the importance GNU plays in the linux ecosystem: \nhttps://www.gnu.org/gnu/why-gnu-linux.en.html\n\n\nPerformance monitoring\n\n\n\n\nLinux Load Averages: Solving the Mystery\n\n\nBrendan Gregg's Linux Performance page\n\n\nNotes from the Linux Performance Monitoring talk at Velocity 2015\n\n\n\n\nTricks\n\n\nConfigure a system to reboot on kernel panic\n\n\nThese lines should be added to \nsysctl.conf\n\n\n# Reboot after 10 seconds if kernel panics\nkernel.panic = 10  \n# Treat all oopses as panics  \nkernel.panic_on_oops = 1\n\n\n\n\nForce reboot on corrupt system\n\n\nFor times that commands like \nreboot\n and \nshutdown\n are not available.\n\n\necho 1 > /proc/sys/kernel/sysrq\necho b > /proc/sysrq-trigger\n\n\n\n\nSee also\n\n\n\n\nlxc\n\n\n\n\nDistros\n\n\n\n\nrhel\n\n\nubuntu\n\n\n\n\nInit systems\n\n\n\n\nsystemd\n\n\nupstart\n\n\n\n\nFilesystems\n\n\n\n\nFilesystem Heirarchy Standards: \nhttp://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html\n\n\nLVM\n\n\nZFS",
             "title": "Linux"
         },
         {
@@ -3657,7 +3677,7 @@
         },
         {
             "location": "/linux/#filesystems",
-            "text": "Filesystem Heirarchy Standards:  http://www.pathname.com/fhs/pub/fhs-2.3.html  LVM  ZFS",
+            "text": "Filesystem Heirarchy Standards:  http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html  LVM  ZFS",
             "title": "Filesystems"
         },
         {
