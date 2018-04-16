@@ -281,6 +281,16 @@
             "title": "See also"
         },
         {
+            "location": "/autonomous-vehicles/",
+            "text": "Autonomous Vehicle Links\n\n\n\n\nhttp://apollo.auto/\n\n\nhttps://autonomoustuff.com/\n\n\nhttps://renovo.auto\n\n\nhttp://some-ip.com/\n\n\nhttps://www.autosar.org/\n\n\nhttp://www.ros.org/",
+            "title": "Autonomous Vehicle Links"
+        },
+        {
+            "location": "/autonomous-vehicles/#autonomous-vehicle-links",
+            "text": "http://apollo.auto/  https://autonomoustuff.com/  https://renovo.auto  http://some-ip.com/  https://www.autosar.org/  http://www.ros.org/",
+            "title": "Autonomous Vehicle Links"
+        },
+        {
             "location": "/avahi/",
             "text": "Avahi\n\n\nThe Avahi \nmDNS/DNS-SD\n daemon implements Apple's Zeroconf architecture (also known as \"Rendezvous\" or \"Bonjour\").\n\n\nTips\n\n\nAfter installing avahi-daemon it may not start. To fix this you may need to run \nservice messagebus start\n\n\nService types\n are defined in \n/usr/share/avahi/service-types\n\n\nService configs\n\n\nCorrectly formatted and named files in \n/etc/avahi/services/whatever.service\n are loaded on the fly, no need to restart \navahi-daemon\n. If your service doesn't immediately show up, check syslog for errors.\n\n\n<?xml version=\"1.0\" standalone='no'?><!--*-nxml-*-->\n<!DOCTYPE service-group SYSTEM \"avahi-service.dtd\">\n<service-group>\n  <name replace-wildcards=\"yes\">%h</name>\n  <service>\n    <type>_ssh._tcp</type>\n    <port>22</port>\n  </service>\n  <service>\n    <type>_http._tcp</type>\n    <port>80</port>\n  </service>\n</service-group>",
             "title": "Avahi"
