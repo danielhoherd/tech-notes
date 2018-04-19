@@ -4756,6 +4756,11 @@
             "title": "Example Config"
         },
         {
+            "location": "/prometheus/",
+            "text": "\"Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts if some condition is observed to be true.\" - \nhttps://github.com/prometheus/prometheus",
+            "title": "Prometheus"
+        },
+        {
             "location": "/protobuf/",
             "text": "\"Protocol buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data\" - \nhttps://developers.google.com/protocol-buffers/\n\n\n\"Google's data interchange format\" - \nhttps://github.com/google/protobuf",
             "title": "protobuf"

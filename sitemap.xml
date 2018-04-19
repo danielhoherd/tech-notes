@@ -1275,6 +1275,14 @@
 
     
     <url>
+     <loc>/prometheus/</loc>
+     <lastmod>2018-04-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/protobuf/</loc>
      <lastmod>2018-04-18</lastmod>
      <changefreq>daily</changefreq>
