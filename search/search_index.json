@@ -3296,6 +3296,11 @@
             "title": "jwt"
         },
         {
+            "location": "/kaniko/",
+            "text": "\"kaniko is a tool to build container images from a Dockerfile, inside a container or Kubernetes cluster. kaniko doesn't depend on a Docker daemon and executes each command within a Dockerfile completely in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon, such as a standard Kubernetes cluster.\" - \nhttps://github.com/GoogleContainerTools/kaniko",
+            "title": "kaniko"
+        },
+        {
             "location": "/keel/",
             "text": "\"Automated Kubernetes deployment updates\" - \nhttps://github.com/keel-hq/keel\n\n\n\"Kubectl is the new SSH. If you are using it to update production workloads, you are doing it wrong.\" - \nhttps://keel.sh/",
             "title": "keel"
