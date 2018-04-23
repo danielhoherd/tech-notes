@@ -102,7 +102,7 @@
         },
         {
             "location": "/ansible/",
-            "text": "https://docs.ansible.com/intro_inventory.html\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable\n\n\n\n\nModules\n\n\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_repository_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/sysctl_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/user_module.html\n\n\n\n\nExamples\n\n\nShow a list of installed modules\n\n\nansible-doc --list\n\n\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nansible-inventory -i inventory/hosts.yml --list\n\n\n\n\nUse arbitrary groups in static inventory file\n\n\n$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client",
+            "text": "https://docs.ansible.com/intro_inventory.html\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable\n\n\n\n\nModules\n\n\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_repository_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/sysctl_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/user_module.html\n\n\n\n\nExamples\n\n\nShow a list of installed modules\n\n\nansible-doc --list\n\n\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nansible-inventory -i inventory/hosts.yml --list\n\n\n\n\nUse arbitrary groups in static inventory file\n\n\n$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client\n\n\n\n\nShow all resolved variables for a given inventory host\n\n\nThis will show all host vars, including variables resolved from \nall the different variable locations\n.\n\n\nansible -i inventory target_hostname -m debug -a \"var=hostvars[inventory_hostname]\"",
             "title": "Ansible"
         },
         {
@@ -134,6 +134,11 @@
             "location": "/ansible/#use-arbitrary-groups-in-static-inventory-file",
             "text": "$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client",
             "title": "Use arbitrary groups in static inventory file"
+        },
+        {
+            "location": "/ansible/#show-all-resolved-variables-for-a-given-inventory-host",
+            "text": "This will show all host vars, including variables resolved from  all the different variable locations .  ansible -i inventory target_hostname -m debug -a \"var=hostvars[inventory_hostname]\"",
+            "title": "Show all resolved variables for a given inventory host"
         },
         {
             "location": "/apfs/",
@@ -2897,7 +2902,7 @@
         },
         {
             "location": "/ip/",
-            "text": "This is about the ip command in Linux.\n\n\nExamples\n\n\nThe commands here can be shortened like cisco or other network device commands.\n\n\nShow IP neighbors\n\n\nip neighbor show\n\n\n\n\nShow all configured IP addresses\n\n\nThis is more reliable than ifconfig, which sometimes omits entries.\n\n\nip -f inet addr\n\n\n\n\nShow information about eth0\n\n\nThis shows information about eth0 and all the virtual interfaces brought up on the physical interface.\n\n\nip addr show eth0\n\n\n\n\nMonitor IP changes\n\n\nip mon all\n\n\n\n\nShow interfaces that would route to a given network address\n\n\nip addr show to 10.1.8.0/24\n\n\n\n\nShow negotiated speeds for all interfaces\n\n\nip -o link show | awk -F: '{print $2}' | while read -r X ; do\n  sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo\ndone | column -t -s:\n\n\n\n\nSet MTU for a specific route\n\n\n\n\nhttp://lartc.org/howto/lartc.cookbook.mtu-discovery.html\n\n\n\n\nip route add default via 10.0.0.1 mtu 296",
+            "text": "This is about the ip command in Linux.\n\n\nExamples\n\n\nThe commands here can be shortened like cisco or other network device commands.\n\n\nShow IP neighbors\n\n\nip neighbor show\n\n\n\n\nShow all configured IP addresses\n\n\nThis is more reliable than ifconfig, which sometimes omits entries.\n\n\nip -f inet addr\n\n\n\n\nShow information about eth0\n\n\nThis shows information about eth0 and all the virtual interfaces brought up on the physical interface.\n\n\nip addr show eth0\n\n\n\n\nMonitor IP changes\n\n\nip mon all\n\n\n\n\nShow interfaces that would route to a given network address\n\n\nip addr show to 10.1.8.0/24\n\n\n\n\nShow negotiated speeds for all interfaces\n\n\nip -o link show | awk -F: '{print $2}' | while read -r X ; do\n  sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo\ndone | column -t -s:\n\n\n\n\nAdd a static route\n\n\nip route add 192.168.100.0/24 via 0.0.0.0 dev eth0\n\n\n\n\nSet MTU for a specific route\n\n\n\n\nhttp://lartc.org/howto/lartc.cookbook.mtu-discovery.html\n\n\n\n\nip route add default via 10.0.0.1 mtu 296",
             "title": "ip"
         },
         {
@@ -2934,6 +2939,11 @@
             "location": "/ip/#show-negotiated-speeds-for-all-interfaces",
             "text": "ip -o link show | awk -F: '{print $2}' | while read -r X ; do\n  sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo\ndone | column -t -s:",
             "title": "Show negotiated speeds for all interfaces"
+        },
+        {
+            "location": "/ip/#add-a-static-route",
+            "text": "ip route add 192.168.100.0/24 via 0.0.0.0 dev eth0",
+            "title": "Add a static route"
         },
         {
             "location": "/ip/#set-mtu-for-a-specific-route",
@@ -5939,6 +5949,21 @@
             "location": "/sgdisk/#grab-the-name-of-a-partition",
             "text": "# sloppy, doesn't handle spaces or single quotes\nsgdisk /dev/sdk -i 1 | grep '^Partition name' | awk '{print $NF}' | sed \"s/'//g\"",
             "title": "Grab the name of a partition"
+        },
+        {
+            "location": "/shairport-sync/",
+            "text": "\"AirPlay audio player. Shairport Sync adds multi-room capability with Audio Synchronisation\" - \nhttps://github.com/mikebrady/shairport-sync\n\n\nExample\n\n\nshairport-sync in docker\n\n\nThis is a really easy way to get shairport-sync running on Linux. The container is 12mb.\n\n\ndocker run --rm -d --net host --device /dev/snd -e AIRPLAY_NAME=\"shairport plata\" kevineye/shairport-sync",
+            "title": "shairport-sync"
+        },
+        {
+            "location": "/shairport-sync/#example",
+            "text": "",
+            "title": "Example"
+        },
+        {
+            "location": "/shairport-sync/#shairport-sync-in-docker",
+            "text": "This is a really easy way to get shairport-sync running on Linux. The container is 12mb.  docker run --rm -d --net host --device /dev/snd -e AIRPLAY_NAME=\"shairport plata\" kevineye/shairport-sync",
+            "title": "shairport-sync in docker"
         },
         {
             "location": "/shutdown/",

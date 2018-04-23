@@ -102,6 +102,8 @@
         
             <li><a class="toctree-l3" href="#use-arbitrary-groups-in-static-inventory-file">Use arbitrary groups in static inventory file</a></li>
         
+            <li><a class="toctree-l3" href="#show-all-resolved-variables-for-a-given-inventory-host">Show all resolved variables for a given inventory host</a></li>
+        
         </ul>
     
 
@@ -1025,6 +1027,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../shairport-sync/">Shairport sync</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../shutdown/">Shutdown</a>
 	    </li>
           
@@ -1330,6 +1337,11 @@ $ ansible-inventory -i inventory/example.yml --graph
   |  |--server
   |--@windows:
   |  |--client
+</code></pre>
+
+<h2 id="show-all-resolved-variables-for-a-given-inventory-host">Show all resolved variables for a given inventory host</h2>
+<p>This will show all host vars, including variables resolved from <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable">all the different variable locations</a>.</p>
+<pre><code>ansible -i inventory target_hostname -m debug -a &quot;var=hostvars[inventory_hostname]&quot;
 </code></pre>
               
             </div>
