@@ -99,6 +99,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../arpwatch/">arpwatch</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../atomicparsley/">AtomicParsley</a>
 	    </li>
           
@@ -1275,7 +1280,13 @@
 <h1 id="example">Example</h1>
 <h2 id="shairport-sync-in-docker">shairport-sync in docker</h2>
 <p>This is a really easy way to get shairport-sync running on Linux. The container is 12mb.</p>
-<pre><code>docker run --rm -d --net host --device /dev/snd -e AIRPLAY_NAME=&quot;shairport plata&quot; kevineye/shairport-sync
+<pre><code>docker run \
+  --rm \
+  --detach \
+  --network=host \
+  --device /dev/snd \
+  -e AIRPLAY_NAME=&quot;shairport ${HOSTNAME}&quot; \
+  kevineye/shairport-sync
 </code></pre>
               
             </div>

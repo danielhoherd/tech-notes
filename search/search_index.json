@@ -206,6 +206,21 @@
             "title": "Aptly"
         },
         {
+            "location": "/arpwatch/",
+            "text": "\"arpwatch - keep track of ethernet/ip address pairings\" - \nman arpwatch\n\n\nExamples\n\n\nFork and log to file, not to e-mail\n\n\narpwatch -Q\ntail -F /var/lib/arpwatch/arp.dat",
+            "title": "arpwatch"
+        },
+        {
+            "location": "/arpwatch/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/arpwatch/#fork-and-log-to-file-not-to-e-mail",
+            "text": "arpwatch -Q\ntail -F /var/lib/arpwatch/arp.dat",
+            "title": "Fork and log to file, not to e-mail"
+        },
+        {
             "location": "/atomicparsley/",
             "text": "AtomicParsley\n is a lightweight command line program for reading, parsing and setting metadata into MPEG-4 files. This is a functional mp4 equivalent of what \ni3dv2\n is for mp3 files.\n\n\nExamples\n\n\nSet metadata on multiple files\n\n\nUnfortunately the syntax of this tool requires you to edit one file at a time, so you have to iterate each item of an album using shell loops or \nxargs\n or whatever you prefer.\n\n\nfor file in *.m4a ; do\n  AtomicParsley \"${file}\" --artist \"Various Artists\" ;\ndone ;\n\n\n\n\nRemove Personally Identifiable Information (pii) from files\n\n\nUseful if you want to remove your personal info from iTunes Match files.\n\n\nfor file in *.m4a ; do\n  AtomicParsley \\\n    \"$file\" \\\n    --DeepScan \\\n    --manualAtomRemove \"moov.trak.mdia.minf.stbl.mp4a.pinf\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.----.name:[iTunMOVI]\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.apID\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.atID\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.cnID\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.cprt\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.flvr\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.geID\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.plID\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.purd\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.rtng\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.sfID\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.soal\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.stik\" \\\n    --manualAtomRemove \"moov.udta.meta.ilst.xid\" \\\ndone",
             "title": "AtomicParsley"
@@ -2557,7 +2572,7 @@
         },
         {
             "location": "/google-cloud/",
-            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\nExamples\n\n\n\n\ngcloud container images list\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world\n\n\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\nhttps://cloud.google.com/container-builder/docs/build-config\n\n\nhttps://cloud.google.com/container-builder/docs/create-custom-build-steps",
+            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\nExamples\n\n\n\n\ngcloud container images list\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world\n\n\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\nhttps://cloud.google.com/container-builder/docs/build-config\n\n\nhttps://cloud.google.com/container-builder/docs/create-custom-build-steps\n\n\nhttps://github.com/GoogleCloudPlatform/cloud-builders",
             "title": "Google Cloud"
         },
         {
@@ -2567,7 +2582,7 @@
         },
         {
             "location": "/google-cloud/#links",
-            "text": "https://cloud.google.com/container-registry/docs/quickstart  https://cloud.google.com/container-builder/docs/build-config  https://cloud.google.com/container-builder/docs/create-custom-build-steps",
+            "text": "https://cloud.google.com/container-registry/docs/quickstart  https://cloud.google.com/container-builder/docs/build-config  https://cloud.google.com/container-builder/docs/create-custom-build-steps  https://github.com/GoogleCloudPlatform/cloud-builders",
             "title": "Links"
         },
         {
@@ -5967,7 +5982,7 @@
         },
         {
             "location": "/shairport-sync/",
-            "text": "\"AirPlay audio player. Shairport Sync adds multi-room capability with Audio Synchronisation\" - \nhttps://github.com/mikebrady/shairport-sync\n\n\nExample\n\n\nshairport-sync in docker\n\n\nThis is a really easy way to get shairport-sync running on Linux. The container is 12mb.\n\n\ndocker run --rm -d --net host --device /dev/snd -e AIRPLAY_NAME=\"shairport plata\" kevineye/shairport-sync",
+            "text": "\"AirPlay audio player. Shairport Sync adds multi-room capability with Audio Synchronisation\" - \nhttps://github.com/mikebrady/shairport-sync\n\n\nExample\n\n\nshairport-sync in docker\n\n\nThis is a really easy way to get shairport-sync running on Linux. The container is 12mb.\n\n\ndocker run \\\n  --rm \\\n  --detach \\\n  --network=host \\\n  --device /dev/snd \\\n  -e AIRPLAY_NAME=\"shairport ${HOSTNAME}\" \\\n  kevineye/shairport-sync",
             "title": "shairport-sync"
         },
         {
@@ -5977,7 +5992,7 @@
         },
         {
             "location": "/shairport-sync/#shairport-sync-in-docker",
-            "text": "This is a really easy way to get shairport-sync running on Linux. The container is 12mb.  docker run --rm -d --net host --device /dev/snd -e AIRPLAY_NAME=\"shairport plata\" kevineye/shairport-sync",
+            "text": "This is a really easy way to get shairport-sync running on Linux. The container is 12mb.  docker run \\\n  --rm \\\n  --detach \\\n  --network=host \\\n  --device /dev/snd \\\n  -e AIRPLAY_NAME=\"shairport ${HOSTNAME}\" \\\n  kevineye/shairport-sync",
             "title": "shairport-sync in docker"
         },
         {
