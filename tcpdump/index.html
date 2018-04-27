@@ -1161,6 +1161,8 @@
         
             <li><a class="toctree-l3" href="#write-a-circular-buffer-of-traffic">Write a circular buffer of traffic</a></li>
         
+            <li><a class="toctree-l3" href="#print-out-a-list-of-observed-src-ip-addresses-every-5-seconds">Print out a list of observed src ip addresses every 5 seconds</a></li>
+        
         </ul>
     
 
@@ -1354,10 +1356,24 @@
 <pre><code>sudo tcpdump -C 1 -W 5 -w foo.cap
 </code></pre>
 
+<h2 id="print-out-a-list-of-observed-src-ip-addresses-every-5-seconds">Print out a list of observed src ip addresses every 5 seconds</h2>
+<p>This is limited to 192.168.1 matches</p>
+<pre><code>while true ; do
+  date '+%F %T%z'
+  sudo timeout 5 tcpdump -n 2&gt;/dev/null |
+  awk '$3 ~ /10.8/ {
+    print gensub(/([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*)(\.[0-9]*)?/, &quot;ip address: \\1&quot;, &quot;g&quot;, $3) ;
+  }' |
+  sort -t. -k4n |
+  uniq -c
+done
+</code></pre>
+
 <p>You can reassemble these files chronologically with <code>mergecap -w merged.cap foo.cap*</code></p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="http://www.danielmiessler.com/study/tcpdump/">http://www.danielmiessler.com/study/tcpdump/</a></li>
+<li>&lt;https://www.rationallyparanoid.com/articles/tcpdump.html</li>
 </ul>
               
             </div>

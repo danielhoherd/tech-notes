@@ -636,6 +636,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#learn-about-kubernetes">Learn about kubernetes</a></li>
+        
             <li><a class="toctree-l3" href="#multiple-configs">Multiple configs</a></li>
         
             <li><a class="toctree-l3" href="#kubeadm">kubeadm</a></li>
@@ -1298,6 +1300,10 @@
               
                 <p>"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure." - <a href="https://kubernetes.io/docs/whatisk8s">https://kubernetes.io/docs/whatisk8s</a></p>
 <h1 id="cli-usage">cli usage</h1>
+<h2 id="learn-about-kubernetes">Learn about kubernetes</h2>
+<pre><code>kubectl explain roles
+</code></pre>
+
 <h2 id="multiple-configs">Multiple configs</h2>
 <p>The default config is <code>~/.kube/config</code>, but if you want to use multiple configs you can do this:</p>
 <pre><code>export KUBECONFIG=&quot;${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config&quot;
