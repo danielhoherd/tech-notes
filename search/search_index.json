@@ -1847,7 +1847,7 @@
         },
         {
             "location": "/ethtool/",
-            "text": "\"ethtool - query or control network driver and hardware settings\" - \nman ethtool\n\n\nExamples\n\n\nForce ethernet adapter to re-negotiate its speed\n\n\nethtool -r",
+            "text": "\"ethtool - query or control network driver and hardware settings\" - \nman ethtool\n\n\nExamples\n\n\nForce ethernet adapter to re-negotiate its speed\n\n\nethtool -r\n\n\n\n\nShow interface error count by type\n\n\n$ sudo ethtool -S ens5f0 | grep -i error\n     rx_errors: 13551\n     tx_errors: 0\n     rx_length_errors: 0\n     rx_crc_errors: 13551\n     fcoe_last_error: 0\n     port.tx_errors: 0\n     port.rx_crc_errors: 13551\n     port.rx_length_errors: 0",
             "title": "ethtool"
         },
         {
@@ -1859,6 +1859,11 @@
             "location": "/ethtool/#force-ethernet-adapter-to-re-negotiate-its-speed",
             "text": "ethtool -r",
             "title": "Force ethernet adapter to re-negotiate its speed"
+        },
+        {
+            "location": "/ethtool/#show-interface-error-count-by-type",
+            "text": "$ sudo ethtool -S ens5f0 | grep -i error\n     rx_errors: 13551\n     tx_errors: 0\n     rx_length_errors: 0\n     rx_crc_errors: 13551\n     fcoe_last_error: 0\n     port.tx_errors: 0\n     port.rx_crc_errors: 13551\n     port.rx_length_errors: 0",
+            "title": "Show interface error count by type"
         },
         {
             "location": "/exiftool/",
