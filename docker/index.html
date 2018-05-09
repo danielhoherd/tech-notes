@@ -329,6 +329,8 @@
         
             <li><a class="toctree-l3" href="#run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name">Run a docker image and assign it a hostname, and a docker name</a></li>
         
+            <li><a class="toctree-l3" href="#show-a-complete-vertically-oriented-list-of-docker-processes">Show a complete vertically oriented list of docker processes</a></li>
+        
             <li><a class="toctree-l3" href="#run-a-container-with-a-tcp-port-map">Run a container with a tcp port map</a></li>
         
             <li><a class="toctree-l3" href="#run-a-container-with-a-shared-directory">Run a container with a shared directory</a></li>
@@ -742,6 +744,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../make/">Make</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../math/">Math</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1338,6 +1345,12 @@
 <pre><code>docker ps host1
 </code></pre>
 
+<h2 id="show-a-complete-vertically-oriented-list-of-docker-processes">Show a complete vertically oriented list of docker processes</h2>
+<p><code>docker ps</code> has no <code>--json</code> flag, but you can work around that with golang style formatting.</p>
+<pre><code>docker ps --no-trunc --format='{{ . | json }}' | jq -S .
+</code></pre>
+
+<p>This trick also works with <code>docker images</code>, which also lacks a <code>--json</code> arg.</p>
 <h2 id="run-a-container-with-a-tcp-port-map">Run a container with a tcp port map</h2>
 <p>This maps port 18022 of the host to 22 of the guest.</p>
 <pre><code>docker run -ti -p 18022:22 centos bash
