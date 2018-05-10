@@ -379,6 +379,8 @@
         
             <li><a class="toctree-l3" href="#rename-files-using-a-combination-of-tags">Rename files using a combination of tags</a></li>
         
+            <li><a class="toctree-l3" href="#sort-files-by-extension">Sort files by extension</a></li>
+        
             <li><a class="toctree-l3" href="#set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</a></li>
         
             <li><a class="toctree-l3" href="#generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes</a></li>
@@ -1365,6 +1367,9 @@ exiftool -AllDates+='0:0:0 0:1:56'
 <p>The '%-c' string here adds a '-1' if there are two of the same target filename, and increments if there are more, but is null for unique filenames.</p>
 <pre><code>exiftool -d '%Y%m%d-%H-%M-%S' '-FileName&lt;${CreateDate;}_${Headline;}%-c.%e'
 </code></pre>
+
+<h2 id="sort-files-by-extension">Sort files by extension</h2>
+<pre><code></code></pre>
 
 <h2 id="set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</h2>
 <pre><code>exiftool &quot;-FileModifyDate&lt;DateTimeOriginal&quot; *.jpg
