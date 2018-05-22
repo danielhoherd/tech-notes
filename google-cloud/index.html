@@ -59,11 +59,6 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../3ds/">Nintendo 3DS</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../airport/">Apple Airport</a>
 	    </li>
           
@@ -180,6 +175,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../bpf/">bpf</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../calver/">CalVer</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -457,6 +457,8 @@
         
             <li><a class="toctree-l3" href="#pull-a-docker-container-from-google-container-registry">Pull a docker container from Google Container Registry</a></li>
         
+            <li><a class="toctree-l3" href="#control-access-to-registries">Control access to registries</a></li>
+        
         </ul>
     
 
@@ -499,6 +501,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../handbrake/">Handbrake</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hashids/">Hashids</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -784,6 +791,16 @@
             <li class="toctree-l1">
 		
     <a class="" href="../nfs/">Nfs</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nintendo-3ds/">Nintendo 3ds</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nintendo-switch/">Nintendo switch</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1296,6 +1313,10 @@
 <p><code>gcloud container images list</code></p>
 <h2 id="pull-a-docker-container-from-google-container-registry">Pull a docker container from Google Container Registry</h2>
 <p><code>gcloud docker -- pull gcr.io/project-id/hello-world</code></p>
+<h2 id="control-access-to-registries">Control access to registries</h2>
+<p>"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.</p>
+<p>Caution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.</p>
+<p>You manage access control in Cloud Storage by using the GCP Console or the <code>gsutil</code> command-line tool. Refer to the <code>gsutil acl</code> and <code>gsutil defacl</code> documentation for more information." - <a href="https://cloud.google.com/container-registry/docs/access-control">https://cloud.google.com/container-registry/docs/access-control</a></p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://cloud.google.com/container-registry/docs/quickstart">https://cloud.google.com/container-registry/docs/quickstart</a></li>

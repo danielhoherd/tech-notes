@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,15 +12,7 @@
     
     <url>
      <loc>/3d_printing/</loc>
-     <lastmod>2018-05-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/3ds/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +20,7 @@
     
     <url>
      <loc>/airport/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +28,7 @@
     
     <url>
      <loc>/amazon-ec2/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +36,7 @@
     
     <url>
      <loc>/amazon/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -52,7 +44,7 @@
     
     <url>
      <loc>/amiibo/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -60,7 +52,7 @@
     
     <url>
      <loc>/ansible/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -68,7 +60,7 @@
     
     <url>
      <loc>/apfs/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -76,7 +68,7 @@
     
     <url>
      <loc>/aptly/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -84,7 +76,7 @@
     
     <url>
      <loc>/arpwatch/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -92,7 +84,7 @@
     
     <url>
      <loc>/atomicparsley/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -100,7 +92,7 @@
     
     <url>
      <loc>/atop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -108,7 +100,7 @@
     
     <url>
      <loc>/autonomous-vehicles/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -116,7 +108,7 @@
     
     <url>
      <loc>/avahi/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -124,7 +116,7 @@
     
     <url>
      <loc>/awk/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -132,7 +124,7 @@
     
     <url>
      <loc>/awless/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -140,7 +132,7 @@
     
     <url>
      <loc>/aws-cloudformation/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -148,7 +140,7 @@
     
     <url>
      <loc>/awscli/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -156,7 +148,7 @@
     
     <url>
      <loc>/backups/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -164,7 +156,7 @@
     
     <url>
      <loc>/badblocks/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -172,7 +164,7 @@
     
     <url>
      <loc>/bash/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -180,7 +172,7 @@
     
     <url>
      <loc>/bc/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -188,7 +180,7 @@
     
     <url>
      <loc>/bind/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -196,7 +188,7 @@
     
     <url>
      <loc>/blkid/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -204,7 +196,7 @@
     
     <url>
      <loc>/bosh/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -212,7 +204,15 @@
     
     <url>
      <loc>/bpf/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/calver/</loc>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -220,7 +220,7 @@
     
     <url>
      <loc>/centos/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -228,7 +228,7 @@
     
     <url>
      <loc>/ceph/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -236,7 +236,7 @@
     
     <url>
      <loc>/chkconfig/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -244,7 +244,7 @@
     
     <url>
      <loc>/chocolatey/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -252,7 +252,7 @@
     
     <url>
      <loc>/chronos/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -260,7 +260,7 @@
     
     <url>
      <loc>/circleci/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -268,7 +268,7 @@
     
     <url>
      <loc>/cncf/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -276,7 +276,7 @@
     
     <url>
      <loc>/cobbler/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -284,7 +284,7 @@
     
     <url>
      <loc>/conjure-up/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -292,7 +292,7 @@
     
     <url>
      <loc>/consul/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -300,7 +300,7 @@
     
     <url>
      <loc>/cowsay/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -308,7 +308,7 @@
     
     <url>
      <loc>/cron/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -316,7 +316,7 @@
     
     <url>
      <loc>/cryptsetup/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -324,7 +324,7 @@
     
     <url>
      <loc>/curl/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -332,7 +332,7 @@
     
     <url>
      <loc>/date/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -340,7 +340,7 @@
     
     <url>
      <loc>/dcfldd/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -348,7 +348,7 @@
     
     <url>
      <loc>/dcgc/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -356,7 +356,7 @@
     
     <url>
      <loc>/dd-wrt/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -364,7 +364,7 @@
     
     <url>
      <loc>/ddrescue/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -372,7 +372,7 @@
     
     <url>
      <loc>/deb/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -380,7 +380,7 @@
     
     <url>
      <loc>/defaults/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -388,7 +388,7 @@
     
     <url>
      <loc>/devops/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -396,7 +396,7 @@
     
     <url>
      <loc>/dhcp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -404,7 +404,7 @@
     
     <url>
      <loc>/dig/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -412,7 +412,7 @@
     
     <url>
      <loc>/dmidecode/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -420,7 +420,7 @@
     
     <url>
      <loc>/dns/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -428,7 +428,7 @@
     
     <url>
      <loc>/docker/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -436,7 +436,7 @@
     
     <url>
      <loc>/dsrc/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -444,7 +444,7 @@
     
     <url>
      <loc>/dtrace/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -452,7 +452,7 @@
     
     <url>
      <loc>/du/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -460,7 +460,7 @@
     
     <url>
      <loc>/duplicity/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -468,7 +468,7 @@
     
     <url>
      <loc>/education/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -476,7 +476,7 @@
     
     <url>
      <loc>/eleduino/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -484,7 +484,7 @@
     
     <url>
      <loc>/ethtool/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -492,7 +492,7 @@
     
     <url>
      <loc>/exiftool/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -500,7 +500,7 @@
     
     <url>
      <loc>/fedramp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -508,7 +508,7 @@
     
     <url>
      <loc>/ffmpeg/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -516,7 +516,7 @@
     
     <url>
      <loc>/figlet/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -524,7 +524,7 @@
     
     <url>
      <loc>/file-downloaders/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -532,7 +532,7 @@
     
     <url>
      <loc>/find/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -540,7 +540,7 @@
     
     <url>
      <loc>/findmnt/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -548,7 +548,7 @@
     
     <url>
      <loc>/flask/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -556,7 +556,7 @@
     
     <url>
      <loc>/fluentd/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -564,7 +564,7 @@
     
     <url>
      <loc>/fortune/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -572,7 +572,7 @@
     
     <url>
      <loc>/genicam/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -580,7 +580,7 @@
     
     <url>
      <loc>/geodata/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -588,7 +588,7 @@
     
     <url>
      <loc>/gige-vision/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -596,7 +596,7 @@
     
     <url>
      <loc>/git/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -604,7 +604,7 @@
     
     <url>
      <loc>/gitlab/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -612,7 +612,7 @@
     
     <url>
      <loc>/gitolite/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -620,7 +620,7 @@
     
     <url>
      <loc>/glances/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -628,7 +628,7 @@
     
     <url>
      <loc>/golang/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -636,7 +636,7 @@
     
     <url>
      <loc>/google-cloud/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -644,7 +644,7 @@
     
     <url>
      <loc>/google-earth/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -652,7 +652,7 @@
     
     <url>
      <loc>/google-sheets/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -660,7 +660,7 @@
     
     <url>
      <loc>/google/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -668,7 +668,7 @@
     
     <url>
      <loc>/graphicsmagick/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -676,7 +676,7 @@
     
     <url>
      <loc>/grub/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -684,7 +684,7 @@
     
     <url>
      <loc>/hadoop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -692,7 +692,15 @@
     
     <url>
      <loc>/handbrake/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/hashids/</loc>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -700,7 +708,7 @@
     
     <url>
      <loc>/helm/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -708,7 +716,7 @@
     
     <url>
      <loc>/home-assistant/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -716,7 +724,7 @@
     
     <url>
      <loc>/hp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -724,7 +732,7 @@
     
     <url>
      <loc>/htop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -732,7 +740,7 @@
     
     <url>
      <loc>/httpstat/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -740,7 +748,7 @@
     
     <url>
      <loc>/iTunes/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -748,7 +756,7 @@
     
     <url>
      <loc>/iftop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -756,7 +764,7 @@
     
     <url>
      <loc>/image-formats/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -764,7 +772,7 @@
     
     <url>
      <loc>/imagemagick/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -772,7 +780,7 @@
     
     <url>
      <loc>/img2xterm/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -780,7 +788,7 @@
     
     <url>
      <loc>/innotop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -788,7 +796,7 @@
     
     <url>
      <loc>/inotify/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -796,7 +804,7 @@
     
     <url>
      <loc>/iotop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -804,7 +812,7 @@
     
     <url>
      <loc>/ip/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -812,7 +820,7 @@
     
     <url>
      <loc>/iperf/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -820,7 +828,7 @@
     
     <url>
      <loc>/ipmi/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -828,7 +836,7 @@
     
     <url>
      <loc>/iptables/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -836,7 +844,7 @@
     
     <url>
      <loc>/jargon/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -844,7 +852,7 @@
     
     <url>
      <loc>/jdupes/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -852,7 +860,7 @@
     
     <url>
      <loc>/jmespath/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -860,7 +868,7 @@
     
     <url>
      <loc>/jot/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -868,7 +876,7 @@
     
     <url>
      <loc>/jpeginfo/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -876,7 +884,7 @@
     
     <url>
      <loc>/jq/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -884,7 +892,7 @@
     
     <url>
      <loc>/juniper/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -892,7 +900,7 @@
     
     <url>
      <loc>/jupyter/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -900,7 +908,7 @@
     
     <url>
      <loc>/jwt/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -908,7 +916,7 @@
     
     <url>
      <loc>/kaniko/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -916,7 +924,7 @@
     
     <url>
      <loc>/keel/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -924,7 +932,7 @@
     
     <url>
      <loc>/keybase/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -932,7 +940,7 @@
     
     <url>
      <loc>/kubernetes/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -940,7 +948,7 @@
     
     <url>
      <loc>/launchd/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -948,7 +956,7 @@
     
     <url>
      <loc>/ldap/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -956,7 +964,7 @@
     
     <url>
      <loc>/lego-mindstorms/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -964,7 +972,7 @@
     
     <url>
      <loc>/linksys/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -972,7 +980,7 @@
     
     <url>
      <loc>/linux-performance-monitoring/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -980,7 +988,7 @@
     
     <url>
      <loc>/linux/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -988,7 +996,7 @@
     
     <url>
      <loc>/logstash/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -996,7 +1004,7 @@
     
     <url>
      <loc>/lsblk/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1004,7 +1012,7 @@
     
     <url>
      <loc>/lsof/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1012,7 +1020,7 @@
     
     <url>
      <loc>/lvm/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1020,7 +1028,7 @@
     
     <url>
      <loc>/lxc/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1028,7 +1036,7 @@
     
     <url>
      <loc>/machine-learning/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1036,7 +1044,7 @@
     
     <url>
      <loc>/make/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1044,7 +1052,7 @@
     
     <url>
      <loc>/math/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1052,7 +1060,7 @@
     
     <url>
      <loc>/mdraid/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1060,7 +1068,7 @@
     
     <url>
      <loc>/micropython/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1068,7 +1076,7 @@
     
     <url>
      <loc>/mkdocs/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1076,7 +1084,7 @@
     
     <url>
      <loc>/mqtt/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1084,7 +1092,7 @@
     
     <url>
      <loc>/mutt/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1092,7 +1100,7 @@
     
     <url>
      <loc>/myrepos/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1100,7 +1108,7 @@
     
     <url>
      <loc>/mysql/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1108,7 +1116,7 @@
     
     <url>
      <loc>/namei/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1116,7 +1124,7 @@
     
     <url>
      <loc>/netgear/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1124,7 +1132,7 @@
     
     <url>
      <loc>/nethogs/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1132,7 +1140,7 @@
     
     <url>
      <loc>/networking/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1140,7 +1148,7 @@
     
     <url>
      <loc>/networksetup/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1148,7 +1156,23 @@
     
     <url>
      <loc>/nfs/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/nintendo-3ds/</loc>
+     <lastmod>2018-05-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/nintendo-switch/</loc>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1156,7 +1180,7 @@
     
     <url>
      <loc>/ntop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1164,7 +1188,7 @@
     
     <url>
      <loc>/ntp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1172,7 +1196,7 @@
     
     <url>
      <loc>/openvpn/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1180,7 +1204,7 @@
     
     <url>
      <loc>/osquery/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1188,7 +1212,7 @@
     
     <url>
      <loc>/ostinato/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1196,7 +1220,7 @@
     
     <url>
      <loc>/osx/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1204,7 +1228,7 @@
     
     <url>
      <loc>/outline/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1212,7 +1236,7 @@
     
     <url>
      <loc>/pac/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1220,7 +1244,7 @@
     
     <url>
      <loc>/pandoc/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1228,7 +1252,7 @@
     
     <url>
      <loc>/panopticlick/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1236,7 +1260,7 @@
     
     <url>
      <loc>/passwords/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1244,7 +1268,7 @@
     
     <url>
      <loc>/perl/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1252,7 +1276,7 @@
     
     <url>
      <loc>/pgp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1260,7 +1284,7 @@
     
     <url>
      <loc>/philips-hue/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1268,7 +1292,7 @@
     
     <url>
      <loc>/php/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1276,7 +1300,7 @@
     
     <url>
      <loc>/plex/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1284,7 +1308,7 @@
     
     <url>
      <loc>/powershell/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1292,7 +1316,7 @@
     
     <url>
      <loc>/powertop/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1300,7 +1324,7 @@
     
     <url>
      <loc>/procurve/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1308,7 +1332,7 @@
     
     <url>
      <loc>/prometheus/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1316,7 +1340,7 @@
     
     <url>
      <loc>/protobuf/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1324,7 +1348,7 @@
     
     <url>
      <loc>/ps/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1332,7 +1356,7 @@
     
     <url>
      <loc>/ps_mem/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1340,7 +1364,7 @@
     
     <url>
      <loc>/psp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1348,7 +1372,7 @@
     
     <url>
      <loc>/pssh/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1356,7 +1380,7 @@
     
     <url>
      <loc>/ptp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1364,7 +1388,7 @@
     
     <url>
      <loc>/puppet/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1372,7 +1396,7 @@
     
     <url>
      <loc>/pv/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1380,7 +1404,7 @@
     
     <url>
      <loc>/python/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1388,7 +1412,7 @@
     
     <url>
      <loc>/q/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1396,7 +1420,7 @@
     
     <url>
      <loc>/raspberry-pi/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1404,7 +1428,7 @@
     
     <url>
      <loc>/redis/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1412,7 +1436,7 @@
     
     <url>
      <loc>/rhel/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1420,7 +1444,7 @@
     
     <url>
      <loc>/robotics/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1428,7 +1452,7 @@
     
     <url>
      <loc>/rook/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1436,7 +1460,7 @@
     
     <url>
      <loc>/ros/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1444,7 +1468,7 @@
     
     <url>
      <loc>/rpm/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1452,7 +1476,7 @@
     
     <url>
      <loc>/rrd/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1460,7 +1484,7 @@
     
     <url>
      <loc>/rst/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1468,7 +1492,7 @@
     
     <url>
      <loc>/rsync/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1476,7 +1500,7 @@
     
     <url>
      <loc>/saltstack/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1484,7 +1508,7 @@
     
     <url>
      <loc>/samsung/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1492,7 +1516,7 @@
     
     <url>
      <loc>/screenshot/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1500,7 +1524,7 @@
     
     <url>
      <loc>/sdr/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1508,7 +1532,7 @@
     
     <url>
      <loc>/sed/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1516,7 +1540,7 @@
     
     <url>
      <loc>/selinux/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1524,7 +1548,7 @@
     
     <url>
      <loc>/semver/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1532,7 +1556,7 @@
     
     <url>
      <loc>/sensu/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1540,7 +1564,7 @@
     
     <url>
      <loc>/serverless/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1548,7 +1572,7 @@
     
     <url>
      <loc>/sgdisk/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1556,7 +1580,7 @@
     
     <url>
      <loc>/shairport-sync/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1564,7 +1588,7 @@
     
     <url>
      <loc>/shutdown/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1572,7 +1596,7 @@
     
     <url>
      <loc>/sips/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1580,7 +1604,7 @@
     
     <url>
      <loc>/smartctl/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1588,7 +1612,7 @@
     
     <url>
      <loc>/smartstack/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1596,7 +1620,7 @@
     
     <url>
      <loc>/snap/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1604,7 +1628,7 @@
     
     <url>
      <loc>/snmp/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1612,7 +1636,7 @@
     
     <url>
      <loc>/solo/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1620,7 +1644,7 @@
     
     <url>
      <loc>/sort/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1628,7 +1652,7 @@
     
     <url>
      <loc>/sphinx/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1636,7 +1660,7 @@
     
     <url>
      <loc>/split/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1644,7 +1668,7 @@
     
     <url>
      <loc>/splunk/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1652,7 +1676,7 @@
     
     <url>
      <loc>/sqlite/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1660,7 +1684,7 @@
     
     <url>
      <loc>/ss/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1668,7 +1692,7 @@
     
     <url>
      <loc>/ssh/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1676,7 +1700,7 @@
     
     <url>
      <loc>/sshuttle/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1684,7 +1708,7 @@
     
     <url>
      <loc>/stat/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1692,7 +1716,7 @@
     
     <url>
      <loc>/strace/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1700,7 +1724,7 @@
     
     <url>
      <loc>/sudo/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1708,7 +1732,7 @@
     
     <url>
      <loc>/swagger/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1716,7 +1740,7 @@
     
     <url>
      <loc>/sysctl/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1724,7 +1748,7 @@
     
     <url>
      <loc>/sysdig/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1732,7 +1756,7 @@
     
     <url>
      <loc>/systemd/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1740,7 +1764,7 @@
     
     <url>
      <loc>/tcl/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1748,7 +1772,7 @@
     
     <url>
      <loc>/tcpdump/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1756,7 +1780,7 @@
     
     <url>
      <loc>/time/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1764,7 +1788,7 @@
     
     <url>
      <loc>/tls/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1772,7 +1796,7 @@
     
     <url>
      <loc>/top-variant-list/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1780,7 +1804,7 @@
     
     <url>
      <loc>/top/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1788,7 +1812,7 @@
     
     <url>
      <loc>/touch/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1796,7 +1820,7 @@
     
     <url>
      <loc>/ubuntu/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1804,7 +1828,7 @@
     
     <url>
      <loc>/upstart/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1812,7 +1836,7 @@
     
     <url>
      <loc>/vagrant/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1820,7 +1844,7 @@
     
     <url>
      <loc>/videos/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1828,7 +1852,7 @@
     
     <url>
      <loc>/vim/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1836,7 +1860,7 @@
     
     <url>
      <loc>/wget/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1844,7 +1868,7 @@
     
     <url>
      <loc>/winbind/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1852,7 +1876,7 @@
     
     <url>
      <loc>/wuzz/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1860,7 +1884,7 @@
     
     <url>
      <loc>/yaml/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1868,7 +1892,7 @@
     
     <url>
      <loc>/youtube-dl/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1876,7 +1900,7 @@
     
     <url>
      <loc>/yum/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1884,7 +1908,7 @@
     
     <url>
      <loc>/zerotier/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1892,7 +1916,7 @@
     
     <url>
      <loc>/zfs/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -1900,7 +1924,7 @@
     
     <url>
      <loc>/zookeeper/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-05-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

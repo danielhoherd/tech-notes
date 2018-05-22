@@ -11,21 +11,6 @@
             "title": "3D Printing"
         },
         {
-            "location": "/3ds/",
-            "text": "https://yls8.mtheall.com/3dsbrowserhax.php\n\n\nhttp://www.3dbrew.org/wiki/Homebrew_Applications\n\n\n\n\nLego + 3DS notes\n\n\n\n\n3DSXL screen is ~ 9x11 Lego units\n\n\n3DSXL outside is 20x12 Lego units\n\n\n\n\nEmulation\n\n\n\n\nCitra 3DS emulator\n\n\nDumping cartridges",
-            "title": "Nintendo 3DS"
-        },
-        {
-            "location": "/3ds/#lego-3ds-notes",
-            "text": "3DSXL screen is ~ 9x11 Lego units  3DSXL outside is 20x12 Lego units",
-            "title": "Lego + 3DS notes"
-        },
-        {
-            "location": "/3ds/#emulation",
-            "text": "Citra 3DS emulator  Dumping cartridges",
-            "title": "Emulation"
-        },
-        {
             "location": "/airport/",
             "text": "Apple Airport hardware was discontinued in November 2016.\n\n\nUsing old Airport Utility apps with new versions of OS X\n\n\n\n\nhttps://zcs.zyniker.org/airport-utility-v5-6-1\n\n\nhttps://support.apple.com/kb/DL1536\n\n\n\n\nOr use the 5.6.1 Utility in Windows? Not sure if this works.\n\n\n\n\nhttps://support.apple.com/kb/dl1547",
             "title": "Apple Airport"
@@ -831,6 +816,11 @@
             "title": "bpf"
         },
         {
+            "location": "/calver/",
+            "text": "\"CalVer is a software versioning convention that is based on your project's release calendar, instead of arbitrary numbers.\" - \nhttps://calver.org/",
+            "title": "CalVer"
+        },
+        {
             "location": "/centos/",
             "text": "\"The CentOS Project is a community-driven free software effort focused on delivering a robust open source ecosystem.\" - \nhttps://www.centos.org/\n\n\nCentOS 7\n\n\n\n\nReleased 2014-07-07\n\n\n\n\nNew things in CentOS 7\n\n\n\n\nfirewalld\n manages the firewall\n\n\nhostnamectl\n changes the hostname and applies the setting immediately\n\n\njournalctl\n shows log files of services launched by systemd\n\n\nsystemctl\n manages systemd services\n\n\n\n\nInitial setup\n\n\nSet up some base parameters on a fresh instance\n\n\nyum install -y bash-completion bc curl git lsof mlocate mutt net-snmp ntpd smartmontools strace sysstat vim wget  \nln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  \nntpdate {0..3}.pool.ntp.org  \nsystemctl start ntpd\n\n\n\n\nCentOS 6\n\n\n\n\nReleased 2011-07-10\n\n\n\n\nCentOS 6 Initial Setup\n\n\n\n\nyum install -y ntp  \nchkconfig --levels 345 ntpd on && ntpdate time.apple.com && service ntpd start  \nyum upgrade -y  \nyum install -y arping avahi avahi-tools bc bind-utils curl elinks fping lsof net-snmp man mlocate mutt openssh openssh-clients openssh-server perl-Crypt-SSLeay perl-libwww-perl rsync strace vim wget yum-cron\nln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime  \nchkconfig --levels 345 yum-cron on && service yum-cron start  \nyum install -y dcfldd nfs-utils smartmontools dmidecode lshw dstat htop iotop  \nchkconfig --levels 345 smartd on && service smartd start\n\n\n\n\nTweaks and Tricks\n\n\nGet past protected lib problems\n\n\nyum update --setopt=protected_multilib=false --skip-broken\n\n\nEnable DHCP Hostname for DNS resolution\n\n\nadd \"\nDHCP_HOSTNAME=whatever\n\" to\n/etc/sysconfig/network-scripts/ifcfg-eth0\n\n\nInstall OS from USB\n\n\n\n\nFrom Windows: \nhttp://iso2usb.sourceforge.net/\n\n\nFrom Linux: \nhttps://fedoraproject.org/wiki/Livecd-iso-to-disk\n\n\n\n\nShow installed repository keys\n\n\nrpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\\n'\n\n\nDHCP with DDNS hostname\n\n\nModel your /etc/sysconfig/network-scripts/ifcfg-eth0 like this:\n\n\nTYPE=Ethernet\nDEVICE=eth0\nONBOOT=yes\nBOOTPROTO=dhcp\n# Without the following line, dhclient will not update /etc/resolv.conf and may not get an IP address at all\nDHCP_HOSTNAME=some_hostname\n\n\n\n\n\n\nTo configure your hostname, edit /etc/sysconfig/network and add HOSTNAME=\n\n\nYou also may need to delete these files:\n\n\n\n\nrm -f /etc/dhclient-eth?.conf /var/lib/dhclient/dhclient-eth?.leases /etc/udev/rules.d/70-persistent-net.rules /etc/sysconfig/network-scripts/ifcfg-eth1\n\n\n\n\nConfiguration to auth against \nMicrosoft\n AD\n\n\n\n\nhttp://www.uncompiled.com/using-winbind-in-centos-6-for-active-director\n worked perfectly with \nsamba\n and \nwinbind\n\n\n\n\nBond Configs\n\n\n$ cat /etc/modprobe.d/bond0.conf  \nalias bond0 bonding  \noptions bond0 max_bonds=1 fail_over_mac=2 mode=1 num_grat_arp=2 primary=em1 primary_reselect=1 arp_validate=1 arp_interval=100 arp_ip_target=10.1.5.15,10.1.1.1\n\n\n\n\nSee Also\n\n\n\n\nchkconfig\n\n\nrpm\n\n\nselinux\n - \nhttp://wiki.centos.org/HowTos/SELinux\n\n\nyum",
             "title": "CentOS Linux"
@@ -1077,7 +1067,7 @@
         },
         {
             "location": "/cron/",
-            "text": "Per-user and system-wide scheduled tasks, handled by the cron daemon.\n\n\nLocations\n\n\nCron scripts and entries can run from several locations.  By using /etc/crontab.d/scriptname you can set different MAILTO and ENV variables and isolate your scheduled jobs. User jobs can be edited via \ncrontab -e\n.\n\n\nDST\n\n\nSome cron daemons don't handle DST correctly.  Because of this, do not schedule jobs within the our of 1am.  During DST changes this hour happens twice or is skipped altogether.\n\n\nCronie says it handled DST gracefully, running jobs that should have run but haven't yet due to time changes, or no running jobs twice when time goes back.\n\n\nSyntax quirks\n\n\nSome systems have problems with #/# syntax.  (eg: \n15 2/6 * * * /usr/bin/whatever\n)\n\n\nDefault Editor\n\n\nIn some systems, the default editor is found by the symlink located at /etc/defaults/editor.  To override this, export your EDITOR shell variable. (eg: \nexport EDITOR=/usr/bin/vim\n)\n\n\nExamples\n\n\nQuick and dirty realignment\n\n\nThis will definitely fail in some circumstances.\n\n\nalias crontab-align='crontab -l | while read -r a b c d e f ; do\n  if [[ \"$a\" =~ ^## ]] ; then\n    echo \"$a $b $c $d $e $f\" ;\n  else\n    printf \"% -20s %s\\n\" \"$a $b $c $d $e\" \"$f\" ;\n  fi ;\ndone'\n\ncrontab-align | crontab -\n\n\n\n\nAdd a random delay\n\n\nThis example sleeps for a random number of seconds lower than 1800, including 0.  The \n%\n symbol has to be escaped in crontabs.\n\n\n0 * * * *   sleep $((RANDOM \\% 1800)) ; /usr/local/bin/do-a-thing.sh ;\n\n\n\n\nProgrammatic editing of the crontab\n\n\nThis is potentially dangerous because you can wipe out a user's crontab.\n\n\ncrontab -l | sed -e '/downtime/s/^\\#//' | crontab -\necho \"* * * * * /usr/local/bin/every_minute.sh\" | crontab -\n\n\n\n\nSee if and when parts are running\n\n\nPut this in /etc/cron.*/01-cron-log :\n\n\nlogger -t cron Running `basename $PWD`\n\n\n\n\nOS X Alarm Clock\n\n\n## Alarm Clock\n55 5 * * 1-5    /usr/bin/osascript -e 'tell application \"iTunes\"' -e 'set the sound volume to 100' -e 'end tell'\n00 6 * * 1-5    /usr/bin/osascript -e 'tell application \"iTunes\"' -e 'play playlist \"Old Podcasts\"' -e 'end tell'\n15 8 * * 1-5    /usr/bin/osascript -e 'tell application \"iTunes\" to stop'\n\n\n\n\nCurl every other hour\n\n\n0 */2 * * *    curl -fs \"http://bighugelabs.com/flickr/profilewidget/randomint/000000/ffffff/94246031@N00.jpg\" > /dev/null\n\n\n\n\nTroubleshooting\n\n\nHaving junk files like temp vim files in /var/cron/tabs can make cron go to 100% cpu usage.  Remove all non crontab files and kill cron to fix it.",
+            "text": "Per-user and system-wide scheduled tasks, handled by the cron daemon.\n\n\nLocations\n\n\nCron scripts and entries can run from several locations.  By using /etc/crontab.d/scriptname you can set different MAILTO and ENV variables and isolate your scheduled jobs. User jobs can be edited via \ncrontab -e\n.\n\n\nDST\n\n\nSome cron daemons don't handle DST correctly.  Because of this, do not schedule jobs within the our of 1am.  During DST changes this hour happens twice or is skipped altogether.\n\n\nCronie says it handled DST gracefully, running jobs that should have run but haven't yet due to time changes, or no running jobs twice when time goes back.\n\n\nSyntax quirks\n\n\nSome systems have problems with #/# syntax.  (eg: \n15 2/6 * * * /usr/bin/whatever\n)\n\n\nDefault Editor\n\n\nIn some systems, the default editor is found by the symlink located at /etc/defaults/editor.  To override this, export your EDITOR shell variable. (eg: \nexport EDITOR=/usr/bin/vim\n)\n\n\nExamples\n\n\nQuick and dirty realignment\n\n\nThis will definitely fail in some circumstances.\n\n\nalias crontab-align='crontab -l | while read -r a b c d e f ; do\n  if [[ \"$a\" =~ ^## ]] ; then\n    echo \"$a $b $c $d $e $f\" ;\n  else\n    printf \"% -20s %s\\n\" \"$a $b $c $d $e\" \"$f\" ;\n  fi ;\ndone'\n\ncrontab-align | crontab -\n\n\n\n\nAdd a random delay\n\n\nThis example sleeps for a random number of seconds lower than 1800, including 0.  The \n%\n symbol has to be escaped in crontabs.\n\n\n0 * * * *   sleep $((RANDOM \\% 1800)) ; /usr/local/bin/do-a-thing.sh ;\n\n\n\n\nProgrammatic editing of the crontab\n\n\nThis is potentially dangerous because you can wipe out a user's crontab.\n\n\ncrontab -l | sed -e '/downtime/s/^\\#//' | crontab -\necho \"* * * * * /usr/local/bin/every_minute.sh\" | crontab -\n\n\n\n\nSee if and when parts are running\n\n\nPut this in /etc/cron.*/01-cron-log :\n\n\nlogger -t cron Running `basename $PWD`\n\n\n\n\nOS X Alarm Clock\n\n\n## Alarm Clock\n55 5 * * 1-5    /usr/bin/osascript -e 'tell application \"iTunes\"' -e 'set the sound volume to 100' -e 'end tell'\n00 6 * * 1-5    /usr/bin/osascript -e 'tell application \"iTunes\"' -e 'play playlist \"Old Podcasts\"' -e 'end tell'\n15 8 * * 1-5    /usr/bin/osascript -e 'tell application \"iTunes\" to stop'\n\n\n\n\nCurl every other hour\n\n\n0 */2 * * *    curl -fs \"http://bighugelabs.com/flickr/profilewidget/randomint/000000/ffffff/94246031@N00.jpg\" > /dev/null\n\n\n\n\nTroubleshooting\n\n\nHaving junk files like temp vim files in /var/cron/tabs can make cron go to 100% cpu usage.  Remove all non crontab files and kill cron to fix it.\n\n\nLinks\n\n\n\n\nhttps://crontab.guru/\n - Online crontab linter and explainer",
             "title": "cron"
         },
         {
@@ -1139,6 +1129,11 @@
             "location": "/cron/#troubleshooting",
             "text": "Having junk files like temp vim files in /var/cron/tabs can make cron go to 100% cpu usage.  Remove all non crontab files and kill cron to fix it.",
             "title": "Troubleshooting"
+        },
+        {
+            "location": "/cron/#links",
+            "text": "https://crontab.guru/  - Online crontab linter and explainer",
+            "title": "Links"
         },
         {
             "location": "/cryptsetup/",
@@ -2582,7 +2577,7 @@
         },
         {
             "location": "/google-cloud/",
-            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\ngcloud CLI Examples\n\n\nList google compute zones\n\n\ngcloud compute zones list\n\n\nList images available in Google Container Registry\n\n\ngcloud container images list\n\n\nPull a docker container from Google Container Registry\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\nhttps://cloud.google.com/container-builder/docs/build-config\n\n\nhttps://cloud.google.com/container-builder/docs/create-custom-build-steps\n\n\nhttps://github.com/GoogleCloudPlatform/cloud-builders",
+            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\ngcloud CLI Examples\n\n\nList google compute zones\n\n\ngcloud compute zones list\n\n\nList images available in Google Container Registry\n\n\ngcloud container images list\n\n\nPull a docker container from Google Container Registry\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world\n\n\nControl access to registries\n\n\n\"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.\n\n\nCaution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.\n\n\nYou manage access control in Cloud Storage by using the GCP Console or the \ngsutil\n command-line tool. Refer to the \ngsutil acl\n and \ngsutil defacl\n documentation for more information.\" - \nhttps://cloud.google.com/container-registry/docs/access-control\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\nhttps://cloud.google.com/container-builder/docs/build-config\n\n\nhttps://cloud.google.com/container-builder/docs/create-custom-build-steps\n\n\nhttps://github.com/GoogleCloudPlatform/cloud-builders",
             "title": "Google Cloud"
         },
         {
@@ -2604,6 +2599,11 @@
             "location": "/google-cloud/#pull-a-docker-container-from-google-container-registry",
             "text": "gcloud docker -- pull gcr.io/project-id/hello-world",
             "title": "Pull a docker container from Google Container Registry"
+        },
+        {
+            "location": "/google-cloud/#control-access-to-registries",
+            "text": "\"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.  Caution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.  You manage access control in Cloud Storage by using the GCP Console or the  gsutil  command-line tool. Refer to the  gsutil acl  and  gsutil defacl  documentation for more information.\" -  https://cloud.google.com/container-registry/docs/access-control",
+            "title": "Control access to registries"
         },
         {
             "location": "/google-cloud/#links",
@@ -2744,6 +2744,21 @@
             "location": "/handbrake/#fix-43-aspect-ratio-with-the-expanded-syntax-of-the-appletv-preset",
             "text": "HandBrakeCLI \\\n-e x264 \\\n-q 20.0 \\\n-a 1,1 \\\n-E faac,ac3 \\\n-B 160,160 \\\n-6 dpl2,auto \\\n-R 48,Auto -D 0.0,0.0 \\\n-f mp4 \\\n-4 \\\n-X 960 \\\n--loose-anamorphic \\\n-m \\\n-x cabac=0:ref=2:me=umh:b-adapt=2:weightb=0:trellis=0:weightp=0 \\\n--custom-anamorphic \\\n--pixel-aspect 4:3",
             "title": "Fix 4:3 aspect ratio with the expanded syntax of the AppleTV preset"
+        },
+        {
+            "location": "/hashids/",
+            "text": "\"Hashids is a small open-source library that generates short, unique, non-sequential ids from numbers. It converts numbers like 347 into strings like 'yr8', or array of numbers like \n[27, 986]\n into '3kTMd'. You can also decode those ids back. This is useful in bundling several parameters into one or simply using them as short UIDs.\" - \nhttps://hashids.org/\n\n\nExamples\n\n\nPython\n\n\nhttps://github.com/davidaurelio/hashids-python\n\n\nfrom hashids import Hashids\nhashids = Hashids(salt=\"this is my salt\")\nid = hashids.encode(1, 2, 3)  # str('laHquq')\nnumbers = hashids.decode(id)",
+            "title": "Hashids"
+        },
+        {
+            "location": "/hashids/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/hashids/#python",
+            "text": "https://github.com/davidaurelio/hashids-python  from hashids import Hashids\nhashids = Hashids(salt=\"this is my salt\")\nid = hashids.encode(1, 2, 3)  # str('laHquq')\nnumbers = hashids.decode(id)",
+            "title": "Python"
         },
         {
             "location": "/helm/",
@@ -4294,6 +4309,26 @@
             "location": "/nfs/#create-persistent-nfs-mount-in-os-x-108",
             "text": "This is not bulletproof. Modern OS X 10.9+ version are switching away from NFS to CIFS. The NFS client on OS X is pretty weak. For instance it might crash your machine if the share has 0 bytes free but is mounted RW. Use at your own risk.  sudo mkdir /mnt # OS X doesn't like you playing with /Volumes, it may delete your dirs\nsudo dscl . -create /Mounts/z4\nsudo dscl . -create /Mounts/z4 VFSLinkDir /mnt/z4\nsudo dscl . -create /Mounts/z4 VFSOpts resvport rw nosuid\nsudo dscl . -create /Mounts/z4 VFSType nfs\nsudo dscl . -create /Mounts/z4 RecordName opal:/z4\nsudo dscl . -create /Mounts/iTunes\nsudo dscl . -create /Mounts/iTunes VFSLinkDir /mnt/z4/iTunes\nsudo dscl . -create /Mounts/iTunes VFSOpts resvport rw nosuid\nsudo dscl . -create /Mounts/iTunes VFSType nfs\nsudo dscl . -create /Mounts/iTunes RecordName opal:/z4/iTunes\nsudo dscl . -read /Mounts/opal:/z4\nsudo dscl . -read /Mounts/opal:/z4/iTunes\nsudo dscl . -list /Mounts\n\nsudo dscl . -delete /Mounts opal:/z4/iTunes",
             "title": "Create persistent NFS mount in OS X 10.8"
+        },
+        {
+            "location": "/nintendo-3ds/",
+            "text": "https://yls8.mtheall.com/3dsbrowserhax.php\n\n\nhttp://www.3dbrew.org/wiki/Homebrew_Applications\n\n\n\n\nLego + 3DS notes\n\n\n\n\n3DSXL screen is ~ 9x11 Lego units\n\n\n3DSXL outside is 20x12 Lego units\n\n\n\n\nEmulation\n\n\n\n\nCitra 3DS emulator\n\n\nDumping cartridges",
+            "title": "Nintendo 3DS"
+        },
+        {
+            "location": "/nintendo-3ds/#lego-3ds-notes",
+            "text": "3DSXL screen is ~ 9x11 Lego units  3DSXL outside is 20x12 Lego units",
+            "title": "Lego + 3DS notes"
+        },
+        {
+            "location": "/nintendo-3ds/#emulation",
+            "text": "Citra 3DS emulator  Dumping cartridges",
+            "title": "Emulation"
+        },
+        {
+            "location": "/nintendo-switch/",
+            "text": "https://switchbrew.github.io/nx-hbl/\n\n\nhttps://www.reddit.com/r/SwitchHaxing/top/?sort=top&t=month\n\n\nhttps://youtu.be/3-UeB_enPrM\n - How to install HomeBrew Menu on Nintendo Switch with 5.0.2 or 4.X firmware RCM",
+            "title": "Nintendo Switch"
         },
         {
             "location": "/ntop/",
