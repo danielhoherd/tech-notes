@@ -2577,13 +2577,28 @@
         },
         {
             "location": "/google-cloud/",
-            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\ngcloud CLI Examples\n\n\nList google compute zones\n\n\ngcloud compute zones list\n\n\nList images available in Google Container Registry\n\n\ngcloud container images list\n\n\nPull a docker container from Google Container Registry\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world\n\n\nControl access to registries\n\n\n\"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.\n\n\nCaution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.\n\n\nYou manage access control in Cloud Storage by using the GCP Console or the \ngsutil\n command-line tool. Refer to the \ngsutil acl\n and \ngsutil defacl\n documentation for more information.\" - \nhttps://cloud.google.com/container-registry/docs/access-control\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\nhttps://cloud.google.com/container-builder/docs/build-config\n\n\nhttps://cloud.google.com/container-builder/docs/create-custom-build-steps\n\n\nhttps://github.com/GoogleCloudPlatform/cloud-builders",
+            "text": "\"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK\" - \nhttps://cloud.google.com/sdk/docs/\n\n\ngcloud CLI Examples\n\n\nList google cloud projects\n\n\ngcloud projects list\n\n\n\n\nSwitch to a different project\n\n\ngcloud config set project <project_name>\n\n\n\n\nGrant a user permission to a docker registry\n\n\ngsutil iam ch 'user:user@example.com:objectViewer' 'gs://artifacts.example.appspot.com/'\n\n\n\n\nList google compute zones\n\n\ngcloud compute zones list\n\n\nList images available in Google Container Registry\n\n\ngcloud container images list\n\n\nPull a docker container from Google Container Registry\n\n\ngcloud docker -- pull gcr.io/project-id/hello-world\n\n\nControl access to registries\n\n\n\"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.\n\n\nCaution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.\n\n\nYou manage access control in Cloud Storage by using the GCP Console or the \ngsutil\n command-line tool. Refer to the \ngsutil acl\n and \ngsutil defacl\n documentation for more information.\" - \nhttps://cloud.google.com/container-registry/docs/access-control\n\n\nLinks\n\n\n\n\nhttps://cloud.google.com/container-registry/docs/quickstart\n\n\nhttps://cloud.google.com/container-builder/docs/build-config\n\n\nhttps://cloud.google.com/container-builder/docs/create-custom-build-steps\n\n\nhttps://github.com/GoogleCloudPlatform/cloud-builders",
             "title": "Google Cloud"
         },
         {
             "location": "/google-cloud/#gcloud-cli-examples",
             "text": "",
             "title": "gcloud CLI Examples"
+        },
+        {
+            "location": "/google-cloud/#list-google-cloud-projects",
+            "text": "gcloud projects list",
+            "title": "List google cloud projects"
+        },
+        {
+            "location": "/google-cloud/#switch-to-a-different-project",
+            "text": "gcloud config set project <project_name>",
+            "title": "Switch to a different project"
+        },
+        {
+            "location": "/google-cloud/#grant-a-user-permission-to-a-docker-registry",
+            "text": "gsutil iam ch 'user:user@example.com:objectViewer' 'gs://artifacts.example.appspot.com/'",
+            "title": "Grant a user permission to a docker registry"
         },
         {
             "location": "/google-cloud/#list-google-compute-zones",

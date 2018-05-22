@@ -451,6 +451,12 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#list-google-cloud-projects">List google cloud projects</a></li>
+        
+            <li><a class="toctree-l3" href="#switch-to-a-different-project">Switch to a different project</a></li>
+        
+            <li><a class="toctree-l3" href="#grant-a-user-permission-to-a-docker-registry">Grant a user permission to a docker registry</a></li>
+        
             <li><a class="toctree-l3" href="#list-google-compute-zones">List google compute zones</a></li>
         
             <li><a class="toctree-l3" href="#list-images-available-in-google-container-registry">List images available in Google Container Registry</a></li>
@@ -1307,6 +1313,18 @@
               
                 <p>"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK" - <a href="https://cloud.google.com/sdk/docs/">https://cloud.google.com/sdk/docs/</a></p>
 <h1 id="gcloud-cli-examples">gcloud CLI Examples</h1>
+<h2 id="list-google-cloud-projects">List google cloud projects</h2>
+<pre><code>gcloud projects list
+</code></pre>
+
+<h2 id="switch-to-a-different-project">Switch to a different project</h2>
+<pre><code>gcloud config set project &lt;project_name&gt;
+</code></pre>
+
+<h2 id="grant-a-user-permission-to-a-docker-registry">Grant a user permission to a docker registry</h2>
+<pre><code>gsutil iam ch 'user:user@example.com:objectViewer' 'gs://artifacts.example.appspot.com/'
+</code></pre>
+
 <h2 id="list-google-compute-zones">List google compute zones</h2>
 <p><code>gcloud compute zones list</code></p>
 <h2 id="list-images-available-in-google-container-registry">List images available in Google Container Registry</h2>
