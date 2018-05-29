@@ -1041,6 +1041,26 @@
             "title": "Links"
         },
         {
+            "location": "/cookiecutter/",
+            "text": "Examples\n\n\nFind a list of cookiecutter variables\n\n\ngrep -h -o '{{cookiecutter[^}]*}}' \\{\\{cookiecutter.repo_name\\}\\}/* | sort | uniq -c\n\n\n\n\nLinks\n\n\n\n\nCookiecutter: Better Project Templates\n\n\nA pantry full of cookiecutters",
+            "title": "cookiecutter"
+        },
+        {
+            "location": "/cookiecutter/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/cookiecutter/#find-a-list-of-cookiecutter-variables",
+            "text": "grep -h -o '{{cookiecutter[^}]*}}' \\{\\{cookiecutter.repo_name\\}\\}/* | sort | uniq -c",
+            "title": "Find a list of cookiecutter variables"
+        },
+        {
+            "location": "/cookiecutter/#links",
+            "text": "Cookiecutter: Better Project Templates  A pantry full of cookiecutters",
+            "title": "Links"
+        },
+        {
             "location": "/cowsay/",
             "text": "In Linux etc., print a cow that is saying something. Also works as \ncowthink\n, and a variety of other animals and artwork are available.\n\n\nExamples\n\n\nGet a list of things that can talk\n\n\n$ cowthink -l\nCow files in /usr/share/cowsay/cows:\napt beavis.zen bong bud-frogs bunny calvin cheese cock cower daemon default\ndragon dragon-and-cow duck elephant elephant-in-snake eyes flaming-sheep\nghostbusters gnu head-in hellokitty kiss kitty koala kosh luke-koala\nmech-and-cow meow milk moofasa moose mutilated pony pony-smaller ren sheep\nskeleton snowman sodomized-sheep stegosaurus stimpy suse three-eyes turkey\nturtle tux unipony unipony-smaller vader vader-koala www\n\n\n\n\ncowsay\n\n\n$ cowsay \"Hello world!\"\n ______________\n< Hello world! >\n --------------\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||\n\n\n\n\ncowthink\n\n\n$ cowthink -f dragon \"On the internet, nobody knows you're a dragon!\"\n ________________________________________\n( On the internet, nobody knows you're a )\n( dragon!                                )\n ----------------------------------------\n      o                    / \\  //\\\n       o    |\\___/|      /   \\//  \\\\\n            /0  0  \\__  /    //  | \\ \\\n           /     /  \\/_/    //   |  \\  \\\n           @_^_@'/   \\/_   //    |   \\   \\\n           //_^_/     \\/_ //     |    \\    \\\n        ( //) |        \\///      |     \\     \\\n      ( / /) _|_ /   )  //       |      \\     _\\\n    ( // /) '/,_ _ _/  ( ; -.    |    _ _\\.-~        .-~~~^-.\n  (( / / )) ,-{        _      `-.|.-~-.           .~         `.\n (( // / ))  '/\\      /                 ~-. _ .-~      .-~^-.  \\\n (( /// ))      `.   {            }                   /      \\  \\\n  (( / ))     .----~-.\\        \\-'                 .~         \\  `. \\^-.\n             ///.----..>        \\             _ -~             `.  ^-`  ^-_\n               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~\n                                                                  /.-~",
             "title": "cowsay"
@@ -1846,6 +1866,11 @@
             "title": "Sort and unique /boot/cmdline.txt"
         },
         {
+            "location": "/etcd/",
+            "text": "\"etcd is a distributed key value store that provides a reliable way to store data across a cluster of machines. It\u2019s open-source and available on GitHub. etcd gracefully handles leader elections during network partitions and will tolerate machine failure, including the leader.\" - \nhttps://coreos.com/etcd/\n\n\n\n\nhttps://coreos.com/etcd/docs/latest/demo.html",
+            "title": "etcd"
+        },
+        {
             "location": "/ethtool/",
             "text": "\"ethtool - query or control network driver and hardware settings\" - \nman ethtool\n\n\nExamples\n\n\nForce ethernet adapter to re-negotiate its speed\n\n\nethtool -r\n\n\n\n\nShow interface error count by type\n\n\n$ sudo ethtool -S ens5f0 | grep -i error\n     rx_errors: 13551\n     tx_errors: 0\n     rx_length_errors: 0\n     rx_crc_errors: 13551\n     fcoe_last_error: 0\n     port.tx_errors: 0\n     port.rx_crc_errors: 13551\n     port.rx_length_errors: 0",
             "title": "ethtool"
@@ -2547,7 +2572,7 @@
         },
         {
             "location": "/golang/",
-            "text": "\"Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.\" - \nhttps://golang.org/\n\n\nLinks\n\n\n\n\nhttp://www.golangbootcamp.com/book/intro\n\n\n\n\nExamples\n\n\nView default go environment\n\n\ngo env\n\n\n\n\nBuild code found on github\n\n\nget github.com/solarkennedy/uq\nbuild github.com/solarkennedy/uq\n\n\n\n\nLinks\n\n\n\n\nhttps://golang.org/cmd/go/\n\n\nhttps://gopkg.in",
+            "text": "\"Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.\" - \nhttps://golang.org/\n\n\nLinks\n\n\n\n\nhttp://www.golangbootcamp.com/book/intro\n\n\n\n\nExamples\n\n\nView default go environment\n\n\ngo env\n\n\n\n\nBuild code found on github\n\n\nget github.com/solarkennedy/uq\nbuild github.com/solarkennedy/uq\n\n\n\n\nLinks\n\n\n\n\nhttps://golang.org/cmd/go/\n\n\nhttps://gopkg.in\n\n\nhttps://play.golang.org/",
             "title": "golang"
         },
         {
@@ -2572,7 +2597,7 @@
         },
         {
             "location": "/golang/#links_1",
-            "text": "https://golang.org/cmd/go/  https://gopkg.in",
+            "text": "https://golang.org/cmd/go/  https://gopkg.in  https://play.golang.org/",
             "title": "Links"
         },
         {
@@ -2987,13 +3012,18 @@
         },
         {
             "location": "/ip/",
-            "text": "This is about the ip command in Linux.\n\n\nExamples\n\n\nThe commands here can be shortened like cisco or other network device commands.\n\n\nShow IP neighbors\n\n\nip neighbor show\n\n\n\n\nShow all configured IP addresses\n\n\nThis is more reliable than ifconfig, which sometimes omits entries.\n\n\nip -f inet addr\n\n\n\n\nShow information about eth0\n\n\nThis shows information about eth0 and all the virtual interfaces brought up on the physical interface.\n\n\nip addr show eth0\n\n\n\n\nMonitor IP changes\n\n\nip mon all\n\n\n\n\nShow interfaces that would route to a given network address\n\n\nip addr show to 10.1.8.0/24\n\n\n\n\nShow negotiated speeds for all interfaces\n\n\nip -o link show | awk -F: '{print $2}' | while read -r X ; do\n  sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo\ndone | column -t -s:\n\n\n\n\nAdd a static route\n\n\nip route add 192.168.100.0/24 via 0.0.0.0 dev eth0\n\n\n\n\nSet MTU for a specific route\n\n\n\n\nhttp://lartc.org/howto/lartc.cookbook.mtu-discovery.html\n\n\n\n\nip route add default via 10.0.0.1 mtu 296",
+            "text": "This is about the ip command in Linux.\n\n\nExamples\n\n\nThe commands here can be shortened like cisco or other network device commands.\n\n\nGet the default interface\n\n\nip route get 8.8.8.8\n\n\n\n\nShow IP neighbors\n\n\nip neighbor show\n\n\n\n\nShow all configured IP addresses\n\n\nThis is more reliable than ifconfig, which sometimes omits entries.\n\n\nip -f inet addr\n\n\n\n\nShow information about eth0\n\n\nThis shows information about eth0 and all the virtual interfaces brought up on the physical interface.\n\n\nip addr show eth0\n\n\n\n\nMonitor IP changes\n\n\nip mon all\n\n\n\n\nShow interfaces that would route to a given network address\n\n\nip addr show to 10.1.8.0/24\n\n\n\n\nShow negotiated speeds for all interfaces\n\n\nip -o link show | awk -F: '{print $2}' | while read -r X ; do\n  sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo\ndone | column -t -s:\n\n\n\n\nAdd a static route\n\n\nip route add 192.168.100.0/24 via 0.0.0.0 dev eth0\n\n\n\n\nSet MTU for a specific route\n\n\n\n\nhttp://lartc.org/howto/lartc.cookbook.mtu-discovery.html\n\n\n\n\nip route add default via 10.0.0.1 mtu 296",
             "title": "ip"
         },
         {
             "location": "/ip/#examples",
             "text": "The commands here can be shortened like cisco or other network device commands.",
             "title": "Examples"
+        },
+        {
+            "location": "/ip/#get-the-default-interface",
+            "text": "ip route get 8.8.8.8",
+            "title": "Get the default interface"
         },
         {
             "location": "/ip/#show-ip-neighbors",
@@ -3417,8 +3447,13 @@
         },
         {
             "location": "/kubernetes/",
-            "text": "\"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.\" - \nhttps://kubernetes.io/docs/whatisk8s\n\n\ncli usage\n\n\nLearn about kubernetes\n\n\nkubectl explain roles\n\n\n\n\nMultiple configs\n\n\nThe default config is \n~/.kube/config\n, but if you want to use multiple configs you can do this:\n\n\nexport KUBECONFIG=\"${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config\"\n\n\n\n\nI have seen weird problems when the order of configs is changed, such as \ncertificate-authority-data\n and \nclient-certificate-data\n being missing.\n\n\nkubeadm\n\n\n\"kubeadm: easily bootstrap a secure Kubernetes cluster.\" - \nkubeadm --help\n\n\n\n\nhttps://github.com/kubernetes/kubeadm\n\n\n\n\nkubectl\n\n\n\"kubectl controls the Kubernetes cluster manager.\" - \nkubectl --help\n\n\n\n\n\n\nhttps://github.com/kubernetes/kubectl\n\n\n\n\n\n\nkubectl get nodes\n\n\n\n\nkubectl config get-contexts\n\n\nkubectl config use-context foo\n\n\nkubectl get pods\n\n\nkubectl describe pod foo\n\n\n\n\nInstallations\n\n\nkubespray\n\n\n\n\nhttps://github.com/kubernetes-incubator/kubespray\n\n\n\n\nAnsible on Ubuntu 16\n\n\nhttps://github.com/entercloudsuite/ansible-kubernetes\n\n\nansible-galaxy install entercloudsuite.kubernetes\n\n\n\n\nManually on Ubuntu 16\n\n\n\n\nFirst install Docker - \nhttps://docs.docker.com/install/linux/docker-ce/ubuntu/\n\n\n\n\nsudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -\nsudo apt install -y apt-transport-https ca-certificates curl software-properties-common\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable\"\nsudo add-apt-repository \"deb http://apt.kubernetes.io/ kubernetes-xenial main\"\nsudo apt update\nsudo apt install -y kubelet kubeadm kubectl\n\n\n\n\nThen start at \nkubeadm init\n on this guide: \nhttps://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions\n\n\nLinks\n\n\n\n\nhttp://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf\n\n\nhttp://on-demand.gputechconf.com/gtc/2018/video/S8893/\n\n\nhttp://slack.kubernetes.io/\n\n\nhttps://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster\n\n\nhttps://docs.projectcalico.org/v3.0/introduction/\n\n\nhttps://github.com/kelseyhightower/kubernetes-the-hard-way\n - \"The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together.\"\n\n\nhttps://github.com/kinvolk/kubernetes-the-hard-way-vagrant\n - \"A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant.\"\n\n\nhttps://github.com/kubernetes/dashboard#kubernetes-dashboard\n\n\nhttps://kubernetes.io/docs/concepts/cluster-administration/addons/\n\n\nhttps://kubernetes.io/docs/concepts/cluster-administration/logging/\n\n\nhttps://kubernetes.io/docs/concepts/workloads/controllers/deployment/\n\n\nhttps://kubernetes.io/docs/getting-started-guides/minikube/\n\n\nhttps://kubernetes.io/docs/reference/glossary/\n\n\nhttps://kubernetes.io/docs/setup/independent/create-cluster-kubeadm\n\n\nhttps://www.cncf.io/certification/expert/CKA/",
+            "text": "\"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.\" - \nhttps://kubernetes.io/docs/whatisk8s\n\n\nGlossary\n\n\nMore terms in the k8s glossary: \nhttps://kubernetes.io/docs/reference/glossary/\n\n\n\n\nContainer Network Interface (CNI) - https://github.com/containernetworking/cni\n\n\nContainer Runtime Interface (CRI) - https://github.com/containerd/cri/\n\n\nContainer Storage Interface (CSI) - https://github.com/container-storage-interface/spec\n\n\nHorizontal Pod Autoscaling (HPA)\n\n\n\n\ncli usage\n\n\nLearn about kubernetes\n\n\nkubectl explain roles\n\n\n\n\nMultiple kubeadm configs\n\n\nThe default config is \n~/.kube/config\n, but if you want to use multiple configs you can do this:\n\n\nexport KUBECONFIG=\"${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config\"\n\n\n\n\nI have seen weird problems when the order of configs is changed, such as \ncertificate-authority-data\n and \nclient-certificate-data\n being missing.\n\n\nkubeadm\n\n\n\"kubeadm: easily bootstrap a secure Kubernetes cluster.\" - \nkubeadm --help\n\n\n\n\nhttps://github.com/kubernetes/kubeadm\n\n\n\n\nShow your kubeadm tokens\n\n\n$ sudo kubeadm token list\nTOKEN                     TTL       EXPIRES                     USAGES                   DESCRIPTION                                                EXTRA GROUPS\nubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,signing   The default bootstrap token generated by 'kubeadm init'.   system:bootstrappers:kubeadm:default-node-token\n\n\n\n\nSee \nsudo kubeadm token -h\n for more usage.\n\n\nkubectl\n\n\n\"kubectl controls the Kubernetes cluster manager.\" - \nkubectl --help\n\n\n\n\n\n\nhttps://github.com/kubernetes/kubectl\n\n\n\n\n\n\nkubectl get\n - show all resource types with short-hand versions.\n\n\n\n\nkubectl completion -h\n - show how to configure completion for your shell.\n\n\nkubectl config get-contexts\n - show which k8s configuration contexts you can control.\n\n\nkubectl config use-context foo\n - switch to the foo context.\n\n\nkubectl get nodes\n - show the nodes in the k8s cluster.\n\n\nkubectl get pods\n - show deployed pods. there can be many pods per deployment.\n\n\nkubectl get pods -n kube-system\n - show pods in a specific namespace.\n\n\nkubectl get pods,hpa,deployment --all-namespaces\n - get several resource types at once, from all namespaces\n\n\nkubectl describe pod foo\n\n\nkubectl get deployment\n\n\nkubectl describe deployment foo\n\n\nkubectl get ns\n - show namespaces.\n\n\nkubectl get pv\n - show physical volumes.\n\n\nkubectl get svc -n kube-system\n - show a table of important details about running services in the kube-system namespace.\n\n\nkubectl get pods -o yaml\n - show the yaml configs for the currently running status of every pod.\n\n\nkubectl explain pods.spec\n - show documentation about pod specifications.\n\n\nkubectl describe pods/echoserver\n - describe the pod whose \nName\n is echoserver.\n\n\nkubectl get rs\n - show replica sets.\n\n\nkubectl expose deployment <deployment_name> --type=NodePort\n - create a service for the given deployment.\n\n\nkubectl scale deployment <deployment_name> --replicas=5\n - scale a deployment to 5 pods.\n\n\nkubectl rollout history deployment <deployment_name>\n\n\nkubectl get cm\n - get a list of config maps.\n\n\n\n\nWatch what's going on in your cluster\n\n\nwatch kubectl get pods --all-namespaces -o wide\n\n\n\n\nInstallations\n\n\nkubespray\n\n\n\n\nhttps://github.com/kubernetes-incubator/kubespray\n\n\n\n\nAnsible on Ubuntu 16\n\n\nhttps://github.com/entercloudsuite/ansible-kubernetes\n\n\nansible-galaxy install entercloudsuite.kubernetes\n\n\n\n\nManually on Ubuntu 16\n\n\n\n\nFirst install Docker - \nhttps://docs.docker.com/install/linux/docker-ce/ubuntu/\n\n\n\n\n# as root\nswapoff -a # https://github.com/kubernetes/kubernetes/issues/53533\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -\nadd-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable\"\ncat <<EOF >/etc/apt/sources.list.d/kubernetes.list\ndeb http://apt.kubernetes.io/ kubernetes-xenial main\nEOF\napt update\napt install -y apt-transport-https ca-certificates curl software-properties-common\napt install -y kubelet kubeadm kubectl\n\n\n\n\nThen start at \nkubeadm init\n on this guide: \nhttps://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions\n\n\nLinks\n\n\n\n\nhttp://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf\n\n\nhttp://on-demand.gputechconf.com/gtc/2018/video/S8893/\n\n\nhttp://slack.kubernetes.io/\n\n\nhttps://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster\n\n\nhttps://docs.projectcalico.org/v3.0/introduction/\n\n\nhttps://github.com/kelseyhightower/kubernetes-the-hard-way\n - \"The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together.\"\n\n\nhttps://github.com/kinvolk/kubernetes-the-hard-way-vagrant\n - \"A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant.\"\n\n\nhttps://github.com/kubernetes/dashboard#kubernetes-dashboard\n\n\nhttps://github.com/kubernetes/kompose\n - Compose to Kubernetes\n\n\nhttps://kubernetes.io/docs/concepts/cluster-administration/addons/\n\n\nhttps://kubernetes.io/docs/concepts/cluster-administration/logging/\n\n\nhttps://kubernetes.io/docs/concepts/workloads/pods/pod/index.html\n\n\nhttps://kubernetes.io/docs/concepts/workloads/controllers/deployment/\n\n\nhttps://kubernetes.io/docs/getting-started-guides/minikube/\n\n\nhttps://kubernetes.io/docs/setup/independent/create-cluster-kubeadm\n\n\nhttps://www.cncf.io/certification/expert/CKA/\n\n\nhttps://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#hook-details\n\n\nhttps://github.com/ClusterHQ/flocker\n - Flocker is an open-source Container Data Volume Manager for your Dockerized applications.\n\n\nhttps://cloudplatform.googleblog.com/2018/05/Beyond-CPU-horizontal-pod-autoscaling-comes-to-Google-Kubernetes-Engine.html",
             "title": "kubernetes"
+        },
+        {
+            "location": "/kubernetes/#glossary",
+            "text": "More terms in the k8s glossary:  https://kubernetes.io/docs/reference/glossary/   Container Network Interface (CNI) - https://github.com/containernetworking/cni  Container Runtime Interface (CRI) - https://github.com/containerd/cri/  Container Storage Interface (CSI) - https://github.com/container-storage-interface/spec  Horizontal Pod Autoscaling (HPA)",
+            "title": "Glossary"
         },
         {
             "location": "/kubernetes/#cli-usage",
@@ -3431,9 +3466,9 @@
             "title": "Learn about kubernetes"
         },
         {
-            "location": "/kubernetes/#multiple-configs",
+            "location": "/kubernetes/#multiple-kubeadm-configs",
             "text": "The default config is  ~/.kube/config , but if you want to use multiple configs you can do this:  export KUBECONFIG=\"${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config\"  I have seen weird problems when the order of configs is changed, such as  certificate-authority-data  and  client-certificate-data  being missing.",
-            "title": "Multiple configs"
+            "title": "Multiple kubeadm configs"
         },
         {
             "location": "/kubernetes/#kubeadm",
@@ -3441,9 +3476,19 @@
             "title": "kubeadm"
         },
         {
+            "location": "/kubernetes/#show-your-kubeadm-tokens",
+            "text": "$ sudo kubeadm token list\nTOKEN                     TTL       EXPIRES                     USAGES                   DESCRIPTION                                                EXTRA GROUPS\nubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,signing   The default bootstrap token generated by 'kubeadm init'.   system:bootstrappers:kubeadm:default-node-token  See  sudo kubeadm token -h  for more usage.",
+            "title": "Show your kubeadm tokens"
+        },
+        {
             "location": "/kubernetes/#kubectl",
-            "text": "\"kubectl controls the Kubernetes cluster manager.\" -  kubectl --help    https://github.com/kubernetes/kubectl    kubectl get nodes   kubectl config get-contexts  kubectl config use-context foo  kubectl get pods  kubectl describe pod foo",
+            "text": "\"kubectl controls the Kubernetes cluster manager.\" -  kubectl --help    https://github.com/kubernetes/kubectl    kubectl get  - show all resource types with short-hand versions.   kubectl completion -h  - show how to configure completion for your shell.  kubectl config get-contexts  - show which k8s configuration contexts you can control.  kubectl config use-context foo  - switch to the foo context.  kubectl get nodes  - show the nodes in the k8s cluster.  kubectl get pods  - show deployed pods. there can be many pods per deployment.  kubectl get pods -n kube-system  - show pods in a specific namespace.  kubectl get pods,hpa,deployment --all-namespaces  - get several resource types at once, from all namespaces  kubectl describe pod foo  kubectl get deployment  kubectl describe deployment foo  kubectl get ns  - show namespaces.  kubectl get pv  - show physical volumes.  kubectl get svc -n kube-system  - show a table of important details about running services in the kube-system namespace.  kubectl get pods -o yaml  - show the yaml configs for the currently running status of every pod.  kubectl explain pods.spec  - show documentation about pod specifications.  kubectl describe pods/echoserver  - describe the pod whose  Name  is echoserver.  kubectl get rs  - show replica sets.  kubectl expose deployment <deployment_name> --type=NodePort  - create a service for the given deployment.  kubectl scale deployment <deployment_name> --replicas=5  - scale a deployment to 5 pods.  kubectl rollout history deployment <deployment_name>  kubectl get cm  - get a list of config maps.",
             "title": "kubectl"
+        },
+        {
+            "location": "/kubernetes/#watch-whats-going-on-in-your-cluster",
+            "text": "watch kubectl get pods --all-namespaces -o wide",
+            "title": "Watch what's going on in your cluster"
         },
         {
             "location": "/kubernetes/#installations",
@@ -3462,12 +3507,12 @@
         },
         {
             "location": "/kubernetes/#manually-on-ubuntu-16",
-            "text": "First install Docker -  https://docs.docker.com/install/linux/docker-ce/ubuntu/   sudo swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -\nsudo apt install -y apt-transport-https ca-certificates curl software-properties-common\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable\"\nsudo add-apt-repository \"deb http://apt.kubernetes.io/ kubernetes-xenial main\"\nsudo apt update\nsudo apt install -y kubelet kubeadm kubectl  Then start at  kubeadm init  on this guide:  https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions",
+            "text": "First install Docker -  https://docs.docker.com/install/linux/docker-ce/ubuntu/   # as root\nswapoff -a # https://github.com/kubernetes/kubernetes/issues/53533\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -\nadd-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable\"\ncat <<EOF >/etc/apt/sources.list.d/kubernetes.list\ndeb http://apt.kubernetes.io/ kubernetes-xenial main\nEOF\napt update\napt install -y apt-transport-https ca-certificates curl software-properties-common\napt install -y kubelet kubeadm kubectl  Then start at  kubeadm init  on this guide:  https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions",
             "title": "Manually on Ubuntu 16"
         },
         {
             "location": "/kubernetes/#links",
-            "text": "http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf  http://on-demand.gputechconf.com/gtc/2018/video/S8893/  http://slack.kubernetes.io/  https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster  https://docs.projectcalico.org/v3.0/introduction/  https://github.com/kelseyhightower/kubernetes-the-hard-way  - \"The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together.\"  https://github.com/kinvolk/kubernetes-the-hard-way-vagrant  - \"A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant.\"  https://github.com/kubernetes/dashboard#kubernetes-dashboard  https://kubernetes.io/docs/concepts/cluster-administration/addons/  https://kubernetes.io/docs/concepts/cluster-administration/logging/  https://kubernetes.io/docs/concepts/workloads/controllers/deployment/  https://kubernetes.io/docs/getting-started-guides/minikube/  https://kubernetes.io/docs/reference/glossary/  https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm  https://www.cncf.io/certification/expert/CKA/",
+            "text": "http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf  http://on-demand.gputechconf.com/gtc/2018/video/S8893/  http://slack.kubernetes.io/  https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster  https://docs.projectcalico.org/v3.0/introduction/  https://github.com/kelseyhightower/kubernetes-the-hard-way  - \"The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together.\"  https://github.com/kinvolk/kubernetes-the-hard-way-vagrant  - \"A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant.\"  https://github.com/kubernetes/dashboard#kubernetes-dashboard  https://github.com/kubernetes/kompose  - Compose to Kubernetes  https://kubernetes.io/docs/concepts/cluster-administration/addons/  https://kubernetes.io/docs/concepts/cluster-administration/logging/  https://kubernetes.io/docs/concepts/workloads/pods/pod/index.html  https://kubernetes.io/docs/concepts/workloads/controllers/deployment/  https://kubernetes.io/docs/getting-started-guides/minikube/  https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm  https://www.cncf.io/certification/expert/CKA/  https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#hook-details  https://github.com/ClusterHQ/flocker  - Flocker is an open-source Container Data Volume Manager for your Dockerized applications.  https://cloudplatform.googleblog.com/2018/05/Beyond-CPU-horizontal-pod-autoscaling-comes-to-Google-Kubernetes-Engine.html",
             "title": "Links"
         },
         {
