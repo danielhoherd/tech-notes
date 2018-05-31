@@ -968,6 +968,8 @@
         
             <li><a class="toctree-l3" href="#create-an-http-server-using-pwd-as-document-root">Create an http server using PWD as document root</a></li>
         
+            <li><a class="toctree-l3" href="#discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</a></li>
+        
         </ul>
     
 
@@ -1448,6 +1450,10 @@ ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
 
 <h2 id="create-an-http-server-using-pwd-as-document-root">Create an http server using PWD as document root</h2>
 <pre><code>python3 -m http.server 9980
+</code></pre>
+
+<h2 id="discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</h2>
+<pre><code>echo $(python -m site --user-base)/bin
 </code></pre>
 
 <h1 id="various-links">Various links</h1>
