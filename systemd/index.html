@@ -1181,6 +1181,14 @@
         
             <li><a class="toctree-l3" href="#show-name-resolution-status">Show name resolution status</a></li>
         
+            <li><a class="toctree-l3" href="#show-boot-performance">Show boot performance</a></li>
+        
+            <li><a class="toctree-l3" href="#show-cgroup-contexts">Show cgroup contexts</a></li>
+        
+            <li><a class="toctree-l3" href="#show-top-control-groups-by-their-resource-usage">Show top control groups by their resource usage</a></li>
+        
+            <li><a class="toctree-l3" href="#detect-if-you-are-running-in-a-container-or-on-a-vm">Detect if you are running in a container or on a VM</a></li>
+        
         </ul>
     
 
@@ -1376,6 +1384,22 @@
 
 <h2 id="show-name-resolution-status">Show name resolution status</h2>
 <pre><code>systemd-resolve --status
+</code></pre>
+
+<h2 id="show-boot-performance">Show boot performance</h2>
+<pre><code>systemd-analyze blame
+</code></pre>
+
+<h2 id="show-cgroup-contexts">Show cgroup contexts</h2>
+<pre><code>systemd-cgls
+</code></pre>
+
+<h2 id="show-top-control-groups-by-their-resource-usage">Show top control groups by their resource usage</h2>
+<pre><code>systemd-cgtop
+</code></pre>
+
+<h2 id="detect-if-you-are-running-in-a-container-or-on-a-vm">Detect if you are running in a container or on a VM</h2>
+<pre><code>systemd-detect-virt
 </code></pre>
               
             </div>
