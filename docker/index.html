@@ -328,6 +328,8 @@
         
             <li><a class="toctree-l3" href="#show-help-on-the-run-command">Show help on the run command</a></li>
         
+            <li><a class="toctree-l3" href="#show-the-history-of-an-image-and-count-its-layers">Show the history of an image, and count its layers</a></li>
+        
             <li><a class="toctree-l3" href="#run-a-docker-image-in-an-interactive-shell">Run a docker image in an interactive shell</a></li>
         
             <li><a class="toctree-l3" href="#get-a-bash-terminal-on-a-running-docker-container">Get a bash terminal on a running docker container</a></li>
@@ -1347,6 +1349,10 @@
 <h1 id="examples">Examples</h1>
 <h2 id="show-help-on-the-run-command">Show help on the run command</h2>
 <pre><code>docker help run
+</code></pre>
+
+<h2 id="show-the-history-of-an-image-and-count-its-layers">Show the history of an image, and count its layers</h2>
+<pre><code>docker history ubuntu:bionic | nl -ba -v0
 </code></pre>
 
 <h2 id="run-a-docker-image-in-an-interactive-shell">Run a docker image in an interactive shell</h2>
