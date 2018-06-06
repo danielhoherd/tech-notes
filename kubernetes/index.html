@@ -1414,21 +1414,18 @@ ubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,s
 <pre><code># as root
 swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/docker.list
-deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
-EOF
-add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable&quot;
-cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list
-deb http://apt.kubernetes.io/ kubernetes-xenial main
-EOF
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+echo &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable&quot; &gt; /etc/apt/sources.list.d/docker.list
+echo &quot;deb http://apt.kubernetes.io/ kubernetes-xenial main&quot; &gt; /etc/apt/sources.list.d/kubernetes.list
 apt update
+apt dist-upgrade -y
 apt install -y apt-transport-https ca-certificates curl software-properties-common
 apt install -y docker-ce
 apt install -y kubelet kubeadm kubectl
+kubeadm init
 </code></pre>
 
-<p>Then start at <code>kubeadm init</code> on this guide: <a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></p>
+<p><code>kubeadm init</code> guide: <a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf">http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf</a></li>

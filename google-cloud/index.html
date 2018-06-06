@@ -475,6 +475,8 @@
         
             <li><a class="toctree-l3" href="#control-access-to-registries">Control access to registries</a></li>
         
+            <li><a class="toctree-l3" href="#authenticate-a-private-gcr-registry-in-kubernetes">Authenticate a private GCR registry in kubernetes</a></li>
+        
         </ul>
     
 
@@ -1345,6 +1347,25 @@
 <p>"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.</p>
 <p>Caution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.</p>
 <p>You manage access control in Cloud Storage by using the GCP Console or the <code>gsutil</code> command-line tool. Refer to the <code>gsutil acl</code> and <code>gsutil defacl</code> documentation for more information." - <a href="https://cloud.google.com/container-registry/docs/access-control">https://cloud.google.com/container-registry/docs/access-control</a></p>
+<h2 id="authenticate-a-private-gcr-registry-in-kubernetes">Authenticate a private GCR registry in kubernetes</h2>
+<p>This is likely not copy/paste material, but the flow is generally correct.</p>
+<p><code>PARTNER=other_company
+PROJECT="our_company-$PARTNER"
+USER=service-account-user-for-$PARTNER
+EMAIL="$USER@$PROJECT.iam.gserviceaccount.com"
+gcloud iam service-accounts create $USER
+gcloud iam service-accounts keys create --display-name "$USER" --iam-account="$EMAIL" key.json
+for PERM in legacyBucketOwner objectCreator objectViewer ; do
+  gcloud projects add-iam-policy-binding "$PROJECT" \
+    --member "serviceAccount:$EMAIL" \
+    --role "roles/storage.$PERM"
+done
+kubectl create secret docker-registry "$PROJECT" \
+  --docker-server "https://gcr.io" \
+  --docker-username _json_key \
+  --docker-email "$EMAIL" \
+  --docker-password="$(cat key.json)"</code></p>
+<p>Then use the value of <code>"$PROJECT"</code> as your <code>ImagePullSecret</code>.</p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://cloud.google.com/container-registry/docs/quickstart">https://cloud.google.com/container-registry/docs/quickstart</a></li>
