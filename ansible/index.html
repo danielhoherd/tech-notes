@@ -99,6 +99,8 @@
         
             <li><a class="toctree-l3" href="#show-all-resolved-variables-for-a-given-inventory-host">Show all resolved variables for a given inventory host</a></li>
         
+            <li><a class="toctree-l3" href="#simple-ansible-playbook">Simple ansible playbook</a></li>
+        
         </ul>
     
 
@@ -1384,6 +1386,25 @@ $ ansible-inventory -i inventory/example.yml --graph
 <p>This will show all host vars, including variables resolved from <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable">all the different variable locations</a>.</p>
 <pre><code>ansible -i inventory target_hostname -m debug -a &quot;var=hostvars[inventory_hostname]&quot;
 </code></pre>
+
+<h2 id="simple-ansible-playbook">Simple ansible playbook</h2>
+<p>This may be useful for testing syntax and experimenting with ansible modules.</p>
+<p><code>foo.yml</code>:</p>
+<pre><code>---
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Run date
+    shell: /bin/date
+    register: date_out
+
+  - debug:
+      var: date_out.stdout
+</code></pre>
+
+<p><code>ansible-playbook -i localhost foo.yml</code></p>
               
             </div>
           </div>
