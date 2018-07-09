@@ -259,6 +259,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../dat/">dat</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../date/">date</a>
 	    </li>
           
@@ -590,6 +595,8 @@
         
             <li><a class="toctree-l3" href="#ssh-blocking">SSH blocking</a></li>
         
+            <li><a class="toctree-l3" href="#show-all-tables">Show all tables</a></li>
+        
         </ul>
     
 
@@ -818,6 +825,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../nvidia/">Nvidia</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../openvpn/">Openvpn</a>
 	    </li>
           
@@ -974,6 +986,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../robotics/">Robotics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../roku/">Roku</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1336,6 +1353,15 @@ iptables -A SSH -m recent --name SSH_ABL --remove -j LOG --log-level warn --log-
 iptables -A SSH -m recent --name SSH --set -j ACCEPT
 iptables -A INPUT -m state --state NEW -p tcp -m tcp --dport 22 -j SSH
 iptables -L
+</code></pre>
+
+<h2 id="show-all-tables">Show all tables</h2>
+<p>Not all tables are shown by default. To view all, issue the following commands as root:</p>
+<pre><code>iptables -vL -t filter
+iptables -vL -t nat
+iptables -vL -t mangle
+iptables -vL -t raw
+iptables -vL -t security
 </code></pre>
               
             </div>

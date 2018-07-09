@@ -1216,6 +1216,11 @@
             "title": "Links"
         },
         {
+            "location": "/dat/",
+            "text": "\"Dat is a nonprofit-backed data sharing protocol for applications of the future\" - \nhttps://datproject.org/\n\n\n\n\nhttps://datproject.org/\n\n\nhttps://docs.datproject.org/",
+            "title": "dat"
+        },
+        {
             "location": "/date/",
             "text": "The \ndate\n shell command\n\n\ndate behaves differently between gnu and bsd. In OS X you can install gnu date by doing \nbrew install coreutils\n\n\nGNU date\n\n\nShow adjusted date/time\n\n\ndate -d -2month # two months ago\ndate -d +1hour # one hour in the future\ndate -d +15minute\ndate -d \"last week + 1 hour\"\ndate -d \"january 10 1978 + 5 years\" +%a\n\n\n\n\nConvert a string date to epoch seconds\n\n\ndate -d \"Fri Sep  7  2:00 2012\" +%s\n\n\n\n\nConvert epoch seconds to string date\n\n\ndate -d @1375899534\n\n\n\n\nOutput various RFC 3339 time formats\n\n\ndate --rfc-3339=date\ndate --rfc-3339=seconds\ndate --rfc-3339=ns\n\n\n\n\nShow and number all previous weeks from one year ago\n\n\nfor X in {1..53} ; do printf \"%02s \" ${X} ; date -d -49weeks-2days+${X}week \"+%b %d %Y\" ; done ;\n\n\n\n\nShow and number all weeks from the point I started working at Zoosk\n\n\nfor X in {1..90} ; do printf \"%02s \" ${X} ; date -d \"June 10 2013 - 1 week + ${X} week\" \"+%a %b %d %Y\" ; done ;\n\n\n\n\nShow how many seconds old I am\n\n\necho \"$(date +%s) - $(date -d \"January 10 1978 7:46pm\" +%s)\" | bc\n\n\n\n\nShow subsecond date, without going full nano\n\n\nfor X in {1..100} ; do date +%s.%N | cut -c1-15 ; done ;\n\n\n\n\nSleep until the next 5 minute 0 seconds mark\n\n\nwhile sleep $(date \"+60 - %S.%N\" | bc) 240 ; do date \"+%F %T.%N\" ; done ;\n\n\n\n\nBSD date\n\n\nShow adjusted date/time\n\n\ndate -v-2m # two months ago\ndate -v+1H # one hour in the future\n\n\n\n\nConvert epoch seconds to string date\n\n\ndate -r 1514308711\n\n\n\n\nSee also\n\n\n\n\nntp\n\n\nptp\n\n\ntime",
             "title": "date"
@@ -3217,7 +3222,7 @@
         },
         {
             "location": "/iptables/",
-            "text": "iptables is the built-in linux firewall.\n\n\nExamples\n\n\n\n\nHow to simulate a slow network link: \nhttp://blogs.kde.org/node/1878\n\n\n\n\nAllow MySQL\n\n\niptables -A INPUT -i eth0 -p tcp -m tcp --dport 3306 -j ACCEPT\n\n\n\n\nSSH blocking\n\n\nBetter idea: \nfail2ban\n\n\nBasically, it lets people connect with SSH 5 times within a minute, but with a mandatory 5 second wait before connection attempts.  Once they hit 5 attempts in a minute they get banned for an hour. Several IP ranges are exceptions where access is always allowed.\n\n\niptables -I INPUT 1 -s 172.16.0.0/16 -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 2 -s 17.1.2.0/27   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 3 -s 18.3.4.0/27   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 4 -s 19.5.6.0/24   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -N SSH\niptables -N SSH_ABL\niptables -A SSH -m recent --name SSH_ABL --update --seconds 3600 -j REJECT\niptables -A SSH -m recent --name SSH --rcheck --seconds 60 --hitcount 5 -j SSH_ABL\niptables -A SSH_ABL -m recent --name SSH_ABL --set -j LOG --log-level warn --log-prefix \"ABL: +SSH: \"\niptables -A SSH_ABL -j REJECT\niptables -A SSH -m recent --name SSH --rcheck --seconds 5 -j LOG --log-level warn --log-prefix \"RATE: \"\niptables -A SSH -m recent --name SSH --update --seconds 5 -j REJECT\niptables -A SSH -m recent --name SSH_ABL --remove -j LOG --log-level warn --log-prefix \"ABL: -SSH: \"\niptables -A SSH -m recent --name SSH --set -j ACCEPT\niptables -A INPUT -m state --state NEW -p tcp -m tcp --dport 22 -j SSH\niptables -L",
+            "text": "iptables is the built-in linux firewall.\n\n\nExamples\n\n\n\n\nHow to simulate a slow network link: \nhttp://blogs.kde.org/node/1878\n\n\n\n\nAllow MySQL\n\n\niptables -A INPUT -i eth0 -p tcp -m tcp --dport 3306 -j ACCEPT\n\n\n\n\nSSH blocking\n\n\nBetter idea: \nfail2ban\n\n\nBasically, it lets people connect with SSH 5 times within a minute, but with a mandatory 5 second wait before connection attempts.  Once they hit 5 attempts in a minute they get banned for an hour. Several IP ranges are exceptions where access is always allowed.\n\n\niptables -I INPUT 1 -s 172.16.0.0/16 -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 2 -s 17.1.2.0/27   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 3 -s 18.3.4.0/27   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 4 -s 19.5.6.0/24   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -N SSH\niptables -N SSH_ABL\niptables -A SSH -m recent --name SSH_ABL --update --seconds 3600 -j REJECT\niptables -A SSH -m recent --name SSH --rcheck --seconds 60 --hitcount 5 -j SSH_ABL\niptables -A SSH_ABL -m recent --name SSH_ABL --set -j LOG --log-level warn --log-prefix \"ABL: +SSH: \"\niptables -A SSH_ABL -j REJECT\niptables -A SSH -m recent --name SSH --rcheck --seconds 5 -j LOG --log-level warn --log-prefix \"RATE: \"\niptables -A SSH -m recent --name SSH --update --seconds 5 -j REJECT\niptables -A SSH -m recent --name SSH_ABL --remove -j LOG --log-level warn --log-prefix \"ABL: -SSH: \"\niptables -A SSH -m recent --name SSH --set -j ACCEPT\niptables -A INPUT -m state --state NEW -p tcp -m tcp --dport 22 -j SSH\niptables -L\n\n\n\n\nShow all tables\n\n\nNot all tables are shown by default. To view all, issue the following commands as root:\n\n\niptables -vL -t filter\niptables -vL -t nat\niptables -vL -t mangle\niptables -vL -t raw\niptables -vL -t security",
             "title": "iptables"
         },
         {
@@ -3234,6 +3239,11 @@
             "location": "/iptables/#ssh-blocking",
             "text": "Better idea:  fail2ban  Basically, it lets people connect with SSH 5 times within a minute, but with a mandatory 5 second wait before connection attempts.  Once they hit 5 attempts in a minute they get banned for an hour. Several IP ranges are exceptions where access is always allowed.  iptables -I INPUT 1 -s 172.16.0.0/16 -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 2 -s 17.1.2.0/27   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 3 -s 18.3.4.0/27   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -I INPUT 4 -s 19.5.6.0/24   -m state --state NEW -p tcp -m tcp --dport 22 -j ACCEPT\niptables -N SSH\niptables -N SSH_ABL\niptables -A SSH -m recent --name SSH_ABL --update --seconds 3600 -j REJECT\niptables -A SSH -m recent --name SSH --rcheck --seconds 60 --hitcount 5 -j SSH_ABL\niptables -A SSH_ABL -m recent --name SSH_ABL --set -j LOG --log-level warn --log-prefix \"ABL: +SSH: \"\niptables -A SSH_ABL -j REJECT\niptables -A SSH -m recent --name SSH --rcheck --seconds 5 -j LOG --log-level warn --log-prefix \"RATE: \"\niptables -A SSH -m recent --name SSH --update --seconds 5 -j REJECT\niptables -A SSH -m recent --name SSH_ABL --remove -j LOG --log-level warn --log-prefix \"ABL: -SSH: \"\niptables -A SSH -m recent --name SSH --set -j ACCEPT\niptables -A INPUT -m state --state NEW -p tcp -m tcp --dport 22 -j SSH\niptables -L",
             "title": "SSH blocking"
+        },
+        {
+            "location": "/iptables/#show-all-tables",
+            "text": "Not all tables are shown by default. To view all, issue the following commands as root:  iptables -vL -t filter\niptables -vL -t nat\niptables -vL -t mangle\niptables -vL -t raw\niptables -vL -t security",
+            "title": "Show all tables"
         },
         {
             "location": "/jargon/",
@@ -3902,12 +3912,12 @@
         },
         {
             "location": "/make/",
-            "text": "GNU make\n\n\nAutomatic variables\n\n\n$ cat Makefile\nall: foo_one foo_two\n\nfoo_%: bar_a bar_b\n    echo $*: this is $@ and it requires $^\n\nbar_%: baz\n    echo $*: this is $@ and it requires $^\n\nbaz:\n    echo this is baz\n\n$ make\necho this is baz\nthis is baz\necho a: this is bar_a and it requires baz\na: this is bar_a and it requires baz\necho b: this is bar_b and it requires baz\nb: this is bar_b and it requires baz\necho one: this is foo_one and it requires bar_a bar_b\none: this is foo_one and it requires bar_a bar_b\necho two: this is foo_two and it requires bar_a bar_b\ntwo: this is foo_two and it requires bar_a bar_b\n\n\n\n\nLinks\n\n\n\n\nhttps://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html\n\n\nhttps://www.gnu.org/software/make/manual/html_node/Standard-Targets.html",
+            "text": "GNU make\n\n\nAutomatic variables\n\n\n$ cat Makefile\nall: foo_one foo_two\n\nfoo_%: bar_a bar_b\n    @echo $*: this is $@ and it requires $^\n\nbar_%: baz\n    @echo $*: this is $@ and it requires $^\n\nbaz:\n    @echo this is baz\n\n$ make\nthis is baz\na: this is bar_a and it requires baz\nb: this is bar_b and it requires baz\none: this is foo_one and it requires bar_a bar_b\ntwo: this is foo_two and it requires bar_a bar_b\n\n\n\n\nLinks\n\n\n\n\nhttps://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html\n\n\nhttps://www.gnu.org/software/make/manual/html_node/Standard-Targets.html",
             "title": "GNU make"
         },
         {
             "location": "/make/#automatic-variables",
-            "text": "$ cat Makefile\nall: foo_one foo_two\n\nfoo_%: bar_a bar_b\n    echo $*: this is $@ and it requires $^\n\nbar_%: baz\n    echo $*: this is $@ and it requires $^\n\nbaz:\n    echo this is baz\n\n$ make\necho this is baz\nthis is baz\necho a: this is bar_a and it requires baz\na: this is bar_a and it requires baz\necho b: this is bar_b and it requires baz\nb: this is bar_b and it requires baz\necho one: this is foo_one and it requires bar_a bar_b\none: this is foo_one and it requires bar_a bar_b\necho two: this is foo_two and it requires bar_a bar_b\ntwo: this is foo_two and it requires bar_a bar_b",
+            "text": "$ cat Makefile\nall: foo_one foo_two\n\nfoo_%: bar_a bar_b\n    @echo $*: this is $@ and it requires $^\n\nbar_%: baz\n    @echo $*: this is $@ and it requires $^\n\nbaz:\n    @echo this is baz\n\n$ make\nthis is baz\na: this is bar_a and it requires baz\nb: this is bar_b and it requires baz\none: this is foo_one and it requires bar_a bar_b\ntwo: this is foo_two and it requires bar_a bar_b",
             "title": "Automatic variables"
         },
         {
@@ -4434,6 +4444,11 @@
             "location": "/ntp/#see-also",
             "text": "time  - Notes on time technologies  ptp  - Precision Time Protocol",
             "title": "See Also"
+        },
+        {
+            "location": "/nvidia/",
+            "text": "Verify linux nvidia drivers are installed: \nnvidia-smi",
+            "title": "nvidia"
         },
         {
             "location": "/openvpn/",
@@ -5499,6 +5514,16 @@
             "location": "/robotics/#see-also",
             "text": "Lego Mindstorms",
             "title": "See also"
+        },
+        {
+            "location": "/roku/",
+            "text": "Links\n\n\n\n\nhttps://sdkdocs.roku.com/display/sdkdoc/BrightScript+Language+Reference",
+            "title": "Roku"
+        },
+        {
+            "location": "/roku/#links",
+            "text": "https://sdkdocs.roku.com/display/sdkdoc/BrightScript+Language+Reference",
+            "title": "Links"
         },
         {
             "location": "/rook/",
