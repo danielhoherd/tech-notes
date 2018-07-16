@@ -242,7 +242,7 @@
         },
         {
             "location": "/autonomous-vehicles/",
-            "text": "http://apollo.auto/\n\n\nhttps://autonomoustuff.com/\n\n\nhttps://renovo.auto\n\n\nhttp://some-ip.com/\n\n\nhttps://www.autosar.org/\n\n\nhttp://www.ros.org/",
+            "text": "http://apollo.auto/\n\n\nhttps://autonomoustuff.com/\n\n\nhttps://renovo.auto\n\n\nhttp://some-ip.com/\n\n\nhttps://www.autosar.org/\n\n\nhttp://www.ros.org/\n\n\nhttps://en.wikipedia.org/wiki/Units_of_transportation_measurement",
             "title": "Autonomous Vehicle Links"
         },
         {
@@ -4444,6 +4444,11 @@
             "location": "/nintendo-switch/",
             "text": "https://switchbrew.github.io/nx-hbl/\n\n\nhttps://www.reddit.com/r/SwitchHaxing/top/?sort=top&t=month\n\n\nhttps://youtu.be/3-UeB_enPrM\n - How to install HomeBrew Menu on Nintendo Switch with 5.0.2 or 4.X firmware RCM",
             "title": "Nintendo Switch"
+        },
+        {
+            "location": "/nintendo-wiiu/",
+            "text": "https://wiiu.hacks.guide/haxchi.html",
+            "title": "Nintendo Wii U"
         },
         {
             "location": "/ntop/",
