@@ -188,6 +188,8 @@
         
             <li><a class="toctree-l3" href="#installation">Installation</a></li>
         
+            <li><a class="toctree-l3" href="#show-a-bunch-of-info-about-your-calico-config">Show a bunch of info about your calico config</a></li>
+        
         </ul>
     
 
@@ -1344,9 +1346,18 @@
 <p>Calico works in several environments, but these examples all apply to Kubernetes.</p>
 <h2 id="installation">Installation</h2>
 <p><a href="https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/">https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/</a></p>
+<h2 id="show-a-bunch-of-info-about-your-calico-config">Show a bunch of info about your calico config</h2>
+<p>See also <a href="https://docs.projectcalico.org/v2.0/reference/calicoctl/resources/">https://docs.projectcalico.org/v2.0/reference/calicoctl/resources/</a></p>
+<pre><code>for X in bgpPeer hostEndpoint ipPool node policy profile workloadEndpoint ; do
+  echo &quot;=========== $X&quot;
+  calicoctl get $X 2&gt;/dev/null
+done
+</code></pre>
+
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://docs.projectcalico.org/latest/">https://docs.projectcalico.org/latest/</a></li>
+<li><a href="https://docs.projectcalico.org/v2.0/reference/calicoctl/resources/">https://docs.projectcalico.org/v2.0/reference/calicoctl/resources/</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">https://kubernetes.io/docs/concepts/services-networking/network-policies/</a></li>
 </ul>
               

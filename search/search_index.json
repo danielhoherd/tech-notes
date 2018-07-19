@@ -822,7 +822,7 @@
         },
         {
             "location": "/calico/",
-            "text": "\"Calico provides secure network connectivity for containers and virtual machine workloads.\" - \nhttps://docs.projectcalico.org/v3.1/introduction/\n\n\nKubernetes Examples\n\n\nCalico works in several environments, but these examples all apply to Kubernetes.\n\n\nInstallation\n\n\nhttps://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/\n\n\nLinks\n\n\n\n\nhttps://docs.projectcalico.org/latest/\n\n\nhttps://kubernetes.io/docs/concepts/services-networking/network-policies/",
+            "text": "\"Calico provides secure network connectivity for containers and virtual machine workloads.\" - \nhttps://docs.projectcalico.org/v3.1/introduction/\n\n\nKubernetes Examples\n\n\nCalico works in several environments, but these examples all apply to Kubernetes.\n\n\nInstallation\n\n\nhttps://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/\n\n\nShow a bunch of info about your calico config\n\n\nSee also \nhttps://docs.projectcalico.org/v2.0/reference/calicoctl/resources/\n\n\nfor X in bgpPeer hostEndpoint ipPool node policy profile workloadEndpoint ; do\n  echo \"=========== $X\"\n  calicoctl get $X 2>/dev/null\ndone\n\n\n\n\nLinks\n\n\n\n\nhttps://docs.projectcalico.org/latest/\n\n\nhttps://docs.projectcalico.org/v2.0/reference/calicoctl/resources/\n\n\nhttps://kubernetes.io/docs/concepts/services-networking/network-policies/",
             "title": "calico"
         },
         {
@@ -836,8 +836,13 @@
             "title": "Installation"
         },
         {
+            "location": "/calico/#show-a-bunch-of-info-about-your-calico-config",
+            "text": "See also  https://docs.projectcalico.org/v2.0/reference/calicoctl/resources/  for X in bgpPeer hostEndpoint ipPool node policy profile workloadEndpoint ; do\n  echo \"=========== $X\"\n  calicoctl get $X 2>/dev/null\ndone",
+            "title": "Show a bunch of info about your calico config"
+        },
+        {
             "location": "/calico/#links",
-            "text": "https://docs.projectcalico.org/latest/  https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+            "text": "https://docs.projectcalico.org/latest/  https://docs.projectcalico.org/v2.0/reference/calicoctl/resources/  https://kubernetes.io/docs/concepts/services-networking/network-policies/",
             "title": "Links"
         },
         {
@@ -4332,12 +4337,12 @@
         },
         {
             "location": "/networking/",
-            "text": "Links\n\n\n\n\nhttps://en.wikipedia.org/wiki/Reserved_IP_addresses\n\n\n\n\nSee also\n\n\n\n\nbind\n - DNS server\n\n\niftop\n - interface top\n\n\nip\n command for linux\n\n\niperf\n - network performance testing\n\n\niptables\n - linux firewall\n\n\nlinksys\n - soho network hardware vendor\n\n\nnetgear\n - network hardware vendor\n\n\nnetworksetup\n - Mac OSX configuration tool for network settings in System Preferences\n\n\nntop\n - network top\n\n\nOSI model\n - The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to its underlying internal structure and technology.\n\n\npac\n - dynamic proxy configuration\n\n\nprocurve\n - HP managed networking",
+            "text": "Links\n\n\n\n\nhttps://en.wikipedia.org/wiki/Reserved_IP_addresses\n\n\nhttps://wiki.debian.org/BridgeNetworkConnectionsProxyArp\n\n\n\n\nSee also\n\n\n\n\nbind\n - DNS server\n\n\niftop\n - interface top\n\n\nip\n command for linux\n\n\niperf\n - network performance testing\n\n\niptables\n - linux firewall\n\n\nlinksys\n - soho network hardware vendor\n\n\nnetgear\n - network hardware vendor\n\n\nnetworksetup\n - Mac OSX configuration tool for network settings in System Preferences\n\n\nntop\n - network top\n\n\nOSI model\n - The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to its underlying internal structure and technology.\n\n\npac\n - dynamic proxy configuration\n\n\nprocurve\n - HP managed networking",
             "title": "networking"
         },
         {
             "location": "/networking/#links",
-            "text": "https://en.wikipedia.org/wiki/Reserved_IP_addresses",
+            "text": "https://en.wikipedia.org/wiki/Reserved_IP_addresses  https://wiki.debian.org/BridgeNetworkConnectionsProxyArp",
             "title": "Links"
         },
         {
@@ -4447,7 +4452,7 @@
         },
         {
             "location": "/nintendo-3ds/",
-            "text": "https://yls8.mtheall.com/3dsbrowserhax.php\n\n\nhttp://www.3dbrew.org/wiki/Homebrew_Applications\n\n\n\n\nLego + 3DS notes\n\n\n\n\n3DSXL screen is ~ 9x11 Lego units\n\n\n3DSXL outside is 20x12 Lego units\n\n\n\n\nEmulation\n\n\n\n\nCitra 3DS emulator\n\n\nDumping cartridges",
+            "text": "Lego + 3DS notes\n\n\n\n\n3DSXL screen is ~ 9x11 Lego units\n\n\n3DSXL outside is 20x12 Lego units\n\n\n\n\nEmulation\n\n\n\n\nCitra 3DS emulator\n\n\nDumping cartridges\n\n\n\n\nHacking and CFW\n\n\n\n\nhttps://3ds.hacks.guide/\n\n\nhttps://yls8.mtheall.com/3dsbrowserhax.php\n\n\nhttps://www.3dbrew.org/wiki/Homebrew_Applications\n\n\nhttps://zoogie.github.io/web/34%E2%85%95c3/#/",
             "title": "Nintendo 3DS"
         },
         {
@@ -4459,6 +4464,11 @@
             "location": "/nintendo-3ds/#emulation",
             "text": "Citra 3DS emulator  Dumping cartridges",
             "title": "Emulation"
+        },
+        {
+            "location": "/nintendo-3ds/#hacking-and-cfw",
+            "text": "https://3ds.hacks.guide/  https://yls8.mtheall.com/3dsbrowserhax.php  https://www.3dbrew.org/wiki/Homebrew_Applications  https://zoogie.github.io/web/34%E2%85%95c3/#/",
+            "title": "Hacking and CFW"
         },
         {
             "location": "/nintendo-switch/",
