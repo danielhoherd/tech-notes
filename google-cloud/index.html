@@ -1385,19 +1385,18 @@ USER=service-account-user-for-$PARTNER
 EMAIL=&quot;$USER@$PROJECT.iam.gserviceaccount.com&quot;
 gcloud iam service-accounts create $USER
 gcloud iam service-accounts keys create --display-name &quot;$USER&quot; --iam-account=&quot;$EMAIL&quot; key.json
-for PERM in legacyBucketOwner objectCreator objectViewer ; do
-  gcloud projects add-iam-policy-binding &quot;$PROJECT&quot; \
-    --member &quot;serviceAccount:$EMAIL&quot; \
-    --role &quot;roles/storage.$PERM&quot;
+gcloud projects add-iam-policy-binding &quot;$PROJECT&quot; \
+  --member &quot;serviceAccount:$EMAIL&quot; \
+  --role &quot;roles/storage.objectAdmin&quot;
 done
-kubectl create secret docker-registry &quot;$PROJECT&quot; \
+kubectl create secret &quot;docker-pull-$PROJECT&quot; &quot;$PROJECT&quot; \
   --docker-server &quot;https://gcr.io&quot; \
   --docker-username _json_key \
   --docker-email &quot;$EMAIL&quot; \
   --docker-password=&quot;$(cat key.json)&quot;
 </code></pre>
 
-<p>Then use the value of <code>"$PROJECT"</code> as your <code>ImagePullSecret</code>.</p>
+<p>Then use the value of <code>docker-pull-${PROJECT}</code> as your <code>ImagePullSecret</code>.</p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://cloud.google.com/container-registry/docs/quickstart">https://cloud.google.com/container-registry/docs/quickstart</a></li>
