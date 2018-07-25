@@ -7077,7 +7077,7 @@
         },
         {
             "location": "/tcpdump/",
-            "text": "Network sniffing tool.\n\n\nSyntax Examples\n\n\nCapture packets to and from an IP address\n\n\nOnly captures data that includes 1.2.3.4 as source or destination address\n\n\ntcpdump host 1.2.3.4\n\n\n\n\nCapture traffic that contains a given mac address\n\n\nwrites capfile.cap containing all traffic to or from the specified mac address on the network attached to eth1\n\n\ntcpdump -w capfile.cap -i eth1 ether host 00:03:fa:46:2c:08\n\n\n\n\nFilter packets from an existing capture\n\n\nFilters port 53 packets out of the old capfile into the new\n\n\ntcpdump -r oldcapfile.cap -w newcapfile.cap port 53\n\n\n\n\nCapture all pop3 traffic and all traffic from a particular host\n\n\nCaptures all pop3 traffic and all traffic to or from the specified host on the first interface of a Mac OS X computer\n\n\ntcpdump -w foo.cap -i en0 ether host 00:03:9a:28:44:01 or port 110\n\n\n\n\nCapture all traffic not a mac address\n\n\nCaptures all traffic not from the host 00:1b:63:ce:83:2e, useful for filtering out your own traffic.\n\n\ntcpdump -i en1 not ether src 00:1b:63:ce:83:2e\n\n\n\n\nCapture LLDP traffic\n\n\nThis matches 2 bytes starting at the 12th byte against 88cc\n\n\ntcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'\n\n\n\n\nCapture SYN packets\n\n\ntcpdump -n 'tcp[13] & 2!=0'\n\n\n\n\nCapture SYN/ACK packets\n\n\ntcpdump -n 'tcp[13]=18'\n\n\n\n\nOr another way\n\n\ntcpdump 'tcp[tcpflags] && tcp-syn != 0'\n\n\n\n\nOr capture all SYN packets going only to two ethernet destinations:\n\n\ntcpdump 'tcp[13] & 2!=0 && (ether dst 00:22:64:f4:d0:70 or ether dst 00:22:64:f4:d0:6e)'\n\n\n\n\nWrite capture to file and replay it at the same time\n\n\nsudo tcpdump -n 'host 216.200.102.84' -s 1500 -l -w - | tee logcopy.pcap | tcpdump -r -\n\n\n\n\nWrite a circular buffer of traffic\n\n\nThis will write 5 files 1 mb each and loop through them as the destination for writing traffic. That is, the filenames do not indicate chronology. The files will be named foo.cap[0-4]\n\n\nsudo tcpdump -C 1 -W 5 -w foo.cap\n\n\n\n\nPrint out a list of observed src ip addresses every 5 seconds\n\n\nThis is limited to 192.168.1 matches\n\n\nwhile true ; do\n  date '+%F %T%z'\n  sudo timeout 5 tcpdump -n 2>/dev/null |\n  awk '$3 ~ /10.8/ {\n    print gensub(/([0-9]*\\.[0-9]*\\.[0-9]*\\.[0-9]*)(\\.[0-9]*)?/, \"ip address: \\\\1\", \"g\", $3) ;\n  }' |\n  sort -t. -k4n |\n  uniq -c\ndone\n\n\n\n\nYou can reassemble these files chronologically with \nmergecap -w merged.cap foo.cap*\n\n\nLinks\n\n\n\n\nhttp://www.danielmiessler.com/study/tcpdump/\n\n\n<https://www.rationallyparanoid.com/articles/tcpdump.html",
+            "text": "Network sniffing tool.\n\n\nSyntax Examples\n\n\nCapture packets to and from an IP address\n\n\nOnly captures data that includes 1.2.3.4 as source or destination address\n\n\ntcpdump host 1.2.3.4\n\n\n\n\nCapture traffic that contains a given mac address\n\n\nwrites capfile.cap containing all traffic to or from the specified mac address on the network attached to eth1\n\n\ntcpdump -w capfile.cap -i eth1 ether host 00:03:fa:46:2c:08\n\n\n\n\nFilter packets from an existing capture\n\n\nFilters port 53 packets out of the old capfile into the new\n\n\ntcpdump -r oldcapfile.cap -w newcapfile.cap port 53\n\n\n\n\nCapture all pop3 traffic and all traffic from a particular host\n\n\nCaptures all pop3 traffic and all traffic to or from the specified host on the first interface of a Mac OS X computer\n\n\ntcpdump -w foo.cap -i en0 ether host 00:03:9a:28:44:01 or port 110\n\n\n\n\nCapture all traffic not a mac address\n\n\nCaptures all traffic not from the host 00:1b:63:ce:83:2e, useful for filtering out your own traffic.\n\n\ntcpdump -i en1 not ether src 00:1b:63:ce:83:2e\n\n\n\n\nCapture LLDP traffic\n\n\nThis matches 2 bytes starting at the 12th byte against 88cc\n\n\ntcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'\n\n\n\n\nCapture SYN packets\n\n\ntcpdump -n 'tcp[13] & 2!=0'\n\n\n\n\nCapture SYN/ACK packets\n\n\ntcpdump -n 'tcp[13]=18'\n\n\n\n\nOr another way\n\n\ntcpdump 'tcp[tcpflags] && tcp-syn != 0'\n\n\n\n\nOr capture all SYN packets going only to two ethernet destinations:\n\n\ntcpdump 'tcp[13] & 2!=0 && (ether dst 00:22:64:f4:d0:70 or ether dst 00:22:64:f4:d0:6e)'\n\n\n\n\nWrite capture to file and replay it at the same time\n\n\nsudo tcpdump -n 'host 216.200.102.84' -s 1500 -l -w - | tee logcopy.pcap | tcpdump -r -\n\n\n\n\nWrite a circular buffer of traffic\n\n\nThis will write 5 files 1 mb each and loop through them as the destination for writing traffic. That is, the filenames do not indicate chronology. The files will be named foo.cap[0-4]\n\n\nsudo tcpdump -C 1 -W 5 -w foo.cap\n\n\n\n\nPrint out a list of observed src ip addresses every 5 seconds\n\n\nThis is limited to 192.168.1 matches\n\n\nwhile true ; do\n  date '+%F %T%z'\n  sudo timeout 5 tcpdump -n 2>/dev/null |\n  awk '$3 ~ /10.8/ {\n    print gensub(/([0-9]*\\.[0-9]*\\.[0-9]*\\.[0-9]*)(\\.[0-9]*)?/, \"ip address: \\\\1\", \"g\", $3) ;\n  }' |\n  sort -t. -k4n |\n  uniq -c\ndone\n\n\n\n\nYou can reassemble these files chronologically with \nmergecap -w merged.cap foo.cap*\n\n\nLinks\n\n\n\n\nhttp://www.danielmiessler.com/study/tcpdump/\n\n\nhttps://www.rationallyparanoid.com/articles/tcpdump.html",
             "title": "tcpdump"
         },
         {
@@ -7142,7 +7142,7 @@
         },
         {
             "location": "/tcpdump/#links",
-            "text": "http://www.danielmiessler.com/study/tcpdump/  <https://www.rationallyparanoid.com/articles/tcpdump.html",
+            "text": "http://www.danielmiessler.com/study/tcpdump/  https://www.rationallyparanoid.com/articles/tcpdump.html",
             "title": "Links"
         },
         {
@@ -7514,6 +7514,41 @@
             "location": "/winbind/#try-authenticating-the-user-against-winbind",
             "text": "wbinfo -a dhoherd",
             "title": "try authenticating the user against winbind"
+        },
+        {
+            "location": "/wireshark/",
+            "text": "Wireshark) is the new name for what was Ethereal. It is a graphical packet sniffer that uses the same libraries as tcpdump.\n\n\nFilters\n\n\nDisplay filters have their own syntax, whereas capture filters use tcpdump syntax.\n\n\nDisplay Filters\n\n\nFilter by packet data content\n\n\nDisplay all packets that contain \"foo\" in the data section:\n\n\ndata contains foo\n\n\n\n\nDisplay hosts within a given subnet\n\n\nip.addr == 10.57.8.244/30\n\n\n\n\nDisplay data within a port range\n\n\nTo see all ceph-osd data\n\n\ntcp.port >= 6800 and tcp.port <= 7300\n\n\n\n\nSee also\n\n\n\n\ntcpdump",
+            "title": "Wireshark"
+        },
+        {
+            "location": "/wireshark/#filters",
+            "text": "Display filters have their own syntax, whereas capture filters use tcpdump syntax.",
+            "title": "Filters"
+        },
+        {
+            "location": "/wireshark/#display-filters",
+            "text": "",
+            "title": "Display Filters"
+        },
+        {
+            "location": "/wireshark/#filter-by-packet-data-content",
+            "text": "Display all packets that contain \"foo\" in the data section:  data contains foo",
+            "title": "Filter by packet data content"
+        },
+        {
+            "location": "/wireshark/#display-hosts-within-a-given-subnet",
+            "text": "ip.addr == 10.57.8.244/30",
+            "title": "Display hosts within a given subnet"
+        },
+        {
+            "location": "/wireshark/#display-data-within-a-port-range",
+            "text": "To see all ceph-osd data  tcp.port >= 6800 and tcp.port <= 7300",
+            "title": "Display data within a port range"
+        },
+        {
+            "location": "/wireshark/#see-also",
+            "text": "tcpdump",
+            "title": "See also"
         },
         {
             "location": "/wuzz/",
