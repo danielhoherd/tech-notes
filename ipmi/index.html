@@ -636,6 +636,8 @@
         
             <li><a class="toctree-l3" href="#view-all-configured-lan-parameters">View all configured LAN parameters</a></li>
         
+            <li><a class="toctree-l3" href="#configure-ip-information-for-the-bmc">Configure IP information for the BMC</a></li>
+        
             <li><a class="toctree-l3" href="#reset-the-bmc">Reset the BMC</a></li>
         
             <li><a class="toctree-l3" href="#how-to-fix-devipmi-errors">How to fix /dev/ipmi errors</a></li>
@@ -1447,14 +1449,22 @@ ipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on
 <pre><code>ipmitool lan print 1
 </code></pre>
 
+<h2 id="configure-ip-information-for-the-bmc">Configure IP information for the BMC</h2>
+<pre><code>ipmitool lan set 1 ipsrc static
+ipmitool lan set 1 ipaddr 192.168.1.250
+ipmitool lan set 1 netmask 255.255.255.0
+ipmitool lan set 1 defgw ipaddr 192.168.1.1
+ipmitool lan set 1 defgw macaddr 00:01:02:aa:bb:cc
+ipmitool lan set 1 arp respond on
+</code></pre>
+
 <h2 id="reset-the-bmc">Reset the BMC</h2>
 <p>If a host loses it's IPMI (iLO, etc.) IP connectivity, issue this command from the host itself</p>
 <pre><code>ipmitool mc reset cold
 </code></pre>
 
 <h2 id="how-to-fix-devipmi-errors">How to fix /dev/ipmi errors</h2>
-<p>For errors like</p>
-<p><code>Could not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0</code></p>
+<p>For errors like <code>Could not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0</code>:</p>
 <pre><code>modprobe ipmi_msghandler
 modprobe ipmi_devintf
 modprobe ipmi_si

@@ -642,6 +642,8 @@
         
             <li><a class="toctree-l3" href="#some-example-terminal-buffer">Some example terminal buffer</a></li>
         
+            <li><a class="toctree-l3" href="#show-forwarding-table">Show forwarding table</a></li>
+        
             <li><a class="toctree-l3" href="#remove-virtual-chassis-from-an-ex4300">Remove virtual-chassis from an EX4300</a></li>
         
             <li><a class="toctree-l3" href="#ex4300-os-install">EX4300 OS install</a></li>
@@ -1437,6 +1439,11 @@ root# show chassis
 auto-image-upgrade;
 
 {master:0}[edit]
+</code></pre>
+
+<h2 id="show-forwarding-table">Show forwarding table</h2>
+<p>This is exactly the same as typing <code>netstat -nr</code> at the system shell.</p>
+<pre><code>show route forwarding-table detail
 </code></pre>
 
 <h2 id="remove-virtual-chassis-from-an-ex4300">Remove virtual-chassis from an EX4300</h2>
