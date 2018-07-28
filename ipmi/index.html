@@ -636,7 +636,9 @@
         
             <li><a class="toctree-l3" href="#view-all-configured-lan-parameters">View all configured LAN parameters</a></li>
         
-            <li><a class="toctree-l3" href="#configure-ip-information-for-the-bmc">Configure IP information for the BMC</a></li>
+            <li><a class="toctree-l3" href="#configure-ipmi-ip-information">Configure IPMI IP information</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-ipmi-admin-user">Configure IPMI admin user</a></li>
         
             <li><a class="toctree-l3" href="#reset-the-bmc">Reset the BMC</a></li>
         
@@ -1140,6 +1142,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../shred/">Shred</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../shutdown/">Shutdown</a>
 	    </li>
           
@@ -1449,13 +1456,20 @@ ipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on
 <pre><code>ipmitool lan print 1
 </code></pre>
 
-<h2 id="configure-ip-information-for-the-bmc">Configure IP information for the BMC</h2>
+<h2 id="configure-ipmi-ip-information">Configure IPMI IP information</h2>
 <pre><code>ipmitool lan set 1 ipsrc static
 ipmitool lan set 1 ipaddr 192.168.1.250
 ipmitool lan set 1 netmask 255.255.255.0
 ipmitool lan set 1 defgw ipaddr 192.168.1.1
 ipmitool lan set 1 defgw macaddr 00:01:02:aa:bb:cc
 ipmitool lan set 1 arp respond on
+</code></pre>
+
+<h2 id="configure-ipmi-admin-user">Configure IPMI admin user</h2>
+<pre><code>USERNAME=admin
+PASSWORD=hunter2
+ipmitool user set name 2 &quot;$USERNAME&quot;
+ipmitool user set password 2 &quot;$PASSWORD&quot;
 </code></pre>
 
 <h2 id="reset-the-bmc">Reset the BMC</h2>

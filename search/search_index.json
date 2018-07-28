@@ -3167,7 +3167,7 @@
         },
         {
             "location": "/ipmi/",
-            "text": "The Intelligent Platform Management Interface (IPMI) is a set of computer interface specifications for an autonomous computer subsystem that provides management and monitoring capabilities independently of the host system's CPU, firmware (BIOS or UEFI) and operating system.\n\n\nManaging servers with IPMI\n\n\nDefault Users\n\n\nThe default users are 'Administrator' for HPs, 'root' for Dells, and 'ADMIN' for Silicon Mechanics.\n\n\nServer Setup\n\n\nIPMI uses COM2 aka ttyS1 for the serial port on Dells and HPs, COM3 aka ttyS2 on Silicon Mechanics.\n\n\nCommon Remote Commands\n\n\nSee if a server is on\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power status\n\n\n\n\nTurn a server on\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on\n\n\n\n\nTurn a server off\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power off\n\n\n\n\nTell a server to PXEBoot\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power off\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis bootdev pxe\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on\n\n\n\n\nConnect to the serial console\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sol activate\n\n\n\n\nDisplay the system event log\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sel list\n\n\n\n\nClear the system event log\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sel clear\n\n\n\n\nDisplay sensor information\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sdr list\n\n\n\n\nDisconnect another serial console session\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sol deactivate\n\n\n\n\nShow bootdev help\n\n\nipmitool -H 10.5.8.30 -U ADMIN -P ADMIN chassis bootdev none options=help\n\n\n\n\nCommon Local Commands\n\n\nThese commands require root access in most environments.\n\n\nView all configured LAN parameters\n\n\nipmitool lan print\n\n\n\n\nYou can view individual \"channels\" which are logical interfaces by giving the number:\n\n\nipmitool lan print 1\n\n\n\n\nConfigure IP information for the BMC\n\n\nipmitool lan set 1 ipsrc static\nipmitool lan set 1 ipaddr 192.168.1.250\nipmitool lan set 1 netmask 255.255.255.0\nipmitool lan set 1 defgw ipaddr 192.168.1.1\nipmitool lan set 1 defgw macaddr 00:01:02:aa:bb:cc\nipmitool lan set 1 arp respond on\n\n\n\n\nReset the BMC\n\n\nIf a host loses it's IPMI (iLO, etc.) IP connectivity, issue this command from the host itself\n\n\nipmitool mc reset cold\n\n\n\n\nHow to fix /dev/ipmi errors\n\n\nFor errors like \nCould not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0\n:\n\n\nmodprobe ipmi_msghandler\nmodprobe ipmi_devintf\nmodprobe ipmi_si\n\n\n\n\nReset the ADMIN password to ADMIN on a Supermicro BMC\n\n\nsudo ipmitool -I open user set password 2 ADMIN\n\n\n\n\nSee Also\n\n\n\n\nhttp://www.intel.com/design/servers/ipmi/",
+            "text": "The Intelligent Platform Management Interface (IPMI) is a set of computer interface specifications for an autonomous computer subsystem that provides management and monitoring capabilities independently of the host system's CPU, firmware (BIOS or UEFI) and operating system.\n\n\nManaging servers with IPMI\n\n\nDefault Users\n\n\nThe default users are 'Administrator' for HPs, 'root' for Dells, and 'ADMIN' for Silicon Mechanics.\n\n\nServer Setup\n\n\nIPMI uses COM2 aka ttyS1 for the serial port on Dells and HPs, COM3 aka ttyS2 on Silicon Mechanics.\n\n\nCommon Remote Commands\n\n\nSee if a server is on\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power status\n\n\n\n\nTurn a server on\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on\n\n\n\n\nTurn a server off\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power off\n\n\n\n\nTell a server to PXEBoot\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power off\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis bootdev pxe\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on\n\n\n\n\nConnect to the serial console\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sol activate\n\n\n\n\nDisplay the system event log\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sel list\n\n\n\n\nClear the system event log\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sel clear\n\n\n\n\nDisplay sensor information\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sdr list\n\n\n\n\nDisconnect another serial console session\n\n\nipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP sol deactivate\n\n\n\n\nShow bootdev help\n\n\nipmitool -H 10.5.8.30 -U ADMIN -P ADMIN chassis bootdev none options=help\n\n\n\n\nCommon Local Commands\n\n\nThese commands require root access in most environments.\n\n\nView all configured LAN parameters\n\n\nipmitool lan print\n\n\n\n\nYou can view individual \"channels\" which are logical interfaces by giving the number:\n\n\nipmitool lan print 1\n\n\n\n\nConfigure IPMI IP information\n\n\nipmitool lan set 1 ipsrc static\nipmitool lan set 1 ipaddr 192.168.1.250\nipmitool lan set 1 netmask 255.255.255.0\nipmitool lan set 1 defgw ipaddr 192.168.1.1\nipmitool lan set 1 defgw macaddr 00:01:02:aa:bb:cc\nipmitool lan set 1 arp respond on\n\n\n\n\nConfigure IPMI admin user\n\n\nUSERNAME=admin\nPASSWORD=hunter2\nipmitool user set name 2 \"$USERNAME\"\nipmitool user set password 2 \"$PASSWORD\"\n\n\n\n\nReset the BMC\n\n\nIf a host loses it's IPMI (iLO, etc.) IP connectivity, issue this command from the host itself\n\n\nipmitool mc reset cold\n\n\n\n\nHow to fix /dev/ipmi errors\n\n\nFor errors like \nCould not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0\n:\n\n\nmodprobe ipmi_msghandler\nmodprobe ipmi_devintf\nmodprobe ipmi_si\n\n\n\n\nReset the ADMIN password to ADMIN on a Supermicro BMC\n\n\nsudo ipmitool -I open user set password 2 ADMIN\n\n\n\n\nSee Also\n\n\n\n\nhttp://www.intel.com/design/servers/ipmi/",
             "title": "IPMI"
         },
         {
@@ -3251,9 +3251,14 @@
             "title": "View all configured LAN parameters"
         },
         {
-            "location": "/ipmi/#configure-ip-information-for-the-bmc",
+            "location": "/ipmi/#configure-ipmi-ip-information",
             "text": "ipmitool lan set 1 ipsrc static\nipmitool lan set 1 ipaddr 192.168.1.250\nipmitool lan set 1 netmask 255.255.255.0\nipmitool lan set 1 defgw ipaddr 192.168.1.1\nipmitool lan set 1 defgw macaddr 00:01:02:aa:bb:cc\nipmitool lan set 1 arp respond on",
-            "title": "Configure IP information for the BMC"
+            "title": "Configure IPMI IP information"
+        },
+        {
+            "location": "/ipmi/#configure-ipmi-admin-user",
+            "text": "USERNAME=admin\nPASSWORD=hunter2\nipmitool user set name 2 \"$USERNAME\"\nipmitool user set password 2 \"$PASSWORD\"",
+            "title": "Configure IPMI admin user"
         },
         {
             "location": "/ipmi/#reset-the-bmc",
@@ -6254,6 +6259,26 @@
             "location": "/shairport-sync/#shairport-sync-in-docker",
             "text": "This is a really easy way to get shairport-sync running on Linux. The container is 12mb.  docker run \\\n  --rm \\\n  --detach \\\n  --network=host \\\n  --device /dev/snd \\\n  -e AIRPLAY_NAME=\"shairport ${HOSTNAME}\" \\\n  kevineye/shairport-sync",
             "title": "shairport-sync in docker"
+        },
+        {
+            "location": "/shred/",
+            "text": "\"shred - overwrite a file to hide its contents, and optionally delete it.\" - \nman shred\n\n\nExamples\n\n\nWrite random data to a hard disk 5 times, then once with zeroes\n\n\nshred -n 5 -z /dev/disk/by-id/usb-Seagate_External_2HC015KJ-0:0\n\n\nWrite zeroes to a disk 5 times and report progress\n\n\nfor _ in {1..5} ; do shred -n 0 -z -v /dev/disk/by-id/usb-Seagate_External_2HC015KJ-0:0 ; done ;",
+            "title": "Shred"
+        },
+        {
+            "location": "/shred/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/shred/#write-random-data-to-a-hard-disk-5-times-then-once-with-zeroes",
+            "text": "shred -n 5 -z /dev/disk/by-id/usb-Seagate_External_2HC015KJ-0:0",
+            "title": "Write random data to a hard disk 5 times, then once with zeroes"
+        },
+        {
+            "location": "/shred/#write-zeroes-to-a-disk-5-times-and-report-progress",
+            "text": "for _ in {1..5} ; do shred -n 0 -z -v /dev/disk/by-id/usb-Seagate_External_2HC015KJ-0:0 ; done ;",
+            "title": "Write zeroes to a disk 5 times and report progress"
         },
         {
             "location": "/shutdown/",
