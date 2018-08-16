@@ -7026,6 +7026,31 @@
             "title": "Links"
         },
         {
+            "location": "/systemd-resolved/",
+            "text": "\"systemd-resolved - Network Name Resolution manager\" - \nman systemd-resolved\n\n\nsystemd-resolved enhances (ie: interferes with) old school simple methods of managing DNS on a linux system. The way it reads the /etc/resolv.conf file as either a file or symlink alters the behavior of the service, which is a new mechanic that can have unexpected effects if you're not familiar with it.\n\n\nExamples\n\n\nResolve a hostname\n\n\n$ systemd-resolve google.com\ngoogle.com: 216.58.192.238\n\n-- Information acquired via protocol DNS in 23.9ms.\n-- Data is authenticated: no\n\n\n\n\nCheck name resolution statistics\n\n\n$ systemd-resolve --statistics\nDNSSEC supported by current servers: no\n\nTransactions\nCurrent Transactions: 0\n  Total Transactions: 36\n\nCache\n  Current Cache Size: 2\n          Cache Hits: 2\n        Cache Misses: 103\n\nDNSSEC Verdicts\n              Secure: 0\n            Insecure: 0\n               Bogus: 0\n       Indeterminate: 0\n\n\n\n\nSee Also\n\n\n\n\nhttp://man7.org/linux/man-pages/man1/systemd-resolve.1.html\n\n\nhttp://manpages.ubuntu.com/manpages/xenial/man8/systemd-resolved.service.8.html\n\n\nhttp://manpages.ubuntu.com/manpages/bionic/man8/systemd-resolved.service.8.html",
+            "title": "systemd-resolved"
+        },
+        {
+            "location": "/systemd-resolved/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/systemd-resolved/#resolve-a-hostname",
+            "text": "$ systemd-resolve google.com\ngoogle.com: 216.58.192.238\n\n-- Information acquired via protocol DNS in 23.9ms.\n-- Data is authenticated: no",
+            "title": "Resolve a hostname"
+        },
+        {
+            "location": "/systemd-resolved/#check-name-resolution-statistics",
+            "text": "$ systemd-resolve --statistics\nDNSSEC supported by current servers: no\n\nTransactions\nCurrent Transactions: 0\n  Total Transactions: 36\n\nCache\n  Current Cache Size: 2\n          Cache Hits: 2\n        Cache Misses: 103\n\nDNSSEC Verdicts\n              Secure: 0\n            Insecure: 0\n               Bogus: 0\n       Indeterminate: 0",
+            "title": "Check name resolution statistics"
+        },
+        {
+            "location": "/systemd-resolved/#see-also",
+            "text": "http://man7.org/linux/man-pages/man1/systemd-resolve.1.html  http://manpages.ubuntu.com/manpages/xenial/man8/systemd-resolved.service.8.html  http://manpages.ubuntu.com/manpages/bionic/man8/systemd-resolved.service.8.html",
+            "title": "See Also"
+        },
+        {
             "location": "/systemd/",
             "text": "\"systemd is a system and service manager for Linux, compatible with SysV and LSB init scripts. systemd provides aggressive parallelization capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, keeps track of processes using Linux control groups, supports snapshotting and restoring of the system state, maintains mount and automount points and implements an elaborate transactional dependency-based service control logic. It can work as a drop-in replacement for sysvinit.\" - \nhttp://www.freedesktop.org/wiki/Software/systemd/\n\n\n\n\nTips and tricks - \nhttp://www.freedesktop.org/wiki/Software/systemd/TipsAndTricks/\n\n\nMan page for control groups - \nhttp://man7.org/linux/man-pages/man5/systemd.cgroup.5.html\n\n\nFAQ - \nhttp://www.freedesktop.org/wiki/Software/systemd/FrequentlyAskedQuestions/\n\n\nsysvinit to chkconfig - \nhttps://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet\n\n\nsystemd for upstart users - \nhttps://wiki.ubuntu.com/SystemdForUpstartUsers\n\n\n\n\nTips\n\n\nInit file locations\n\n\n/usr/lib/systemd/system\n/etc/systemd/system # has precedence\n\n\n\n\nShow the full systemd journal\n\n\nThe systemd journal is syslog and more.\n\n\njournalctl --full\n\n\n\n\nShow the nginx journal for today\n\n\njournalctl -u nginx.service --since today\n\n\n\n\nShow units\n\n\nUnits are things that are handled by systemd, including services.     systemctl list-units\n\n\nShow dependencies\n\n\nThis works on any .target or .service\n\n\nsystemctl list-dependencies network.service\n\n\n\n\nEnable a service\n\n\nThis behavior replaces chkconfig\n\n\nsystemctl enable docker.service\n\n\n\n\nCheck the status of a service and show 20 lines\n\n\nsystemctl -n 20 status nodejs\n\n\n\n\nPer-user services\n\n\nhttps://wiki.archlinux.org/index.php/Systemd/User\n\n\n/usr/lib/systemd/user/ - where services provided by installed packages go.\n/etc/systemd/user/ - where system-wide user services are placed by the system administrator.\n~/.config/systemd/user/ - where the user puts its own services.\n\n\n\n\nAlter power / sleep / hibernate button behaviors\n\n\n/etc/systemd/logind.conf\n\n\n\n\nShow name resolution status\n\n\nsystemd-resolve --status\n\n\n\n\nShow boot performance\n\n\nsystemd-analyze blame\n\n\n\n\nShow cgroup contexts\n\n\nsystemd-cgls\n\n\n\n\nShow top control groups by their resource usage\n\n\nsystemd-cgtop\n\n\n\n\nDetect if you are running in a container or on a VM\n\n\nsystemd-detect-virt",
             "title": "systemd"

@@ -1141,6 +1141,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>/systemd-resolved/</loc>
+     <lastmod>2018-08-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>/systemd/</loc>
      <lastmod>2018-08-15</lastmod>
      <changefreq>daily</changefreq>
