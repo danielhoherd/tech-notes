@@ -710,6 +710,8 @@
         
             <li><a class="toctree-l3" href="#show-filesystem-information">Show filesystem information</a></li>
         
+            <li><a class="toctree-l3" href="#show-some-chosen-fields">Show some chosen fields</a></li>
+        
             <li><a class="toctree-l3" href="#show-all-available-information">Show all available information</a></li>
         
         </ul>
@@ -1375,6 +1377,17 @@ NAME   FSTYPE  LABEL           UUID                                 MOUNTPOINT
 sda
 └─sda1 ext4    cloudimg-rootfs 73ea38ed-7fcd-4871-8afa-17d36f4e4bfc /
 sdb    iso9660 cidata          2017-08-15-16-47-34-00
+</code></pre>
+
+<h2 id="show-some-chosen-fields">Show some chosen fields</h2>
+<p>To see a list of available columns, run <code>lsblk -o</code>.</p>
+<pre><code>$ lsblk -do NAME,SIZE,TYPE,VENDOR,MODEL,SERIAL
+NAME   SIZE TYPE VENDOR   MODEL            SERIAL
+sdd    1.8T disk ATA      Micron_5100_MTFD 18211C914753
+sdb    1.8T disk ATA      Micron_5100_MTFD 18211C914736
+sde    1.8T disk ATA      Micron_5100_MTFD 171216897B54
+sdc    1.8T disk ATA      Micron_5100_MTFD 171216897B63
+sda  223.6G disk ATA      INTEL SSDSC2KB24 BTYS815301VG245AGN
 </code></pre>
 
 <h2 id="show-all-available-information">Show all available information</h2>
