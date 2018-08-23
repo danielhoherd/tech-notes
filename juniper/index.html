@@ -650,6 +650,8 @@
         
             <li><a class="toctree-l3" href="#clear-a-dhcp-client-lease">Clear a DHCP client lease</a></li>
         
+            <li><a class="toctree-l3" href="#show-config-diff-before-commit">Show config diff before commit</a></li>
+        
         </ul>
     
 
@@ -1505,6 +1507,25 @@ IP address        Session Id  Hardware address   Expires     State      Interfac
 10.8.52.5         3           d8:fa:97:b8:1a:dd  85198       BOUND      irb.100
 
 {master:0}
+</code></pre>
+
+<h2 id="show-config-diff-before-commit">Show config diff before commit</h2>
+<p>You can view the changes that will be committed, which is useful when the commit is invalid and you need to inspect it.</p>
+<pre><code>root# show | compare
+[edit access address-assignment pool p1 family inet]
+        host server1-ipmi { ... }
++       host server2 {
++           hardware-address 00:11:22:33:44:33;
++           ip-address 172.17.1.6;
++       }
++       host server3 {
++           hardware-address 00:11:22:33:44:35;
++           ip-address 172.17.1.7;
++       }
++       host server4 {
++           hardware-address 00:11:22:33:44:1d;
++           ip-address 172.17.1.8;
++       }
 </code></pre>
 
 <h1 id="links">Links</h1>
