@@ -636,7 +636,7 @@
         
             <li><a class="toctree-l3" href="#view-all-configured-lan-parameters">View all configured LAN parameters</a></li>
         
-            <li><a class="toctree-l3" href="#configure-ipmi-ip-information">Configure IPMI IP information</a></li>
+            <li><a class="toctree-l3" href="#configure-ipmi-static-ip-information">Configure IPMI static IP information</a></li>
         
             <li><a class="toctree-l3" href="#configure-ipmi-admin-user">Configure IPMI admin user</a></li>
         
@@ -1463,12 +1463,16 @@ ipmitool -I lanplus -U $USER -P $PASSWORD -H $IPMI_IP chassis power on
 <pre><code>ipmitool lan print 1
 </code></pre>
 
-<h2 id="configure-ipmi-ip-information">Configure IPMI IP information</h2>
-<pre><code>ipmitool lan set 1 ipsrc static
-ipmitool lan set 1 ipaddr 192.168.1.250
-ipmitool lan set 1 netmask 255.255.255.0
-ipmitool lan set 1 defgw ipaddr 192.168.1.1
-ipmitool lan set 1 defgw macaddr 00:01:02:aa:bb:cc
+<h2 id="configure-ipmi-static-ip-information">Configure IPMI static IP information</h2>
+<pre><code>IPMI_IP_ADDR=192.168.1.250
+IPMI_IP_NETMASK=255.255.255.0
+IPMI_IP_GW_IP_ADDR=192.168.1.1
+IPMI_IP_GW_MAC_ADDR=00:01:02:aa:bb:cc
+ipmitool lan set 1 ipsrc static
+ipmitool lan set 1 ipaddr &quot;${IPMI_IP_ADDR}&quot;
+ipmitool lan set 1 netmask &quot;${IPMI_IP_NETMASK}&quot;
+ipmitool lan set 1 defgw ipaddr &quot;${IPMI_IP_GW_IP_ADDR}&quot;
+ipmitool lan set 1 defgw macaddr &quot;{IPMI_IP_GW_MAC_ADDR}&quot;
 ipmitool lan set 1 arp respond on
 </code></pre>
 
