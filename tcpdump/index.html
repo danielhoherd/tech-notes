@@ -1233,6 +1233,8 @@
         
             <li><a class="toctree-l3" href="#print-out-a-list-of-observed-src-ip-addresses-every-5-seconds">Print out a list of observed src ip addresses every 5 seconds</a></li>
         
+            <li><a class="toctree-l3" href="#show-wpa-4-way-handshakes">Show WPA 4-way handshakes</a></li>
+        
         </ul>
     
 
@@ -1445,6 +1447,10 @@ done
 </code></pre>
 
 <p>You can reassemble these files chronologically with <code>mergecap -w merged.cap foo.cap*</code></p>
+<h2 id="show-wpa-4-way-handshakes">Show WPA 4-way handshakes</h2>
+<pre><code>tcpdump -n -i en0 &quot;ether proto 0x888e&quot;
+</code></pre>
+
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="http://www.danielmiessler.com/study/tcpdump/">http://www.danielmiessler.com/study/tcpdump/</a></li>

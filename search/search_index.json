@@ -4342,7 +4342,7 @@
         },
         {
             "location": "/netgear/",
-            "text": "Netgear R7000\n\n\nDD-WRT\n\n\n\n\nhttps://www.myopenrouter.com/downloads/dd-wrt-r7000\n\n\nhttp://www.desipro.de/ddwrt/K3-AC-Arm/\n\n\n\n\nSee Also: \ndd-wrt\n\n\nNetgear GSS116E\n\n\n\n\nhttps://www.netgear.com/support/product/GSS116E",
+            "text": "Netgear R7000\n\n\nDD-WRT\n\n\n\n\nhttps://www.myopenrouter.com/downloads/dd-wrt-r7000\n\n\nhttp://www.desipro.de/ddwrt/K3-AC-Arm/\n\n\n\n\nSee Also: \ndd-wrt\n\n\nNetgear GSS116E\n\n\n\n\nhttps://www.netgear.com/support/product/GSS116E\n\n\n\n\nNetgear M4300-8X8F\n\n\n\"Stackable Managed Switch with 16x10G including 8x10GBASE-T and 8xSFP+ Layer 3\"\n\n\n\n\nhttps://www.netgear.com/support/product/M4300-8X8F",
             "title": "NETGEAR"
         },
         {
@@ -4359,6 +4359,11 @@
             "location": "/netgear/#netgear-gss116e",
             "text": "https://www.netgear.com/support/product/GSS116E",
             "title": "Netgear GSS116E"
+        },
+        {
+            "location": "/netgear/#netgear-m4300-8x8f",
+            "text": "\"Stackable Managed Switch with 16x10G including 8x10GBASE-T and 8xSFP+ Layer 3\"   https://www.netgear.com/support/product/M4300-8X8F",
+            "title": "Netgear M4300-8X8F"
         },
         {
             "location": "/nethogs/",
@@ -7157,7 +7162,7 @@
         },
         {
             "location": "/tcpdump/",
-            "text": "Network sniffing tool.\n\n\nSyntax Examples\n\n\nCapture packets to and from an IP address\n\n\nOnly captures data that includes 1.2.3.4 as source or destination address\n\n\ntcpdump host 1.2.3.4\n\n\n\n\nCapture traffic that contains a given mac address\n\n\nwrites capfile.cap containing all traffic to or from the specified mac address on the network attached to eth1\n\n\ntcpdump -w capfile.cap -i eth1 ether host 00:03:fa:46:2c:08\n\n\n\n\nFilter packets from an existing capture\n\n\nFilters port 53 packets out of the old capfile into the new\n\n\ntcpdump -r oldcapfile.cap -w newcapfile.cap port 53\n\n\n\n\nCapture all pop3 traffic and all traffic from a particular host\n\n\nCaptures all pop3 traffic and all traffic to or from the specified host on the first interface of a Mac OS X computer\n\n\ntcpdump -w foo.cap -i en0 ether host 00:03:9a:28:44:01 or port 110\n\n\n\n\nCapture all traffic not a mac address\n\n\nCaptures all traffic not from the host 00:1b:63:ce:83:2e, useful for filtering out your own traffic.\n\n\ntcpdump -i en1 not ether src 00:1b:63:ce:83:2e\n\n\n\n\nCapture LLDP traffic\n\n\nThis matches 2 bytes starting at the 12th byte against 88cc\n\n\ntcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'\n\n\n\n\nCapture SYN packets\n\n\ntcpdump -n 'tcp[13] & 2!=0'\n\n\n\n\nCapture SYN/ACK packets\n\n\ntcpdump -n 'tcp[13]=18'\n\n\n\n\nOr another way\n\n\ntcpdump 'tcp[tcpflags] && tcp-syn != 0'\n\n\n\n\nOr capture all SYN packets going only to two ethernet destinations:\n\n\ntcpdump 'tcp[13] & 2!=0 && (ether dst 00:22:64:f4:d0:70 or ether dst 00:22:64:f4:d0:6e)'\n\n\n\n\nWrite capture to file and replay it at the same time\n\n\nsudo tcpdump -n 'host 216.200.102.84' -s 1500 -l -w - | tee logcopy.pcap | tcpdump -r -\n\n\n\n\nWrite a circular buffer of traffic\n\n\nThis will write 5 files 1 mb each and loop through them as the destination for writing traffic. That is, the filenames do not indicate chronology. The files will be named foo.cap[0-4]\n\n\nsudo tcpdump -C 1 -W 5 -w foo.cap\n\n\n\n\nPrint out a list of observed src ip addresses every 5 seconds\n\n\nThis is limited to 192.168.1 matches\n\n\nwhile true ; do\n  date '+%F %T%z'\n  sudo timeout 5 tcpdump -n 2>/dev/null |\n  awk '$3 ~ /10.8/ {\n    print gensub(/([0-9]*\\.[0-9]*\\.[0-9]*\\.[0-9]*)(\\.[0-9]*)?/, \"ip address: \\\\1\", \"g\", $3) ;\n  }' |\n  sort -t. -k4n |\n  uniq -c\ndone\n\n\n\n\nYou can reassemble these files chronologically with \nmergecap -w merged.cap foo.cap*\n\n\nLinks\n\n\n\n\nhttp://www.danielmiessler.com/study/tcpdump/\n\n\nhttps://www.rationallyparanoid.com/articles/tcpdump.html",
+            "text": "Network sniffing tool.\n\n\nSyntax Examples\n\n\nCapture packets to and from an IP address\n\n\nOnly captures data that includes 1.2.3.4 as source or destination address\n\n\ntcpdump host 1.2.3.4\n\n\n\n\nCapture traffic that contains a given mac address\n\n\nwrites capfile.cap containing all traffic to or from the specified mac address on the network attached to eth1\n\n\ntcpdump -w capfile.cap -i eth1 ether host 00:03:fa:46:2c:08\n\n\n\n\nFilter packets from an existing capture\n\n\nFilters port 53 packets out of the old capfile into the new\n\n\ntcpdump -r oldcapfile.cap -w newcapfile.cap port 53\n\n\n\n\nCapture all pop3 traffic and all traffic from a particular host\n\n\nCaptures all pop3 traffic and all traffic to or from the specified host on the first interface of a Mac OS X computer\n\n\ntcpdump -w foo.cap -i en0 ether host 00:03:9a:28:44:01 or port 110\n\n\n\n\nCapture all traffic not a mac address\n\n\nCaptures all traffic not from the host 00:1b:63:ce:83:2e, useful for filtering out your own traffic.\n\n\ntcpdump -i en1 not ether src 00:1b:63:ce:83:2e\n\n\n\n\nCapture LLDP traffic\n\n\nThis matches 2 bytes starting at the 12th byte against 88cc\n\n\ntcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'\n\n\n\n\nCapture SYN packets\n\n\ntcpdump -n 'tcp[13] & 2!=0'\n\n\n\n\nCapture SYN/ACK packets\n\n\ntcpdump -n 'tcp[13]=18'\n\n\n\n\nOr another way\n\n\ntcpdump 'tcp[tcpflags] && tcp-syn != 0'\n\n\n\n\nOr capture all SYN packets going only to two ethernet destinations:\n\n\ntcpdump 'tcp[13] & 2!=0 && (ether dst 00:22:64:f4:d0:70 or ether dst 00:22:64:f4:d0:6e)'\n\n\n\n\nWrite capture to file and replay it at the same time\n\n\nsudo tcpdump -n 'host 216.200.102.84' -s 1500 -l -w - | tee logcopy.pcap | tcpdump -r -\n\n\n\n\nWrite a circular buffer of traffic\n\n\nThis will write 5 files 1 mb each and loop through them as the destination for writing traffic. That is, the filenames do not indicate chronology. The files will be named foo.cap[0-4]\n\n\nsudo tcpdump -C 1 -W 5 -w foo.cap\n\n\n\n\nPrint out a list of observed src ip addresses every 5 seconds\n\n\nThis is limited to 192.168.1 matches\n\n\nwhile true ; do\n  date '+%F %T%z'\n  sudo timeout 5 tcpdump -n 2>/dev/null |\n  awk '$3 ~ /10.8/ {\n    print gensub(/([0-9]*\\.[0-9]*\\.[0-9]*\\.[0-9]*)(\\.[0-9]*)?/, \"ip address: \\\\1\", \"g\", $3) ;\n  }' |\n  sort -t. -k4n |\n  uniq -c\ndone\n\n\n\n\nYou can reassemble these files chronologically with \nmergecap -w merged.cap foo.cap*\n\n\nShow WPA 4-way handshakes\n\n\ntcpdump -n -i en0 \"ether proto 0x888e\"\n\n\n\n\nLinks\n\n\n\n\nhttp://www.danielmiessler.com/study/tcpdump/\n\n\nhttps://www.rationallyparanoid.com/articles/tcpdump.html",
             "title": "tcpdump"
         },
         {
@@ -7219,6 +7224,11 @@
             "location": "/tcpdump/#print-out-a-list-of-observed-src-ip-addresses-every-5-seconds",
             "text": "This is limited to 192.168.1 matches  while true ; do\n  date '+%F %T%z'\n  sudo timeout 5 tcpdump -n 2>/dev/null |\n  awk '$3 ~ /10.8/ {\n    print gensub(/([0-9]*\\.[0-9]*\\.[0-9]*\\.[0-9]*)(\\.[0-9]*)?/, \"ip address: \\\\1\", \"g\", $3) ;\n  }' |\n  sort -t. -k4n |\n  uniq -c\ndone  You can reassemble these files chronologically with  mergecap -w merged.cap foo.cap*",
             "title": "Print out a list of observed src ip addresses every 5 seconds"
+        },
+        {
+            "location": "/tcpdump/#show-wpa-4-way-handshakes",
+            "text": "tcpdump -n -i en0 \"ether proto 0x888e\"",
+            "title": "Show WPA 4-way handshakes"
         },
         {
             "location": "/tcpdump/#links",
