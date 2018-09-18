@@ -87,7 +87,7 @@
         },
         {
             "location": "/ansible/",
-            "text": "https://docs.ansible.com/intro_inventory.html\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable\n\n\n\n\nModules\n\n\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_repository_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/sysctl_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/user_module.html\n\n\n\n\nExamples\n\n\nShow a list of installed modules\n\n\nansible-doc --list\n\n\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nValidate and inspect your inventory file\n\n\nThis command parses your inventory and group_vars and outputs a json data structure if no syntax faults are found.\n\n\nansible-inventory -i inventory/hosts.yml --list\n\n\n\n\nUse arbitrary groups in static inventory file\n\n\n$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client\n\n\n\n\nShow all resolved variables for a given inventory host\n\n\nThis will show all host vars, including variables resolved from \nall the different variable locations\n.\n\n\nansible -i inventory target_hostname -m debug -a \"var=hostvars[inventory_hostname]\"\n\n\n\n\nSimple ansible playbook\n\n\nThis may be useful for testing syntax and experimenting with ansible modules.\n\n\nfoo.yml\n:\n\n\n---\n- name: A local play\n  hosts: localhost\n  connection: local\n  gather_facts: no\n  tasks:\n  - name: Run date\n    shell: /bin/date\n    register: date_out\n\n  - debug:\n      var: date_out.stdout\n\n\n\n\nansible-playbook -i localhost foo.yml\n\n\nLinks\n\n\n\n\nAnsible Tests with Molecule - \nhttps://molecule.readthedocs.io/en/latest/\n / \nhttps://www.digitalocean.com/community/tutorials/how-to-test-ansible-roles-with-molecule",
+            "text": "https://docs.ansible.com/intro_inventory.html\n\n\nhttps://docs.ansible.com/playbooks_best_practices.html\n\n\nhttps://galaxy.ansible.com\n\n\nhttp://www.azavea.com/blogs/labs/2014/10/creating-ansible-roles-from-scratch-part-1\n\n\nhttp://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html\n - Targeting hosts\n\n\nhttp://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable\n\n\n\n\nModules\n\n\n\n\nhttp://docs.ansible.com/ansible/latest/list_of_all_modules.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/apt_repository_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/sysctl_module.html\n\n\nhttp://docs.ansible.com/ansible/latest/modules/user_module.html\n\n\n\n\nExamples\n\n\nShow a list of installed modules\n\n\nansible-doc --list\n\n\n\n\nRun a playbook and prompt for sudo password\n\n\nansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml\n\n\n\n\nRun an ad-hoc command\n\n\nYou can run one-off \nad-hoc commands\n by passing a module and args to the module.\n\n\nansible localhost \\\n  -m get_url \\\n  -a \"mode=755\n    url=https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64\n    dest=/usr/local/bin/ctop\n    checksum=sha256:38cfd92618ba2d92e0e1262c0c43d7690074b4b8dc77844b654f8e565166b577\n    owner=root\n    group=root\"\n\n\n\n\nValidate and inspect your inventory file\n\n\nThis command parses your inventory and group_vars and outputs a json data structure if no syntax faults are found.\n\n\nansible-inventory -i inventory/hosts.yml --list\n\n\n\n\nUse arbitrary groups in static inventory file\n\n\n$ nl -w 2 -s ' ' -ba inventory/example.yml\n 1 all:\n 2   hosts:\n 3     client:\n 4       ansible_host: 192.168.1.2\n 5     server:\n 6       ansible_host: 192.168.2.3\n 7\n 8 linux:\n 9   hosts:\n10     server:\n11\n12 windows:\n13   hosts:\n14     client:\n15\n16 california:\n17   hosts:\n18     client:\n19     server:\n$ ansible-inventory -i inventory/example.yml --graph\n@all:\n  |--@california:\n  |  |--client\n  |  |--server\n  |--@linux:\n  |  |--server\n  |--@windows:\n  |  |--client\n\n\n\n\nShow all resolved variables for a given inventory host\n\n\nThis will show all host vars, including variables resolved from \nall the different variable locations\n.\n\n\nansible -i inventory target_hostname -m debug -a \"var=hostvars[inventory_hostname]\"\n\n\n\n\nSimple ansible playbook\n\n\nThis may be useful for testing syntax and experimenting with ansible modules.\n\n\nfoo.yml\n:\n\n\n---\n- name: A local play\n  hosts: localhost\n  connection: local\n  gather_facts: no\n  tasks:\n  - name: Run date\n    shell: /bin/date\n    register: date_out\n\n  - debug:\n      var: date_out.stdout\n\n\n\n\nansible-playbook -i localhost foo.yml\n\n\nLinks\n\n\n\n\nAnsible Tests with Molecule - \nhttps://molecule.readthedocs.io/en/latest/\n / \nhttps://www.digitalocean.com/community/tutorials/how-to-test-ansible-roles-with-molecule",
             "title": "Ansible"
         },
         {
@@ -109,6 +109,11 @@
             "location": "/ansible/#run-a-playbook-and-prompt-for-sudo-password",
             "text": "ansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml",
             "title": "Run a playbook and prompt for sudo password"
+        },
+        {
+            "location": "/ansible/#run-an-ad-hoc-command",
+            "text": "You can run one-off  ad-hoc commands  by passing a module and args to the module.  ansible localhost \\\n  -m get_url \\\n  -a \"mode=755\n    url=https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64\n    dest=/usr/local/bin/ctop\n    checksum=sha256:38cfd92618ba2d92e0e1262c0c43d7690074b4b8dc77844b654f8e565166b577\n    owner=root\n    group=root\"",
+            "title": "Run an ad-hoc command"
         },
         {
             "location": "/ansible/#validate-and-inspect-your-inventory-file",
@@ -247,8 +252,18 @@
         },
         {
             "location": "/autonomous-vehicles/",
-            "text": "http://apollo.auto/\n\n\nhttps://autonomoustuff.com/\n\n\nhttps://renovo.auto\n\n\nhttp://some-ip.com/\n\n\nhttps://www.autosar.org/\n\n\nhttp://www.ros.org/\n\n\nhttps://en.wikipedia.org/wiki/Units_of_transportation_measurement\n\n\nhttps://www.automotivelinux.org",
+            "text": "Terms\n\n\n\n\nACES: Automated, Connected, Electric, Shared\n\n\nLevels: Refers to the \n6 levels of autonomous vehicles\n\n\nSAE: \nSociety of Automotive Engineers\n\n\n\n\nLinks\n\n\n\n\nhttp://apollo.auto/\n\n\nhttps://autonomoustuff.com/\n\n\nhttps://renovo.auto\n\n\nhttp://some-ip.com/\n\n\nhttps://www.autosar.org/\n\n\nhttp://www.ros.org/\n\n\nhttps://en.wikipedia.org/wiki/Units_of_transportation_measurement\n\n\nhttps://www.automotivelinux.org",
             "title": "Autonomous Vehicle Links"
+        },
+        {
+            "location": "/autonomous-vehicles/#terms",
+            "text": "ACES: Automated, Connected, Electric, Shared  Levels: Refers to the  6 levels of autonomous vehicles  SAE:  Society of Automotive Engineers",
+            "title": "Terms"
+        },
+        {
+            "location": "/autonomous-vehicles/#links",
+            "text": "http://apollo.auto/  https://autonomoustuff.com/  https://renovo.auto  http://some-ip.com/  https://www.autosar.org/  http://www.ros.org/  https://en.wikipedia.org/wiki/Units_of_transportation_measurement  https://www.automotivelinux.org",
+            "title": "Links"
         },
         {
             "location": "/avahi/",
@@ -4342,7 +4357,7 @@
         },
         {
             "location": "/netgear/",
-            "text": "Netgear R7000\n\n\nDD-WRT\n\n\n\n\nhttps://www.myopenrouter.com/downloads/dd-wrt-r7000\n\n\nhttp://www.desipro.de/ddwrt/K3-AC-Arm/\n\n\n\n\nSee Also: \ndd-wrt\n\n\nNetgear GSS116E\n\n\n\n\nhttps://www.netgear.com/support/product/GSS116E\n\n\n\n\nNetgear M4300-8X8F\n\n\n\"Stackable Managed Switch with 16x10G including 8x10GBASE-T and 8xSFP+ Layer 3\"\n\n\n\n\nhttps://www.netgear.com/support/product/M4300-8X8F",
+            "text": "Netgear R7000\n\n\nDD-WRT\n\n\n\n\nhttps://www.myopenrouter.com/downloads/dd-wrt-r7000\n\n\nhttp://www.desipro.de/ddwrt/K3-AC-Arm/\n\n\n\n\nSee Also: \ndd-wrt\n\n\nNetgear GSS116E\n\n\n\n\nhttps://www.netgear.com/support/product/GSS116E\n\n\n\n\nNetgear M4300-8X8F\n\n\n\"Stackable Managed Switch with 16x10G including 8x10GBASE-T and 8xSFP+ Layer 3\"\n\n\n\n\nhttps://www.netgear.com/support/product/M4300-8X8F\n\n\n\n\nArlo\n\n\nPros\n\n\n\n\nCompletely wireless solution available but not required.\n\n\n\n\nCons\n\n\n\n\nRequires internet access to interact with, even for cameras that are accessible on the same LAN.",
             "title": "NETGEAR"
         },
         {
@@ -4364,6 +4379,21 @@
             "location": "/netgear/#netgear-m4300-8x8f",
             "text": "\"Stackable Managed Switch with 16x10G including 8x10GBASE-T and 8xSFP+ Layer 3\"   https://www.netgear.com/support/product/M4300-8X8F",
             "title": "Netgear M4300-8X8F"
+        },
+        {
+            "location": "/netgear/#arlo",
+            "text": "",
+            "title": "Arlo"
+        },
+        {
+            "location": "/netgear/#pros",
+            "text": "Completely wireless solution available but not required.",
+            "title": "Pros"
+        },
+        {
+            "location": "/netgear/#cons",
+            "text": "Requires internet access to interact with, even for cameras that are accessible on the same LAN.",
+            "title": "Cons"
         },
         {
             "location": "/nethogs/",
@@ -7233,6 +7263,16 @@
         {
             "location": "/tcpdump/#links",
             "text": "http://www.danielmiessler.com/study/tcpdump/  https://www.rationallyparanoid.com/articles/tcpdump.html",
+            "title": "Links"
+        },
+        {
+            "location": "/terraform/",
+            "text": "\"Write, Plan, and Create Infrastructure as Code\" - \nhttps://www.terraform.io/\n\n\nLinks\n\n\n\n\nhttps://www.terraform.io/docs/providers/github/index.html\n\n\nhttps://www.terraform.io/docs/providers/gitlab/index.html",
+            "title": "Terraform"
+        },
+        {
+            "location": "/terraform/#links",
+            "text": "https://www.terraform.io/docs/providers/github/index.html  https://www.terraform.io/docs/providers/gitlab/index.html",
             "title": "Links"
         },
         {

@@ -93,6 +93,8 @@
         
             <li><a class="toctree-l3" href="#run-a-playbook-and-prompt-for-sudo-password">Run a playbook and prompt for sudo password</a></li>
         
+            <li><a class="toctree-l3" href="#run-an-ad-hoc-command">Run an ad-hoc command</a></li>
+        
             <li><a class="toctree-l3" href="#validate-and-inspect-your-inventory-file">Validate and inspect your inventory file</a></li>
         
             <li><a class="toctree-l3" href="#use-arbitrary-groups-in-static-inventory-file">Use arbitrary groups in static inventory file</a></li>
@@ -1237,6 +1239,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../terraform/">Terraform</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../time/">Time</a>
 	    </li>
           
@@ -1391,6 +1398,18 @@
 
 <h2 id="run-a-playbook-and-prompt-for-sudo-password">Run a playbook and prompt for sudo password</h2>
 <pre><code>ansible-playbook --ask-become-pass -i inventory/hosts.yaml create_users.yaml
+</code></pre>
+
+<h2 id="run-an-ad-hoc-command">Run an ad-hoc command</h2>
+<p>You can run one-off <a href="https://docs.ansible.com/ansible/2.6/user_guide/intro_adhoc.html">ad-hoc commands</a> by passing a module and args to the module.</p>
+<pre><code>ansible localhost \
+  -m get_url \
+  -a &quot;mode=755
+    url=https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64
+    dest=/usr/local/bin/ctop
+    checksum=sha256:38cfd92618ba2d92e0e1262c0c43d7690074b4b8dc77844b654f8e565166b577
+    owner=root
+    group=root&quot;
 </code></pre>
 
 <h2 id="validate-and-inspect-your-inventory-file">Validate and inspect your inventory file</h2>
