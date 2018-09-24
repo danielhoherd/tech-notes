@@ -4456,6 +4456,11 @@
             "title": "Delete a bunch of VLAN interfaces"
         },
         {
+            "location": "/neverware/",
+            "text": "\"Cutting-edge hardware? Not as important as a cutting-edge OS.\" - \nhttps://www.neverware.com/\n\n\n\"CloudReady is based on Google\u2019s Chromium OS, the same open-source architecture as Chrome OS.\" - \nhttps://www.neverware.com/\n\n\n\n\nHome Edition: \nhttps://www.neverware.com/freedownload",
+            "title": "neverware"
+        },
+        {
             "location": "/nfs/",
             "text": "nfs is the Network File System.\n- Configured in linux at /etc/exports\n- Great info here: \nhttp://nfs.sourceforge.net/\n\n\nTips and Tricks\n\n\nRegarding mount points within shares\n\n\nIf you have a mount point within an NFS share, you must have a separate entry in your exports file that sets the permissions of this mount point. Currently OS X has a problem with this, but officially this is the way to do it.\n\n\nShow hosts that are connected to this NFS server\n\n\nshowmount\n\n\nShow what hosts are using what exports\n\n\nshowmount -a\n\n\nShow exported directories\n\n\nshowmount\n-e\n\n\nShow directories in use by NFS\n\n\nshowmount -d\n\n\nAdd an NFS mount to fstab\n\n\nopal:/z4  /mnt/z4   nfs  rsize=8192,wsize=8192,timeo=14,intr\n\n\nLinux Tips and Tricks\n\n\nShow which versions of NFS your NFS server supports\n\n\nrpcinfo -p\n\n\nAllow an OS X client to mount nfs4 nested zfs data sets\n\n\nOS X has problems with the privileged port default requirement in nfs4, so the \ninsecure\n option is required.\n\n\nThe \nnohide\n option allows you to mount nested zfs datasets, instead of requiring a separate export for each dataset.\n\n\n/z4 *.local(rw,async,no_subtree_check,insecure,nohide)\n\n\n\n\nOS X Tips and Tricks\n\n\nCreate persistent NFS mount in OS X 10.8\n\n\nThis is not bulletproof. Modern OS X 10.9+ version are switching away from NFS to CIFS. The NFS client on OS X is pretty weak. For instance it might crash your machine if the share has 0 bytes free but is mounted RW. Use at your own risk.\n\n\nsudo mkdir /mnt # OS X doesn't like you playing with /Volumes, it may delete your dirs\nsudo dscl . -create /Mounts/z4\nsudo dscl . -create /Mounts/z4 VFSLinkDir /mnt/z4\nsudo dscl . -create /Mounts/z4 VFSOpts resvport rw nosuid\nsudo dscl . -create /Mounts/z4 VFSType nfs\nsudo dscl . -create /Mounts/z4 RecordName opal:/z4\nsudo dscl . -create /Mounts/iTunes\nsudo dscl . -create /Mounts/iTunes VFSLinkDir /mnt/z4/iTunes\nsudo dscl . -create /Mounts/iTunes VFSOpts resvport rw nosuid\nsudo dscl . -create /Mounts/iTunes VFSType nfs\nsudo dscl . -create /Mounts/iTunes RecordName opal:/z4/iTunes\nsudo dscl . -read /Mounts/opal:/z4\nsudo dscl . -read /Mounts/opal:/z4/iTunes\nsudo dscl . -list /Mounts\n\nsudo dscl . -delete /Mounts opal:/z4/iTunes",
             "title": "nfs"
@@ -5557,7 +5562,7 @@
         },
         {
             "location": "/raspberry-pi/",
-            "text": "A small computer, good for running linux.\n\n\n\n\nhttp://www.raspberrypi.org\n\n\nFedora Remix for Pi - \nhttp://www.raspberrypi.org/archives/805\n\n\n\n\nSoftware\n\n\nRaspbian\n\n\ndpkg-reconfigure locales\n\n\nHass.io\n\n\n\"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.\" - \nhttps://home-assistant.io/hassio/\n\n\nSpillPassPi\n\n\nV1\n\n\nRetired.\n\n\n'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=5\n\n\nV2\n\n\n'A Simple Homebrew Plug and Play 2DS/3DS/N3DS StreetPass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=169\n\n\nHomepass\n\n\n\"Nintendo 3DS homepass resources and software.\" - \nhttps://github.com/danielhoherd/homepass/tree/master/RaspberryPi",
+            "text": "A small computer, good for running linux.\n\n\n\n\nhttp://www.raspberrypi.org\n\n\nFedora Remix for Pi - \nhttp://www.raspberrypi.org/archives/805\n\n\n\n\nSoftware\n\n\nRaspbian\n\n\ndpkg-reconfigure locales\n\n\nHass.io\n\n\n\"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.\" - \nhttps://home-assistant.io/hassio/\n\n\nSpillPassPi\n\n\nV1\n\n\nRetired.\n\n\n'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=5\n\n\nV2\n\n\n'A Simple Homebrew Plug and Play 2DS/3DS/N3DS StreetPass Relay and Fake \"Nintendo Zone\" Hotspot' - \nhttp://www.spillmonkey.com/?page_id=169\n\n\nHomepass\n\n\n\"Nintendo 3DS homepass resources and software.\" - \nhttps://github.com/danielhoherd/homepass/tree/master/RaspberryPi\n\n\nLinks\n\n\n\n\nRaspberry Pi SD benchmarking blog post with script linked within: \nhttps://www.jeffgeerling.com/blog/2018/raspberry-pi-microsd-card-performance-comparison-2018",
             "title": "raspberry-pi"
         },
         {
@@ -5594,6 +5599,11 @@
             "location": "/raspberry-pi/#homepass",
             "text": "\"Nintendo 3DS homepass resources and software.\" -  https://github.com/danielhoherd/homepass/tree/master/RaspberryPi",
             "title": "Homepass"
+        },
+        {
+            "location": "/raspberry-pi/#links",
+            "text": "Raspberry Pi SD benchmarking blog post with script linked within:  https://www.jeffgeerling.com/blog/2018/raspberry-pi-microsd-card-performance-comparison-2018",
+            "title": "Links"
         },
         {
             "location": "/redis/",
@@ -6974,6 +6984,11 @@
             "location": "/swagger/#links",
             "text": "Hello World with Swagger -  https://swagger.io/blog/getting-started-with-swagger-i-what-is-swagger/  Swagger 101 -  https://app.swaggerhub.com/help/tutorials/writing-swagger-definitions  Online editor with example app definition  https://editor.swagger.io/  https://swagger.io/tools/",
             "title": "Links"
+        },
+        {
+            "location": "/swift/",
+            "text": "\"Swift is a powerful and intuitive programming language for macOS, iOS, watchOS and tvOS. Writing Swift code is interactive and fun, the syntax is concise yet expressive, and Swift includes modern features developers love. Swift code is safe by design, yet also produces software that runs lightning-fast.\"\n\n\n\n\nhttps://developer.apple.com/swift/\n\n\nhttps://www.appcoda.com/learnswift/",
+            "title": "Swift"
         },
         {
             "location": "/sysctl/",
