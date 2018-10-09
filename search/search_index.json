@@ -7701,6 +7701,41 @@
             "title": "wuzz"
         },
         {
+            "location": "/xargs/",
+            "text": "xargs issues commands with the STDIN as arguments, by default appended to the end of the command.\n\n\nExamples\n\n\nGet the type of each listing from ls\n\n\nls | xargs file\n\n\n\n\nHandle spaces and use the arg as something other than the last token\n\n\nThe \n-I\n argument takes a string to use as a delimiter for any input.\n\n\nls | xargs -I {} mv \"{}\" ~/some/dir/\n\n\n\n\nPass 5 args to each echo command, and never do more than 3 echo processes at a time\n\n\necho {1..100} | xargs -n5 -P3 echo\n\n\n\n\nuse sed to change git files containing a certain string\n\n\nThis uses GNU \nsed -i\n, on macOS you should use \nsed -i ''\n or \ngsed -i\n.\n\n\ngit grep -l 192.168.5 | xargs sed -i 's/192.168.5/172.18.0/'\n\n\n\n\nIssue the same command several times in parallel\n\n\nThis takes 1 directory as input and starts a sub-shell that cd's to the directory and runs a command. Up to 4 subhells are run in parallel. This is very similar to the \nGNU parallel\n command.\n\n\nfind ~/code/ -mindepth 1 -maxdepth 1 -type d |\nxargs -I {} -n1 -P4 bash -c \"cd {} ; make install-hooks ;\"",
+            "title": "Xargs"
+        },
+        {
+            "location": "/xargs/#examples",
+            "text": "",
+            "title": "Examples"
+        },
+        {
+            "location": "/xargs/#get-the-type-of-each-listing-from-ls",
+            "text": "ls | xargs file",
+            "title": "Get the type of each listing from ls"
+        },
+        {
+            "location": "/xargs/#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token",
+            "text": "The  -I  argument takes a string to use as a delimiter for any input.  ls | xargs -I {} mv \"{}\" ~/some/dir/",
+            "title": "Handle spaces and use the arg as something other than the last token"
+        },
+        {
+            "location": "/xargs/#pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time",
+            "text": "echo {1..100} | xargs -n5 -P3 echo",
+            "title": "Pass 5 args to each echo command, and never do more than 3 echo processes at a time"
+        },
+        {
+            "location": "/xargs/#use-sed-to-change-git-files-containing-a-certain-string",
+            "text": "This uses GNU  sed -i , on macOS you should use  sed -i ''  or  gsed -i .  git grep -l 192.168.5 | xargs sed -i 's/192.168.5/172.18.0/'",
+            "title": "use sed to change git files containing a certain string"
+        },
+        {
+            "location": "/xargs/#issue-the-same-command-several-times-in-parallel",
+            "text": "This takes 1 directory as input and starts a sub-shell that cd's to the directory and runs a command. Up to 4 subhells are run in parallel. This is very similar to the  GNU parallel  command.  find ~/code/ -mindepth 1 -maxdepth 1 -type d |\nxargs -I {} -n1 -P4 bash -c \"cd {} ; make install-hooks ;\"",
+            "title": "Issue the same command several times in parallel"
+        },
+        {
             "location": "/yaml/",
             "text": "YAML Ain't Markup Language\n\n\nLinks\n\n\n\n\nhttp://www.yaml.org/\n\n\nhttp://www.yaml.org/refcard.html\n\n\nhttps://en.wikipedia.org/wiki/YAML\n\n\nhttp://www.yamllint.com/",
             "title": "yaml"
