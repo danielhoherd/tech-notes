@@ -1405,12 +1405,17 @@
 <pre><code>sudo ceph-disk activate-all
 </code></pre>
 
+<p>Starting with ceph 13, use:</p>
+<pre><code>ceph-volume lvm activate --all
+</code></pre>
+
 <h2 id="start-all-ceph-services">Start all ceph services</h2>
 <pre><code>sudo systemctl start ceph.target
 </code></pre>
 
 <h2 id="stop-all-ceph-services">Stop all ceph services</h2>
-<pre><code>sudo systemctl stop ceph\*.service ceph\*.target
+<p>Unfortunately there's not a single service or target to stop, so you have to use globs</p>
+<pre><code>sudo systemctl stop '*ceph*'
 </code></pre>
 
 <h2 id="show-the-status-of-all-osds-in-the-cluster">Show the status of all osds in the cluster</h2>
