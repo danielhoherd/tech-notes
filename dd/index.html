@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>DHCP - Daniel Hoherd's tech notes</title>
+  <title>Dd - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "DHCP";
-    var mkdocs_page_input_path = "dhcp.md";
-    var mkdocs_page_url = "/dhcp/";
+    var mkdocs_page_name = "Dd";
+    var mkdocs_page_input_path = "dd.md";
+    var mkdocs_page_url = "/dd/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -292,51 +292,52 @@
     <a class="" href="../dd-wrt/">dd-wrt</a>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../dd/">Dd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ddrescue/">ddrescue</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deb/">deb</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../defaults/">defaults</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../devops/">devops</a>
-	    </li>
-          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">DHCP</a>
+    <a class="current" href="./">Dd</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#isc-dhcpd">isc dhcpd</a></li>
+    <li class="toctree-l2"><a href="#tips-and-tricks">Tips and Tricks</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#test-configuration-file">Test configuration file</a></li>
+            <li><a class="toctree-l3" href="#write-random-data">Write random data</a></li>
         
-            <li><a class="toctree-l3" href="#test-lease-file">Test lease file</a></li>
+            <li><a class="toctree-l3" href="#write-zeros">Write zeros</a></li>
+        
+            <li><a class="toctree-l3" href="#wipe-a-failed-disk">Wipe a failed disk</a></li>
+        
+            <li><a class="toctree-l3" href="#wipe-first-and-last-1g-of-a-hard-disk">Wipe first and last 1G of a hard disk</a></li>
         
         </ul>
     
 
-    <li class="toctree-l2"><a href="#handshake-process">Handshake Process</a></li>
-    
-
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ddrescue/">Ddrescue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deb/">Deb</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../defaults/">Defaults</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../devops/">Devops</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dhcp/">Dhcp</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1371,7 +1372,7 @@
     
       
     
-    <li>DHCP</li>
+    <li>Dd</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1381,22 +1382,28 @@
           <div role="main">
             <div class="section">
               
-                <p>Dynamic Host Configuration Protocol</p>
-<h1 id="isc-dhcpd">isc dhcpd</h1>
-<p><a href="https://www.isc.org/downloads/dhcp/">https://www.isc.org/downloads/dhcp/</a></p>
-<h2 id="test-configuration-file">Test configuration file</h2>
-<pre><code>dhcpd3 -t
+                <p>Disk Dump, used for cloning disks, wiping data, copying blocks of data.</p>
+<h1 id="tips-and-tricks">Tips and Tricks</h1>
+<h2 id="write-random-data">Write random data</h2>
+<pre><code>dd if=/dev/urandom of=/dev/hda
 </code></pre>
 
-<h2 id="test-lease-file">Test lease file</h2>
-<pre><code>dhcpd3 -T
+<h2 id="write-zeros">Write zeros</h2>
+<pre><code>dd if=/dev/zero of=/dev/hda
 </code></pre>
 
-<h1 id="handshake-process">Handshake Process</h1>
-<pre><code>Apr 21 15:33:00 ops1prod dhcpd: DHCPDISCOVER from 08:9e:01:8b:18:94 via eth0
-Apr 21 15:33:01 ops1prod dhcpd: DHCPOFFER on 10.1.14.127 to 08:9e:01:8b:18:94 via eth0
-Apr 21 15:33:01 ops1prod dhcpd: DHCPREQUEST for 10.1.225.43 from 00:1e:0b:bc:8a:c4 via eth1
-Apr 21 15:33:01 ops1prod dhcpd: DHCPACK on 10.1.225.43 to 00:1e:0b:bc:8a:c4 via eth1
+<h2 id="wipe-a-failed-disk">Wipe a failed disk</h2>
+<p>If you can't use <code>shred</code> or <code>ddrescue</code>, this is a very slow but portable alternative</p>
+<pre><code>i=0
+while true ; do
+  echo &quot;Writing block $i&quot;
+  dd if=/dev/zero of=/dev/sda count=1 bs=1 seek=&quot;$i&quot;
+  let i=i+1
+done
+</code></pre>
+
+<h2 id="wipe-first-and-last-1g-of-a-hard-disk">Wipe first and last 1G of a hard disk</h2>
+<pre><code>dd bs=4096 if=/dev/zero of=/dev/sdx count=256 seek=$(( $(blockdev --getsz /dev/sdx) - 256))
 </code></pre>
               
             </div>
@@ -1405,10 +1412,10 @@ Apr 21 15:33:01 ops1prod dhcpd: DHCPACK on 10.1.225.43 to 00:1e:0b:bc:8a:c4 via 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dig/" class="btn btn-neutral float-right" title="Dig">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ddrescue/" class="btn btn-neutral float-right" title="Ddrescue">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../devops/" class="btn btn-neutral" title="devops"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dd-wrt/" class="btn btn-neutral" title="dd-wrt"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1434,10 +1441,10 @@ Apr 21 15:33:01 ops1prod dhcpd: DHCPACK on 10.1.225.43 to 00:1e:0b:bc:8a:c4 via 
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../devops/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../dd-wrt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../dig/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ddrescue/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
