@@ -947,7 +947,7 @@
         },
         {
             "location": "/ceph/",
-            "text": "\"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability.\" - \nhttps://ceph.com\n\n\nGlossary\n\n\nhttp://docs.ceph.com/docs/master/glossary/\n\n\n\n\nCeph OSD: The Ceph OSD software, which interacts with a logical disk (OSD).\n\n\nCephFS: The POSIX filesystem components of Ceph.\n\n\nMDS: (Ceph Metadata Server) The Ceph metadata software.\n\n\nMGR: (Ceph Manager) The Ceph manager software, which collects all the state from the whole cluster in one place.\n\n\nMON: (Ceph Monitor) The Ceph monitor software.\n\n\nOSD: (Object Storage Device) A physical or logical storage unit.\n\n\nRADOS: Reliable Autonomic Distributed Object Store.\n\n\nRBD: The block storage component of Ceph.\n\n\nRGW: The S3/Swift gateway component of Ceph.\n\n\nPG: Placement Group. \nhttp://docs.ceph.com/docs/master/rados/operations/placement-groups/\n\n\n\n\nExamples\n\n\nActivate all OSDs\n\n\nsudo ceph-disk activate-all\n\n\n\n\nStarting with ceph 13, use:\n\n\nceph-volume lvm activate --all\n\n\n\n\nStart all ceph services\n\n\nsudo systemctl start ceph.target\n\n\n\n\nStop all ceph services\n\n\nUnfortunately there's not a single service or target to stop, so you have to use globs\n\n\nsudo systemctl stop '*ceph*'\n\n\n\n\nShow the status of all osds in the cluster\n\n\nceph osd status\n\n\n\n\nShow metadata about all osds in the cluster\n\n\nceph osd metadata\n\n\n\n\nLinks\n\n\n\n\nCeph Intro & Architectural Overview - \nhttps://youtu.be/7I9uxoEhUdY\n\n\nhttp://docs.ceph.com/ceph-ansible/master/\n\n\nhttp://docs.ceph.com/docs/master/rados/configuration/network-config-ref/\n\n\nhttp://docs.ceph.com/docs/master/rados/operations/operating/\n\n\nhttp://docs.ceph.com/docs/master/start/quick-ceph-deploy/",
+            "text": "\"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability.\" - \nhttps://ceph.com\n\n\nGlossary\n\n\nhttp://docs.ceph.com/docs/master/glossary/\n\n\n\n\nCeph OSD: The Ceph OSD software, which interacts with a logical disk (OSD).\n\n\nCephFS: The POSIX filesystem components of Ceph.\n\n\nMDS: (Ceph Metadata Server) The Ceph metadata software.\n\n\nMGR: (Ceph Manager) The Ceph manager software, which collects all the state from the whole cluster in one place.\n\n\nMON: (Ceph Monitor) The Ceph monitor software.\n\n\nOSD: (Object Storage Device) A physical or logical storage unit.\n\n\nRADOS: Reliable Autonomic Distributed Object Store.\n\n\nRBD: The block storage component of Ceph.\n\n\nRGW: The S3/Swift gateway component of Ceph.\n\n\nPG: Placement Group. \nhttp://docs.ceph.com/docs/master/rados/operations/placement-groups/\n\n\n\n\nExamples\n\n\nActivate all OSDs\n\n\nsudo ceph-disk activate-all\n\n\n\n\nStarting with ceph 13, use:\n\n\nceph-volume lvm activate --all\n\n\n\n\nStart all ceph services\n\n\nsudo systemctl start ceph.target\n\n\n\n\nStop all ceph services\n\n\nUnfortunately there's not a single service or target to stop, so you have to use globs\n\n\nsudo systemctl stop '*ceph*'\n\n\n\n\nShow the status of all osds in the cluster\n\n\nceph osd status\n\n\n\n\nShow metadata about all osds in the cluster\n\n\nceph osd metadata\n\n\n\n\nShow all pools\n\n\nceph osd lspools\n\n\n\n\nMonitor existing operations\n\n\nceph daemon mon.$MON_HOSTNAME ops\n\n\n\n\nLinks\n\n\n\n\nCeph Intro & Architectural Overview - \nhttps://youtu.be/7I9uxoEhUdY\n\n\nhttp://docs.ceph.com/ceph-ansible/master/\n\n\nhttp://docs.ceph.com/docs/master/rados/configuration/network-config-ref/\n\n\nhttp://docs.ceph.com/docs/master/rados/operations/operating/\n\n\nhttp://docs.ceph.com/docs/master/start/quick-ceph-deploy/",
             "title": "Ceph"
         },
         {
@@ -984,6 +984,16 @@
             "location": "/ceph/#show-metadata-about-all-osds-in-the-cluster",
             "text": "ceph osd metadata",
             "title": "Show metadata about all osds in the cluster"
+        },
+        {
+            "location": "/ceph/#show-all-pools",
+            "text": "ceph osd lspools",
+            "title": "Show all pools"
+        },
+        {
+            "location": "/ceph/#monitor-existing-operations",
+            "text": "ceph daemon mon.$MON_HOSTNAME ops",
+            "title": "Monitor existing operations"
         },
         {
             "location": "/ceph/#links",
@@ -4612,7 +4622,7 @@
         },
         {
             "location": "/nvidia/",
-            "text": "Verify linux nvidia drivers are installed: \nnvidia-smi",
+            "text": "Verify linux nvidia drivers are installed: \nnvidia-smi\n\n\nShow nvidia container info: \nnvidia-container-cli -k -d /dev/tty info",
             "title": "nvidia"
         },
         {

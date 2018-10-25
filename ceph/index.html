@@ -214,6 +214,10 @@
         
             <li><a class="toctree-l3" href="#show-metadata-about-all-osds-in-the-cluster">Show metadata about all osds in the cluster</a></li>
         
+            <li><a class="toctree-l3" href="#show-all-pools">Show all pools</a></li>
+        
+            <li><a class="toctree-l3" href="#monitor-existing-operations">Monitor existing operations</a></li>
+        
         </ul>
     
 
@@ -1429,6 +1433,14 @@
 
 <h2 id="show-metadata-about-all-osds-in-the-cluster">Show metadata about all osds in the cluster</h2>
 <pre><code>ceph osd metadata
+</code></pre>
+
+<h2 id="show-all-pools">Show all pools</h2>
+<pre><code>ceph osd lspools
+</code></pre>
+
+<h2 id="monitor-existing-operations">Monitor existing operations</h2>
+<pre><code>ceph daemon mon.$MON_HOSTNAME ops
 </code></pre>
 
 <h1 id="links">Links</h1>
