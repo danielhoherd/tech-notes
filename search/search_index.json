@@ -4622,7 +4622,7 @@
         },
         {
             "location": "/nvidia/",
-            "text": "Verify linux nvidia drivers are installed: \nnvidia-smi\n\n\nShow nvidia container info: \nnvidia-container-cli -k -d /dev/tty info",
+            "text": "Verify linux nvidia drivers are installed: \nnvidia-smi\n\n\nVerify linux nvidia drivers work within docker: \ndocker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi\n\n\nShow nvidia container info: \nnvidia-container-cli -k -d /dev/tty info",
             "title": "nvidia"
         },
         {
