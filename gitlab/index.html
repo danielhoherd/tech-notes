@@ -467,6 +467,17 @@
         </ul>
     
 
+    <li class="toctree-l2"><a href="#pros-and-cons">Pros and cons</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#pros">Pros</a></li>
+        
+            <li><a class="toctree-l3" href="#cons">Cons</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l2"><a href="#links">Links</a></li>
     
 
@@ -1403,6 +1414,18 @@ done
 echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
 </code></pre>
 
+<h1 id="pros-and-cons">Pros and cons</h1>
+<h2 id="pros">Pros</h2>
+<ul>
+<li>You can create a new repo by locally initializing a git repo, setting a remote_url to where you want your project to be, and pushing your code. The server gives you a notification that the project has been created and gives you a URL to it.</li>
+</ul>
+<h2 id="cons">Cons</h2>
+<ul>
+<li>Push-button GKE is configured at the project level, not the group level, so setting up k8s runners is more involved than it could be.</li>
+<li>User permissions do not have a distinct group entity, they are managed by creating a project sub-group which functions as both a place to put code and a permission level. This shows up in a variety of places, and I suspect is the reason we cannot export groups over SAML.</li>
+<li>There is no command line tool equivalent to the <code>hub</code> command that github has, which makes it easier to script pull requests etc..</li>
+<li>Terraform provider for Gitlab is pretty limited compared to Github.</li>
+</ul>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://docs.gitlab.com/ce/administration/">https://docs.gitlab.com/ce/administration/</a></li>
