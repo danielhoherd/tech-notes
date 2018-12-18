@@ -685,16 +685,16 @@
         
             <li><a class="toctree-l3" href="#watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</a></li>
         
+            <li><a class="toctree-l3" href="#show-logs-for-a-given-pod-since-n-hours-ago">Show logs for a given pod since N hours ago</a></li>
+        
+            <li><a class="toctree-l3" href="#show-logs-for-a-given-pod-since-a-given-date">Show logs for a given pod since a given date</a></li>
+        
         </ul>
     
 
     <li class="toctree-l2"><a href="#installations">Installations</a></li>
     
         <ul>
-        
-            <li><a class="toctree-l3" href="#kubespray">kubespray</a></li>
-        
-            <li><a class="toctree-l3" href="#ansible-on-ubuntu-16">Ansible on Ubuntu 16</a></li>
         
             <li><a class="toctree-l3" href="#manually-on-ubuntu-16">Manually on Ubuntu 16</a></li>
         
@@ -1471,16 +1471,18 @@ ubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,s
 <pre><code>watch kubectl get pods --all-namespaces -o wide
 </code></pre>
 
-<h1 id="installations">Installations</h1>
-<h2 id="kubespray">kubespray</h2>
-<ul>
-<li><a href="https://github.com/kubernetes-incubator/kubespray">https://github.com/kubernetes-incubator/kubespray</a></li>
-</ul>
-<h2 id="ansible-on-ubuntu-16">Ansible on Ubuntu 16</h2>
-<p><a href="https://github.com/entercloudsuite/ansible-kubernetes">https://github.com/entercloudsuite/ansible-kubernetes</a></p>
-<pre><code>ansible-galaxy install entercloudsuite.kubernetes
+<h2 id="show-logs-for-a-given-pod-since-n-hours-ago">Show logs for a given pod since N hours ago</h2>
+<pre><code>kubectl logs &lt;podname&gt; --since=12h
 </code></pre>
 
+<p>The <code>--since</code> arg can take [s]econds, [m]inutes and [h]ours. Longer durations should use <code>--since-time=&lt;rfc3339 timestamp&gt;</code></p>
+<h2 id="show-logs-for-a-given-pod-since-a-given-date">Show logs for a given pod since a given date</h2>
+<p>The <code>--since-time</code> arg takes <a href="https://tools.ietf.org/html/rfc3339">RFC3339</a> datetime. EG: <code>1991-08-03T13:31:46-07:00</code>. This format requirement is strict, and is incompatible with the GNU date <code>--rfc-3339=seconds</code> output, which uses a space instead of a T to separate the full date from the full time, and <code>+%FT%F%z</code>, which does not include a colon between hours and minutes.</p>
+<pre><code>kubectl logs &lt;pod_name&gt; --since-time=&quot;$(date --iso-8601=seconds -d '-5 weeks')&quot;
+</code></pre>
+
+<h1 id="installations">Installations</h1>
+<p>The standard way to install k8s by yourself is to use <code>kubeadm</code>.</p>
 <h2 id="manually-on-ubuntu-16">Manually on Ubuntu 16</h2>
 <pre><code># as root
 swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533
