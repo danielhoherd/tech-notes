@@ -1382,15 +1382,19 @@
           <div role="main">
             <div class="section">
               
-                <p>chkconfig is a tool to interact with sys-v init scripts on centos/rhel hosts.</p>
+                <p>chkconfig is a tool to interact with sys-v init scripts on centos/rhel hosts, and probably others.</p>
 <h1 id="examples">Examples</h1>
 <h2 id="list-services-and-their-runlevels">List services and their runlevels</h2>
-<p><code>chkconfig --list</code></p>
+<pre><code>chkconfig --list
+</code></pre>
+
 <h2 id="turn-on-mysql-at-runlevels-3-and-5">Turn on mysql at runlevels 3 and 5</h2>
-<p><code>chkconfig --level 35 mysql on</code></p>
+<pre><code>chkconfig --level 35 mysql on
+</code></pre>
+
 <h1 id="see-also">See Also</h1>
 <ul>
-<li><a href="update-rc.d">update-rc.d</a> - similar feature for ubuntu sysvinit</li>
+<li>update-rc.d - similar feature for ubuntu sysvinit</li>
 </ul>
               
             </div>
