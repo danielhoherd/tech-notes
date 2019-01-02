@@ -621,6 +621,15 @@
     <li class="toctree-l2"><a href="#links">Links</a></li>
     
 
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -1374,9 +1383,21 @@
                 <p>"JMESPath is a query language for JSON." - <a href="http://jmespath.org">http://jmespath.org</a></p>
 <h1 id="links">Links</h1>
 <ul>
-<li><a href="https://github.com/jmespath/jp">https://github.com/jmespath/jp</a></li>
+<li><a href="http://jmespath.org/examples.html">http://jmespath.org/examples.html</a></li>
+<li><a href="http://jmespath.org/tutorial.html">http://jmespath.org/tutorial.html</a></li>
 <li><a href="https://github.com/jmespath/jmespath.terminal">https://github.com/jmespath/jmespath.terminal</a></li>
+<li><a href="https://github.com/jmespath/jp">https://github.com/jmespath/jp</a></li>
 </ul>
+<h1 id="examples">Examples</h1>
+<h2 id="grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</h2>
+<pre><code>kubectl get po --all-namespaces -o json |
+jp &quot;items[*].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
+</code></pre>
+
+<p>Or filter only to non-default namespace where imagePullSecrets is populated</p>
+<pre><code>kubectl get po --all-namespaces -o json |
+jp &quot;items[?metadata.namespace != 'default' &amp;&amp; spec.imagePullSecrets != null].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
+</code></pre>
               
             </div>
           </div>
