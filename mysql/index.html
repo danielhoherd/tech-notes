@@ -1549,10 +1549,40 @@ DELETE from mysql.db where User = 'user_name';
 <h3 id="add-a-record">Add a record</h3>
 <h2 id="table-updates">Table Updates</h2>
 <h3 id="update-if-key-exists">Update if key exists</h3>
+<p>For unique fields, you cannot insert, so you need to have an <code>on duplicate key</code> section in your statement.</p>
+<pre><code>INSERT INTO photo_sizes (
+  photo_id,
+  format,
+  height,
+  width,
+  url,
+  source
+) values (
+  '32704962848',
+  'Medium 640',
+  '427',
+  '640',
+  'https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/',
+  'https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg'
+) ON DUPLICATE KEY UPDATE
+  height='427',
+  width='640',
+  url='https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/',
+  source='https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg'
+</code></pre>
+
 <ul>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html">http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
 </ul>
-<h3 id="update-some-fields-in-a-record">Update some fields in a record</h3>
+<h3 id="update-a-datetime-column-with-a-random-datetime">Update a datetime column with a random datetime</h3>
+<pre><code>UPDATE flixplor
+SET last_retrieval = subtime(
+  concat_ws(' ','2019-01-01' - interval rand() * 10000 day ,'00:00:00'), -- create a random YYYY-MM-DD within 10k days of given datetime
+  sec_to_time(floor(0 + (rand() * 86401))) -- create a random HH:MM:SS within a 24 hour period
+)
+WHERE last_retrieval &lt; '2019-01-01 00:00:00';
+</code></pre>
+
 <h2 id="table-selects">Table Selects</h2>
 <h3 id="select-values-and-dont-show-duplicates">Select values and don't show duplicates</h3>
 <pre><code>SELECT col from servers group by col ;
