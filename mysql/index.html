@@ -1508,7 +1508,10 @@ DELETE from mysql.db where User = 'user_name';
 </code></pre>
 
 <p>or...</p>
-<pre><code>UPDATE mysql.user SET Password=PASSWORD('SomeNewPassword') WHERE User='user_name' AND Host='localhost';
+<pre><code>UPDATE mysql.user
+  SET Password=PASSWORD('hunter2')
+  WHERE User='leroy_jenkins'
+  AND Host='localhost' ;
 </code></pre>
 
 <h2 id="create-statements">Create statements</h2>
