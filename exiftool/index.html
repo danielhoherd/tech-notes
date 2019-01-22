@@ -402,7 +402,7 @@
         
             <li><a class="toctree-l3" href="#correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</a></li>
         
-            <li><a class="toctree-l3" href="#set-all-dates-to-something-obviously-wrong-useful-for-scanned-images">Set all dates to something obviously wrong (useful for scanned images)</a></li>
+            <li><a class="toctree-l3" href="#set-all-dates-to-something-obviously-wrong">Set all dates to something obviously wrong</a></li>
         
             <li><a class="toctree-l3" href="#rename-gpx-files-based-on-the-capture-time">Rename GPX files based on the capture time</a></li>
         
@@ -1422,14 +1422,76 @@
 </code></pre>
 
 <h2 id="show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them</h2>
-<pre><code>exiftool -S filename.jpg
+<pre><code>exiftool -S $filename
+</code></pre>
+
+<p>For example</p>
+<pre><code>$ exiftool -S &quot;$filename&quot; | grep Daniel
+Artist: Daniel Austin Hoherd
+Copyright: ©Daniel Austin Hoherd
+Creator: Daniel Austin Hoherd
+Rights: ©Daniel Austin Hoherd
+$ exiftool -Rights='All rights reserved' &quot;$filename&quot;
+    1 image files updated
+$ exiftool -Rights &quot;$filename&quot;
+Rights                          : All rights reserved
 </code></pre>
 
 <h2 id="expanded-basic-usage">Expanded basic usage</h2>
-<pre><code>exiftool -a -u -G:1:2 filename
+<p>This prints out a lot more information than normal usage, and indicates what type of metadata it is.</p>
+<pre><code>exiftool -a -u -G:1:2 &quot;$filename&quot;
+</code></pre>
+
+<p>Here is an example of each unique column 1 in a file</p>
+<pre><code>$ exiftool -a -u -G:1:2 &quot;$filename&quot; | sort -u -k1,1
+[Adobe:Image]   DCT Encode Version              : 100
+[Composite:Camera] Scale Factor To 35 mm Equivalent: 7.0
+[Composite:Image] Aperture                      : 1.8
+[Composite:Location] GPS Latitude               : 37 deg 15' 53.04&quot; N
+[Composite:Time] Date/Time Created              : 2019:01:08 15:59:06
+[ExifIFD:Camera] Exposure Program               : Program AE
+[ExifIFD:Image] Exposure Time                   : 1/120
+[ExifIFD:Time]  Date/Time Original              : 2019:01:08 15:59:06
+[ExifTool:ExifTool] ExifTool Version Number     : 11.11
+[File:Image]    File Type                       : JPEG
+[GPS:Location]  GPS Version ID                  : 2.2.0.0
+[GPS:Time]      GPS Time Stamp                  : 23:59:06
+[ICC-header:Image] Profile CMM Type             : Linotronic
+[ICC-header:Time] Profile Date Time             : 1998:02:09 06:49:00
+[ICC-meas:Image] Measurement Observer           : CIE 1931
+[ICC-view:Image] Viewing Cond Illuminant        : 19.6445 20.3718 16.8089
+[ICC_Profile:Camera] Device Mfg Desc            : IEC http://www.iec.ch
+[ICC_Profile:Image] Profile Copyright           : Copyright (c) 1998 Hewlett-Packard Company
+[IFD0:Author]   Artist                          : Daniel Austin Hoherd
+[IFD0:Camera]   Make                            : Apple
+[IFD0:Image]    X Resolution                    : 240
+[IFD0:Time]     Modify Date                     : 2019:01:09 13:50:29
+[IFD1:Image]    Compression                     : JPEG (old-style)
+[IFD1:Preview]  Thumbnail Image                 : (Binary data 12008 bytes, use -b option to extract)
+[IPTC:Author]   By-line                         : Daniel Austin Hoherd
+[IPTC:Other]    Coded Character Set             : UTF8
+[IPTC:Time]     Date Created                    : 2019:01:08
+[Photoshop:Author] Copyright Flag               : True
+[Photoshop:Image] X Resolution                  : 240
+[Photoshop:Preview] Photoshop Thumbnail         : (Binary data 12008 bytes, use -b option to extract)
+[System:Image]  File Name                       : 2019-01-08-15-59-06-46628465322_d1657e4c95_o.jpg
+[System:Time]   File Modification Date/Time     : 2019:01:22 09:00:22-08:00
+[XMP-aux:Camera] Distortion Correction Already Applied: True
+[XMP-crs:Image] Already Applied                 : True
+[XMP-dc:Author] Creator                         : Daniel Austin Hoherd
+[XMP-dc:Image]  Format                          : image/jpeg
+[XMP-photoshop:Image] Headline                  : ljwZuD
+[XMP-photoshop:Time] Date Created               : 2019:01:08 15:59:06.448
+[XMP-x:Document] XMP Toolkit                    : Image::ExifTool 11.11
+[XMP-xmp:Image] Creator Tool                    : Adobe Photoshop Lightroom 6.14 (Macintosh)
+[XMP-xmp:Time]  Create Date                     : 2019:01:08 15:59:06.448
+[XMP-xmpMM:Other] Derived From Document ID      : 9880573B7AACBFC189C795E182E8A05D
+[XMP-xmpMM:Time] History When                   : 2019:01:09 13:50:29-08:00
+[XMP-xmpRights:Author] Marked                   : True
 </code></pre>
 
 <h2 id="add-missing-lens-data-on-rokinon-85mm">Add missing lens data on Rokinon 85mm</h2>
+<p>Rokinon 85mm is a mechanical lens with no electronics, so no data about photos taken with it are stored in the image. This adds some stock metadata describing characteristics of the lens that are always true, which helps these photos sorting accurately, etc..</p>
 <pre><code>exiftool \
   -overwrite_original \
   -LensModel='Rokinon 85mm f/1.4' \
@@ -1440,11 +1502,13 @@
 </code></pre>
 
 <h2 id="correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</h2>
+<p>The following example increases all metadata dates by 1 minute and 56 seconds.</p>
 <pre><code># exiftool -AllDates-='Y:M:D H:M:S'
 exiftool -AllDates+='0:0:0 0:1:56'
 </code></pre>
 
-<h2 id="set-all-dates-to-something-obviously-wrong-useful-for-scanned-images">Set all dates to something obviously wrong (useful for scanned images)</h2>
+<h2 id="set-all-dates-to-something-obviously-wrong">Set all dates to something obviously wrong</h2>
+<p>This is useful when scanning or photographing film or prints where you do not want the current date associated with the image.</p>
 <pre><code>exiftool -alldates='1900:01:01 01:01:01' *
 </code></pre>
 
@@ -1454,27 +1518,50 @@ exiftool -AllDates+='0:0:0 0:1:56'
 </code></pre>
 
 <h2 id="rename-files-to-their-original-date-and-time-using-a-lower-case-file-extension">Rename files to their original date and time using a lower case file extension</h2>
-<pre><code>exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&quot; *.jpg
+<pre><code># %le = lowercase extension
+# %-c = unique filenames when the timestamp is exactly the same. EG: filename-1.jpg
+exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&quot; *.jpg
 </code></pre>
 
 <h2 id="rename-files-using-a-combination-of-tags">Rename files using a combination of tags</h2>
-<p>The '%-c' string here adds a '-1' if there are two of the same target filename, and increments if there are more, but is null for unique filenames.</p>
+<p>Using the name of the tag as output by <code>exiftool -S</code>, you can create complicated filenames by combining tags:</p>
 <pre><code>exiftool -d '%Y%m%d-%H-%M-%S' '-FileName&lt;${CreateDate;}_${Headline;}%-c.%e'
 </code></pre>
 
 <h2 id="set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</h2>
+<p>Useful when you want to sort in your file browser by modification time and get a chronological order of files.</p>
 <pre><code>exiftool &quot;-FileModifyDate&lt;DateTimeOriginal&quot; *.jpg
 </code></pre>
 
 <h2 id="generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes</h2>
-<pre><code>find /src_dir/ -iname '*.dng' |
+<pre><code>$ find /src_dir/ -iname '*.dng' |
   xargs  exiftool -p '$filename,$Model,$FileSize#' 2&gt;/dev/null |
   sort   -t, -k3 -n |
   column -s, -t
+2012-01-26-23-19-54-6795223065_2e771d1012_o.jpg   iPhone 4S             1242739
+2013-02-03-10-01-56-8441346635_df4404a1f6_o.jpg   NIKON D5200           1646481
+2012-01-22-15-16-38-6746574603_d52311264f_o.jpg   Canon EOS REBEL T3i   1671734
+2011-01-22-23-44-31-6271225963_f9b95b2d7a_o.jpg   NIKON D3S             1773081
+2010-01-27-13-07-00-4313649499_835a6649c2_o.jpg   NIKON D300            1829578
+2016-02-03-07-26-32-24522158414_4aaf116d2a_o.jpg  iPhone 6              2319061
+2018-10-24-13-39-09-44676649345_1de0f581cd_o.jpg  iPhone XS Max         2971254
+2015-02-02-19-17-09-24587486051_3032823e4e_o.jpg  NIKON D800            3309696
+2014-01-27-13-52-41-12951707465_79a8dd3827_o.jpg  iPhone 5              3401479
+2017-01-22-18-33-28-31693592473_40478df088_o.jpg  ILCE-7                4230661
+2018-12-23-22-33-40-45536007225_8fdd50691a_o.jpg  NIKON D850            4924617
+2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg  iPhone 6s             8712631
+2018-12-28-16-56-42-39713091073_c57ec1a8a8_o.jpg  Canon EOS 5D Mark II  8741601
+2019-01-08-16-11-49-39716361093_479e6a2323_o.jpg  iPhone 8 Plus         12041600
 </code></pre>
 
 <h2 id="generate-rsync-commands-for-files-matching-a-string">Generate rsync commands for files matching a string</h2>
-<pre><code>exiftool -d &quot;%s&quot; -p 'rsync -aP $filename ~/Desktop/Stuff/ # $VideoFrameRate' 201411{2,3}* | grep -v '# 29\.'
+<p>Useful for reviewing commands before running them, the following example generates a command for every file, then uses awk to do a numeric comparison on the last field to sort out images under a certain ImageHeight. These rsync commands can be pasted into a terminal to run. (Generating a list of files for use with <code>rsync --files-from</code> would be a better option for this specific use case, but this illustration could be adapted for commands that do not have such an option.)</p>
+<pre><code>$ exiftool -d &quot;%s&quot; -p 'rsync -aP $filename otherhost:~/Pictures/ # $ImageHeight' * 2&gt;/dev/null | awk '$NF &gt;= 2800 {print}'
+rsync -aP 2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg otherhost:~/Pictures/ # 2869
+rsync -aP 2018-02-06-09-50-04-31514483967_a422a3e3aa_o.jpg otherhost:~/Pictures/ # 2880
+rsync -aP 2018-02-06-15-04-43-45541501845_8dbdc3b208_o.jpg otherhost:~/Pictures/ # 2880
+rsync -aP 2018-02-06-15-05-43-31514485997_e2551fdbbc_o.jpg otherhost:~/Pictures/ # 2880
+rsync -aP 2018-12-19-10-53-27-45663859984_0f93ac24ec_o.jpg otherhost:~/Pictures/ # 2880
 </code></pre>
 
 <h2 id="rename-files-to-their-shuttercount">Rename files to their ShutterCount</h2>
