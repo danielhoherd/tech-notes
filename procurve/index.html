@@ -170,6 +170,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../bluetooth/">bluetooth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../bosh/">BOSH</a>
 	    </li>
           
@@ -631,6 +636,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../jq/">jq</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../json/">JSON</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1411,7 +1421,7 @@
               
                 <p><a href="/wiki/Procurve" title="wikilink">Procurve</a> switches from <a href="HP" title="wikilink">HP</a> offer cheap layer 2 and layer 3 switching.</p>
 <h1 id="copy-config-files">Copy config files</h1>
-<p><code>scp user@switch:cfg/startup-config ./</code><br />
+<p><code>scp user@switch:cfg/startup-config ./</code>
 <code>scp user@switch:cfg/running-config ./</code></p>
 <h1 id="firmware-update">Firmware update</h1>
 <ul>
@@ -1427,27 +1437,27 @@ ip default-gateway 172.28.115.1
 </code></pre>
 
 <h3 id="set-up-additional-vlans">Set up additional VLANs</h3>
-<pre><code>vlan 100 untagged 2  
-vlan 100 ip address 172.28.100.1  
-vlan 102 untagged 3  
+<pre><code>vlan 100 untagged 2
+vlan 100 ip address 172.28.100.1
+vlan 102 untagged 3
 vlan 102 ip address 172.28.102.1
 </code></pre>
 
 <h3 id="enable-routing-between-connected-networks">Enable routing between connected networks</h3>
 <p><code>ip routing</code></p>
 <h3 id="set-up-sntp-clock">Set up SNTP clock</h3>
-<pre><code>sntp server 172.28.111.16  
-timesync sntp  
-sntp 120  
+<pre><code>sntp server 172.28.111.16
+timesync sntp
+sntp 120
 sntp unicast
 </code></pre>
 
 <h3 id="alter-dst-settings">Alter DST settings</h3>
 <p><code>time daylight-time-rule User-defined begin-date 3/8 end-date 11/1</code></p>
 <h3 id="enable-ssh">Enable SSH</h3>
-<pre><code>crypto key generate ssh  
-ip ssh  
-ip ssh version 2  
+<pre><code>crypto key generate ssh
+ip ssh
+ip ssh version 2
 ip ssh filetransfer
 </code></pre>
 
@@ -1458,14 +1468,14 @@ ip ssh filetransfer
 <h3 id="set-up-a-vlan-112-port-group">Set up a VLAN 112 port group</h3>
 <p><code>vlan 112 untagged 6-12</code></p>
 <h3 id="set-two-groups-of-ports-as-a-trunks-eg-to-use-with-vmware-in-static-lacp">Set two groups of ports as a trunks (eg: to use with VMware in static LACP)</h3>
-<pre><code>trunk 1-4 trk1 trunk  
+<pre><code>trunk 1-4 trk1 trunk
 trunk 5-8 trk2 trunk
 </code></pre>
 
 <h3 id="set-up-vlan-multiplexing">Set up VLAN multiplexing</h3>
-<pre><code>vlan 114 tagged 24  
-vlan 115 tagged 24  
-vlan 114 tagged Trk1  
+<pre><code>vlan 114 tagged 24
+vlan 115 tagged 24
+vlan 114 tagged Trk1
 vlan 115 tagged Trk1
 </code></pre>
 

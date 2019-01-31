@@ -170,6 +170,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../bluetooth/">bluetooth</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../bosh/">BOSH</a>
 	    </li>
           
@@ -635,6 +640,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../json/">JSON</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../juniper/">Juniper</a>
 	    </li>
           
@@ -699,6 +709,15 @@
         <ul>
         
             <li><a class="toctree-l3" href="#manually-on-ubuntu-16">Manually on Ubuntu 16</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#dns">DNS</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#dns-entity-map">DNS Entity map</a></li>
         
         </ul>
     
@@ -1509,6 +1528,20 @@ kubeadm init
 </code></pre>
 
 <p><code>kubeadm init</code> guide: <a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></p>
+<h1 id="dns">DNS</h1>
+<p>Kubernetes lets you resolve resources via DNS</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/</a></li>
+</ul>
+<h2 id="dns-entity-map">DNS Entity map</h2>
+<ul>
+<li>Kubernetes Service: <code>`&lt;service&gt;.&lt;namespace&gt;.svc.cluster.local</code> (eg: <code>httpbin.default.svc.cluster.local</code>)
+  <code>kubectl get svc --all-namespaces -o json |
+  jq -r  '.items[] | "\(.metadata.name).\(.metadata.namespace).svc.cluster.local"'</code></li>
+<li>Kubernetes service srv records: <em><service_port_name>.</em><protocol>.svc.cluster.local (eg: _http._tcp.httpbin.default.svc.cluster.local)</li>
+<li>Pod by IP address: <pod-ip-address>.<namespace>.pod.cluster.local (eg: 192-168-1-6.default.pod.cluster.local)</li>
+<li>Pod by name: ...?</li>
+</ul>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf">http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf</a></li>
