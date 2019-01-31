@@ -668,6 +668,8 @@
         
             <li><a class="toctree-l3" href="#show-config-diff-before-commit">Show config diff before commit</a></li>
         
+            <li><a class="toctree-l3" href="#abort-config-changes-without-committing">Abort config changes without committing</a></li>
+        
         </ul>
     
 
@@ -1562,6 +1564,17 @@ IP address        Session Id  Hardware address   Expires     State      Interfac
 +           hardware-address 00:11:22:33:44:1d;
 +           ip-address 172.17.1.8;
 +       }
+</code></pre>
+
+<h2 id="abort-config-changes-without-committing">Abort config changes without committing</h2>
+<p>If you made changes you want to abandon, while still in configure mode run 'rollback 0'</p>
+<pre><code>{master:0}[edit]
+root@ex4300# rollback 0
+load complete
+
+{master:0}[edit]
+root@voyage-van-3-ex4300# exit
+Exiting configuration mode
 </code></pre>
 
 <h1 id="links">Links</h1>
