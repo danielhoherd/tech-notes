@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
+  <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>sips - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -1407,7 +1407,8 @@
                 <p>"scriptable image processing system." - <code>sip --help</code></p>
 <h1 id="examples">Examples</h1>
 <h2 id="resize-a-dng-and-save-the-output-as-jpg">Resize a DNG and save the output as JPG</h2>
-<pre><code>sips --resampleHeightWidthMax 1024  --setProperty format jpeg foo.dng --out foo.jpg
+<pre><code>SOURCE=foo.dng
+sips --resampleHeightWidthMax 1024  --setProperty format jpeg &quot;$SOURCE&quot; --out &quot;${SOURCE%.dng}.jpg&quot;
 </code></pre>
 
 <h2 id="resize-all-images-in-the-cwd-that-were-taken-by-the-d5100">Resize all images in the CWD that were taken by the D5100</h2>
@@ -1419,7 +1420,7 @@ done
 
 <h2 id="resize-all-images-in-a-dir-tree-convert-them-to-jpg-and-output-them-to-a-different-folder">Resize all images in a dir tree, convert them to jpg and output them to a different folder</h2>
 <p>In the following example it is important to leave off the trailing slash on the target dir:</p>
-<pre><code>find . -type f -exec sips --resampleHeightWidthMax 800 --setProperty format jpeg {} --out /Volumes/B-Tron/all-jpgs \;
+<pre><code>find . -type f -exec sips --resampleHeightWidthMax 1600 --setProperty format jpeg {} --out ~/Desktop/Stuff/ \;
 </code></pre>
 
 <h1 id="see-also">See Also</h1>

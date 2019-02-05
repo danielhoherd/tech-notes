@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
+  <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>kubernetes - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -716,6 +716,8 @@
     <li class="toctree-l2"><a href="#dns">DNS</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l3" href="#enable-k8s-dns-logging">Enable k8s dns logging</a></li>
         
             <li><a class="toctree-l3" href="#dns-entity-map">DNS Entity map</a></li>
         
@@ -1542,7 +1544,13 @@ kubeadm init
 <p>Kubernetes lets you resolve resources via DNS</p>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/">https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/</a></li>
 </ul>
+<h2 id="enable-k8s-dns-logging">Enable k8s dns logging</h2>
+<pre><code>kubectl -n kube-system edit configmap coredns
+# Add 'log' to the 'Corefile' config
+</code></pre>
+
 <h2 id="dns-entity-map">DNS Entity map</h2>
 <ul>
 <li>Kubernetes Service: <code>`&lt;service&gt;.&lt;namespace&gt;.svc.cluster.local</code> (eg: <code>httpbin.default.svc.cluster.local</code>)
