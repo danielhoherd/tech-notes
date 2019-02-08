@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>passwords - Daniel Hoherd's tech notes</title>
+  <title>lshw - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "passwords";
-    var mkdocs_page_input_path = "passwords.md";
+    var mkdocs_page_name = "lshw";
+    var mkdocs_page_input_path = "lshw.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -718,9 +718,26 @@
     <a class="" href="../lsblk/">lsblk</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../lshw/">lshw</a>
+    <a class="current" href="./">lshw</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#lshw-help">lshw --help</a></li>
+        
+            <li><a class="toctree-l3" href="#example-of-short-output">Example of -short output</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#see-also">See also</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -903,26 +920,9 @@
     <a class="" href="../panopticlick/">panopticlick</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">passwords</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#generation">Generation</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#pwgen">pwgen</a></li>
-        
-            <li><a class="toctree-l3" href="#apg">apg</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#links">Links</a></li>
-    
-
-    </ul>
+    <a class="" href="../passwords/">passwords</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1397,7 +1397,7 @@
     
       
     
-    <li>passwords</li>
+    <li>lshw</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1407,25 +1407,98 @@
           <div role="main">
             <div class="section">
               
-                <p>"A secret word or phrase that must be used to gain admission to something." - <a href="https://en.oxforddictionaries.com/definition/password">https://en.oxforddictionaries.com/definition/password</a></p>
-<h1 id="generation">Generation</h1>
-<h2 id="pwgen">pwgen</h2>
-<pre><code>$ pwgen 12 3
-ahZielooC4ei Ielui3ahh9su aiZoa7fioy1o
+                <p>lshw is a cli tool on linux to show you information about your hardware. It outputs in several formats that are human and computer friendly.</p>
+<h1 id="examples">Examples</h1>
+<h2 id="lshw-help">lshw --help</h2>
+<pre><code>$ lshw --help
+Hardware Lister (lshw) - B.02.18
+usage: lshw [-format] [-options ...]
+       lshw -version
+
+        -version        print program version (B.02.18)
+
+format can be
+        -html           output hardware tree as HTML
+        -xml            output hardware tree as XML
+        -json           output hardware tree as a JSON object
+        -short          output hardware paths
+        -businfo        output bus information
+
+options can be
+        -class CLASS    only show a certain class of hardware
+        -C CLASS        same as '-class CLASS'
+        -c CLASS        same as '-class CLASS'
+        -disable TEST   disable a test (like pci, isapnp, cpuid, etc. )
+        -enable TEST    enable a test (like pci, isapnp, cpuid, etc. )
+        -quiet          don't display status
+        -sanitize       sanitize output (remove sensitive information like serial numbers, etc.)
+        -numeric        output numeric IDs (for PCI, USB, etc.)
+        -notime         exclude volatile attributes (timestamps) from output
 </code></pre>
 
-<h2 id="apg">apg</h2>
-<p>This tool lets you show how to pronounce the random password</p>
-<pre><code>$ apg -a 1 -m 6 -n 3 -l
-I[hM@}]t: India-LEFT_BRACKET-hotel-Mike-AT_SIGN-RIGHT_BRACE-RIGHT_BRACKET-tango-COLON
-WoqrJ}R+ps Whiskey-oscar-quebec-romeo-Juliett-RIGHT_BRACE-Romeo-PLUS_SIGN-papa-sierra
-zni6VC3 zulu-november-india-SIX-Victor-Charlie-THREE
+<h2 id="example-of-short-output">Example of -short output</h2>
+<p>It's best to use sudo, otherwise you will not see all hardware.</p>
+<pre><code>$ sudo lshw -short
+H/W path                   Device      Class          Description
+=================================================================
+                                       system         OptiPlex 7010 (OptiPlex 7010)
+/0                                     bus            0YXT71
+/0/0                                   memory         64KiB BIOS
+/0/5e                                  processor      Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz
+/0/5e/3a                               memory         256KiB L1 cache
+/0/5e/3b                               memory         1MiB L2 cache
+/0/5e/3c                               memory         8MiB L3 cache
+/0/3d                                  memory         16GiB System Memory
+/0/3d/0                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+/0/3d/1                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+/0/3d/2                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+/0/3d/3                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+/0/100                                 bridge         Xeon E3-1200 v2/3rd Gen Core processor DRAM Controller
+/0/100/2                               display        Xeon E3-1200 v2/3rd Gen Core processor Graphics Controller
+/0/100/14                              bus            7 Series/C210 Series Chipset Family USB xHCI Host Controller
+/0/100/14/0                usb3        bus            xHCI Host Controller
+/0/100/14/1                usb4        bus            xHCI Host Controller
+/0/100/14/1/4              scsi6       storage        Elements 25A1
+/0/100/14/1/4/0.0.0        /dev/sdb    disk           4TB Elements 25A1
+/0/100/14/1/4/0.0.0/1      /dev/sdb1   volume         3725GiB OS X ZFS partition or Solaris /usr partition
+/0/100/14/1/4/0.0.0/9      /dev/sdb9   volume         8191KiB reserved partition
+/0/100/16                              communication  7 Series/C216 Chipset Family MEI Controller #1
+/0/100/16.3                            communication  7 Series/C210 Series Chipset Family KT Controller
+/0/100/19                  eno1        network        82579LM Gigabit Network Connection
+/0/100/1a                              bus            7 Series/C216 Chipset Family USB Enhanced Host Controller #2
+/0/100/1a/1                usb1        bus            EHCI Host Controller
+/0/100/1a/1/1                          bus            Integrated Rate Matching Hub
+/0/100/1a/1/1/2                        generic        BCM20702A0
+/0/100/1b                              multimedia     7 Series/C216 Chipset Family High Definition Audio Controller
+/0/100/1d                              bus            7 Series/C216 Chipset Family USB Enhanced Host Controller #1
+/0/100/1d/1                usb2        bus            EHCI Host Controller
+/0/100/1d/1/1                          bus            Integrated Rate Matching Hub
+/0/100/1d/1/1/5                        bus            USB2.0 Hub
+/0/100/1d/1/1/5/2          scsi7       storage        External
+/0/100/1d/1/1/5/2/0.0.0    /dev/sdc    disk           256GB External
+/0/100/1d/1/1/5/2/0.0.0/1              volume         512MiB EFI GPT partition
+/0/100/1d/1/1/5/2/0.0.0/2  /dev/sdc2   volume         221GiB EXT4 volume
+/0/100/1e                              bridge         82801 PCI Bridge
+/0/100/1f                              bridge         Q77 Express Chipset LPC Controller
+/0/100/1f.2                            storage        7 Series/C210 Series Chipset Family 6-port SATA Controller [AHCI mode]
+/0/100/1f.3                            bus            7 Series/C216 Chipset Family SMBus Controller
+/0/1                       scsi0       storage
+/0/1/0.0.0                 /dev/sda    disk           256GB Samsung SSD 850
+/0/1/0.0.0/1               /dev/sda1   volume         238GiB EXT4 volume
+/0/2                       scsi1       storage
+/0/2/0.0.0                 /dev/cdrom  disk           DVD+-RW SW830
+/1                         docker0     network        Ethernet interface
 </code></pre>
 
-<h1 id="links">Links</h1>
+<h1 id="see-also">See also</h1>
 <ul>
-<li><a href="https://nakedsecurity.sophos.com/2016/08/18/nists-new-password-rules-what-you-need-to-know/">https://nakedsecurity.sophos.com/2016/08/18/nists-new-password-rules-what-you-need-to-know/</a></li>
-<li><a href="https://pages.nist.gov/800-63-3/sp800-63-3.html">https://pages.nist.gov/800-63-3/sp800-63-3.html</a></li>
+<li><a href="lsblk">lsblk</a></li>
+<li>lscpu</li>
+<li>lslogins</li>
+<li>lsmod</li>
+<li>lsof</li>
+<li>lspci</li>
+<li>lsusb</li>
 </ul>
               
             </div>
@@ -1434,10 +1507,10 @@ zni6VC3 zulu-november-india-SIX-Victor-Charlie-THREE
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../perl/" class="btn btn-neutral float-right" title="perl">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../lsof/" class="btn btn-neutral float-right" title="lsof">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../panopticlick/" class="btn btn-neutral" title="panopticlick"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../lsblk/" class="btn btn-neutral" title="lsblk"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1463,10 +1536,10 @@ zni6VC3 zulu-november-india-SIX-Victor-Charlie-THREE
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../panopticlick/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../lsblk/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../perl/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../lsof/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
