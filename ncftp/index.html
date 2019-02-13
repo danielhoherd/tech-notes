@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Ceph - Daniel Hoherd's tech notes</title>
+  <title>ncftp - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Ceph";
-    var mkdocs_page_input_path = "ceph.md";
+    var mkdocs_page_name = "ncftp";
+    var mkdocs_page_input_path = "ncftp.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -198,39 +198,9 @@
     <a class="" href="../centos/">CentOS Linux</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Ceph</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#glossary">Glossary</a></li>
-    
-
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#activate-all-osds">Activate all OSDs</a></li>
-        
-            <li><a class="toctree-l3" href="#start-all-ceph-services">Start all ceph services</a></li>
-        
-            <li><a class="toctree-l3" href="#stop-all-ceph-services">Stop all ceph services</a></li>
-        
-            <li><a class="toctree-l3" href="#show-the-status-of-all-osds-in-the-cluster">Show the status of all osds in the cluster</a></li>
-        
-            <li><a class="toctree-l3" href="#show-metadata-about-all-osds-in-the-cluster">Show metadata about all osds in the cluster</a></li>
-        
-            <li><a class="toctree-l3" href="#show-all-pools">Show all pools</a></li>
-        
-            <li><a class="toctree-l3" href="#monitor-existing-operations">Monitor existing operations</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#links">Links</a></li>
-    
-
-    </ul>
+    <a class="" href="../ceph/">Ceph</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -833,9 +803,23 @@
     <a class="" href="../namei/">namei</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../ncftp/">ncftp</a>
+    <a class="current" href="./">ncftp</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#connect-to-a-non-standard-port">Connect to a non-standard port</a></li>
+        
+            <li><a class="toctree-l3" href="#recursively-put-a-directory">Recursively put a directory</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1415,7 +1399,7 @@
     
       
     
-    <li>Ceph</li>
+    <li>ncftp</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1425,63 +1409,15 @@
           <div role="main">
             <div class="section">
               
-                <p>"Ceph is a unified, distributed storage system designed for excellent performance, reliability and scalability." - <a href="https://ceph.com">https://ceph.com</a></p>
-<h1 id="glossary">Glossary</h1>
-<p><a href="http://docs.ceph.com/docs/master/glossary/">http://docs.ceph.com/docs/master/glossary/</a></p>
-<ul>
-<li>Ceph OSD: The Ceph OSD software, which interacts with a logical disk (OSD).</li>
-<li>CephFS: The POSIX filesystem components of Ceph.</li>
-<li>MDS: (Ceph Metadata Server) The Ceph metadata software.</li>
-<li>MGR: (Ceph Manager) The Ceph manager software, which collects all the state from the whole cluster in one place.</li>
-<li>MON: (Ceph Monitor) The Ceph monitor software.</li>
-<li>OSD: (Object Storage Device) A physical or logical storage unit.</li>
-<li>RADOS: Reliable Autonomic Distributed Object Store.</li>
-<li>RBD: The block storage component of Ceph.</li>
-<li>RGW: The S3/Swift gateway component of Ceph.</li>
-<li>PG: Placement Group. <a href="http://docs.ceph.com/docs/master/rados/operations/placement-groups/">http://docs.ceph.com/docs/master/rados/operations/placement-groups/</a></li>
-</ul>
+                <p>"NcFTP Client is a set of FREE application programs implementing the File Transfer Protocol. ... The program has been in service on UNIX systems since 1991 and is a popular alternative to the standard FTP program, /usr/bin/ftp." - <a href="https://www.ncftp.com/ncftp/">https://www.ncftp.com/ncftp/</a></p>
 <h1 id="examples">Examples</h1>
-<h2 id="activate-all-osds">Activate all OSDs</h2>
-<pre><code>sudo ceph-disk activate-all
+<h2 id="connect-to-a-non-standard-port">Connect to a non-standard port</h2>
+<pre><code>ncftp -P 5000 10.8.5.103
 </code></pre>
 
-<p>Starting with ceph 13, use:</p>
-<pre><code>ceph-volume lvm activate --all
+<h2 id="recursively-put-a-directory">Recursively put a directory</h2>
+<pre><code>put -R localdir
 </code></pre>
-
-<h2 id="start-all-ceph-services">Start all ceph services</h2>
-<pre><code>sudo systemctl start ceph.target
-</code></pre>
-
-<h2 id="stop-all-ceph-services">Stop all ceph services</h2>
-<p>Unfortunately there's not a single service or target to stop, so you have to use globs</p>
-<pre><code>sudo systemctl stop '*ceph*'
-</code></pre>
-
-<h2 id="show-the-status-of-all-osds-in-the-cluster">Show the status of all osds in the cluster</h2>
-<pre><code>ceph osd status
-</code></pre>
-
-<h2 id="show-metadata-about-all-osds-in-the-cluster">Show metadata about all osds in the cluster</h2>
-<pre><code>ceph osd metadata
-</code></pre>
-
-<h2 id="show-all-pools">Show all pools</h2>
-<pre><code>ceph osd lspools
-</code></pre>
-
-<h2 id="monitor-existing-operations">Monitor existing operations</h2>
-<pre><code>ceph daemon mon.$MON_HOSTNAME ops
-</code></pre>
-
-<h1 id="links">Links</h1>
-<ul>
-<li>Ceph Intro &amp; Architectural Overview - <a href="https://youtu.be/7I9uxoEhUdY">https://youtu.be/7I9uxoEhUdY</a></li>
-<li><a href="http://docs.ceph.com/ceph-ansible/master/">http://docs.ceph.com/ceph-ansible/master/</a></li>
-<li><a href="http://docs.ceph.com/docs/master/rados/configuration/network-config-ref/">http://docs.ceph.com/docs/master/rados/configuration/network-config-ref/</a></li>
-<li><a href="http://docs.ceph.com/docs/master/rados/operations/operating/">http://docs.ceph.com/docs/master/rados/operations/operating/</a></li>
-<li><a href="http://docs.ceph.com/docs/master/start/quick-ceph-deploy/">http://docs.ceph.com/docs/master/start/quick-ceph-deploy/</a></li>
-</ul>
               
             </div>
           </div>
@@ -1489,10 +1425,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../chkconfig/" class="btn btn-neutral float-right" title="chkconfig">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../netgear/" class="btn btn-neutral float-right" title="NETGEAR">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../centos/" class="btn btn-neutral" title="CentOS Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../namei/" class="btn btn-neutral" title="namei"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1518,10 +1454,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../centos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../namei/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../chkconfig/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../netgear/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
