@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>sshuttle - Daniel Hoherd's tech notes</title>
+  <title>bbcp - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "sshuttle";
-    var mkdocs_page_input_path = "sshuttle.md";
+    var mkdocs_page_name = "bbcp";
+    var mkdocs_page_input_path = "bbcp.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -153,9 +153,12 @@
     <a class="" href="../bash/">GNU bash</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../bbcp/">bbcp</a>
+    <a class="current" href="./">bbcp</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1198,15 +1201,9 @@
     <a class="" href="../ssh/">ssh</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">sshuttle</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#usage">Usage</a></li>
-    
-
-    </ul>
+    <a class="" href="../sshuttle/">sshuttle</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1396,7 +1393,7 @@
     
       
     
-    <li>sshuttle</li>
+    <li>bbcp</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1406,12 +1403,8 @@
           <div role="main">
             <div class="section">
               
-                <p>sshuttle is an SSH powered ipv4 routed VPN that doesn't require admin rights on the target host.
-- <a href="https://github.com/apenwarr/sshuttle">https://github.com/apenwarr/sshuttle</a></p>
-<h1 id="usage">Usage</h1>
-<p>Tunnel DNS queries and create a route through the given host to the given subnet, and be verbose about it.</p>
-<pre><code>sshuttle --dns -vr user@host:port 192.168.1.0/24
-</code></pre>
+                <p>"Securely and quickly copy data from source to target." - <a href="https://www.slac.stanford.edu/~abh/bbcp/">https://www.slac.stanford.edu/~abh/bbcp/</a></p>
+<p>This is a useful tool for copying files. Notably it gets around some bandwidth limitations of <code>nc</code> that I ran into when trying to copy one large file across an 80gbps network.</p>
               
             </div>
           </div>
@@ -1419,10 +1412,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../stat/" class="btn btn-neutral float-right" title="stat">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../bc/" class="btn btn-neutral float-right" title="GNU bc">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../ssh/" class="btn btn-neutral" title="ssh"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bash/" class="btn btn-neutral" title="GNU bash"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1448,10 +1441,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ssh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../bash/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../stat/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../bc/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
