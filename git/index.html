@@ -480,6 +480,8 @@
         
             <li><a class="toctree-l3" href="#git-commit">git commit</a></li>
         
+            <li><a class="toctree-l3" href="#git-tag">git tag</a></li>
+        
             <li><a class="toctree-l3" href="#git-config">git config</a></li>
         
             <li><a class="toctree-l3" href="#git-diff">git diff</a></li>
@@ -501,8 +503,6 @@
             <li><a class="toctree-l3" href="#git-clean">git clean</a></li>
         
             <li><a class="toctree-l3" href="#misc-tricks">Misc tricks</a></li>
-        
-            <li><a class="toctree-l3" href="#git-tag">git tag</a></li>
         
         </ul>
     
@@ -1513,6 +1513,27 @@ echo &quot;# Ignore other unneeded files.
 <pre><code>git commit --no-verify
 </code></pre>
 
+<h2 id="git-tag">git tag</h2>
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
+<p>Git supports two types of tags: lightweight and annotated.</p>
+<h3 id="create-an-annotated-tag">Create an annotated tag</h3>
+<p>Annotated tags, are stored as full objects in the Git database.</p>
+<pre><code>git tag -m &quot;Improve X and Y.&quot; v0.5.3
+</code></pre>
+
+<h3 id="create-a-light-tag">Create a light tag</h3>
+<p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
+<pre><code>git tag v0.5.3
+</code></pre>
+
+<h3 id="delete-a-local-tag">Delete a local tag</h3>
+<pre><code>git tag -d v0.5.3
+</code></pre>
+
+<h3 id="delete-a-remote-tag">Delete a remote tag</h3>
+<pre><code>git push --delete origin v0.5.3
+</code></pre>
+
 <h2 id="git-config">git config</h2>
 <p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
 <ul>
@@ -1713,27 +1734,6 @@ done ;
 <h3 id="branch-cleanup">Branch cleanup</h3>
 <pre><code>git gc --prune=now
 git remote prune origin
-</code></pre>
-
-<h2 id="git-tag">git tag</h2>
-<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
-<p>Git supports two types of tags: lightweight and annotated.</p>
-<h3 id="create-an-annotated-tag">Create an annotated tag</h3>
-<p>Annotated tags, are stored as full objects in the Git database.</p>
-<pre><code>git tag -m &quot;Improve X and Y.&quot; v0.5.3
-</code></pre>
-
-<h3 id="create-a-light-tag">Create a light tag</h3>
-<p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
-<pre><code>git tag v0.5.3
-</code></pre>
-
-<h3 id="delete-a-local-tag">Delete a local tag</h3>
-<pre><code>git tag -d v0.5.3
-</code></pre>
-
-<h3 id="delete-a-remote-tag">Delete a remote tag</h3>
-<pre><code>git push --delete origin v0.5.3
 </code></pre>
               
             </div>
