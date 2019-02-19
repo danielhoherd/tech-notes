@@ -502,6 +502,8 @@
         
             <li><a class="toctree-l3" href="#misc-tricks">Misc tricks</a></li>
         
+            <li><a class="toctree-l3" href="#git-tag">git tag</a></li>
+        
         </ul>
     
 
@@ -1617,12 +1619,12 @@ git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 </code></pre>
 
 <h2 id="git-show">git show</h2>
-<h3 id="show-the-changes-from-a-specific-sha">Show the changes from a specific sha</h3>
+<h3 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h3>
 <pre><code>git show f73f9ec7c07e
 </code></pre>
 
-<h3 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given sha</h3>
-<p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given sha.</p>
+<h3 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA</h3>
+<p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given SHA.</p>
 <pre><code>git show f73f9ec7c07e:dir/filename.yaml
 </code></pre>
 
@@ -1711,6 +1713,27 @@ done ;
 <h3 id="branch-cleanup">Branch cleanup</h3>
 <pre><code>git gc --prune=now
 git remote prune origin
+</code></pre>
+
+<h2 id="git-tag">git tag</h2>
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
+<p>Git supports two types of tags: lightweight and annotated.</p>
+<h3 id="create-an-annotated-tag">Create an annotated tag</h3>
+<p>Annotated tags, are stored as full objects in the Git database.</p>
+<pre><code>git tag -m &quot;Improve X and Y.&quot; v0.5.3
+</code></pre>
+
+<h3 id="create-a-light-tag">Create a light tag</h3>
+<p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
+<pre><code>git tag v0.5.3
+</code></pre>
+
+<h3 id="delete-a-local-tag">Delete a local tag</h3>
+<pre><code>git tag -d v0.5.3
+</code></pre>
+
+<h3 id="delete-a-remote-tag">Delete a remote tag</h3>
+<pre><code>git push --delete origin v0.5.3
 </code></pre>
               
             </div>

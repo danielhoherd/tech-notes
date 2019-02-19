@@ -1524,13 +1524,12 @@
 </code></pre>
 
 <h2 id="create-a-new-user">Create a new user</h2>
-<pre><code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'some_pass';
-GRANT ALL PRIVILEGES ON databasename.* TO 'newuser'@'localhost' WITH GRANT OPTION;
+<pre><code>CREATE USER 'a_new_user'@'10.0.5.%' IDENTIFIED BY 'the_user_password';
+GRANT ALL PRIVILEGES ON some_database.* TO 'a_new_user'@'10.0.5.%' WITH GRANT OPTION;
 </code></pre>
 
 <h2 id="delete-a-user">Delete a user</h2>
-<pre><code>DROP USER 'user_name'@'localhost';
-DELETE from mysql.db where User = 'user_name';
+<pre><code>DELETE from mysql.user where user = 'user_name';
 </code></pre>
 
 <h2 id="grant-privileges">Grant Privileges</h2>
