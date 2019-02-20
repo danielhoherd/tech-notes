@@ -1195,7 +1195,7 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#exit-the-cli">Exit the CLI</a></li>
+            <li><a class="toctree-l3" href="#import-a-csv-file">Import a csv file</a></li>
         
             <li><a class="toctree-l3" href="#create-a-table">Create a table</a></li>
         
@@ -1442,8 +1442,10 @@
 <li><a href="SpatiaLite">https://www.gaia-gis.it/fossil/libspatialite/index</a> - "SpatiaLite is an open source library intended to extend the SQLite core to support fully fledged Spatial SQL capabilities."</li>
 </ul>
 <h1 id="syntax-examples">Syntax Examples</h1>
-<h2 id="exit-the-cli">Exit the CLI</h2>
-<pre><code>.exit
+<h2 id="import-a-csv-file">Import a csv file</h2>
+<p>This method does not appear to support <code>~/filename</code> or <code>$HOME/filename</code>, but does support relative and absolute paths.</p>
+<pre><code>.mode csv
+.import path/to/some_file.csv destination_table_name
 </code></pre>
 
 <h2 id="create-a-table">Create a table</h2>
