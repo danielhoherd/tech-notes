@@ -472,6 +472,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#skip-ci-via-git-push-option">Skip CI via git push option</a></li>
+        
             <li><a class="toctree-l3" href="#skip-ci-via-commit-message">Skip CI via commit message</a></li>
         
         </ul>
@@ -1428,6 +1430,11 @@
               
                 <p>"A single application for the complete DevOps lifecycle" - <a href="https://about.gitlab.com">https://about.gitlab.com</a></p>
 <h1 id="examples">Examples</h1>
+<h2 id="skip-ci-via-git-push-option">Skip CI via git push option</h2>
+<p>Works in git &gt;= 2.10:</p>
+<pre><code>git push -o ci.skip
+</code></pre>
+
 <h2 id="skip-ci-via-commit-message">Skip CI via commit message</h2>
 <p><a href="https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs">https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs</a></p>
 <pre><code>#!/usr/bin/env bash
@@ -1464,6 +1471,8 @@ echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://docs.gitlab.com/ce/administration/">https://docs.gitlab.com/ce/administration/</a></li>
+<li><a href="https://docs.gitlab.com/ce/workflow/gitlab_flow.html">https://docs.gitlab.com/ce/workflow/gitlab_flow.html</a> - Good <a href="git">git</a> branching and review strategy for teams.</li>
+<li><a href="https://docs.gitlab.com/ce/ci/">https://docs.gitlab.com/ce/ci/</a></li>
 </ul>
               
             </div>
