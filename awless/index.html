@@ -1475,12 +1475,22 @@
 </code></pre>
 
 <h2 id="add-a-user-to-a-group">Add a user to a group</h2>
-<pre><code>awless --aws-profile govcloud --aws-region us-gov-west-1 attach user group=SystemAdministrators name=SpaceGhost
+<pre><code>awless \
+  --aws-profile govcloud \
+  --aws-region us-gov-west-1 \
+  attach user \
+  group=SystemAdministrators \
+  name=SpaceGhost
 </code></pre>
 
 <h2 id="create-an-access-key-for-a-user">Create an access key for a user</h2>
 <p>This creates an access key and saves it in <code>~/.aws/credentials</code></p>
-<pre><code>awless --aws-profile govcloud --aws-region us-gov-west-1 create accesskey user=SpaceGhost save=true
+<pre><code>awless \
+  --aws-profile govcloud \
+  --aws-region us-gov-west-1 \
+  create accesskey \
+  user=SpaceGhost \
+  save=true
 </code></pre>
 
 <h2 id="create-a-tag">Create a tag</h2>
@@ -1492,7 +1502,14 @@
 </code></pre>
 
 <h2 id="create-an-instance">Create an instance</h2>
-<pre><code>awless create instance count=1 image=ami-5ab82fa8 keypair=ops name=new-hostname securitygroup=[sg-c4321fd1,sg-c4321cb0] subnet=subnet-c4321c33 type=t2.medium
+<pre><code>awless create instance \
+  count=1 \
+  image=ami-5ab82fa8 \
+  keypair=ops \
+  name=new-hostname \
+  securitygroup=[sg-c4321fd1,sg-c4321cb0] \
+  subnet=subnet-c4321c33 \
+  type=t2.medium
 </code></pre>
 
 <h1 id="see-also">See also</h1>

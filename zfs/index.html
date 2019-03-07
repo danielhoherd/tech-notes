@@ -1379,7 +1379,7 @@
         
             <li><a class="toctree-l3" href="#log-devices">Log devices</a></li>
         
-            <li><a class="toctree-l3" href="#cache-devices">Cache devices</a></li>
+            <li><a class="toctree-l3" href="#l2arc-cache-devices">l2arc Cache devices</a></li>
         
         </ul>
     
@@ -1561,6 +1561,8 @@
 <li><a href="http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html">http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html</a></li>
 <li><a href="http://wiki.freebsd.org/ZFSTuningGuide#Deduplication">http://wiki.freebsd.org/ZFSTuningGuide#Deduplication</a></li>
 <li>Corruption / failure to import - <a href="https://github.com/zfsonlinux/zfs/issues/2457">https://github.com/zfsonlinux/zfs/issues/2457</a></li>
+<li><a href="https://www.percona.com/blog/2018/05/15/about-zfs-performance/">https://www.percona.com/blog/2018/05/15/about-zfs-performance/</a></li>
+<li><a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
 </ul>
 <h1 id="tips">Tips</h1>
 <h2 id="memory">Memory</h2>
@@ -1575,12 +1577,13 @@
 <li>Speed and latency are most important, not size.  Log flushes every 5 seconds.</li>
 <li>Get SLC if possible, otherwise MLC</li>
 </ul>
-<h2 id="cache-devices">Cache devices</h2>
+<h2 id="l2arc-cache-devices">l2arc Cache devices</h2>
 <ul>
-<li>Use if you have lots of reads</li>
+<li>Use if you have lots of reads.</li>
 <li>Size does matter, with big devices more data can be cached for faster reads of more data.</li>
-<li>Speed and latency matter</li>
-<li>Mirror does not matter because if it fails, reads come from the spinning disks</li>
+<li>Speed and latency matter.</li>
+<li>Mirrororing l2arc does not matter because if it fails, reads come from the spinning disks.</li>
+<li>Too big of a device can suck up resources and cause poor performance. See <a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
 </ul>
 <p>Good explanation: <a href="https://blogs.oracle.com/brendan/entry/test">https://blogs.oracle.com/brendan/entry/test</a></p>
 <h1 id="zdb">zdb</h1>
