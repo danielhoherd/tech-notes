@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>AtomicParsley - Daniel Hoherd's tech notes</title>
+  <title>dcraw - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "AtomicParsley";
-    var mkdocs_page_input_path = "atomicparsley.md";
+    var mkdocs_page_name = "dcraw";
+    var mkdocs_page_input_path = "dcraw.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -93,23 +93,9 @@
     <a class="" href="../arpwatch/">arpwatch</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">AtomicParsley</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#set-metadata-on-multiple-files">Set metadata on multiple files</a></li>
-        
-            <li><a class="toctree-l3" href="#remove-personally-identifiable-information-pii-from-files">Remove Personally Identifiable Information (pii) from files</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../atomicparsley/">AtomicParsley</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -307,9 +293,21 @@
     <a class="" href="../dcgc/">Docker Custodian</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../dcraw/">dcraw</a>
+    <a class="current" href="./">dcraw</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#identify-corrupt-dng-files">Identify corrupt DNG files</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1419,7 +1417,7 @@
     
       
     
-    <li>AtomicParsley</li>
+    <li>dcraw</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1429,37 +1427,10 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="http://atomicparsley.sourceforge.net/">AtomicParsley</a> is a lightweight command line program for reading, parsing and setting metadata into MPEG-4 files. This is a functional mp4 equivalent of what <code>i3dv2</code> is for mp3 files.</p>
+                <p>"dcraw decodes raw photos, displays metadata, and extracts thumbnails." - <code>man dcraw</code></p>
 <h1 id="examples">Examples</h1>
-<h2 id="set-metadata-on-multiple-files">Set metadata on multiple files</h2>
-<p>Unfortunately the syntax of this tool requires you to edit one file at a time, so you have to iterate each item of an album using shell loops or <code>xargs</code> or whatever you prefer.</p>
-<pre><code>for file in *.m4a ; do
-  AtomicParsley &quot;${file}&quot; --artist &quot;Various Artists&quot; ;
-done ;
-</code></pre>
-
-<h2 id="remove-personally-identifiable-information-pii-from-files">Remove Personally Identifiable Information (pii) from files</h2>
-<p>Useful if you want to remove your personal info from iTunes Match files.</p>
-<pre><code>for file in *.m4a ; do
-  AtomicParsley \
-    &quot;$file&quot; \
-    --DeepScan \
-    --manualAtomRemove &quot;moov.trak.mdia.minf.stbl.mp4a.pinf&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.----.name:[iTunMOVI]&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.apID&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.atID&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.cnID&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.cprt&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.flvr&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.geID&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.plID&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.purd&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.rtng&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.sfID&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.soal&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.stik&quot; \
-    --manualAtomRemove &quot;moov.udta.meta.ilst.xid&quot; \
-done
+<h2 id="identify-corrupt-dng-files">Identify corrupt DNG files</h2>
+<pre><code>find /photos -iname '*.dng' | xargs dcraw -i &gt; /dev/null 2&gt; corrupt-files.txt
 </code></pre>
               
             </div>
@@ -1468,10 +1439,10 @@ done
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../atop/" class="btn btn-neutral float-right" title="atop">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../dd-wrt/" class="btn btn-neutral float-right" title="dd-wrt">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../arpwatch/" class="btn btn-neutral" title="arpwatch"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dcgc/" class="btn btn-neutral" title="Docker Custodian"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1497,10 +1468,10 @@ done
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../arpwatch/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../dcgc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../atop/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../dd-wrt/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
