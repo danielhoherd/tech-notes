@@ -478,6 +478,8 @@
         
             <li><a class="toctree-l3" href="#skip-ci-via-commit-message">Skip CI via commit message</a></li>
         
+            <li><a class="toctree-l3" href="#run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</a></li>
+        
         </ul>
     
 
@@ -1482,6 +1484,24 @@ done
 # If we've made it here, all changed files are inside dir foo/
 # so we append '[no ci]' to commit message to skip CI in Gitlab
 echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
+</code></pre>
+
+<h2 id="run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</h2>
+<p>This is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
+<pre><code>helm \
+  upgrade gitlab-runner gitlab/gitlab-runner \
+  --tiller-namespace gitlab-managed-apps \
+  --set 'runners.privileged=true' \
+  --set 'gitlabUrl=https://www.gitlab.com/' \
+  --set 'runnerRegistrationToken=foobar'```
+</code></pre>
+
+<p>the <code>runners.privileged=true</code> is the magic that is needed to enable docker commands in your <code>.gitlab-ci.yml</code> files to succeed. this <code>--set</code> flag creates the pod environment:</p>
+<pre><code>spec:
+  containers:
+    env:
+    - name: KUBERNETES_PRIVILEGED
+      value: &quot;true&quot;
 </code></pre>
 
 <h1 id="pros-and-cons">Pros and cons</h1>
