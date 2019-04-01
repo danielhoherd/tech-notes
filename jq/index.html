@@ -1565,6 +1565,15 @@ consul-server-02  172.18.9.117  2015-05-15T06:13:19Z
 consul-server-03  172.18.9.118  2015-05-15T06:13:19Z
 </code></pre>
 
+<h2 id="_1"></h2>
+<p>Show labels for each locally stored docker SHA</p>
+<pre><code>docker images --format '{{.ID}}' |
+while read -r X ; do
+  docker inspect $X |
+  jq '.[] | [ .RepoTags, .Config.Labels ]'
+done
+</code></pre>
+
 <h1 id="see-also">See Also</h1>
 <ul>
 <li><a href="https://stedolan.github.io/jq/tutorial/">Tutorial</a></li>
