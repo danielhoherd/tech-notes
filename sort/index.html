@@ -1192,7 +1192,7 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#randomly-sort-a-file">Randomly sort a file</a></li>
+            <li><a class="toctree-l3" href="#randomly-sort-a-file-in-place">Randomly sort a file in place</a></li>
         
             <li><a class="toctree-l3" href="#sort-by-two-fields-first-dictionary-second-reverse-numeric">Sort by two fields, first dictionary, second reverse numeric</a></li>
         
@@ -1454,9 +1454,10 @@
                 <p>sort is a command to sort lines of data.</p>
 <h1 id="gnu-syntax-examples">GNU Syntax Examples</h1>
 <p>In OS X, this is <code>gsort</code>.</p>
-<h2 id="randomly-sort-a-file">Randomly sort a file</h2>
-<p>Beware that this will put duplicate lines right next to each other. If you need better file shuffling use <code>shuf</code>.</p>
-<pre><code>sort -R foo
+<h2 id="randomly-sort-a-file-in-place">Randomly sort a file in place</h2>
+<p>By giving the <code>-o</code> the same output file as the input file we can shuffle in-place without errors. Trying this same thing using a pipe or a redirect will usually cause an empty file.</p>
+<p>Beware that this will put duplicate lines right next to each other. If you need better file content shuffling use <code>shuf</code>.</p>
+<pre><code>sort -o foo -R foo
 </code></pre>
 
 <h2 id="sort-by-two-fields-first-dictionary-second-reverse-numeric">Sort by two fields, first dictionary, second reverse numeric</h2>
