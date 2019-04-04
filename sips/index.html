@@ -1455,7 +1455,15 @@ done
 
 <h2 id="resize-all-images-in-a-dir-tree-convert-them-to-jpg-and-output-them-to-a-different-folder">Resize all images in a dir tree, convert them to jpg and output them to a different folder</h2>
 <p>In the following example it is important to leave off the trailing slash on the target dir:</p>
-<pre><code>find . -type f -exec sips --resampleHeightWidthMax 1600 --setProperty format jpeg {} --out ~/Desktop/Stuff/ \;
+<pre><code>SRC_DIR=&quot;${HOME}/Pictures/photo_queue&quot;
+OUT_DIR=&quot;${HOME}/Desktop/Stuff&quot;
+MAX_WIDTH=1600
+find &quot;${SRC_DIR}&quot; \
+  -type f \
+  -exec sips \
+        --resampleHeightWidthMax &quot;${MAX_WIDTH}&quot; \
+        --setProperty format jpeg {} \
+        --out &quot;${OUT_DIR}&quot; \;
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
