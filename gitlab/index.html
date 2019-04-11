@@ -1488,10 +1488,13 @@ echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
 
 <h2 id="run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</h2>
 <p>This is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
+<p>The <code>runners.tags</code> includes <code>${ORG_NAME}</code> which is great for making sure jobs run on your own runners instead of publicly shared runners. This is important because <code>DOCKER_HOST</code> is different in Kubernetes than it is on public dind runners.</p>
 <pre><code>helm \
   upgrade gitlab-runner gitlab/gitlab-runner \
   --tiller-namespace gitlab-managed-apps \
+  --name &quot;${ORG_NAME}-$(date +%s)&quot; \
   --set 'runners.privileged=true' \
+  --set 'runners.tags=${ORG_NAME},dind\,docker\,gke' \
   --set 'gitlabUrl=https://gitlab.com/' \
   --set 'runnerRegistrationToken=foobar'
 </code></pre>
