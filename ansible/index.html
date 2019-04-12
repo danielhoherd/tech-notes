@@ -95,6 +95,8 @@
         
             <li><a class="toctree-l3" href="#use-arbitrary-groups-in-static-inventory-file">Use arbitrary groups in static inventory file</a></li>
         
+            <li><a class="toctree-l3" href="#merge-multiple-inventory-files">Merge multiple inventory files</a></li>
+        
             <li><a class="toctree-l3" href="#show-all-resolved-variables-for-a-given-inventory-host">Show all resolved variables for a given inventory host</a></li>
         
             <li><a class="toctree-l3" href="#generate-an-idempotent-random-number">Generate an idempotent random number</a></li>
@@ -1525,6 +1527,53 @@ $ ansible-inventory -i inventory/example.yml --graph
   |  |--server
   |--@windows:
   |  |--client
+</code></pre>
+
+<h2 id="merge-multiple-inventory-files">Merge multiple inventory files</h2>
+<p>The below example gives higher precedence to the later files.</p>
+<pre><code>$ cat foo.yml
+all:
+  hosts:
+    client:
+      ansible_host: 192.168.1.2
+      service_hostname: hostname-from-file-1
+    server:
+      ansible_host: 192.168.2.3
+      file_number: one
+$ cat bar.yml
+all:
+  hosts:
+    client:
+      ansible_host: 10.1.2.3
+    server:
+      ansible_host: 10.2.3.4
+      file_number: two
+$ ansible-inventory -i foo.yml -i bar.yml --list
+{
+    &quot;_meta&quot;: {
+        &quot;hostvars&quot;: {
+            &quot;client&quot;: {
+                &quot;ansible_host&quot;: &quot;10.1.2.3&quot;,
+                &quot;service_hostname&quot;: &quot;hostname-from-file-1&quot;
+            },
+            &quot;server&quot;: {
+                &quot;ansible_host&quot;: &quot;10.2.3.4&quot;,
+                &quot;file_number&quot;: &quot;two&quot;
+            }
+        }
+    },
+    &quot;all&quot;: {
+        &quot;children&quot;: [
+            &quot;ungrouped&quot;
+        ]
+    },
+    &quot;ungrouped&quot;: {
+        &quot;hosts&quot;: [
+            &quot;client&quot;,
+            &quot;server&quot;
+        ]
+    }
+}
 </code></pre>
 
 <h2 id="show-all-resolved-variables-for-a-given-inventory-host">Show all resolved variables for a given inventory host</h2>
