@@ -1494,7 +1494,7 @@ echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
   --tiller-namespace gitlab-managed-apps \
   --name &quot;${ORG_NAME}-$(date +%s)&quot; \
   --set 'runners.privileged=true' \
-  --set 'runners.tags=${ORG_NAME},dind\,docker\,gke' \
+  --set 'runners.tags=${ORG_NAME}\,dind\,docker\,gke' \
   --set 'gitlabUrl=https://gitlab.com/' \
   --set 'runnerRegistrationToken=foobar'
 </code></pre>
