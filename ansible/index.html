@@ -1548,32 +1548,22 @@ all:
     server:
       ansible_host: 10.2.3.4
       file_number: two
-$ ansible-inventory -i foo.yml -i bar.yml --list
-{
-    &quot;_meta&quot;: {
-        &quot;hostvars&quot;: {
-            &quot;client&quot;: {
-                &quot;ansible_host&quot;: &quot;10.1.2.3&quot;,
-                &quot;service_hostname&quot;: &quot;hostname-from-file-1&quot;
-            },
-            &quot;server&quot;: {
-                &quot;ansible_host&quot;: &quot;10.2.3.4&quot;,
-                &quot;file_number&quot;: &quot;two&quot;
-            }
-        }
-    },
-    &quot;all&quot;: {
-        &quot;children&quot;: [
-            &quot;ungrouped&quot;
-        ]
-    },
-    &quot;ungrouped&quot;: {
-        &quot;hosts&quot;: [
-            &quot;client&quot;,
-            &quot;server&quot;
-        ]
-    }
-}
+$ ansible-inventory -i foo.yml -i bar.yml --list | json-to-yaml.py
+_meta:
+  hostvars:
+    client:
+      ansible_host: 10.1.2.3
+      service_hostname: hostname-from-file-1
+    server:
+      ansible_host: 10.2.3.4
+      file_number: two
+all:
+  children:
+  - ungrouped
+ungrouped:
+  hosts:
+  - client
+  - server
 </code></pre>
 
 <h2 id="show-all-resolved-variables-for-a-given-inventory-host">Show all resolved variables for a given inventory host</h2>
