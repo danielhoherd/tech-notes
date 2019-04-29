@@ -1559,10 +1559,9 @@ sudo python -i ./ps_mem.py
 <pre><code>import pdb; pdb.set_trace()
 </code></pre>
 
-<p>After inspecting...</p>
-<pre><code>continue
-</code></pre>
-
+<p>In python 3.6+ you can simply type <code>breakpoint()</code></p>
+<p>This drops you into a pdb shell. This is not the same as a full python REPL. To get a python REPL, type <code>interact</code>. After you have inspected the current state, you can type <code>continue</code>.</p>
+<p>Alternatively there is the web-pdb package which allows you to debug via a web browser using <code>web_pdb.set_trace</code></p>
 <h2 id="print-variables-from-the-local-scope">Print variables from the local scope</h2>
 <pre><code>for var in dir():
     print &quot;Debug: {0} = {1}&quot;.format(var,eval(var))
