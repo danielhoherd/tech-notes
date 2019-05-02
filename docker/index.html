@@ -369,6 +369,8 @@
         
             <li><a class="toctree-l3" href="#show-a-complete-vertically-oriented-list-of-docker-processes">Show a complete vertically oriented list of docker processes</a></li>
         
+            <li><a class="toctree-l3" href="#show-a-table-of-docker-containers-sorted-by-space-used-in-the-container-not-by-the-image">Show a table of docker containers sorted by space used in the container (not by the image)</a></li>
+        
             <li><a class="toctree-l3" href="#run-a-container-with-a-tcp-port-map">Run a container with a tcp port map</a></li>
         
             <li><a class="toctree-l3" href="#run-a-container-with-a-shared-directory">Run a container with a shared directory</a></li>
@@ -1508,6 +1510,16 @@
 </code></pre>
 
 <p>This trick also works with <code>docker images</code>, which also lacks a <code>--json</code> arg.</p>
+<h2 id="show-a-table-of-docker-containers-sorted-by-space-used-in-the-container-not-by-the-image">Show a table of docker containers sorted by space used in the container (not by the image)</h2>
+<pre><code>$ docker ps --format=&quot;{{.Size}}\t{{.ID}}\t{{.Image}}\t{{.Names}}&quot; | sort -h -k1
+0B (virtual 101MB)       2f7ba92f1e66        wan-connection-logger          wan-connection-logger
+0B (virtual 413MB)       21d474032755        gitlab/gitlab-runner           gitlab-runner
+2B (virtual 392MB)       c15b2ad88901        mariadb:10.4-bionic            mariadb
+312kB (virtual 710MB)    ccee541f32c2        jacobalberty/unifi             unifi
+1.45MB (virtual 2.3GB)   a9a60f4c6efc        homeassistant/home-assistant   home-assistant
+239MB (virtual 412MB)    5d9f9cc3b46a        plexinc/pms-docker:plexpass    plex
+</code></pre>
+
 <h2 id="run-a-container-with-a-tcp-port-map">Run a container with a tcp port map</h2>
 <p>This maps port 18022 of the host to 22 of the guest.</p>
 <pre><code>docker run -ti -p 18022:22 centos bash
