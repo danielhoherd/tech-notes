@@ -1511,9 +1511,10 @@
 
 <p>This trick also works with <code>docker images</code>, which also lacks a <code>--json</code> arg.</p>
 <h2 id="show-a-table-of-docker-containers-sorted-by-space-used-in-the-container-not-by-the-image">Show a table of docker containers sorted by space used in the container (not by the image)</h2>
-<pre><code>$ docker ps --format=&quot;{{.Size}}\t{{.ID}}\t{{.Image}}\t{{.Names}}&quot; | sort -h -k1
+<pre><code>$ docker ps --format=&quot;table {{.Size}}\t{{.ID}}\t{{.Image}}\t{{.Names}}&quot; | sort -h -k1
 0B (virtual 101MB)       2f7ba92f1e66        wan-connection-logger          wan-connection-logger
 0B (virtual 413MB)       21d474032755        gitlab/gitlab-runner           gitlab-runner
+SIZE                     CONTAINER ID        IMAGE                          NAMES
 2B (virtual 392MB)       c15b2ad88901        mariadb:10.4-bionic            mariadb
 312kB (virtual 710MB)    ccee541f32c2        jacobalberty/unifi             unifi
 1.45MB (virtual 2.3GB)   a9a60f4c6efc        homeassistant/home-assistant   home-assistant
