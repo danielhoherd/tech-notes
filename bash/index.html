@@ -212,6 +212,8 @@
         
             <li><a class="toctree-l3" href="#print-the-last-for-chars-of-a-variable">Print the last for chars of a variable</a></li>
         
+            <li><a class="toctree-l3" href="#dereference-a-variable">Dereference a variable</a></li>
+        
             <li><a class="toctree-l3" href="#print-something-else-if-a-variable-doesnt-exist">Print something else if a variable doesn't exist</a></li>
         
             <li><a class="toctree-l3" href="#print-every-third-number-starting-with-1-and-ending-with-30">Print every third number starting with 1 and ending with 30</a></li>
@@ -1725,6 +1727,12 @@ printf &quot;%012X&quot; ${dec} \
 <li><code>echo ${foo: -4}</code> The space is necessary to prevent it from</li>
 <li>doing a completely different thing. See the next example...</li>
 </ul>
+<h2 id="dereference-a-variable">Dereference a variable</h2>
+<pre><code>$ for var in ${!BASH_V*} ; do echo &quot;${var}: ${!var}&quot; ; done ;
+BASH_VERSINFO: 5
+BASH_VERSION: 5.0.7(1)-release
+</code></pre>
+
 <h2 id="print-something-else-if-a-variable-doesnt-exist">Print something else if a variable doesn't exist</h2>
 <ul>
 <li><code>echo ${foo:-foo isn't assigned}</code></li>
