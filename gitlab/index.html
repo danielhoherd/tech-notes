@@ -1490,11 +1490,13 @@ echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
 <p>This is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
 <p>The <code>runners.tags</code> includes <code>${ORG_NAME}</code> which is great for making sure jobs run on your own runners instead of publicly shared runners. This is important because <code>DOCKER_HOST</code> is different in Kubernetes than it is on public dind runners.</p>
 <pre><code>export REGISTRATION_TOKEN=&quot;foobar&quot;
+export ORG_NAME=&quot;acme&quot;
 helm \
   upgrade gitlab-runner gitlab/gitlab-runner \
   --tiller-namespace gitlab-managed-apps \
+  --name &quot;gitlab-runner-${ORG_NAME}-$(date +%s)&quot; \
   --set 'runners.privileged=true' \
-  --set 'runners.tags=${ORG_NAME}\,dind\,docker\,gke' \
+  --set &quot;runners.tags=${ORG_NAME}\,dind\,docker\,gke&quot; \
   --set 'gitlabUrl=https://gitlab.com/' \
   --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot;
 </code></pre>
