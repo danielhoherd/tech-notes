@@ -1364,6 +1364,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../wonder-workshop/">wonder-workshop</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../wuzz/">wuzz</a>
 	    </li>
           
@@ -1447,7 +1452,7 @@
 <pre><code>split -a4 --additional-suffix='-redis.log.1' -l500000 --filter='gzip -9 &gt; $FILE.gz' redis.log.1
 </code></pre>
 
-<p>And if you want to see read stats, throw <a href="pv">pv</a> in the mix:</p>
+<p>And if you want to see read stats, throw <a href="../pv/">pv</a> in the mix:</p>
 <pre><code>$ split -a4 --additional-suffix='-redis.log.1' -l500000 --filter='pv | gzip -9 &gt; $FILE.gz' redis.log.1
 1.94GB 0:00:58 [21.2MB/s] [                                         &lt;=&gt;                              ]
 </code></pre>
