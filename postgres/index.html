@@ -90,6 +90,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../aria2/">Aria2</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../arpwatch/">arpwatch</a>
 	    </li>
           
@@ -411,11 +416,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="../figlet/">figlet</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../file-downloaders/">File Downloaders</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -968,6 +968,15 @@
     <a class="current" href="./">PostgreSQL</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#meta-commands">Meta Commands</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l2"><a href="#see-also">See Also</a></li>
     
 
@@ -1437,8 +1446,42 @@
             <div class="section">
               
                 <p>"PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance." - <a href="https://www.postgresql.org">https://www.postgresql.org</a></p>
+<h1 id="usage">Usage</h1>
+<h2 id="meta-commands">Meta Commands</h2>
+<p>postgres shell has a lot of meta commands. See <a href="https://www.postgresql.org/docs/11/app-psql.html#APP-PSQL-META-COMMANDS">https://www.postgresql.org/docs/11/app-psql.html#APP-PSQL-META-COMMANDS</a> for full descriptions.</p>
+<table>
+<thead>
+<tr>
+<th>meta-command</th>
+<th>behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\d</code> or <code>\d+</code></td>
+<td>Show extended table description</td>
+</tr>
+<tr>
+<td><code>\d $table_name</code></td>
+<td>Show full definition for the given table</td>
+</tr>
+<tr>
+<td><code>\df</code></td>
+<td>List functions</td>
+</tr>
+<tr>
+<td><code>\di</code></td>
+<td>List indexes</td>
+</tr>
+<tr>
+<td><code>\c</code></td>
+<td>Create new connection. There are various syntaxes to accomplish this. Here is one: <code>\c "host=localhost port=5432 dbname=mydb connect_timeout=10 sslmode=disable"</code></td>
+</tr>
+</tbody>
+</table>
 <h1 id="see-also">See Also</h1>
 <ul>
+<li><a href="https://www.pgcli.com">pgcli</a> - "Pgcli is a command line interface for Postgres with auto-completion and syntax highlighting." <a href="https://github.com/dbcli/pgcli">https://github.com/dbcli/pgcli</a></li>
 <li><a href="http://www.pgadmin.org">http://www.pgadmin.org</a> - Graphical UI for postgres</li>
 <li><a href="../mysql/">MySQL</a> - Another relational database</li>
 <li><a href="../sqlite/">SQLite</a> - File based local database that does not require a server.</li>
