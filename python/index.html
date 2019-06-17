@@ -1494,6 +1494,7 @@
 <li><code>__varname</code> - Private variable in name, but not in logic or security. The interpreter mangles the name of the var to make it globally unique, but it is still globally accessible.</li>
 <li><code>var_</code> - Used to get around shadowing built-in variable names. EG: <code>list_</code> won't conflict with <code>list()</code></li>
 <li><code>__magic_method__</code> - See <a href="https://www.diveinto.org/python3/special-method-names.html">https://www.diveinto.org/python3/special-method-names.html</a></li>
+<li><code>_</code> - Temp var, pretty common entity in programming. (eg: bash and perl both support this too.)</li>
 </ul>
 <h2 id="virtual-environments">Virtual Environments</h2>
 <p>Virtual environments isolate your project away from the system's python interpreter and modules, so you can have full control over what code is available to your project. This makes it easy to develop, debug, and deploy to a new system. It's basically always a good idea to use a virtual environment. You will thank yourself later by learning this one up front.</p>
