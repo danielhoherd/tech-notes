@@ -1502,13 +1502,14 @@ echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
 <pre><code>export REGISTRATION_TOKEN=&quot;foobar&quot;
 export ORG_NAME=&quot;acme&quot;
 helm \
-  upgrade gitlab-runner gitlab/gitlab-runner \
+  install gitlab/gitlab-runner \
   --tiller-namespace gitlab-managed-apps \
   --name &quot;gitlab-runner-${ORG_NAME}-$(date +%s)&quot; \
-  --set 'runners.privileged=true' \
-  --set &quot;runners.tags=${ORG_NAME}\,dind\,docker\,gke&quot; \
-  --set 'gitlabUrl=https://gitlab.com/' \
-  --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot;
+  --set &quot;gitlabUrl=https://gitlab.com/&quot; \
+  --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
+  --set &quot;runners.imagePullPolicy=always&quot; \
+  --set &quot;runners.privileged=true&quot; \
+  --set &quot;runners.tags=${ORG_NAME}\,dind\,docker\,gke&quot;
 </code></pre>
 
 <p>the <code>runners.privileged=true</code> is the magic that is needed to enable docker commands in your <code>.gitlab-ci.yml</code> files to succeed. this <code>--set</code> flag creates the pod environment:</p>
@@ -1519,6 +1520,7 @@ helm \
       value: &quot;true&quot;
 </code></pre>
 
+<p>See more variables that you can set by running <code>helm inspect gitlab/gitlab-runner</code></p>
 <h1 id="pros-and-cons">Pros and cons</h1>
 <h2 id="pros">Pros</h2>
 <ul>
