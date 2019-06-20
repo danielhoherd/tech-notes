@@ -977,6 +977,9 @@
         </ul>
     
 
+    <li class="toctree-l2"><a href="#postgres-in-docker">Postgres in Docker</a></li>
+    
+
     <li class="toctree-l2"><a href="#see-also">See Also</a></li>
     
 
@@ -1483,6 +1486,12 @@
 </tr>
 </tbody>
 </table>
+<h1 id="postgres-in-docker">Postgres in Docker</h1>
+<ul>
+<li>Official images: <a href="https://hub.docker.com/_/postgres">https://hub.docker.com/_/postgres</a></li>
+<li>Dump a db: <code>docker exec "${POSTGRES_CONTAINER}" pg_dump -U "${POSTGRES_USER}" "${POSTGRES_DB}"</code></li>
+<li>Load local data into a db: <code>cat foo.sql | docker exec -i "${POSTGRES_CONTAINER}" psql -U "${POSTGRES_USER}" "${POSTGRES_DB}"</code></li>
+</ul>
 <h1 id="see-also">See Also</h1>
 <ul>
 <li><a href="https://www.pgcli.com">pgcli</a> - "Pgcli is a command line interface for Postgres with auto-completion and syntax highlighting." <a href="https://github.com/dbcli/pgcli">https://github.com/dbcli/pgcli</a></li>
