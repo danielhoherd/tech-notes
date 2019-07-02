@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>jmespath - Daniel Hoherd's tech notes</title>
+  <title>Lektor - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "jmespath";
-    var mkdocs_page_input_path = "jmespath.md";
+    var mkdocs_page_name = "Lektor";
+    var mkdocs_page_input_path = "lektor.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -628,24 +628,9 @@
     <a class="" href="../jdupes/">jdupes</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">jmespath</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#links">Links</a></li>
-    
-
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../jmespath/">jmespath</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -723,9 +708,18 @@
     <a class="" href="../lego-mindstorms/">lego-mindstorms</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../lektor/">Lektor</a>
+    <a class="current" href="./">Lektor</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#deploying-a-github-user-site-with-gh-pages">Deploying a github user site with gh-pages</a></li>
+    
+
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1440,7 +1434,7 @@
     
       
     
-    <li>jmespath</li>
+    <li>Lektor</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1450,24 +1444,20 @@
           <div role="main">
             <div class="section">
               
-                <p>"JMESPath is a query language for JSON." - <a href="http://jmespath.org">http://jmespath.org</a></p>
-<h1 id="links">Links</h1>
-<ul>
-<li><a href="http://jmespath.org/examples.html">http://jmespath.org/examples.html</a></li>
-<li><a href="http://jmespath.org/tutorial.html">http://jmespath.org/tutorial.html</a></li>
-<li><a href="https://github.com/jmespath/jmespath.terminal">https://github.com/jmespath/jmespath.terminal</a></li>
-<li><a href="https://github.com/jmespath/jp">https://github.com/jmespath/jp</a></li>
-</ul>
-<h1 id="examples">Examples</h1>
-<h2 id="grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</h2>
-<pre><code>kubectl get po --all-namespaces -o json |
-jp &quot;items[*].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
+                <p>"A flexible and powerful static content management system for building complex and beautiful websites out of flat files" - <a href="https://www.getlektor.com">https://www.getlektor.com</a></p>
+<h1 id="deploying-a-github-user-site-with-gh-pages">Deploying a github user site with gh-pages</h1>
+<p>Github user sites like danielhoherd.github.io must be served from the master branch. This means lektor must live in a feature branch. Create a feature branch, then go into the github repo settings and protect that branch. When you do a <code>lektor deploy</code> it will destroy all content in master and replace it with the static site. To make this deployment match a custom domain name, set up your <code>whatever.lektorproject</code> with something like the following configs:</p>
+<pre><code>[servers.github]
+name = github
+enabled = yes
+default = yes
+target = ghpages://danielhoherd/danielhoherd.github.io?cname=danielhoherd.com
 </code></pre>
 
-<p>Or filter only to non-default namespace where imagePullSecrets is populated</p>
-<pre><code>kubectl get po --all-namespaces -o json |
-jp &quot;items[?metadata.namespace != 'default' &amp;&amp; spec.imagePullSecrets != null].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
-</code></pre>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://www.getlektor.com/docs/deployment/ghpages/">https://www.getlektor.com/docs/deployment/ghpages/</a></li>
+</ul>
               
             </div>
           </div>
@@ -1475,10 +1465,10 @@ jp &quot;items[?metadata.namespace != 'default' &amp;&amp; spec.imagePullSecrets
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jot/" class="btn btn-neutral float-right" title="jot">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../linksys/" class="btn btn-neutral float-right" title="linksys">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../jdupes/" class="btn btn-neutral" title="jdupes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../lego-mindstorms/" class="btn btn-neutral" title="lego-mindstorms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1504,10 +1494,10 @@ jp &quot;items[?metadata.namespace != 'default' &amp;&amp; spec.imagePullSecrets
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../jdupes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../lego-mindstorms/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jot/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../linksys/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
