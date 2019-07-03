@@ -1740,6 +1740,11 @@ git reset --hard 45e0ae5 # reset all git tracked state to 45e0ae5
 git reset &quot;HEAD@{2015-03-25 14:45:30 -0700}&quot; --hard
 </code></pre>
 
+<h3 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master</h3>
+<p>Do this if you want to start your branch over with only the current changes. This is useful if you've been iterating through lots of bad changes that were committed and want to clean them all out. It basically lets you squash to a single commit on your branch.</p>
+<pre><code>git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+</code></pre>
+
 <h3 id="hard-reset-of-local-changes">Hard reset of local changes</h3>
 <p>This will abandon all local changes and resolve merge conflicts</p>
 <pre><code>git fetch origin
