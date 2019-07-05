@@ -1106,6 +1106,8 @@
         
             <li><a class="toctree-l3" href="#exclude-filters">Exclude Filters</a></li>
         
+            <li><a class="toctree-l3" href="#include-filters">Include Filters</a></li>
+        
             <li><a class="toctree-l3" href="#long-and-partial-transfers">Long and Partial Transfers</a></li>
         
             <li><a class="toctree-l3" href="#recursively-link-src-to-dst">Recursively link src to dst</a></li>
@@ -1482,6 +1484,12 @@
 **/Library/Application\ Support/Google/Chrome
 </code></pre>
 
+<h2 id="include-filters">Include Filters</h2>
+<p>Include filters should be specified before exclude filters if you have very broad exclude filters. For instance, to only transfer mp4 files:</p>
+<pre><code>rsync -ai --include='*.mp4' --exclude=&quot;*&quot; remote-server:/media/movies/ ~/Movies/
+</code></pre>
+
+<p>If you exclude first, nothing will be transferred.</p>
 <h2 id="long-and-partial-transfers">Long and Partial Transfers</h2>
 <p>If you're doing transfers which you'd like to monitor and risk being cut off, use this syntax:</p>
 <p><code>rsync -e ssh -az --partial --progress ./foo remotehost:~/bar/</code></p>
