@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>semver - Daniel Hoherd's tech notes</title>
+  <title>Molecule - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "semver";
-    var mkdocs_page_input_path = "semver.md";
+    var mkdocs_page_name = "Molecule";
+    var mkdocs_page_input_path = "molecule.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -798,9 +798,27 @@
     <a class="" href="../mkdocs/">MkDocs</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../molecule/">Molecule</a>
+    <a class="current" href="./">Molecule</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#initialize-a-new-role-to-be-tested-in-docker">Initialize a new role to be tested in docker</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
+    
+
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1133,12 +1151,9 @@
     <a class="" href="../selinux/">selinux</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">semver</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../semver/">semver</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1433,7 +1448,7 @@
     
       
     
-    <li>semver</li>
+    <li>Molecule</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1443,7 +1458,37 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning</a></p>
+                <p>"Molecule is designed to aid in the development and testing of Ansible roles." - <a href="https://molecule.readthedocs.io">https://molecule.readthedocs.io</a></p>
+<h1 id="examples">Examples</h1>
+<h2 id="initialize-a-new-role-to-be-tested-in-docker">Initialize a new role to be tested in docker</h2>
+<pre><code>molecule init role --role-name ansible-role-autofs --driver-name docker
+</code></pre>
+
+<p>The above command creates the following directory structure with boilerplate filled in, similar to what you'd expect from <a href="cookiecutter">cookiecutter.md</a>.</p>
+<pre><code>ansible-role-autofs/vars/main.yml
+ansible-role-autofs/tasks/main.yml
+ansible-role-autofs/.yamllint
+ansible-role-autofs/meta/main.yml
+ansible-role-autofs/README.md
+ansible-role-autofs/defaults/main.yml
+ansible-role-autofs/molecule/default/INSTALL.rst
+ansible-role-autofs/molecule/default/molecule.yml
+ansible-role-autofs/molecule/default/tests/__pycache__/test_default.cpython-37.pyc
+ansible-role-autofs/molecule/default/tests/test_default.py
+ansible-role-autofs/molecule/default/Dockerfile.j2
+ansible-role-autofs/molecule/default/playbook.yml
+ansible-role-autofs/handlers/main.yml
+</code></pre>
+
+<h1 id="see-also">See Also</h1>
+<ul>
+<li><a href="Ansible">ansible.md</a></li>
+</ul>
+<h1 id="links">Links</h1>
+<ul>
+<li>Ansible Tests with Molecule - <a href="https://molecule.readthedocs.io/en/latest/">https://molecule.readthedocs.io/en/latest/</a> / <a href="https://www.digitalocean.com/community/tutorials/how-to-test-ansible-roles-with-molecule">https://www.digitalocean.com/community/tutorials/how-to-test-ansible-roles-with-molecule</a></li>
+<li>Molecule sequence of scenario events - <a href="https://molecule.readthedocs.io/en/latest/configuration.html#scenario">https://molecule.readthedocs.io/en/latest/configuration.html#scenario</a></li>
+</ul>
               
             </div>
           </div>
@@ -1451,10 +1496,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sensu/" class="btn btn-neutral float-right" title="sensu">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../mqtt/" class="btn btn-neutral float-right" title="mqtt">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../selinux/" class="btn btn-neutral" title="selinux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mkdocs/" class="btn btn-neutral" title="MkDocs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1480,10 +1525,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../selinux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../mkdocs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../sensu/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../mqtt/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
