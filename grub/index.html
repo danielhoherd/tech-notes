@@ -1479,7 +1479,7 @@
 <pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;acpi_backlight=video&quot;
 </code></pre>
 
-<p>An alternate was <code>acpi_backlight=vendor</code>, but for me this was still quite dim.</p>
+<p>An alternate was <code>acpi_backlight=vendor</code>, but for me this was still quite dim. You can also alter your screen brightness on the fly by sending a value between 0-100 like this: <code>echo 0 &gt; /sys/class/backlight/acpi_video0/brightness</code></p>
 <h1 id="notable-commands-files-and-dirs">Notable commands, files and dirs</h1>
 <ul>
 <li><code>/boot/grub/grub.cfg</code> - The grub config that is actually used at boot</li>
