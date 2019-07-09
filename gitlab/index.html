@@ -1524,7 +1524,7 @@ helm \
   --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
   --set &quot;runners.imagePullPolicy=always&quot; \
   --set &quot;runners.privileged=true&quot; \
-  --set &quot;runners.tags=${ORG_NAME}\,dind\,docker\,gke&quot;
+  --set &quot;runners.tags=${ORG_NAME}\,dind\,gke&quot;
 </code></pre>
 
 <p>the <code>runners.privileged=true</code> is the magic that is needed to enable docker commands in your <code>.gitlab-ci.yml</code> files to succeed. this <code>--set</code> flag creates the pod environment:</p>
