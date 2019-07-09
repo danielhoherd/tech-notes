@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>dcraw - Daniel Hoherd's tech notes</title>
+  <title>VirtualBox - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "dcraw";
-    var mkdocs_page_input_path = "dcraw.md";
+    var mkdocs_page_name = "VirtualBox";
+    var mkdocs_page_input_path = "virtualbox.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -298,21 +298,9 @@
     <a class="" href="../dcgc/">Docker Custodian</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">dcraw</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#identify-corrupt-dng-files">Identify corrupt DNG files</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../dcraw/">dcraw</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1360,9 +1348,23 @@
     <a class="" href="../vim/">vim</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../virtualbox/">VirtualBox</a>
+    <a class="current" href="./">VirtualBox</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#vboxmanage-examples">VBoxManage Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#create-a-new-virtual-disk-image">Create a new virtual disk image</a></li>
+        
+            <li><a class="toctree-l3" href="#attach-storage-to-a-vm">Attach storage to a vm</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1447,7 +1449,7 @@
     
       
     
-    <li>dcraw</li>
+    <li>VirtualBox</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1457,10 +1459,16 @@
           <div role="main">
             <div class="section">
               
-                <p>"dcraw decodes raw photos, displays metadata, and extracts thumbnails." - <code>man dcraw</code></p>
-<h1 id="examples">Examples</h1>
-<h2 id="identify-corrupt-dng-files">Identify corrupt DNG files</h2>
-<pre><code>find /photos -iname '*.dng' | xargs dcraw -i &gt; /dev/null 2&gt; corrupt-files.txt
+                <h1 id="vboxmanage-examples">VBoxManage Examples</h1>
+<p>VBoxManage is the command line tool used to interact with VirtualBox.</p>
+<h2 id="create-a-new-virtual-disk-image">Create a new virtual disk image</h2>
+<p><a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-createmedium">https://www.virtualbox.org/manual/ch08.html#vboxmanage-createmedium</a></p>
+<pre><code>VBoxManage createmedium --format vdi --filename $DISK_NAME --size $DISK_SIZE_IN_MB
+</code></pre>
+
+<h2 id="attach-storage-to-a-vm">Attach storage to a vm</h2>
+<p><a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach">https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach</a></p>
+<pre><code>VBoxManage storageattach $VM_NAME --storagectl $STORAGE_CONTROLLER --format vdi --filename $DISK_NAME --size $DISK_SIZE_IN_MB
 </code></pre>
               
             </div>
@@ -1469,10 +1477,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dd-wrt/" class="btn btn-neutral float-right" title="dd-wrt">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../wget/" class="btn btn-neutral float-right" title="Wget">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../dcgc/" class="btn btn-neutral" title="Docker Custodian"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../vim/" class="btn btn-neutral" title="vim"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1498,10 +1506,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../dcgc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../vim/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../dd-wrt/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../wget/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
