@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>xargs - Daniel Hoherd's tech notes</title>
+  <title>cgroups - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "xargs";
-    var mkdocs_page_input_path = "xargs.md";
+    var mkdocs_page_name = "cgroups";
+    var mkdocs_page_input_path = "cgroups.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -208,9 +208,27 @@
     <a class="" href="../ceph/">Ceph</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../cgroups/">cgroups</a>
+    <a class="current" href="./">cgroups</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    <li class="toctree-l2"><a href="#tools-and-stuff">Tools and stuff</a></li>
+    
+
+    <li class="toctree-l2"><a href="#various-cgroup-aware-tool-examples">Various cgroup-aware tool examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#ps-cgroup-output">ps cgroup output</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1388,29 +1406,9 @@
     <a class="" href="../wuzz/">wuzz</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">xargs</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#get-the-type-of-each-listing-from-ls">Get the type of each listing from ls</a></li>
-        
-            <li><a class="toctree-l3" href="#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token">Handle spaces and use the arg as something other than the last token</a></li>
-        
-            <li><a class="toctree-l3" href="#pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time">Pass 5 args to each echo command, and never do more than 3 echo processes at a time</a></li>
-        
-            <li><a class="toctree-l3" href="#use-sed-to-change-git-files-containing-a-certain-string">use sed to change git files containing a certain string</a></li>
-        
-            <li><a class="toctree-l3" href="#issue-the-same-command-several-times-in-parallel">Issue the same command several times in parallel</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../xargs/">xargs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1465,7 +1463,7 @@
     
       
     
-    <li>xargs</li>
+    <li>cgroups</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1475,30 +1473,25 @@
           <div role="main">
             <div class="section">
               
-                <p>xargs issues commands with the STDIN as arguments, by default appended to the end of the command.</p>
-<h1 id="examples">Examples</h1>
-<h2 id="get-the-type-of-each-listing-from-ls">Get the type of each listing from ls</h2>
-<pre><code>ls | xargs file
-</code></pre>
-
-<h2 id="handle-spaces-and-use-the-arg-as-something-other-than-the-last-token">Handle spaces and use the arg as something other than the last token</h2>
-<p>The <code>-I</code> argument takes a string to use as a delimiter for any input.</p>
-<pre><code>ls | xargs -I {} mv &quot;{}&quot; ~/some/dir/
-</code></pre>
-
-<h2 id="pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time">Pass 5 args to each echo command, and never do more than 3 echo processes at a time</h2>
-<pre><code>echo {1..100} | xargs -n5 -P3 echo
-</code></pre>
-
-<h2 id="use-sed-to-change-git-files-containing-a-certain-string">use sed to change git files containing a certain string</h2>
-<p>This uses GNU <code>sed -i</code>, on macOS you should use <code>sed -i ''</code> or <code>gsed -i</code>.</p>
-<pre><code>git grep -l 192.168.5 | xargs sed -i 's/192.168.5/172.18.0/'
-</code></pre>
-
-<h2 id="issue-the-same-command-several-times-in-parallel">Issue the same command several times in parallel</h2>
-<p>This takes 1 directory as input and starts a sub-shell that cd's to the directory and runs a command. Up to 4 subhells are run in parallel. This is very similar to the <a href="https://www.gnu.org/software/parallel/">GNU parallel</a> command.</p>
-<pre><code>find ~/code/ -mindepth 1 -maxdepth 1 -type d |
-xargs -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
+                <p>"Control cgroups, usually referred to as cgroups, are a Linux kernel feature which allow processes to be organized into hierarchical groups whose usage of various types of resources can then be limited and monitored." - <code>man cgroups</code> (not cgroup, which is related to <code>tc</code>)</p>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Cgroups">https://wiki.archlinux.org/index.php/Cgroups</a></li>
+<li><a href="https://www.paranoids.at/cgroup-ubuntu-18-04-howto/">https://www.paranoids.at/cgroup-ubuntu-18-04-howto/</a></li>
+</ul>
+<h1 id="tools-and-stuff">Tools and stuff</h1>
+<ul>
+<li><code>lsns</code> - list namespaces</li>
+<li><code>cgcreate</code> - create new cgroup</li>
+<li><code>cgexec</code> - run the task in given control groups</li>
+<li><code>cgclassify</code> - move running task(s) to given cgroups</li>
+<li><code>systemd-cgls</code> - systemd-cgls - Recursively show control group contents</li>
+<li><code>systemd-cgtop</code> - Show top control groups by their resource usage</li>
+<li><code>/proc/self/cgroup</code> - cgroup introspection</li>
+</ul>
+<h1 id="various-cgroup-aware-tool-examples">Various cgroup-aware tool examples</h1>
+<h2 id="ps-cgroup-output">ps cgroup output</h2>
+<pre><code>ps -o pid,ppid,user,comm,flags,%cpu,sz,%mem,cgname
 </code></pre>
               
             </div>
@@ -1507,10 +1500,10 @@ xargs -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../yaml/" class="btn btn-neutral float-right" title="yaml">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../chkconfig/" class="btn btn-neutral float-right" title="chkconfig">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../wuzz/" class="btn btn-neutral" title="wuzz"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ceph/" class="btn btn-neutral" title="Ceph"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1536,10 +1529,10 @@ xargs -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../wuzz/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ceph/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../yaml/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../chkconfig/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

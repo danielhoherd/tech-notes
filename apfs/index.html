@@ -244,6 +244,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../cgroups/">cgroups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../chkconfig/">chkconfig</a>
 	    </li>
           
@@ -1544,7 +1549,7 @@ Deleted local snapshot '2017-11-04-183813'
 </code></pre>
 
 <h2 id="delete-all-snapshots">Delete all snapshots</h2>
-<pre><code>/usr/bin/tmutil listlocalsnapshots / | while read -r X ; do
+<pre><code class="bash">/usr/bin/tmutil listlocalsnapshots / | while read -r X ; do
   tmutil deletelocalsnapshots &quot;${X##*.}&quot;
 done
 </code></pre>

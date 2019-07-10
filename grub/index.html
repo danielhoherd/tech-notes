@@ -210,6 +210,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../cgroups/">cgroups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../chkconfig/">chkconfig</a>
 	    </li>
           
@@ -1472,7 +1477,7 @@
                 <p>"GNU GRUB is a Multiboot boot loader. It was derived from GRUB, the GRand Unified Bootloader, which was originally designed and implemented by Erich Stefan Boleyn." - <a href="https://www.gnu.org/software/grub/">https://www.gnu.org/software/grub/</a></p>
 <h1 id="examples">Examples</h1>
 <h2 id="update-defaults">Update defaults</h2>
-<p>The basic workflow for updating grub is to edit <code>/etc/default/grub</code> then run <code>sudo update-grub</code>.</p>
+<p>The basic workflow for updating grub is to edit <code>/etc/default/grub</code> then run <code>sudo update-grub</code>. The <code>update-grub</code> man page states that "update-grub is a stub for running grub-mkconfig -o /boot/grub/grub.cfg to generate a grub2 config file.", and thus you can run run <code>grub-mkconfig</code> to see what would be created.</p>
 <h2 id="disable-onboard-frame-buffer">Disable onboard frame buffer</h2>
 <p>I used this configuration to get text mode linux to boot on a Mac Mini with a bad graphics card that would not load a desktop environment. The machine was locking up at boot in OS X. Hardware test would boot with a striped color anomalies, but would never finish. Ubuntu Xenial would not boot correctly even to text mode without these settings.</p>
 <p>In <code>/etc/default/grub</code>:</p>

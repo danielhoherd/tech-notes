@@ -210,6 +210,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../cgroups/">cgroups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../chkconfig/">chkconfig</a>
 	    </li>
           
@@ -1020,6 +1025,8 @@
         
             <li><a class="toctree-l3" href="#show-process-list-sorted-by-process-start-time">Show process list sorted by process start time</a></li>
         
+            <li><a class="toctree-l3" href="#show-all-processes-not-owned-by-a-user-and-no-threads">Show all processes not owned by a user, and no threads</a></li>
+        
         </ul>
     
 
@@ -1468,27 +1475,36 @@
           <div role="main">
             <div class="section">
               
-                <p><code>ps</code> shows a list of processes in a *nix system.</p>
+                <p><code>ps</code> shows a list of processes in a unix system.</p>
 <h1 id="examples">Examples</h1>
 <h2 id="show-the-exact-command-used-to-start-all-process">show the exact command used to start all process</h2>
-<pre><code>ps axwwo command
+<pre><code class="bash">ps axwwo command
 </code></pre>
 
 <h2 id="show-a-process-tree-view">show a process tree view</h2>
-<pre><code>ps auxf
+<pre><code class="bash">ps auxf
 </code></pre>
 
 <h2 id="show-only-all-running-processes">show only all running processes</h2>
 <p>This excludes sleeping processes and threads.</p>
-<pre><code>ps auxr
+<pre><code class="bash">ps auxr
 </code></pre>
 
 <h2 id="show-process-list-sorted-by-process-start-time">Show process list sorted by process start time</h2>
-<pre><code>ps hax -o lstart,pid,args |
+<pre><code class="bash">ps hax -o lstart,pid,args |
   while read -r a b c d e f g ; do
     echo &quot;$(date -d &quot;$a $b $c $d $e&quot; &quot;+%F %T%z&quot;) $f $g&quot; ;
   done |
   sort
+</code></pre>
+
+<h2 id="show-all-processes-not-owned-by-a-user-and-no-threads">Show all processes not owned by a user, and no threads</h2>
+<ul>
+<li><code>-N</code> after a condition makes hides the results of that condition</li>
+<li>All linux kernel threads have parent pid 2 (kthreadd)</li>
+</ul>
+<pre><code class="bash">FILTERED_USER=zerocool # user must exist
+ps -o pid,ppid,user,comm,flags,%cpu,sz,%mem,cgname --user &quot;${FILTERED_USER}&quot; -N --ppid 2 -N
 </code></pre>
               
             </div>
