@@ -1338,6 +1338,9 @@
     <a class="current" href="./">udev</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#mount-namespace-problems">Mount namespace problems</a></li>
+    
+
     <li class="toctree-l2"><a href="#links">Links</a></li>
     
 
@@ -1462,6 +1465,25 @@
             <div class="section">
               
                 <p>"udev supplies the system software with device events, manages permissions of device nodes and may create additional symlinks in the /dev directory, or renames network interfaces." - <code>man udev</code></p>
+<h1 id="mount-namespace-problems">Mount namespace problems</h1>
+<p>In Ubuntu and probably other linuxes udevd runs in its own mount namespace. This means if you mount things using udev rules, by default they will be in an isolated namespace where users and other processes cannot access them. You can view this with:</p>
+<pre><code>root@bionic:~# lsblk -o NAME,MOUNTPOINT /dev/sdc
+NAME   MOUNTPOINT
+sdc
+└─sdc1
+
+root@bionic:~# nsenter --all -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
+NAME   MOUNTPOINT
+sdc
+└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
+</code></pre>
+
+<p>To solve this, run <code>systemctl edit systemd-udevd</code> and input the following config:</p>
+<pre><code>[Service]
+MountFlags=shared
+</code></pre>
+
+<p>Then run <code>systemctl daemon-reload ; service systemd-udevd --full-restart ;</code> See <code>man 7 mount_namespaces</code> for more info.</p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="http://www.reactivated.net/writing_udev_rules.html#env">http://www.reactivated.net/writing_udev_rules.html#env</a></li>
