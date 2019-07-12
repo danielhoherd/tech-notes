@@ -1,1494 +1,1758 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Daniel Austin Hoherd">
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>lvm - Daniel Hoherd's tech notes</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Daniel Austin Hoherd">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>lvm - Daniel Hoherd's tech notes</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "lvm";
-    var mkdocs_page_input_path = "lvm.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+         
+    </head>
 
-<body class="wy-body-for-nav" role="document">
+    <body>
 
-  <div class="wy-grid-for-nav">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Daniel Hoherd's tech notes</a>
+        </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">About these notes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../3d_printing/">3D Printing</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../airport/">Apple Airport</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../amazon-ec2/">Amazon EC2</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../amazon/">Amazon</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ansible/">Ansible</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../apfs/">Apple APFS</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aptly/">Aptly</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aria2/">Aria2</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../arpwatch/">arpwatch</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../atomicparsley/">AtomicParsley</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../atop/">atop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../autonomous-vehicles/">Autonomous Vehicle Links</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../avahi/">Avahi</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../awk/">awk</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../awless/">awless</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../awscli/">Amazon awscli</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../backups/">Backups</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../badblocks/">badblocks</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bash/">GNU bash</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bbcp/">bbcp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bc/">GNU bc</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bind/">BIND</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../blkid/">blkid</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bluetooth/">bluetooth</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bosh/">BOSH</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../bpf/">bpf</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../calico/">calico</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../calver/">CalVer</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../centos/">CentOS Linux</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ceph/">Ceph</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cgroups/">cgroups</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../chkconfig/">chkconfig</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../chocolatey/">Choclatey</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../chronos/">chronos</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../circleci/">CircleCI</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cncf/">CNCF</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cobbler/">Cobbler</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../conjure-up/">conjure-up</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../consul/">consul</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cookiecutter/">cookiecutter</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cowsay/">cowsay</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cradlepoint/">Cradlepoint</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cron/">cron</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cryptsetup/">cryptsetup</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../curl/">cURL</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dat/">dat</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../date/">date</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dcfldd/">dcfldd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dcgc/">Docker Custodian</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dcraw/">dcraw</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dd-wrt/">dd-wrt</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dd/">dd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ddrescue/">ddrescue</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deb/">deb</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../defaults/">defaults</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../devops/">devops</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dhcp/">DHCP</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dig/">dig</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dmidecode/">dmidecode</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dns/">dns</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../docker/">docker</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dsrc/">dsrc</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../dtrace/">dtrace</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../du/">du</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../duplicity/">duplicity</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../education/">education</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../eleduino/">Eleduino</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../etcd/">etcd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ethtool/">ethtool</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../exiftool/">exiftool</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fedramp/">Fedramp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ffmpeg/">ffmpeg</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../figlet/">figlet</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../find/">find</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../findmnt/">findmnt</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../flask/">flask</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fluentd/">fluentd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fortune/">fortune</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../genicam/">GenICam</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../geodata/">geodata</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gige-vision/">GigE Vision</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../git/">Git</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gitlab/">Gitlab</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gitolite/">gitolite</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../glances/">glances</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../golang/">golang</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../google-cloud/">Google Cloud</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../google-earth/">Google Earth</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../google-sheets/">Google Sheets</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../google/">Google</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../graphicsmagick/">GraphicsMagick</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../grub/">GNU GRUB</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../hadoop/">Hadoop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../handbrake/">Handbrake</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../hashids/">Hashids</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../helm/">helm</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../home-assistant/">Home Assistant</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../hp/">HP</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../htop/">htop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../httpstat/">httpstat</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../iTunes/">iTunes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../iftop/">iftop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../image-formats/">Graphical Image Formats</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../imagemagick/">ImageMagick</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../img2xterm/">img2xterm</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../innotop/">innotop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../inotify/">inotify</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../internet/">The Internet</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../iotop/">iotop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ip/">ip</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../iperf/">iperf</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ipmi/">IPMI</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../iptables/">iptables</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jargon/">jargon</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jdupes/">jdupes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jmespath/">jmespath</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jot/">jot</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jpeginfo/">jpeginfo</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jq/">jq</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../json/">JSON</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jsonpath/">JSONPath</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../juniper/">Juniper</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jupyter/">Jupyter</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../jwt/">jwt</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../kaniko/">kaniko</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../keel/">keel</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../keybase/">keybase</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../kubernetes/">kubernetes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../launchd/">launchd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ldap/">ldap</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../lego-mindstorms/">lego-mindstorms</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../lektor/">Lektor</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../linksys/">linksys</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../linux-performance-monitoring/">linux-performance-monitoring</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../linux/">linux</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../logstash/">logstash</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../lsblk/">lsblk</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../lshw/">lshw</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../lsof/">lsof</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">lvm</a>
-    <ul class="subnav">
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-    <li class="toctree-l2"><a href="#general-flow">General flow</a></li>
-    
+            
+                <li >
+                    <a href="">About these notes</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="3d_printing/">3D Printing</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="airport/">Apple Airport</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="amazon-ec2/">Amazon EC2</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="amazon/">Amazon</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ansible/">Ansible</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="apfs/">Apple APFS</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="aptly/">Aptly</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="aria2/">Aria2</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="arpwatch/">arpwatch</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="atomicparsley/">AtomicParsley</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="atop/">atop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="autonomous-vehicles/">Autonomous Vehicle Links</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="avahi/">Avahi</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="awk/">awk</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="awless/">awless</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="aws-cloudformation/">Amazon AWS Cloudformation</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="awscli/">Amazon awscli</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="backups/">Backups</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="badblocks/">badblocks</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bash/">GNU bash</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bbcp/">bbcp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bc/">GNU bc</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bind/">BIND</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="blkid/">blkid</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bluetooth/">bluetooth</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bosh/">BOSH</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="bpf/">bpf</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="calico/">calico</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="calver/">CalVer</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="centos/">CentOS Linux</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ceph/">Ceph</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cgroups/">cgroups</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="chkconfig/">chkconfig</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="chocolatey/">Choclatey</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="chronos/">chronos</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="circleci/">CircleCI</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cncf/">CNCF</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cobbler/">Cobbler</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="conjure-up/">conjure-up</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="consul/">consul</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cookiecutter/">cookiecutter</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cowsay/">cowsay</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cradlepoint/">Cradlepoint</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cron/">cron</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="cryptsetup/">cryptsetup</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="curl/">cURL</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dat/">dat</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="date/">date</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dcfldd/">dcfldd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dcgc/">Docker Custodian</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dcraw/">dcraw</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dd-wrt/">dd-wrt</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dd/">dd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ddrescue/">ddrescue</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="deb/">deb</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="defaults/">defaults</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="devops/">devops</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dhcp/">DHCP</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dig/">dig</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dmidecode/">dmidecode</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dns/">dns</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="docker/">docker</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dsrc/">dsrc</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dtrace/">dtrace</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="du/">du</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="duplicity/">duplicity</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="education/">education</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="eleduino/">Eleduino</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="etcd/">etcd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ethtool/">ethtool</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="exiftool/">exiftool</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="fedramp/">Fedramp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ffmpeg/">ffmpeg</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="figlet/">figlet</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="find/">find</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="findmnt/">findmnt</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="flask/">flask</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="fluentd/">fluentd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="fortune/">fortune</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="genicam/">GenICam</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="geodata/">geodata</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="gige-vision/">GigE Vision</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="git/">Git</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="gitlab/">Gitlab</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="gitolite/">gitolite</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="glances/">glances</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="golang/">golang</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="google-cloud/">Google Cloud</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="google-earth/">Google Earth</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="google-sheets/">Google Sheets</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="google/">Google</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="graphicsmagick/">GraphicsMagick</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="grub/">GNU GRUB</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="hadoop/">Hadoop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="handbrake/">Handbrake</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="hashids/">Hashids</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="helm/">helm</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="home-assistant/">Home Assistant</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="hp/">HP</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="htop/">htop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="httpstat/">httpstat</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="iTunes/">iTunes</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="iftop/">iftop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="image-formats/">Graphical Image Formats</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="imagemagick/">ImageMagick</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="img2xterm/">img2xterm</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="innotop/">innotop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="inotify/">inotify</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="internet/">The Internet</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="iotop/">iotop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ip/">ip</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="iperf/">iperf</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ipmi/">IPMI</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="iptables/">iptables</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jargon/">jargon</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jdupes/">jdupes</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jmespath/">jmespath</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jot/">jot</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jpeginfo/">jpeginfo</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jq/">jq</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="json/">JSON</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jsonpath/">JSONPath</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="juniper/">Juniper</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jupyter/">Jupyter</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="jwt/">jwt</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="kaniko/">kaniko</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="keel/">keel</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="keybase/">keybase</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="kubernetes/">kubernetes</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="launchd/">launchd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ldap/">ldap</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="lego-mindstorms/">lego-mindstorms</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="lektor/">Lektor</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="linksys/">linksys</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="linux-performance-monitoring/">linux-performance-monitoring</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="linux/">linux</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="logstash/">logstash</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="lsblk/">lsblk</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="lshw/">lshw</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="lsof/">lsof</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href="lvm/">lvm</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="lxc/">LXC</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="machine-learning/">Machine Learning</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="make/">GNU make</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="math/">math</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="mdraid/">mdraid</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="metallb/">MetalLB</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="micropython/">MicroPython</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="minikube/">minikube</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="mkdocs/">MkDocs</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="molecule/">Molecule</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="mqtt/">mqtt</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="mutt/">mutt</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="myrepos/">myrepos</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="mysql/">MySQL</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="namei/">namei</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ncftp/">ncftp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="netgear/">NETGEAR</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nethogs/">nethogs</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="networking/">networking</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="networksetup/">networksetup</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="neverware/">neverware</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nfs/">nfs</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nintendo-3ds/">Nintendo 3DS</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nintendo-amiibo/">Nintendo Amiibo</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nintendo-switch/">Nintendo Switch</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nintendo-wii/">Nintendo Wii</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nintendo-wiiu/">Nintendo Wii U</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ntop/">ntop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ntp/">NTP</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="nvidia/">nvidia</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="openvpn/">openvpn</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="osquery/">osquery</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ostinato/">ostinato</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="osx/">osx</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="outline/">outline</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="pac/">pac</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="pandoc/">pandoc</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="panopticlick/">panopticlick</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="passwords/">passwords</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="perl/">perl</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="pgp/">pgp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="philips-hue/">philips-hue</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="php/">php</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="plex/">plex</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="postgres/">PostgreSQL</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="powershell/">powershell</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="powertop/">powertop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="procurve/">procurve</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="prometheus/">Prometheus</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="protobuf/">protobuf</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ps/">ps</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ps_mem/">ps_mem</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="psp/">psp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="pssh/">pssh</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ptp/">ptp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="puppet/">Puppet</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="pv/">pv</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="python/">python</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="q/">q</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="raspberry-pi/">raspberry-pi</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="redis/">redis</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="rhel/">rhel</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="robotics/">robotics</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="roku/">Roku</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="rook/">rook</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ros/">ros</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="rpm/">rpm</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="rrd/">rrd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="rst/">reStructuredText</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="rsync/">rsync</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="saltstack/">saltstack</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="samsung/">Samsung</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="screenshot/">Screenshots</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sdr/">sdr</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sed/">sed</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="selinux/">selinux</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="semver/">semver</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sensu/">sensu</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="serverless/">serverless</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sgdisk/">sgdisk</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="shairport-sync/">shairport-sync</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="shred/">Shred</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="shutdown/">shutdown</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sips/">sips</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="smartctl/">smartctl</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="smartstack/">smartstack</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="snap/">snap</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="snmp/">snmp</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="solo/">solo</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sort/">sort</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sphinx/">sphinx</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="split/">split</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="splunk/">splunk</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sqlite/">sqlite</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ss/">ss</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ssh/">ssh</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sshuttle/">sshuttle</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="stat/">stat</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="strace/">strace</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sudo/">sudo</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="swagger/">swagger</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="swift/">Swift</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sysctl/">sysctl</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="sysdig/">sysdig</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="systemd-resolved/">systemd-resolved</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="systemd/">systemd</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="tcl/">TCL</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="tcpdump/">tcpdump</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="terraform/">Terraform</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="time/">time</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="tls/">tls</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="top-variant-list/">top-variant-list</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="top/">top</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="touch/">touch</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="ubuntu/">Ubuntu Linux</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="udev/">udev</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="upstart/">Upstart</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="vagrant/">vagrant</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="videos/">Tech videos</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="vim/">vim</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="virtualbox/">VirtualBox</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="wget/">Wget</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="winbind/">winbind</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="wireshark/">Wireshark</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="wonder-workshop/">wonder-workshop</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="wuzz/">wuzz</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="xargs/">xargs</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="yaml/">yaml</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="youtube-dl/">youtube-dl</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="yum/">yum</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="zerotier/">ZeroTier</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="zfs/">ZFS</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="zookeeper/">zookeeper</a>
+                </li>
+            
+            
+            </ul>
 
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#show-a-bunch-of-info">Show a bunch of info</a></li>
-        
-            <li><a class="toctree-l3" href="#show-system-disks-and-if-they-are-in-an-lvm">Show system disks and if they are in an LVM</a></li>
-        
-            <li><a class="toctree-l3" href="#show-all-logical-volumes">Show all logical volumes</a></li>
-        
-            <li><a class="toctree-l3" href="#activate-all-volume-groups">Activate all volume groups</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-physical-volume">Create a physical volume</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-logical-volume">Create a logical volume</a></li>
-        
-            <li><a class="toctree-l3" href="#show-how-each-logical-volume-is-set-up">Show how each logical volume is set up</a></li>
-        
-            <li><a class="toctree-l3" href="#show-free-extents">Show free extents</a></li>
-        
-            <li><a class="toctree-l3" href="#extend-a-volume-group-to-1tb">Extend a volume group to 1TB</a></li>
-        
-            <li><a class="toctree-l3" href="#extend-a-volume-group-to-its-max">Extend a volume group to its max</a></li>
-        
-        </ul>
-    
-
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../lxc/">LXC</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../machine-learning/">Machine Learning</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../make/">GNU make</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../math/">math</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mdraid/">mdraid</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../metallb/">MetalLB</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../micropython/">MicroPython</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../minikube/">minikube</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mkdocs/">MkDocs</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../molecule/">Molecule</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mqtt/">mqtt</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mutt/">mutt</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../myrepos/">myrepos</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mysql/">MySQL</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../namei/">namei</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ncftp/">ncftp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../netgear/">NETGEAR</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nethogs/">nethogs</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../networking/">networking</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../networksetup/">networksetup</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../neverware/">neverware</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nfs/">nfs</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nintendo-3ds/">Nintendo 3DS</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nintendo-amiibo/">Nintendo Amiibo</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nintendo-switch/">Nintendo Switch</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nintendo-wii/">Nintendo Wii</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nintendo-wiiu/">Nintendo Wii U</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ntop/">ntop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ntp/">NTP</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nvidia/">nvidia</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../openvpn/">openvpn</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../osquery/">osquery</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ostinato/">ostinato</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../osx/">osx</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../outline/">outline</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../pac/">pac</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../pandoc/">pandoc</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../panopticlick/">panopticlick</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../passwords/">passwords</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../perl/">perl</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../pgp/">pgp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../philips-hue/">philips-hue</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../php/">php</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../plex/">plex</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../postgres/">PostgreSQL</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../powershell/">powershell</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../powertop/">powertop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../procurve/">procurve</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../prometheus/">Prometheus</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../protobuf/">protobuf</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ps/">ps</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ps_mem/">ps_mem</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../psp/">psp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../pssh/">pssh</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ptp/">ptp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../puppet/">Puppet</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../pv/">pv</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../python/">python</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../q/">q</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../raspberry-pi/">raspberry-pi</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../redis/">redis</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rhel/">rhel</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../robotics/">robotics</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../roku/">Roku</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rook/">rook</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ros/">ros</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rpm/">rpm</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rrd/">rrd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rst/">reStructuredText</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rsync/">rsync</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../saltstack/">saltstack</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../samsung/">Samsung</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../screenshot/">Screenshots</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sdr/">sdr</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sed/">sed</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../selinux/">selinux</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../semver/">semver</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sensu/">sensu</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../serverless/">serverless</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sgdisk/">sgdisk</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../shairport-sync/">shairport-sync</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../shred/">Shred</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../shutdown/">shutdown</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sips/">sips</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../smartctl/">smartctl</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../smartstack/">smartstack</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../snap/">snap</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../snmp/">snmp</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../solo/">solo</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sort/">sort</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sphinx/">sphinx</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../split/">split</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../splunk/">splunk</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sqlite/">sqlite</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ss/">ss</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ssh/">ssh</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sshuttle/">sshuttle</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../stat/">stat</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../strace/">strace</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sudo/">sudo</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../swagger/">swagger</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../swift/">Swift</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sysctl/">sysctl</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sysdig/">sysdig</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../systemd-resolved/">systemd-resolved</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../systemd/">systemd</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../tcl/">TCL</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../tcpdump/">tcpdump</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../terraform/">Terraform</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../time/">time</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../tls/">tls</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../top-variant-list/">top-variant-list</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../top/">top</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../touch/">touch</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ubuntu/">Ubuntu Linux</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../udev/">udev</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../upstart/">Upstart</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vagrant/">vagrant</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../videos/">Tech videos</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vim/">vim</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../virtualbox/">VirtualBox</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../wget/">Wget</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../winbind/">winbind</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../wireshark/">Wireshark</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../wonder-workshop/">wonder-workshop</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../wuzz/">wuzz</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../xargs/">xargs</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../yaml/">yaml</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../youtube-dl/">youtube-dl</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../yum/">yum</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../zerotier/">ZeroTier</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../zfs/">ZFS</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../zookeeper/">zookeeper</a>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daniel Hoherd's tech notes</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>lvm</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="lsof/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="lxc/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
 </div>
-          <div role="main">
-            <div class="section">
-              
-                <p>Linux Logical Volume Manager.</p>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#general-flow">General flow</a></li>
+        
+    
+        <li class="main "><a href="#examples">Examples</a></li>
+        
+            <li><a href="#show-a-bunch-of-info">Show a bunch of info</a></li>
+        
+            <li><a href="#show-system-disks-and-if-they-are-in-an-lvm">Show system disks and if they are in an LVM</a></li>
+        
+            <li><a href="#show-all-logical-volumes">Show all logical volumes</a></li>
+        
+            <li><a href="#activate-all-volume-groups">Activate all volume groups</a></li>
+        
+            <li><a href="#create-a-physical-volume">Create a physical volume</a></li>
+        
+            <li><a href="#create-a-logical-volume">Create a logical volume</a></li>
+        
+            <li><a href="#show-how-each-logical-volume-is-set-up">Show how each logical volume is set up</a></li>
+        
+            <li><a href="#show-free-extents">Show free extents</a></li>
+        
+            <li><a href="#extend-a-volume-group-to-1tb">Extend a volume group to 1TB</a></li>
+        
+            <li><a href="#extend-a-volume-group-to-its-max">Extend a volume group to its max</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Linux Logical Volume Manager.</p>
 <ul>
 <li><a href="http://linuxconfig.org/Linux_lvm_-_Logical_Volume_Manager">Tutorial</a></li>
 <li><a href="http://www.centos.org/docs/5/html/Cluster_Logical_Volume_Manager/LVM_definition.html">Overview</a></li>
@@ -1540,53 +1804,15 @@ df -h /srv
 <pre><code>lvextend -l +100%FREE /dev/vgroot/lv_srv &amp;&amp; \
 resize2fs /dev/mapper/vgroot-lv_srv &amp;&amp; \
 df -h /srv
-</code></pre>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../lxc/" class="btn btn-neutral float-right" title="LXC">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../lsof/" class="btn btn-neutral" title="lsof"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
+</code></pre></div>
+                </div>
         </div>
-      </div>
 
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../lsof/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../lxc/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-
-</body>
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> and <a href="http://kristopolous.github.io/BOOTSTRA.386/">BOOTSTRA.386</a>.</center>
+    </footer>
+        <script src="../search/main.js"></script>
+    </body>
 </html>
