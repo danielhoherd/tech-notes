@@ -2,36 +2,154 @@ body {
     padding-top: 70px;
 }
 
-h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before, h5[id]:before, h6[id]:before {
+ul.nav .main {
+    font-weight: bold;
+}
+
+.col-md-3 {
+    padding-left: 0;
+}
+
+.col-md-9 {
+    padding-bottom: 100px;
+}
+
+.source-links {
+    float: right;
+}
+
+.col-md-9 img {
+    max-width: 100%;
+}
+
+/*
+ * The code below adds some padding to the top of the current anchor target so
+ * that, when navigating to it, the header isn't hidden by the navbar at the
+ * top. This is especially complicated because we want to *remove* the padding
+ * after navigation so that hovering over the header shows the permalink icon
+ * correctly. Thus, we create a CSS animation to remove the extra padding after
+ * a second. We have two animations so that navigating to an anchor within the
+ * page always restarts the animation.
+ *
+ * See <https://github.com/mkdocs/mkdocs/issues/843> for more details.
+ */
+:target::before {
     content: "";
     display: block;
     margin-top: -75px;
     height: 75px;
+    pointer-events: none;
+    animation: 0s 1s forwards collapse-anchor-padding-1;
 }
 
-p > img {
-    max-width: 100%;
-    height: auto;
+.clicky :target::before {
+    animation-name: collapse-anchor-padding-2;
 }
 
-ul.nav li.first-level {
-    font-weight: bold;
+@keyframes collapse-anchor-padding-1 {
+    to {
+        margin-top: 0;
+        height: 0;
+    }
 }
 
-ul.nav li.third-level {
-    padding-left: 12px;
+@keyframes collapse-anchor-padding-2 {
+    to {
+        margin-top: 0;
+        height: 0;
+    }
 }
 
-div.col-md-3 {
-    padding-left: 0;
+pre, code {
+    background: #1c1e22;
+    border: solid 1px #0c0d0e;
+    color: #c8c8c8;
 }
 
-div.col-md-9 {
-    padding-bottom: 100px;
+code {
+    padding: 1px 3px;
 }
 
-div.source-links {
-    float: right;
+pre code {
+    background: transparent;
+    border: none;
+}
+
+a code {
+    color: #fff;
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+footer {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 200;
+}
+
+.modal-dialog {
+    margin-top: 60px;
+}
+
+/* Style the admonitions. */
+
+.admonition {
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    background-color: #2e3338;
+}
+
+.admonition > .admonition-title {
+    margin: 0;
+    padding: 10px 15px;
+    border-bottom: 1px solid #000;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    background-color: #3e444c;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.admonition > * {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.admonition > *:not(.admonition-title):first-of-type,
+.admonition > .admonition-title + * {
+    margin-top: 15px;
+}
+
+.admonition > *:last-child {
+    margin-bottom: 15px;
+}
+
+/* Style each kind of admonition. */
+
+.admonition.note > .admonition-title {
+    background-color: #5bc0de;
+}
+
+.admonition.warning > .admonition-title {
+    background-color: #f89406;
+}
+
+.admonition.danger > .admonition-title {
+    background-color: #ee5f5b;
 }
 
 /*
@@ -103,7 +221,6 @@ div.source-links {
     .bs-sidebar.affix {
         position: fixed; /* Undo the static from mobile first approach */
         top: 80px;
-        max-height: calc(100% - 90px);
     }
     .bs-sidebar.affix-bottom {
         position: absolute; /* Undo the static from mobile first approach */
@@ -122,24 +239,37 @@ div.source-links {
     }
 }
 
+.headerlink {
+    display: none;
+    padding-left: .5em;
+}
 
-/* Added to support >2 level nav in drop down */
+h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink{
+    display:inline-block;
+}
 
+/* display submenu relative to parent*/
 .dropdown-submenu {
     position: relative;
 }
 
+/* sub menu stlye */
 .dropdown-submenu>.dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: 0px;
-    margin-left: 0px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 4px 4px 4px;
+    -moz-border-radius: 0 4px 4px;
+    border-radius: 0 4px 4px 4px;
 }
 
+/* display sub menu on hover*/
 .dropdown-submenu:hover>.dropdown-menu {
     display: block;
 }
 
+/* little arrow */
 .dropdown-submenu>a:after {
     display: block;
     content: " ";
@@ -149,133 +279,12 @@ div.source-links {
     border-color: transparent;
     border-style: solid;
     border-width: 5px 0 5px 5px;
-    border-left-color: #ccc;
+    border-left-color: #999999;
     margin-top: 5px;
     margin-right: -10px;
 }
 
+/* little arrow of parent menu */
 .dropdown-submenu:hover>a:after {
     border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
-    float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-    left: -100%;
-    margin-left: 00px;
-}
-/* Start Bootstrap Callouts CSS Source by Chris Pratt (https://codepen.io/chrisdpratt/pen/IAymB) MIT License*/
-.bs-callout {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
-    background-color: #FCFDFF;
-}
-.bs-callout h4 {
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-.bs-callout p:last-child {
-    margin-bottom: 0;
-}
-.bs-callout code {
-    border-radius: 3px;
-}
-.bs-callout+.bs-callout {
-    margin-top: -5px;
-}
-.bs-callout-default {
-    border-left-color: #FA023C; /*modified from upstream default by Christopher Simpkins*/
-}
-.bs-callout-default h4 {
-    color: #FA023C; /*modified from upstream default by Christopher Simpkins*/
-}
-.bs-callout-primary {
-    border-left-color: #428bca;
-}
-.bs-callout-primary h4 {
-    color: #428bca;
-}
-.bs-callout-success {
-    border-left-color: #5cb85c;
-}
-.bs-callout-success h4 {
-    color: #5cb85c;
-}
-.bs-callout-danger {
-    border-left-color: #d9534f;
-}
-.bs-callout-danger h4 {
-    color: #d9534f;
-}
-.bs-callout-warning {
-    border-left-color: #f0ad4e;
-}
-.bs-callout-warning h4 {
-    color: #f0ad4e;
-}
-.bs-callout-info {
-    border-left-color: #5bc0de;
-}
-.bs-callout-info h4 {
-    color: #5bc0de;
-}
-/* End Bootstrap Callouts CSS Source by Chris Pratt */
-
-/* Admonitions */
-.admonition {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
-    background-color: #FCFDFF;
-}
-
-.admonition p:last-child {
-    margin-bottom: 0;
-}
-.admonition code {
-    border-radius: 3px;
-}
-.admonition+.admonition {
-    margin-top: -5px;
-}
-
-.admonition.note { /* csslint allow: adjoining-classes */
-    border-left-color: #428bca;
-}
-
-.admonition.warning { /* csslint allow: adjoining-classes */
-    border-left-color: #f0ad4e;
-}
-
-.admonition.danger { /* csslint allow: adjoining-classes */
-    border-left-color: #d9534f;
-}
-
-.admonition-title {
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-
-.admonition.note > .admonition-title {
-    color: #428bca;
-}
-
-.admonition.warning > .admonition-title {
-    color: #f0ad4e;
-}
-
-.admonition.danger > .admonition-title {
-    color: #d9534f;
 }
