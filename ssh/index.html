@@ -1264,11 +1264,13 @@
         
             <li><a class="toctree-l3" href="#tunnel-local-port-to-the-destination-through-the-ssh-connection">tunnel local port to the destination through the SSH connection</a></li>
         
-            <li><a class="toctree-l3" href="#tunnel-from-remote-port-through-the-local-machine-to-destination">Tunnel from remote port through the local machine to destination</a></li>
+            <li><a class="toctree-l3" href="#tunnel-remote-port-through-the-ssh-connection-to-the-local-machine">Tunnel remote port through the ssh connection to the local machine</a></li>
         
             <li><a class="toctree-l3" href="#create-a-socks-5-proxy-on-a-local-port">Create a socks 5 proxy on a local port</a></li>
         
             <li><a class="toctree-l3" href="#loop-through-some-ssh-hosts-and-execute-a-command">Loop through some ssh hosts and execute a command</a></li>
+        
+            <li><a class="toctree-l3" href="#prefer-password-auth">Prefer password auth</a></li>
         
         </ul>
     
@@ -1544,28 +1546,46 @@
 <h1 id="sshd">sshd</h1>
 <h2 id="output-effective-server-configuration-variables">Output effective server configuration variables</h2>
 <p>This is useful for troubleshooting ssh_config matching.</p>
-<p><code>sshd -T # requires root</code></p>
-<h1 id="ssh_1">ssh</h1>
-<h2 id="output-effective-client-configuration-variables">Output effective client configuration variables</h2>
-<p><code>ssh -G user@host</code></p>
-<h2 id="tunnel-local-port-to-the-destination-through-the-ssh-connection">tunnel local port to the destination through the SSH connection</h2>
-<p>This will only listen on localhost, not ethernet interfaces. Use -g to listen on all interfaces</p>
-<pre><code>ssh -L LocalPort:Destination:DestinationPort
+<pre><code class="bash">sshd -T # requires root
 </code></pre>
 
-<h2 id="tunnel-from-remote-port-through-the-local-machine-to-destination">Tunnel from remote port through the local machine to destination</h2>
-<pre><code>ssh -R RemotePort:Destination:DestinationPort
+<h1 id="ssh_1">ssh</h1>
+<h2 id="output-effective-client-configuration-variables">Output effective client configuration variables</h2>
+<pre><code class="bash">ssh -G user@host
+</code></pre>
+
+<h2 id="tunnel-local-port-to-the-destination-through-the-ssh-connection">tunnel local port to the destination through the SSH connection</h2>
+<p>This allows you to hit remote services as if they were running on your own machine on the given port.</p>
+<p>This will only listen on localhost, not ethernet interfaces. Use <code>-g</code> to listen on all interfaces.</p>
+<pre><code>local_port=9980
+remote_port=80
+destination_host=some_other_remote_server
+ssh -L &quot;${remote_port}:${destination_host}:${local_port}&quot;
+</code></pre>
+
+<h2 id="tunnel-remote-port-through-the-ssh-connection-to-the-local-machine">Tunnel remote port through the ssh connection to the local machine</h2>
+<p>This allows remote hosts to connect to a server running on your local network.</p>
+<pre><code class="bash">local_port=80
+remote_port=9980
+destination_host=some_other_local_server
+ssh -R &quot;${remote_port}:${destination_host}:${local_port}&quot;
 </code></pre>
 
 <h2 id="create-a-socks-5-proxy-on-a-local-port">Create a socks 5 proxy on a local port</h2>
-<pre><code>ssh -D [PORT] user@host
+<pre><code class="bash">local_port=5555
+ssh -D &quot;$local_port&quot; user@host
 </code></pre>
 
 <h2 id="loop-through-some-ssh-hosts-and-execute-a-command">Loop through some ssh hosts and execute a command</h2>
 <p>-n is required in order to proceed past the first host.</p>
-<pre><code>cat hostnames.txt | while read -r host ; do
+<pre><code class="bash">cat hostnames.txt | while read -r host ; do
   ssh -o ConnectTimeout=10 -o PasswordAuthentication=no -n &quot;$host&quot; 'some_command ; another_command'
 done
+</code></pre>
+
+<h2 id="prefer-password-auth">Prefer password auth</h2>
+<p>Sometimes you need to prefer password auth over key based auth. For example, if you have lots of keys and you are trying to connect to a host that only allows one failure, you will expire your failures before you ever reach a password dialogue.</p>
+<pre><code class="bash">ssh -o PreferredAuthentications=password root@libreelec.local
 </code></pre>
 
 <h1 id="ssh_config">ssh_config</h1>
@@ -1589,7 +1609,7 @@ done
 
 <p>To kill a multiplexed connection, run <code>ssh -O exit user@host</code></p>
 <h2 id="proxycommand">ProxyCommand</h2>
-<p>This command lets you execute an arbitrary series of commands to connect with.</p>
+<p>This config option lets you execute an arbitrary series of commands to connect with.</p>
 <p>SSH proxy through ssh host for openSSH v4 and earlier (Ubuntu 8):</p>
 <pre><code>ProxyCommand ssh -q bastion nc -q 0 %h %p
 </code></pre>
@@ -1606,7 +1626,7 @@ done
 <p>Key-based authentication lets you log in without specifying a password. This is useful for <code>rsync</code>, <code>scp</code> and just plain old <code>ssh</code> shell. Adding comments to the public key makes it easy to sort through the keys that authorized_keys file. The <code>$HOME/.ssh/authorized_keys</code> file is the default list of public keys which are allowed password-less login. See also <code>man authorized_keys</code> for more info.</p>
 <h2 id="key-based-auth-permissions">Key-based auth Permissions</h2>
 <p>Permissions on this file need to be set like this:</p>
-<pre><code>#!/bin/sh
+<pre><code class="bash">#!/bin/sh
 # This will repair permissions for the current user's ssh key-pair authentication.
 mkdir ~/.ssh/
 touch ~/.ssh/authorized_keys
@@ -1618,25 +1638,26 @@ echo &quot;Successfully fixed ssh authentication files permissions.&quot;
 
 <h1 id="ssh-keygen">ssh-keygen</h1>
 <h2 id="validate-each-entry-of-authorized_keys">Validate each entry of authorized_keys</h2>
-<pre><code>ssh-keygen -lvf ~/.ssh/authorized_keys
+<pre><code class="bash">ssh-keygen -lvf ~/.ssh/authorized_keys
 </code></pre>
 
 <h2 id="generate-keys">Generate Keys</h2>
 <p>Not all systems support ed25519, but it is currently the most secure key type.</p>
-<pre><code>ssh-keygen -t ssh-ed25519 -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;
+<pre><code class="bash">ssh-keygen -t ssh-ed25519 -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
 </code></pre>
 
 <p>If you require backwards compatibility, use 4096 bit RSA keys.</p>
-<pre><code>ssh-keygen -b 4096 -t rsa -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
+<pre><code class="bash">ssh-keygen -b 4096 -t rsa -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
 </code></pre>
 
 <h2 id="create-or-change-a-password-for-an-ssh-identity">Create or change a password for an ssh identity</h2>
 <p>This will update the password used to unlock an ssh identity.</p>
-<pre><code>ssh-keygen -p -f ~/.ssh/id_ed25519
+<pre><code class="bash">ssh-keygen -p -f ~/.ssh/id_ed25519
 </code></pre>
 
 <h1 id="limit-root-login-to-key-based-auth">Limit root login to key based auth</h1>
-<pre><code>In /etc/ssh/sshd_config: PermitRootLogin without-password
+<p>In /etc/ssh/sshd_config</p>
+<pre><code>PermitRootLogin without-password
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
