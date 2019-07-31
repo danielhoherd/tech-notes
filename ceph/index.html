@@ -227,6 +227,14 @@
         
             <li><a class="toctree-l3" href="#show-all-pools">Show all pools</a></li>
         
+            <li><a class="toctree-l3" href="#list-all-rbd-images-in-a-pool">List all RBD images in a pool</a></li>
+        
+            <li><a class="toctree-l3" href="#map-an-rbd-image-to-a-system-device">Map an RBD image to a system device</a></li>
+        
+            <li><a class="toctree-l3" href="#list-snapshots-for-an-rbd-image">List snapshots for an RBD image</a></li>
+        
+            <li><a class="toctree-l3" href="#copy-a-snapshot-to-an-image-so-it-can-be-mounted">Copy a snapshot to an image so it can be mounted</a></li>
+        
             <li><a class="toctree-l3" href="#monitor-existing-operations">Monitor existing operations</a></li>
         
         </ul>
@@ -1507,36 +1515,65 @@
 </ul>
 <h1 id="examples">Examples</h1>
 <h2 id="activate-all-osds">Activate all OSDs</h2>
-<pre><code>sudo ceph-disk activate-all
+<pre><code class="sh">sudo ceph-disk activate-all
 </code></pre>
 
 <p>Starting with ceph 13, use:</p>
-<pre><code>ceph-volume lvm activate --all
+<pre><code class="sh">ceph-volume lvm activate --all
 </code></pre>
 
 <h2 id="start-all-ceph-services">Start all ceph services</h2>
-<pre><code>sudo systemctl start ceph.target
+<pre><code class="sh">sudo systemctl start ceph.target
 </code></pre>
 
 <h2 id="stop-all-ceph-services">Stop all ceph services</h2>
 <p>Unfortunately there's not a single service or target to stop, so you have to use globs</p>
-<pre><code>sudo systemctl stop '*ceph*'
+<pre><code class="sh">sudo systemctl stop '*ceph*'
 </code></pre>
 
 <h2 id="show-the-status-of-all-osds-in-the-cluster">Show the status of all osds in the cluster</h2>
-<pre><code>ceph osd status
+<pre><code class="sh">ceph osd status
 </code></pre>
 
 <h2 id="show-metadata-about-all-osds-in-the-cluster">Show metadata about all osds in the cluster</h2>
-<pre><code>ceph osd metadata
+<pre><code class="sh">ceph osd metadata
 </code></pre>
 
 <h2 id="show-all-pools">Show all pools</h2>
-<pre><code>ceph osd lspools
+<pre><code class="sh">ceph osd lspools
 </code></pre>
 
+<h2 id="list-all-rbd-images-in-a-pool">List all RBD images in a pool</h2>
+<pre><code class="sh">pool_name=&quot;kube&quot;
+rbd list &quot;$pool_name&quot;
+</code></pre>
+
+<h2 id="map-an-rbd-image-to-a-system-device">Map an RBD image to a system device</h2>
+<pre><code class="sh">pool_name=&quot;kube&quot;
+rbd_image_name=&quot;testimage&quot;
+rbd map &quot;$pool_name/$rbd_image_name&quot;
+</code></pre>
+
+<p>Then you can mount whatever the resulting device is. <code>-o X-mount.mkdir</code> automatically creates the destination mount point, but may not be available on some systems.</p>
+<pre><code class="sh">mount -o X-mount.mkdir /dev/rbd8 /mnt/rbd8
+</code></pre>
+
+<h2 id="list-snapshots-for-an-rbd-image">List snapshots for an RBD image</h2>
+<pre><code class="sh">pool_name=&quot;kube&quot;
+rbd_image_name=&quot;testimage&quot;
+rbd snap list &quot;$pool_name/$rbd_image_name&quot;
+</code></pre>
+
+<h2 id="copy-a-snapshot-to-an-image-so-it-can-be-mounted">Copy a snapshot to an image so it can be mounted</h2>
+<pre><code class="sh">pool_name=&quot;kube&quot;
+rbd_image_name=&quot;testimage&quot;
+snap_name=&quot;snap-072519-213210&quot;
+rbd clone &quot;$pool_name/$rbd_image_name@$snap_name&quot; &quot;$pool_name/image-$snap_name&quot;
+</code></pre>
+
+<p>After this you can map the new image and mount it as described above.</p>
 <h2 id="monitor-existing-operations">Monitor existing operations</h2>
-<pre><code>ceph daemon mon.$MON_HOSTNAME ops
+<pre><code class="sh">ceph daemon &quot;mon.$MON_HOSTNAME&quot; ops
 </code></pre>
 
 <h1 id="links">Links</h1>
