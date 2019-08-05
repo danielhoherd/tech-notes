@@ -1484,19 +1484,20 @@
                 <p>Mostly related to the technological offerings of Amazon, not the shopping experience or anything else they do.</p>
 <h1 id="links">Links</h1>
 <ul>
-<li><a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">Amazon service availability by region</a></li>
 <li><a href="https://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a></li>
-<li><a href="http://www.ec2instances.info/">EC2Instances.info - Easy Amazon EC2 Instance Comparison</a></li>
+<li><a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">Amazon service availability by region</a></li>
+<li><a href="https://github.com/wallix/awless">awless - awless is a powerful, innovative and small surface command line interface (CLI) to manage Amazon Web Services.</a></li>
 <li><a href="https://console.aws.amazon.com/console/home">AWS Console</a></li>
 <li><a href="https://www.expeditedssl.com/aws-in-plain-english">AWS in plain english</a></li>
+<li><a href="http://www.ec2instances.info/">EC2Instances.info - Easy Amazon EC2 Instance Comparison</a></li>
 <li><a href="https://github.com/cloudtools/troposphere">Github - Troposphere</a></li>
-<li><a href="http://s3tools.org">s3toosl</a> - Command Line S3 Client and Backup</li>
-<li><a href="https://github.com/wallix/awless">awless - awless is a powerful, innovative and small surface command line interface (CLI) to manage Amazon Web Services.</a></li>
 <li><a href="https://github.com/localstack/localstack">localstack</a> - A fully functional local AWS cloud stack for use in development.</li>
+<li><a href="http://s3tools.org">s3toosl</a> - Command Line S3 Client and Backup</li>
+<li><a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">https://aws.amazon.com/answers/account-management/aws-tagging-strategies/</a></li>
 </ul>
 <h1 id="tips">Tips</h1>
 <h2 id="reformat-accesskeyscsv-into-awscredentials-format">Reformat accessKeys.csv into .aws/credentials format</h2>
-<pre><code>awk -F, 'BEGIN { print &quot;[temp_name]&quot; ; } !/Access/ {print &quot;aws_access_key_id = &quot;$1&quot;\naws_secret_access_key = &quot;$2}' ~/Downloads/accessKeys.csv
+<pre><code class="sh">awk -F, 'BEGIN { print &quot;[temp_name]&quot; ; } !/Access/ {print &quot;aws_access_key_id = &quot;$1&quot;\naws_secret_access_key = &quot;$2}' ~/Downloads/accessKeys.csv
 </code></pre>
 
 <h1 id="see-also">See Also</h1>

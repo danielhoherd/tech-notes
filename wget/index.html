@@ -1485,17 +1485,28 @@
 <h1 id="examples">Examples</h1>
 <h2 id="mirror-site-for-local-viewing">Mirror site for local viewing</h2>
 <p>From the man page: to download a single page and all its requisites (even if they exist on separate websites), and make sure the lot displays properly locally, this author likes to use a few options in addition to -p:</p>
-<pre><code>wget -E -H -k -K -p http://&lt;site&gt;/&lt;document&gt;
+<pre><code class="sh">wget -E -H -k -K -p &quot;https://$site/$dir&quot;
 </code></pre>
 
 <h2 id="download-all-images-from-a-site">Download all images from a site</h2>
 <p>To politely download all images from within a current remote directory:</p>
-<pre><code>wget --wait=2 --random-wait --tries=0 --waitretry=30 -np -N -r -A.jpg http://www.site.com/directory/
+<pre><code class="sh">wget \
+  --accept &quot;.jpg&quot; \
+  --adjust-extension \
+  --continue \
+  --no-parent \
+  --random-wait \
+  --recursive \
+  --timestamping \
+  --tries=0 \
+  --wait=2 \
+  --waitretry=30 \
+  &quot;https://$site/$dir/&quot;
 </code></pre>
 
 <h2 id="simple-use-of-cookies">Simple use of cookies</h2>
 <p>Some servers that need referrers and cookies can be accessed by doing:</p>
-<pre><code>wget --save-cookies=&quot;cookies.txt&quot; &quot;foo.html
+<pre><code class="sh">wget --save-cookies=&quot;cookies.txt&quot; &quot;foo.html&quot;
 wget --load-cookies=&quot;cookies.txt&quot; --referer=&quot;foo.html&quot; &quot;foo.mp3&quot;
 </code></pre>
 
