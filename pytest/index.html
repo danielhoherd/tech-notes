@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>vim - Daniel Hoherd's tech notes</title>
+  <title>pytest - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "vim";
-    var mkdocs_page_input_path = "vim.md";
+    var mkdocs_page_name = "pytest";
+    var mkdocs_page_input_path = "pytest.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -1043,9 +1043,27 @@
     <a class="" href="../pv/">pv</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../pytest/">pytest</a>
+    <a class="current" href="./">pytest</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#usage-tips">Usage Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#debug-failing-test-with-pdb">Debug failing test with pdb</a></li>
+        
+            <li><a class="toctree-l3" href="#override-test-args">Override test args</a></li>
+        
+            <li><a class="toctree-l3" href="#run-only-tests-that-failed-on-the-last-run">Run only tests that failed on the last run</a></li>
+        
+            <li><a class="toctree-l3" href="#run-all-tests-but-put-the-last-failures-first">Run all tests, but put the last failures first</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1363,21 +1381,9 @@
     <a class="" href="../videos/">Tech videos</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">vim</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#modelines">Modelines</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#modeline-example">modeline example:</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../vim/">vim</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1467,7 +1473,7 @@
     
       
     
-    <li>vim</li>
+    <li>pytest</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1477,12 +1483,24 @@
           <div role="main">
             <div class="section">
               
-                <p>"Vim is a text editor that is upwards compatible to Vi." - <code>man vim</code></p>
-<h1 id="modelines">Modelines</h1>
-<p>modelines are commented lines in files that set vim settings to use when editing that file.</p>
-<p>http://vim.wikia.com/wiki/Modeline_magic</p>
-<h2 id="modeline-example">modeline example:</h2>
-<pre><code># vim: set expandtab ts=2
+                <p>"The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries." - <a href="https://docs.pytest.org">https://docs.pytest.org</a></p>
+<h1 id="usage-tips">Usage Tips</h1>
+<h2 id="debug-failing-test-with-pdb">Debug failing test with pdb</h2>
+<p>This will drop you into a pdb shell when a test failure occurs.</p>
+<pre><code class="sh">pytest --pdb tests/test_*.py
+</code></pre>
+
+<h2 id="override-test-args">Override test args</h2>
+<pre><code class="sh">export PYTEST_ADDOPTS='--maxfail=1 -v --pdb'
+pytest app/tests/test_*.py
+</code></pre>
+
+<h2 id="run-only-tests-that-failed-on-the-last-run">Run only tests that failed on the last run</h2>
+<pre><code class="sh">pytest --lf
+</code></pre>
+
+<h2 id="run-all-tests-but-put-the-last-failures-first">Run all tests, but put the last failures first</h2>
+<pre><code class="sh">pytest --ff
 </code></pre>
               
             </div>
@@ -1491,10 +1509,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../virtualbox/" class="btn btn-neutral float-right" title="VirtualBox">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../python/" class="btn btn-neutral float-right" title="python">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../videos/" class="btn btn-neutral" title="Tech videos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pv/" class="btn btn-neutral" title="pv"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1520,10 +1538,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../videos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../pv/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../virtualbox/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../python/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -846,6 +846,8 @@
         
             <li><a class="toctree-l3" href="#recursively-put-a-directory">Recursively put a directory</a></li>
         
+            <li><a class="toctree-l3" href="#recursively-delete-a-remote-directory">Recursively delete a remote directory</a></li>
+        
         </ul>
     
 
@@ -1055,6 +1057,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../pv/">pv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pytest/">pytest</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1477,11 +1484,16 @@
                 <p>"NcFTP Client is a set of FREE application programs implementing the File Transfer Protocol. ... The program has been in service on UNIX systems since 1991 and is a popular alternative to the standard FTP program, /usr/bin/ftp." - <a href="https://www.ncftp.com/ncftp/">https://www.ncftp.com/ncftp/</a></p>
 <h1 id="examples">Examples</h1>
 <h2 id="connect-to-a-non-standard-port">Connect to a non-standard port</h2>
-<pre><code>ncftp -P 5000 10.8.5.103
+<pre><code>ncftp ftp://10.8.5.103:5000
 </code></pre>
 
 <h2 id="recursively-put-a-directory">Recursively put a directory</h2>
-<pre><code>put -R localdir
+<pre><code>put -r local_dir
+</code></pre>
+
+<h2 id="recursively-delete-a-remote-directory">Recursively delete a remote directory</h2>
+<p>This does not always work.</p>
+<pre><code>rm -r remote_dir
 </code></pre>
               
             </div>
