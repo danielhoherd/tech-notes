@@ -229,6 +229,8 @@
         
             <li><a class="toctree-l3" href="#list-all-rbd-images-in-a-pool">List all RBD images in a pool</a></li>
         
+            <li><a class="toctree-l3" href="#show-rbd-usage-stats">Show rbd usage stats</a></li>
+        
             <li><a class="toctree-l3" href="#map-an-rbd-image-to-a-system-device">Map an RBD image to a system device</a></li>
         
             <li><a class="toctree-l3" href="#list-snapshots-for-an-rbd-image">List snapshots for an RBD image</a></li>
@@ -1555,6 +1557,11 @@
 <h2 id="list-all-rbd-images-in-a-pool">List all RBD images in a pool</h2>
 <pre><code class="sh">pool_name=&quot;kube&quot;
 rbd list &quot;$pool_name&quot;
+</code></pre>
+
+<h2 id="show-rbd-usage-stats">Show rbd usage stats</h2>
+<p>This will show name, provisioned, used, and will have a sum at the bottom, with sizes defaulting to human readable units.</p>
+<pre><code>rbd disk-usage --pool $pool_name $optional_rbd_name
 </code></pre>
 
 <h2 id="map-an-rbd-image-to-a-system-device">Map an RBD image to a system device</h2>
