@@ -1500,10 +1500,10 @@
 </ul>
 <h2 id="new-things-in-centos-7">New things in CentOS 7</h2>
 <ul>
-<li><a href="firewalld.md">firewalld</a> manages the firewall</li>
-<li><a href="hostnamectl.md">hostnamectl</a> changes the hostname and applies the setting immediately</li>
-<li><a href="journalctl.md">journalctl</a> shows log files of services launched by systemd</li>
-<li><a href="systemctl.md">systemctl</a> manages systemd services</li>
+<li>firewalld manages the firewall</li>
+<li>hostnamectl changes the hostname and applies the setting immediately</li>
+<li>journalctl shows log files of services launched by systemd</li>
+<li>systemctl manages systemd services</li>
 </ul>
 <h2 id="initial-setup">Initial setup</h2>
 <p>Set up some base parameters on a fresh instance</p>
@@ -1559,10 +1559,6 @@ DHCP_HOSTNAME=some_hostname
 <pre><code>rm -f /etc/dhclient-eth?.conf /var/lib/dhclient/dhclient-eth?.leases /etc/udev/rules.d/70-persistent-net.rules /etc/sysconfig/network-scripts/ifcfg-eth1
 </code></pre>
 
-<h3 id="configuration-to-auth-against-microsoft-ad">Configuration to auth against <a href="/wiki/Microsoft" title="wikilink">Microsoft</a> AD</h3>
-<ul>
-<li><a href="http://www.uncompiled.com/using-winbind-in-centos-6-for-active-director">http://www.uncompiled.com/using-winbind-in-centos-6-for-active-director</a> worked perfectly with <a href="samba.md">samba</a> and <a href="winbind">winbind</a></li>
-</ul>
 <h3 id="bond-configs">Bond Configs</h3>
 <pre><code>$ cat /etc/modprobe.d/bond0.conf
 alias bond0 bonding
@@ -1573,7 +1569,7 @@ options bond0 max_bonds=1 fail_over_mac=2 mode=1 num_grat_arp=2 primary=em1 prim
 <ul>
 <li><a href="../chkconfig/">chkconfig</a></li>
 <li><a href="../rpm/">rpm</a></li>
-<li><a href="../selinux/">selinux</a> - <a href="http://wiki.centos.org/HowTos/SELinux">http://wiki.centos.org/HowTos/SELinux</a></li>
+<li><a href="../selinux/">selinux</a> - <a href="https://wiki.centos.org/HowTos/SELinux">https://wiki.centos.org/HowTos/SELinux</a></li>
 <li><a href="../yum/">yum</a></li>
 </ul>
               
