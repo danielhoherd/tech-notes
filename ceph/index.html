@@ -1560,7 +1560,7 @@ rbd list &quot;$pool_name&quot;
 </code></pre>
 
 <h2 id="show-rbd-usage-stats">Show rbd usage stats</h2>
-<p>This will show name, provisioned, used, and will have a sum at the bottom, with sizes defaulting to human readable units.</p>
+<p>This will show name, provisioned, used, and will have a sum at the bottom, with sizes defaulting to human readable units. You can use <code>--format json</code> to get raw byte usage.</p>
 <pre><code>rbd disk-usage --pool $pool_name $optional_rbd_name
 </code></pre>
 
