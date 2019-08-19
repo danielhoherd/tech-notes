@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>lsof - Daniel Hoherd's tech notes</title>
+  <title>Computing - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "lsof";
-    var mkdocs_page_input_path = "lsof.md";
+    var mkdocs_page_name = "Computing";
+    var mkdocs_page_input_path = "computing.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -243,9 +243,15 @@
     <a class="" href="../cobbler/">Cobbler</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../computing/">Computing</a>
+    <a class="current" href="./">Computing</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -753,32 +759,9 @@
     <a class="" href="../lshw/">lshw</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">lsof</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#list-files-open-by-a-given-user">List files open by a given user</a></li>
-        
-            <li><a class="toctree-l3" href="#show-listening-tcp-sockets">show listening TCP sockets</a></li>
-        
-            <li><a class="toctree-l3" href="#show-a-sorted-list-of-processes-by-listening-port">Show a sorted list of processes by listening port</a></li>
-        
-            <li><a class="toctree-l3" href="#show-what-process-is-using-port-80-or-443-with-port-numbers">show what process is using port 80 or 443 with port numbers</a></li>
-        
-            <li><a class="toctree-l3" href="#show-the-selinux-context-for-sockets">show the selinux context for sockets</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
-    
-
-    </ul>
+    <a class="" href="../lsof/">lsof</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1483,7 +1466,7 @@
     
       
     
-    <li>lsof</li>
+    <li>Computing</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1493,37 +1476,10 @@
           <div role="main">
             <div class="section">
               
-                <p>lsof lists open files. This CLI tool is available on most *nix OSes.</p>
-<h1 id="examples">Examples</h1>
-<h2 id="list-files-open-by-a-given-user">List files open by a given user</h2>
-<pre><code>lsof -u username
-</code></pre>
-
-<h2 id="show-listening-tcp-sockets">show listening TCP sockets</h2>
-<p>Since everything in unix is a file, including network sockets, you can list open sockets and the programs that have them open. However, this is notably unreliable in Docker, so don't trust this completely. When in doubt, double check against <code>ss -l</code>.</p>
-<pre><code>lsof -iTCP -sTCP:LISTEN
-</code></pre>
-
-<h2 id="show-a-sorted-list-of-processes-by-listening-port">Show a sorted list of processes by listening port</h2>
-<pre><code>lsof -iTCP -sTCP:LISTEN -P | sort -k2 -t: -n
-</code></pre>
-
-<h2 id="show-what-process-is-using-port-80-or-443-with-port-numbers">show what process is using port 80 or 443 with port numbers</h2>
-<pre><code># -n makes lsof not resolve hostnames from ip addresses
-# -P makes lsof not resolve service names for port numbers.
-# -iTCP shows IP TCP sockets.
-
-lsof -nP -iTCP:80,443
-</code></pre>
-
-<h2 id="show-the-selinux-context-for-sockets">show the selinux context for sockets</h2>
-<pre><code>lsof -i -Z
-</code></pre>
-
-<p>See man page for extended syntax around Z</p>
-<h1 id="see-also">See Also</h1>
+                <p>General notes about technology. Basically tech bookmarks.</p>
+<h1 id="links">Links</h1>
 <ul>
-<li>Process Explorer - LSOF type functionality for windows.</li>
+<li><a href="http://emulator101.com">http://emulator101.com</a> - Great introduction to CPU architectures and assembly language.</li>
 </ul>
               
             </div>
@@ -1532,10 +1488,10 @@ lsof -nP -iTCP:80,443
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../lvm/" class="btn btn-neutral float-right" title="lvm">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../conjure-up/" class="btn btn-neutral float-right" title="conjure-up">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../lshw/" class="btn btn-neutral" title="lshw"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cobbler/" class="btn btn-neutral" title="Cobbler"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1561,10 +1517,10 @@ lsof -nP -iTCP:80,443
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../lshw/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../cobbler/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../lvm/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../conjure-up/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

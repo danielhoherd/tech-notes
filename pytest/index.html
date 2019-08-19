@@ -245,6 +245,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../computing/">Computing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../conjure-up/">conjure-up</a>
 	    </li>
           
@@ -1060,6 +1065,8 @@
         
             <li><a class="toctree-l3" href="#run-all-tests-but-put-the-last-failures-first">Run all tests, but put the last failures first</a></li>
         
+            <li><a class="toctree-l3" href="#run-a-specific-test-case">Run a specific test case</a></li>
+        
         </ul>
     
 
@@ -1501,6 +1508,11 @@ pytest app/tests/test_*.py
 
 <h2 id="run-all-tests-but-put-the-last-failures-first">Run all tests, but put the last failures first</h2>
 <pre><code class="sh">pytest --ff
+</code></pre>
+
+<h2 id="run-a-specific-test-case">Run a specific test case</h2>
+<p>You can use python expressions to match more than one test. Each given test is substring matched against available tests. The matching logic can get pretty complicated, so <a href="https://docs.pytest.org/en/latest/example/markers.html?highlight=substring#using-k-expr-to-select-tests-based-on-their-name">see the help docs</a>.</p>
+<pre><code class="sh">pytest -k 'test_this_specific_thing or that_specific_thing'
 </code></pre>
               
             </div>

@@ -245,6 +245,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../computing/">Computing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../conjure-up/">conjure-up</a>
 	    </li>
           
@@ -1174,6 +1179,8 @@
         
             <li><a class="toctree-l3" href="#print-info-about-partitions-on-a-disk">Print info about partitions on a disk</a></li>
         
+            <li><a class="toctree-l3" href="#destroy-gpt-partition-table">Destroy GPT partition table</a></li>
+        
             <li><a class="toctree-l3" href="#print-last-block-number-of-the-largest-available-section-of-the-disk">Print last block number of the largest available section of the disk</a></li>
         
             <li><a class="toctree-l3" href="#create-a-new-partition">Create a new partition</a></li>
@@ -1513,6 +1520,10 @@
 
 <h2 id="print-info-about-partitions-on-a-disk">Print info about partitions on a disk</h2>
 <pre><code>sgdisk -p /dev/sdz
+</code></pre>
+
+<h2 id="destroy-gpt-partition-table">Destroy GPT partition table</h2>
+<pre><code>sgdisk -z /dev/sdz
 </code></pre>
 
 <h2 id="print-last-block-number-of-the-largest-available-section-of-the-disk">Print last block number of the largest available section of the disk</h2>
