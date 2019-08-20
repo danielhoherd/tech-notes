@@ -518,6 +518,15 @@
     <a class="current" href="./">GraphicsMagick</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#usage-tips">Usage tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l2"><a href="#see-also">See Also</a></li>
     
 
@@ -1478,6 +1487,20 @@
               
                 <p>"GraphicsMagick is the swiss army knife of image processing." - <a href="http://www.graphicsmagick.org/">http://www.graphicsmagick.org/</a></p>
 <p>This software purports to be more favorable than <a href="../imagemagick/">ImageMagick</a>.</p>
+<h1 id="usage-tips">Usage tips</h1>
+<p>Docs on scripting: <a href="http://www.graphicsmagick.org/GraphicsMagick.html">http://www.graphicsmagick.org/GraphicsMagick.html</a></p>
+<h2 id="convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</h2>
+<p>The early <code>-size</code> option here is an optimization, but the actual resizing happens in <code>-resize</code>.</p>
+<pre><code>gm mogrify \
+  -verbose \
+  -size 400x400 \
+  -format jpeg \
+  -resize 400x400 \
+  -create-directories \
+  -output-directory &quot;$OUT_DIR&quot; \
+  &quot;$SRC_PATH&quot;/*.dng
+</code></pre>
+
 <h1 id="see-also">See Also</h1>
 <ul>
 <li><a href="../exiftool/">exiftool</a></li>
