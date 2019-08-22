@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>GraphicsMagick - Daniel Hoherd's tech notes</title>
+  <title>zsh - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GraphicsMagick";
-    var mkdocs_page_input_path = "graphicsmagick.md";
+    var mkdocs_page_name = "zsh";
+    var mkdocs_page_input_path = "zsh.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -513,24 +513,9 @@
     <a class="" href="../google/">Google</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">GraphicsMagick</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#usage-tips">Usage tips</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#see-also">See Also</a></li>
-    
-
-    </ul>
+    <a class="" href="../graphicsmagick/">GraphicsMagick</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1453,9 +1438,15 @@
     <a class="" href="../zookeeper/">zookeeper</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../zsh/">zsh</a>
+    <a class="current" href="./">zsh</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -1480,7 +1471,7 @@
     
       
     
-    <li>GraphicsMagick</li>
+    <li>zsh</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1490,28 +1481,11 @@
           <div role="main">
             <div class="section">
               
-                <p>"GraphicsMagick is the swiss army knife of image processing." - <a href="http://www.graphicsmagick.org/">http://www.graphicsmagick.org/</a></p>
-<p>This software purports to be more favorable than <a href="../imagemagick/">ImageMagick</a>.</p>
-<h1 id="usage-tips">Usage tips</h1>
-<p>Docs on scripting: <a href="http://www.graphicsmagick.org/GraphicsMagick.html">http://www.graphicsmagick.org/GraphicsMagick.html</a></p>
-<h2 id="convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</h2>
-<p>The early <code>-size</code> option here is an optimization, but the actual resizing happens in <code>-resize</code>.</p>
-<pre><code>gm mogrify \
-  -verbose \
-  -size 400x400 \
-  -format jpeg \
-  -resize 400x400 \
-  -create-directories \
-  -output-directory &quot;$OUT_DIR&quot; \
-  &quot;$SRC_PATH&quot;/*.dng
-</code></pre>
-
-<h1 id="see-also">See Also</h1>
+                <p>"Zsh is a UNIX command interpreter (shell) usable as an interactive login shell and as a shell script command processor." - <code>man zsh</code></p>
+<h1 id="links">Links</h1>
 <ul>
-<li><a href="../exiftool/">exiftool</a></li>
-<li><a href="../imagemagick/">imagemagick</a></li>
-<li><a href="../jpeginfo/">jpeginfo</a></li>
-<li><a href="../sips/">sips</a></li>
+<li><a href="https://ohmyz.sh">https://ohmyz.sh</a></li>
+<li><a href="https://github.com/unixorn/zsh-quickstart-kit">https://github.com/unixorn/zsh-quickstart-kit</a></li>
 </ul>
               
             </div>
@@ -1520,10 +1494,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../grub/" class="btn btn-neutral float-right" title="GNU GRUB">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../google/" class="btn btn-neutral" title="Google"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../zookeeper/" class="btn btn-neutral" title="zookeeper"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1549,10 +1521,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../google/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../zookeeper/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../grub/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
