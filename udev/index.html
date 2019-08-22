@@ -1353,7 +1353,17 @@
     <a class="current" href="./">udev</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#mount-namespace-problems">Mount namespace problems</a></li>
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#monitor-udev-events-in-real-time">Monitor udev events in real time</a></li>
+        
+            <li><a class="toctree-l3" href="#view-udev-environment-for-a-given-device">View udev environment for a given device</a></li>
+        
+            <li><a class="toctree-l3" href="#mount-namespace-problems">Mount namespace problems</a></li>
+        
+        </ul>
     
 
     <li class="toctree-l2"><a href="#links">Links</a></li>
@@ -1485,7 +1495,17 @@
             <div class="section">
               
                 <p>"udev supplies the system software with device events, manages permissions of device nodes and may create additional symlinks in the /dev directory, or renames network interfaces." - <code>man udev</code></p>
-<h1 id="mount-namespace-problems">Mount namespace problems</h1>
+<h1 id="tips">Tips</h1>
+<h2 id="monitor-udev-events-in-real-time">Monitor udev events in real time</h2>
+<pre><code>udevadm monitor
+</code></pre>
+
+<h2 id="view-udev-environment-for-a-given-device">View udev environment for a given device</h2>
+<p>This is helpful when writing udev rules.</p>
+<pre><code>udevadm info /dev/sda
+</code></pre>
+
+<h2 id="mount-namespace-problems">Mount namespace problems</h2>
 <p>In Ubuntu and probably other linuxes udevd runs in its own mount namespace. This means if you mount things using udev rules, by default they will be in an isolated namespace where users and other processes cannot access them. You can view this with:</p>
 <pre><code>root@bionic:~# lsblk -o NAME,MOUNTPOINT /dev/sdc
 NAME   MOUNTPOINT
