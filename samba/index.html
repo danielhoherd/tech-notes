@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>jdupes - Daniel Hoherd's tech notes</title>
+  <title>Samba - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "jdupes";
-    var mkdocs_page_input_path = "jdupes.md";
+    var mkdocs_page_name = "Samba";
+    var mkdocs_page_input_path = "samba.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -633,26 +633,9 @@
     <a class="" href="../jargon/">jargon</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">jdupes</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#recursively-find-all-duplicates-in-a-dir">Recursively find all duplicates in a dir</a></li>
-        
-            <li><a class="toctree-l3" href="#create-hard-links-of-any-duplicate-files">Create hard-links of any duplicate files</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#links">Links</a></li>
-    
-
-    </ul>
+    <a class="" href="../jdupes/">jdupes</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1140,9 +1123,54 @@
     <a class="" href="../saltstack/">saltstack</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../samba/">Samba</a>
+    <a class="current" href="./">Samba</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#commands">Commands</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#usrbinnet">/usr/bin/net</a></li>
+        
+            <li><a class="toctree-l3" href="#testparm">testparm</a></li>
+        
+            <li><a class="toctree-l3" href="#smbtree">smbtree</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-info-from-winbind">get info from winbind</a></li>
+        
+            <li><a class="toctree-l3" href="#clear-name-resolution-cache">Clear name resolution cache</a></li>
+        
+            <li><a class="toctree-l3" href="#get-a-remote-rpc-shell">Get a remote rpc shell</a></li>
+        
+            <li><a class="toctree-l3" href="#show-open-sessions-on-local-server">Show open sessions on local server</a></li>
+        
+            <li><a class="toctree-l3" href="#show-open-files-on-remote-server">Show open files on remote server</a></li>
+        
+            <li><a class="toctree-l3" href="#mount-a-samba-share-on-a-linux-client">Mount a samba share on a linux client</a></li>
+        
+            <li><a class="toctree-l3" href="#mount-a-remote-share">Mount a remote share</a></li>
+        
+            <li><a class="toctree-l3" href="#kill-all-samba-sessions-for-a-given-user-hence-forcing-refresh-of-their-group-memberships">Kill all Samba sessions for a given user, hence forcing refresh of their group memberships</a></li>
+        
+            <li><a class="toctree-l3" href="#join-domain-in-ads-security-mode">Join domain in ads security mode</a></li>
+        
+            <li><a class="toctree-l3" href="#leave-domain">Leave domain:</a></li>
+        
+            <li><a class="toctree-l3" href="#upgrading-supermicro-firmware">Upgrading Supermicro firmware</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1487,7 +1515,7 @@
     
       
     
-    <li>jdupes</li>
+    <li>Samba</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1497,21 +1525,50 @@
           <div role="main">
             <div class="section">
               
-                <p>"finds and performs actions upon duplicate files" - <code>man jdupes</code></p>
-<p><code>jdupes</code> is based on <code>fdupes</code> and is not written in java as the name may lead you to assume.</p>
-<h1 id="examples">Examples</h1>
-<h2 id="recursively-find-all-duplicates-in-a-dir">Recursively find all duplicates in a dir</h2>
-<pre><code>jdupes -r /path/to/dir
+                <p>Samba is the unix SMB daemon of choice.</p>
+<h1 id="commands">Commands</h1>
+<h2 id="usrbinnet">/usr/bin/net</h2>
+<p>Samba has a generically named binary file called <code>net</code>, which matches the windows command. It's used to manage Samba and CIFS servers.</p>
+<h2 id="testparm">testparm</h2>
+<p><code>testparm</code> - check an smb.conf configuration file for internal correctness. This is great for having a heavily commented main file, like smb.conf.master, then generating the bare smb.conf from that file using <code>testparm -s smb.conf.master &gt; smb.conf</code>.</p>
+<h2 id="smbtree">smbtree</h2>
+<p>The <code>smbtree</code> tool will print out a tree list of all the reachable samba shares.</p>
+<h1 id="tips">Tips</h1>
+<h2 id="get-info-from-winbind">get info from winbind</h2>
+<p><code>wbinfo</code></p>
+<h2 id="clear-name-resolution-cache">Clear name resolution cache</h2>
+<p><code>net cache flush</code></p>
+<h2 id="get-a-remote-rpc-shell">Get a remote rpc shell</h2>
+<p><code>net rpc shell -U $user_name -S $host_name</code></p>
+<h2 id="show-open-sessions-on-local-server">Show open sessions on local server</h2>
+<p><code>net status shares</code></p>
+<h2 id="show-open-files-on-remote-server">Show open files on remote server</h2>
+<p><code>net rpc file -S $server_name</code></p>
+<h2 id="mount-a-samba-share-on-a-linux-client">Mount a samba share on a linux client</h2>
+<p><code>mount -t smbfs -o username=$user_name //$server_name/C$ $local_share_name</code></p>
+<h2 id="mount-a-remote-share">Mount a remote share</h2>
+<p><code>mount_smbfs "//domain_name;username@hostname/groups" asdf</code></p>
+<h2 id="kill-all-samba-sessions-for-a-given-user-hence-forcing-refresh-of-their-group-memberships">Kill all Samba sessions for a given user, hence forcing refresh of their group memberships</h2>
+<p><code>net status sessions | grep johndoe | awk '{print $1}' | xargs sudo kill</code></p>
+<h2 id="join-domain-in-ads-security-mode">Join domain in ads security mode</h2>
+<p><code>net ads join -U dhoherd@DOMAIN.EXAMPLE.COM</code></p>
+<h2 id="leave-domain">Leave domain:</h2>
+<p><code>net ads leave -U dhoherd@DOMAIN.EXAMPLE.COM</code></p>
+<h2 id="upgrading-supermicro-firmware">Upgrading Supermicro firmware</h2>
+<p>Supermicro iKVM can only mount ISOs that are hosted on Samba shares... 🙄 In my experience they also only support the old and vulnerable SMBv1 protocol. (wannacry used SMBv1.) In order to host ISOs for use with iKVM, it's useful to run Samba in Docker so it is isolated and only running while you are using it.</p>
+<p>This example uses the docker image <a href="https://hub.docker.com/r/dperson/samba/">dperson/samba</a> to start a Samba server sharing one passwordless /public share which mounts <code>$HOME/isos</code> from outside the container.</p>
+<pre><code class="sh">docker run \
+  --name &quot;$USER-samba&quot; \
+  --rm \
+  -d \
+  -p 139:139 \
+  -p 445:445  \
+  -v $HOME/isos:/public  \
+  -d dperson/samba \
+  -s &quot;public;/public&quot; \
+  -g &quot;server min protocol = NT1&quot; \
+  -g &quot;log level = 3&quot;
 </code></pre>
-
-<h2 id="create-hard-links-of-any-duplicate-files">Create hard-links of any duplicate files</h2>
-<pre><code>jdupes -r -L /path/
-</code></pre>
-
-<h1 id="links">Links</h1>
-<ul>
-<li><a href="https://github.com/jbruchon/jdupes">https://github.com/jbruchon/jdupes</a></li>
-</ul>
               
             </div>
           </div>
@@ -1519,10 +1576,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jmespath/" class="btn btn-neutral float-right" title="jmespath">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../samsung/" class="btn btn-neutral float-right" title="Samsung">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../jargon/" class="btn btn-neutral" title="jargon"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../saltstack/" class="btn btn-neutral" title="saltstack"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1548,10 +1605,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../jargon/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../saltstack/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jmespath/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../samsung/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
