@@ -443,6 +443,20 @@
     <a class="current" href="./">flask</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#links">Links</a></li>
+    
+
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#show-routes">Show routes</a></li>
+        
+            <li><a class="toctree-l3" href="#debug-in-a-shell">Debug in a shell</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -1484,9 +1498,20 @@
             <div class="section">
               
                 <p>"Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions." - <a href="http://flask.pocoo.org/">http://flask.pocoo.org/</a></p>
+<h1 id="links">Links</h1>
 <ul>
 <li><a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world</a></li>
 </ul>
+<h1 id="tips">Tips</h1>
+<h2 id="show-routes">Show routes</h2>
+<pre><code>flask routes
+</code></pre>
+
+<h2 id="debug-in-a-shell">Debug in a shell</h2>
+<pre><code>export FLASK_APP=app
+export FLASK_ENV=development
+flask shell
+</code></pre>
               
             </div>
           </div>
