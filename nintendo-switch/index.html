@@ -892,6 +892,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#create-a-switch-compatible-partition-from-linux">Create a Switch compatible partition from linux</a></li>
+        
             <li><a class="toctree-l3" href="#homebrew-glossary">Homebrew Glossary</a></li>
         
             <li><a class="toctree-l3" href="#homebrew-links">Homebrew links</a></li>
@@ -1495,6 +1497,16 @@
             <div class="section">
               
                 <h1 id="homebrew">Homebrew</h1>
+<h2 id="create-a-switch-compatible-partition-from-linux">Create a Switch compatible partition from linux</h2>
+<p>The Switch uses MBR 🙄 and has crummy exfat support... The following requires root permissions.</p>
+<pre><code class="sh">SD_DISK=/dev/sdZ
+sfdisk &quot;$SD_DISK&quot; &lt;&lt;EOF
+label: mbr
+,
+EOF
+mkfs.exfat &quot;$SD_DISK&quot;1
+</code></pre>
+
 <h2 id="homebrew-glossary">Homebrew Glossary</h2>
 <p>Most of these were taken from <a href="https://github.com/XorTroll/Goldleaf">https://github.com/XorTroll/Goldleaf</a></p>
 <ul>
@@ -1508,6 +1520,7 @@
 </ul>
 <h2 id="homebrew-links">Homebrew links</h2>
 <ul>
+<li><a href="https://bsnx.lavatech.top/">https://bsnx.lavatech.top/</a> - CI builds of some homebrew apps</li>
 <li><a href="https://github.com/AtlasNX/Kosmos/">https://github.com/AtlasNX/Kosmos/</a> - All in one guide</li>
 <li><a href="https://github.com/DarkMatterCore/gcdumptool">https://github.com/DarkMatterCore/gcdumptool</a></li>
 <li><a href="https://github.com/The-4n/4NXCI">https://github.com/The-4n/4NXCI</a> - XCI to NSP converter</li>
