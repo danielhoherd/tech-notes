@@ -1550,7 +1550,7 @@
 <p>Virtual environments isolate your project away from the system's python interpreter and modules, so you can have full control over what code is available to your project. This makes it easy to develop, debug, and deploy to a new system. It's basically always a good idea to use a virtual environment. You will thank yourself later by learning this one up front.</p>
 <h3 id="virtual-environments-using-venv">Virtual environments using venv</h3>
 <h4 id="creating-a-venv">Creating a venv</h4>
-<pre><code>echo &quot;venv&quot; &gt;&gt; .gitignore
+<pre><code class="sh">echo &quot;venv&quot; &gt;&gt; .gitignore
 virtualenv venv
 . venv/bin/activate
 pip install requests
@@ -1560,7 +1560,7 @@ deactivate
 </code></pre>
 
 <h4 id="recreating-a-venv">Recreating a venv</h4>
-<pre><code>virtualenv venv
+<pre><code class="sh">virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
 # write code, interact with it, whatever
@@ -1569,7 +1569,7 @@ deactivate
 
 <h4 id="use-venv-to-work-around-missing-pip">Use venv to work around missing pip</h4>
 <p>This is mostly useful for installing for your user, since if you can't install pip you won't be able to install into system-wide locations.</p>
-<pre><code>virtualenv venv --system-site-packages &amp;&amp; venv/bin/pip install --user $PACKAGENAME &amp;&amp; rm -rf venv
+<pre><code class="sh">virtualenv venv --system-site-packages &amp;&amp; venv/bin/pip install --user &quot;$PACKAGENAME&quot; &amp;&amp; rm -rf venv
 </code></pre>
 
 <h3 id="virtual-environments-with-pipenv">Virtual environments with pipenv</h3>
@@ -1577,7 +1577,7 @@ deactivate
 <p><code>pipenv</code> is the new-school 2017 way of doing virtual environments. pipenv creates a file called <code>Pipfile</code> whenever you install packages using the <code>pipenv</code> command. Once you have created a pipenv for the CWD, any subdirs will use that pipenv and not create new environments when you issue pipenv commands. This is a more robust system, but as of 2017 is not widely used.</p>
 <p>When using pipenv, any packages using <code>pip install</code> are not included in the virtual environment. You must use <code>pipenv install</code>.</p>
 <h4 id="creating-a-virtual-environment-using-pipenv">Creating a virtual environment using pipenv</h4>
-<pre><code>cd project_dir
+<pre><code class="sh">cd project_dir
 pipenv --three  # to create a python 3 virtual environment
 pipenv install bpython boto3
 pipenv shell  # this spawns a subshell with the new python environment
@@ -1586,7 +1586,7 @@ exit
 </code></pre>
 
 <h4 id="recreate-a-pipenv">Recreate a pipenv</h4>
-<pre><code>cd project_dir
+<pre><code class="sh">cd project_dir
 pipenv shell  # This automatically enforces the environment described in Pipfile
 # interact with your python environment
 exit
@@ -1600,53 +1600,59 @@ import module # from somedir
 <h1 id="debugging">Debugging</h1>
 <h2 id="verbose-environment-var">Verbose environment var</h2>
 <p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE</a></p>
-<pre><code>export PYTHONVERBOSE=1
+<pre><code class="sh">export PYTHONVERBOSE=1
 # or...
 python -v pip search beets
 </code></pre>
 
 <h2 id="follow-the-flow-of-a-python-script">Follow the flow of a python script</h2>
 <p>This is equivalent to <code>bash -x</code> / <code>bash -o xtrace</code>, but is probably even more useful because it prefixes the name of the file and the line number to what is actually being executed, which aids in debugging large projects.</p>
-<pre><code>python -m trace --trace foo.py
+<pre><code class="sh">python -m trace --trace foo.py
+</code></pre>
+
+<p>You can get the equivalent output for a single function with:</p>
+<pre><code class="py">import trace
+tracer = trace.Trace(trace=True)
+tracer.runfunc(some_func_name, 'some_func arg1', 'some_func arg2')
 </code></pre>
 
 <h2 id="enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends</h2>
 <p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT</a></p>
 <p>This works when your code causes an exception, but none of your code will actually be executed, you will simply be dropped into a shell, which is not very useful.</p>
-<pre><code>export PYTHONINSPECT=1
+<pre><code class="sh">export PYTHONINSPECT=1
 # or...
 sudo python -i ./ps_mem.py
 </code></pre>
 
 <h2 id="enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily</h2>
 <p><a href="https://docs.python.org/3/library/pdb.html">https://docs.python.org/3/library/pdb.html</a></p>
-<pre><code>import pdb; pdb.set_trace()
+<pre><code class="py">import pdb; pdb.set_trace()
 </code></pre>
 
-<p>In python 3.6+ you can simply type <code>breakpoint()</code></p>
+<p>In python 3.6+ you can simply insert <code>breakpoint()</code></p>
 <p>This drops you into a pdb shell. This is not the same as a full python REPL. To get a python REPL, type <code>interact</code>. After you have inspected the current state, you can type <code>continue</code>.</p>
 <p>Alternatively there is the web-pdb package which allows you to debug via a web browser using <code>web_pdb.set_trace</code></p>
 <h2 id="print-variables-from-the-local-scope">Print variables from the local scope</h2>
-<pre><code>for var in dir():
+<pre><code class="py">for var in dir():
     print &quot;Debug: {0} = {1}&quot;.format(var,eval(var))
 </code></pre>
 
 <h2 id="inspect-things">Inspect things</h2>
-<pre><code>&gt;&gt;&gt; import inspect
+<pre><code class="py">&gt;&gt;&gt; import inspect
 &gt;&gt;&gt; inspect.getargspec(inspect.getargspec)
 ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
 </code></pre>
 
 <h2 id="create-an-http-server-using-pwd-as-document-root">Create an http server using PWD as document root</h2>
-<pre><code>python3 -m http.server 9980
+<pre><code class="sh">python3 -m http.server 9980
 </code></pre>
 
 <p>or...</p>
-<pre><code>python2 -m SimpleHTTPServer 9980
+<pre><code class="sh">python2 -m SimpleHTTPServer 9980
 </code></pre>
 
 <h2 id="discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</h2>
-<pre><code>echo $(python -m site --user-base)/bin
+<pre><code class="sh">echo $(python -m site --user-base)/bin
 </code></pre>
 
 <h1 id="links">Links</h1>
