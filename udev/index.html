@@ -1369,7 +1369,9 @@
         
             <li><a class="toctree-l3" href="#monitor-udev-events-in-real-time">Monitor udev events in real time</a></li>
         
-            <li><a class="toctree-l3" href="#view-udev-environment-for-a-given-device">View udev environment for a given device</a></li>
+            <li><a class="toctree-l3" href="#view-udev-environment-for-a-given-disk">View udev environment for a given disk</a></li>
+        
+            <li><a class="toctree-l3" href="#view-human-readable-information-about-a-disk">View human readable information about a disk</a></li>
         
             <li><a class="toctree-l3" href="#mount-namespace-problems">Mount namespace problems</a></li>
         
@@ -1510,9 +1512,13 @@
 <pre><code>udevadm monitor
 </code></pre>
 
-<h2 id="view-udev-environment-for-a-given-device">View udev environment for a given device</h2>
+<h2 id="view-udev-environment-for-a-given-disk">View udev environment for a given disk</h2>
 <p>This is helpful when writing udev rules.</p>
 <pre><code>udevadm info /dev/sda
+</code></pre>
+
+<h2 id="view-human-readable-information-about-a-disk">View human readable information about a disk</h2>
+<pre><code>udisksctl info -b /dev/sda
 </code></pre>
 
 <h2 id="mount-namespace-problems">Mount namespace problems</h2>

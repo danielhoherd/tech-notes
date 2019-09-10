@@ -646,6 +646,8 @@
         
             <li><a class="toctree-l3" href="#create-hard-links-of-any-duplicate-files">Create hard-links of any duplicate files</a></li>
         
+            <li><a class="toctree-l3" href="#delete-all-but-one-duplicate">Delete all but one duplicate</a></li>
+        
         </ul>
     
 
@@ -1513,6 +1515,10 @@
 <pre><code>jdupes -r -L /path/
 </code></pre>
 
+<h2 id="delete-all-but-one-duplicate">Delete all but one duplicate</h2>
+<p>Although the flags do not indicate this, the following command keeps the first file (see man page for details), and prints a summary of what was kept and what was deleted.</p>
+<p>```
+jdupes -r --delete --noprompt /path/ | xargs -R rm -f</p>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://github.com/jbruchon/jdupes">https://github.com/jbruchon/jdupes</a></li>
