@@ -1508,17 +1508,18 @@
 <p><code>jdupes</code> is based on <code>fdupes</code> and is not written in java as the name may lead you to assume.</p>
 <h1 id="examples">Examples</h1>
 <h2 id="recursively-find-all-duplicates-in-a-dir">Recursively find all duplicates in a dir</h2>
-<pre><code>jdupes -r /path/to/dir
+<pre><code class="sh">jdupes -r /path/to/dir
 </code></pre>
 
 <h2 id="create-hard-links-of-any-duplicate-files">Create hard-links of any duplicate files</h2>
-<pre><code>jdupes -r -L /path/
+<pre><code class="sh">jdupes -r -L /path/
 </code></pre>
 
 <h2 id="delete-all-but-one-duplicate">Delete all but one duplicate</h2>
 <p>Although the flags do not indicate this, the following command keeps the first file (see man page for details), and prints a summary of what was kept and what was deleted.</p>
-<p>```
-jdupes -r --delete --noprompt /path/ | xargs -R rm -f</p>
+<pre><code class="sh">jdupes -r --delete --noprompt /path/ | xargs -R rm -f
+</code></pre>
+
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://github.com/jbruchon/jdupes">https://github.com/jbruchon/jdupes</a></li>
