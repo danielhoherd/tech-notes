@@ -486,6 +486,8 @@
         
             <li><a class="toctree-l3" href="#run-ci-steps-locally">Run CI steps locally</a></li>
         
+            <li><a class="toctree-l3" href="#skip-ci-via-git-push-option_1">Skip CI via git push option</a></li>
+        
             <li><a class="toctree-l3" href="#skip-ci-via-commit-message">Skip CI via commit message</a></li>
         
             <li><a class="toctree-l3" href="#run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</a></li>
@@ -1530,6 +1532,10 @@
 </code></pre>
 
 <p>The <code>gitlab-runner</code> command has good inline options.</p>
+<h2 id="skip-ci-via-git-push-option_1">Skip CI via git push option</h2>
+<pre><code>git push -o ci.skip
+</code></pre>
+
 <h2 id="skip-ci-via-commit-message">Skip CI via commit message</h2>
 <p><a href="https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs">https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs</a></p>
 <pre><code>#!/usr/bin/env bash

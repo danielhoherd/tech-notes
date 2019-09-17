@@ -1359,6 +1359,10 @@
         
             <li><a class="toctree-l3" href="#create-an-empty-file">Create an empty file</a></li>
         
+            <li><a class="toctree-l3" href="#update-a-files-modify-time-to-a-specific-date">Update a file's modify time to a specific date</a></li>
+        
+            <li><a class="toctree-l3" href="#update-access-time-on-several-files">Update access time on several files</a></li>
+        
             <li><a class="toctree-l3" href="#randomize-the-mtime-for-a-given-file">Randomize the mtime for a given file</a></li>
         
         </ul>
@@ -1499,13 +1503,28 @@
           <div role="main">
             <div class="section">
               
-                <p><code>touch</code> is a command to modify the date of filesystem metadata for a given file.</p>
+                <p><code>touch</code> is a command to modify the date of filesystem metadata for a given file. By defalt it updates the create date of the given files.</p>
 <h1 id="examples">Examples</h1>
 <h2 id="create-an-empty-file">Create an empty file</h2>
-<p><code>touch somefile</code></p>
+<pre><code class="sh">touch somefile
+</code></pre>
+
+<h2 id="update-a-files-modify-time-to-a-specific-date">Update a file's modify time to a specific date</h2>
+<ul>
+<li><code>-m</code> to set modify time</li>
+<li><code>-t</code> to specify a timestamp in the format <code>[[CC]YY]MMDDhhmm[.SS]</code></li>
+</ul>
+<pre><code class="sh">touch -m -t 199902030405.06 1999-02-03-04-05-06.gpx
+</code></pre>
+
+<h2 id="update-access-time-on-several-files">Update access time on several files</h2>
+<p>Not all filesystems support access time.</p>
+<pre><code class="sh">touch -a -t 199509150102 GARBAGE/FILE\ [1234]
+</code></pre>
+
 <h2 id="randomize-the-mtime-for-a-given-file">Randomize the mtime for a given file</h2>
-<p>bash's random only goes up to 32767, which is about 9 hours. With RANDOM * 32767 + RANDOM we can get this up to just over 34 years.</p>
-<pre><code>randomize-mtime() {
+<p>bash's random only goes up to 32767, which is about 9 hours in 1-second increments. With RANDOM * 32767 + RANDOM we can get this up to just over 34 years.</p>
+<pre><code class="sh">randomize-mtime() {
   seconds=&quot;$(( $(date +%s) - $(( RANDOM * 32767 )) - RANDOM))&quot;
   new_mtime=&quot;$(gdate -d @&quot;${seconds}&quot; &quot;+%Y%m%d%H%M.%S&quot;)&quot;
   echo &quot;${new_mtime} $*&quot; 1&gt;&amp;2
