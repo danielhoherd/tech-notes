@@ -455,6 +455,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../fuser/">fuser</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../genicam/">GenICam</a>
 	    </li>
           
@@ -1286,6 +1291,14 @@
 
     <li class="toctree-l2"><a href="#gnu-stat-c-variables">GNU stat -c variables</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#the-valid-format-sequences-for-files-without-file-system">The valid format sequences for files (without --file-system):</a></li>
+        
+            <li><a class="toctree-l3" href="#valid-format-sequences-for-file-systems">Valid format sequences for file systems:</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -1513,48 +1526,54 @@
 </code></pre>
 
 <h1 id="gnu-stat-c-variables">GNU stat -c variables</h1>
-<p>The valid format sequences for files (without --filesystem):</p>
+<p>This section is taken from <code>man stat</code></p>
+<h2 id="the-valid-format-sequences-for-files-without-file-system">The valid format sequences for files (without --file-system):</h2>
 <ul>
-<li>%a - Access rights in octal</li>
-<li>%A - Access rights in human readable form</li>
-<li>%b - Number of blocks allocated (see %B)</li>
-<li>%B - The size in bytes of each block reported by %b</li>
+<li>%A - access rights in human readable form</li>
+<li>%a - access rights in octal (note '#' and '0' printf flags)</li>
+<li>%b - number of blocks allocated (see %B)</li>
+<li>%B - the size in bytes of each block reported by %b</li>
 <li>%C - SELinux security context string</li>
-<li>%d - Device number in decimal</li>
-<li>%D - Device number in hex</li>
-<li>%f - Raw mode in hex</li>
-<li>%F - File type</li>
-<li>%g - Group ID of owner</li>
-<li>%G - Group name of owner</li>
-<li>%h - Number of hard links</li>
-<li>%i - Inode number</li>
-<li>%n - File name</li>
-<li>%N - Quoted file name with dereference if symbolic link</li>
-<li>%o - I/O block size</li>
-<li>%s - Total size, in bytes</li>
-<li>%t - Major device type in hex</li>
-<li>%T - Minor device type in hex</li>
-<li>%u - User ID of owner</li>
-<li>%U - User name of owner</li>
-<li>%x - Time of last access</li>
-<li>%X - Time of last access as seconds since Epoch</li>
-<li>%y - Time of last modification</li>
-<li>%Y - Time of last modification as seconds since Epoch</li>
-<li>%z - Time of last change</li>
-<li>%Z - Time of last change as seconds since Epoch Valid format sequences for file systems:</li>
-<li>%a - Free blocks available to non-superuser</li>
-<li>%b - Total data blocks in file system</li>
-<li>%c - Total file nodes in file system</li>
-<li>%d - Free file nodes in file system</li>
-<li>%f - Free blocks in file system</li>
-<li>%C - SELinux security context string</li>
-<li>%i - File System ID in hex</li>
-<li>%l - Maximum length of filenames</li>
-<li>%n - File name</li>
-<li>%s - Block size (for faster transfers)</li>
-<li>%S - Fundamental block size (for block counts)</li>
-<li>%t - Type in hex</li>
-<li>%T - Type in human readable form</li>
+<li>%d - device number in decimal</li>
+<li>%D - device number in hex</li>
+<li>%F - file type</li>
+<li>%f - raw mode in hex</li>
+<li>%g - group ID of owner</li>
+<li>%G - group name of owner</li>
+<li>%h - number of hard links</li>
+<li>%i - inode number</li>
+<li>%m - mount point</li>
+<li>%n - file name</li>
+<li>%N - quoted file name with dereference if symbolic link</li>
+<li>%o - optimal I/O transfer size hint</li>
+<li>%s - total size, in bytes</li>
+<li>%t - major device type in hex, for character/block device special files</li>
+<li>%T - minor device type in hex, for character/block device special files</li>
+<li>%u - user ID of owner</li>
+<li>%U - user name of owner</li>
+<li>%w - time of file birth, human-readable; - if unknown</li>
+<li>%W - time of file birth, seconds since Epoch; 0 if unknown</li>
+<li>%x - time of last access, human-readable</li>
+<li>%X - time of last access, seconds since Epoch</li>
+<li>%y - time of last data modification, human-readable</li>
+<li>%Y - time of last data modification, seconds since Epoch</li>
+<li>%z - time of last status change, human-readable</li>
+<li>%Z - time of last status change, seconds since Epoch</li>
+</ul>
+<h2 id="valid-format-sequences-for-file-systems">Valid format sequences for file systems:</h2>
+<ul>
+<li>%a - free blocks available to non-superuser</li>
+<li>%b - total data blocks in file system</li>
+<li>%c - total file nodes in file system</li>
+<li>%d - free file nodes in file system</li>
+<li>%f - free blocks in file system</li>
+<li>%i - file system ID in hex</li>
+<li>%l - maximum length of filenames</li>
+<li>%n - file name</li>
+<li>%s - block size (for faster transfers)</li>
+<li>%S - fundamental block size (for block counts)</li>
+<li>%t - file system type in hex</li>
+<li>%T - file system type in human readable form</li>
 </ul>
               
             </div>

@@ -8,7 +8,7 @@
   
   <meta name="author" content="Daniel Austin Hoherd">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>sphinx - Daniel Hoherd's tech notes</title>
+  <title>fuser - Daniel Hoherd's tech notes</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "sphinx";
-    var mkdocs_page_input_path = "sphinx.md";
+    var mkdocs_page_name = "fuser";
+    var mkdocs_page_input_path = "fuser.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -453,9 +453,27 @@
     <a class="" href="../fortune/">fortune</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../fuser/">fuser</a>
+    <a class="current" href="./">fuser</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#show-what-is-using-varlog">Show what is using /var/log</a></li>
+        
+            <li><a class="toctree-l3" href="#kill-all-processes-accessing-a-given-file">Kill all processes accessing a given file</a></li>
+        
+            <li><a class="toctree-l3" href="#show-processes-accessing-the-local-ssh-port">Show processes accessing the local ssh port</a></li>
+        
+            <li><a class="toctree-l3" href="#check-if-a-file-is-being-accessed">Check if a file is being accessed</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -1238,12 +1256,9 @@
     <a class="" href="../sort/">sort</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">sphinx</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../sphinx/">sphinx</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1483,7 +1498,7 @@
     
       
     
-    <li>sphinx</li>
+    <li>fuser</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -1493,8 +1508,41 @@
           <div role="main">
             <div class="section">
               
-                <p>Sphinx is how many opensource projects generate sites for their documentation.
-- <a href="http://sphinx-doc.org/contents.html">http://sphinx-doc.org/contents.html</a></p>
+                <p>"fuser - identify processes using files or sockets" - <code>man fuser</code></p>
+<p>The otuput here is a bit unusual in that it sends PIDs to stdout and everything else to stderr, but interleaves them so what you see in the terminal is much different from what you get via pipes.</p>
+<h1 id="examples">Examples</h1>
+<h2 id="show-what-is-using-varlog">Show what is using /var/log</h2>
+<pre><code>$ fuser -m /var/log
+/var/log:             2858m  4608rce  4609rce  4749rce
+</code></pre>
+
+<p>See <code>man fuser</code> for the meaning of each letter.</p>
+<p>But what you get via a pipe is just the pids. The first line of output is all of stderr, and beyond that is stdout.</p>
+<pre><code>$ fuser -m /var/log | xargs -n1 echo
+/var/log:           mrcercerce
+2858
+4608
+4609
+4749
+</code></pre>
+
+<h2 id="kill-all-processes-accessing-a-given-file">Kill all processes accessing a given file</h2>
+<pre><code class="sh">FILE=&quot;/path/to/somefile.log&quot;
+fuser -km &quot;$FILE&quot;
+</code></pre>
+
+<h2 id="show-processes-accessing-the-local-ssh-port">Show processes accessing the local ssh port</h2>
+<p>This only works for local ports.</p>
+<pre><code class="sh"># By service/protocol (see /etc/services)
+sudo fuser ssh/tcp
+# By arbitrary port/protocol
+sudo fuser 22/tcp
+</code></pre>
+
+<h2 id="check-if-a-file-is-being-accessed">Check if a file is being accessed</h2>
+<pre><code class="sh">FILE=&quot;/path/to/somefile.vmdk
+fuser &quot;$FILE&quot; &amp;&amp; echo &quot;Yes, $FILE is being used.&quot;
+</code></pre>
               
             </div>
           </div>
@@ -1502,10 +1550,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../split/" class="btn btn-neutral float-right" title="split">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../genicam/" class="btn btn-neutral float-right" title="GenICam">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../sort/" class="btn btn-neutral" title="sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../fortune/" class="btn btn-neutral" title="fortune"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1531,10 +1579,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../fortune/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../split/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../genicam/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
