@@ -1190,6 +1190,10 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#delete-all-gpt-and-mbr-entries-and-create-a-new-gpt">Delete all GPT and MBR entries and create a new GPT</a></li>
+        
+            <li><a class="toctree-l3" href="#create-a-new-partition">Create a new partition</a></li>
+        
             <li><a class="toctree-l3" href="#randomize-guids-to-ensure-uniqueness-after-cloning">Randomize GUIDs to ensure uniqueness after cloning</a></li>
         
             <li><a class="toctree-l3" href="#print-info-about-partitions-on-a-disk">Print info about partitions on a disk</a></li>
@@ -1197,8 +1201,6 @@
             <li><a class="toctree-l3" href="#destroy-gpt-partition-table">Destroy GPT partition table</a></li>
         
             <li><a class="toctree-l3" href="#print-last-block-number-of-the-largest-available-section-of-the-disk">Print last block number of the largest available section of the disk</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-new-partition">Create a new partition</a></li>
         
             <li><a class="toctree-l3" href="#print-extended-info-about-the-first-partition-on-devsda">Print extended info about the first partition on /dev/sda</a></li>
         
@@ -1534,54 +1536,62 @@
 <li><code>cgdisk</code> is a curses interface to gdisk, similar to fdisk in MS Windows of yore.</li>
 </ul>
 <h1 id="examples">Examples</h1>
-<h2 id="randomize-guids-to-ensure-uniqueness-after-cloning">Randomize GUIDs to ensure uniqueness after cloning</h2>
-<pre><code>sgdisk --randomize-guids /dev/sdz
-</code></pre>
-
-<h2 id="print-info-about-partitions-on-a-disk">Print info about partitions on a disk</h2>
-<pre><code>sgdisk -p /dev/sdz
-</code></pre>
-
-<h2 id="destroy-gpt-partition-table">Destroy GPT partition table</h2>
-<pre><code>sgdisk -z /dev/sdz
-</code></pre>
-
-<h2 id="print-last-block-number-of-the-largest-available-section-of-the-disk">Print last block number of the largest available section of the disk</h2>
-<pre><code>sgdisk -E /dev/sdz
+<h2 id="delete-all-gpt-and-mbr-entries-and-create-a-new-gpt">Delete all GPT and MBR entries and create a new GPT</h2>
+<pre><code class="sh">sgdisk -Z /dev/sdz
 </code></pre>
 
 <h2 id="create-a-new-partition">Create a new partition</h2>
-<p>The syntax is partitionNumber:firstBlock:lastBlock</p>
-<pre><code>sgdisk -n 1:2048:732566636 /dev/sdz
+<ul>
+<li>Partition numbers start at 1</li>
+<li>The syntax here is <code>--new &lt;partition_number&gt;[:&lt;start&gt;[:&lt;end&gt;]]</code></li>
+<li>See the man page for a variety of ways to refrence start and end.</li>
+</ul>
+<pre><code class="sh">sgdisk --new 1:2048:732566636 /dev/sdz
+</code></pre>
+
+<h2 id="randomize-guids-to-ensure-uniqueness-after-cloning">Randomize GUIDs to ensure uniqueness after cloning</h2>
+<pre><code class="sh">sgdisk --randomize-guids /dev/sdz
+</code></pre>
+
+<h2 id="print-info-about-partitions-on-a-disk">Print info about partitions on a disk</h2>
+<pre><code class="sh">sgdisk -p /dev/sdz
+</code></pre>
+
+<h2 id="destroy-gpt-partition-table">Destroy GPT partition table</h2>
+<pre><code class="sh">sgdisk -z /dev/sdz
+</code></pre>
+
+<h2 id="print-last-block-number-of-the-largest-available-section-of-the-disk">Print last block number of the largest available section of the disk</h2>
+<pre><code class="sh">sgdisk -E /dev/sdz
 </code></pre>
 
 <h2 id="print-extended-info-about-the-first-partition-on-devsda">Print extended info about the first partition on /dev/sda</h2>
-<pre><code>sgdisk -i 1 /dev/sdz
+<pre><code class="sh">sgdisk -i 1 /dev/sdz
 </code></pre>
 
 <h2 id="backup-a-guid-partition-table">Backup a GUID partition table</h2>
-<pre><code>sgdisk -b ~/sdz_partition_backup /dev/sdz
+<pre><code class="sh">sgdisk -b ~/sdz_partition_backup /dev/sdz
 </code></pre>
 
 <h2 id="restore-a-guid-partition-table">Restore a GUID partition table</h2>
-<pre><code>sgdisk -l ~/sdz_partition_backup /dev/sdz
+<pre><code class="sh">sgdisk -l ~/sdz_partition_backup /dev/sdz
 </code></pre>
 
 <h2 id="create-a-new-partition_1">Create a new partition</h2>
 <p>This creates a 4th partition that is 50G using the default starting point (0 is default)</p>
-<pre><code>sgdisk /dev/sdz --new=4:0:+50G
+<pre><code class="sh">sgdisk /dev/sdz --new=4:0:+50G
 </code></pre>
 
 <h2 id="delete-the-4th-partition">Delete the 4th partition</h2>
-<pre><code>sgdisk /dev/sdz -d 4
+<pre><code class="sh">sgdisk /dev/sdz -d 4
 </code></pre>
 
 <h2 id="create-a-new-partition-number-4-that-fills-the-biggest-available-section-of-the-disk">Create a new partition number 4 that fills the biggest available section of the disk</h2>
-<pre><code>sgdisk /dev/sdz -N 4
+<pre><code class="sh">sgdisk /dev/sdz -N 4
 </code></pre>
 
 <h2 id="grab-the-name-of-a-partition">Grab the name of a partition</h2>
-<pre><code># sloppy, doesn't handle spaces or single quotes
+<pre><code class="sh"># sloppy, doesn't handle spaces or single quotes
 sgdisk /dev/sdk -i 1 | grep '^Partition name' | awk '{print $NF}' | sed &quot;s/'//g&quot;
 </code></pre>
               
