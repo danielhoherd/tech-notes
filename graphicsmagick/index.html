@@ -1513,18 +1513,24 @@
 <p>Docs on scripting: <a href="http://www.graphicsmagick.org/GraphicsMagick.html">http://www.graphicsmagick.org/GraphicsMagick.html</a></p>
 <h2 id="convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</h2>
 <p>The early <code>-size</code> option here is an optimization, but the actual resizing happens in <code>-resize</code>.</p>
-<pre><code>gm mogrify \
+<pre><code class="sh">SRC_PATH=&quot;${HOME}/Pictures/&quot;
+DEST_PATH=&quot;${HOME}/Desktop/output/&quot;
+gm mogrify \
   -verbose \
   -size 400x400 \
   -format jpeg \
   -resize 400x400 \
   -create-directories \
-  -output-directory &quot;$OUT_DIR&quot; \
+  -output-directory &quot;$DEST_PATH&quot; \
   &quot;$SRC_PATH&quot;/*.dng
 </code></pre>
 
 <h2 id="create-a-contact-sheet">Create a contact sheet</h2>
-<pre><code>gm montage -geometry 400x400+10+10 -background &quot;#222&quot; -tile 8 *.jpg ~/output.jpg
+<pre><code class="sh">gm montage \
+  -geometry 400x400+10+10 \
+  -background &quot;#222&quot; \
+  -tile 8 *.jpg \
+  &quot;$HOME/output.jpg&quot;
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
@@ -1533,6 +1539,7 @@
 <li><a href="../imagemagick/">imagemagick</a></li>
 <li><a href="../jpeginfo/">jpeginfo</a></li>
 <li><a href="../sips/">sips</a></li>
+<li>dcraw</li>
 </ul>
               
             </div>
