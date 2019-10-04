@@ -529,6 +529,8 @@
         
             <li><a class="toctree-l3" href="#convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</a></li>
         
+            <li><a class="toctree-l3" href="#create-a-contact-sheet">Create a contact sheet</a></li>
+        
         </ul>
     
 
@@ -1519,6 +1521,10 @@
   -create-directories \
   -output-directory &quot;$OUT_DIR&quot; \
   &quot;$SRC_PATH&quot;/*.dng
+</code></pre>
+
+<h2 id="create-a-contact-sheet">Create a contact sheet</h2>
+<pre><code>gm montage -geometry 400x400+10+10 -background &quot;#222&quot; -tile 8 *.jpg ~/output.jpg
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
