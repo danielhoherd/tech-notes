@@ -1564,14 +1564,15 @@ helm \
   install gitlab/gitlab-runner \
   --tiller-namespace gitlab-managed-apps \
   --name &quot;gitlab-runner-${ORG_NAME}-$(date +%s)&quot; \
-  --set 'runners.request_concurrency=10' \
+  --set &quot;concurrent=20&quot; \
   --set &quot;gitlabUrl=https://gitlab.com/&quot; \
   --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
+  --set &quot;runners.builds.cpuRequests=1&quot; \
   --set &quot;runners.env.DOCKER_TLS_CERTDIR=&quot; \
   --set &quot;runners.imagePullPolicy=always&quot; \
   --set &quot;runners.privileged=true&quot; \
-  --set &quot;runners.tags=${ORG_NAME}\,dind\,gke&quot; \
-  --set concurrent=20
+  --set &quot;runners.request_concurrency=10&quot; \
+  --set &quot;runners.tags=${ORG_NAME}\,dind\,gke&quot;
 </code></pre>
 
 <p>the <code>runners.privileged=true</code> is the magic that is needed to enable docker commands in your <code>.gitlab-ci.yml</code> files to succeed. this <code>--set</code> flag creates the pod environment:</p>
