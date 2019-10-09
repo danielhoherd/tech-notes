@@ -1328,6 +1328,10 @@
         
             <li><a class="toctree-l3" href="#show-the-nginx-journal-for-today">Show the nginx journal for today</a></li>
         
+            <li><a class="toctree-l3" href="#list-journals-by-boot">List journals by boot</a></li>
+        
+            <li><a class="toctree-l3" href="#show-journal-for-previous-boot">Show journal for previous boot</a></li>
+        
             <li><a class="toctree-l3" href="#show-units">Show units</a></li>
         
             <li><a class="toctree-l3" href="#show-dependencies">Show dependencies</a></li>
@@ -1538,65 +1542,84 @@
 </ul>
 <h1 id="tips">Tips</h1>
 <h2 id="init-file-locations">Init file locations</h2>
-<pre><code>/usr/lib/systemd/system
+<pre><code class="sh">/usr/lib/systemd/system
 /etc/systemd/system # has precedence
 </code></pre>
 
 <h2 id="show-the-full-systemd-journal">Show the full systemd journal</h2>
 <p>The systemd journal is syslog and more.</p>
-<pre><code>journalctl --full
+<pre><code class="sh">journalctl --full
 </code></pre>
 
 <h2 id="show-the-nginx-journal-for-today">Show the nginx journal for today</h2>
-<pre><code>journalctl -u nginx.service --since today
+<pre><code class="sh">journalctl -u nginx.service --since today
+</code></pre>
+
+<h2 id="list-journals-by-boot">List journals by boot</h2>
+<pre><code class="sh">journalctl --list-boots
+</code></pre>
+
+<p>The above command produces the following style of output:</p>
+<pre><code> -5 e6fcef265a164688b5f9aad999a9b1d2 Mon 2019-09-09 08:55:47 PDT—Tue 2019-09-17 17:41:25 PDT
+ -4 1e402042ad0a48bebe17298fd80dfb66 Tue 2019-09-17 17:42:06 PDT—Tue 2019-09-17 18:26:28 PDT
+ -3 1b36653fa7b64b1a808f10a894a0e303 Tue 2019-09-17 18:27:11 PDT—Sun 2019-09-22 13:34:59 PDT
+ -2 be854ba422934cf2a9e7952dc052461a Sun 2019-09-22 16:23:43 PDT—Mon 2019-09-30 07:55:08 PDT
+ -1 0454f1208e5e49c59fabf95cf4f68346 Mon 2019-09-30 07:55:51 PDT—Fri 2019-10-04 08:54:38 PDT
+  0 f8c09c85ed9f4976987121a345b6f446 Fri 2019-10-04 08:55:22 PDT—Wed 2019-10-09 15:34:01 PDT
+</code></pre>
+
+<h2 id="show-journal-for-previous-boot">Show journal for previous boot</h2>
+<p>Using the info from the previous --list-boots example, we can view the system log for the previous boot. This gives all system logs from the time the system booted to the time it shut down.</p>
+<pre><code class="sh">journalctl -b -1
+journalctl -b 0454f1208e5e49c59fabf95cf4f68346
 </code></pre>
 
 <h2 id="show-units">Show units</h2>
 <p>Units are things that are handled by systemd, including services.     systemctl list-units</p>
 <h2 id="show-dependencies">Show dependencies</h2>
 <p>This works on any .target or .service</p>
-<pre><code>systemctl list-dependencies network.service
+<pre><code class="sh">systemctl list-dependencies network.service
 </code></pre>
 
 <h2 id="enable-a-service">Enable a service</h2>
 <p>This behavior replaces chkconfig</p>
-<pre><code>systemctl enable docker.service
+<pre><code class="sh">systemctl enable docker.service
 </code></pre>
 
 <h2 id="check-the-status-of-a-service-and-show-20-lines">Check the status of a service and show 20 lines</h2>
-<pre><code>systemctl -n 20 status nodejs
+<pre><code class="sh">systemctl -n 20 status nodejs
 </code></pre>
 
 <h2 id="per-user-services">Per-user services</h2>
 <p><a href="https://wiki.archlinux.org/index.php/Systemd/User">https://wiki.archlinux.org/index.php/Systemd/User</a></p>
-<pre><code>/usr/lib/systemd/user/ - where services provided by installed packages go.
-/etc/systemd/user/ - where system-wide user services are placed by the system administrator.
-~/.config/systemd/user/ - where the user puts its own services.
+<pre><code class="sh">/usr/lib/systemd/user/ # where services provided by installed packages go.
+/etc/systemd/user/ # where system-wide user services are placed by the system administrator.
+~/.config/systemd/user/ # where the user puts its own services.
 </code></pre>
 
 <h2 id="alter-power-sleep-hibernate-button-behaviors">Alter power / sleep / hibernate button behaviors</h2>
-<pre><code>/etc/systemd/logind.conf
+<pre><code class="sh">/etc/systemd/logind.conf
 </code></pre>
 
 <h2 id="show-name-resolution-status">Show name resolution status</h2>
-<pre><code>systemd-resolve --status
+<pre><code class="sh">systemd-resolve --status
 </code></pre>
 
 <h2 id="show-boot-performance">Show boot performance</h2>
-<pre><code>systemd-analyze blame
+<pre><code class="sh">systemd-analyze blame
 systemd-analyze critical-chain
 </code></pre>
 
 <h2 id="show-cgroup-contexts">Show cgroup contexts</h2>
-<pre><code>systemd-cgls
+<pre><code class="sh">systemd-cgls
 </code></pre>
 
 <h2 id="show-top-control-groups-by-their-resource-usage">Show top control groups by their resource usage</h2>
-<pre><code>systemd-cgtop
+<pre><code class="sh">systemd-cgtop
 </code></pre>
 
 <h2 id="detect-if-you-are-running-in-a-container-or-on-a-vm">Detect if you are running in a container or on a VM</h2>
-<pre><code>systemd-detect-virt
+<pre><code class="sh">systemd-detect-virt
 </code></pre>
               
             </div>
