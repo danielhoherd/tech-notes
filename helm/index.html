@@ -554,6 +554,8 @@
         
             <li><a class="toctree-l3" href="#show-notes-for-a-deployed-service">Show notes for a deployed service</a></li>
         
+            <li><a class="toctree-l3" href="#install-metrics-server">Install metrics-server</a></li>
+        
             <li><a class="toctree-l3" href="#install-the-incubator-repo">Install the incubator repo</a></li>
         
         </ul>
@@ -1508,9 +1510,17 @@
 <h1 id="tips">Tips</h1>
 <h2 id="show-notes-for-a-deployed-service">Show notes for a deployed service</h2>
 <p>Notes are printed when you install a service, but they can be viewed again by running <code>helm status &lt;release_name&gt;</code> where <release_name> is one of the releases from <code>helm list</code>.</p>
+<h2 id="install-metrics-server">Install metrics-server</h2>
+<pre><code class="sh">helm install \
+    --name metrics-server \
+    --namespace kube-system \
+    stable/metrics-server \
+    --set &quot;args[0]=--kubelet-insecure-tls,args[1]=--kubelet-preferred-address-types=InternalIP&quot;
+</code></pre>
+
 <h2 id="install-the-incubator-repo">Install the incubator repo</h2>
 <p><a href="https://github.com/helm/charts#how-do-i-enable-the-incubator-repository">https://github.com/helm/charts#how-do-i-enable-the-incubator-repository</a></p>
-<pre><code>helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+<pre><code class="sh">helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
 </code></pre>
               
             </div>
