@@ -685,6 +685,10 @@
         
             <li><a class="toctree-l3" href="#output-bare-values-for-use-as-inputs">Output bare values for use as inputs</a></li>
         
+            <li><a class="toctree-l3" href="#show-labels-for-each-locally-stored-docker-sha">Show labels for each locally stored docker SHA</a></li>
+        
+            <li><a class="toctree-l3" href="#sort-all-json-contents">Sort all JSON contents</a></li>
+        
         </ul>
     
 
@@ -1524,11 +1528,11 @@
                 <p>"jq is a lightweight and flexible command-line JSON processor." - <a href="https://stedolan.github.io/jq/">https://stedolan.github.io/jq/</a></p>
 <h1 id="examples">Examples</h1>
 <h2 id="sort-a-json-file">Sort a json file</h2>
-<pre><code>jq -S . foo.json
+<pre><code class="sh">jq -S . foo.json
 </code></pre>
 
 <h2 id="grab-first-element-of-an-array-and-print-the-value-of-timestamp-of-that-element">Grab first element of an array, and print the value of 'timestamp' of that element.</h2>
-<pre><code>echo '
+<pre><code class="sh">echo '
 [
   {
     &quot;foo&quot;: &quot;this is foo string&quot;,
@@ -1541,7 +1545,7 @@
 </code></pre>
 
 <h2 id="construct-flickr-urls-from-an-api-call">Construct Flickr URLs from an API call</h2>
-<pre><code>curl -s &quot;https://api.flickr.com/services/rest/?&quot;\
+<pre><code class="sh">curl -s &quot;https://api.flickr.com/services/rest/?&quot;\
 &quot;&amp;api_key=9c72f03c0583a34bd703bd82d8773cc0&quot;\
 &quot;&amp;format=json&quot;\
 &quot;&amp;method=flickr.photos.getRecent&quot;\
@@ -1554,7 +1558,7 @@
 
 <h2 id="use-mco-to-find-packages-of-a-certain-version-on-a-certain-os">Use mco to find packages of a certain version on a certain OS</h2>
 <p>This example could be used as an alternative to grep, where only the value of a key/value pair is matched.</p>
-<pre><code>mco rpc package status package=apt -j -F lsbdistcodename=trusty |
+<pre><code class="sh">mco rpc package status package=apt -j -F lsbdistcodename=trusty |
   jq -c '
     .[] |
     select(.data.ensure == &quot;1.0.1ubuntu2&quot;) | {
@@ -1565,7 +1569,7 @@
 
 <h2 id="print-only-objects-whose-name-matches-a-string">Print only objects whose name matches a string</h2>
 <p>This example echoes some yaml, uses python to convert it to json, then filters matching data using <code>jq</code>. It could be used as an alternative to grep, where only the key of a key/value pair is matched.</p>
-<pre><code>echo &quot;
+<pre><code class="sh">echo &quot;
 data:
   - This is a string, not an object, and contains the substrings foo and bar
   - name: foo_name
@@ -1582,7 +1586,7 @@ jq '
 
 <h2 id="build-a-json-entry-from-scratch">Build a json entry from scratch</h2>
 <p>This uses bash paramber expansion and subshell syntax, and may not work in other shells.</p>
-<pre><code>create_json() {
+<pre><code class="sh">create_json() {
   local user=${1:-${USER}}
   local host=${2:-${HOSTNAME}}
   local more_stuff=${3:-$(uname -a)}
@@ -1605,7 +1609,7 @@ jq '
 
 <h2 id="render-yaml-with-anchors-as-json-data">Render yaml with anchors as json data</h2>
 <p>This example shows how you can use python and jq to view the result of dereferenced yaml anchors, a construct that is not supported by json. This example is less about how to use <code>jq</code> syntaxes, and more about how it can be used to view data that is otherwise difficult to sort through.</p>
-<pre><code>echo &quot;
+<pre><code class="sh">echo &quot;
 job1: &amp;template
   directory: /tmp
   extra_parameters: nosuid,noatime
@@ -1623,7 +1627,7 @@ jq -S .
 </code></pre>
 
 <h2 id="select-matches-and-print-a-subset-of-values">Select matches, and print a subset of values</h2>
-<pre><code>jq '.[] | select(.data.ensure != &quot;purged&quot;) | [.sender,.data.ensure]' $*
+<pre><code class="sh">jq '.[] | select(.data.ensure != &quot;purged&quot;) | [.sender,.data.ensure]' $*
 </code></pre>
 
 <h2 id="output-bare-values-for-use-as-inputs">Output bare values for use as inputs</h2>
@@ -1635,13 +1639,21 @@ consul-server-02  172.18.9.117  2015-05-15T06:13:19Z
 consul-server-03  172.18.9.118  2015-05-15T06:13:19Z
 </code></pre>
 
-<h2 id="_1"></h2>
-<p>Show labels for each locally stored docker SHA</p>
-<pre><code>docker images --format '{{.ID}}' |
+<h2 id="show-labels-for-each-locally-stored-docker-sha">Show labels for each locally stored docker SHA</h2>
+<pre><code class="sh">docker images --format '{{.ID}}' |
 while read -r X ; do
   docker inspect $X |
   jq '.[] | [ .RepoTags, .Config.Labels ]'
 done
+</code></pre>
+
+<h2 id="sort-all-json-contents">Sort all JSON contents</h2>
+<p>Be aware that sometimes JSON should not be sorted, as arrays are sometimes expected to maintain their order.</p>
+<pre><code class="sh">jq -S '. | walk( if type == &quot;array&quot; then sort else . end )'
+</code></pre>
+
+<p>Or set up a shell alias</p>
+<pre><code class="sh">alias jqsort=&quot;jq -S '. | walk( if type == \&quot;array\&quot; then sort else . end )'&quot;
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
