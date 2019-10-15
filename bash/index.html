@@ -1896,6 +1896,9 @@ sort
 </code></pre>
 
 <h2 id="get-command-line-switches">Get command line switches</h2>
+<p>From <a href="https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-getopts">the docs</a>
+- If a character is followed by a colon, the option is expected to have an argument.
+- If the first character of optstring is a colon, silent error reporting is used.</p>
 <pre><code class="bash">while getopts p:l:t: opt; do
   case $opt in
     p) pages=$OPTARG ;;
