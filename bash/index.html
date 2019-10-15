@@ -1616,15 +1616,16 @@
 <li><code>compgen -back</code> will list all the above in one go.</li>
 </ul>
 <h2 id="remove-leading-zeroes">Remove leading zeroes</h2>
+<p>This method converts the numbers from base-10 to base-10, which has the side effect of removing leading zeroes. You can also use this to convert from other base systems</p>
 <pre><code class="bash">for X in 00{1..20..2} ; do
-  echo &quot;$X == $((10#${X}))&quot; ;
-done ;
+  echo &quot;$X = $(( 10#${X} ))&quot;
+done
 </code></pre>
 
-<p>Or...</p>
+<p>Or use <code>bc</code>, a CLI calculator...</p>
 <pre><code class="bash">for X in {1..50..5} ; do
-  Y=00${X} ;
-  echo &quot;${X} with zeroes is ${Y} and removed with bc is $(echo ${Y} | bc)&quot; ;
+  Y=00${X}
+  echo &quot;${X} with zeroes is ${Y} and removed with bc is $(echo ${Y} | bc)&quot;
 done ;
 </code></pre>
 
