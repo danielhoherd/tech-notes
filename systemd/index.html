@@ -1348,6 +1348,8 @@
         
             <li><a class="toctree-l3" href="#show-boot-performance">Show boot performance</a></li>
         
+            <li><a class="toctree-l3" href="#view-a-time-chart-of-the-boot-sequence">View a time-chart of the boot sequence</a></li>
+        
             <li><a class="toctree-l3" href="#show-cgroup-contexts">Show cgroup contexts</a></li>
         
             <li><a class="toctree-l3" href="#show-top-control-groups-by-their-resource-usage">Show top control groups by their resource usage</a></li>
@@ -1608,6 +1610,10 @@ journalctl -b 0454f1208e5e49c59fabf95cf4f68346
 <h2 id="show-boot-performance">Show boot performance</h2>
 <pre><code class="sh">systemd-analyze blame
 systemd-analyze critical-chain
+</code></pre>
+
+<h2 id="view-a-time-chart-of-the-boot-sequence">View a time-chart of the boot sequence</h2>
+<pre><code>sudo systemd-analyze plot &gt; systemd.svg
 </code></pre>
 
 <h2 id="show-cgroup-contexts">Show cgroup contexts</h2>
