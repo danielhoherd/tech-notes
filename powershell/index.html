@@ -1006,7 +1006,7 @@
     <li class="toctree-l2"><a href="#profileps1">Profile.ps1</a></li>
     
 
-    <li class="toctree-l2"><a href="#tricks">Tricks</a></li>
+    <li class="toctree-l2"><a href="#examples">Examples</a></li>
     
         <ul>
         
@@ -1546,60 +1546,88 @@
 <p><a href="https://github.com/PowerShell/PowerShell/">https://github.com/PowerShell/PowerShell/</a></p>
 <h1 id="profileps1">Profile.ps1</h1>
 <p>On startup, powershell will run any .ps1 files it finds in the WindowsPowerShell directory under my documents. There is allegedly a Profile.ps1 file in there by default.</p>
-<pre><code>$env:Path = &quot;c:\Users\dhoherd\Dropbox\GWOS\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\&quot;
+<pre><code class="powershell">$env:Path = &quot;c:\Users\user1\Dropbox\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\&quot;
 </code></pre>
 
-<h1 id="tricks">Tricks</h1>
+<h1 id="examples">Examples</h1>
 <h2 id="restart-a-remote-computer">Restart a remote computer</h2>
-<p>Restart-Computer remotehostname -Force</p>
+<pre><code class="powershell">Restart-Computer remotehostname -Force
+</code></pre>
+
 <h2 id="find-a-command-that-matches-a-substring">Find a command that matches a substring</h2>
-<p><code>get-command *time*</code></p>
+<pre><code class="powershell">get-command *time*
+</code></pre>
+
 <h2 id="get-help-on-commands-that-match-a-substring">Get help on commands that match a substring</h2>
-<p><code>get-help *time*</code></p>
+<pre><code class="powershell">get-help *time*
+</code></pre>
+
 <h2 id="show-acls-of-the-current-dir">Show ACLs of the current dir</h2>
-<p><code>get-acl | format-list</code></p>
+<pre><code class="powershell">get-acl | format-list
+</code></pre>
+
 <h2 id="show-system-bios-information">Show system BIOS information</h2>
-<p><code>Get-WmiObject -ComputerName hostname win32_bios</code></p>
+<pre><code class="powershell">Get-WmiObject -ComputerName hostname win32_bios
+</code></pre>
+
 <h2 id="show-object-methods">Show object methods</h2>
-<p><code>$foo | Get-Member</code></p>
+<pre><code class="powershell">$foo | Get-Member
+</code></pre>
+
 <h2 id="browse-the-registry">Browse the registry</h2>
-<pre><code>Set-Location HKCU:\Software\Microsoft\Windows\
+<pre><code class="powershell">Set-Location HKCU:\Software\Microsoft\Windows\
 Get-ChildItem
 </code></pre>
 
 <h2 id="show-top-processes">Show top processes</h2>
-<p><code>while (1) { ps | sort -desc cpu | select -first 30; sleep -seconds 1; cls }</code></p>
+<pre><code class="powershell">while (1) { ps | sort -desc cpu | select -first 30; sleep -seconds 1; cls }
+</code></pre>
+
 <h2 id="browse-the-cert-store">Browse the Cert store</h2>
-<pre><code>Set-Location cert:\CurrentUser\
+<pre><code class="powershell">Set-Location cert:\CurrentUser\
 Get-ChildItem
 </code></pre>
 
 <h2 id="get-a-list-of-stopped-services">Get a list of stopped services</h2>
-<p><code>Get-Service | Where-Object { $_.Status -eq "Stopped" }</code></p>
+<pre><code class="powershell">Get-Service | Where-Object { $_.Status -eq &quot;Stopped&quot; }
+</code></pre>
+
 <h2 id="compare-two-objects">Compare two objects</h2>
 <p>This will only show the lines that are not common:</p>
-<p><code>Compare-Object $(Get-VIPrivilege -role admin) $(Get-VIPrivilege -role member)</code></p>
+<pre><code class="powershell">Compare-Object $(Get-VIPrivilege -role admin) $(Get-VIPrivilege -role member)
+</code></pre>
+
 <h2 id="save-object-to-a-csv">Save object to a csv</h2>
-<pre><code>Get-Process | Export-Csv -Encoding unicode processes.csv
+<pre><code class="powershell">Get-Process | Export-Csv -Encoding unicode processes.csv
 </code></pre>
 
 <h2 id="load-object-from-a-csv-and-parse-it">Load object from a csv and parse it</h2>
-<pre><code>Import-Csv ./processes.csv | Where-Object { $_.Name -like &quot;*systemd*&quot; } | Select-Object -last 10 | Format-Table
+<pre><code class="powershell">Import-Csv ./processes.csv | Where-Object { $_.Name -like &quot;*systemd*&quot; } | Select-Object -last 10 | Format-Table
 </code></pre>
 
 <h2 id="replacement-for-unix-tail">Replacement for unix tail</h2>
 <p>tail filename</p>
-<p><code>Get-Content [filename] | Select-Object -Last 10</code></p>
+<pre><code class="powershell">Get-Content [filename] | Select-Object -Last 10
+</code></pre>
+
 <p>tail -f</p>
-<p><code>Get-Content -Path "C:\scripts\test.txt" -Wait</code></p>
+<pre><code class="powershell">Get-Content -Path &quot;C:\scripts\test.txt&quot; -Wait
+</code></pre>
+
 <h2 id="replacement-for-unix-wc">Replacement for unix wc</h2>
-<p><code>Get-Content test.csv | Measure-Object -line -word -character</code></p>
+<pre><code class="powershell">Get-Content test.csv | Measure-Object -line -word -character
+</code></pre>
+
 <h2 id="replacement-for-unix-time">Replacement for unix time</h2>
-<p><code>Measure-Command { Sleep 5 }</code></p>
+<pre><code class="powershell">Measure-Command { Sleep 5 }
+</code></pre>
+
 <h2 id="replacement-for-unix-grep-b2-a1">Replacement for unix grep -B2 -A1</h2>
-<p><code>Get-Content test.csv | Select-String "searchstring" -Context 2,1 -CaseSensitive</code></p>
+<pre><code class="powershell">Get-Content test.csv | Select-String &quot;searchstring&quot; -Context 2,1 -CaseSensitive
+</code></pre>
+
 <h2 id="install-powershell-in-ubuntu-1804">Install PowerShell in Ubuntu 18.04</h2>
-<pre><code>wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb &amp;&amp; \
+<pre><code class="sh">wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb &amp;&amp; \
     dpkg -i packages-microsoft-prod.deb &amp;&amp; \
     apt-get update &amp;&amp; \
     apt-get install -y powershell
@@ -1607,14 +1635,11 @@ Get-ChildItem
 
 <h1 id="see-also">See Also</h1>
 <ul>
-<li><a href="http://poshcode.org/">http://poshcode.org/</a> - Great PSH site</li>
-<li>PowerCLI - VMware CLI</li>
-<li>built on PSH</li>
-<li><a href="http://support.microsoft.com/kb/968929">http://support.microsoft.com/kb/968929</a> - download link for</li>
-<li>PowerShell and extras</li>
-<li>AD integration through Active Directory Web Services (ADWS) -</li>
-<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=2852">http://www.microsoft.com/en-us/download/details.aspx?id=2852</a></li>
-<li>Some PSH videos - <a href="http://www.blkmtn.org/TechEd-2012-Videos">http://www.blkmtn.org/TechEd-2012-Videos</a></li>
+<li><a href="http://poshcode.org/">http://poshcode.org/</a> - Great PSH site with example code</li>
+<li><a href="https://www.vmware.com/support/developer/PowerCLI/">https://www.vmware.com/support/developer/PowerCLI/</a> - PowerCLI: VMware PSH CLI</li>
+<li><a href="http://support.microsoft.com/kb/968929">http://support.microsoft.com/kb/968929</a> - download link for PSH and extras</li>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=2852">http://www.microsoft.com/en-us/download/details.aspx?id=2852</a> - Active Directory Management Gateway Service (Active Directory Web Service for Windows Server 2003 and Windows Server 2008)</li>
+<li><a href="http://www.blkmtn.org/TechEd-2012-Videos">http://www.blkmtn.org/TechEd-2012-Videos</a> - Some PSH videos</li>
 </ul>
               
             </div>
