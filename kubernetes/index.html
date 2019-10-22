@@ -731,7 +731,9 @@
         
             <li><a class="toctree-l3" href="#show-logs-for-a-given-pod-since-a-given-date">Show logs for a given pod since a given date</a></li>
         
-            <li><a class="toctree-l3" href="#output-custom-column-names-for-a-command">Output custom column names for a command</a></li>
+            <li><a class="toctree-l3" href="#output-custom-column-names">Output custom column names</a></li>
+        
+            <li><a class="toctree-l3" href="#find-gitlab-runner-pods-that-are-over-1h-old">Find gitlab-runner pods that are over 1h old</a></li>
         
         </ul>
     
@@ -1649,12 +1651,28 @@ kubectl logs $pod_name --since=12h
 kubectl logs $pod_name --since-time=&quot;$(date --iso-8601=seconds -d '-5 weeks')&quot;
 </code></pre>
 
-<h2 id="output-custom-column-names-for-a-command">Output custom column names for a command</h2>
-<pre><code>$ kubectl get pvc --all-namespaces -o custom-columns=NAME:metadata.name,SIZE:spec.resources.requests.storage
+<h2 id="output-custom-column-names">Output custom column names</h2>
+<pre><code>$ kubectl get pvc --all-namespaces -o custom-columns='NAME:metadata.name,SIZE:spec.resources.requests.storage'
 NAME                   SIZE
 foo-logs               256Gi
 test-volume-2          1Gi
 some-awesome-service   5Gi
+
+$ kubectl get pods -o custom-columns='NAME:.metadata.name,START_TIME:.status.startTime'
+NAME                                                 START_TIME
+gitlab-runner-gitlab-runner-12345fabcd-23456         2019-10-18T22:21:30Z
+runner-iuytrew-project-123456789-concurrent-06bg9b   2019-10-22T20:31:05Z
+runner-iuytrew-project-123456789-concurrent-1f99bb   2019-10-22T20:31:06Z
+</code></pre>
+
+<h2 id="find-gitlab-runner-pods-that-are-over-1h-old">Find gitlab-runner pods that are over 1h old</h2>
+<pre><code class="sh">kubectl get pods --no-headers=true -o custom-columns=&quot;NAME:.metadata.name,START_TIME:.status.startTime&quot; |
+grep '^runner-' |
+while read -r pod starttime ; do
+  if [ &quot;$(( $(date +%s) - $(gdate -d &quot;$starttime&quot; &quot;+%s&quot;) ))&quot; -gt 3600 ] ; then
+    echo &quot;$pod&quot;
+  fi
+done
 </code></pre>
 
 <h1 id="installations">Installations</h1>
