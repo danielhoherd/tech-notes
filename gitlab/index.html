@@ -497,6 +497,8 @@
         
             <li><a class="toctree-l3" href="#show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job</a></li>
         
+            <li><a class="toctree-l3" href="#find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old</a></li>
+        
         </ul>
     
 
@@ -1595,6 +1597,16 @@ helm \
 runner-ppzmy1zx-project-11144552-concurrent-0q2pmk   2019-10-23T17:00:56Z   https://gitlab.com/foo/bar/-/jobs/330824976   user2@example.com
 runner-ppzmy1zx-project-11144552-concurrent-1f7nfx   2019-10-23T17:04:27Z   https://gitlab.com/foo/bar/-/jobs/330827586   user1@example.com
 runner-ppzmy1zx-project-11144552-concurrent-2n84rv   2019-10-23T17:04:19Z   https://gitlab.com/foo/bar/-/jobs/330827587   user1@example.com
+</code></pre>
+
+<h2 id="find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old</h2>
+<pre><code class="sh">kubectl get pods --no-headers=true -o custom-columns=&quot;NAME:.metadata.name,START_TIME:.status.startTime&quot; |
+grep '^runner-' |
+while read -r pod starttime ; do
+  if [ &quot;$(( $(date +%s) - $(gdate -d &quot;$starttime&quot; &quot;+%s&quot;) ))&quot; -gt 3600 ] ; then
+    echo &quot;$pod&quot;
+  fi
+done
 </code></pre>
 
 <h1 id="pros-and-cons">Pros and cons</h1>
