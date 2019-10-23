@@ -495,6 +495,8 @@
         
             <li><a class="toctree-l3" href="#run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</a></li>
         
+            <li><a class="toctree-l3" href="#show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job</a></li>
+        
         </ul>
     
 
@@ -1584,6 +1586,17 @@ helm \
 
 <p><code>runners.env.DOCKER_TLS_CERTDIR=</code> is required to fix the changes with Docker 19.03 outlined in <a href="https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/">https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/</a> and <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/64959">https://gitlab.com/gitlab-org/gitlab-ce/issues/64959</a></p>
 <p>See more variables that you can set by running <code>helm inspect gitlab/gitlab-runner</code></p>
+<h2 id="show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job</h2>
+<pre><code class="sh">kubectl get pods -o custom-columns='NAME:.metadata.name,START_TIME:.status.startTime,CI_JOB_URL:.spec.containers[0].env[?(@.name == &quot;CI_JOB_URL&quot;)].value,GITLAB_USER_EMAIL:.spec.containers[0].env[?(@.name == &quot;GITLAB_USER_EMAIL&quot;)].value' | grep -E 'NAME|jobs'
+</code></pre>
+
+<p>The output of the above command looks like</p>
+<pre><code>NAME                                                 START_TIME             CI_JOB_URL                                    GITLAB_USER_EMAIL
+runner-ppzmy1zx-project-11144552-concurrent-0q2pmk   2019-10-23T17:00:56Z   https://gitlab.com/foo/bar/-/jobs/330824976   user2@example.com
+runner-ppzmy1zx-project-11144552-concurrent-1f7nfx   2019-10-23T17:04:27Z   https://gitlab.com/foo/bar/-/jobs/330827586   user1@example.com
+runner-ppzmy1zx-project-11144552-concurrent-2n84rv   2019-10-23T17:04:19Z   https://gitlab.com/foo/bar/-/jobs/330827587   user1@example.com
+</code></pre>
+
 <h1 id="pros-and-cons">Pros and cons</h1>
 <h2 id="pros">Pros</h2>
 <ul>
