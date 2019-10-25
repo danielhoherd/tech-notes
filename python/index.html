@@ -1101,6 +1101,8 @@
         
             <li><a class="toctree-l3" href="#discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</a></li>
         
+            <li><a class="toctree-l3" href="#common-date-operations">Common date operations</a></li>
+        
         </ul>
     
 
@@ -1663,6 +1665,34 @@ ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
 
 <h2 id="discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</h2>
 <pre><code class="sh">echo $(python -m site --user-base)/bin
+</code></pre>
+
+<h2 id="common-date-operations">Common date operations</h2>
+<p>None of these examples deal with timezones.</p>
+<h3 id="get-the-current-time-and-date">Get the current time and date</h3>
+<pre><code class="python">&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; datetime.now().strftime(&quot;%s&quot;)
+'1572039830'  # unix timestamp as a string
+&gt;&gt;&gt; datetime.now().strftime(&quot;%F&quot;)
+'2019-10-25'  # abribrarily formatted timestamp string
+&gt;&gt;&gt; datetime.now()
+datetime.datetime(2019, 10, 25, 14, 49, 49, 175165)  # as a datetime object
+</code></pre>
+
+<h3 id="convert-from-unix-timestamp">Convert from unix timestamp</h3>
+<pre><code class="python">&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; datetime.utcfromtimestamp(1234567890)
+datetime.datetime(2009, 2, 13, 23, 31, 30)  # to a datetime object
+&gt;&gt;&gt; datetime.utcfromtimestamp(1234567890).strftime('%F %T')
+'2009-02-13 23:31:30'  # to a string, via datetime object formatting
+</code></pre>
+
+<h3 id="convert-from-datetime-string">Convert from datetime string</h3>
+<pre><code class="python">&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; datetime.strptime('2019-05-01', &quot;%Y-%m-%d&quot;)  # For some reason you can't use '%F' to describe inputs. Same with %s.
+datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
+&gt;&gt;&gt; datetime.strptime('2019-05-01 10:01:59', &quot;%Y-%m-%d %H:%M:%S&quot;).strftime('%A %B %d, %Y')
+'Wednesday May 01, 2019'  # to a string, via datetime object
 </code></pre>
 
 <h1 id="links">Links</h1>
