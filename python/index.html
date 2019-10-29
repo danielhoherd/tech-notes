@@ -1101,6 +1101,8 @@
         
             <li><a class="toctree-l3" href="#discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</a></li>
         
+            <li><a class="toctree-l3" href="#show-currently-installed-versions-for-all-packages-in-requirementstxt">Show currently installed versions for all packages in requirements.txt</a></li>
+        
             <li><a class="toctree-l3" href="#common-date-operations">Common date operations</a></li>
         
         </ul>
@@ -1665,6 +1667,11 @@ ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
 
 <h2 id="discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</h2>
 <pre><code class="sh">echo $(python -m site --user-base)/bin
+</code></pre>
+
+<h2 id="show-currently-installed-versions-for-all-packages-in-requirementstxt">Show currently installed versions for all packages in requirements.txt</h2>
+<p>This can be used to update a requirements.txt file</p>
+<pre><code class="sh">pip freeze | grep -f &lt;(grep -o '^\w\+' requirements.txt)
 </code></pre>
 
 <h2 id="common-date-operations">Common date operations</h2>
