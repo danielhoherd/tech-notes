@@ -527,7 +527,7 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</a></li>
+            <li><a class="toctree-l3" href="#convert-a-bunch-of-dng-files-to-low-resolution-jpeg">Convert a bunch of DNG files to low-resolution JPEG</a></li>
         
             <li><a class="toctree-l3" href="#create-a-contact-sheet">Create a contact sheet</a></li>
         
@@ -1511,18 +1511,20 @@
 <p>This software purports to be more favorable than <a href="../imagemagick/">ImageMagick</a>.</p>
 <h1 id="usage-tips">Usage tips</h1>
 <p>Docs on scripting: <a href="http://www.graphicsmagick.org/GraphicsMagick.html">http://www.graphicsmagick.org/GraphicsMagick.html</a></p>
-<h2 id="convert-a-bunch-of-images-to-low-resolution-jpeg">Convert a bunch of images to low-resolution jpeg</h2>
+<h2 id="convert-a-bunch-of-dng-files-to-low-resolution-jpeg">Convert a bunch of DNG files to low-resolution JPEG</h2>
 <p>The early <code>-size</code> option here is an optimization, but the actual resizing happens in <code>-resize</code>.</p>
 <pre><code class="sh">SRC_PATH=&quot;${HOME}/Pictures/&quot;
 DEST_PATH=&quot;${HOME}/Desktop/output/&quot;
+SIZE=&quot;400x400&quot;
+find &quot;${SRC_PATH}&quot; -type f -iname '*.dng' -print0 |
+xargs -0 -n1 -P&quot;$(nproc 2&gt;/dev/null || echo 2)&quot; \
 gm mogrify \
   -verbose \
-  -size 400x400 \
+  -size &quot;${SIZE}&quot; \
   -format jpeg \
-  -resize 400x400 \
+  -resize &quot;${SIZE}&quot; \
   -create-directories \
-  -output-directory &quot;$DEST_PATH&quot; \
-  &quot;$SRC_PATH&quot;/*.dng
+  -output-directory &quot;$DEST_PATH&quot;
 </code></pre>
 
 <h2 id="create-a-contact-sheet">Create a contact sheet</h2>
