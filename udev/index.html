@@ -1380,6 +1380,8 @@
         
             <li><a class="toctree-l3" href="#mount-namespace-problems">Mount namespace problems</a></li>
         
+            <li><a class="toctree-l3" href="#trigger-a-disk-add-event-for-a-disk-that-has-already-been-inserted">Trigger a disk add event for a disk that has already been inserted</a></li>
+        
         </ul>
     
 
@@ -1548,6 +1550,10 @@ MountFlags=shared
 </code></pre>
 
 <p>Then run <code>systemctl daemon-reload ; service systemd-udevd --full-restart ;</code> See <code>man 7 mount_namespaces</code> for more info.</p>
+<h2 id="trigger-a-disk-add-event-for-a-disk-that-has-already-been-inserted">Trigger a disk add event for a disk that has already been inserted</h2>
+<pre><code class="sh">udevadm trigger -t devices --name /dev/sda1 --action=add
+</code></pre>
+
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="http://www.reactivated.net/writing_udev_rules.html">http://www.reactivated.net/writing_udev_rules.html</a></li>
