@@ -1493,6 +1493,8 @@
         
             <li><a class="toctree-l3" href="#show-deduplication-tables">Show deduplication tables</a></li>
         
+            <li><a class="toctree-l3" href="#import-a-pool-by-different-disk-path">Import a pool by different disk path</a></li>
+        
             <li><a class="toctree-l3" href="#replace-a-disk-in-a-zpool">Replace a disk in a zpool</a></li>
         
         </ul>
@@ -1724,6 +1726,12 @@ zpool list
 zpool status -D z2
 </code></pre>
 
+<h2 id="import-a-pool-by-different-disk-path">Import a pool by different disk path</h2>
+<p>You can change the paths your pool is imported from. This is useful if you created your zpool using <code>/dev/sdN</code> when you should have used <code>/dev/disk/by-id/</code>, which is deterministic. The <code>-d</code> option lets you specify a directory to look within for the given pool's devices.</p>
+<pre><code class="sh">zpool import -d /dev/disk/by-id/ &quot;$ZPOOL_NAME&quot;
+</code></pre>
+
+<p>You may find that your pool was imported using links from this path that are not desirable, because there are several options available. For instance, you may find that your pool was imported using wwn links (EG: <code>wwn-0x5000cca22eca1056</code>) that are not very user friendly compared to a link that shows the model and serial number (EG: <code>scsi-SATA_HGST_HMS5C4141BM_PM1302LAGR5A0F</code>). Because these links are managed by <a href="../udev/">udev</a> and are created when the disk is seen by the system, either at boot or at insertion, and because nothing else should be referencing these symlinks, they are safe to delete. Export your pool, then delete unwanted symlinks for the devices related to your pool, leaving only the symlinks you want to use, then run <code>zpool import -d</code> once again.</p>
 <h2 id="replace-a-disk-in-a-zpool">Replace a disk in a zpool</h2>
 <pre><code># Replace the first disk with the second in the tank pool
 zpool replace -f tank /dev/disk/by-id/ata-ST3000DM001-9YN166_W1F09CW9 /dev/disk/by-id/ata-ST3000DM001-9YN166_Z1F0N9S7
