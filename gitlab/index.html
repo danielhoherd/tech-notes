@@ -499,6 +499,8 @@
         
             <li><a class="toctree-l3" href="#find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old</a></li>
         
+            <li><a class="toctree-l3" href="#host-a-private-gitlab-pages-site">Host a private gitlab pages site</a></li>
+        
         </ul>
     
 
@@ -1614,6 +1616,20 @@ while read -r pod starttime ; do
 done
 </code></pre>
 
+<h2 id="host-a-private-gitlab-pages-site">Host a private gitlab pages site</h2>
+<p>This does not appear to be a documented feature, but it is quite useful. You can host a website with a static address that tracks any given branch. Normal gitlab pages export a public facing website, but this is essentially a private gitlab pages site.</p>
+<pre><code># .gitlab-ci.yml
+docs:
+  stage: test
+  script:
+    - mkdocs build
+
+  artifacts:
+    paths:
+      - site
+</code></pre>
+
+<p>Then hit <a href="https://gitlab.com/${ORG}/${GROUP}/${PROJECT}/-/jobs/artifacts/master/file/site/index.html?job=docs">https://gitlab.com/${ORG}/${GROUP}/${PROJECT}/-/jobs/artifacts/master/file/site/index.html?job=docs</a> in your browser. You will be able to browse the built website, but only if you have access to the repository.</p>
 <h1 id="pros-and-cons">Pros and cons</h1>
 <h2 id="pros">Pros</h2>
 <ul>
