@@ -306,6 +306,8 @@
         
             <li><a class="toctree-l3" href="#scrape-urls-from-a-page">Scrape URLs from a page</a></li>
         
+            <li><a class="toctree-l3" href="#use-curl-to-fetch-the-current-rfc-2822-time">Use curl to fetch the current RFC 2822 time</a></li>
+        
         </ul>
     
 
@@ -390,7 +392,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dns/">dns</a>
+    <a class="" href="../dns/">DNS</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1529,34 +1531,43 @@
 <p>curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction.</p>
 <h1 id="examples">Examples</h1>
 <h2 id="follow-location-redirects">Follow location redirects</h2>
-<pre><code>curl -L http://whatever
+<pre><code class="sh">curl -L http://whatever
 </code></pre>
 
 <h2 id="show-the-http-code-for-a-given-request">Show the HTTP code for a given request</h2>
 <p>This downloads 1 byte from the remote URI and shows the HTTP code, so it's a quick way to discover HTTP codes.</p>
-<pre><code>curl --max-filesize 1 -s -w &quot;%{http_code}\n&quot; -o /dev/null http://www.example.com/
+<pre><code class="sh">curl --max-filesize 1 -s -w &quot;%{http_code}\n&quot; -o /dev/null http://www.example.com/
 </code></pre>
 
 <h2 id="request-a-specific-vhost-from-a-server">Request a specific vhost from a server</h2>
 <p>This is useful for testing production code on non-production multi-tennant name based virtual hosts.</p>
-<pre><code>curl -H 'Host: www.domain.com' http://example.com
+<pre><code class="sh">curl -H 'Host: www.domain.com' http://example.com
 </code></pre>
 
 <h2 id="get-the-length-of-the-file-to-be-downloaded">Get the length of the file to be downloaded</h2>
-<pre><code>curl -qI  https://www.google.com/index.php 2&gt;/dev/null | awk '/Length/ {print $2}'
+<pre><code class="sh">curl -qI  https://www.google.com/index.php 2&gt;/dev/null | awk '/Length/ {print $2}'
 </code></pre>
 
 <h2 id="fetch-only-http-headers-not-content">Fetch only HTTP headers, not content</h2>
-<pre><code>curl -I http://www.example.com/some_huge_file.iso
+<pre><code class="sh">curl -I http://www.example.com/some_huge_file.iso
 </code></pre>
 
 <h2 id="send-post-variables">Send POST variables</h2>
-<pre><code>curl --data &quot;user=foo&amp;pass=bar&quot; http://example.com/login.php
+<pre><code class="sh">curl --data &quot;user=foo&amp;pass=bar&quot; http://example.com/login.php
 </code></pre>
 
 <h2 id="scrape-urls-from-a-page">Scrape URLs from a page</h2>
 <p>This appears to have problems with some strings. For instance, this doesn't catch the full <a href="https://acounts.google.com">https://acounts.google.com</a> string.  The regex is correct according to <a href="http://regexpal.com">http://regexpal.com</a>, but egrep is apparently not handling it correctly.</p>
 <pre><code>curl -s http://www.google.com | egrep -o '(((https?|ftp|gopher)://|(mailto|file|news):)[^’ &lt;&gt;\n&quot;]+|(www|web|w3)\.[-a-z0-9.]+)[^’ .,;&lt;&gt;&quot;:]'
+</code></pre>
+
+<h2 id="use-curl-to-fetch-the-current-rfc-2822-time">Use curl to fetch the current RFC 2822 time</h2>
+<p>If you don't have NTP you can use this to manually feed the current time into <code>date -s</code> to set your system clock to within a few seconds of accuracy.</p>
+<pre><code class="sh">curl -sIH 'Cache-Control: no-cache' example.org | grep '^Date'
+</code></pre>
+
+<p>Using GNU <code>cut</code> and <code>date</code> (IE: on linux, like on a Raspberry Pi image that does not have NTP properly set up) you can set your time using this command:</p>
+<pre><code class="sh">sudo date -s &quot;$(curl -sIH 'Cache-Control: no-cache' example.org | grep '^Date:' | cut -f 1 -d ' ' --complement)&quot;
 </code></pre>
 
 <h1 id="links">Links</h1>
@@ -1566,6 +1577,7 @@
 <h1 id="see-also">See Also</h1>
 <ul>
 <li><a href="../aria2/">aria2</a></li>
+<li><a href="https://httpie.org">httpie</a></li>
 <li><a href="../httpstat/">httpstat</a> - download and show a some useful connection information</li>
 <li><a href="../wget/">wget</a></li>
 </ul>
