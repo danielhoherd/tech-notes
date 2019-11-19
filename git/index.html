@@ -517,7 +517,7 @@
         
             <li><a class="toctree-l3" href="#git-clean">git clean</a></li>
         
-            <li><a class="toctree-l3" href="#misc-tricks">Misc tricks</a></li>
+            <li><a class="toctree-l3" href="#miscellaneous-tricks">Miscellaneous tricks</a></li>
         
         </ul>
     
@@ -1817,7 +1817,7 @@ git reset --hard origin/master
 <pre><code>git clean -ffdx
 </code></pre>
 
-<h2 id="misc-tricks">Misc tricks</h2>
+<h2 id="miscellaneous-tricks">Miscellaneous tricks</h2>
 <h3 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h3>
 <pre><code>find /var/www/html/mediawiki/ -name .git | while read -r X ; do
   pushd &quot;$(dirname &quot;${X}&quot;)&quot; &amp;&amp; \
