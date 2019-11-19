@@ -1591,22 +1591,14 @@ deactivate
 <pre><code class="sh">virtualenv venv --system-site-packages &amp;&amp; venv/bin/pip install --user &quot;$PACKAGENAME&quot; &amp;&amp; rm -rf venv
 </code></pre>
 
-<h3 id="virtual-environments-with-pipenv">Virtual environments with pipenv</h3>
-<p>"Pipenv — the officially recommended Python packaging tool from Python.org, free (as in freedom). Pipenv is a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world. Windows is a first-class citizen, in our world." - <a href="https://docs.pipenv.org">https://docs.pipenv.org</a></p>
-<p><code>pipenv</code> is the new-school 2017 way of doing virtual environments. pipenv creates a file called <code>Pipfile</code> whenever you install packages using the <code>pipenv</code> command. Once you have created a pipenv for the CWD, any subdirs will use that pipenv and not create new environments when you issue pipenv commands. This is a more robust system, but as of 2017 is not widely used.</p>
-<p>When using pipenv, any packages using <code>pip install</code> are not included in the virtual environment. You must use <code>pipenv install</code>.</p>
-<h4 id="creating-a-virtual-environment-using-pipenv">Creating a virtual environment using pipenv</h4>
+<h3 id="virtual-environments-with-poetry">Virtual environments with poetry</h3>
+<p><code>poetry</code> is the new-school 2019 way of doing virtual environments. poetry stores its requirements in the new standard pyproject.toml file, and keeps the virtual environment stored outside of the current directory.</p>
+<h4 id="creating-a-virtual-environment-using-poetry">Creating a virtual environment using poetry</h4>
 <pre><code class="sh">cd project_dir
-pipenv --three  # to create a python 3 virtual environment
-pipenv install bpython boto3
-pipenv shell  # this spawns a subshell with the new python environment
-# interact with your python environment
-exit
-</code></pre>
-
-<h4 id="recreate-a-pipenv">Recreate a pipenv</h4>
-<pre><code class="sh">cd project_dir
-pipenv shell  # This automatically enforces the environment described in Pipfile
+poetry init
+# walk through the dialogue
+poetry add bpython boto3
+poetry shell  # this spawns a subshell with the new python environment
 # interact with your python environment
 exit
 </code></pre>
@@ -1751,7 +1743,7 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
 <li><a href="https://medium.freecodecamp.org/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563">How to structure a Flask-RESTPlus web service for production builds</a></li>
 <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/">MIT Open Courseware: Introduction to Computer Science and Programming in Python</a></li>
 <li><a href="https://realpython.com/documenting-python-code/">Documenting Python Code: A Complete Guide</a></li>
-<li><a href="https://stefanoborini.com/current-status-of-python-packaging/">Current Status of Python Packaging - April 2019</a></li>
+<li><a href="https://stefanoborini.com/current-status-of-python-packaging/">Current Status of Python Packaging - April 2019</a> - TL;DR: "Create your development environment with Poetry, specifying the direct dependencies of your project with a strict version."</li>
 </ul>
               
             </div>
