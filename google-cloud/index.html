@@ -515,6 +515,10 @@
         
             <li><a class="toctree-l3" href="#list-google-compute-zones">List google compute zones</a></li>
         
+            <li><a class="toctree-l3" href="#list-compute-nodes">List compute nodes</a></li>
+        
+            <li><a class="toctree-l3" href="#delete-a-compute-node">Delete a compute node</a></li>
+        
             <li><a class="toctree-l3" href="#list-images-available-in-google-container-registry">List images available in Google Container Registry</a></li>
         
             <li><a class="toctree-l3" href="#pull-a-docker-container-from-google-container-registry">Pull a docker container from Google Container Registry</a></li>
@@ -1527,19 +1531,28 @@
                 <p>"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK" - <a href="https://cloud.google.com/sdk/docs/">https://cloud.google.com/sdk/docs/</a></p>
 <h1 id="gcloud-cli-examples">gcloud CLI Examples</h1>
 <h2 id="list-google-cloud-projects">List google cloud projects</h2>
-<pre><code>gcloud projects list
+<pre><code class="sh">gcloud projects list
 </code></pre>
 
 <h2 id="switch-to-a-different-project">Switch to a different project</h2>
-<pre><code>gcloud config set project &lt;project_name&gt;
+<pre><code class="sh">gcloud config set project &quot;$project_name&quot;
 </code></pre>
 
 <h2 id="grant-a-user-permission-to-a-docker-registry">Grant a user permission to a docker registry</h2>
-<pre><code>gsutil iam ch 'user:user@example.com:objectViewer' 'gs://artifacts.example.appspot.com/'
+<pre><code class="sh">gsutil iam ch 'user:user@example.com:objectViewer' 'gs://artifacts.example.appspot.com/'
 </code></pre>
 
 <h2 id="list-google-compute-zones">List google compute zones</h2>
 <p><code>gcloud compute zones list</code></p>
+<h2 id="list-compute-nodes">List compute nodes</h2>
+<pre><code class="sh">gcloud compute instances list
+</code></pre>
+
+<h2 id="delete-a-compute-node">Delete a compute node</h2>
+<p>Sometimes autoscalers have a hard time scaling down, requiring manual termination of idle nodes.</p>
+<pre><code class="sh">gcloud compute instances delete &quot;projects/$project_name/zones/us-central1-a/instances/$node_name&quot;
+</code></pre>
+
 <h2 id="list-images-available-in-google-container-registry">List images available in Google Container Registry</h2>
 <p><code>gcloud container images list</code></p>
 <h2 id="pull-a-docker-container-from-google-container-registry">Pull a docker container from Google Container Registry</h2>
@@ -1550,7 +1563,7 @@
 <p>You manage access control in Cloud Storage by using the GCP Console or the <code>gsutil</code> command-line tool. Refer to the <code>gsutil acl</code> and <code>gsutil defacl</code> documentation for more information." - <a href="https://cloud.google.com/container-registry/docs/access-control">https://cloud.google.com/container-registry/docs/access-control</a></p>
 <h2 id="authenticate-a-private-gcr-registry-in-kubernetes">Authenticate a private GCR registry in kubernetes</h2>
 <p>This is likely not copy/paste material, but the flow is generally correct.</p>
-<pre><code>PARTNER=other_company
+<pre><code class="sh">PARTNER=other_company
 PROJECT=&quot;our_company-$PARTNER&quot;
 USER=service-account-user-for-$PARTNER
 EMAIL=&quot;$USER@$PROJECT.iam.gserviceaccount.com&quot;
