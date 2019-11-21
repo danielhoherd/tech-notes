@@ -1309,6 +1309,8 @@
         
             <li><a class="toctree-l3" href="#run-several-commands-with-one-sudo-command">Run several commands with one sudo command</a></li>
         
+            <li><a class="toctree-l3" href="#connect-as-a-normal-user-and-escalate-using-sudo">Connect as a normal user and escalate using sudo</a></li>
+        
         </ul>
     
 
@@ -1558,6 +1560,11 @@ EOF
 
 <p>or</p>
 <pre><code>sudo bash -c &quot;whoami ; whoami ;&quot;
+</code></pre>
+
+<h2 id="connect-as-a-normal-user-and-escalate-using-sudo">Connect as a normal user and escalate using sudo</h2>
+<p>Many times you have to copy files that your remote user does not have access to without sudo. You can perform this hoop-jump with ease using the following syntax:</p>
+<pre><code>rsync --rsync-path='sudo rsync' $REMOTE_HOSTNAME:/etc/kubernetes/admin.conf &quot;$HOME/.kube/config&quot;
 </code></pre>
 
 <h1 id="links">Links</h1>
