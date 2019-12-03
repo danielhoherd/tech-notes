@@ -1083,6 +1083,17 @@
     <a class="current" href="./">raspberry-pi</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#show-what-firmware-you-have-running">Show what firmware you have running</a></li>
+        
+            <li><a class="toctree-l3" href="#update-raspbian-and-firmware-versions">Update raspbian and firmware versions</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l2"><a href="#software">Software</a></li>
     
         <ul>
@@ -1521,12 +1532,25 @@
 <li><a href="http://www.raspberrypi.org">http://www.raspberrypi.org</a></li>
 <li>Fedora Remix for Pi - <a href="http://www.raspberrypi.org/archives/805">http://www.raspberrypi.org/archives/805</a></li>
 </ul>
+<h1 id="tips">Tips</h1>
+<h2 id="show-what-firmware-you-have-running">Show what firmware you have running</h2>
+<pre><code class="sh">sudo /opt/vc/bin/vcgencmd version
+</code></pre>
+
+<p>Check <code>vcgencmd commands</code> for more usage.</p>
+<h2 id="update-raspbian-and-firmware-versions">Update raspbian and firmware versions</h2>
+<pre><code>sudo apt full-upgrade -y
+</code></pre>
+
 <h1 id="software">Software</h1>
 <h2 id="raspbian">Raspbian</h2>
-<p><code>dpkg-reconfigure locales</code></p>
+<pre><code class="sh">dpkg-reconfigure locales
+</code></pre>
+
 <h2 id="hassio">Hass.io</h2>
 <p>"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations." - <a href="https://home-assistant.io/hassio/">https://home-assistant.io/hassio/</a></p>
 <h2 id="spillpasspi">SpillPassPi</h2>
+<p>SpillPassPi is deprecated because Nintendo shut down the Streetpass Relay servers.</p>
 <h3 id="v1">V1</h3>
 <p>Retired.</p>
 <p>'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake "Nintendo Zone" Hotspot' - <a href="http://www.spillmonkey.com/?page_id=5">http://www.spillmonkey.com/?page_id=5</a></p>
@@ -1536,6 +1560,7 @@
 <p>"Nintendo 3DS homepass resources and software." - <a href="https://github.com/danielhoherd/homepass/tree/master/RaspberryPi">https://github.com/danielhoherd/homepass/tree/master/RaspberryPi</a></p>
 <h1 id="links">Links</h1>
 <ul>
+<li><a href="https://www.raspberrypi.org/documentation/raspbian/updating.md">https://www.raspberrypi.org/documentation/raspbian/updating.md</a> Firmware and OS update instructions</li>
 <li><a href="https://www.jeffgeerling.com/blog/2018/raspberry-pi-microsd-card-performance-comparison-2018">https://www.jeffgeerling.com/blog/2018/raspberry-pi-microsd-card-performance-comparison-2018</a></li>
 <li><a href="https://techcrunch.com/2019/07/09/the-raspberry-pi-4-doesnt-work-with-all-usb-c-cables/">https://techcrunch.com/2019/07/09/the-raspberry-pi-4-doesnt-work-with-all-usb-c-cables/</a></li>
 </ul>
