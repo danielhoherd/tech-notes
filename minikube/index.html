@@ -819,6 +819,8 @@
         
             <li><a class="toctree-l3" href="#list-available-addons">List available addons</a></li>
         
+            <li><a class="toctree-l3" href="#launch-a-specific-version-of-k8s-in-minikube">Launch a specific version of k8s in Minikube</a></li>
+        
             <li><a class="toctree-l3" href="#enable-the-registry-addon">Enable the registry addon</a></li>
         
         </ul>
@@ -1534,13 +1536,18 @@
 - storage-provisioner-gluster: disabled
 </code></pre>
 
+<h2 id="launch-a-specific-version-of-k8s-in-minikube">Launch a specific version of k8s in Minikube</h2>
+<pre><code class="sh">minikube start --kubernetes-version='v1.14.6'
+</code></pre>
+
 <h2 id="enable-the-registry-addon">Enable the registry addon</h2>
-<pre><code>minikube addons enable registry
+<pre><code class="sh">minikube addons enable registry
 </code></pre>
 
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></li>
+<li><a href="https://minikube.sigs.k8s.io/docs">https://minikube.sigs.k8s.io/docs</a></li>
 <li><a href="https://metallb.universe.tf/community/#testing-in-minikube">https://metallb.universe.tf/community/#testing-in-minikube</a></li>
 </ul>
               
