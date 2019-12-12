@@ -1173,7 +1173,9 @@
         
             <li><a class="toctree-l3" href="#only-print-if-match">Only print if match</a></li>
         
-            <li><a class="toctree-l3" href="#add-a-new-line-with-content-after-a-match">Add a new line with content after a match</a></li>
+            <li><a class="toctree-l3" href="#print-file-starting-with-first-string-match">Print file starting with first string match</a></li>
+        
+            <li><a class="toctree-l3" href="#print-file-contents-between-two-string-matches">Print file contents between two string matches</a></li>
         
             <li><a class="toctree-l3" href="#uncomment-a-line-that-matches-a-regex">Uncomment a line that matches a regex</a></li>
         
@@ -1536,45 +1538,75 @@
 <p>Also, OS X sed doesn't support case insensitivity! WTF?! We have to use <code>perl -pe 's/foo/bar/i' foo.txt</code> or homebrew's <code>gsed</code>.</p>
 <h2 id="only-print-a-specific-line">Only print a specific line</h2>
 <p>This will print only the second line of the file</p>
-<p><code>sed -n ' 2{p;q;}' foo.txt</code></p>
-<h2 id="only-print-if-match">Only print if match</h2>
-<p>This will perform a replacement and print the result. Use <code>-i</code> (with caution!) to edit the file at the same time.</p>
-<pre><code>sed -n 's/\(127.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}\)/\1 localhost localhost4/p' /etc/hosts
+<pre><code class="sh">sed -n ' 2{p;q;}' foo.txt
 </code></pre>
 
-<h2 id="add-a-new-line-with-content-after-a-match">Add a new line with content after a match</h2>
-<p>Since sed can't insert things like \n, this has to take place on multiple lines, so it's a bit funky looking but still functional.</p>
-<pre><code>sed -i &quot;&quot; -e '/respawn/a\
+<h2 id="only-print-if-match">Only print if match</h2>
+<p>This will perform a replacement and print the result. Use <code>-i</code> (with caution!) to edit the file at the same time.</p>
+<pre><code class="sh">sed -n 's/\(127.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}\)/\1 localhost localhost4/p' /etc/hosts
+````
+
+## Add a new line with content after a match
+
+Since sed can't insert things like \n, this has to take place on multiple lines, so it's a bit funky looking but still functional.
+
+```sh
+sed -i &quot;&quot; -e '/respawn/a\
 respawn limit 10 5' zoosk_worker_*.conf
+</code></pre>
+
+<h2 id="print-file-starting-with-first-string-match">Print file starting with first string match</h2>
+<pre><code class="sh">sed -n '/ROUTING TABLE/,$p' /etc/openvpn/openvpn-status.log
+</code></pre>
+
+<h2 id="print-file-contents-between-two-string-matches">Print file contents between two string matches</h2>
+<p>This will print the contents of the log file between <code>ROUTING TABLE</code> and <code>GLOBAL STATS</code> inclusive.</p>
+<pre><code class="sh">sed -n '/^ROUTING TABLE/,/^GLOBAL STATS/p;/^GLOBAL STATS/q' /etc/openvpn/openvpn-status.log
 </code></pre>
 
 <h2 id="uncomment-a-line-that-matches-a-regex">Uncomment a line that matches a regex</h2>
 <p>This removes the comment and adds wheel to the <a href="sudo" title="wikilink">sudoers</a> list</p>
-<p><code>/bin/sed -i '/^#\s\+%wheel\s\+ALL=(ALL)\s\+ALL$/s/^#\s*//' /etc/sudoers</code></p>
+<pre><code class="sh">/bin/sed -i '/^#\s\+%wheel\s\+ALL=(ALL)\s\+ALL$/s/^#\s*//' /etc/sudoers
+</code></pre>
+
 <h2 id="delete-lines-containing-a-string">Delete lines containing a string</h2>
-<p><code>sed -i -e '/root/d' asdf.txt</code></p>
+<pre><code class="sh">sed -i -e '/root/d' asdf.txt
+</code></pre>
+
 <h2 id="delete-lines-not-containing-a-string">Delete lines not containing a string</h2>
-<p><code>sed -i '/foo/!d' wy.txt</code></p>
+<pre><code class="sh">sed -i '/foo/!d' wy.txt
+</code></pre>
+
 <p>Or not containing a MAC address:</p>
-<p><code>sed -i '' -E '/[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}/!d' *</code></p>
+<pre><code class="sh">sed -i '' -E '/[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}/!d' *
+</code></pre>
+
 <h2 id="do-a-replacement-on-all-files-in-a-dir">Do a replacement on all files in a dir</h2>
-<p><code>sed -i "s/foo/bar/g" /etc/apache2/sites-available/*</code></p>
+<pre><code class="sh">sed -i &quot;s/foo/bar/g&quot; /etc/apache2/sites-available/*
+</code></pre>
+
 <h2 id="switch-all-github-urls-from-http-to-ssh">Switch all github urls from http to ssh</h2>
-<p><code>sed '/url = /s%https?://github.com/\([^/]*/[^/]*\)%git@github.com:\1%' ~/code/*/.git/config</code></p>
+<pre><code class="sh">sed '/url = /s%https?://github.com/\([^/]*/[^/]*\)%git@github.com:\1%' ~/code/*/.git/config
+</code></pre>
+
 <h2 id="word-boundaries">Word boundaries</h2>
 <p>Normally, word boundaries look like this:</p>
-<p><code>/\bMyWord\b/</code></p>
+<pre><code class="sh">/\bMyWord\b/
+</code></pre>
+
 <p>or</p>
-<pre><code>/\&lt;myword\&gt;/
+<pre><code class="sh">/\&lt;myword\&gt;/
 </code></pre>
 
 <p>But in OS X, you have to do them like this:</p>
-<pre><code>/[[:&lt;:]]MyWord[[:&gt;:]]/
+<pre><code class="sh">/[[:&lt;:]]MyWord[[:&gt;:]]/
 </code></pre>
 
 <p>Which is just ridiculous, so use homebrew's <code>gsed</code> if you can.</p>
 <h2 id="add-a-bell-to-tail-f">Add a bell to <a href="tail" title="wikilink">tail</a> -f</h2>
-<p><code>tail -n 0 -f /var/log/messages | sed 's/$/\a'</code></p>
+<pre><code class="sh">tail -n 0 -f /var/log/messages | sed 's/$/\a'
+</code></pre>
+
 <h2 id="see-also">See Also</h2>
 <ul>
 <li>Some great sed tips - <a href="http://www-rohan.sdsu.edu/doc/sed.html">http://www-rohan.sdsu.edu/doc/sed.html</a></li>
