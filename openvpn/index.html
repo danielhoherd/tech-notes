@@ -933,6 +933,15 @@
     <a class="current" href="./">openvpn</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#check-status-of-logged-in-clients">Check status of logged in clients</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -1499,6 +1508,13 @@
             <div class="section">
               
                 <p>"Your private path to access network resources and services securely" - <a href="https://openvpn.net/">https://openvpn.net/</a></p>
+<h1 id="tips">Tips</h1>
+<h2 id="check-status-of-logged-in-clients">Check status of logged in clients</h2>
+<p><code>kill -USR2 $OPENVPN_PID</code> is the magic that causes the server to output its current client status. This may be logged to a different logfile, so look around if you don't see status.</p>
+<pre><code class="sh">killall -USR2 /usr/sbin/openvpn ; tail /var/log/syslog ;
+</code></pre>
+
+<p>There also may be a file called <code>/etc/openvpn/openvpn-status.log</code> with current status. Don't ask me why a status log file is located in <code>/etc/</code>... 🙄</p>
               
             </div>
           </div>
