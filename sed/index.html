@@ -1173,6 +1173,8 @@
         
             <li><a class="toctree-l3" href="#only-print-if-match">Only print if match</a></li>
         
+            <li><a class="toctree-l3" href="#add-a-new-line-with-content-after-a-match">Add a new line with content after a match</a></li>
+        
             <li><a class="toctree-l3" href="#print-file-starting-with-first-string-match">Print file starting with first string match</a></li>
         
             <li><a class="toctree-l3" href="#print-file-contents-between-two-string-matches">Print file contents between two string matches</a></li>
@@ -1544,15 +1546,12 @@
 <h2 id="only-print-if-match">Only print if match</h2>
 <p>This will perform a replacement and print the result. Use <code>-i</code> (with caution!) to edit the file at the same time.</p>
 <pre><code class="sh">sed -n 's/\(127.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}\)/\1 localhost localhost4/p' /etc/hosts
-````
+</code></pre>
 
-## Add a new line with content after a match
-
-Since sed can't insert things like \n, this has to take place on multiple lines, so it's a bit funky looking but still functional.
-
-```sh
-sed -i &quot;&quot; -e '/respawn/a\
-respawn limit 10 5' zoosk_worker_*.conf
+<h2 id="add-a-new-line-with-content-after-a-match">Add a new line with content after a match</h2>
+<p>Since sed can't insert things like \n, this has to take place on multiple lines, so it's a bit funky looking but still functional.</p>
+<pre><code class="sh">sed -i &quot;&quot; -e '/respawn/a\
+respawn limit 10 5' app_worker_*.conf
 </code></pre>
 
 <h2 id="print-file-starting-with-first-string-match">Print file starting with first string match</h2>
