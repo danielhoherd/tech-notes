@@ -487,6 +487,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#gitlab-cli">Gitlab CLI</a></li>
+        
             <li><a class="toctree-l3" href="#run-ci-steps-locally">Run CI steps locally</a></li>
         
             <li><a class="toctree-l3" href="#skip-ci-via-git-push-option">Skip CI via git push option</a></li>
@@ -1535,6 +1537,24 @@
               
                 <p>"A single application for the complete DevOps lifecycle" - <a href="https://about.gitlab.com">https://about.gitlab.com</a></p>
 <h1 id="examples">Examples</h1>
+<h2 id="gitlab-cli">Gitlab CLI</h2>
+<p>First <code>pip3 install --user python-gitlab</code>, then add a <code>~/.python-gitlab.cfg</code> file like:</p>
+<pre><code class="ini">[global]
+default = default
+ssl_verify = true
+timeout = 5
+
+[default]
+url = https://www.gitlab.com/
+private_token = &lt;some_value&gt;
+</code></pre>
+
+<p>Where private_token is generated in https://gitlab.com/profile/personal_access_tokens, after which, you can do things like:</p>
+<pre><code>$ gitlab -o yaml -f name_with_namespace,web_url project list --owned=1 --per-page=1
+- name_with_namespace: org-name / sub-group / project-name
+  web_url: https://gitlab.com/orgname/subgroup/projectname
+</code></pre>
+
 <h2 id="run-ci-steps-locally">Run CI steps locally</h2>
 <p>Using <a href="https://docs.gitlab.com/runner/install/">Gitlab Runner</a> you can run stages of your CI pipeline locally. EG: if you have docker installed, you can run the following command to run the build step of your pipeline:</p>
 <pre><code>gitlab-runner exec docker build
