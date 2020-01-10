@@ -1694,7 +1694,7 @@ kubeadm init
 <li><a href="https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/">https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/</a></li>
 </ul>
 <h2 id="enable-k8s-dns-logging">Enable k8s dns logging</h2>
-<pre><code>kubectl -n kube-system edit configmap coredns
+<pre><code class="sh">kubectl -n kube-system edit configmap coredns
 # Add 'log' to the 'Corefile' config
 </code></pre>
 
@@ -1702,9 +1702,10 @@ kubeadm init
 <ul>
 <li>Kubernetes Service: <code>&lt;service&gt;.&lt;namespace&gt;.svc.cluster.local</code> (eg: <code>httpbin.default.svc.cluster.local</code>)
   <code>sh
-  kubectl get svc --all-namespaces -o json |
-  jq -r  '.items[] | "\(.metadata.name).\(.metadata.namespace).svc.cluster.local"'</code></li>
-<li>Kubernetes service srv records: <em><service_port_name>.</em><protocol>.svc.cluster.local (eg: _http._tcp.httpbin.default.svc.cluster.local)</li>
+  kubectl get svc --all-namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"."}{.metadata.namespace}{".svc.cluster.local\n"}'
+  kubectl get svc --all-namespaces -o json | jq -r  '.items[] | "\(.metadata.name).\(.metadata.namespace).svc.cluster.local"'</code></li>
+<li>With core-dns you can run <code>dig SRV +short *.*.svc.cluster.local</code> to get a list of all serivces</li>
+<li>Kubernetes service srv records: <em><service_port_name>.</em><protocol>.<service>.<namespace>.svc.cluster.local (eg: _http._tcp.httpbin.default.svc.cluster.local)</li>
 <li>Pod by IP address: <pod-ip-address>.<namespace>.pod.cluster.local (eg: 192-168-1-6.default.pod.cluster.local)</li>
 <li>Pod by name: ...?</li>
 </ul>
