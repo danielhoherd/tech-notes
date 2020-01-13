@@ -948,20 +948,38 @@
     <a class="current" href="./">osx</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#nifty-commands">Nifty Commands</a></li>
+    <li class="toctree-l2"><a href="#links">Links</a></li>
     
 
-    <li class="toctree-l2"><a href="#firewall-1011">Firewall - 10.11</a></li>
+    <li class="toctree-l2"><a href="#useful-commands">Useful Commands</a></li>
+    
+
+    <li class="toctree-l2"><a href="#show-hardware-info">Show hardware info</a></li>
+    
+
+    <li class="toctree-l2"><a href="#install-package-from-cli">Install package from CLI</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#tricks">Tricks</a></li>
+            <li><a class="toctree-l3" href="#start-ftp-server">Start FTP server</a></li>
         
-            <li><a class="toctree-l3" href="#network">Network</a></li>
+            <li><a class="toctree-l3" href="#check-swap-usage">Check swap usage</a></li>
         
-            <li><a class="toctree-l3" href="#migration">Migration</a></li>
+            <li><a class="toctree-l3" href="#disable-wifi-disconnect-when-locking-screen">Disable wifi disconnect when locking screen</a></li>
+        
+            <li><a class="toctree-l3" href="#show-some-downloaded-files">Show some downloaded files</a></li>
+        
+            <li><a class="toctree-l3" href="#send-notifications-from-terminal">Send Notifications from Terminal</a></li>
+        
+            <li><a class="toctree-l3" href="#enable-verbose-eap-logging">Enable verbose eap logging</a></li>
         
         </ul>
+    
+
+    <li class="toctree-l2"><a href="#network">Network</a></li>
+    
+
+    <li class="toctree-l2"><a href="#migration-assistant">Migration Assistant</a></li>
     
 
     </ul>
@@ -1515,64 +1533,68 @@
             <div class="section">
               
                 <p>Apple's Unix desktop operating system.</p>
-<h1 id="nifty-commands">Nifty Commands</h1>
+<h1 id="links">Links</h1>
 <ul>
-<li>serverinfo</li>
+<li><a href="https://medium.com/@hammen/significant-changes-in-macos-10-15-catalina-of-interest-to-mac-admins-fbc3865c055e">Significant Changes in macOS 10.15 Catalina of Interest to Mac Admins</a></li>
+</ul>
+<h1 id="useful-commands">Useful Commands</h1>
+<ul>
 <li>caffeinate</li>
+<li>mdutil</li>
+<li>networksetup</li>
+<li>scutil</li>
+<li>serverinfo</li>
 <li>sharing</li>
 <li>tccutil</li>
-<li>scutil</li>
 </ul>
-<h1 id="firewall-1011">Firewall - 10.11</h1>
-<p>From <a href="http://krypted.com/mac-security/command-line-firewall-management-in-os-x-10-10/">http://krypted.com/mac-security/command-line-firewall-management-in-os-x-10-10/</a>
-- /usr/libexec/ApplicationFirewall/socketfilterfw</p>
-<h2 id="tricks">Tricks</h2>
-<h3 id="show-hardware-info">Show hardware info</h3>
+<h1 id="show-hardware-info">Show hardware info</h1>
 <pre><code>system_profiler SPHardwareDataType
 </code></pre>
 
-<h3 id="install-package-from-cli">Install package from CLI</h3>
-<pre><code>sudo installer -pkg /Volumes/ExifTool-9.16/ExifTool-9.16.pkg -target /
+<h1 id="install-package-from-cli">Install package from CLI</h1>
+<p>Use <brew.sh> for most things. Otherwise:</p>
+<pre><code class="sh">sudo installer -pkg /Volumes/ExifTool-9.16/ExifTool-9.16.pkg -target /
 </code></pre>
 
 <p>See also: <a href="https://brew.sh/">https://brew.sh/</a></p>
-<h3 id="start-ftp-server">Start FTP server</h3>
-<pre><code>sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
+<h2 id="start-ftp-server">Start FTP server</h2>
+<pre><code class="sh">sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
 </code></pre>
 
-<h3 id="check-swap-usage">Check swap usage</h3>
-<pre><code>sysctl vm.swapusage
+<h2 id="check-swap-usage">Check swap usage</h2>
+<pre><code class="sh">sysctl vm.swapusage
 </code></pre>
 
-<h3 id="disable-wifi-disconnect-when-locking-screen">Disable wifi disconnect when locking screen</h3>
-<pre><code>sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources airport en1 prefs DisconnectOnLogout=NO
+<h2 id="disable-wifi-disconnect-when-locking-screen">Disable wifi disconnect when locking screen</h2>
+<pre><code class="sh">sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources airport en1 prefs DisconnectOnLogout=NO
 </code></pre>
 
-<h3 id="show-some-downloaded-files">Show some downloaded files</h3>
+<h2 id="show-some-downloaded-files">Show some downloaded files</h2>
 <p>This shows a list of all the quarantine checked downloads:</p>
-<pre><code>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select distinct LSQuarantineDataURLString from LSQuarantineEvent'
+<pre><code class="sh">sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select distinct LSQuarantineDataURLString from LSQuarantineEvent'
 </code></pre>
 
-<h3 id="send-notifications-from-terminal">Send Notifications from Terminal</h3>
-<pre><code>sudo gem install terminal-notifier
+<h2 id="send-notifications-from-terminal">Send Notifications from Terminal</h2>
+<pre><code class="sh">sudo gem install terminal-notifier
 terminal-notifier -message &quot;Hello, this is my message&quot; -title &quot;Message Title&quot;
 </code></pre>
 
-<h3 id="enable-verbose-eap-logging">Enable verbose eap logging</h3>
-<pre><code>sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.eapolclient LogFlags -int -1
+<h2 id="enable-verbose-eap-logging">Enable verbose eap logging</h2>
+<pre><code class="sh">sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.eapolclient LogFlags -int -1
 </code></pre>
 
-<h2 id="network">Network</h2>
+<h1 id="network">Network</h1>
 <ul>
 <li>gif0 - Generic Tunnel Interface. See <code>man gif</code>.</li>
-<li>stf0 - Six To Four tunnel.</li>
+<li>stf0 - Six To Four tunnel. See <code>man stf</code>.</li>
 </ul>
-<h2 id="migration">Migration</h2>
-<p>After migrating, check these files:
-- /etc/hosts (not transferred using Migration Assistant in 10.7)
-- crontabs (not transferred using Migration Assistant in 10.7)
-- /etc/apache2/httpd.conf (not transferred using Migration Assistant
-- in 10.7)</p>
+<h1 id="migration-assistant">Migration Assistant</h1>
+<p>Some files are not migrated using Migration Assistant. EG:</p>
+<ul>
+<li>/etc/hosts</li>
+<li>crontabs</li>
+<li>/etc/apache2/httpd.conf</li>
+</ul>
               
             </div>
           </div>
