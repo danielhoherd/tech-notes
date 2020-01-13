@@ -834,6 +834,8 @@
         
             <li><a class="toctree-l3" href="#initialize-a-new-role-to-be-tested-in-docker">Initialize a new role to be tested in docker</a></li>
         
+            <li><a class="toctree-l3" href="#profile-a-run-using-pythons-cprofile">Profile a run using python's cProfile</a></li>
+        
         </ul>
     
 
@@ -1516,7 +1518,7 @@
                 <p>"Molecule is designed to aid in the development and testing of Ansible roles." - <a href="https://molecule.readthedocs.io">https://molecule.readthedocs.io</a></p>
 <h1 id="examples">Examples</h1>
 <h2 id="initialize-a-new-role-to-be-tested-in-docker">Initialize a new role to be tested in docker</h2>
-<pre><code>molecule init role --role-name ansible-role-autofs --driver-name docker
+<pre><code class="sh">molecule init role --role-name ansible-role-autofs --driver-name docker
 </code></pre>
 
 <p>The above command creates the following directory structure with boilerplate filled in, similar to what you'd expect from <a href="../cookiecutter/">cookiecutter</a>.</p>
@@ -1533,6 +1535,25 @@ ansible-role-autofs/molecule/default/tests/test_default.py
 ansible-role-autofs/molecule/default/Dockerfile.j2
 ansible-role-autofs/molecule/default/playbook.yml
 ansible-role-autofs/handlers/main.yml
+</code></pre>
+
+<h2 id="profile-a-run-using-pythons-cprofile">Profile a run using python's cProfile</h2>
+<pre><code>$ python3 -m cProfile -o ansible-run.cprofile $(which molecule) test
+...normal molecule output scrolls by...
+
+$ python3 -m pstats ansible-run.cprofile
+Welcome to the profile statistics browser.
+ansible-run.cprofile% sort cumulative
+ansible-run.cprofile% stats 20
+Mon Jan 13 08:56:45 2020    ansible-run.cprofile
+         1782927 function calls (1731081 primitive calls) in 145.057 seconds
+   Ordered by: cumulative time
+   List reduced from 6303 to 20 due to restriction &lt;20&gt;
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   1247/1    0.005    0.000  145.060  145.060 {built-in method builtins.exec}
+        1    0.000    0.000  145.060  145.060 /Users/daniel.hoherd/Library/Python/3.7/bin/molecule:3(&lt;module&gt;)
+        1    0.000    0.000  144.267  144.267 /Users/daniel.hoherd/Library/Python/3.7/lib/python/site-packages/click/core.py:762(__call__)
+...
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
