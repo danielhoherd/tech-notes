@@ -834,7 +834,7 @@
         
             <li><a class="toctree-l3" href="#initialize-a-new-role-to-be-tested-in-docker">Initialize a new role to be tested in docker</a></li>
         
-            <li><a class="toctree-l3" href="#profile-a-run-using-pythons-cprofile">Profile a run using python's cProfile</a></li>
+            <li><a class="toctree-l3" href="#profile-a-molecule-run">Profile a molecule run</a></li>
         
         </ul>
     
@@ -1537,7 +1537,9 @@ ansible-role-autofs/molecule/default/playbook.yml
 ansible-role-autofs/handlers/main.yml
 </code></pre>
 
-<h2 id="profile-a-run-using-pythons-cprofile">Profile a run using python's cProfile</h2>
+<h2 id="profile-a-molecule-run">Profile a molecule run</h2>
+<h3 id="profiling-molecule-itself">Profiling molecule itself</h3>
+<p>This profiles the molecule run, but not everything is shown due to not everything being python native.</p>
 <pre><code>$ python3 -m cProfile -o ansible-run.cprofile $(which molecule) test
 ...normal molecule output scrolls by...
 
@@ -1554,6 +1556,18 @@ Mon Jan 13 08:56:45 2020    ansible-run.cprofile
         1    0.000    0.000  145.060  145.060 /Users/daniel.hoherd/Library/Python/3.7/bin/molecule:3(&lt;module&gt;)
         1    0.000    0.000  144.267  144.267 /Users/daniel.hoherd/Library/Python/3.7/lib/python/site-packages/click/core.py:762(__call__)
 ...
+</code></pre>
+
+<h3 id="profiling-testinfra-runs">Profiling testinfra runs</h3>
+<p>Install <a href="https://pypi.org/project/pytest-profiling/">pytest-profiling</a>, which adds the <code>--profile</code> flag needed in the next step</p>
+<pre><code class="sh">pip3 instlal --user pytest-profiling
+</code></pre>
+
+<p>Then set up your <code>molecule/scenario/molecule.yml</code> file with the following <code>env</code> contents:</p>
+<pre><code class="yml">verifier:
+  name: testinfra
+  env:
+    PYTEST_ADDOPTS: '--profile'
 </code></pre>
 
 <h1 id="see-also">See Also</h1>
