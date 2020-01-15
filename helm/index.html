@@ -552,8 +552,6 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#use-helm-from-within-the-tiller-pod">Use helm from within the tiller pod</a></li>
-        
             <li><a class="toctree-l3" href="#get-values-of-a-deployed-chart">Get values of a deployed chart</a></li>
         
             <li><a class="toctree-l3" href="#show-notes-for-a-deployed-service">Show notes for a deployed service</a></li>
@@ -1517,17 +1515,6 @@
               
                 <p>"The Kubernetes Package Manager" - <a href="https://github.com/kubernetes/helm">https://github.com/kubernetes/helm</a></p>
 <h1 id="tips">Tips</h1>
-<h2 id="use-helm-from-within-the-tiller-pod">Use helm from within the tiller pod</h2>
-<p>In Gitlab managed k8s clusters there are some TLS hurdles to jump over to get access to Helm. One easy way to inspect the tiller pod is:</p>
-<pre><code>kubectl exec -ti -n gitlab-managed-apps $(kubectl get pods -n gitlab-managed-apps -l app=helm,name=tiller -o name) sh
-export HELM_HOST=:44134
-export HELM_TLS_CA_CERT=/etc/certs/ca.crt
-export HELM_TLS_CERT=/etc/certs/tls.crt
-export HELM_TLS_KEY=/etc/certs/tls.key
-export HELM_TLS_ENABLE=true
-/helm list
-</code></pre>
-
 <h2 id="get-values-of-a-deployed-chart">Get values of a deployed chart</h2>
 <p><code>$release_name</code> is the NAME column in <code>helm list</code></p>
 <pre><code>helm get values $release_name &gt; values.yaml

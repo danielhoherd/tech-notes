@@ -497,6 +497,8 @@
         
             <li><a class="toctree-l3" href="#run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</a></li>
         
+            <li><a class="toctree-l3" href="#use-helm-from-within-the-tiller-pod">Use helm from within the tiller pod</a></li>
+        
             <li><a class="toctree-l3" href="#show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job</a></li>
         
             <li><a class="toctree-l3" href="#find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old</a></li>
@@ -1587,7 +1589,12 @@ echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
 </code></pre>
 
 <h2 id="run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</h2>
-<p>This is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
+<p><a href="https://docs.gitlab.com/runner/install/kubernetes.html#installing-gitlab-runner-using-the-helm-chart">https://docs.gitlab.com/runner/install/kubernetes.html#installing-gitlab-runner-using-the-helm-chart</a></p>
+<p>First init the gitlab chart repo:</p>
+<pre><code class="sh">helm repo add gitlab https://charts.gitlab.io
+</code></pre>
+
+<p>Privileged mode is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
 <p>The <code>runners.tags</code> includes <code>${ORG_NAME}</code> which is great for making sure jobs run on your own runners instead of publicly shared runners. This is important because <code>DOCKER_HOST</code> is different in Kubernetes than it is on public dind runners.</p>
 <pre><code>export REGISTRATION_TOKEN=&quot;foobar&quot;
 export ORG_NAME=&quot;acme&quot;
@@ -1598,6 +1605,7 @@ helm \
   --set &quot;gitlabUrl=https://gitlab.com/&quot; \
   --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
   --set &quot;runners.builds.cpuRequests=1&quot; \
+  --set &quot;runners.env.DOCKER_HOST=tcp://localhost:2375/&quot; \
   --set &quot;runners.env.DOCKER_TLS_CERTDIR=&quot; \
   --set &quot;runners.imagePullPolicy=always&quot; \
   --set &quot;runners.privileged=true&quot; \
@@ -1615,6 +1623,17 @@ helm \
 
 <p><code>runners.env.DOCKER_TLS_CERTDIR=</code> is required to fix the changes with Docker 19.03 outlined in <a href="https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/">https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/</a> and <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/64959">https://gitlab.com/gitlab-org/gitlab-ce/issues/64959</a></p>
 <p>See more variables that you can set by running <code>helm inspect gitlab/gitlab-runner</code></p>
+<h2 id="use-helm-from-within-the-tiller-pod">Use helm from within the tiller pod</h2>
+<p>In Gitlab managed k8s clusters there are some TLS hurdles to jump over to get access to Helm:</p>
+<pre><code>kubectl exec -ti -n gitlab-managed-apps $(kubectl get pods -n gitlab-managed-apps -l app=helm,name=tiller -o name) sh
+export HELM_HOST=:44134
+export HELM_TLS_CA_CERT=/etc/certs/ca.crt
+export HELM_TLS_CERT=/etc/certs/tls.crt
+export HELM_TLS_KEY=/etc/certs/tls.key
+export HELM_TLS_ENABLE=true
+/helm list
+</code></pre>
+
 <h2 id="show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job</h2>
 <pre><code class="sh">kubectl get pods -o custom-columns='NAME:.metadata.name,START_TIME:.status.startTime,CI_JOB_URL:.spec.containers[0].env[?(@.name == &quot;CI_JOB_URL&quot;)].value,GITLAB_USER_EMAIL:.spec.containers[0].env[?(@.name == &quot;GITLAB_USER_EMAIL&quot;)].value' | grep -E 'NAME|jobs'
 </code></pre>
