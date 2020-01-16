@@ -982,6 +982,9 @@
     <li class="toctree-l2"><a href="#migration-assistant">Migration Assistant</a></li>
     
 
+    <li class="toctree-l2"><a href="#remap-caps-lock-to-escape">Remap caps-lock to escape</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -1595,6 +1598,17 @@ terminal-notifier -message &quot;Hello, this is my message&quot; -title &quot;Me
 <li>crontabs</li>
 <li>/etc/apache2/httpd.conf</li>
 </ul>
+<h1 id="remap-caps-lock-to-escape">Remap caps-lock to escape</h1>
+<p>This remaps using a different mechanism than what the Keyboard pref pane uses, so the change will not be reflected there, so you will want to make sure to save both of these functions so you can reset when you need normal behavior.</p>
+<pre><code class="sh">caps_to_esc_map(){
+    hidutil property --set \
+    '{&quot;UserKeyMapping&quot;:[{&quot;HIDKeyboardModifierMappingSrc&quot;:0x700000039,&quot;HIDKeyboardModifierMappingDst&quot;:0x700000029}]}'
+}
+
+caps_to_esc_unmap(){
+    hidutil property --set '{&quot;UserKeyMapping&quot;:[]}'
+}
+</code></pre>
               
             </div>
           </div>
