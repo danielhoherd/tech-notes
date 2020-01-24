@@ -1446,6 +1446,8 @@
         
             <li><a class="toctree-l3" href="#download-the-best-quality-within-resolution-bounds">Download the best quality within resolution bounds</a></li>
         
+            <li><a class="toctree-l3" href="#download-the-best-quality-m4a-version">Download the best quality m4a version</a></li>
+        
             <li><a class="toctree-l3" href="#download-songs-longer-than-30-minutes">Download songs longer than 30 minutes</a></li>
         
             <li><a class="toctree-l3" href="#reformat-a-youtube-channel-into-lines-as-url-title">Reformat a youtube channel into lines as "URL - Title"</a></li>
@@ -1516,20 +1518,24 @@
                 <p>"Command-line program to download videos from YouTube.com and other video sites" - <a href="https://github.com/rg3/youtube-dl/">https://github.com/rg3/youtube-dl/</a></p>
 <h1 id="examples">Examples</h1>
 <h2 id="show-available-media-formats">Show available media formats</h2>
-<pre><code>youtube-dl -F 'https://youtu.be/LdCq6y1Uu5Y'
+<pre><code class="sh">youtube-dl -F 'https://youtu.be/LdCq6y1Uu5Y'
 </code></pre>
 
 <h2 id="download-the-best-quality-within-resolution-bounds">Download the best quality within resolution bounds</h2>
-<pre><code>youtube-dl -f 'bestvideo[height&lt;=480]+bestaudio' 'https://youtu.be/-kgTCpv_W64'
+<pre><code class="sh">youtube-dl -f 'bestvideo[height&lt;=480]+bestaudio' 'https://youtu.be/-kgTCpv_W64'
+</code></pre>
+
+<h2 id="download-the-best-quality-m4a-version">Download the best quality m4a version</h2>
+<pre><code class="sh">youtube-dl -f 'bestaudio[ext=m4a]' 'https://youtu.be/0ZII3Cu_Uo4'
 </code></pre>
 
 <h2 id="download-songs-longer-than-30-minutes">Download songs longer than 30 minutes</h2>
 <p>The <code>--match-filter</code> only alters what gets downloaded, not what is displayed when using options like <code>-j</code></p>
-<pre><code>youtube-dl -f bestaudio --match-filter 'duration &gt; 1800' 'https://www.youtube.com/user/boyceavenue'
+<pre><code class="sh">youtube-dl -f bestaudio --match-filter 'duration &gt; 1800' 'https://www.youtube.com/user/boyceavenue'
 </code></pre>
 
 <h2 id="reformat-a-youtube-channel-into-lines-as-url-title">Reformat a youtube channel into lines as "URL - Title"</h2>
-<pre><code>youtube-dl -j --flat-playlist 'https://www.youtube.com/watch?v=CHMZW9kLpg0&amp;list=PL1B627337ED6F55F0' |
+<pre><code class="sh">youtube-dl -j --flat-playlist 'https://www.youtube.com/watch?v=CHMZW9kLpg0&amp;list=PL1B627337ED6F55F0' |
   jq -S -r '&quot;https://youtu.be/&quot; + .id + &quot; - &quot; + .title'
 </code></pre>
               
