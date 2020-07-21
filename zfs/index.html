@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Daniel Austin Hoherd">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>ZFS - Daniel Hoherd's tech notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ZFS";
+    var mkdocs_page_input_path = "zfs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">About these notes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../3d_printing/">3D Printing</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../airport/">Apple Airport</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../amazon-ec2/">Amazon EC2</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../amazon/">Amazon</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ansible/">Ansible</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../apfs/">Apple APFS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aptly/">Aptly</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aria2/">Aria2</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../arpwatch/">arpwatch</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../atomicparsley/">AtomicParsley</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../atop/">atop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../autonomous-vehicles/">Autonomous Vehicle Links</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../avahi/">Avahi</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../awk/">awk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../awless/">awless</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../awscli/">Amazon awscli</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../backups/">Backups</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../badblocks/">badblocks</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bash/">GNU bash</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bbcp/">bbcp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bc/">GNU bc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bind/">BIND</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blkid/">blkid</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bluetooth/">bluetooth</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bosh/">BOSH</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bpf/">bpf</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../calico/">calico</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../calver/">CalVer</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../centos/">CentOS Linux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ceph/">Ceph</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cgroups/">cgroups</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../chkconfig/">chkconfig</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../chocolatey/">Choclatey</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../chronos/">chronos</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../circleci/">CircleCI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cncf/">CNCF</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cobbler/">Cobbler</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../computing/">Computing</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../conjure-up/">conjure-up</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../consul/">consul</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cookiecutter/">cookiecutter</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cowsay/">cowsay</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cradlepoint/">Cradlepoint</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cron/">cron</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cryptsetup/">cryptsetup</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../curl/">cURL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dat/">dat</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../date/">date</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dcfldd/">dcfldd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dcgc/">Docker Custodian</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dcraw/">dcraw</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dd-wrt/">dd-wrt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dd/">dd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ddrescue/">ddrescue</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deb/">deb</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../defaults/">defaults</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../devops/">devops</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dig/">dig</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dmidecode/">dmidecode</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">docker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsrc/">dsrc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dtrace/">dtrace</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../du/">du</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../duplicity/">duplicity</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../education/">education</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../eleduino/">Eleduino</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../etcd/">etcd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ethtool/">ethtool</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../exiftool/">exiftool</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fedramp/">Fedramp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ffmpeg/">ffmpeg</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../figlet/">figlet</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../find/">find</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../findmnt/">findmnt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fio/">fio</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../flask/">flask</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fluentd/">fluentd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fortune/">fortune</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fuser/">fuser</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../genicam/">GenICam</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../geodata/">geodata</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gige-vision/">GigE Vision</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gitlab/">Gitlab</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gitolite/">gitolite</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../glances/">glances</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../golang/">golang</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google-cloud/">Google Cloud</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google-earth/">Google Earth</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google-sheets/">Google Sheets</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google/">Google</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphicsmagick/">GraphicsMagick</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../grep/">grep</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../grub/">GNU GRUB</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hadoop/">Hadoop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../handbrake/">Handbrake</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hashids/">Hashids</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../helm/">helm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home-assistant/">Home Assistant</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hp/">HP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../htop/">htop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../httpstat/">httpstat</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iTunes/">iTunes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iftop/">iftop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../image-formats/">Graphical Image Formats</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../imagemagick/">ImageMagick</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../img2xterm/">img2xterm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../innotop/">innotop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../inotify/">inotify</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../internet/">The Internet</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iotop/">iotop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ip/">ip</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iperf/">iperf</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ipmi/">IPMI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iptables/">iptables</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jargon/">jargon</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jdupes/">jdupes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jmespath/">jmespath</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jot/">jot</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jpeginfo/">jpeginfo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jq/">jq</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../json/">JSON</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jsonpath/">JSONPath</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../juniper/">Juniper</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jwt/">jwt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kaniko/">kaniko</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../keel/">keel</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../keybase/">keybase</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kubernetes/">kubernetes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../launchd/">launchd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ldap/">ldap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lego/">LEGO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lektor/">Lektor</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../linksys/">linksys</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux-performance-monitoring/">linux-performance-monitoring</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux/">linux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logstash/">logstash</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lsblk/">lsblk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lshw/">lshw</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lsof/">lsof</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lvm/">lvm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lxc/">LXC</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../machine-learning/">Machine Learning</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../macos/">macOS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../make/">GNU make</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../math/">math</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mdraid/">mdraid</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../metallb/">MetalLB</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../microbit/">micro:bit</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../micropython/">MicroPython</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../minikube/">minikube</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../molecule/">Molecule</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mongodb/">MongoDB</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mqtt/">mqtt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mutt/">mutt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../myrepos/">myrepos</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql/">MySQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../namei/">namei</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ncftp/">ncftp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../netgear/">NETGEAR</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nethogs/">nethogs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../networking/">networking</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../networksetup/">networksetup</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../neverware/">neverware</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nfs/">nfs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-3ds/">Nintendo 3DS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-amiibo/">Nintendo Amiibo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-switch/">Nintendo Switch</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wii/">Nintendo Wii</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wiiu/">Nintendo Wii U</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ntop/">ntop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ntp/">NTP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nvidia/">nvidia</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../openvpn/">openvpn</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../osquery/">osquery</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ostinato/">ostinato</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../outline/">outline</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pac/">pac</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandoc/">pandoc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../panopticlick/">panopticlick</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../passwords/">passwords</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../perl/">perl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pgp/">pgp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../philips-hue/">philips-hue</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../php/">php</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../plex/">plex</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../postgres/">PostgreSQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../powershell/">powershell</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../powertop/">powertop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../procurve/">procurve</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../prometheus/">Prometheus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../protobuf/">protobuf</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ps/">ps</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ps_mem/">ps_mem</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../psp/">psp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pssh/">pssh</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ptp/">ptp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../puppet/">Puppet</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pv/">pv</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pytest/">pytest</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">python</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../q/">q</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/">raspberry-pi</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../redis/">redis</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rhel/">rhel</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../robotics/">robotics</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../roku/">Roku</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rook/">rook</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ros/">ros</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rpm/">rpm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rrd/">rrd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rst/">reStructuredText</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rsync/">rsync</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../saltstack/">saltstack</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../samsung/">Samsung</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../screenshot/">Screenshots</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sdr/">sdr</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sed/">sed</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../selinux/">selinux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../semver/">semver</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sensu/">sensu</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../serverless/">serverless</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sgdisk/">sgdisk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../shairport-sync/">shairport-sync</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../shred/">Shred</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../shutdown/">shutdown</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sips/">sips</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../slides/">slides</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../smartctl/">smartctl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../smartstack/">smartstack</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../snap/">snap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../snmp/">snmp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../solo/">solo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sort/">sort</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sphinx/">sphinx</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../split/">split</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../splunk/">splunk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sqlite/">sqlite</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ss/">ss</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ssh/">ssh</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sshuttle/">sshuttle</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../stat/">stat</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strace/">strace</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sudo/">sudo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../swagger/">swagger</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../swift/">Swift</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sysctl/">sysctl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sysdig/">sysdig</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../systemd-resolved/">systemd-resolved</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../systemd/">systemd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tcl/">TCL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tcpdump/">tcpdump</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../terraform/">Terraform</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../time/">time</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tls/">tls</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../top-variant-list/">top-variant-list</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../top/">top</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../touch/">touch</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ubuntu/">Ubuntu Linux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../udev/">udev</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../upstart/">Upstart</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vagrant/">vagrant</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vim/">vim</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtualbox/">VirtualBox</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vpn/">Virtual Private Networking</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wget/">Wget</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../winbind/">winbind</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wireshark/">Wireshark</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wonder-workshop/">wonder-workshop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wuzz/">wuzz</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../xargs/">xargs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../yaml/">yaml</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../youtube-dl/">youtube-dl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../yum/">yum</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zerotier/">ZeroTier</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ZFS</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zookeeper/">zookeeper</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zsh/">zsh</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>ZFS</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>ZFS is the Zetabyte File System.</p>
+<h1 id="links">Links</h1>
+<ul>
+<li>OpenZFS - <a href="http://open-zfs.org">http://open-zfs.org</a></li>
+<li>Tuning Guide - <a href="http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide">http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide</a></li>
+<li>Hardware recommendations - <a href="http://blog.zorinaq.com/?e=10">http://blog.zorinaq.com/?e=10</a></li>
+<li>Mac ZFS - <a href="http://code.google.com/p/maczfs/">http://code.google.com/p/maczfs/</a></li>
+<li>Shadow migration feature - <a href="http://docs.oracle.com/cd/E23824_01/html/821-1448/gkkud.html">http://docs.oracle.com/cd/E23824_01/html/821-1448/gkkud.html</a></li>
+<li>Speed tuning - <a href="http://icesquare.com/wordpress/how-to-improve-zfs-performance/">http://icesquare.com/wordpress/how-to-improve-zfs-performance/</a></li>
+<li>ZFS RAID levels - <a href="http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/">http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/</a></li>
+<li><a href="http://en.wikipedia.org/wiki/ZFS">http://en.wikipedia.org/wiki/ZFS</a></li>
+<li><a href="http://wiki.freebsd.org/ZFSQuickStartGuide">http://wiki.freebsd.org/ZFSQuickStartGuide</a></li>
+<li><a href="http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide">http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide</a></li>
+<li><a href="http://zfsguru.com">http://zfsguru.com</a></li>
+<li><a href="http://zfsonlinux.org/faq.html">http://zfsonlinux.org/faq.html</a></li>
+<li><a href="http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html">http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html</a></li>
+<li><a href="http://wiki.freebsd.org/ZFSTuningGuide#Deduplication">http://wiki.freebsd.org/ZFSTuningGuide#Deduplication</a></li>
+<li>Corruption / failure to import - <a href="https://github.com/zfsonlinux/zfs/issues/2457">https://github.com/zfsonlinux/zfs/issues/2457</a></li>
+<li><a href="https://www.percona.com/blog/2018/05/15/about-zfs-performance/">https://www.percona.com/blog/2018/05/15/about-zfs-performance/</a></li>
+<li><a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
+</ul>
+<h1 id="tips">Tips</h1>
+<h2 id="memory">Memory</h2>
+<ul>
+<li>For normal operation, 1gb of memory per tb of disk space is suitable.</li>
+<li>For dedup operation, 5gb of memory per tb of addressable disk space is suitable.</li>
+</ul>
+<h2 id="log-devices">Log devices</h2>
+<ul>
+<li>Use a log device if you have lots of writes.</li>
+<li>Mirror it, because if you lose it you lose the whole volume.</li>
+<li>Speed and latency are most important, not size.  Log flushes every 5 seconds.</li>
+<li>Get SLC if possible, otherwise MLC</li>
+</ul>
+<h2 id="l2arc-cache-devices">l2arc Cache devices</h2>
+<ul>
+<li>Use if you have lots of reads.</li>
+<li>Size does matter, with big devices more data can be cached for faster reads of more data.</li>
+<li>Speed and latency matter.</li>
+<li>Mirrororing l2arc does not matter because if it fails, reads come from the spinning disks.</li>
+<li>Too big of a device can suck up resources and cause poor performance. See <a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
+</ul>
+<p>Good explanation: <a href="https://blogs.oracle.com/brendan/entry/test">https://blogs.oracle.com/brendan/entry/test</a></p>
+<h1 id="zdb">zdb</h1>
+<h2 id="show-the-potential-savings-of-turning-on-dedupe-on-zpool-tank">Show the potential savings of turning on dedupe on zpool tank</h2>
+<p><a href="http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup">http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup</a></p>
+<pre><code>zdb -S tank
+</code></pre>
+
+<h2 id="show-transactions-and-human-readable-dates-in-the-zdb-history">Show transactions and human readable dates in the zdb history</h2>
+<p>Use <code>zdb -e</code> for pools that are not mounted.</p>
+<pre><code>zdb -hh tank \
+| egrep 'txg|time' \
+| while read -r _ a b ; do
+  if [ &quot;$a&quot; == &quot;time:&quot; ] ; then
+    date -d @$b &quot;+$a %F %T&quot; ;
+  else
+    echo &quot;$a  $b&quot; ;
+  fi ;
+done
+</code></pre>
+
+<h1 id="zpool">zpool</h1>
+<h2 id="create-a-zpool-and-its-base-filesystem">Create a zpool and its base filesystem</h2>
+<pre><code>zpool create -f -o cachefile=/tmp/zpool.cache zpoolname /dev/ada1 #create a zpool
+</code></pre>
+
+<h2 id="add-a-cache-device-to-a-pool">Add a cache device to a pool</h2>
+<pre><code># add ada0p3 as a cache device to the tank zpool
+zpool add tank cache ada0p3
+</code></pre>
+
+<h2 id="show-all-configured-zpool-options-for-a-given-zpool">Show all configured zpool options for a given zpool</h2>
+<pre><code>zpool get all tank
+</code></pre>
+
+<h2 id="show-history-of-all-operations-on-a-given-pool">Show history of all operations on a given pool</h2>
+<pre><code># show history of operations on the pool, eg: snapshots, attribute changes
+zpool history
+</code></pre>
+
+<h2 id="show-real-time-statistics-on-a-given-zpool">Show real time statistics on a given zpool</h2>
+<pre><code># show per-device statistics every 1 second
+zpool iostat -v 1
+</code></pre>
+
+<h2 id="show-basic-information-about-all-imported-zpools">Show basic information about all imported zpools</h2>
+<pre><code># show zpool space info, deduplication ratio and health
+zpool list
+</code></pre>
+
+<h2 id="show-deduplication-tables">Show deduplication tables</h2>
+<pre><code># show deduplication table entries. Take entries * size / 1024 / 1024 to calculate DDT consumption
+zpool status -D z2
+</code></pre>
+
+<h2 id="import-a-pool-by-different-disk-path">Import a pool by different disk path</h2>
+<p>You can change the paths your pool is imported from. This is useful if you created your zpool using <code>/dev/sdN</code> when you should have used <code>/dev/disk/by-id/</code>, which is deterministic. The <code>-d</code> option lets you specify a directory to look within for the given pool's devices.</p>
+<pre><code class="sh">zpool import -d /dev/disk/by-id/ &quot;$ZPOOL_NAME&quot;
+</code></pre>
+
+<p>You may find that your pool was imported using links from this path that are not desirable, because there are several options available. For instance, you may find that your pool was imported using wwn links (EG: <code>wwn-0x5000cca22eca1056</code>) that are not very user friendly compared to a link that shows the model and serial number (EG: <code>scsi-SATA_HGST_HMS5C4141BM_PM1302LAGR5A0F</code>). Because these links are managed by <a href="../udev/">udev</a> and are created when the disk is seen by the system, either at boot or at insertion, and because nothing else should be referencing these symlinks, they are safe to delete. Export your pool, then delete unwanted symlinks for the devices related to your pool, leaving only the symlinks you want to use, then run <code>zpool import -d</code> once again.</p>
+<h2 id="replace-a-disk-in-a-zpool">Replace a disk in a zpool</h2>
+<pre><code># Replace the first disk with the second in the tank pool
+zpool replace -f tank /dev/disk/by-id/ata-ST3000DM001-9YN166_W1F09CW9 /dev/disk/by-id/ata-ST3000DM001-9YN166_Z1F0N9S7
+</code></pre>
+
+<h3 id="real-example">Real example</h3>
+<pre><code>$ zpool replace -f tank /dev/disk/by-id/ata-HGST_HDN724040ALE640_PK1334PCJY9ASS /dev/disk/by-id/ata-HGST_HUH728080ALE600_VKHA6YDX
+$ zpool status
+  pool: home
+ state: ONLINE
+  scan: scrub repaired 0 in 0h0m with 0 errors on Sun Dec 10 00:24:07 2017
+config:
+
+        NAME                                             STATE     READ WRITE CKSUM
+        home                                             ONLINE       0     0     0
+          ata-M4-CT064M4SSD2_0000000012170908F759-part4  ONLINE       0     0     0
+
+errors: No known data errors
+
+  pool: tank
+ state: DEGRADED
+status: One or more devices is currently being resilvered.  The pool will
+        continue to function, possibly in a degraded state.
+action: Wait for the resilver to complete.
+  scan: resilver in progress since Mon Jan  8 19:57:45 2018
+    47.1M scanned out of 13.7T at 6.72M/s, 592h39m to go
+    11.5M resilvered, 0.00% done
+config:
+
+        NAME                                           STATE     READ WRITE CKSUM
+        tank                                           DEGRADED     0     0     0
+          raidz1-0                                     DEGRADED     0     0     0
+            replacing-0                                UNAVAIL      0     0     0
+              ata-HGST_HDN724040ALE640_PK1334PCJY9ASS  UNAVAIL      0     1     0  corrupted data
+              ata-HGST_HUH728080ALE600_VKHA6YDX        ONLINE       0     0     0  (resilvering)
+            ata-HGST_HDN724040ALE640_PK2334PEHG8LAT    ONLINE       0     0     0
+            ata-HGST_HDN724040ALE640_PK2334PEHGD37T    ONLINE       0     0     0
+            ata-HGST_HDN724040ALE640_PK2338P4H3TJPC    ONLINE       0     0     0
+
+errors: No known data errors
+</code></pre>
+
+<h1 id="zfs">zfs</h1>
+<h2 id="show-differences-between-current-filesystem-state-and-snapshot-state">show differences between current filesystem state and snapshot state</h2>
+<pre><code>zfs diff tank tank@snap
+</code></pre>
+
+<h2 id="show-configured-properties-for-a-filesystem">Show configured properties for a filesystem</h2>
+<pre><code>zfs get all
+</code></pre>
+
+<h2 id="show-custom-filesystem-attributes">Show custom filesystem attributes</h2>
+<pre><code># show custom attributes that override inherited attributes
+zfs get all -s local tank
+</code></pre>
+
+<h2 id="show-an-overview-of-all-mounted-zfs-filesystems">Show an overview of all mounted zfs filesystems</h2>
+<pre><code># show disk space including free physical disk space and mount info
+zfs list
+</code></pre>
+
+<h2 id="show-specified-fields-of-each-filesystem">Show specified fields of each filesystem</h2>
+<pre><code># show the listed fields of all filesystems
+zfs list -t all -o name,referenced,used,written,creation,userused@root
+</code></pre>
+
+<h2 id="show-only-snapshots">Show only snapshots</h2>
+<pre><code>zfs list -t snapshot
+</code></pre>
+
+<h2 id="show-space-consumed-by-file-owner">Show space consumed by file owner</h2>
+<pre><code>zfs userspace tank
+</code></pre>
+
+<h2 id="disable-atime-updates-for-a-filesystem">Disable atime updates for a filesystem</h2>
+<pre><code>zfs set atime=off tank
+</code></pre>
+
+<h2 id="set-compression-to-lz4-for-a-filesystem">Set compression to lz4 for a filesystem</h2>
+<pre><code>zfs set compression=lz4 tank
+</code></pre>
+
+<h2 id="set-deduplication-to-enabled-for-a-filesystem">Set deduplication to enabled for a filesystem</h2>
+<pre><code>zfs set dedup=on tank
+</code></pre>
+
+<h2 id="set-a-filesystem-to-readonly">Set a filesystem to readonly</h2>
+<pre><code>zfs set readonly=on zpoolname/dataset
+</code></pre>
+
+<h2 id="set-a-filesystem-to-allow-nfs-sharing">Set a filesystem to allow NFS sharing</h2>
+<pre><code>zfs set sharenfs=on tank
+</code></pre>
+
+<h2 id="create-a-dataset">Create a dataset</h2>
+<pre><code># create a dataset 'sole' on zpool 'tank'
+zfs create tank/sole
+</code></pre>
+
+<h2 id="destroy-multiple-snapshots">Destroy multiple snapshots</h2>
+<pre><code>zfs destroy tank@20130413-weekly,20130420-weekly,20130428-weekly,20130505-weekly
+</code></pre>
+
+<h2 id="zfs-send-receive">zfs send / receive</h2>
+<p>Replicate a zpool (use the latest snapshot name as the source) to a blank zpool:</p>
+<pre><code>zfs send -v -D -R tank@20120907-oldest | zfs receive -F -v z2
+</code></pre>
+
+<ul>
+<li>-D enables a deduplicated stream.</li>
+<li>-R enables a recursive send of all snapshots and filesystems up to that point.</li>
+<li>-F enables deletion of any snapshots on the target that don't exist on the sender</li>
+<li>-v enables verbose mode</li>
+</ul>
+<h2 id="recursively-zfs-send-a-filesystem-to-a-remote-host-and-recieve-it-as-a-new-dataset">recursively zfs send a filesystem to a remote host and recieve it as a new dataset</h2>
+<pre><code>zfs send -v -D -R z1@20120907-oldest | ssh otherhost zfs receive -v z2/z1
+</code></pre>
+
+<h2 id="show-summary-of-what-would-be-sent">Show summary of what would be sent</h2>
+<p>This shows an entire dataset up to the given snapshot</p>
+<pre><code>zfs send -n -v -D -R tank@20140531-monthly
+</code></pre>
+
+<h2 id="show-the-space-differences-between-two-snapshots">Show the space differences between two snapshots</h2>
+<pre><code>zfs send -n -v -D -i tank@20140531-monthly tank@20141031-monthly
+</code></pre>
+
+<h2 id="show-the-amount-of-new-space-consumed-by-each-monthly">Show the amount of new space consumed by each monthly</h2>
+<pre><code>zfs list -o name | grep 'tank@.*monthly' | while read -r X ; do [[ ! $a =~ .*monthly ]] &amp;&amp; a=$X || zfs send -n -v -D -i $a $X &amp;&amp; a=$X ; done 2&gt;&amp;1 | grep send
+</code></pre>
+
+<h1 id="complex-examples">Complex examples</h1>
+<h2 id="create-a-raidz-called-tank">Create a raidz called tank</h2>
+<p>Create a raidz pool from 4 disks and set some properties:</p>
+<pre><code>pool=tank
+zpool create -f &quot;${pool}&quot; raidz /dev/disk/by-id/scsi-SATA_HGST_HDN724040A_PK2338P4H*-part1 -o ashift=12
+zfs set dedup=on &quot;${pool}&quot;
+zpool set listsnapshots=on &quot;${pool}&quot;
+zfs set atime=off &quot;${pool}&quot;
+zfs set compression=lz4 &quot;${pool}&quot;
+</code></pre>
+
+<h2 id="create-a-case-insensitive-raidz3-out-of-50-files">Create a case insensitive raidz3 out of 50 files</h2>
+<pre><code>pool=tank
+for X in {1..50} ; do mkfile -n 2g ${pool}.$X ; done ;
+sudo zpool create -O casesensitivity=insensitive ${pool} raidz3 /Users/danielh/Desktop/Stuff/${pool}/${pool}.{1..50}
+</code></pre>
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="mount-a-pool-that-is-giving-you-trouble">Mount a pool that is giving you Trouble</h2>
+<pre><code>zpool import -o failmode=continue -o readonly=on zpool_name
+</code></pre>
+
+<p>This helped me get read access to a pool that was kernel panicking with the following error when I tried to import it normally:</p>
+<pre><code>Dec  7 14:48:40 localhost kernel: PANIC: blkptr at ffff8803fddb4200 DVA 0 has invalid OFFSET 294940902907904
+</code></pre>
+
+<h1 id="zfs-on-mac-os-x">ZFS on Mac OS X</h1>
+<ul>
+<li><a href="http://openzfsonosx.org">http://openzfsonosx.org</a></li>
+</ul>
+<h2 id="create-a-zfs-partition-on-devdisk3">Create a ZFS partition on /dev/disk3</h2>
+<pre><code># Must eject device in Disk Utility first
+diskutil partitiondisk /dev/disk3 GPTFormat ZFS %noformat% 100% # strange syntax, but works
+zpool create backups1 /dev/disk3s2 # create the zpool
+mdutil -i off /Volumes/backups1 # required on MacZFS since spotlight does not function
+</code></pre>
+
+<h1 id="zfs-on-linux">ZFS on Linux</h1>
+<ul>
+<li>If you get module errors: <code>modprobe zfs ; ldconfig</code></li>
+<li>If you get permission denied, check selinux settings</li>
+</ul>
+<h2 id="centos-6-repository">CentOS 6 Repository</h2>
+<pre><code>sudo yum install -y epel-release # assumes later CentOS 6 where epel is provided upstream
+sudo yum localinstall --nogpgcheck http://archive.zfsonlinux.org/epel/zfs-release.el6.noarch.rpm
+sudo yum install zfs -y
+</code></pre>
+
+<h3 id="reinstalling-when-things-fail">Reinstalling when things fail</h3>
+<pre><code>#!/bin/bash -x
+yum install -y kernel-devel-$(uname -r)
+zfs_version=0.6.5.4
+dkms remove  -m zfs -v &quot;${zfs_version}&quot; --all
+dkms remove  -m spl -v &quot;${zfs_version}&quot; --all
+dkms add     -m spl -v &quot;${zfs_version}&quot; --force
+dkms add     -m zfs -v &quot;${zfs_version}&quot; --force
+dkms install -m spl -v &quot;${zfs_version}&quot; --force
+dkms install -m zfs -v &quot;${zfs_version}&quot; --force
+</code></pre>
+
+<h3 id="inspect-the-rpm-for-what-scripts-it-runs">Inspect the rpm for what scripts it runs</h3>
+<p>This is useful for debugging failures after kernel upgrade.</p>
+<pre><code>rpm -q --scripts zfs-dkms
+</code></pre>
+
+<h2 id="building-on-centos-6">Building on CentOS 6</h2>
+<pre><code>yum groupinstall &quot;Development tools&quot; &amp;&amp; yum install -y libuuid-devel zlib-devel bc lsscsi mdadm parted kernel-debug
+# For spl, then again for zfs:
+./configure &amp;&amp; make &amp;&amp; make rpm &amp;&amp; rpm -i *64.rpm
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../zookeeper/" class="btn btn-neutral float-right" title="zookeeper">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../zerotier/" class="btn btn-neutral" title="ZeroTier"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../zerotier/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../zookeeper/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

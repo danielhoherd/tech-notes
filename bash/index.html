@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Daniel Austin Hoherd">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>GNU bash - Daniel Hoherd's tech notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "GNU bash";
+    var mkdocs_page_input_path = "bash.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">About these notes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../3d_printing/">3D Printing</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../airport/">Apple Airport</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../amazon-ec2/">Amazon EC2</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../amazon/">Amazon</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ansible/">Ansible</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../apfs/">Apple APFS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aptly/">Aptly</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aria2/">Aria2</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../arpwatch/">arpwatch</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../atomicparsley/">AtomicParsley</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../atop/">atop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../autonomous-vehicles/">Autonomous Vehicle Links</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../avahi/">Avahi</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../awk/">awk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../awless/">awless</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../awscli/">Amazon awscli</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../backups/">Backups</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../badblocks/">badblocks</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GNU bash</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#navigating-on-the-command-line">Navigating on the command line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#view-a-list-of-all-commands-etc">View a list of all commands, etc..</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remove-leading-zeroes">Remove leading zeroes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#convert-base-36-to-decimal">Convert base 36 to decimal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-a-command-for-5-seconds-then-kill-it">Run a command for 5 seconds, then kill it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#test-if-a-variable-is-empty">Test if a variable is empty</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#date">Date</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#show-random-statistics">Show RANDOM statistics</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#named-pipes">named pipes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#alternate-redirection-outputs">alternate redirection outputs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#redirect-all-output-of-a-script-into-a-file">Redirect all output of a script into a file</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#show-size-of-each-users-home-folder">Show size of each user's home folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#previous-commands-args">Previous command's args</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-a-script">Debug a script</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#find-where-all-the-inodes-are">Find where all the inodes are</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-and-print-an-array">Build and print an array</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-and-print-an-associative-array-dict-hash">Build and print an associative array (dict, hash)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#show-permissions-in-rwx-and-octal-format">Show permissions in rwx and octal format</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#find-the-length-of-a-variable">Find the length of a variable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print-all-variables-that-start-with-the-substring-sh">Print all variables that start with the substring SH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tertiary-type-variables">Tertiary type variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#do-a-command-and-if-it-returns-false-so-some-more-stuff">Do a command, and if it returns false, so some more stuff</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print-two-digit-months">Print two digit months</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-filename-extension-or-path">Get filename, extension or path</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rename-files-to-a-sequence-and-change-their-extension-at-the-same-time">Rename files to a sequence and change their extension at the same time</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sort-a-line-by-spaces">Sort a line by spaces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calculate-the-difference-between-two-dates">Calculate the difference between two dates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#substring-replace-a-variable">substring replace a variable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#subtract-two-from-a-mac-address">Subtract two from a MAC address</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print-the-last-for-chars-of-a-variable">Print the last for chars of a variable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dereference-a-variable">Dereference a variable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print-something-else-if-a-variable-doesnt-exist">Print something else if a variable doesn't exist</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print-every-third-number-starting-with-1-and-ending-with-30">Print every third number starting with 1 and ending with 30</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print-every-5th-letter-of-the-alphabet">Print every 5th letter of the alphabet</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#process-all-lines-but-print-out-status-about-what-line-we-are-on-every-nth-line">Process all lines, but print out status about what line we are on every Nth line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#make-a-directory-structure-of-every-combination-of-adjectivenoun">Make a directory structure of every combination of /adjective/noun</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generate-a-zero-padded-random-2-byte-hex-number">Generate a zero padded random 2 byte hex number</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grep-many-log-files-and-sort-output-by-date">grep many log files and sort output by date</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-command-line-switches">Get command line switches</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bbcp/">bbcp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bc/">GNU bc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bind/">BIND</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blkid/">blkid</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bluetooth/">bluetooth</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bosh/">BOSH</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bpf/">bpf</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../calico/">calico</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../calver/">CalVer</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../centos/">CentOS Linux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ceph/">Ceph</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cgroups/">cgroups</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../chkconfig/">chkconfig</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../chocolatey/">Choclatey</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../chronos/">chronos</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../circleci/">CircleCI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cncf/">CNCF</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cobbler/">Cobbler</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../computing/">Computing</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../conjure-up/">conjure-up</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../consul/">consul</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cookiecutter/">cookiecutter</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cowsay/">cowsay</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cradlepoint/">Cradlepoint</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cron/">cron</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cryptsetup/">cryptsetup</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../curl/">cURL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dat/">dat</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../date/">date</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dcfldd/">dcfldd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dcgc/">Docker Custodian</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dcraw/">dcraw</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dd-wrt/">dd-wrt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dd/">dd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ddrescue/">ddrescue</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deb/">deb</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../defaults/">defaults</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../devops/">devops</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dig/">dig</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dmidecode/">dmidecode</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">docker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsrc/">dsrc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dtrace/">dtrace</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../du/">du</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../duplicity/">duplicity</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../education/">education</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../eleduino/">Eleduino</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../etcd/">etcd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ethtool/">ethtool</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../exiftool/">exiftool</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fedramp/">Fedramp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ffmpeg/">ffmpeg</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../figlet/">figlet</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../find/">find</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../findmnt/">findmnt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fio/">fio</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../flask/">flask</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fluentd/">fluentd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fortune/">fortune</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../fuser/">fuser</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../genicam/">GenICam</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../geodata/">geodata</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gige-vision/">GigE Vision</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gitlab/">Gitlab</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gitolite/">gitolite</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../glances/">glances</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../golang/">golang</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google-cloud/">Google Cloud</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google-earth/">Google Earth</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google-sheets/">Google Sheets</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../google/">Google</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphicsmagick/">GraphicsMagick</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../grep/">grep</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../grub/">GNU GRUB</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hadoop/">Hadoop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../handbrake/">Handbrake</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hashids/">Hashids</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../helm/">helm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home-assistant/">Home Assistant</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hp/">HP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../htop/">htop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../httpstat/">httpstat</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iTunes/">iTunes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iftop/">iftop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../image-formats/">Graphical Image Formats</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../imagemagick/">ImageMagick</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../img2xterm/">img2xterm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../innotop/">innotop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../inotify/">inotify</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../internet/">The Internet</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iotop/">iotop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ip/">ip</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iperf/">iperf</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ipmi/">IPMI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../iptables/">iptables</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jargon/">jargon</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jdupes/">jdupes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jmespath/">jmespath</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jot/">jot</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jpeginfo/">jpeginfo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jq/">jq</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../json/">JSON</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jsonpath/">JSONPath</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../juniper/">Juniper</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jwt/">jwt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kaniko/">kaniko</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../keel/">keel</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../keybase/">keybase</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kubernetes/">kubernetes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../launchd/">launchd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ldap/">ldap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lego/">LEGO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lektor/">Lektor</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../linksys/">linksys</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux-performance-monitoring/">linux-performance-monitoring</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux/">linux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logstash/">logstash</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lsblk/">lsblk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lshw/">lshw</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lsof/">lsof</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lvm/">lvm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../lxc/">LXC</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../machine-learning/">Machine Learning</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../macos/">macOS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../make/">GNU make</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../math/">math</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mdraid/">mdraid</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../metallb/">MetalLB</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../microbit/">micro:bit</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../micropython/">MicroPython</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../minikube/">minikube</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../molecule/">Molecule</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mongodb/">MongoDB</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mqtt/">mqtt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mutt/">mutt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../myrepos/">myrepos</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql/">MySQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../namei/">namei</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ncftp/">ncftp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../netgear/">NETGEAR</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nethogs/">nethogs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../networking/">networking</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../networksetup/">networksetup</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../neverware/">neverware</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nfs/">nfs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-3ds/">Nintendo 3DS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-amiibo/">Nintendo Amiibo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-switch/">Nintendo Switch</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wii/">Nintendo Wii</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wiiu/">Nintendo Wii U</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ntop/">ntop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ntp/">NTP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nvidia/">nvidia</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../openvpn/">openvpn</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../osquery/">osquery</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ostinato/">ostinato</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../outline/">outline</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pac/">pac</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandoc/">pandoc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../panopticlick/">panopticlick</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../passwords/">passwords</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../perl/">perl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pgp/">pgp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../philips-hue/">philips-hue</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../php/">php</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../plex/">plex</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../postgres/">PostgreSQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../powershell/">powershell</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../powertop/">powertop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../procurve/">procurve</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../prometheus/">Prometheus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../protobuf/">protobuf</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ps/">ps</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ps_mem/">ps_mem</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../psp/">psp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pssh/">pssh</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ptp/">ptp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../puppet/">Puppet</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pv/">pv</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pytest/">pytest</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">python</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../q/">q</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/">raspberry-pi</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../redis/">redis</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rhel/">rhel</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../robotics/">robotics</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../roku/">Roku</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rook/">rook</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ros/">ros</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rpm/">rpm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rrd/">rrd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rst/">reStructuredText</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rsync/">rsync</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../saltstack/">saltstack</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../samsung/">Samsung</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../screenshot/">Screenshots</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sdr/">sdr</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sed/">sed</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../selinux/">selinux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../semver/">semver</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sensu/">sensu</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../serverless/">serverless</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sgdisk/">sgdisk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../shairport-sync/">shairport-sync</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../shred/">Shred</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../shutdown/">shutdown</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sips/">sips</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../slides/">slides</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../smartctl/">smartctl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../smartstack/">smartstack</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../snap/">snap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../snmp/">snmp</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../solo/">solo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sort/">sort</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sphinx/">sphinx</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../split/">split</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../splunk/">splunk</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sqlite/">sqlite</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ss/">ss</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ssh/">ssh</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sshuttle/">sshuttle</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../stat/">stat</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strace/">strace</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sudo/">sudo</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../swagger/">swagger</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../swift/">Swift</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sysctl/">sysctl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sysdig/">sysdig</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../systemd-resolved/">systemd-resolved</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../systemd/">systemd</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tcl/">TCL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tcpdump/">tcpdump</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../terraform/">Terraform</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../time/">time</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tls/">tls</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../top-variant-list/">top-variant-list</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../top/">top</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../touch/">touch</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ubuntu/">Ubuntu Linux</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../udev/">udev</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../upstart/">Upstart</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vagrant/">vagrant</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vim/">vim</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtualbox/">VirtualBox</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vpn/">Virtual Private Networking</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wget/">Wget</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../winbind/">winbind</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wireshark/">Wireshark</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wonder-workshop/">wonder-workshop</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wuzz/">wuzz</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../xargs/">xargs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../yaml/">yaml</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../youtube-dl/">youtube-dl</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../yum/">yum</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zerotier/">ZeroTier</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zfs/">ZFS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zookeeper/">zookeeper</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../zsh/">zsh</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daniel Hoherd's tech notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>GNU bash</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Bash is one of the most common mainstream unix shells.</p>
+<h1 id="tricks-and-usage">Tricks and Usage</h1>
+<h2 id="navigating-on-the-command-line">Navigating on the command line</h2>
+<p>The following can be seen by running: <code>stty -a</code></p>
+<ul>
+<li>ctrl-a - move cursor to the beginning of the line</li>
+<li>ctrl-e - move cursor to the end of the line</li>
+<li>ctrl-l - do a "clear" on the terminal window</li>
+<li>ctrl-r - reverse history command search</li>
+<li>ctrl-t - get status of foreground process</li>
+<li>ctrl-w - delete previous word</li>
+</ul>
+<h2 id="view-a-list-of-all-commands-etc">View a list of all commands, etc..</h2>
+<ul>
+<li><code>compgen -b</code> will list all the built-ins you could run.</li>
+<li><code>compgen -a</code> will list all the aliases you could run.</li>
+<li><code>compgen -c</code> will list all the commands you could run.</li>
+<li><code>compgen -k</code> will list all the keywords you could run.</li>
+<li><code>compgen -A</code> function will list all the functions you could run.</li>
+<li><code>compgen -back</code> will list all the above in one go.</li>
+</ul>
+<h2 id="remove-leading-zeroes">Remove leading zeroes</h2>
+<p>This method converts the numbers from base-10 to base-10, which has the side effect of removing leading zeroes. You can also use this to convert from other base systems</p>
+<pre><code class="bash">for X in 00{1..20..2} ; do
+  echo &quot;$X = $(( 10#${X} ))&quot;
+done
+</code></pre>
+
+<p>Or use <code>bc</code>, a CLI calculator...</p>
+<pre><code class="bash">for X in {1..50..5} ; do
+  Y=00${X}
+  echo &quot;${X} with zeroes is ${Y} and removed with bc is $(echo ${Y} | bc)&quot;
+done ;
+</code></pre>
+
+<h2 id="convert-base-36-to-decimal">Convert base 36 to decimal</h2>
+<p>This converts the base 36 number z to a decimal value</p>
+<pre><code class="bash">echo $((36#z))
+</code></pre>
+
+<h2 id="run-a-command-for-5-seconds-then-kill-it">Run a command for 5 seconds, then kill it</h2>
+<pre><code class="bash">ping -f &amp; sleep 5 ; kill %1
+</code></pre>
+
+<p>Alternatively, use the timeout command if it's available. In macOS this can be installed through <code>brew install coreutils</code> and accessed with <code>gtimeout</code>.</p>
+<pre><code class="bash">timeout 300 cmd
+</code></pre>
+
+<h2 id="test-if-a-variable-is-empty">Test if a variable is empty</h2>
+<pre><code class="bash">if [[ -z &quot;$var&quot; ]]
+</code></pre>
+
+<h2 id="date">Date</h2>
+<p>For date stuff, see <a href="../date/">date</a>, because it differs by platform.</p>
+<h2 id="show-random-statistics">Show RANDOM statistics</h2>
+<pre><code class="bash">for X in {0..9999} ; do
+  echo $(($RANDOM % 5)) ;
+done |
+sort |
+uniq -c
+</code></pre>
+
+<h2 id="named-pipes">named pipes</h2>
+<pre><code class="bash">mkfifo baz ; ps aux &gt; baz
+</code></pre>
+
+<p>then, in another terminal</p>
+<pre><code>cat baz
+</code></pre>
+
+<h2 id="alternate-redirection-outputs">alternate redirection outputs</h2>
+<pre><code class="bash">exec 3&gt; /tmp/baz ; ps aux &gt;&amp;3 # sends the output of ps aux to /tmp/baz
+</code></pre>
+
+<h2 id="redirect-all-output-of-a-script-into-a-file">Redirect all output of a script into a file</h2>
+<p>This is not bash specific, but works in bash.</p>
+<pre><code class="bash">#!/usr/bin/env bash
+
+exec &gt;&gt; /tmp/$0.log
+exec 2&gt;&amp;1
+
+date &quot;+%F %T%z $0 This is stdout, and will be written to the log&quot;
+date &quot;+%F %T%z $0 This is stderr, and will also be written to the log&quot; &gt;&amp;2
+</code></pre>
+
+<h2 id="show-size-of-each-users-home-folder">Show size of each user's home folder</h2>
+<pre><code class="bash">getent passwd |
+while IFS=: read -r user _ uid _ _ home _ ; do
+  if [[ $uid -ge 500 ]] ; then
+    printf &quot;$user &quot; ;
+    sudo du -sh $home ;
+  fi ;
+done
+</code></pre>
+
+<h2 id="previous-commands-args">Previous command's args</h2>
+<pre><code class="bash">mkdir temp ; cd !!:*
+</code></pre>
+
+<p>Be aware of the location of the tokens. For example:</p>
+<pre><code class="bash">mkdir -p {foo,bar}/{a,b,c}
+stat !!:*
+</code></pre>
+
+<p>This creates a problem because you can't <code>stat -p</code> so you must <code>stat -p !!:2*</code></p>
+<h2 id="debug-a-script">Debug a script</h2>
+<p>This will show everything bash is executing</p>
+<pre><code class="bash">bash -x scriptname.sh
+</code></pre>
+
+<p>Or debug with a function:</p>
+<pre><code class="bash">function debug {
+  if [ &quot;${debug:-0}&quot; -gt 0 ] ; then
+    echo &quot;$@&quot; 2&gt;&amp;1
+  fi
+}
+</code></pre>
+
+<h2 id="find-where-all-the-inodes-are">Find where all the inodes are</h2>
+<pre><code class="bash">find ~/ -type d -print0 |
+xargs -I %% -0 bash -c &quot;echo -n %% ; ls -a '%%' | wc -l&quot; &gt;&gt; ~/inodes.txt
+</code></pre>
+
+<h2 id="build-and-print-an-array">Build and print an array</h2>
+<pre><code class="bash">array=(&quot;one is the first element&quot;);
+array+=(&quot;two is the second element&quot; &quot;three is the third&quot;);
+echo &quot;${array[@]}&quot;
+</code></pre>
+
+<p>This is useful for building command line strings. For example, <code>gpsbabel</code> requires each input file to be prepended with <code>-f</code>. The following script takes a list of files and uses a bash array to create a command line in the form of <code>gpsbabel -i gpx -f input_file_1.gpx -f input_file_2.gpx -o gpx -F output.gpx</code></p>
+<pre><code class="bash">#!/usr/bin/env bash
+
+# Check for at least one argument, print usage if fail
+if [ $# -lt 2 ] ; then
+    echo &quot;This script merges gpx files and requires at least two gpx files passed as arguments. Output is output.gpx&quot;;
+    echo &quot;Usage:    $0 &lt;gpx file&gt; &lt;gpx file&gt; [...&lt;gpx file&gt;]&quot;;
+    exit 1;
+fi
+
+# Create an array of arguments to pass to gpsbabel
+args=();
+for item in &quot;$@&quot; ; do
+    if [ -f &quot;$item&quot; ] || [ -h &quot;$item&quot; ] ; then
+        args+=( &quot;-f&quot; &quot;$item&quot; );
+    else
+        echo &quot;Skipping $item, it's not a file or symlink.&quot;
+    fi
+done;
+
+# Verify we have at least two files to work with
+if [ &quot;${#args[@]}&quot; -lt 4 ] ; then
+    echo &quot;We don't have enough actual files to work with. Exiting.&quot;
+    exit 1
+fi
+
+gpsbabel -i gpx &quot;${args[@]}&quot; -o gpx -F output.gpx
+</code></pre>
+
+<h2 id="build-and-print-an-associative-array-dict-hash">Build and print an associative array (dict, hash)</h2>
+<pre><code class="bash">declare -A animals=(
+  [&quot;cow&quot;]=&quot;moo&quot;
+  [&quot;dog&quot;]=&quot;woof woof&quot;
+  [&quot;cat&quot;]=&quot;meow&quot;
+) ;
+for animal in &quot;${!animals[@]}&quot; ; do
+  echo &quot;The $animal says '${animals[$animal]}'&quot; ;
+done ;
+</code></pre>
+
+<h2 id="show-permissions-in-rwx-and-octal-format">Show permissions in rwx and octal format</h2>
+<p>Linux:</p>
+<pre><code class="bash">stat -c '%A %a %n' filename
+</code></pre>
+
+<p>OSX:</p>
+<pre><code class="bash">stat -f '%A %N' filename
+</code></pre>
+
+<h2 id="find-the-length-of-a-variable">Find the length of a variable</h2>
+<pre><code class="bash">echo ${#SHELL}
+</code></pre>
+
+<h2 id="print-all-variables-that-start-with-the-substring-sh">Print all variables that start with the substring <code>SH</code></h2>
+<pre><code class="bash">echo &quot;${!SH@}&quot;
+</code></pre>
+
+<h2 id="tertiary-type-variables">Tertiary type variables</h2>
+<pre><code class="bash">${V:-empty} # means &quot;return the value of the variable V or the string 'empty' if $V isn't set.
+</code></pre>
+
+<h2 id="do-a-command-and-if-it-returns-false-so-some-more-stuff">Do a command, and if it returns false, so some more stuff</h2>
+<p><code>while ! command_that_will_fail ; do something_else ; done ;</code></p>
+<h2 id="print-two-digit-months">Print two digit months</h2>
+<p><code>echo {1..12}</code> may not work. If not, use <code>echo $(seq -w 1 12)</code></p>
+<h2 id="get-filename-extension-or-path">Get filename, extension or path</h2>
+<p>Taken from <a href="http://mywiki.wooledge.org/BashFAQ/073">http://mywiki.wooledge.org/BashFAQ/073</a></p>
+<h2 id="rename-files-to-a-sequence-and-change-their-extension-at-the-same-time">Rename files to a sequence and change their extension at the same time</h2>
+<pre><code class="bash">ls | while read -r line ; do
+  stub=${line%.*} ;
+  (( i += 1 )) ;
+  mv &quot;${line}&quot; &quot;${i}-${stub}.txt3&quot; ;
+done ;
+</code></pre>
+
+<pre><code class="bash">FullPath=/path/to/name4afile-00809.ext   # result:   #   /path/to/name4afile-00809.ext
+Filename=${FullPath##*/}                             #   name4afile-00809.ext
+PathPref=${FullPath%&quot;$Filename&quot;}                     #   /path/to/
+FileStub=${Filename%.*}                              #   name4afile-00809
+FileExt=${Filename#&quot;$FileStub&quot;}                      #   .ext
+</code></pre>
+
+<h2 id="sort-a-line-by-spaces">Sort a line by spaces</h2>
+<pre><code class="bash">s=( whiskey tango foxtrot );
+sorted=$(printf &quot;%s\n&quot;` `${s[@]}|sort);
+echo $sorted
+</code></pre>
+
+<h2 id="calculate-the-difference-between-two-dates">Calculate the difference between two dates</h2>
+<pre><code class="bash">echo $(( $(gdate +%s -d 20120203) - $(gdate +%s -d 20120115) ))
+</code></pre>
+
+<h2 id="substring-replace-a-variable">substring replace a variable</h2>
+<p>This is not regex, just a simple string replacement.</p>
+<pre><code class="bash"># ${VAR/search/replace} does only the first
+# ${VAR//search/replace} does all replacements
+echo &quot;Paths in your path: ${PATH//:/ }&quot;
+</code></pre>
+
+<h2 id="subtract-two-from-a-mac-address">Subtract two from a MAC address</h2>
+<pre><code class="bash"># printf -v defines a variable instead of printing to stdout
+printf -v dec &quot;%d&quot; 0x$(echo 00:25:9c:52:1c:2a | sed 's/://g') ;
+let dec=${dec}-2 ;
+printf &quot;%012X&quot; ${dec} \
+| sed -E 's/(..)(..)(..)(..)(..)(..)/\1:\2:\3:\4:\5:\6/g'
+</code></pre>
+
+<h2 id="print-the-last-for-chars-of-a-variable">Print the last for chars of a variable</h2>
+<ul>
+<li><code>echo ${foo:$((${#foo}-4))}</code></li>
+<li><code>echo ${foo: -4}</code> The space is necessary to prevent it from</li>
+<li>doing a completely different thing. See the next example...</li>
+</ul>
+<h2 id="dereference-a-variable">Dereference a variable</h2>
+<pre><code>$ for var in ${!BASH_V*} ; do echo &quot;${var}: ${!var}&quot; ; done ;
+BASH_VERSINFO: 5
+BASH_VERSION: 5.0.7(1)-release
+</code></pre>
+
+<h2 id="print-something-else-if-a-variable-doesnt-exist">Print something else if a variable doesn't exist</h2>
+<ul>
+<li><code>echo ${foo:-foo isn't assigned}</code></li>
+<li><code>echo ${foo:-${bar}}</code></li>
+</ul>
+<p>This can even be recursively done...</p>
+<ul>
+<li><code>echo ${foo:-${bar:-foo and bar are not assigned}}</code></li>
+</ul>
+<h2 id="print-every-third-number-starting-with-1-and-ending-with-30">Print every third number starting with 1 and ending with 30</h2>
+<p><code>echo {1..30..3}</code></p>
+<h2 id="print-every-5th-letter-of-the-alphabet">Print every 5th letter of the alphabet</h2>
+<p><code>echo {a..z..5}</code></p>
+<h2 id="process-all-lines-but-print-out-status-about-what-line-we-are-on-every-nth-line">Process all lines, but print out status about what line we are on every Nth line</h2>
+<p>Sometimes during a series of long-running jobs you want to see the status of where you are at, or at least some indicator that things have not paused. when <code>ctrl-t</code> is not available (and even when it is) this pattern can help you monitor that things are still moving a long.</p>
+<pre><code class="bash">N=0
+find &quot;/usr/bin&quot; -type f |
+while read -r X ; do
+  N=$((N + 1))
+  [[ &quot;$((N % 50))&quot; -eq 0 ]] &amp;&amp; date &quot;+%F %T file number $N $X&quot; &gt;&amp;2
+  shasum -a 512 &quot;${X}&quot; &gt;&gt; ~/usr_bin_shasums.txt
+done
+</code></pre>
+
+<p>Example terminal output from the above command, while all <code>shasum</code> output goes into <code>~/usr_bin_shasums.txt</code>:</p>
+<pre><code>$ find &quot;/usr/bin&quot; -type f |
+&gt; while read -r X ; do
+&gt;   N=$((N + 1))
+&gt;   [[ &quot;$((N % 50))&quot; -eq 0 ]] &amp;&amp; date &quot;+%F %T file number $N $X&quot; &gt;&amp;2
+&gt;   shasum -a 512 &quot;${X}&quot; &gt;&gt; ~/usr_bin_shasums.txt
+&gt; done
+2018-02-24 15:30:29 file number 50 /usr/bin/toe
+2018-02-24 15:30:30 file number 100 /usr/bin/db_hotbackup
+2018-02-24 15:30:32 file number 150 /usr/bin/host
+2018-02-24 15:30:33 file number 200 /usr/bin/groffer
+2018-02-24 15:30:35 file number 250 /usr/bin/mail
+2018-02-24 15:30:36 file number 300 /usr/bin/dbicadmin
+2018-02-24 15:30:38 file number 350 /usr/bin/fwkpfv
+2018-02-24 15:30:39 file number 400 /usr/bin/tab2space
+</code></pre>
+
+<h2 id="make-a-directory-structure-of-every-combination-of-adjectivenoun">Make a directory structure of every combination of /adjective/noun</h2>
+<p><code>mkdir -p {red,green,blue}/{fish,bird,flower}</code></p>
+<h2 id="generate-a-zero-padded-random-2-byte-hex-number">Generate a zero padded random 2 byte hex number</h2>
+<p><code>printf "%02X\n" $((RANDOM % 256))</code></p>
+<h2 id="grep-many-log-files-and-sort-output-by-date">grep many log files and sort output by date</h2>
+<pre><code class="bash">sudo grep cron /var/log/* |
+sed 's/:/ /' |
+while read file month day hour line ; do
+  date -d &quot;$month $day $hour&quot; &quot;+%F %T%z ${file} ${line}&quot; ;
+done |
+sort
+</code></pre>
+
+<h2 id="get-command-line-switches">Get command line switches</h2>
+<p>From <a href="https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-getopts">the docs</a>
+- If a character is followed by a colon, the option is expected to have an argument.
+- If the first character of optstring is a colon, silent error reporting is used.</p>
+<pre><code class="bash">while getopts p:l:t: opt; do
+  case $opt in
+    p) pages=$OPTARG ;;
+    l) length=$OPTARG ;;
+    t) time=$OPTARG ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+echo &quot;pages is ${pages}&quot;
+echo &quot;length is ${length}&quot;
+echo &quot;time is ${time}&quot;
+echo &quot;\$1 is $1&quot;
+echo &quot;\$2 is $2&quot;
+</code></pre>
+
+<p>Call this script as <code>./foo.sh -p "this is p" -l llll -t this\ is\ t foo bar</code></p>
+<h1 id="files">Files</h1>
+<p>These files can change the behavior of bash.</p>
+<h2 id="bash_profile">.bash_profile</h2>
+<p><code>~/.bash_profile</code> is executed every time you log into the system or initiate a login shell. Inclusion of things that write to stdout is allowed here.</p>
+<p>If you want to write scripts that change your interactive shell environment, such as changing your CWD, define functions here instead of using stand-alone scripts.</p>
+<h3 id="example-bash_profile">Example .bash_profile</h3>
+<p>The <code>~/.bash_profile</code> file can be quite long and complicated. The following example is an incomplete sample:</p>
+<pre><code class="bash">export EDITOR=/usr/bin/vim
+export GZIP='-9'
+export HISTSIZE=5000
+export HISTTIMEFORMAT='%F %T%z '
+export PS1=&quot;\u@\h:\w$ &quot;
+export TERM=xterm-256color
+export TMOUT=&quot;1800&quot;  # log out after this many seconds of shell inactivity
+
+alias ll='ls -la'
+alias temp='tempdate=$(date +%F) ; mkdir -p ~/temp/$tempdate 2&gt;/dev/null ; cd ~/temp/$tempdate'
+
+sprunge() { curl -F 'sprunge=&lt;-' http://sprunge.us &lt; &quot;${1:-/dev/stdin}&quot;; } # usage: sprunge FILE # or some_command | sprunge
+
+# Don't record some commands
+export HISTIGNORE=&quot;&amp;:[ ]*:exit:ls:bg:fg:history:clear&quot;
+
+# Avoid duplicate entries
+HISTCONTROL=&quot;erasedups:ignoreboth&quot;
+
+# Perform file completion in a case insensitive fashion
+bind &quot;set completion-ignore-case on&quot;
+</code></pre>
+
+<h2 id="bashrc">.bashrc</h2>
+<p><code>~/.bashrc</code> is executed every time you open a sub-shell. It <strong>should not</strong> output any text, otherwise certain things (eg: scp) will fail.</p>
+<h2 id="inputrc">~/.inputrc</h2>
+<p>This file defines some bash behaviors. It also affects some other tools.</p>
+<pre><code># Ignore case while completing
+set completion-ignore-case on
+</code></pre>
+
+<h1 id="links">Links</h1>
+<ul>
+<li>Command Line Quicksheet: <a href="http://www.pixelbeat.org/cmdline.html">http://www.pixelbeat.org/cmdline.html</a></li>
+<li>Tons of BASH examples: <a href="http://mywiki.wooledge.org/BashFAQ">http://mywiki.wooledge.org/BashFAQ</a></li>
+<li><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html">Bash Manual: Bash Variables</a></li>
+<li>Bash pitfalls: <a href="http://mywiki.wooledge.org/BashPitfalls">http://mywiki.wooledge.org/BashPitfalls</a></li>
+<li>Bash prompt howto, including colors: <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html</a></li>
+<li><a href="https://github.com/sstephenson/bats">Bash Automated Test System</a></li>
+<li><a href="http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/">http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/</a></li>
+<li><a href="https://google.github.io/styleguide/shell.xml">https://google.github.io/styleguide/shell.xml</a></li>
+<li><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html">https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html</a></li>
+<li><a href="https://www.shellcheck.net/">https://www.shellcheck.net/</a> - Use this cli tool to help you write awesome shell scripts.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bbcp/" class="btn btn-neutral float-right" title="bbcp">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../badblocks/" class="btn btn-neutral" title="badblocks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../badblocks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../bbcp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
