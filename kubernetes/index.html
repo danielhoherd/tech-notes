@@ -355,6 +355,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autonomous-vehicles/" class="md-nav__link">
         Autonomous Vehicle Links
       </a>
@@ -2522,6 +2537,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cloud-provider-versions" class="md-nav__link">
+    Cloud Provider versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     Links
   </a>
@@ -3386,6 +3408,21 @@
     <li class="md-nav__item">
       <a href="../philips-hue/" class="md-nav__link">
         Philips Hue
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
       </a>
     </li>
   
@@ -5102,6 +5139,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cloud-provider-versions" class="md-nav__link">
+    Cloud Provider versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     Links
   </a>
@@ -5240,7 +5284,7 @@ echo &quot;KUBECONFIG=${KUBECONFIG}&quot; ;
 </code></pre>
 <h3 id="drain-and-cordon-a-node">Drain and cordon a node</h3>
 <p>Do this before deleting or reloading a node.</p>
-<pre><code class="language-sh">kubectl drain --ignore-daemonsets --force --delete-local-data $NODE_NAME
+<pre><code class="language-sh">kubectl drain --ignore-daemonsets --force --delete-emptydir-data &quot;$NODE_NAME&quot;
 </code></pre>
 <h3 id="show-pods-sorted-by-creation-time">Show pods, sorted by creation time</h3>
 <p>Only descending sort is supported</p>
@@ -5316,7 +5360,7 @@ runner-ppzmy1zx-project-11548552-concurrent-2n84rv   2019-10-23T17:04:19Z   user
 kubectl rollout restart deployment $DEPLOYMENT_NAME
 </code></pre>
 <h3 id="run-a-cronjob-out-of-schedule">Run a cronjob out of schedule</h3>
-<pre><code class="language-sh">kubectl create job --from=cronjob/download-cat-pix manual-run
+<pre><code class="language-sh">kubectl create job --from=cronjob/download-cat-pix download-cat-pix-manual-run
 </code></pre>
 <h3 id="create-a-yaml-file-for-a-resource-type">Create a yaml file for a resource type</h3>
 <p>You can generate yaml for a variety of entities without having to create them on the server. Each entity requires different syntax, so you have to work through the error messages to get to a final solution.</p>
@@ -5399,6 +5443,12 @@ ef64eea461bc0   2 weeks ago   Ready  kube-controller-manager-s1      kube-system
 14ec5abe1e3ab   2 weeks ago   Ready  kube-apiserver-s1               kube-system  11
 d4ce465a0942f   2 weeks ago   Ready  etcd-s1                         kube-system  10
 </code></pre>
+<h2 id="cloud-provider-versions">Cloud Provider versions</h2>
+<ul>
+<li>AKS: <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar">https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar</a></li>
+<li>EKS: <a href="https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar">https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar</a></li>
+<li>GKE: <a href="https://cloud.google.com/kubernetes-engine/docs/release-schedule">https://cloud.google.com/kubernetes-engine/docs/release-schedule</a></li>
+</ul>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/docs/reference/kubectl/cheatsheet/</a></li>
@@ -5440,6 +5490,7 @@ d4ce465a0942f   2 weeks ago   Ready  etcd-s1                         kube-system
 <li><a href="https://k8slens.dev">https://k8slens.dev</a>: "Lens is the only IDE you’ll ever need to take control of your Kubernetes clusters."</li>
 <li><a href="https://kustomize.io">https://kustomize.io</a>: "Kubernetes native configuration management"</li>
 <li><a href="https://github.com/kubernetes-sigs/kustomize/tree/master/examples">https://github.com/kubernetes-sigs/kustomize/tree/master/examples</a>: Kustomize examples</li>
+<li><a href="https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/">https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/</a>: Downward API allows you to mount k8s spec information as env vars</li>
 </ul>
                 
               

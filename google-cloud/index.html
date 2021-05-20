@@ -355,6 +355,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autonomous-vehicles/" class="md-nav__link">
         Autonomous Vehicle Links
       </a>
@@ -1773,12 +1788,26 @@
     Logs Explorer examples
   </a>
   
-    <nav class="md-nav" aria-label="Logs Explorer examples">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-namespace-deletions" class="md-nav__link">
+    Show namespace deletions
+  </a>
+  
+    <nav class="md-nav" aria-label="Show namespace deletions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#show-all-images-pulled-by-gke" class="md-nav__link">
     Show all images pulled by GKE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-k8s-control-plane-upgrades" class="md-nav__link">
+    Show all k8s control plane upgrades
   </a>
   
 </li>
@@ -3311,6 +3340,21 @@
     <li class="md-nav__item">
       <a href="../philips-hue/" class="md-nav__link">
         Philips Hue
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
       </a>
     </li>
   
@@ -4938,12 +4982,26 @@
     Logs Explorer examples
   </a>
   
-    <nav class="md-nav" aria-label="Logs Explorer examples">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-namespace-deletions" class="md-nav__link">
+    Show namespace deletions
+  </a>
+  
+    <nav class="md-nav" aria-label="Show namespace deletions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#show-all-images-pulled-by-gke" class="md-nav__link">
     Show all images pulled by GKE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-k8s-control-plane-upgrades" class="md-nav__link">
+    Show all k8s control plane upgrades
   </a>
   
 </li>
@@ -4982,6 +5040,7 @@
 <li><a href="https://cloud.google.com/docs">https://cloud.google.com/docs</a></li>
 <li><a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference</a></li>
 <li><a href="https://github.com/GoogleCloudPlatform/cloud-builders">https://github.com/GoogleCloudPlatform/cloud-builders</a></li>
+<li><a href="https://cloud.google.com/iam/docs/permissions-reference">https://cloud.google.com/iam/docs/permissions-reference</a> (Large download)</li>
 </ul>
 <h2 id="gcloud-cli-examples">gcloud CLI Examples</h2>
 <h3 id="working-with-gcloud-configurations">Working with gcloud configurations</h3>
@@ -5131,11 +5190,18 @@ kubectl create secret &quot;docker-pull-$PROJECT&quot; &quot;$PROJECT&quot; \
 <ul>
 <li><a href="https://cloud.google.com/logging/docs/view/query-library-preview">Sample queries using the Logs Explorer</a></li>
 </ul>
+<h3 id="show-namespace-deletions">Show namespace deletions</h3>
+<pre><code>protoPayload.methodName=&quot;io.k8s.core.v1.namespaces.delete&quot;
+</code></pre>
 <h4 id="show-all-images-pulled-by-gke">Show all images pulled by GKE</h4>
 <p>This will show pulls of all images except with substrings matching the references on line 3. The <code>OR</code> appears to be case sensitive.</p>
 <pre><code>resource.type=&quot;k8s_pod&quot;
 jsonPayload.reason=&quot;Pulling&quot;
 -jsonPayload.message : ( &quot;Pulling image \&quot;dade-murphy/leet-image\&quot;&quot; OR &quot;Pulling image \&quot;mr-the-plague/da-vinci\&quot;&quot; )
+</code></pre>
+<h4 id="show-all-k8s-control-plane-upgrades">Show all k8s control plane upgrades</h4>
+<p>You can search using the same syntax at the CLI, which is great for local saving of search results so you can search them more quickly using <code>grep</code> and easily archive them for postmortem documentation.</p>
+<pre><code class="language-sh">gcloud beta logging read 'timestamp&gt;=&quot;2021-01-01T00&quot; AND protoPayload.metadata.operationType: UPGRADE_MASTER AND operation.producer: container.googleapis.com' &gt; control-plane-upgrades.yaml
 </code></pre>
 <ul>
 <li><a href="https://console.cloud.google.com/logs/query;query=%20%20resource.type%3D%22k8s_pod%22%0A%20%20jsonPayload.reason%3D%22Pulling%22">https://console.cloud.google.com/logs/query;query=%20%20resource.type%3D%22k8s_pod%22%0A%20%20jsonPayload.reason%3D%22Pulling%22</a></li>

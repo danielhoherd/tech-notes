@@ -355,6 +355,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autonomous-vehicles/" class="md-nav__link">
         Autonomous Vehicle Links
       </a>
@@ -1710,6 +1725,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#always-use-ssh-for-githubcom" class="md-nav__link">
+    Always use ssh for github.com
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git-client-setup" class="md-nav__link">
     Git client setup
   </a>
@@ -1724,8 +1746,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#export-your-gitconfig-in-a-git-config-friendly-format" class="md-nav__link">
-    Export your .gitconfig in a git config friendly format
+  <a href="#show-your-configs-in-a-dotted-one-one-per-option-format" class="md-nav__link">
+    Show your configs in a dotted one-one-per-option format
   </a>
   
 </li>
@@ -3715,6 +3737,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../php/" class="md-nav__link">
         php
       </a>
@@ -5356,6 +5393,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#always-use-ssh-for-githubcom" class="md-nav__link">
+    Always use ssh for github.com
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git-client-setup" class="md-nav__link">
     Git client setup
   </a>
@@ -5370,8 +5414,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#export-your-gitconfig-in-a-git-config-friendly-format" class="md-nav__link">
-    Export your .gitconfig in a git config friendly format
+  <a href="#show-your-configs-in-a-dotted-one-one-per-option-format" class="md-nav__link">
+    Show your configs in a dotted one-one-per-option format
   </a>
   
 </li>
@@ -5766,6 +5810,8 @@
 <li><a href="https://guides.github.com/introduction/flow/index.html">Understanding the GitHub flow</a></li>
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model">A successful Git branching model</a></li>
 <li><a href="https://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a></li>
+<li><a href="https://www.conventionalcommits.org/">Conventional Commits: A specification for adding human and machine readable meaning to commit messages</a></li>
+<li><a href="https://github.com/googleapis/release-please">Release Please automates CHANGELOG generation, the creation of GitHub releases, and version bumps for your projects.</a></li>
 </ul>
 <h2 id="examples">Examples</h2>
 <h3 id="git-init">git init</h3>
@@ -5833,6 +5879,9 @@ echo &quot;# Ignore other unneeded files.
 <li>Global = per-user settings. IE: stored in ~/.gitconfig</li>
 <li>System = per-system settings, found in /etc/ or wherever git is looking for system settings.</li>
 </ul>
+<h4 id="always-use-ssh-for-githubcom">Always use ssh for github.com</h4>
+<pre><code class="language-sh">git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
+</code></pre>
 <h4 id="git-client-setup">Git client setup</h4>
 <p>This creates and modifies ~/.gitconfig with some parameters:</p>
 <pre><code>git config --global user.name &quot;Daniel Hoherd&quot;
@@ -5850,7 +5899,7 @@ git config --unset svn-remote.svn.branches
 git config --unset svn-remote.svn.tags
 git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 </code></pre>
-<h4 id="export-your-gitconfig-in-a-git-config-friendly-format">Export your .gitconfig in a git config friendly format</h4>
+<h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format</h4>
 <pre><code>git config --list
 </code></pre>
 <h3 id="git-diff">git diff</h3>

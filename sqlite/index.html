@@ -355,6 +355,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autonomous-vehicles/" class="md-nav__link">
         Autonomous Vehicle Links
       </a>
@@ -3100,6 +3115,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../php/" class="md-nav__link">
         php
       </a>
@@ -4045,6 +4075,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#open-a-db-read-only" class="md-nav__link">
+    Open a db read-only
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4787,6 +4824,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#open-a-db-read-only" class="md-nav__link">
+    Open a db read-only
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4903,6 +4947,9 @@ sqlite3 images.db &quot;create table images (filename varchar(255), createdate t
 exiftool -d &quot;%s&quot; -p 'insert into images values (&quot;$filename&quot;, &quot;$DateTimeOriginal&quot;);' -q -f -r . | sqlite3 images.db 2&gt; /dev/null
 ## Query the database
 sqlite3 images.db &quot;SELECT filename,datetime(createdate,'unixepoch','localtime') as date FROM images WHERE date LIKE '2014-08-02%';&quot;
+</code></pre>
+<h3 id="open-a-db-read-only">Open a db read-only</h3>
+<pre><code class="language-sh">sqlite3 &quot;file:///absolute/path/to/file/datasette.db?mode=ro&quot;
 </code></pre>
                 
               

@@ -355,6 +355,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autonomous-vehicles/" class="md-nav__link">
         Autonomous Vehicle Links
       </a>
@@ -607,6 +622,13 @@
           <li class="md-nav__item">
   <a href="#debug-a-script" class="md-nav__link">
     Debug a script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-nested-scripts" class="md-nav__link">
+    Debug nested scripts
   </a>
   
 </li>
@@ -3471,6 +3493,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../php/" class="md-nav__link">
         php
       </a>
@@ -5019,6 +5056,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#debug-nested-scripts" class="md-nav__link">
+    Debug nested scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#find-where-all-the-inodes-are" class="md-nav__link">
     Find where all the inodes are
   </a>
@@ -5367,6 +5411,9 @@ stat !!:*
     echo &quot;$@&quot; 2&gt;&amp;1
   fi
 }
+</code></pre>
+<h3 id="debug-nested-scripts">Debug nested scripts</h3>
+<pre><code>PS4=&quot;+(\${BASH_SOURCE}:\${LINENO}): \${FUNCNAME[0]:+\${FUNCNAME[0]}(): }&quot; bash -x some-command
 </code></pre>
 <h3 id="find-where-all-the-inodes-are">Find where all the inodes are</h3>
 <pre><code class="language-bash">find ~/ -type d -print0 |

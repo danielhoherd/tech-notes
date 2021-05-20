@@ -355,6 +355,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autonomous-vehicles/" class="md-nav__link">
         Autonomous Vehicle Links
       </a>
@@ -1430,6 +1445,13 @@
           <li class="md-nav__item">
   <a href="#rename-music-files-in-a-directory" class="md-nav__link">
     Rename music files in a directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-files-into-subdir-based-on-multiple-tags" class="md-nav__link">
+    Rename files into subdir based on multiple tags
   </a>
   
 </li>
@@ -3291,6 +3313,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../php/" class="md-nav__link">
         php
       </a>
@@ -4867,6 +4904,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rename-files-into-subdir-based-on-multiple-tags" class="md-nav__link">
+    Rename files into subdir based on multiple tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#move-short-videos-to-one-dir-long-videos-to-another-dir" class="md-nav__link">
     Move short videos to one dir, long videos to another dir
   </a>
@@ -4908,14 +4952,14 @@
                 <h1 id="exiftool">exiftool</h1>
 <p>CLI Tool to read and write image metadata for many kinds of images.</p>
 <ul>
-<li><a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">http://www.sno.phy.queensu.ca/~phil/exiftool/</a></li>
+<li><a href="https://exiftool.org">https://exiftool.org</a></li>
 </ul>
 <h2 id="tricks">Tricks</h2>
 <h3 id="strip-all-tags">Strip all tags</h3>
-<pre><code class="language-sh">exiftool -all= filename.jpg
+<pre><code class="language-sh">exiftool -all= &quot;$filename&quot;
 </code></pre>
 <h3 id="show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them</h3>
-<pre><code class="language-sh">exiftool -S -- $filename
+<pre><code class="language-sh">exiftool -S -- &quot;$filename&quot;
 </code></pre>
 <p>For example</p>
 <pre><code>$ exiftool -S -- &quot;$filename&quot; | grep Daniel
@@ -4987,16 +5031,16 @@ Rights                          : All rights reserved
   -FocalLength='85' \
   -LongFocal='85' \
   -ShortFocal='85' \
-  filename.dng
+  &quot;$filename&quot;
 </code></pre>
 <h3 id="correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</h3>
 <p>The following example increases all metadata dates by 1 minute and 56 seconds.</p>
 <pre><code class="language-sh"># exiftool -AllDates-='Y:M:D H:M:S'
-exiftool -AllDates+='0:0:0 0:1:56'
+exiftool -AllDates+='0:0:0 0:1:56' -- &quot;$filename&quot;
 </code></pre>
 <h3 id="set-all-dates-to-something-obviously-wrong">Set all dates to something obviously wrong</h3>
 <p>This is useful when scanning or photographing film or prints where you do not want the current date associated with the image.</p>
-<pre><code class="language-sh">exiftool -alldates='1900:01:01 01:01:01' -- *
+<pre><code class="language-sh">exiftool -alldates='1900:01:01 01:01:01' -- *.tif
 </code></pre>
 <h3 id="delete-certain-keywords-from-files">Delete certain keywords from files</h3>
 <p>This example uses bash expansion to create multiple <code>-keywords-=</code> statements from the words inside of the braces. Use <code>echo exiftool</code> to see what command is actually being called when testing. Keywords can also be stored in the <code>subject</code> tag, so we clean that too.</p>
@@ -5108,11 +5152,40 @@ find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;$
 <pre><code class="language-sh">exiftool -p '$Filename' -if 'not defined $GPSPosition' *.jpg
 </code></pre>
 <h3 id="rename-music-files-in-a-directory">Rename music files in a directory</h3>
-<p>There is a big gotcha here, which is that slashes will create directories where they appear, which can cause serious problems. The <code>${Tag;s/\//_/}</code> syntax replaces <code>/</code> with <code>_</code>, but there may be other characters that can cause unexpected results. This is a great place to use <code>-TestName</code> to inspect what would change before using <code>-FileName</code> to make the changes.</p>
+<p>If you use a semicolon inside of a tag that is used to generate a filename, it will have filename-invalid characters stripped. The invalid character list is: <code>/ \ ? * : | " &lt; &gt;</code>. See the next section for more examples of semicolon behavior.</p>
+<pre><code class="language-sh">exiftool \
+  '-FileName&lt;${Artist;} - ${Title;}.%e' \
+  '-FileName&lt;${Artist;} - ${Album;} - ${Title;}.%e' \
+  *.mp3 *.m4a
+</code></pre>
+<p>The way I solved this prior to knowing the semicolon behavior was to use a regex replace, which is included here because it could be useful in other circumstances:</p>
 <pre><code class="language-sh">exiftool \
   '-FileName&lt;${Artist;s/\//_/} - ${Title;s/\//_/}.%e' \
   '-FileName&lt;${Artist;s/\//_/} - ${Album;s/\//_/} - ${Title;s/\//_/}.%e' \
   *.mp3 *.m4a
+</code></pre>
+<h3 id="rename-files-into-subdir-based-on-multiple-tags">Rename files into subdir based on multiple tags</h3>
+<p>Making sure not use put a semicolon into the tags, as described in the last section, you can use more than one tag to rename a file, so long as you format your date string correctly.</p>
+<pre><code class="language-sh">find ./ -type f -iname '*.jpg' -print0 |
+xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-FileName&lt;${DateTimeOriginal}_${Headline}%-c.%le' --
+</code></pre>
+<p>EG:</p>
+<pre><code>$ find . -type f -iname '*.jpg' -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-TestName&lt;${DateTimeOriginal}_${Headline}%-c.%le' --
+2021-03-12 11:59:19-0800
+'./20170406-17-11-59.jpg' --&gt; '2017/04/06/20170406-17-11-59_qrWLGF.jpg'
+'./20170401-22-20-56.jpg' --&gt; '2017/04/01/20170401-22-20-56_907nMU.jpg'
+'./20170403-07-14-18.jpg' --&gt; '2017/04/03/20170403-07-14-18_JMPDVd.jpg'
+    0 image files updated
+    3 image files unchanged
+</code></pre>
+<p>But if we use a semicolon, the invalid characters are stripped, and thus directories are not created.</p>
+<pre><code>$ find . -type f -iname '*.jpg' -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-TestName&lt;${DateTimeOriginal;}_${Headline}%-c.%le' --
+2021-03-12 11:58:50-0800
+'./20170406-17-11-59.jpg' --&gt; './2017040620170406-17-11-59_qrWLGF.jpg'
+'./20170401-22-20-56.jpg' --&gt; './2017040120170401-22-20-56_907nMU.jpg'
+'./20170403-07-14-18.jpg' --&gt; './2017040320170403-07-14-18_JMPDVd.jpg'
+    0 image files updated
+    3 image files unchanged
 </code></pre>
 <h3 id="move-short-videos-to-one-dir-long-videos-to-another-dir">Move short videos to one dir, long videos to another dir</h3>
 <p>In iOS, if you have Live Photo enabled it creates little movies each time you take a photo. While these can be very interesting context around photos, they can be quite irritating if you're playing through a collection of videos where these are mixed with videos of more moderate duration. The following code snip separates videos with a duration of more than 10 seconds from those with equal or lesser duration.</p>
