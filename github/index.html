@@ -1549,6 +1549,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#get-all-public-keys-for-a-user" class="md-nav__link">
+    Get all public keys for a user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-a-downloadable-patch-for-a-git-commit" class="md-nav__link">
+    Get a downloadable patch for a git commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-a-list-of-repositories-for-a-user" class="md-nav__link">
     Get a list of repositories for a user
   </a>
@@ -4638,6 +4652,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#get-all-public-keys-for-a-user" class="md-nav__link">
+    Get all public keys for a user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-a-downloadable-patch-for-a-git-commit" class="md-nav__link">
+    Get a downloadable patch for a git commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-a-list-of-repositories-for-a-user" class="md-nav__link">
     Get a list of repositories for a user
   </a>
@@ -4673,6 +4701,10 @@
 <p>"GitHub is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside 50 million developers." - <a href="https://github.com">https://github.com</a></p>
 <p>"GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management (SCM) functionality of Git, plus its own features. It provides access control and several collaboration features such as bug tracking, feature requests, task management, continuous integration and wikis for every project. Headquartered in California, it has been a subsidiary of Microsoft since 2018." - <a href="https://en.wikipedia.org/wiki/GitHub">https://en.wikipedia.org/wiki/GitHub</a></p>
 <h2 id="tips">Tips</h2>
+<h3 id="get-all-public-keys-for-a-user">Get all public keys for a user</h3>
+<p>Append <code>.keys</code> to the user profile URL, so <a href="https://github.com/danielhoherd">https://github.com/danielhoherd</a> becomes <a href="https://github.com/danielhoherd.keys">https://github.com/danielhoherd.keys</a>. This is useful for adding to <code>~/.ssh/authorized_keys</code></p>
+<h3 id="get-a-downloadable-patch-for-a-git-commit">Get a downloadable patch for a git commit</h3>
+<p>Append <code>.patch</code> to a commit URL, so <a href="https://github.com/apache/airflow/commit/86e2ab53aff">https://github.com/apache/airflow/commit/86e2ab53aff</a> becomes <a href="https://github.com/apache/airflow/commit/86e2ab53aff.patch">https://github.com/apache/airflow/commit/86e2ab53aff.patch</a></p>
 <h3 id="get-a-list-of-repositories-for-a-user">Get a list of repositories for a user</h3>
 <p>This gives a list of repositories sorted by the last time they were pushed to.</p>
 <pre><code class="language-sh">curl -s https://api.github.com/users/danielhoherd/repos?per_page=200 |
