@@ -1770,6 +1770,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#set-maintenance-window-on-a-gke-cluster" class="md-nav__link">
+    Set maintenance window on a GKE cluster
+  </a>
+  
+    <nav class="md-nav" aria-label="Set maintenance window on a GKE cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert-local-time-to-rfc-5545-utc" class="md-nav__link">
+    Convert local time to rfc-5545 UTC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-and-verify-the-maintenance-schedule" class="md-nav__link">
+    Set and verify the maintenance schedule:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4964,6 +4991,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#set-maintenance-window-on-a-gke-cluster" class="md-nav__link">
+    Set maintenance window on a GKE cluster
+  </a>
+  
+    <nav class="md-nav" aria-label="Set maintenance window on a GKE cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert-local-time-to-rfc-5545-utc" class="md-nav__link">
+    Convert local time to rfc-5545 UTC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-and-verify-the-maintenance-schedule" class="md-nav__link">
+    Set and verify the maintenance schedule:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5184,6 +5238,38 @@ kubectl create secret &quot;docker-pull-$PROJECT&quot; &quot;$PROJECT&quot; \
     ETag:                   COP7ew7D5+CAEoI=
     Generation:             1595460011829230
     Metageneration:         5
+</code></pre>
+<h3 id="set-maintenance-window-on-a-gke-cluster">Set maintenance window on a GKE cluster</h3>
+<p>This syntax is a bit difficult to work with. It must be given in <a href="https://datatracker.ietf.org/doc/html/rfc5545">RFC-5545 (iCal)</a>, but GCP only supports a subset of the spec. Most frustratingly, GCP doesn't support timezones. <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions#using-gcloud-init">They warn you about this</a>, saying the "timezone will not be stored", so if you want to start something at Wednesday 03:00:00+0600 you have to specify that as Tuesday 21:00:00. 🙄</p>
+<p><em>N.B.: in my testing while writing this, local TZ was used if not TZ was sent, so it looks like their docs may be wrong and maybe the conversion step can be avoided.</em></p>
+<h4 id="convert-local-time-to-rfc-5545-utc">Convert local time to rfc-5545 UTC</h4>
+<p>So if you want to start your maintenance on Thursday at 5am Pacific time and end at Thursday 5pm Pacific time, the first step is to figure out what the rfc-5545 UTC format would be:</p>
+<pre><code>$ TZ=Z gdate '+%Y%m%dT%H%M%SZ %A' -d 2021-05-20T05:00:00-0800
+20210520T130000Z Thursday
+$ TZ=Z gdate '+%Y%m%dT%H%M%SZ %A' -d 2021-05-20T17:00:00-0800
+20210521T010000Z Friday
+</code></pre>
+<h4 id="set-and-verify-the-maintenance-schedule">Set and verify the maintenance schedule:</h4>
+<pre><code class="language-sh">gcloud container clusters update --project=&quot;$PROJECT_NAME&quot; --zone=&quot;$ZONE&quot; &quot;$CLUSTER_NAME&quot; \
+  --maintenance-window-start=&quot;20210520T130000Z&quot; \
+  --maintenance-window-end=&quot;20210521T010000Z&quot; \
+  --maintenance-window-recurrence=&quot;FREQ=WEEKLY;BYDAY=TH&quot;
+</code></pre>
+<p>You should see <code>Updating &lt;cluster_name&gt;...done.</code> followed by some hyperlinks. Next you should validate that it was set right:</p>
+<pre><code class="language-sh">gcloud container clusters describe --format=json --project=&quot;$PROJECT_NAME&quot; --zone=&quot;$ZONE&quot; &quot;$CLUSTER_NAME&quot; |
+jq .maintenancePolicy.window.recurringWindow
+</code></pre>
+<p>You should see a small json blob like:</p>
+<pre><code class="language-json">{
+  &quot;recurrence&quot;: &quot;FREQ=WEEKLY;BYDAY=TH&quot;,
+  &quot;window&quot;: {
+    &quot;endTime&quot;: &quot;2021-05-21T02:00:00Z&quot;,
+    &quot;startTime&quot;: &quot;2021-05-20T14:00:00Z&quot;
+  }
+}
+</code></pre>
+<p>Grab the start time and feed it back into gdate to validate that your desired local time is set:</p>
+<pre><code class="language-sh">gdate -d &quot;2021-05-20T14:00:00Z&quot;  # comes out to: Thu May 20 07:00:00 PDT 2021
 </code></pre>
 <h2 id="gcloud-web-console-examples">gcloud web console examples</h2>
 <h3 id="logs-explorer-examples">Logs Explorer examples</h3>
