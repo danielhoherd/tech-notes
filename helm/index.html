@@ -11,6 +11,8 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/helm/">
+      
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
@@ -73,7 +75,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes">
+    <a href="https://danielhoherd.com/tech-notes/" title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -156,7 +158,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes">
+    <a href="https://danielhoherd.com/tech-notes/" title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -1830,6 +1832,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release" class="md-nav__link">
+    Show raw data about what helm sent to the k8s server for a recent release
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2018,6 +2027,21 @@
     <li class="md-nav__item">
       <a href="../internet/" class="md-nav__link">
         The Internet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        Interviews
       </a>
     </li>
   
@@ -4707,6 +4731,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release" class="md-nav__link">
+    Show raw data about what helm sent to the k8s server for a recent release
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4749,6 +4780,17 @@
 <p><a href="https://github.com/helm/charts#how-do-i-enable-the-incubator-repository">https://github.com/helm/charts#how-do-i-enable-the-incubator-repository</a></p>
 <pre><code class="language-sh">helm repo add incubator https://charts.helm.sh/incubator
 </code></pre>
+<h3 id="show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release">Show raw data about what helm sent to the k8s server for a recent release</h3>
+<p>First, find the secret that you will want to search. You can get the release number from <code>helm history -n "$NS" foo</code> or dig in <code>kubectl -n $NS get secret</code></p>
+<pre><code>$ k -n &quot;$NS&quot; get secret | grep sh.helm.release | tail -n 3 | column -t
+sh.helm.release.v1.foo.v338  helm.sh/release.v1  1  14d
+sh.helm.release.v1.foo.v339  helm.sh/release.v1  1  13d
+sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
+</code></pre>
+<p>Then send that secret into the following command to get the full manifest that was sent to the k8s api:</p>
+<pre><code class="language-sh">k -n &quot;$NS&quot; get secret sh.helm.release.v1.foo.v339 -o jsonpath='{.data.release}' | base64 -d | base64 -d | gzip -d
+</code></pre>
+<p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>
                 
               
               

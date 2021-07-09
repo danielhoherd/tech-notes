@@ -11,6 +11,8 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/semver/">
+      
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
@@ -73,7 +75,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes">
+    <a href="https://danielhoherd.com/tech-notes/" title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -156,7 +158,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes">
+    <a href="https://danielhoherd.com/tech-notes/" title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -1932,6 +1934,21 @@
     <li class="md-nav__item">
       <a href="../internet/" class="md-nav__link">
         The Internet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        Interviews
       </a>
     </li>
   
@@ -4637,6 +4654,7 @@
 <li><a href="https://hynek.me/articles/semver-will-not-save-you/">https://hynek.me/articles/semver-will-not-save-you/</a></li>
 <li><a href="http://bnfplayground.pauliankline.com/?bnf=%3Cvalid_semver%3E%20%3A%3A%3D%20%3Cversion_core%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cversion_core%3E%20%22-%22%20%3Cpre_release%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cversion_core%3E%20%22%2B%22%20%3Cbuild%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cversion_core%3E%20%22-%22%20%3Cpre_release%3E%20%22%2B%22%20%3Cbuild%3E%0A%3Cversion_core%3E%20%3A%3A%3D%20%3Cmajor%3E%20%22.%22%20%3Cminor%3E%20%22.%22%20%3Cpatch%3E%0A%3Cmajor%3E%20%3A%3A%3D%20%3Cnumeric_identifier%3E%0A%3Cminor%3E%20%3A%3A%3D%20%3Cnumeric_identifier%3E%0A%3Cpatch%3E%20%3A%3A%3D%20%3Cnumeric_identifier%3E%0A%3Cpre_release%3E%20%3A%3A%3D%20%3Cdot_separated_pre_release_identifiers%3E%0A%3Cdot_separated_pre_release_identifiers%3E%20%3A%3A%3D%20%3Cpre_release_identifier%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cpre_release_identifier%3E%20%22.%22%20%3Cdot_separated_pre_release_identifiers%3E%0A%3Cbuild%3E%20%3A%3A%3D%20%3Cdot_separated_build_identifiers%3E%0A%3Cdot_separated_build_identifiers%3E%20%3A%3A%3D%20%3Cbuild_identifier%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cbuild_identifier%3E%20%22.%22%20%3Cdot_separated_build_identifiers%3E%0A%3Cpre_release_identifier%3E%20%3A%3A%3D%20%3Calphanumeric_identifier%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cnumeric_identifier%3E%0A%3Cbuild_identifier%3E%20%3A%3A%3D%20%3Calphanumeric_identifier%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cdigits%3E%0A%3Calphanumeric_identifier%3E%20%3A%3A%3D%20%3Cnon_digit%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cnon_digit%3E%20%3Cidentifier_characters%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cidentifier_characters%3E%20%3Cnon_digit%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cidentifier_characters%3E%20%3Cnon_digit%3E%20%3Cidentifier_characters%3E%0A%3Cnumeric_identifier%3E%20%3A%3A%3D%20%220%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cpositive_digit%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cpositive_digit%3E%20%3Cdigits%3E%0A%3Cidentifier_characters%3E%20%3A%3A%3D%20%3Cidentifier_character%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cidentifier_character%3E%20%3Cidentifier_characters%3E%0A%3Cidentifier_character%3E%20%3A%3A%3D%20%3Cdigit%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cnon_digit%3E%0A%3Cnon_digit%3E%20%3A%3A%3D%20%3Cletter%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%22-%22%0A%3Cdigits%3E%20%3A%3A%3D%20%3Cdigit%3E%0A%20%20%20%20%20%20%20%20%20%20%20%7C%20%3Cdigit%3E%20%3Cdigits%3E%0A%3Cdigit%3E%20%3A%3A%3D%20%220%22%0A%20%20%20%20%20%20%20%20%20%20%7C%20%3Cpositive_digit%3E%0A%3Cpositive_digit%3E%20%3A%3A%3D%20%221%22%20%7C%20%222%22%20%7C%20%223%22%20%7C%20%224%22%20%7C%20%225%22%20%7C%20%226%22%20%7C%20%227%22%20%7C%20%228%22%20%7C%20%229%22%0A%3Cletter%3E%20%3A%3A%3D%20%22A%22%20%7C%20%22B%22%20%7C%20%22C%22%20%7C%20%22D%22%20%7C%20%22E%22%20%7C%20%22F%22%20%7C%20%22G%22%20%7C%20%22H%22%20%7C%20%22I%22%20%7C%20%22J%22%0A%20%20%20%20%20%20%20%20%20%20%20%7C%20%22K%22%20%7C%20%22L%22%20%7C%20%22M%22%20%7C%20%22N%22%20%7C%20%22O%22%20%7C%20%22P%22%20%7C%20%22Q%22%20%7C%20%22R%22%20%7C%20%22S%22%20%7C%20%22T%22%0A%20%20%20%20%20%20%20%20%20%20%20%7C%20%22U%22%20%7C%20%22V%22%20%7C%20%22W%22%20%7C%20%22X%22%20%7C%20%22Y%22%20%7C%20%22Z%22%20%7C%20%22a%22%20%7C%20%22b%22%20%7C%20%22c%22%20%7C%20%22d%22%0A%20%20%20%20%20%20%20%20%20%20%20%7C%20%22e%22%20%7C%20%22f%22%20%7C%20%22g%22%20%7C%20%22h%22%20%7C%20%22i%22%20%7C%20%22j%22%20%7C%20%22k%22%20%7C%20%22l%22">BNF checking tool</a></li>
 <li><a href="https://regex101.com/r/vkijKf/1/">Example valid and invalid semvers</a></li>
+<li><a href="https://devhints.io/semver">Semver cheatsheet</a></li>
 </ul>
                 
               

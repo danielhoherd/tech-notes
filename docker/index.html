@@ -11,6 +11,8 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/docker/">
+      
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
@@ -73,7 +75,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes">
+    <a href="https://danielhoherd.com/tech-notes/" title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -156,7 +158,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes">
+    <a href="https://danielhoherd.com/tech-notes/" title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -1217,6 +1219,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#determine-if-you-are-running-inside-docker" class="md-nav__link">
+    Determine if you are running inside docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name" class="md-nav__link">
     Run a docker image and assign it a hostname, and a docker name
   </a>
@@ -2130,6 +2139,21 @@
     <li class="md-nav__item">
       <a href="../internet/" class="md-nav__link">
         The Internet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        Interviews
       </a>
     </li>
   
@@ -4806,6 +4830,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#determine-if-you-are-running-inside-docker" class="md-nav__link">
+    Determine if you are running inside docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name" class="md-nav__link">
     Run a docker image and assign it a hostname, and a docker name
   </a>
@@ -4968,6 +4999,10 @@
 <p><a href="https://docs.docker.com/reference/commandline/cli/#run">https://docs.docker.com/reference/commandline/cli/#run</a></p>
 <h3 id="get-a-bash-terminal-on-a-running-docker-container">Get a bash terminal on a running docker container</h3>
 <pre><code>docker exec -i -t container_name bash
+</code></pre>
+<h3 id="determine-if-you-are-running-inside-docker">Determine if you are running inside docker</h3>
+<p>Exit code will be 0 in docker:</p>
+<pre><code class="language-sh">grep -q docker /proc/1/cgroup
 </code></pre>
 <h3 id="run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name">Run a docker image and assign it a hostname, and a docker name</h3>
 <pre><code>docker run --hostname=somehost1 --name=&quot;host1&quot; -ti centos:centos6 bash
