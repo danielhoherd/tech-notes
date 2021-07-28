@@ -2912,7 +2912,14 @@
     Homebrew
   </a>
   
-    <nav class="md-nav" aria-label="Homebrew">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combine-multi-part-xci" class="md-nav__link">
+    Combine multi-part xci
+  </a>
+  
+    <nav class="md-nav" aria-label="Combine multi-part xci">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4658,7 +4665,14 @@
     Homebrew
   </a>
   
-    <nav class="md-nav" aria-label="Homebrew">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combine-multi-part-xci" class="md-nav__link">
+    Combine multi-part xci
+  </a>
+  
+    <nav class="md-nav" aria-label="Combine multi-part xci">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4702,7 +4716,13 @@
                 
                 <h1 id="nintendo-switch">Nintendo Switch</h1>
 <h2 id="homebrew">Homebrew</h2>
+<h2 id="combine-multi-part-xci">Combine multi-part xci</h2>
+<p>When dumping games to fat32, you may need to create multi-part xci files. In my experience, you can combine these files by just concatenating them together. For example:</p>
+<pre><code class="language-sh">cat *.xc[0-9] &gt; foo.xci
+4nxci -k prod.keys foo.xci
+</code></pre>
 <h3 id="create-a-switch-compatible-partition-from-linux">Create a Switch compatible partition from linux</h3>
+<p>Rule #1 is to avoid using exfat at all costs.</p>
 <p>The Switch uses MBR 🙄 and has crummy exfat support... The following requires root permissions.</p>
 <pre><code class="language-sh">SD_DISK=/dev/sdZ
 sfdisk &quot;$SD_DISK&quot; &lt;&lt;EOF
