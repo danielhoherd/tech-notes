@@ -1415,9 +1415,51 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          fluentd
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         fluentd
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#snips" class="md-nav__link">
+    Snips
+  </a>
+  
+    <nav class="md-nav" aria-label="Snips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parse-the-tail-pos-file-into-decimal-position-inode-and-inspect-the-position" class="md-nav__link">
+    Parse the tail pos file into decimal position, inode, and inspect the position
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3966,6 +4008,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../spotlight/" class="md-nav__link">
+        Spotlight
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sqlite/" class="md-nav__link">
         sqlite
       </a>
@@ -4591,6 +4648,34 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#snips" class="md-nav__link">
+    Snips
+  </a>
+  
+    <nav class="md-nav" aria-label="Snips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parse-the-tail-pos-file-into-decimal-position-inode-and-inspect-the-position" class="md-nav__link">
+    Parse the tail pos file into decimal position, inode, and inspect the position
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4604,6 +4689,35 @@
                 
                 <h1 id="fluentd">fluentd</h1>
 <p>"Fluentd is an open source data collector for unified logging layer." - <a href="https://www.fluentd.org/">https://www.fluentd.org/</a></p>
+<h2 id="snips">Snips</h2>
+<h3 id="parse-the-tail-pos-file-into-decimal-position-inode-and-inspect-the-position">Parse the tail pos file into decimal position, inode, and inspect the position</h3>
+<p>This <a href="https://docs.fluentd.org/input/tail#pos_file-highly-recommended">pos_file</a>'s columns are Filename,Position,Inode. In the below examples we don't actually do anything with the inode number, but you could use in in <code>debugfs</code> etc..</p>
+<pre><code class="language-sh">POS_FILES=&quot;/var/log/fluentd-containers.log.pos&quot;
+while read -r file pos inode ; do
+    echo &quot;$file $((16#$pos)) $((16#$inode))&quot;
+done &lt; &quot;$POS_FILE&quot;
+</code></pre>
+<p>This will output something like:</p>
+<pre><code>/var/log/containers/calico-node-0am...cb0.log 2797 5347425
+</code></pre>
+<p>You can feed this through some math to see how far behind fluentd is for each file, and then into <code>dd</code> to see what the data is that fluentd has yet to process:</p>
+<pre><code class="language-sh">while read -r file pos _ ; do
+    if f=$(readlink -f &quot;$file&quot;) &amp;&amp; [ -f &quot;$f&quot; ] ; then  # resolve symlinks and check that file exists
+        f_size=&quot;$(stat -c &quot;%s&quot; &quot;$f&quot;)&quot;  # get file size in bytes
+        pos_dec=$((16#$pos))  # convert pos from hex to dec
+        if [[ &quot;$f_size&quot; -gt &quot;${pos_dec}&quot; ]]; then
+            echo &quot;$file f_size=${f_size}, pos=${pos_dec}, diff=$(( f_size - 16#$pos ))&quot;
+            dd status=none bs=1 if=&quot;$f&quot; skip=&quot;${pos_dec}&quot; count=256
+            echo
+        fi
+    fi
+done &lt; &quot;$POS_FILE&quot;
+</code></pre>
+<p>Which will output a bunch of lines like:</p>
+<pre><code>/var/log/containers/network-metering-agent-tsl6s_kube-system_agent-25c3e4bc7bd0ddfdda571d8279b040d0a2f3dac03786a40b19dac11873a6af5a.log f_size=1996377, pos=1995147, diff=1230
+{&quot;log&quot;:&quot;W0809 18:03:09.184540       1 reflector.go:289] k8s.io/client-go/informers/factory.go:133: watch of *v1.ConfigMap ended with: too old resource version: 1489908695 (1489955501)\n&quot;,&quot;stream&quot;:&quot;stderr&quot;,&quot;time&quot;:&quot;2021-08-09T18:03:09.184786383Z&quot;}
+{&quot;log&quot;:&quot;W0
+</code></pre>
                 
               
               

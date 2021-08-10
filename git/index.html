@@ -1904,6 +1904,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#git-shortlog" class="md-nav__link">
+    git shortlog
+  </a>
+  
+    <nav class="md-nav" aria-label="git shortlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-number-of-commits-by-user-including-e-mail" class="md-nav__link">
+    Show number of commits by user, including e-mail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git-show" class="md-nav__link">
     git show
   </a>
@@ -4579,6 +4599,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../spotlight/" class="md-nav__link">
+        Spotlight
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sqlite/" class="md-nav__link">
         sqlite
       </a>
@@ -5587,6 +5622,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#git-shortlog" class="md-nav__link">
+    git shortlog
+  </a>
+  
+    <nav class="md-nav" aria-label="git shortlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-number-of-commits-by-user-including-e-mail" class="md-nav__link">
+    Show number of commits by user, including e-mail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git-show" class="md-nav__link">
     git show
   </a>
@@ -5978,6 +6033,12 @@ git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 <h4 id="really-pretty-logs">Really pretty logs</h4>
 <pre><code>log --graph --oneline --decorate --all
 </code></pre>
+<h3 id="git-shortlog">git shortlog</h3>
+<h4 id="show-number-of-commits-by-user-including-e-mail">Show number of commits by user, including e-mail</h4>
+<p>Using the <code>-e</code> flag includes e-mail address. The list is unique per entry, so if you use a different name along with the same e-mail address, that shows up as two entries in the list.</p>
+<pre><code class="language-sh">git shortlog -ens
+</code></pre>
+<p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <code>[git filter-repo](https://github.com/newren/git-filter-repo)</code> operation.</p>
 <h3 id="git-show">git show</h3>
 <h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h4>
 <pre><code>git show f73f9ec7c07e
