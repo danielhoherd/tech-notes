@@ -3403,6 +3403,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#common-args" class="md-nav__link">
+    Common args
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage-tips" class="md-nav__link">
     Usage Tips
   </a>
@@ -4711,6 +4718,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#common-args" class="md-nav__link">
+    Common args
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage-tips" class="md-nav__link">
     Usage Tips
   </a>
@@ -4801,6 +4815,16 @@
                 
                 <h1 id="pytest">pytest</h1>
 <p>"The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries." - <a href="https://docs.pytest.org">https://docs.pytest.org</a></p>
+<h2 id="common-args">Common args</h2>
+<p><code>pytest --help</code> is a bit overwhelming, so here's a smaller reference:</p>
+<ul>
+<li><code>--pdb</code> drop to pdb when an exception is raised</li>
+<li><code>--maxfail=N</code> quit after this many test failures</li>
+<li><code>--ff</code> run previously failed tests first</li>
+<li><code>--lf</code> only run tests that previously failed</li>
+<li><code>-k searchstring</code> only run tests that have "searchstring' in them (actually more complicated matches can be done with <code>-k</code>)</li>
+<li><code>-s</code> alias for <code>--capture=no</code> which basically means "show output of print statements in tests"</li>
+</ul>
 <h2 id="usage-tips">Usage Tips</h2>
 <h3 id="debug-failing-test-with-pdb">Debug failing test with pdb</h3>
 <p>This will drop you into a pdb shell when a test failure occurs.</p>

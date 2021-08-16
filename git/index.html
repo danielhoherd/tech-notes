@@ -2133,6 +2133,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#git-grep" class="md-nav__link">
+    git grep
+  </a>
+  
+    <nav class="md-nav" aria-label="git grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-string-in-all-branches" class="md-nav__link">
+    Find a string in all branches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5851,6 +5871,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#git-grep" class="md-nav__link">
+    git grep
+  </a>
+  
+    <nav class="md-nav" aria-label="git grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-string-in-all-branches" class="md-nav__link">
+    Find a string in all branches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5888,7 +5928,7 @@
 <h2 id="examples">Examples</h2>
 <h3 id="git-init">git init</h3>
 <h4 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD</h4>
-<pre><code>git init
+<pre><code class="language-sh">git init
 echo &quot;&quot; &gt;&gt; .gitignore
 echo &quot;# Ignore other unneeded files.
 *.swp
@@ -5897,52 +5937,52 @@ echo &quot;# Ignore other unneeded files.
 </code></pre>
 <h3 id="git-clone">git clone</h3>
 <h4 id="clone-a-local-repo">Clone a local repo</h4>
-<pre><code>git clone /path/to/repo
+<pre><code class="language-sh">git clone /path/to/repo
 </code></pre>
 <h4 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh</h4>
-<pre><code>git clone user@ssh_server:/opt/git/project
+<pre><code class="language-sh">git clone user@ssh_server:/opt/git/project
 </code></pre>
 <h3 id="git-filesystem-operations">git filesystem operations</h3>
 <h4 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo</h4>
-<pre><code>git add .
+<pre><code class="language-sh">git add .
 </code></pre>
 <h4 id="rename-a-file-in-the-git-repo">Rename a file in the git repo</h4>
 <p>This also renames the filesystem file.</p>
-<pre><code>git mv README.rdoc README.md
+<pre><code class="language-sh">git mv README.rdoc README.md
 </code></pre>
 <h4 id="delete-a-file-from-the-repo">Delete a file from the repo</h4>
-<pre><code>git rm filename
+<pre><code class="language-sh">git rm filename
 </code></pre>
 <h3 id="git-status">git status</h3>
 <h4 id="check-the-status-of-git">Check the status of git</h4>
-<pre><code>git status
+<pre><code class="language-sh">git status
 </code></pre>
 <h3 id="git-commit">git commit</h3>
 <h4 id="commit-the-current-changes">Commit the current changes</h4>
-<pre><code>git commit -m &quot;Initial commit&quot;
+<pre><code class="language-sh">git commit -m &quot;Initial commit&quot;
 </code></pre>
 <h4 id="commit-all-changes-with-commit-a">Commit all changes with commit -a</h4>
-<pre><code>git commit -a -m &quot;Improve the README file&quot;
+<pre><code class="language-sh">git commit -a -m &quot;Improve the README file&quot;
 </code></pre>
 <h4 id="skip-git-commit-hooks">Skip git commit hooks</h4>
-<pre><code>git commit --no-verify
+<pre><code class="language-sh">git commit --no-verify
 </code></pre>
 <h3 id="git-tag">git tag</h3>
 <p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
 <p>Git supports two types of tags: lightweight and annotated.</p>
 <h4 id="create-an-annotated-tag">Create an annotated tag</h4>
 <p>Annotated tags, are stored as full objects in the Git database.</p>
-<pre><code>git tag -m &quot;Improve X and Y.&quot; v0.5.3
+<pre><code class="language-sh">git tag -m &quot;Improve X and Y.&quot; v0.5.3
 </code></pre>
 <h4 id="create-a-light-tag">Create a light tag</h4>
 <p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
-<pre><code>git tag v0.5.3
+<pre><code class="language-sh">git tag v0.5.3
 </code></pre>
 <h4 id="delete-a-local-tag">Delete a local tag</h4>
-<pre><code>git tag -d v0.5.3
+<pre><code class="language-sh">git tag -d v0.5.3
 </code></pre>
 <h4 id="delete-a-remote-tag">Delete a remote tag</h4>
-<pre><code>git push --delete origin v0.5.3
+<pre><code class="language-sh">git push --delete origin v0.5.3
 </code></pre>
 <h3 id="git-config">git config</h3>
 <p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
@@ -5956,7 +5996,7 @@ echo &quot;# Ignore other unneeded files.
 </code></pre>
 <h4 id="git-client-setup">Git client setup</h4>
 <p>This creates and modifies ~/.gitconfig with some parameters:</p>
-<pre><code>git config --global user.name &quot;Daniel Hoherd&quot;
+<pre><code class="language-sh">git config --global user.name &quot;Daniel Hoherd&quot;
 git config --global user.email daniel.hoherd@gmail.com
 git config --global alias.co checkout
 git config --global core.editor &quot;vim&quot;
@@ -5964,7 +6004,7 @@ git config --global merge.tool vimdiff
 git config --global log.date iso
 </code></pre>
 <h4 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params</h4>
-<pre><code>git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
+<pre><code class="language-sh">git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
 git config --replace-all svn-remote.svn.fetch ops:refs/remotes/trunk
 git config --add svn-remote.svn.preserve-empty-dirs true
 git config --unset svn-remote.svn.branches
@@ -5972,66 +6012,66 @@ git config --unset svn-remote.svn.tags
 git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 </code></pre>
 <h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format</h4>
-<pre><code>git config --list
+<pre><code class="language-sh">git config --list
 </code></pre>
 <h3 id="git-diff">git diff</h3>
 <p>Show differences between objects and stuff.</p>
 <h4 id="diff-between-staged-and-committed">diff between staged and committed</h4>
 <p>This is useful when you're adding files that were not previously in the repo alongside changes to existing files, since a bare <code>git diff</code> before adding the files will only show changes to files that were already in the repo.</p>
-<pre><code>git diff --staged
+<pre><code class="language-sh">git diff --staged
 </code></pre>
 <h4 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences</h4>
-<pre><code>git diff --color-words
+<pre><code class="language-sh">git diff --color-words
 </code></pre>
 <h4 id="machine-readable-word-diff">Machine readable word diff</h4>
-<pre><code>git diff --word-diff
+<pre><code class="language-sh">git diff --word-diff
 </code></pre>
 <h4 id="diff-and-ignore-whitespace">Diff and ignore whitespace</h4>
 <p>This does not ignore line ending changes or blank line insertion and removals.</p>
-<pre><code>git diff -w
+<pre><code class="language-sh">git diff -w
 </code></pre>
 <h4 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date</h4>
-<pre><code>git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
+<pre><code class="language-sh">git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
 </code></pre>
 <h4 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time</h4>
-<pre><code>git whatchanged --since=&quot;18 hours ago&quot; -p
+<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; -p
 </code></pre>
 <p>or...</p>
-<pre><code>git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
+<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
 </code></pre>
 <h3 id="git-blame">git blame</h3>
 <p><code>git blame</code> shows information about the commit associated with each line of a file.</p>
 <h4 id="simple-usage">Simple usage</h4>
-<pre><code>git blame &lt;filename&gt;
+<pre><code class="language-sh">git blame &lt;filename&gt;
 </code></pre>
 <h4 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame</h4>
 <p>When somebody has reformatted code but didn't make any code changes, this will show the prior commits where something more than whitespace changed.</p>
-<pre><code>git blame -w &lt;filename&gt;
+<pre><code class="language-sh">git blame -w &lt;filename&gt;
 </code></pre>
 <h3 id="git-log">git log</h3>
 <p>Shows commit history.</p>
 <h4 id="view-the-commit-history">View the commit history</h4>
-<pre><code>git log
+<pre><code class="language-sh">git log
 </code></pre>
 <h4 id="show-one-log-entry">Show one log entry</h4>
-<pre><code>git log -1
+<pre><code class="language-sh">git log -1
 </code></pre>
 <h4 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string</h4>
 <p>This searches the content of the diff, not the commit message.</p>
-<pre><code>git log -S search_string
+<pre><code class="language-sh">git log -S search_string
 </code></pre>
 <h4 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex</h4>
-<pre><code>git log --grep='[Ww]hitespace'
+<pre><code class="language-sh">git log --grep='[Ww]hitespace'
 </code></pre>
 <h4 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days</h4>
-<pre><code>git log --since=3.days modules/profile_sensu
+<pre><code class="language-sh">git log --since=3.days modules/profile_sensu
 </code></pre>
 <h4 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits</h4>
 <p>Useful for seeing TZ settings.</p>
-<pre><code>git log --format=raw -5
+<pre><code class="language-sh">git log --format=raw -5
 </code></pre>
 <h4 id="really-pretty-logs">Really pretty logs</h4>
-<pre><code>log --graph --oneline --decorate --all
+<pre><code class="language-sh">log --graph --oneline --decorate --all
 </code></pre>
 <h3 id="git-shortlog">git shortlog</h3>
 <h4 id="show-number-of-commits-by-user-including-e-mail">Show number of commits by user, including e-mail</h4>
@@ -6041,74 +6081,74 @@ git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 <p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <code>[git filter-repo](https://github.com/newren/git-filter-repo)</code> operation.</p>
 <h3 id="git-show">git show</h3>
 <h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h4>
-<pre><code>git show f73f9ec7c07e
+<pre><code class="language-sh">git show f73f9ec7c07e
 </code></pre>
 <h4 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA</h4>
 <p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given SHA.</p>
-<pre><code>git show f73f9ec7c07e:dir/filename.yaml
+<pre><code class="language-sh">git show f73f9ec7c07e:dir/filename.yaml
 </code></pre>
 <h3 id="git-branches">git branches</h3>
 <p>Branches are an integral part of git. They allow you to work on distinct changes without mixing them all up together.</p>
 <h4 id="create-a-branch">Create a branch</h4>
-<pre><code>git checkout -b readme-fix
+<pre><code class="language-sh">git checkout -b readme-fix
 </code></pre>
 <h4 id="check-which-branch-youre-in">Check which branch you're in</h4>
-<pre><code>git branch
+<pre><code class="language-sh">git branch
 </code></pre>
 <h4 id="rename-move-a-branch">Rename (move) a branch</h4>
-<pre><code>git branch -m oldname newname
+<pre><code class="language-sh">git branch -m oldname newname
 </code></pre>
 <h3 id="git-merge">git merge</h3>
 <p>This lets you merge two branches.</p>
 <h4 id="merge-branch-with-master">Merge branch with master</h4>
-<pre><code>git checkout master
+<pre><code class="language-sh">git checkout master
 git merge readme-fix-branch
 git branch -d readme-fix-branch
 </code></pre>
 <h4 id="disable-fast-forward-merges">disable fast-forward merges</h4>
 <p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
-<pre><code>git config --global merge.ff false
+<pre><code class="language-sh">git config --global merge.ff false
 </code></pre>
 <h3 id="remotes">remotes</h3>
 <h4 id="add-a-remote">Add a remote</h4>
-<pre><code>git remote add upstream https://github.com/danielhoherd/homepass
+<pre><code class="language-sh">git remote add upstream https://github.com/danielhoherd/homepass
 </code></pre>
 <h4 id="push-to-a-specific-remote">Push to a specific remote</h4>
-<pre><code>## push to the master branch of the remote named upstream
+<pre><code class="language-sh"># push to the master branch of the remote named upstream
 git push upstream master
 </code></pre>
 <h4 id="alter-the-source-of-origin">Alter the source of origin</h4>
 <p>If you move your repo to another location, use this command to change the upstream URL:</p>
-<pre><code>git remote set-url origin https://user@newhost/newpath/reponame
+<pre><code class="language-sh">git remote set-url origin https://user@newhost/newpath/reponame
 </code></pre>
 <h3 id="git-reset">git reset</h3>
 <p><code>git reset</code> allows you to reset your state to what it was at a previous point.</p>
 <h4 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally</h4>
 <p>The reflog is a log of what steps have been performed locally. You can view the reflog, then reset to a prior state.</p>
-<pre><code>git reflog # show all HEAD changes
+<pre><code class="language-sh">git reflog # show all HEAD changes
 git reset --hard 45e0ae5 # reset all git tracked state to 45e0ae5
 </code></pre>
 <p>Alternately, you can use a date:</p>
-<pre><code>git reflog --date=iso # absolute date based reflog references
+<pre><code class="language-sh">git reflog --date=iso # absolute date based reflog references
 git reset &quot;HEAD@{2015-03-25 14:45:30 -0700}&quot; --hard
 </code></pre>
 <h4 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master</h4>
 <p>Do this if you want to start your branch over with only the current changes. This is useful if you've been iterating through lots of bad changes that were committed and want to clean them all out. It basically lets you squash to a single commit on your branch.</p>
-<pre><code>git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+<pre><code class="language-sh">git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
 </code></pre>
 <h4 id="hard-reset-of-local-changes">Hard reset of local changes</h4>
 <p>This will abandon all local changes and resolve merge conflicts</p>
-<pre><code>git fetch origin
+<pre><code class="language-sh">git fetch origin
 git reset --hard origin/master
 </code></pre>
 <h3 id="git-clean">git clean</h3>
 <h4 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories</h4>
 <p>This is useful after your reset to a prior state. It deletes all files and directories that show up in the untracked section of <code>git status</code></p>
-<pre><code>git clean -ffdx
+<pre><code class="language-sh">git clean -ffdx
 </code></pre>
 <h3 id="miscellaneous-tricks">Miscellaneous tricks</h3>
 <h4 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h4>
-<pre><code>find /var/www/html/mediawiki/ -name .git | while read -r X ; do
+<pre><code class="language-sh">find /var/www/html/mediawiki/ -name .git | while read -r X ; do
   pushd &quot;$(dirname &quot;${X}&quot;)&quot; &amp;&amp; \
   [ $(git remote -v | wc -l) -gt 0 ] &amp;&amp; \
   git pull &amp;&amp; \
@@ -6116,12 +6156,17 @@ git reset --hard origin/master
 done ;
 </code></pre>
 <h4 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date</h4>
-<pre><code>git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
+<pre><code class="language-sh">git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
 --pretty=format:'%ad %h%d %an | %s %n' --date=iso -1 | sort | nl -ba
 </code></pre>
 <h4 id="branch-cleanup">Branch cleanup</h4>
 <pre><code>git gc --prune=now
 git remote prune origin
+</code></pre>
+<h3 id="git-grep">git grep</h3>
+<h4 id="find-a-string-in-all-branches">Find a string in all branches</h4>
+<p>This finds the word "hunter2" in the tests directory of all branches.</p>
+<pre><code class="language-sh">git grep '\bhunter2\b' $(git branch -a --format='%(refname:short)') tests/
 </code></pre>
                 
               

@@ -4772,11 +4772,12 @@
 <pre><code>lsof -iTCP -sTCP:LISTEN -P | sort -k2 -t: -n
 </code></pre>
 <h3 id="show-what-process-is-using-port-80-or-443-with-port-numbers">show what process is using port 80 or 443 with port numbers</h3>
-<pre><code>## -n makes lsof not resolve hostnames from ip addresses
+<pre><code>## -w make output wide
+## -n makes lsof not resolve hostnames from ip addresses
 ## -P makes lsof not resolve service names for port numbers.
 ## -iTCP shows IP TCP sockets.
 
-lsof -nP -iTCP:80,443
+lsof -wnP -iTCP:80,443
 </code></pre>
 <h3 id="show-the-selinux-context-for-sockets">show the selinux context for sockets</h3>
 <pre><code>lsof -i -Z

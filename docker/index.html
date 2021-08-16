@@ -1205,6 +1205,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#run-the-docker-command-against-a-remote-host" class="md-nav__link">
+    Run the docker command against a remote host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-a-docker-image-in-an-interactive-shell" class="md-nav__link">
     Run a docker image in an interactive shell
   </a>
@@ -1310,8 +1317,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-a-shell-on-a-running-container" class="md-nav__link">
-    Get a shell on a running container
+  <a href="#delete-all-unused-stuff" class="md-nav__link">
+    Delete all unused stuff
   </a>
   
 </li>
@@ -1338,8 +1345,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-a-list-of-tags-for-a-given-image" class="md-nav__link">
-    Show a list of tags for a given image
+  <a href="#show-a-list-of-tags-for-a-given-image-on-docker-hub" class="md-nav__link">
+    Show a list of tags for a given image on docker hub
   </a>
   
 </li>
@@ -4831,6 +4838,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#run-the-docker-command-against-a-remote-host" class="md-nav__link">
+    Run the docker command against a remote host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-a-docker-image-in-an-interactive-shell" class="md-nav__link">
     Run a docker image in an interactive shell
   </a>
@@ -4936,8 +4950,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-a-shell-on-a-running-container" class="md-nav__link">
-    Get a shell on a running container
+  <a href="#delete-all-unused-stuff" class="md-nav__link">
+    Delete all unused stuff
   </a>
   
 </li>
@@ -4964,8 +4978,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-a-list-of-tags-for-a-given-image" class="md-nav__link">
-    Show a list of tags for a given image
+  <a href="#show-a-list-of-tags-for-a-given-image-on-docker-hub" class="md-nav__link">
+    Show a list of tags for a given image on docker hub
   </a>
   
 </li>
@@ -5004,8 +5018,12 @@
 <h3 id="show-the-history-of-an-image-and-count-its-layers">Show the history of an image, and count its layers</h3>
 <pre><code>docker history ubuntu:bionic | nl -ba -v0
 </code></pre>
+<h3 id="run-the-docker-command-against-a-remote-host">Run the docker command against a remote host</h3>
+<p>Using this method can save your mac a lot of resources and easily get a laptop to have access to a much larger machine's resources. Not all features work, such as bind mounts from the local machine.</p>
+<pre><code class="language-sh">DOCKER_HOST=ssh://some-linux-machine docker ps
+</code></pre>
 <h3 id="run-a-docker-image-in-an-interactive-shell">Run a docker image in an interactive shell</h3>
-<pre><code>docker run -i -t node bash
+<pre><code class="language-sh">docker run -i -t ubuntu:focal bash
 </code></pre>
 <ul>
 <li>-i, --interactive</li>
@@ -5013,21 +5031,21 @@
 </ul>
 <p><a href="https://docs.docker.com/reference/commandline/cli/#run">https://docs.docker.com/reference/commandline/cli/#run</a></p>
 <h3 id="get-a-bash-terminal-on-a-running-docker-container">Get a bash terminal on a running docker container</h3>
-<pre><code>docker exec -i -t container_name bash
+<pre><code class="language-sh">docker exec -i -t running-container-name bash
 </code></pre>
 <h3 id="determine-if-you-are-running-inside-docker">Determine if you are running inside docker</h3>
 <p>Exit code will be 0 in docker:</p>
 <pre><code class="language-sh">grep -q docker /proc/1/cgroup
 </code></pre>
 <h3 id="run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name">Run a docker image and assign it a hostname, and a docker name</h3>
-<pre><code>docker run --hostname=somehost1 --name=&quot;host1&quot; -ti centos:centos6 bash
+<pre><code class="language-sh">docker run --hostname=somehost1 --name=&quot;host1&quot; -ti centos:centos6 bash
 </code></pre>
 <p>The hostname shows up to the OS. The docker name can be used to interact with the container:</p>
-<pre><code>docker ps host1
+<pre><code class="language-sh">docker ps host1
 </code></pre>
 <h3 id="show-a-complete-vertically-oriented-list-of-docker-processes">Show a complete vertically oriented list of docker processes</h3>
 <p><code>docker ps</code> has no <code>--json</code> flag, but you can work around that with golang style formatting.</p>
-<pre><code>docker ps --no-trunc --format='{{ . | json }}' | jq -S .
+<pre><code class="language-sh">docker ps --no-trunc --format='{{ . | json }}' | jq -S .
 </code></pre>
 <p>This trick also works with <code>docker images</code>, which also lacks a <code>--json</code> arg.</p>
 <h3 id="show-a-table-of-docker-containers-sorted-by-space-used-in-the-container-not-by-the-image">Show a table of docker containers sorted by space used in the container (not by the image)</h3>
@@ -5043,61 +5061,62 @@ column -t
 </code></pre>
 <h3 id="run-a-container-with-a-tcp-port-map">Run a container with a tcp port map</h3>
 <p>This maps port 18022 of the host to 22 of the guest.</p>
-<pre><code>docker run -ti -p 18022:22 centos bash
+<pre><code class="language-sh">docker run -ti -p 18022:22 centos:7 bash
 </code></pre>
 <h3 id="run-a-container-with-a-shared-directory">Run a container with a shared directory</h3>
 <p>We are specifying :ro to make this a read-only mount. Default is rw.</p>
-<pre><code>docker run -d -v &quot;$HOME/www/:/var/www/html/:ro&quot; php:5.4.35-apache
+<pre><code class="language-sh">docker run -d -v &quot;$HOME/www/:/var/www/html/:ro&quot; php:5.4.35-apache
 </code></pre>
 <h3 id="show-configuration-parameters-for-a-container">Show configuration parameters for a container</h3>
 <p>This shows more things that you can configure, like DNS, DNS search, etc..</p>
-<pre><code>docker inspect host1
+<pre><code class="language-sh">docker inspect host1
 </code></pre>
 <h3 id="show-what-has-changed-since-a-container-was-started">Show what has changed since a container was started</h3>
-<pre><code>docker diff &lt;container-id&gt;
+<pre><code class="language-sh">docker diff &quot;$some_running_image&quot;
 </code></pre>
 <p><a href="https://docs.docker.com/reference/commandline/cli/#diff">https://docs.docker.com/reference/commandline/cli/#diff</a></p>
 <h3 id="view-the-terminal-scrollback-of-a-a-container">View the terminal scrollback of a a container</h3>
-<pre><code>docker logs &lt;container-id&gt;
+<pre><code class="language-sh">docker logs &quot;$some_running_image&quot;
 </code></pre>
 <h3 id="list-all-containers-including-ones-that-have-been-stopped">List all containers, including ones that have been stopped</h3>
 <p>This allows you to restart previous instances of a container.</p>
-<pre><code>docker ps -a
+<pre><code class="language-sh">docker ps -a
 </code></pre>
 <p><a href="https://docs.docker.com/reference/commandline/cli/#ps">https://docs.docker.com/reference/commandline/cli/#ps</a></p>
 <h3 id="start-a-named-container">Start a named container</h3>
 <p>By default containers don't restart when your system restarts, so you have to start them manually.</p>
-<pre><code>docker start ttrss
+<pre><code class="language-sh">docker start ttrss
 </code></pre>
 <h3 id="stop-a-named-container">Stop a named container</h3>
-<pre><code>docker stop ttrss
+<pre><code class="language-sh">docker stop ttrss
 </code></pre>
 <h3 id="update-the-restart-policy-on-a-running-container">Update the restart policy on a running container</h3>
-<pre><code>docker update --restart=unless-stopped 3a898cb672ad
+<pre><code class="language-sh">docker update --restart=unless-stopped &quot;$some_running_image&quot;
 </code></pre>
-<h3 id="get-a-shell-on-a-running-container">Get a shell on a running container</h3>
-<pre><code>docker exec -ti ttrss bash
+<h3 id="delete-all-unused-stuff">Delete all unused stuff</h3>
+<p>This will be interactive.</p>
+<pre><code class="language-sh">docker system prune
 </code></pre>
 <h3 id="delete-old-containers">Delete old containers</h3>
 <p><a href="https://docs.docker.com/reference/commandline/cli/#rm">https://docs.docker.com/reference/commandline/cli/#rm</a></p>
-<p>Remove <code>-r</code> from <code>xargs</code> on non-GNU systems.</p>
-<pre><code>docker ps -a --format=&quot;{{.ID}} {{.Status}}&quot; |
+<p>You may have to remove <code>-r</code> from <code>xargs</code> on non-GNU systems.</p>
+<pre><code class="language-sh">docker ps -a --format=&quot;{{.ID}} {{.Status}}&quot; |
 awk '$2 == &quot;Exited&quot; &amp;&amp; $5 ~ /(days|weeks|months)/ {print $1}' |
 xargs -r docker rm
 </code></pre>
 <p>A more systematic approach is to use <a href="https://github.com/Yelp/docker-custodian">Docker Custodian</a>.</p>
 <h3 id="delete-old-images">Delete old images</h3>
 <p>This is safe to run as long as valuable containers are running, as it won't delete any images that are attached to running containers.</p>
-<pre><code>docker rmi $(docker images | grep '^&lt;none&gt;' | awk '{print $3}')
+<pre><code class="language-sh">docker rmi $(docker images | grep '^&lt;none&gt;' | awk '{print $3}')
 </code></pre>
 <p><a href="https://docs.docker.com/reference/commandline/cli/#rmi">https://docs.docker.com/reference/commandline/cli/#rmi</a></p>
 <p>A more systematic approach is to use <a href="https://github.com/Yelp/docker-custodian">Docker Custodian</a>.</p>
 <h3 id="show-processes-running-inside-all-docker-containers">Show processes running inside all docker containers</h3>
 <p>On hosts without cgroup integration, run:</p>
-<pre><code>pgrep docker | xargs -n1 pstree
+<pre><code class="language-ps">pgrep docker | xargs -n1 pstree
 </code></pre>
-<h3 id="show-a-list-of-tags-for-a-given-image">Show a list of tags for a given image</h3>
-<pre><code>$ curl --silent -f -lSL &quot;https://index.docker.io/v1/repositories/org-name/image-name/tags&quot; |
+<h3 id="show-a-list-of-tags-for-a-given-image-on-docker-hub">Show a list of tags for a given image on docker hub</h3>
+<pre><code class="language-sh">$ curl --silent -f -lSL &quot;https://index.docker.io/v1/repositories/org-name/image-name/tags&quot; |
 jq '.[].name'
 &quot;latest&quot;
 &quot;0.11.1&quot;
