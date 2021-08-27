@@ -4233,6 +4233,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#generate-a-public-key-from-a-given-private-key" class="md-nav__link">
+    Generate a public key from a given private key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-comment-in-an-ssh-keypair" class="md-nav__link">
+    Change the comment in an ssh keypair
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-the-fingerprints-for-the-given-key-file" class="md-nav__link">
+    Show the fingerprints for the given key file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4247,8 +4268,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#show-fingerprints-that-are-loaded" class="md-nav__link">
-    Show fingerprints that are loaded
+  <a href="#show-fingerprints-for-all-keys-that-are-loaded-into-ssh-agent" class="md-nav__link">
+    Show fingerprints for all keys that are loaded into ssh-agent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-keys-from-the-agent" class="md-nav__link">
+    Delete keys from the agent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-pub-keys-from-ssh-agent" class="md-nav__link">
+    Fetch pub keys from ssh-agent
   </a>
   
 </li>
@@ -5060,6 +5095,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#generate-a-public-key-from-a-given-private-key" class="md-nav__link">
+    Generate a public key from a given private key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-comment-in-an-ssh-keypair" class="md-nav__link">
+    Change the comment in an ssh keypair
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-the-fingerprints-for-the-given-key-file" class="md-nav__link">
+    Show the fingerprints for the given key file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5074,8 +5130,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#show-fingerprints-that-are-loaded" class="md-nav__link">
-    Show fingerprints that are loaded
+  <a href="#show-fingerprints-for-all-keys-that-are-loaded-into-ssh-agent" class="md-nav__link">
+    Show fingerprints for all keys that are loaded into ssh-agent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-keys-from-the-agent" class="md-nav__link">
+    Delete keys from the agent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-pub-keys-from-ssh-agent" class="md-nav__link">
+    Fetch pub keys from ssh-agent
   </a>
   
 </li>
@@ -5123,11 +5193,11 @@
 <h2 id="sshd">sshd</h2>
 <h3 id="output-effective-server-configuration-variables">Output effective server configuration variables</h3>
 <p>This is useful for troubleshooting ssh_config matching.</p>
-<pre><code class="language-bash">sshd -T # requires root
+<pre><code class="language-sh">sshd -T # requires root
 </code></pre>
 <h2 id="ssh_2">ssh</h2>
 <h3 id="output-effective-client-configuration-variables">Output effective client configuration variables</h3>
-<pre><code class="language-bash">ssh -G user@host
+<pre><code class="language-sh">ssh -G user@host
 </code></pre>
 <h3 id="tunnel-local-port-to-the-destination-through-the-ssh-connection">tunnel local port to the destination through the SSH connection</h3>
 <p>This allows you to hit remote services as if they were running on your own machine on the given port.</p>
@@ -5139,18 +5209,18 @@ ssh -L &quot;${remote_port}:${destination_host}:${local_port}&quot;
 </code></pre>
 <h3 id="tunnel-remote-port-through-the-ssh-connection-to-the-local-machine">Tunnel remote port through the ssh connection to the local machine</h3>
 <p>This allows remote hosts to connect to a server running on your local network.</p>
-<pre><code class="language-bash">local_port=80
+<pre><code class="language-sh">local_port=80
 remote_port=9980
 destination_host=some_other_local_server
 ssh -R &quot;${remote_port}:${destination_host}:${local_port}&quot;
 </code></pre>
 <h3 id="create-a-socks-5-proxy-on-a-local-port">Create a socks 5 proxy on a local port</h3>
-<pre><code class="language-bash">local_port=5555
+<pre><code class="language-sh">local_port=5555
 ssh -D &quot;$local_port&quot; user@host
 </code></pre>
 <h3 id="loop-through-some-ssh-hosts-and-execute-a-command">Loop through some ssh hosts and execute a command</h3>
 <p>-n is required in order to proceed past the first host.</p>
-<pre><code class="language-bash">cat hostnames.txt | while read -r host ; do
+<pre><code class="language-sh">cat hostnames.txt | while read -r host ; do
   ssh -o ConnectTimeout=10 -o PasswordAuthentication=no -n &quot;$host&quot; 'some_command ; another_command ;'
 done
 </code></pre>
@@ -5163,7 +5233,7 @@ done
 </code></pre>
 <h3 id="prefer-password-auth">Prefer password auth</h3>
 <p>Sometimes you need to prefer password auth over key based auth. For example, if you have lots of keys and you are trying to connect to a host that only allows one failure, you will expire your failures before you ever reach a password dialogue.</p>
-<pre><code class="language-bash">ssh -o PreferredAuthentications=password root@libreelec.local
+<pre><code class="language-sh">ssh -o PreferredAuthentications=password root@libreelec.local
 </code></pre>
 <h2 id="ssh_config">ssh_config</h2>
 <p>The user ssh config file, <code>~/.ssh/config</code>, lets you override default options. This makes it handy for command line stuff where the syntax is funky such as using non-standard ports.</p>
@@ -5198,8 +5268,8 @@ done
 <p>Key-based authentication lets you log in without specifying a password. This is useful for <code>rsync</code>, <code>scp</code> and just plain old <code>ssh</code> shell. Adding comments to the public key makes it easy to sort through the keys that authorized_keys file. The <code>$HOME/.ssh/authorized_keys</code> file is the default list of public keys which are allowed password-less login. See also <code>man authorized_keys</code> for more info.</p>
 <h3 id="key-based-auth-permissions">Key-based auth Permissions</h3>
 <p>Permissions on this file need to be set like this:</p>
-<pre><code class="language-bash">##!/bin/sh
-## This will repair permissions for the current user's ssh key-pair authentication.
+<pre><code class="language-sh">#!/bin/sh
+# This will repair permissions for the current user's ssh key-pair authentication.
 mkdir ~/.ssh/
 touch ~/.ssh/authorized_keys
 chmod go-w ~          &amp;&amp; \
@@ -5209,21 +5279,32 @@ echo &quot;Successfully fixed ssh authentication files permissions.&quot;
 </code></pre>
 <h2 id="ssh-keygen">ssh-keygen</h2>
 <h3 id="validate-each-entry-of-authorized_keys">Validate each entry of authorized_keys</h3>
-<pre><code class="language-bash">ssh-keygen -lvf ~/.ssh/authorized_keys
+<pre><code class="language-sh">ssh-keygen -lvf ~/.ssh/authorized_keys
 </code></pre>
 <h3 id="generate-keys">Generate Keys</h3>
 <p>Not all systems support ed25519, but it is currently the most secure key type.</p>
-<pre><code class="language-bash">ssh-keygen -t ssh-ed25519 -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
+<pre><code class="language-sh">ssh-keygen -t ssh-ed25519 -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
 </code></pre>
 <p>If you require backwards compatibility, use 4096 bit RSA keys.</p>
-<pre><code class="language-bash">ssh-keygen -b 4096 -t rsa -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
+<pre><code class="language-sh">ssh-keygen -b 4096 -t rsa -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
 </code></pre>
 <h3 id="create-or-change-a-password-for-an-ssh-identity">Create or change a password for an ssh identity</h3>
 <p>This will update the password used to unlock an ssh identity.</p>
-<pre><code class="language-bash">ssh-keygen -p -f ~/.ssh/id_ed25519
+<pre><code class="language-sh">ssh-keygen -p -f ~/.ssh/id_ed25519
+</code></pre>
+<h3 id="generate-a-public-key-from-a-given-private-key">Generate a public key from a given private key</h3>
+<p>This outputs the pub key, including the comment that is stored in the private key.</p>
+<pre><code class="language-sh">ssh-keygen -y -f id_rsa_bar
+</code></pre>
+<h3 id="change-the-comment-in-an-ssh-keypair">Change the comment in an ssh keypair</h3>
+<pre><code class="language-sh">ssh-keygen -c -f id_rsa_foo -C 'this is the new comment'
+</code></pre>
+<h3 id="show-the-fingerprints-for-the-given-key-file">Show the fingerprints for the given key file</h3>
+<p>This works with both private and public keys</p>
+<pre><code class="language-sh">ssh-keygen -E MD5 -l -f id_rsa_baz
 </code></pre>
 <h2 id="ssh-add">ssh-add</h2>
-<h3 id="show-fingerprints-that-are-loaded">Show fingerprints that are loaded</h3>
+<h3 id="show-fingerprints-for-all-keys-that-are-loaded-into-ssh-agent">Show fingerprints for all keys that are loaded into ssh-agent</h3>
 <pre><code># ssh-add -l
 2048 SHA256:aFAG8RjEr+mvqNyFR10kwCF9LP5ttJR3vI85qPDHDbo  (RSA)
 4096 SHA256:8K5XkmSFyAUgA6DLhQTbmTDnkh1kPc7GTdg5EYP7C8s  (RSA)
@@ -5234,6 +5315,17 @@ echo &quot;Successfully fixed ssh authentication files permissions.&quot;
 2048 MD5:65:fd:c2:05:1e:b2:a6:32:15:37:3d:e6:98:81:a9:ab  (RSA)
 4096 MD5:db:af:71:c0:44:06:33:5f:63:b0:cb:8f:8a:59:0b:46  (RSA)
 4096 MD5:8e:f3:02:1c:bb:39:8e:b2:5e:27:5a:48:c4:d1:0c:4b  (RSA)
+</code></pre>
+<h3 id="delete-keys-from-the-agent">Delete keys from the agent</h3>
+<p>Delete all keys with</p>
+<pre><code class="language-sh">ssh-add -D
+</code></pre>
+<p>Delete the key for the givent filename from ssh-agent</p>
+<pre><code class="language-sh">ssh-add -d ~/.ssh/id_rsa
+</code></pre>
+<h3 id="fetch-pub-keys-from-ssh-agent">Fetch pub keys from ssh-agent</h3>
+<p>These keys will show the comment contained within the key</p>
+<pre><code class="language-sh">ssh-add -L
 </code></pre>
 <h2 id="limit-root-login-to-key-based-auth">Limit root login to key based auth</h2>
 <p>In /etc/ssh/sshd_config</p>

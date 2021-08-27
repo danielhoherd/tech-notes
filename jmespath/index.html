@@ -4727,11 +4727,11 @@
 </ul>
 <h2 id="examples">Examples</h2>
 <h3 id="grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</h3>
-<pre><code>kubectl get po --all-namespaces -o json |
+<pre><code class="language-sh">kubectl get po --all-namespaces -o json |
 jp &quot;items[*].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
 </code></pre>
 <p>Or filter only to non-default namespace where imagePullSecrets is populated</p>
-<pre><code>kubectl get po --all-namespaces -o json |
+<pre><code class="language-sh">kubectl get po --all-namespaces -o json |
 jp &quot;items[?metadata.namespace != 'default' &amp;&amp; spec.imagePullSecrets != null].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
 </code></pre>
                 

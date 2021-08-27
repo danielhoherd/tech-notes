@@ -4798,8 +4798,12 @@
 <pre><code class="language-sh">helm search repo -l repo_name/chart_name --devel
 </code></pre>
 <h3 id="get-values-of-a-deployed-chart">Get values of a deployed chart</h3>
+<p>This only shows values that were passed in, not default values.</p>
 <p><code>$release_name</code> is the NAME column in <code>helm list</code></p>
 <pre><code class="language-sh">helm get values -o yaml &quot;$release_name&quot; &gt; values.yaml
+</code></pre>
+<p>To get a list of all values, use</p>
+<pre><code class="language-sh">helm get values --all -o yaml &quot;$release_name&quot; &gt; values.yaml`
 </code></pre>
 <h3 id="show-notes-for-a-deployed-service">Show notes for a deployed service</h3>
 <p>Notes are printed when you install a service, but they can be viewed again by running <code>helm status &lt;release_name&gt;</code> where <code>&lt;release_name&gt;</code> is one of the releases from <code>helm list</code>.</p>
