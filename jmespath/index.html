@@ -807,21 +807,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../conjure-up/" class="md-nav__link">
-        conjure-up
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../consul/" class="md-nav__link">
         consul
       </a>
@@ -1587,6 +1572,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../golang/" class="md-nav__link">
         golang
       </a>
@@ -2124,7 +2124,14 @@
     Examples
   </a>
   
-    <nav class="md-nav" aria-label="Examples">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotes-matter" class="md-nav__link">
+    Quotes matter
+  </a>
+  
+    <nav class="md-nav" aria-label="Quotes matter">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4688,7 +4695,14 @@
     Examples
   </a>
   
-    <nav class="md-nav" aria-label="Examples">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotes-matter" class="md-nav__link">
+    Quotes matter
+  </a>
+  
+    <nav class="md-nav" aria-label="Quotes matter">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4726,6 +4740,34 @@
 <li><a href="https://github.com/jmespath/jp">https://github.com/jmespath/jp</a></li>
 </ul>
 <h2 id="examples">Examples</h2>
+<h2 id="quotes-matter">Quotes matter</h2>
+<p>Something that is completely absent from <a href="https://jmespath.org/tutorial.html">the jmespath tutorial</a> is that quotes matter. You have to quote strings with single quotes, which means you have to quote the python function call with double quotes.</p>
+<pre><code class="language-py">&gt;&gt;&gt; print(l)
+[{&quot;name&quot;: &quot;foo-name&quot;, &quot;age&quot;: &quot;foo-age&quot;}, {&quot;name&quot;: &quot;bar-name&quot;, &quot;age&quot;: &quot;bar-age&quot;}]
+&gt;&gt;&gt; print(yaml.dump(l))
+- age: foo-age
+  name: foo-name
+- age: bar-age
+  name: bar-name
+
+&gt;&gt;&gt; jmespath.search(&quot;[?name == 'bar-name']&quot;, l)
+[{'name': 'bar-name', 'age': 'bar-age'}]
+&gt;&gt;&gt; jmespath.search('[?name == &quot;bar-name&quot;]', l)
+[]
+</code></pre>
+<p>However, you also need to use double-quotes to surround keys that have dots in them.</p>
+<pre><code class="language-py">&gt;&gt;&gt; l = [{&quot;name&quot;: &quot;foo-name&quot;, &quot;the.age&quot;: &quot;foo-the.age&quot;}, {&quot;name&quot;: &quot;bar-name&quot;, &quot;the.age&quot;: &quot;bar-the.age&quot;}]
+&gt;&gt;&gt; l[1]['the.age']
+'bar-the.age'
+&gt;&gt;&gt; jmespath.search(&quot;[?'the.age' == 'bar-the.age']&quot;, l)
+[]
+&gt;&gt;&gt; jmespath.search('[?&quot;the.age&quot; == &quot;bar-the.age&quot;]', l)
+[]
+&gt;&gt;&gt; jmespath.search(&quot;[?\&quot;the.age\&quot; == 'bar-the.age']&quot;, l)
+[{'name': 'bar-name', 'the.age': 'bar-the.age'}]
+</code></pre>
+<p>There are so many ways to silently fail here, it's really hard to trust jmespath to do the right thing. 😞</p>
+<p>A regex to validate that you are only using double-quotes in python <code>jmespath.search</code> is <code>/jmespath\.search\(('|\"\"\")/</code>. See <a href="https://regex101.com/r/Jtars6/1">https://regex101.com/r/Jtars6/1</a></p>
 <h3 id="grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</h3>
 <pre><code class="language-sh">kubectl get po --all-namespaces -o json |
 jp &quot;items[*].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;

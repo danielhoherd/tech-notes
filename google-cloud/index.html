@@ -807,21 +807,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../conjure-up/" class="md-nav__link">
-        conjure-up
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../consul/" class="md-nav__link">
         consul
       </a>
@@ -1587,6 +1572,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../golang/" class="md-nav__link">
         golang
       </a>
@@ -1650,6 +1650,13 @@
           <li class="md-nav__item">
   <a href="#working-with-gcloud-configurations" class="md-nav__link">
     Working with gcloud configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-cloud-shell-from-cli" class="md-nav__link">
+    Launch cloud shell from CLI
   </a>
   
 </li>
@@ -4906,6 +4913,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#launch-cloud-shell-from-cli" class="md-nav__link">
+    Launch cloud shell from CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#list-google-cloud-projects" class="md-nav__link">
     List google cloud projects
   </a>
@@ -5152,6 +5166,10 @@ default  False      user@example.io  example-prod
 staging  True       user@example.io  example-staging  us-west4-a            us-west4
 $ gcloud config configurations activate default
 Activated [default].
+</code></pre>
+<h3 id="launch-cloud-shell-from-cli">Launch cloud shell from CLI</h3>
+<p>This launches a free VM in GCP that you can use to access GCP cli tools. The home directory is kept for like 6 months or something, so configuring your shell and storing useful scripts isn't a bad idea.</p>
+<pre><code class="language-sh">gcloud cloud-shell ssh --authorize-session
 </code></pre>
 <h3 id="list-google-cloud-projects">List google cloud projects</h3>
 <pre><code class="language-sh">gcloud projects list

@@ -807,21 +807,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../conjure-up/" class="md-nav__link">
-        conjure-up
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../consul/" class="md-nav__link">
         consul
       </a>
@@ -1574,6 +1559,21 @@
     <li class="md-nav__item">
       <a href="../glances/" class="md-nav__link">
         glances
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
       </a>
     </li>
   
@@ -2470,6 +2470,13 @@
           <li class="md-nav__item">
   <a href="#show-all-containers-for-each-pod-matching-a-label" class="md-nav__link">
     Show all containers for each pod matching a label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-everything-in-a-namespace" class="md-nav__link">
+    Show a list of everything in a namespace
   </a>
   
 </li>
@@ -5126,6 +5133,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-a-list-of-everything-in-a-namespace" class="md-nav__link">
+    Show a list of everything in a namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-logs-for-a-given-pod-since-n-hours-ago" class="md-nav__link">
     Show logs for a given pod since N hours ago
   </a>
@@ -5449,6 +5463,11 @@ sort -n
 </code></pre>
 <h3 id="show-all-containers-for-each-pod-matching-a-label">Show all containers for each pod matching a label</h3>
 <pre><code class="language-sh">kubectl -n kube-system get pod -l k8s-app=kube-dns -o=jsonpath='{range .items[*]}{&quot;\n&quot;}{.metadata.name}{&quot;:\n\t&quot;}{range .spec.containers[*]}{.name}{&quot;:\t&quot;}{.image}{&quot;\n\t&quot;}{end}{&quot;\n&quot;}{end}'
+</code></pre>
+<h3 id="show-a-list-of-everything-in-a-namespace">Show a list of everything in a namespace</h3>
+<pre><code class="language-sh">NS=kube-system
+kubectl get all -n &quot;$NS&quot; --output 'jsonpath={range $.items[*]}{.kind} {.metadata.name}{&quot;\n&quot;}{end}' |
+grep -v '^List $'  # exclude empty namespace
 </code></pre>
 <h3 id="show-logs-for-a-given-pod-since-n-hours-ago">Show logs for a given pod since N hours ago</h3>
 <pre><code class="language-sh">pod_name=httpbin

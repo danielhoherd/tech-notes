@@ -807,21 +807,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../conjure-up/" class="md-nav__link">
-        conjure-up
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../consul/" class="md-nav__link">
         consul
       </a>
@@ -1574,6 +1559,21 @@
     <li class="md-nav__item">
       <a href="../glances/" class="md-nav__link">
         glances
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
       </a>
     </li>
   
@@ -4822,7 +4822,10 @@ sh.helm.release.v1.foo.v339  helm.sh/release.v1  1  13d
 sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
 </code></pre>
 <p>Then send that secret into the following command to get the full manifest that was sent to the k8s api:</p>
-<pre><code class="language-sh">k -n &quot;$NS&quot; get secret sh.helm.release.v1.foo.v339 -o jsonpath='{.data.release}' | base64 -d | base64 -d | gzip -d
+<pre><code class="language-sh">k -n &quot;$NS&quot; get secret sh.helm.release.v1.foo.v339 -o jsonpath='{.data.release}' |
+  base64 -d |
+  base64 -d |
+  gzip -d
 </code></pre>
 <p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>
                 

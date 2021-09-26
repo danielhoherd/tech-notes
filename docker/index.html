@@ -807,21 +807,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../conjure-up/" class="md-nav__link">
-        conjure-up
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../consul/" class="md-nav__link">
         consul
       </a>
@@ -1196,6 +1181,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-desktop" class="md-nav__link">
+    Docker Desktop
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
@@ -1786,6 +1778,21 @@
     <li class="md-nav__item">
       <a href="../glances/" class="md-nav__link">
         glances
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
       </a>
     </li>
   
@@ -4831,6 +4838,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#docker-desktop" class="md-nav__link">
+    Docker Desktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     Examples
   </a>
@@ -5026,6 +5040,15 @@
                 
                 <h1 id="docker">docker</h1>
 <p>"An open source project to pack, ship and run any application as a lightweight container." - <a href="https://www.docker.com/">https://www.docker.com/</a></p>
+<h2 id="docker-desktop">Docker Desktop</h2>
+<p>In August 2021, Docker pulled a license bait and switch with Docker Desktop. If you want a Docker Desktop alternative on macOS that has a <code>docker</code> command but doesn't use Docker Desktop, you can do the following:</p>
+<pre><code class="language-sh">brew install hyperkit minikube docker kubernetes-cli
+minikube config set driver hyperkit
+minikube start
+eval $(minikube docker-env)
+</code></pre>
+<p>This will give you <code>docker</code> commands that target the minikube CRI, and is actually a great dev environment.</p>
+<p>Alternatively, if you have a linux machine that runs docker handy, you can skip the minikube stuff and <code>export DOCKER_HOST=ssh://linux-docker-host</code> to launch containers on the linux dockerd.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="show-help-on-the-run-command">Show help on the run command</h3>
 <pre><code>docker help run
