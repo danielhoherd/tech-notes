@@ -2630,8 +2630,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See also
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esp8266-workflow" class="md-nav__link">
+    ESP8266 workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
   </a>
   
 </li>
@@ -4671,8 +4685,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See also
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esp8266-workflow" class="md-nav__link">
+    ESP8266 workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
   </a>
   
 </li>
@@ -4700,9 +4728,27 @@
 <li><a href="https://www.arduino.cc/en/Main/arduinoBoardDue">Arduino Due</a></li>
 <li><a href="https://www.microbit.co.uk/device">microbit</a></li>
 </ul>
-<h2 id="see-also">See also</h2>
+<h2 id="tips">Tips</h2>
 <ul>
+<li><code>screen /dev/usb.whatever</code> can sometimes not work to <a href="https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html">get a usb repl</a> Try using <code>picocom</code> instead.</li>
+</ul>
+<h2 id="esp8266-workflow">ESP8266 workflow</h2>
+<ul>
+<li>Info on flashing can be found here: <a href="https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html">https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html</a></li>
+<li><code>brew install picocom</code></li>
+<li><code>pip install --user adafruit-ampy esptool</code></li>
+<li><code>export AMPY_PORT=/dev/tty.usbserial-0001</code> sets up <code>ampy</code> with the needed sieral port.</li>
+<li><code>ampy run test.py</code> run test.py found in the current local directory on the ESP8266.</li>
+<li><code>ampy --port /serial/port put test.py /foo/bar.py</code> copy a file to the board. Use <code>get</code> to copy the other way. Omit destination file name to just view the file.</li>
+<li>Modify boot.py for any boot setup. Run <code>ampy get boot.py</code> to see the defaults for the flash you have loaded.</li>
+<li>Modify main.py with your main program code to auto-run.</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://docs.micropython.org">https://docs.micropython.org</a></li>
+<li><a href="https://www.digikey.com/en/maker/projects/micropython-basics-load-files-run-code/fb1fcedaf11e4547943abfdd8ad825ce">https://www.digikey.com/en/maker/projects/micropython-basics-load-files-run-code/fb1fcedaf11e4547943abfdd8ad825ce</a></li>
 <li><a href="https://talkpython.fm/episodes/show/108/micropython-and-open-source-hardware-at-adafruit">TalkPython.fm Episode #108: MicroPython and Open Source Hardware at Adafruit</a></li>
+<li><a href="https://github.com/scientifichackers/ampy">https://github.com/scientifichackers/ampy</a></li>
 </ul>
                 
               

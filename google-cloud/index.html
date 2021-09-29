@@ -5167,6 +5167,18 @@ staging  True       user@example.io  example-staging  us-west4-a            us-w
 $ gcloud config configurations activate default
 Activated [default].
 </code></pre>
+<p>Alternately, you can specify the config you want to use as an environment variable.</p>
+<pre><code>$ gcloud config configurations list
+NAME     IS_ACTIVE  ACCOUNT                PROJECT                  COMPUTE_DEFAULT_ZONE  COMPUTE_DEFAULT_REGION
+dev      False      danielh@example.com    example-dev-369821
+staging  True       danielh@example.com    example-staging-550891   us-east4-c            us-east4
+$ CLOUDSDK_ACTIVE_CONFIG_NAME=dev gcloud compute instances list
+NAME                                                 ZONE           MACHINE_TYPE    PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
+cat-pic-download-1                                   us-central1-a  e2-medium                    10.128.0.2                   TERMINATED
+gibson-access                                        us-east4-a     e2-micro                     10.0.0.69    256.24.927.306  RUNNING
+gke-dev-cluster-terraform-20090525165-d1058ae2-c0mc  us-east4-a     n1-standard-16               10.0.0.13                    RUNNING
+gke-dev-cluster-terraform-20210624231-9d581566-1oo9  us-east4-a     n1-standard-8                10.0.0.56                    RUNNING
+</code></pre>
 <h3 id="launch-cloud-shell-from-cli">Launch cloud shell from CLI</h3>
 <p>This launches a free VM in GCP that you can use to access GCP cli tools. The home directory is kept for like 6 months or something, so configuring your shell and storing useful scripts isn't a bad idea.</p>
 <pre><code class="language-sh">gcloud cloud-shell ssh --authorize-session

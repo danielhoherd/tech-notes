@@ -608,6 +608,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-all-docker-images-in-a-helm-chart-and-their-https-links" class="md-nav__link">
+    Show all docker images in a helm chart and their https links
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5013,6 +5020,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-all-docker-images-in-a-helm-chart-and-their-https-links" class="md-nav__link">
+    Show all docker images in a helm chart and their https links
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5127,6 +5141,28 @@ for file in ./*.yaml ; do
   awk 'NR == 1 &amp;&amp; $0 != &quot;---&quot; {print &quot;---&quot;} {print}' &quot;${file}&quot; &gt; &quot;${tempfile}&quot; \
   &amp;&amp; mv &quot;${tempfile}&quot; &quot;${file}&quot;
 done
+</code></pre>
+<h3 id="show-all-docker-images-in-a-helm-chart-and-their-https-links">Show all docker images in a helm chart and their https links</h3>
+<pre><code class="language-sh">helm template . --set global.baseDomain=foo.com -f /Users/danielh/a/google-environments/prod/cloud/app/config.yaml 2&gt;/dev/null |
+awk '/image: / {match($2, /(([^&quot;]*):[^&quot;]*)/, a) ; printf &quot;https://%s %s\n&quot;, a[2], a[1] ;}' |
+sort -u |
+column -t
+</code></pre>
+<p>A less complicated awk form of this that uses other shell commands would be</p>
+<pre><code class="language-sh">helm template . --set global.baseDomain=foo.com -f /Users/danielh/a/google-environments/prod/cloud/app/config.yaml 2&gt;/dev/null |
+grep 'image: ' |
+awk '{print $2}' |
+sed 's/&quot;//g' |
+sed 's/\(\(.*\):.*\)/https:\/\/\2 \1/' |
+sort -u |
+column -t
+</code></pre>
+<p>So it really depends on where you want to put your complications, how performant you want to be, and how readable you want it to be. These both produce identical output, but some people find it easier to read shorter commands with simpler syntaxes, which is great for maintainability when performance is not an issue.</p>
+<pre><code>https://quay.io/astronomer/ap-alertmanager  quay.io/astronomer/ap-alertmanager:0.23.0
+https://quay.io/astronomer/ap-astro-ui      quay.io/astronomer/ap-astro-ui:0.25.4
+https://quay.io/astronomer/ap-base          quay.io/astronomer/ap-base:3.14.2
+https://quay.io/astronomer/ap-cli-install   quay.io/astronomer/ap-cli-install:0.25.2
+...snip...
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

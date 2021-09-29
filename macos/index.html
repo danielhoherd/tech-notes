@@ -2555,6 +2555,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fix-sshd-client-timeout-config" class="md-nav__link">
+    Fix sshd client timeout config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-hardware-info" class="md-nav__link">
     Show hardware info
   </a>
@@ -4776,6 +4783,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fix-sshd-client-timeout-config" class="md-nav__link">
+    Fix sshd client timeout config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-hardware-info" class="md-nav__link">
     Show hardware info
   </a>
@@ -4891,6 +4905,16 @@
 </code></pre>
 <p>or</p>
 <pre><code class="language-sh">sudo launchctl bootout user/$(id -u &quot;$USERNAME&quot;)
+</code></pre>
+<h3 id="fix-sshd-client-timeout-config">Fix sshd client timeout config</h3>
+<p>macOS has an <code>/etc/ssh/sshd_config</code> that will never disconnect idle clients. With sketchy wifi, or for a variety of other reasons, this can cause ssh connections to pile up, causing a DoS on the ssh server. When this happens, a client that is attempting to connect may see <code>kex_exchange_identification: read: Connection reset by peer</code>. To fix this, set the following config values to anything other than 0. See <a href="https://man.openbsd.org/sshd_config"><code>man 5 sshd_config</code></a> for more info.</p>
+<p>The following settings would allow an unresponsive ssh session 10 minutes before terminating it:</p>
+<pre><code>ClientAliveInterval 120
+ClientAliveCountMax 5
+</code></pre>
+<p>Using BSD sed, you can quickly set this:</p>
+<pre><code class="language-sh">sudo sed -i '' -E 's/^#?ClientAliveInterval [0-9]+/ClientAliveInterval 120/ ; s/^#?ClientAliveCountMax [0-9]+/ClientAliveCountMax 5/ ;' /etc/ssh/sshd_config
+sudo bash -c &quot;launchctl stop com.openssh.sshd ; launchctl start com.openssh.sshd ;&quot;
 </code></pre>
 <h3 id="show-hardware-info">Show hardware info</h3>
 <pre><code>system_profiler SPHardwareDataType
