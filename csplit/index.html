@@ -11,14 +11,14 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/zsh/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/csplit/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>zsh - Daniel Hoherd's tech notes</title>
+        <title>csplit - Daniel Hoherd's tech notes</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#zsh" class="md-skip">
+        <a href="#csplit" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              zsh
+              csplit
             
           </span>
         </div>
@@ -895,11 +895,62 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../csplit/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          csplit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         csplit
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gnu-examples" class="md-nav__link">
+    GNU Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="GNU Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-amazon-rds-global-certs-into-one-cert-per-file" class="md-nav__link">
+    Split amazon RDS global certs into one cert per file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4600,49 +4651,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          zsh
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../zsh/" class="md-nav__link">
         zsh
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4672,9 +4685,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
+  <a href="#gnu-examples" class="md-nav__link">
+    GNU Examples
   </a>
+  
+    <nav class="md-nav" aria-label="GNU Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-amazon-rds-global-certs-into-one-cert-per-file" class="md-nav__link">
+    Split amazon RDS global certs into one cert per file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4691,15 +4717,15 @@
               
                 
                 
-                <h1 id="zsh">zsh</h1>
-<p>"Zsh is a UNIX command interpreter (shell) usable as an interactive login shell and as a shell script command processor." - <code>man zsh</code></p>
-<p>One big caveat to using <code>zsh</code> is that it has no syntax linter. There is an open <a href="https://github.com/koalaman/shellcheck/issues/809">shellcheck gh issue</a> about this.</p>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://ohmyz.sh">https://ohmyz.sh</a></li>
-<li><a href="https://github.com/unixorn/awesome-zsh-plugins">https://github.com/unixorn/awesome-zsh-plugins</a></li>
-<li><a href="https://github.com/unixorn/zsh-quickstart-kit">https://github.com/unixorn/zsh-quickstart-kit</a></li>
-</ul>
+                <h1 id="csplit">csplit</h1>
+<p>"split files based on context" - <code>man csplit</code></p>
+<p>There is a similar, simpler tool called <code>split</code>.</p>
+<h2 id="gnu-examples">GNU Examples</h2>
+<p>GNU and BSD cpsplit are not compatible. In macOS you can use <code>gcsplit</code> if you have brew coreutils installed.</p>
+<h3 id="split-amazon-rds-global-certs-into-one-cert-per-file">Split amazon RDS global certs into one cert per file</h3>
+<pre><code class="language-sh">curl -fsSL https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem |
+csplit --elide-empty-files --quiet --prefix global-rds-crt -k - '/-BEGIN CERTIFICATE-/' '{*}'
+</code></pre>
                 
               
               
@@ -4717,7 +4743,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../zookeeper/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../cryptsetup/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -4726,11 +4752,25 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              zookeeper
+              cryptsetup
             </div>
           </div>
         </a>
       
+      
+        <a href="../curl/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              cURL
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
