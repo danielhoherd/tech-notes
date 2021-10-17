@@ -1390,6 +1390,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#append-keywords-to-a-file" class="md-nav__link">
+    Append keywords to a file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rename-gpx-files-based-on-the-capture-time" class="md-nav__link">
     Rename GPX files based on the capture time
   </a>
@@ -4889,6 +4896,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#append-keywords-to-a-file" class="md-nav__link">
+    Append keywords to a file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rename-gpx-files-based-on-the-capture-time" class="md-nav__link">
     Rename GPX files based on the capture time
   </a>
@@ -5122,6 +5136,51 @@ for tag in &quot;${tags[@]}&quot; ; do
 done
 
 exiftool -overwrite_original &quot;${args[@]}&quot; -- &quot;$@&quot;
+</code></pre>
+<h3 id="append-keywords-to-a-file">Append keywords to a file</h3>
+<p>When adding keywords, the default behavior allows duplicates. This case is covered in <a href="https://exiftool.org/faq.html#Q17">FAQ #17</a> and indicates that you must remove and re-add each keyword in one operation in order to prevent duplicates. A bash function to do that follows. <strong>Be careful to use it on only ONE FILE at a time, otherwise you will add filenames as keywords!</strong></p>
+<pre><code class="language-sh">add_keyword_to_file(){
+  local args=()
+  [[ &quot;$#&quot; -ge 2 ]] || { echo &quot;ERROR: Must have at least 2 args: &lt;keyword&gt; [keyword]... &lt;file&gt;&quot; ; return 1 ;}
+  while [[ &quot;$#&quot; -gt 1 ]] ; do
+    args+=(&quot;-keywords-=${1}&quot; &quot;-keywords+=${1}&quot;)
+    shift
+  done
+  filename=$1
+  exiftool &quot;${args[@]}&quot; &quot;${filename}&quot;
+}
+</code></pre>
+<p>Here it is in action:</p>
+<pre><code>$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show there are no keywords
+Warning: [Minor] Tag 'keywords' not defined - 20211016-21-25-03_450QaA.jpg
+
+$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # add keywords
+    1 image files updated
+
+$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that keywords were added
+Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
+
+$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # re-add existing keywords
+    1 image files updated
+
+$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that duplicates were not added
+Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
+</code></pre>
+<p>It even works to remove duplicates where they already exist, likely because the <code>-=</code> matches all instances of the keyword.</p>
+<pre><code>$ exiftool -keywords+=&quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # add a duplicate
+    1 image files updated
+
+$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that there are duplicates
+Sutro Heights, San Francisco, San Francisco 20211016-21-25-03_450QaA.jpg
+
+$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg
+    1 image files updated
+
+$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that duplicates have been removed
+Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
+</code></pre>
+<p>To add the same keywords to many files, loop through the files one at a time using something like:</p>
+<pre><code class="language-bash">for file in *.jpg ; do add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; &quot;${file}&quot; ; done ;
 </code></pre>
 <h3 id="rename-gpx-files-based-on-the-capture-time">Rename GPX files based on the capture time</h3>
 <p>You will end up with a filename like <code>2013-09-30-23-35-40.gpx</code> based off of the <em>first</em> trkpt timestamp.</p>
