@@ -1257,6 +1257,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../elasticsearch/" class="md-nav__link">
+        Elasticsearch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../eleduino/" class="md-nav__link">
         Eleduino
       </a>
@@ -2622,6 +2637,13 @@
           <li class="md-nav__item">
   <a href="#use-jq-to-find-zombie-pods" class="md-nav__link">
     Use jq to find zombie pods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-all-pods-with-a-specific-container-state" class="md-nav__link">
+    Use jq to find all pods with a specific container state
   </a>
   
 </li>
@@ -5284,6 +5306,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-all-pods-with-a-specific-container-state" class="md-nav__link">
+    Use jq to find all pods with a specific container state
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5636,6 +5665,13 @@ grep 'Ingress$' *definitions.txt | grep -vE 'LoadBalancer'
       }
     ]
   }
+'
+</code></pre>
+<h3 id="use-jq-to-find-all-pods-with-a-specific-container-state">Use jq to find all pods with a specific container state</h3>
+<pre><code class="language-sh">kubectl get pods -A -o json | jq '
+  .items[]? |
+  select(.status.containerStatuses[]?.state.waiting.reason == &quot;CreateContainerConfigError&quot;) |
+  .metadata.name
 '
 </code></pre>
 <h2 id="links">Links</h2>

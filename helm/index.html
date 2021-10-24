@@ -1257,6 +1257,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../elasticsearch/" class="md-nav__link">
+        Elasticsearch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../eleduino/" class="md-nav__link">
         Eleduino
       </a>
@@ -1858,6 +1873,13 @@
           <li class="md-nav__item">
   <a href="#install-the-incubator-repo" class="md-nav__link">
     Install the incubator repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-metadata-about-a-specific-release-in-json" class="md-nav__link">
+    Show metadata about a specific release in json
   </a>
   
 </li>
@@ -4777,6 +4799,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-metadata-about-a-specific-release-in-json" class="md-nav__link">
+    Show metadata about a specific release in json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release" class="md-nav__link">
     Show raw data about what helm sent to the k8s server for a recent release
   </a>
@@ -4828,6 +4857,10 @@
 <h3 id="install-the-incubator-repo">Install the incubator repo</h3>
 <p><a href="https://github.com/helm/charts#how-do-i-enable-the-incubator-repository">https://github.com/helm/charts#how-do-i-enable-the-incubator-repository</a></p>
 <pre><code class="language-sh">helm repo add incubator https://charts.helm.sh/incubator
+</code></pre>
+<h3 id="show-metadata-about-a-specific-release-in-json">Show metadata about a specific release in json</h3>
+<p>You can find the revision in a few places, like <code>helm list -A</code>. Default is to store data about the last 10 releases per release_name.</p>
+<pre><code class="language-sh">helm history -n $NS $release_name -o json | jq '.[] | select(.revision == 157)'
 </code></pre>
 <h3 id="show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release">Show raw data about what helm sent to the k8s server for a recent release</h3>
 <p>First, find the secret that you will want to search. You can get the release number from <code>helm history -n "$NS" foo</code> or dig in <code>kubectl -n $NS get secret</code></p>

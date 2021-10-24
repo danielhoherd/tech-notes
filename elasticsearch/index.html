@@ -11,14 +11,14 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/nfs/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/elasticsearch/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>nfs - Daniel Hoherd's tech notes</title>
+        <title>Elasticsearch - Daniel Hoherd's tech notes</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nfs" class="md-skip">
+        <a href="#elasticsearch" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              nfs
+              Elasticsearch
             
           </span>
         </div>
@@ -1255,11 +1255,103 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../elasticsearch/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Elasticsearch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Elasticsearch
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interact-with-elasticsearch-over-http" class="md-nav__link">
+    Interact with elasticsearch over HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-a-large-shard-to-a-full-node-to-one-that-has-lots-of-free-data" class="md-nav__link">
+    Move a large shard to a full node to one that has lots of free data
+  </a>
+  
+    <nav class="md-nav" aria-label="Move a large shard to a full node to one that has lots of free data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-large-shard" class="md-nav__link">
+    Find a large shard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-a-node-with-lots-of-free-space" class="md-nav__link">
+    Find a node with lots of free space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-the-large-shard-to-the-new-node" class="md-nav__link">
+    Move the large shard to the new node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2875,144 +2967,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          nfs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../nfs/" class="md-nav__link">
         nfs
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tips-and-tricks" class="md-nav__link">
-    Tips and Tricks
-  </a>
-  
-    <nav class="md-nav" aria-label="Tips and Tricks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#regarding-mount-points-within-shares" class="md-nav__link">
-    Regarding mount points within shares
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-hosts-that-are-connected-to-this-nfs-server" class="md-nav__link">
-    Show hosts that are connected to this NFS server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-what-hosts-are-using-what-exports" class="md-nav__link">
-    Show what hosts are using what exports
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-exported-directories" class="md-nav__link">
-    Show exported directories
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-directories-in-use-by-nfs" class="md-nav__link">
-    Show directories in use by NFS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-an-nfs-mount-to-fstab" class="md-nav__link">
-    Add an NFS mount to fstab
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linux-tips-and-tricks" class="md-nav__link">
-    Linux Tips and Tricks
-  </a>
-  
-    <nav class="md-nav" aria-label="Linux Tips and Tricks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#show-which-versions-of-nfs-your-nfs-server-supports" class="md-nav__link">
-    Show which versions of NFS your NFS server supports
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#allow-an-os-x-client-to-mount-nfs4-nested-zfs-data-sets" class="md-nav__link">
-    Allow an OS X client to mount nfs4 nested zfs data sets
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#os-x-tips-and-tricks" class="md-nav__link">
-    OS X Tips and Tricks
-  </a>
-  
-    <nav class="md-nav" aria-label="OS X Tips and Tricks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-persistent-nfs-mount-in-os-x-108" class="md-nav__link">
-    Create persistent NFS mount in OS X 10.8
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4782,52 +4741,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tips-and-tricks" class="md-nav__link">
-    Tips and Tricks
+  <a href="#examples" class="md-nav__link">
+    Examples
   </a>
   
-    <nav class="md-nav" aria-label="Tips and Tricks">
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#regarding-mount-points-within-shares" class="md-nav__link">
-    Regarding mount points within shares
+  <a href="#interact-with-elasticsearch-over-http" class="md-nav__link">
+    Interact with elasticsearch over HTTP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-hosts-that-are-connected-to-this-nfs-server" class="md-nav__link">
-    Show hosts that are connected to this NFS server
+  <a href="#move-a-large-shard-to-a-full-node-to-one-that-has-lots-of-free-data" class="md-nav__link">
+    Move a large shard to a full node to one that has lots of free data
+  </a>
+  
+    <nav class="md-nav" aria-label="Move a large shard to a full node to one that has lots of free data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-large-shard" class="md-nav__link">
+    Find a large shard
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-what-hosts-are-using-what-exports" class="md-nav__link">
-    Show what hosts are using what exports
+  <a href="#find-a-node-with-lots-of-free-space" class="md-nav__link">
+    Find a node with lots of free space
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-exported-directories" class="md-nav__link">
-    Show exported directories
+  <a href="#move-the-large-shard-to-the-new-node" class="md-nav__link">
+    Move the large shard to the new node
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#show-directories-in-use-by-nfs" class="md-nav__link">
-    Show directories in use by NFS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-an-nfs-mount-to-fstab" class="md-nav__link">
-    Add an NFS mount to fstab
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -4837,49 +4795,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#linux-tips-and-tricks" class="md-nav__link">
-    Linux Tips and Tricks
+  <a href="#links" class="md-nav__link">
+    Links
   </a>
-  
-    <nav class="md-nav" aria-label="Linux Tips and Tricks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#show-which-versions-of-nfs-your-nfs-server-supports" class="md-nav__link">
-    Show which versions of NFS your NFS server supports
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#allow-an-os-x-client-to-mount-nfs4-nested-zfs-data-sets" class="md-nav__link">
-    Allow an OS X client to mount nfs4 nested zfs data sets
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#os-x-tips-and-tricks" class="md-nav__link">
-    OS X Tips and Tricks
-  </a>
-  
-    <nav class="md-nav" aria-label="OS X Tips and Tricks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-persistent-nfs-mount-in-os-x-108" class="md-nav__link">
-    Create persistent NFS mount in OS X 10.8
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4896,59 +4814,87 @@
               
                 
                 
-                <h1 id="nfs">nfs</h1>
-<p>nfs is the Network File System.</p>
+                <h1 id="elasticsearch">Elasticsearch</h1>
+<p>"Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured." - <a href="https://www.elastic.co/what-is/elasticsearch">https://www.elastic.co/what-is/elasticsearch</a></p>
+<h2 id="examples">Examples</h2>
+<h3 id="interact-with-elasticsearch-over-http">Interact with elasticsearch over HTTP</h3>
+<p>The Compact Aligned Text interface is available at something like <code>https://${elasticsearch_host}:9200/_cat/</code> and has a variety of endpoinds you can inspect over http in a human friendly output.</p>
+<pre><code>/_cat/allocation
+/_cat/shards
+/_cat/shards/{index}
+/_cat/master
+/_cat/nodes
+/_cat/tasks
+/_cat/indices
+/_cat/indices/{index}
+/_cat/segments
+/_cat/segments/{index}
+/_cat/count
+/_cat/count/{index}
+/_cat/recovery
+/_cat/recovery/{index}
+/_cat/health
+/_cat/pending_tasks
+/_cat/aliases
+/_cat/aliases/{alias}
+/_cat/thread_pool
+/_cat/thread_pool/{thread_pools}
+/_cat/plugins
+/_cat/fielddata
+/_cat/fielddata/{fields}
+/_cat/nodeattrs
+/_cat/repositories
+/_cat/snapshots/{repository}
+/_cat/templates
+</code></pre>
+<p>Accessing any of these will show columns of data. For example, to see all shards, you can do:</p>
+<pre><code class="language-sh">curl -s &quot;https://${elasticsearch_host}:9200/_cat/shards?v=true&quot;
+</code></pre>
+<p>Which will show something like:</p>
+<pre><code>index                                        shard  prirep  state    docs    store   ip            node
+fluentd.quasaric-spacecraft-0412.2021.10.15  0      r       STARTED  53277   7.6mb   10.32.4.26    example-elasticsearch-data-3
+fluentd.quasaric-spacecraft-0412.2021.10.15  0      p       STARTED  53277   7.6mb   10.32.63.204  example-elasticsearch-data-9
+fluentd.true-ion-0733.2021.10.16             0      p       STARTED  47771   8.2mb   10.32.78.225  example-elasticsearch-data-11
+fluentd.true-ion-0733.2021.10.16             0      r       STARTED  47771   8.2mb   10.32.70.57   example-elasticsearch-data-10
+fluentd.desolate-terminator-1537.2021.10.19  0      p       STARTED  31216   5.7mb   10.32.70.57   example-elasticsearch-data-10
+fluentd.desolate-terminator-1537.2021.10.19  0      r       STARTED  31216   5.7mb   10.32.63.205  example-elasticsearch-data-6
+fluentd.false-perihelion-2673.2021.10.14     0      p       STARTED  144118  19.8mb  10.32.4.26    example-elasticsearch-data-3
+fluentd.false-perihelion-2673.2021.10.14     0      r       STARTED  144118  19.8mb  10.32.35.26   example-elasticsearch-data-2
+</code></pre>
+<p>The <code>?v=true</code> enables column headers. <code>?help</code> is also available. More documentation is available at <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html</a></p>
+<h3 id="move-a-large-shard-to-a-full-node-to-one-that-has-lots-of-free-data">Move a large shard to a full node to one that has lots of free data</h3>
+<p>Assuming you have elasticsearch available on localhost, eg from <code>kubectl -n "$namespace" port-forward svc/elasticsearch 9200:9200</code>,</p>
+<h4 id="find-a-large-shard">Find a large shard</h4>
+<pre><code class="language-sh">curl -s http://localhost:9200/_cat/shards | grep &lt;name of node that is full&gt; | grep gb
+</code></pre>
+<p>If you have GNU sort installed you can append <code>| gsort -k6 -h</code> to sort by shard size.</p>
+<h4 id="find-a-node-with-lots-of-free-space">Find a node with lots of free space</h4>
+<p>The following output shows "free_space, hostname"</p>
+<pre><code class="language-sh">curl -s http://localhost:9200/_nodes/stats |
+    jq -rc '.nodes | to_entries | map([.value.fs.data[].free_in_bytes/1024/1024/1024, .value.name])[] | &quot;\(.[0]) \(.[1])&quot;' |
+    column -t |
+    sort -n
+</code></pre>
+<h4 id="move-the-large-shard-to-the-new-node">Move the large shard to the new node</h4>
+<pre><code class="language-sh">curl -s --location --request POST 'http://localhost:9200/_cluster/reroute' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;commands&quot; : [
+        {
+            &quot;move&quot; : {
+                &quot;index&quot; : &quot;&lt;name of shard to move&gt;&quot;,
+                &quot;shard&quot; : &lt;shard number, probably 0&gt;,
+                &quot;from_node&quot; : &quot;&lt;node large shard was on that is low on volume&gt;&quot;,
+                &quot;to_node&quot; : &quot;&lt;node that has low volume to move shard to&gt;&quot;
+            }
+        }
+    ]
+}' | jq .
+</code></pre>
+<h2 id="links">Links</h2>
 <ul>
-<li>Configured in linux at /etc/exports</li>
-<li>Great info here: <a href="http://nfs.sourceforge.net/">http://nfs.sourceforge.net/</a></li>
+<li><a href="https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster">https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster</a></li>
 </ul>
-<h2 id="tips-and-tricks">Tips and Tricks</h2>
-<h3 id="regarding-mount-points-within-shares">Regarding mount points within shares</h3>
-<p>If you have a mount point within an NFS share, you must have a separate entry in your exports file that sets the permissions of this mount point. Currently OS X has a problem with this, but officially this is the way to do it.</p>
-<h3 id="show-hosts-that-are-connected-to-this-nfs-server">Show hosts that are connected to this NFS server</h3>
-<pre><code>showmount
-</code></pre>
-<h3 id="show-what-hosts-are-using-what-exports">Show what hosts are using what exports</h3>
-<pre><code>showmount -a
-</code></pre>
-<h3 id="show-exported-directories">Show exported directories</h3>
-<pre><code>showmount -e
-</code></pre>
-<h3 id="show-directories-in-use-by-nfs">Show directories in use by NFS</h3>
-<pre><code>showmount -d
-</code></pre>
-<h3 id="add-an-nfs-mount-to-fstab">Add an NFS mount to fstab</h3>
-<pre><code>opal:/z4  /mnt/z4   nfs  rsize=8192,wsize=8192,timeo=14,intr
-</code></pre>
-<h2 id="linux-tips-and-tricks">Linux Tips and Tricks</h2>
-<h3 id="show-which-versions-of-nfs-your-nfs-server-supports">Show which versions of NFS your NFS server supports</h3>
-<pre><code>rpcinfo -p
-</code></pre>
-<h3 id="allow-an-os-x-client-to-mount-nfs4-nested-zfs-data-sets">Allow an OS X client to mount nfs4 nested zfs data sets</h3>
-<p>OS X has problems with the privileged port default requirement in nfs4, so the <code>insecure</code> option is required.</p>
-<p>The <code>nohide</code> option allows you to mount nested zfs datasets, instead of requiring a separate export for each dataset.</p>
-<pre><code>/z4 *.local(rw,async,no_subtree_check,insecure,nohide)
-</code></pre>
-<h2 id="os-x-tips-and-tricks">OS X Tips and Tricks</h2>
-<h3 id="create-persistent-nfs-mount-in-os-x-108">Create persistent NFS mount in OS X 10.8</h3>
-<p>This is not bulletproof. Modern OS X 10.9+ version are switching away from NFS to CIFS. The NFS client on OS X is pretty weak. For instance it might crash your machine if the share has 0 bytes free but is mounted RW. Use at your own risk.</p>
-<pre><code class="language-sh">sudo mkdir /mnt # OS X doesn't like you playing with /Volumes, it may delete your dirs
-sudo dscl . -create /Mounts/z4
-sudo dscl . -create /Mounts/z4 VFSLinkDir /mnt/z4
-sudo dscl . -create /Mounts/z4 VFSOpts resvport rw nosuid
-sudo dscl . -create /Mounts/z4 VFSType nfs
-sudo dscl . -create /Mounts/z4 RecordName opal:/z4
-sudo dscl . -create /Mounts/iTunes
-sudo dscl . -create /Mounts/iTunes VFSLinkDir /mnt/z4/iTunes
-sudo dscl . -create /Mounts/iTunes VFSOpts resvport rw nosuid
-sudo dscl . -create /Mounts/iTunes VFSType nfs
-sudo dscl . -create /Mounts/iTunes RecordName opal:/z4/iTunes
-sudo dscl . -read /Mounts/opal:/z4
-sudo dscl . -read /Mounts/opal:/z4/iTunes
-sudo dscl . -list /Mounts
-
-sudo dscl . -delete /Mounts opal:/z4/iTunes
-</code></pre>
                 
               
               
@@ -4966,7 +4912,7 @@ sudo dscl . -delete /Mounts opal:/z4/iTunes
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../neverware/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../education/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -4975,19 +4921,19 @@ sudo dscl . -delete /Mounts opal:/z4/iTunes
               <span class="md-footer__direction">
                 Previous
               </span>
-              neverware
+              education
             </div>
           </div>
         </a>
       
       
-        <a href="../nintendo-3ds/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../eleduino/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Nintendo 3DS
+              Eleduino
             </div>
           </div>
           <div class="md-footer__button md-icon">

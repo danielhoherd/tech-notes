@@ -942,6 +942,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#split-a-multi-doc-yaml-file" class="md-nav__link">
+    Split a multi-doc yaml file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1295,6 +1302,21 @@
     <li class="md-nav__item">
       <a href="../education/" class="md-nav__link">
         education
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elasticsearch/" class="md-nav__link">
+        Elasticsearch
       </a>
     </li>
   
@@ -4699,6 +4721,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#split-a-multi-doc-yaml-file" class="md-nav__link">
+    Split a multi-doc yaml file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4725,6 +4754,24 @@
 <h3 id="split-amazon-rds-global-certs-into-one-cert-per-file">Split amazon RDS global certs into one cert per file</h3>
 <pre><code class="language-sh">curl -fsSL https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem |
 csplit --elide-empty-files --quiet --prefix global-rds-crt -k - '/-BEGIN CERTIFICATE-/' '{*}'
+</code></pre>
+<h3 id="split-a-multi-doc-yaml-file">Split a multi-doc yaml file</h3>
+<p>This is great for splitting <code>helm template</code> or <code>kubectl get pod,svc,sts,ds -o yaml</code> output</p>
+<pre><code>$ wc -l k-get-all.yaml  # lots of lines in this one yaml file
+9717 k-get-all.yaml
+
+$ grep -c '^---$' k-get-all.yaml  # lots of docs too
+161
+
+$ csplit k-get-all.yaml -s --elide-empty-files --prefix=yaml-split- --suffix-format='%03d.yaml' '/^---$/' '{*}'
+
+$ wc -l yaml-split-???.yaml
+    38 yaml-split-000.yaml
+    32 yaml-split-001.yaml
+...long-list-of-files...
+   227 yaml-split-159.yaml
+   230 yaml-split-160.yaml
+  9717 total
 </code></pre>
                 
               
