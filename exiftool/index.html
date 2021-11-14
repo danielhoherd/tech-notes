@@ -5339,11 +5339,16 @@ find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot
 <h3 id="add-missing-date-metadata-to-nintendo-switch-screenshots">Add missing date metadata to Nintendo Switch screenshots</h3>
 <p>Nintendo Switch screenshots are named with the date, but do not contain this information in the EXIF, which makes this data fragile.</p>
 <pre><code class="language-sh"># Filename like: 2020041909511400-87C68A817A974473877AC288310226F6.jpg
-for X in *.jpg ; do
+for X in 202?????????????-????????????????????????????????.{jpg,mp4} ; do
   echo &quot;${X}&quot; |
   sed -E 's/^((....)(..)(..)(..)(..)(..).*)/\2 \3 \4 \5 \6 \7 \1/'
 done | while read -r Y M D h m s f ; do
-  exiftool -alldates=&quot;$Y:$M:$D $h:$m:$s&quot; -- &quot;$f&quot;
+  exiftool \
+    -overwrite_original \
+    &quot;-alldates=$Y:$M:$D $h:$m:$s&quot; \
+    '-FileName&lt;DateTimeOriginal' \
+    -d '%Y%m%d-%H-%M-%S%%-c.%%le' \
+    -- &quot;$f&quot;
 done
 </code></pre>
 <h2 id="see-also">See Also</h2>

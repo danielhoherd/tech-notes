@@ -4852,8 +4852,9 @@
 <pre><code>sort -o foo -R foo
 </code></pre>
 <h3 id="sort-by-two-fields-first-dictionary-second-reverse-numeric">Sort by two fields, first dictionary, second reverse numeric</h3>
-<pre><code>## -k defines the sort key as starting position, sort style, ending position
-## -r is included in the second key to reverse numeric sort
+<p>When sorting by multiple fields, it's important to specify the start and end of where you want the sort to occur. If you do not do this, you may get too short of a comparison, or too long of a comparison. Check the output of <code>--debug</code> if you don't get the right sort order.</p>
+<pre><code># -k defines the sort key as starting position, sort style, ending position
+# -r is included in the second key to reverse numeric sort
 
 gsort -k1d,1 -k2nr,2
 </code></pre>

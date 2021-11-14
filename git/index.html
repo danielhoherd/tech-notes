@@ -2042,6 +2042,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#git-filter-repo" class="md-nav__link">
+    git filter-repo
+  </a>
+  
+    <nav class="md-nav" aria-label="git filter-repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-one-subdir-into-its-own-repo-renaming-some-files" class="md-nav__link">
+    Extract one subdir into its own repo, renaming some files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#remotes" class="md-nav__link">
     remotes
   </a>
@@ -5795,6 +5815,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#git-filter-repo" class="md-nav__link">
+    git filter-repo
+  </a>
+  
+    <nav class="md-nav" aria-label="git filter-repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-one-subdir-into-its-own-repo-renaming-some-files" class="md-nav__link">
+    Extract one subdir into its own repo, renaming some files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#remotes" class="md-nav__link">
     remotes
   </a>
@@ -6123,7 +6163,7 @@ git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 <p>Using the <code>-e</code> flag includes e-mail address. The list is unique per entry, so if you use a different name along with the same e-mail address, that shows up as two entries in the list.</p>
 <pre><code class="language-sh">git shortlog -ens
 </code></pre>
-<p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <code>[git filter-repo](https://github.com/newren/git-filter-repo)</code> operation.</p>
+<p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> operation.</p>
 <h3 id="git-show">git show</h3>
 <h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h4>
 <pre><code class="language-sh">git show f73f9ec7c07e
@@ -6153,6 +6193,13 @@ git branch -d readme-fix-branch
 <h4 id="disable-fast-forward-merges">disable fast-forward merges</h4>
 <p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
 <pre><code class="language-sh">git config --global merge.ff false
+</code></pre>
+<h3 id="git-filter-repo">git filter-repo</h3>
+<p><a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> is not a standard tool with git, but can be installed separately. It is used for rewriting the history of the git repo, allowing move, rename, merging and trimming operations, rewriting commit IDs, and more. This is a destructive tool, so it should be performed on a fresh clone of the repo while you iterate on finding the right sequence of operations to perform to get to your desired state. The destructive nature is that it rewrites the entire history of the repo, so if your repo depends on specific SHAs or any other specific history, you probably need to take a harder look at how to solve your problem.</p>
+<h4 id="extract-one-subdir-into-its-own-repo-renaming-some-files">Extract one subdir into its own repo, renaming some files</h4>
+<p>This is great if you want to extract part of a repo for public release, or just for organizational purposes.</p>
+<p>Extract the path <code>scratch-work/scripts</code> into <code>bin</code>, removing all other history in the repo.</p>
+<pre><code>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
 </code></pre>
 <h3 id="remotes">remotes</h3>
 <h4 id="add-a-remote">Add a remote</h4>

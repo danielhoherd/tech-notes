@@ -2648,6 +2648,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-pods-that-have-problematic-phases" class="md-nav__link">
+    Use jq to find pods that have problematic phases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5313,6 +5320,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-pods-that-have-problematic-phases" class="md-nav__link">
+    Use jq to find pods that have problematic phases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5672,6 +5686,14 @@ grep 'Ingress$' *definitions.txt | grep -vE 'LoadBalancer'
   .items[]? |
   select(.status.containerStatuses[]?.state.waiting.reason == &quot;CreateContainerConfigError&quot;) |
   .metadata.name
+'
+</code></pre>
+<h3 id="use-jq-to-find-pods-that-have-problematic-phases">Use jq to find pods that have problematic phases</h3>
+<pre><code>kubectl get pods -A -o json |
+jq -c '
+  .items[] |
+  select(.status.phase|test(&quot;Pending|Unknown&quot;)) |
+  [.status.phase, .metadata.creationTimestamp, .metadata.namespace, .metadata.name]
 '
 </code></pre>
 <h2 id="links">Links</h2>
