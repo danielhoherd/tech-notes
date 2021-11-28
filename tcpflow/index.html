@@ -11,14 +11,14 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/systemd/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/tcpflow/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>systemd - Daniel Hoherd's tech notes</title>
+        <title>tcpflow - Daniel Hoherd's tech notes</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#systemd" class="md-skip">
+        <a href="#tcpflow" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              systemd
+              tcpflow
             
           </span>
         </div>
@@ -4195,209 +4195,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          systemd
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../systemd/" class="md-nav__link">
         systemd
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    Tips
-  </a>
-  
-    <nav class="md-nav" aria-label="Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#init-file-locations" class="md-nav__link">
-    Init file locations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-the-full-systemd-journal" class="md-nav__link">
-    Show the full systemd journal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-logs-for-the-last-15-minutes" class="md-nav__link">
-    Show logs for the last 15 minutes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-logs-for-one-service" class="md-nav__link">
-    Show logs for one service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-only-logs-that-match-a-certain-pattern" class="md-nav__link">
-    Show only logs that match a certain pattern
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-the-nginx-journal-for-today" class="md-nav__link">
-    Show the nginx journal for today
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-journals-by-boot" class="md-nav__link">
-    List journals by boot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-journal-for-previous-boot" class="md-nav__link">
-    Show journal for previous boot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-timers" class="md-nav__link">
-    Show timers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-units" class="md-nav__link">
-    Show units
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-dependencies" class="md-nav__link">
-    Show dependencies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-a-service" class="md-nav__link">
-    Enable a service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-the-status-of-a-service-and-show-20-lines" class="md-nav__link">
-    Check the status of a service and show 20 lines
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#per-user-services" class="md-nav__link">
-    Per-user services
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alter-power-sleep-hibernate-button-behaviors" class="md-nav__link">
-    Alter power / sleep / hibernate button behaviors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-name-resolution-status" class="md-nav__link">
-    Show name resolution status
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-boot-performance" class="md-nav__link">
-    Show boot performance
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#view-a-time-chart-of-the-boot-sequence" class="md-nav__link">
-    View a time-chart of the boot sequence
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-cgroup-contexts" class="md-nav__link">
-    Show cgroup contexts
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-top-control-groups-by-their-resource-usage" class="md-nav__link">
-    Show top control groups by their resource usage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detect-if-you-are-running-in-a-container-or-on-a-vm" class="md-nav__link">
-    Detect if you are running in a container or on a VM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4438,11 +4240,69 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../tcpflow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          tcpflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         tcpflow
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sniff-http-into-the-console" class="md-nav__link">
+    Sniff HTTP into the console
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4862,169 +4722,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
+  <a href="#examples" class="md-nav__link">
+    Examples
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    Tips
-  </a>
-  
-    <nav class="md-nav" aria-label="Tips">
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#init-file-locations" class="md-nav__link">
-    Init file locations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-the-full-systemd-journal" class="md-nav__link">
-    Show the full systemd journal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-logs-for-the-last-15-minutes" class="md-nav__link">
-    Show logs for the last 15 minutes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-logs-for-one-service" class="md-nav__link">
-    Show logs for one service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-only-logs-that-match-a-certain-pattern" class="md-nav__link">
-    Show only logs that match a certain pattern
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-the-nginx-journal-for-today" class="md-nav__link">
-    Show the nginx journal for today
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-journals-by-boot" class="md-nav__link">
-    List journals by boot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-journal-for-previous-boot" class="md-nav__link">
-    Show journal for previous boot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-timers" class="md-nav__link">
-    Show timers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-units" class="md-nav__link">
-    Show units
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-dependencies" class="md-nav__link">
-    Show dependencies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-a-service" class="md-nav__link">
-    Enable a service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-the-status-of-a-service-and-show-20-lines" class="md-nav__link">
-    Check the status of a service and show 20 lines
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#per-user-services" class="md-nav__link">
-    Per-user services
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alter-power-sleep-hibernate-button-behaviors" class="md-nav__link">
-    Alter power / sleep / hibernate button behaviors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-name-resolution-status" class="md-nav__link">
-    Show name resolution status
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-boot-performance" class="md-nav__link">
-    Show boot performance
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#view-a-time-chart-of-the-boot-sequence" class="md-nav__link">
-    View a time-chart of the boot sequence
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-cgroup-contexts" class="md-nav__link">
-    Show cgroup contexts
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-top-control-groups-by-their-resource-usage" class="md-nav__link">
-    Show top control groups by their resource usage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detect-if-you-are-running-in-a-container-or-on-a-vm" class="md-nav__link">
-    Detect if you are running in a container or on a VM
+  <a href="#sniff-http-into-the-console" class="md-nav__link">
+    Sniff HTTP into the console
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
   
 </li>
       
@@ -5041,104 +4761,17 @@
               
                 
                 
-                <h1 id="systemd">systemd</h1>
-<p>"systemd is a system and service manager for Linux, compatible with SysV and LSB init scripts. systemd provides aggressive parallelization capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, keeps track of processes using Linux control groups, supports snapshotting and restoring of the system state, maintains mount and automount points and implements an elaborate transactional dependency-based service control logic. It can work as a drop-in replacement for sysvinit." - <a href="http://www.freedesktop.org/wiki/Software/systemd/">http://www.freedesktop.org/wiki/Software/systemd/</a></p>
-<h2 id="links">Links</h2>
+                <h1 id="tcpflow">tcpflow</h1>
+<p>tcpflow uses the <a href="../tcpdump/">tcpdump</a> libraries to reconstruct full TCP streams. It uses much of tcpdump syntax.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="sniff-http-into-the-console">Sniff HTTP into the console</h3>
+<pre><code class="language-sh">sudo tcpflow -c port 80
+</code></pre>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="https://www.freedesktop.org/wiki/Software/systemd/TipsAndTricks">https://www.freedesktop.org/wiki/Software/systemd/TipsAndTricks</a>: Tips and tricks</li>
-<li><a href="https://man7.org/linux/man-pages/man5/systemd.resource-control.5.html">https://man7.org/linux/man-pages/man5/systemd.resource-control.5.html</a>: Man page for control groups</li>
-<li><a href="https://www.freedesktop.org/wiki/Software/systemd/FrequentlyAskedQuestions">https://www.freedesktop.org/wiki/Software/systemd/FrequentlyAskedQuestions</a>: FAQ</li>
-<li><a href="https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet">https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet</a>: sysvinit to chkconfig</li>
-<li><a href="https://wiki.ubuntu.com/SystemdForUpstartUsers">https://wiki.ubuntu.com/SystemdForUpstartUsers</a>: systemd for upstart users</li>
-<li><a href="https://github.com/joehillen/sysz">https://github.com/joehillen/sysz</a>: fzf interface for systemd</li>
+<li>ngrep</li>
+<li>tcpdump</li>
 </ul>
-<h2 id="tips">Tips</h2>
-<h3 id="init-file-locations">Init file locations</h3>
-<pre><code class="language-sh">/usr/lib/systemd/system
-/etc/systemd/system # has precedence
-</code></pre>
-<h3 id="show-the-full-systemd-journal">Show the full systemd journal</h3>
-<p>The systemd journal is syslog and more.</p>
-<pre><code class="language-sh">journalctl --full
-</code></pre>
-<h3 id="show-logs-for-the-last-15-minutes">Show logs for the last 15 minutes</h3>
-<pre><code class="language-sh">journalctl --since &quot;-15 minutes&quot;
-</code></pre>
-<h3 id="show-logs-for-one-service">Show logs for one service</h3>
-<p>Find your service with <code>systemctl list-units</code></p>
-<pre><code class="language-sh">journalctl --unit=&quot;docker.service&quot; --since -5m
-</code></pre>
-<h3 id="show-only-logs-that-match-a-certain-pattern">Show only logs that match a certain pattern</h3>
-<p>"PERL-compatible regular expressions are used. … If the pattern is all lowercase, matching is case insensitive. Otherwise, matching is case sensitive. This can be overridden with the --case-sensitive option" - <code>man journalctl</code></p>
-<pre><code class="language-sh">journalctl -g '\b(foo|bar)\b
-</code></pre>
-<h3 id="show-the-nginx-journal-for-today">Show the nginx journal for today</h3>
-<p>The <code>-u</code> here is "unit", not "user".</p>
-<pre><code class="language-sh">journalctl -u nginx.service --since today
-</code></pre>
-<h3 id="list-journals-by-boot">List journals by boot</h3>
-<pre><code class="language-sh">journalctl --list-boots
-</code></pre>
-<p>The above command produces the following style of output:</p>
-<pre><code> -5 e6fcef265a164688b5f9aad999a9b1d2 Mon 2019-09-09 08:55:47 PDT—Tue 2019-09-17 17:41:25 PDT
- -4 1e402042ad0a48bebe17298fd80dfb66 Tue 2019-09-17 17:42:06 PDT—Tue 2019-09-17 18:26:28 PDT
- -3 1b36653fa7b64b1a808f10a894a0e303 Tue 2019-09-17 18:27:11 PDT—Sun 2019-09-22 13:34:59 PDT
- -2 be854ba422934cf2a9e7952dc052461a Sun 2019-09-22 16:23:43 PDT—Mon 2019-09-30 07:55:08 PDT
- -1 0454f1208e5e49c59fabf95cf4f68346 Mon 2019-09-30 07:55:51 PDT—Fri 2019-10-04 08:54:38 PDT
-  0 f8c09c85ed9f4976987121a345b6f446 Fri 2019-10-04 08:55:22 PDT—Wed 2019-10-09 15:34:01 PDT
-</code></pre>
-<h3 id="show-journal-for-previous-boot">Show journal for previous boot</h3>
-<p>Using the info from the previous --list-boots example, we can view the system log for the previous boot. This gives all system logs from the time the system booted to the time it shut down.</p>
-<pre><code class="language-sh">journalctl -b -1
-journalctl -b 0454f1208e5e49c59fabf95cf4f68346
-</code></pre>
-<h3 id="show-timers">Show timers</h3>
-<p>"A unit configuration file whose name ends in ".timer" encodes information about a timer controlled and supervised by systemd, for timer-based activation." - <code>man systemd.timer</code></p>
-<pre><code class="language-sh">systemctl list-timers
-</code></pre>
-<h3 id="show-units">Show units</h3>
-<p>Units are things that are handled by systemd, including services.</p>
-<pre><code class="language-sh">systemctl list-units
-</code></pre>
-<h3 id="show-dependencies">Show dependencies</h3>
-<p>This works on any .target or .service</p>
-<pre><code class="language-sh">systemctl list-dependencies network.service
-</code></pre>
-<h3 id="enable-a-service">Enable a service</h3>
-<p>This behavior replaces chkconfig</p>
-<pre><code class="language-sh">systemctl enable docker.service
-</code></pre>
-<h3 id="check-the-status-of-a-service-and-show-20-lines">Check the status of a service and show 20 lines</h3>
-<pre><code class="language-sh">systemctl -n 20 status nodejs
-</code></pre>
-<h3 id="per-user-services">Per-user services</h3>
-<p><a href="https://wiki.archlinux.org/index.php/Systemd/User">https://wiki.archlinux.org/index.php/Systemd/User</a></p>
-<pre><code class="language-sh">/usr/lib/systemd/user/ # where services provided by installed packages go.
-/etc/systemd/user/ # where system-wide user services are placed by the system administrator.
-~/.config/systemd/user/ # where the user puts its own services.
-</code></pre>
-<h3 id="alter-power-sleep-hibernate-button-behaviors">Alter power / sleep / hibernate button behaviors</h3>
-<pre><code class="language-sh">/etc/systemd/logind.conf
-</code></pre>
-<h3 id="show-name-resolution-status">Show name resolution status</h3>
-<pre><code class="language-sh">systemd-resolve --status
-</code></pre>
-<h3 id="show-boot-performance">Show boot performance</h3>
-<pre><code class="language-sh">systemd-analyze blame
-systemd-analyze critical-chain
-</code></pre>
-<h3 id="view-a-time-chart-of-the-boot-sequence">View a time-chart of the boot sequence</h3>
-<pre><code>sudo systemd-analyze plot &gt; systemd.svg
-</code></pre>
-<h3 id="show-cgroup-contexts">Show cgroup contexts</h3>
-<pre><code class="language-sh">systemd-cgls
-</code></pre>
-<h3 id="show-top-control-groups-by-their-resource-usage">Show top control groups by their resource usage</h3>
-<pre><code class="language-sh">systemd-cgtop
-</code></pre>
-<h3 id="detect-if-you-are-running-in-a-container-or-on-a-vm">Detect if you are running in a container or on a VM</h3>
-<pre><code class="language-sh">systemd-detect-virt
-</code></pre>
                 
               
               
@@ -5156,7 +4789,7 @@ systemd-analyze critical-chain
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../systemd-resolved/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../tcpdump/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5165,19 +4798,19 @@ systemd-analyze critical-chain
               <span class="md-footer__direction">
                 Previous
               </span>
-              systemd-resolved
+              tcpdump
             </div>
           </div>
         </a>
       
       
-        <a href="../tcl/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../terraform/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              TCL
+              Terraform
             </div>
           </div>
           <div class="md-footer__button md-icon">

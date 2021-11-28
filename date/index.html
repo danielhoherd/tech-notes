@@ -1058,6 +1058,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-all-format-strings-and-their-values" class="md-nav__link">
+    Show all format strings and their values
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4383,6 +4390,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        tcpflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -4860,6 +4882,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-all-format-strings-and-their-values" class="md-nav__link">
+    Show all format strings and their values
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4948,6 +4977,55 @@ date --rfc-3339=ns
 </code></pre>
 <h4 id="sleep-until-the-next-5-minute-0-seconds-mark">Sleep until the next 5 minute 0 seconds mark</h4>
 <pre><code>while sleep $(date &quot;+60 - %S.%N&quot; | bc) 240 ; do date &quot;+%F %T.%N&quot; ; done ;
+</code></pre>
+<h4 id="show-all-format-strings-and-their-values">Show all format strings and their values</h4>
+<pre><code>$ man date | awk '/[[:space:]]%/ {X = $1 ; $1 = &quot;&quot; ; print X,$0}' | while read -r Y Z ; do date &quot;+%$Y^$Y^${Z//%/%%}&quot; ; done | column -t -s^
+%      %                                MON literal %
+%a     Mon                              locale's abbreviated weekday name (e.g., Sun)
+%A     Monday                           locale's full weekday name (e.g., Sunday)
+%b     Nov                              locale's abbreviated month name (e.g., Jan)
+%B     November                         locale's full month name (e.g., January)
+%c     Mon 22 Nov 2021 10:33:55 AM PST  locale's date and time (e.g., Thu Mar 3 23:05:25 2005)
+%C     20                               century; like %Y, except omit last two digits (e.g., 20)
+%d     22                               day of month (e.g., 01)
+%D     11/22/21                         date; same as %m/%d/%y
+%e     22                               day of month, space padded; same as %_d
+%F     2021-11-22                       full date; like %+4Y-%m-%d
+%g     21                               last two digits of year of ISO week number (see %G)
+%G     2021                             year of ISO week number (see %V); normally useful only with %V
+%h     Nov                              same as %b
+%H     10                               hour (00..23)
+%I     10                               hour (01..12)
+%j     326                              day of year (001..366)
+%k     10                               hour, space padded ( 0..23); same as %_H
+%l     10                               hour, space padded ( 1..12); same as %_I
+%m     11                               month (01..12)
+%M     33                               minute (00..59)
+%n                                      a newline
+%N     258608657                        nanoseconds (000000000..999999999)
+%p     AM                               locale's equivalent of either AM or PM; blank if not known
+%P     am                               like %p, but lower case
+%q     4                                quarter of year (1..4)
+%r     10:33:55 AM                      locale's 12-hour clock time (e.g., 11:11:04 PM)
+%R     10:33                            24-hour hour and minute; same as %H:%M
+%s     1637606035                       seconds since 1970-01-01 00:00:00 UTC
+%S     55                               second (00..60)
+%t                                      a tab
+%T     10:33:55                         time; same as %H:%M:%S
+%u     1                                day of week (1..7); 1 is Monday
+%U     47                               week number of year, with Sunday as first day of week (00..53)
+%V     47                               ISO week number, with Monday as first day of week (01..53)
+%w     1                                day of week (0..6); 0 is Sunday
+%W     47                               week number of year, with Monday as first day of week (00..53)
+%x     11/22/2021                       locale's date representation (e.g., 12/31/99)
+%X     10:33:55 AM                      locale's time representation (e.g., 23:13:48)
+%y     21                               last two digits of year (00..99)
+%Y     2021                             year
+%z     -0800                            +hhmm numeric time zone (e.g., -0400)
+%:z    -08:00                           +hh:mm numeric time zone (e.g., -04:00)
+%::z   -08:00:00                        +hh:mm:ss numeric time zone (e.g., -04:00:00)
+%:::z  -08                              numeric time zone with : to necessary precision (e.g., -04, +05:30)
+%Z     PST                              alphabetic time zone abbreviation (e.g., EDT)
 </code></pre>
 <h3 id="bsd-date">BSD date</h3>
 <h4 id="show-adjusted-datetime_1">Show adjusted date/time</h4>

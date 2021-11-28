@@ -4620,6 +4620,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        tcpflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -5697,7 +5712,7 @@ export TERM=xterm-256color
 export TMOUT=&quot;1800&quot;  # log out after this many seconds of shell inactivity
 
 alias ll='ls -la'
-alias temp='tempdate=$(date +%F) ; mkdir -p ~/temp/$tempdate 2&gt;/dev/null ; cd ~/temp/$tempdate'
+alias temp='date_F=$(date +%F) ; mkdir -p ~/temp/$date_F 2&gt;/dev/null ; cd ~/temp/$date_F'
 
 sprunge() { curl -F 'sprunge=&lt;-' http://sprunge.us &lt; &quot;${1:-/dev/stdin}&quot;; } # usage: sprunge FILE # or some_command | sprunge
 

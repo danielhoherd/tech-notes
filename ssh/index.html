@@ -4533,6 +4533,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        tcpflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -5312,11 +5327,11 @@ echo &quot;Successfully fixed ssh authentication files permissions.&quot;
 <pre><code class="language-sh">ssh-keygen -lvf ~/.ssh/authorized_keys
 </code></pre>
 <h3 id="generate-keys">Generate Keys</h3>
-<p>Not all systems support ed25519, but it is currently the most secure key type.</p>
-<pre><code class="language-sh">ssh-keygen -t ssh-ed25519 -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
+<p>Not all systems support ed25519, but as of 2016 it is the most secure key type.</p>
+<pre><code class="language-sh">ssh-keygen -t ssh-ed25519 -C &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
 </code></pre>
 <p>If you require backwards compatibility, use 4096 bit RSA keys.</p>
-<pre><code class="language-sh">ssh-keygen -b 4096 -t rsa -c &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
+<pre><code class="language-sh">ssh-keygen -b 4096 -t rsa -C &quot;Daniel Hoherd &lt;danielhoherd@xyzhost&gt;&quot;
 </code></pre>
 <h3 id="create-or-change-a-password-for-an-ssh-identity">Create or change a password for an ssh identity</h3>
 <p>This will update the password used to unlock an ssh identity.</p>

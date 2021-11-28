@@ -2661,6 +2661,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#linux-kernel-namespaces" class="md-nav__link">
+    linux kernel namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     Links
   </a>
@@ -4603,6 +4610,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        tcpflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -5333,6 +5355,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#linux-kernel-namespaces" class="md-nav__link">
+    linux kernel namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     Links
   </a>
@@ -5695,6 +5724,19 @@ jq -c '
   select(.status.phase|test(&quot;Pending|Unknown&quot;)) |
   [.status.phase, .metadata.creationTimestamp, .metadata.namespace, .metadata.name]
 '
+</code></pre>
+<h2 id="linux-kernel-namespaces">linux kernel namespaces</h2>
+<p><a href="https://man7.org/linux/man-pages/man7/namespaces.7.html">Linux kernel namespaces</a> are part of the magic that allows containers to run, and kubernetes pods take this a step further by allowing multiple containers to run inside a pod, and share only some of the namespaces. Which ones?</p>
+<pre><code>diff -t -W 65 -y ns-container-1.txt ns-container-2.txt
+$ readlink /proc/$$/task/*/ns/*   $ readlink /proc/$$/task/*/ns/*
+cgroup:[4026531835]               cgroup:[4026531835]
+ipc:[4026532832]                  ipc:[4026532832]
+mnt:[4026533233]                | mnt:[4026533326]
+net:[4026532835]                  net:[4026532835]
+pid:[4026533325]                | pid:[4026533328]
+pid:[4026533325]                | pid:[4026533328]
+user:[4026531837]                 user:[4026531837]
+uts:[4026533324]                | uts:[4026533327]
 </code></pre>
 <h2 id="links">Links</h2>
 <ul>
