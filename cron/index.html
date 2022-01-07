@@ -672,21 +672,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../cgroups/" class="md-nav__link">
-        cgroups
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../chkconfig/" class="md-nav__link">
         chkconfig
       </a>
@@ -969,8 +954,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#curl-every-other-hour" class="md-nav__link">
-    Curl every other hour
+  <a href="#detect-if-you-are-running-in-an-interactive-shell" class="md-nav__link">
+    Detect if you are running in an interactive shell
   </a>
   
 </li>
@@ -4863,8 +4848,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#curl-every-other-hour" class="md-nav__link">
-    Curl every other hour
+  <a href="#detect-if-you-are-running-in-an-interactive-shell" class="md-nav__link">
+    Detect if you are running in an interactive shell
   </a>
   
 </li>
@@ -4909,14 +4894,14 @@
 <p>Some cron daemons don't handle DST correctly. Because of this, do not schedule jobs within the our of 1am. During DST changes this hour happens twice or is skipped altogether.</p>
 <p>Cronie says it handled DST gracefully, running jobs that should have run but haven't yet due to time changes, or no running jobs twice when time goes back.</p>
 <h2 id="syntax-quirks">Syntax quirks</h2>
-<p>Some systems have problems with #/# syntax. (eg: <code>15 2/6 * * * /usr/bin/whatever</code>)</p>
+<p>Some systems have problems with #/# syntax. (eg: <code>*/5 * * * * /usr/bin/whatever</code>)</p>
 <h2 id="default-editor">Default Editor</h2>
-<p>In some systems, the default editor is found by the symlink located at /etc/defaults/editor. To override this, export your EDITOR shell variable. (eg: <code>export EDITOR=/usr/bin/vim</code>)</p>
+<p>In some systems, the default editor is found by the symlink located at /etc/defaults/editor. To override this, export the <code>EDITOR</code> environment variable. (eg: <code>export EDITOR=/usr/bin/vim</code>)</p>
 <h2 id="examples">Examples</h2>
 <h3 id="quick-and-dirty-realignment">Quick and dirty realignment</h3>
 <p>This will definitely fail in some circumstances.</p>
-<pre><code>alias crontab-align='crontab -l | while read -r a b c d e f ; do
-  if [[ &quot;$a&quot; =~ ^## ]] ; then
+<pre><code class="language-sh">alias crontab-align='crontab -l | while read -r a b c d e f ; do
+  if [[ &quot;$a&quot; =~ ^# ]] ; then
     echo &quot;$a $b $c $d $e $f&quot; ;
   else
     printf &quot;% -20s %s\n&quot; &quot;$a $b $c $d $e&quot; &quot;$f&quot; ;
@@ -4931,27 +4916,35 @@ crontab-align | crontab -
 </code></pre>
 <h3 id="programmatic-editing-of-the-crontab">Programmatic editing of the crontab</h3>
 <p>This is potentially dangerous because you can wipe out a user's crontab.</p>
-<pre><code>crontab -l | sed -e '/downtime/s/^\#//' | crontab -
+<pre><code class="language-sh">crontab -l | sed -e '/downtime/s/^\#//' | crontab -
 echo &quot;* * * * * /usr/local/bin/every_minute.sh&quot; | crontab -
 </code></pre>
 <h3 id="see-if-and-when-parts-are-running">See if and when parts are running</h3>
-<p>Put this in /etc/cron.*/01-cron-log :</p>
+<p>Put this in <code>/etc/cron.*/01-cron-log</code> and when those parts run you will see the message in syslog.</p>
 <pre><code>logger -t cron Running `basename $PWD`
 </code></pre>
 <h3 id="os-x-alarm-clock">OS X Alarm Clock</h3>
-<pre><code>### Alarm Clock
-55 5 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot;' -e 'set the sound volume to 100' -e 'end tell'
-00 6 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot;' -e 'play playlist &quot;Old Podcasts&quot;' -e 'end tell'
+<pre><code>59 5 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot;' -e 'set the sound volume to 100' -e 'end tell'
+0  6 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot;' -e 'play playlist &quot;Old Podcasts&quot;' -e 'end tell'
 15 8 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot; to stop'
 </code></pre>
-<h3 id="curl-every-other-hour">Curl every other hour</h3>
-<pre><code>0 */2 * * *    curl -fs &quot;http://bighugelabs.com/flickr/profilewidget/randomint/000000/ffffff/94246031@N00.jpg&quot; &gt; /dev/null
+<h3 id="detect-if-you-are-running-in-an-interactive-shell">Detect if you are running in an interactive shell</h3>
+<p>When writing scripts to use with crontab, sometimes you want to give different flags if they are given by a human. The most obvious case of this is verbosity, where you may want to be very verbose when a human runs the command but be quiet in cron.</p>
+<pre><code class="language-sh"># Check if we're running in an interactive shell
+if [ -t 0 ] ; then
+  verbosity=&quot;--verbose&quot;
+else
+  verbosity=&quot;--quiet&quot;
+fi
+
+/usr/bin/some-command &quot;${verbosity}&quot;
 </code></pre>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Having junk files like temp vim files in /var/cron/tabs can make cron go to 100% cpu usage. Remove all non crontab files and kill cron to fix it.</p>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://crontab.guru/">https://crontab.guru/</a> - Online crontab linter and explainer</li>
+<li><a href="https://crontab.guru/">https://crontab.guru/</a>: Online crontab linter and explainer</li>
+<li><a href="https://github.com/kiorky/croniter">https://github.com/kiorky/croniter</a>: python module that "provides iteration for the datetime object with a cron like format"</li>
 </ul>
                 
               

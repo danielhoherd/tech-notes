@@ -672,21 +672,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../cgroups/" class="md-nav__link">
-        cgroups
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../chkconfig/" class="md-nav__link">
         chkconfig
       </a>
@@ -2491,6 +2476,60 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kernel-namespaces" class="md-nav__link">
+    Kernel namespaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Kernel namespaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-stuff" class="md-nav__link">
+    Tools and stuff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#various-namespace-aware-tool-examples" class="md-nav__link">
+    Various namespace-aware tool examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Various namespace-aware tool examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-cgroup-output" class="md-nav__link">
+    ps cgroup output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-process-in-another-namespace" class="md-nav__link">
+    Run a process in another namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-the-path-to-a-namespace" class="md-nav__link">
+    Find the path to a namespace
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See also
   </a>
@@ -2521,6 +2560,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
   
 </li>
       
@@ -4825,6 +4871,60 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kernel-namespaces" class="md-nav__link">
+    Kernel namespaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Kernel namespaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-stuff" class="md-nav__link">
+    Tools and stuff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#various-namespace-aware-tool-examples" class="md-nav__link">
+    Various namespace-aware tool examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Various namespace-aware tool examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-cgroup-output" class="md-nav__link">
+    ps cgroup output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-process-in-another-namespace" class="md-nav__link">
+    Run a process in another namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-the-path-to-a-namespace" class="md-nav__link">
+    Find the path to a namespace
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See also
   </a>
@@ -4855,6 +4955,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
   
 </li>
       
@@ -4902,6 +5009,56 @@ echo b &gt; /proc/sysrq-trigger
 <p>This should work on other unixes too.</p>
 <pre><code class="language-sh">trap -l
 </code></pre>
+<h2 id="kernel-namespaces">Kernel namespaces</h2>
+<p>"A namespace wraps a global system resource in an abstraction that makes it appear to the processes within the namespace that they have their own isolated instance of the global resource. Changes to the global resource are visible to other processes that are members of the namespace, but are invisible to other processes. One use of namespaces is to implement containers." - <code>man namespaces</code></p>
+<p>"Control cgroups, usually referred to as cgroups, are a Linux kernel feature which allow processes to be organized into hierarchical groups whose usage of various types of resources can then be limited and monitored." - <code>man cgroups</code></p>
+<p><code>cgroup</code> is one of the linux namespaces. (see <code>man namespaces</code> for more info.)</p>
+<h3 id="tools-and-stuff">Tools and stuff</h3>
+<ul>
+<li><code>lsns</code> - list namespaces</li>
+<li><code>cgcreate</code> - create new cgroup</li>
+<li><code>cgexec</code> - run the task in given control group</li>
+<li><code>cgclassify</code> - move running task(s) to given cgroup</li>
+<li><code>nsenter</code> - Run a command in a referenced process cgroup config</li>
+<li><code>systemd-cgls</code> - systemd-cgls - Recursively show control group contents</li>
+<li><code>systemd-cgtop</code> - Show top control groups by their resource usage</li>
+<li><code>/proc/self/cgroup</code> - cgroup introspection</li>
+</ul>
+<h3 id="various-namespace-aware-tool-examples">Various namespace-aware tool examples</h3>
+<h4 id="ps-cgroup-output">ps cgroup output</h4>
+<pre><code>ps -o pid,ppid,user,comm,flags,%cpu,sz,%mem,cgname
+</code></pre>
+<h4 id="run-a-process-in-another-namespace">Run a process in another namespace</h4>
+<p>With <code>nsenter</code> you specify a target pid to reference, and then specify which namespaces of its you want to enter.</p>
+<p>On Ubuntu 18.04, <code>udev</code> mounts devices in a non-global namespace, which prevents normal users from viewing those mounts. You must use <code>nsenter</code> to enter the udevd namespaces to view the mounts, using either <code>--all</code> to get all namespaces of udevd, or <code>--mount</code> for just that one required namespace:</p>
+<pre><code>root@bionic:~# lsblk -o NAME,MOUNTPOINT /dev/sdc
+NAME   MOUNTPOINT
+sdc
+└─sdc1
+
+root@bionic:~# nsenter --all -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
+NAME   MOUNTPOINT
+sdc
+└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
+
+root@bionic:~# nsenter --mount -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
+NAME   MOUNTPOINT
+sdc
+└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
+</code></pre>
+<p>See <a href="../udev/">udev</a> for one permanent fix for this.</p>
+<h4 id="find-the-path-to-a-namespace">Find the path to a namespace</h4>
+<p>The path to a namespace can be used in some instances instead of the pid. We can discover the path to a namespace by using <code>lsns</code>.</p>
+<pre><code>root@bionic:~# lsns -p $(pgrep udevd) -o +PATH
+        NS TYPE   NPROCS   PID USER COMMAND                    PATH
+4026531835 cgroup    173     1 root /sbin/init                 /proc/1/ns/cgroup
+4026531836 pid       173     1 root /sbin/init                 /proc/1/ns/pid
+4026531837 user      173     1 root /sbin/init                 /proc/1/ns/user
+4026531838 uts       173     1 root /sbin/init                 /proc/1/ns/uts
+4026531839 ipc       173     1 root /sbin/init                 /proc/1/ns/ipc
+4026532009 net       173     1 root /sbin/init                 /proc/1/ns/net
+4026532286 mnt         1  5480 root /lib/systemd/systemd-udevd /proc/5480/ns/mnt
+</code></pre>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../lxc/">lxc</a></li>
@@ -4921,6 +5078,12 @@ echo b &gt; /proc/sysrq-trigger
 <li>Filesystem Hierarchy Standards: <a href="http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html">http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html</a></li>
 <li><a href="../lvm/">LVM</a></li>
 <li><a href="../zfs/">ZFS</a></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://blog.quarkslab.com/digging-into-linux-namespaces-part-1.html">https://blog.quarkslab.com/digging-into-linux-namespaces-part-1.html</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Cgroups">https://wiki.archlinux.org/index.php/Cgroups</a></li>
+<li><a href="https://www.paranoids.at/cgroup-ubuntu-18-04-howto/">https://www.paranoids.at/cgroup-ubuntu-18-04-howto/</a></li>
 </ul>
                 
               

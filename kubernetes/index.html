@@ -672,21 +672,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../cgroups/" class="md-nav__link">
-        cgroups
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../chkconfig/" class="md-nav__link">
         chkconfig
       </a>
@@ -2472,6 +2457,20 @@
           <li class="md-nav__item">
   <a href="#show-all-images-referenced-by-your-k8s-manifests" class="md-nav__link">
     Show all images referenced by your k8s manifests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_managerpod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_manager/pod_name container_name
   </a>
   
 </li>
@@ -5171,6 +5170,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_managerpod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_manager/pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5536,6 +5549,30 @@ sort |
 uniq -c |
 sort -n
 </code></pre>
+<h3 id="show-a-list-of-containers-formatted-as-pod_name-container_name">Show a list of containers formatted as pod_name container_name</h3>
+<pre><code class="language-sh">kubectl get pods -n &quot;$NS&quot; -o json |
+  jq -r '.items[] | .metadata.name as $podname | .spec.containers[] | &quot;\($podname) \(.name)&quot;' |
+  column -t
+</code></pre>
+<h3 id="show-a-list-of-containers-formatted-as-pod_managerpod_name-container_name">Show a list of containers formatted as pod_manager/pod_name container_name</h3>
+<p>When you need to check all of the containers of pods in a given pod manager (sts, ds, deployment), you need a list that is formatted in a very specific way.</p>
+<p>For instance, to get a list of containers inside the prometheus sts pods</p>
+<pre><code class="language-sh">kubectl get sts -l component=prometheus -n &quot;$NS&quot; -o json |
+  jq -r '.items[] | .kind as $kind | .metadata.name as $name | .spec.template.spec.containers[] | &quot;\($kind)/\($name) \(.name)&quot;' |
+  column -t
+</code></pre>
+<p>Which produces the output:</p>
+<pre><code>StatefulSet/demo-prometheus  configmap-reloader
+StatefulSet/demo-prometheus  prometheus
+</code></pre>
+<p>This can then be fed into anything needing such syntax, for example <code>kubectl exec</code> to check the runtime env of these containers:</p>
+<pre><code>$ kubectl get sts -l component=prometheus -n $NS -o json |
+  jq -r '.items[] | .kind as $kind | .metadata.name as $name | .spec.template.spec.containers[] | &quot;\($kind)/\($name) \(.name)&quot;' |
+  while read -r p c ; do echo &quot;$p $c $(kubectl -n $NS exec $p -c $c -- env | grep '^HOSTNAME=')&quot; ; done ;
+StatefulSet/demo-prometheus configmap-reloader HOSTNAME=demo-prometheus-1
+StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
+</code></pre>
+<p>That's obviously a contrived example, but the real learning here is that it is possible to iterate deep json data while referencing values form higher levels by storing that higher level as variables.</p>
 <h3 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h3>
 <pre><code class="language-sh">watch kubectl get pods --all-namespaces -o wide
 </code></pre>
@@ -5780,6 +5817,7 @@ uts:[4026533324]                | uts:[4026533327]
 <li><a href="https://kustomize.io">https://kustomize.io</a>: "Kubernetes native configuration management"</li>
 <li><a href="https://github.com/kubernetes-sigs/kustomize/tree/master/examples">https://github.com/kubernetes-sigs/kustomize/tree/master/examples</a>: Kustomize examples</li>
 <li><a href="https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/">https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/</a>: Downward API allows you to mount k8s spec information as env vars</li>
+<li><a href="https://isovalent.com/blog/post/2021-12-08-ebpf-servicemesh">https://isovalent.com/blog/post/2021-12-08-ebpf-servicemesh</a>: How eBPF will solve Service Mesh - Goodbye Sidecars</li>
 </ul>
                 
               

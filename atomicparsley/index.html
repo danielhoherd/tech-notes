@@ -730,21 +730,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../cgroups/" class="md-nav__link">
-        cgroups
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../chkconfig/" class="md-nav__link">
         chkconfig
       </a>
@@ -4766,13 +4751,13 @@
 <h2 id="examples">Examples</h2>
 <h3 id="set-metadata-on-multiple-files">Set metadata on multiple files</h3>
 <p>Unfortunately the syntax of this tool requires you to edit one file at a time, so you have to iterate each item of an album using shell loops or <code>xargs</code> or whatever you prefer.</p>
-<pre><code>for file in *.m4a ; do
+<pre><code class="language-sh">for file in *.m4a ; do
   AtomicParsley &quot;${file}&quot; --artist &quot;Various Artists&quot; ;
 done ;
 </code></pre>
 <h3 id="remove-personally-identifiable-information-pii-from-files">Remove Personally Identifiable Information (pii) from files</h3>
 <p>Useful if you want to remove your personal info from iTunes Match files.</p>
-<pre><code>for file in *.m4a ; do
+<pre><code class="language-sh">for file in *.m4a ; do
   AtomicParsley \
     &quot;$file&quot; \
     --DeepScan \
