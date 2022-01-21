@@ -65,10 +65,10 @@ subnet 10.8.1.0 netmask 255.255.255.0
 subnet 10.8.2.0 netmask 255.255.255.0
 {
     filename &quot;pxelinux.0&quot; ;
-        option subnet-mask 255.255.255.0 ;
-        option broadcast-address 10.8.2.255 ;
-        option routers 10.8.2.1 ;
-        next-server 10.8.2.240 ;
+    option subnet-mask 255.255.255.0 ;
+    option broadcast-address 10.8.2.255 ;
+    option routers 10.8.2.1 ;
+    next-server 10.8.2.240 ;
     range 10.8.2.100 10.8.2.199 ;
 
     host honey-b-drac   {   hardware ethernet 00:18:8B:40:DC:78 ;   fixed-address 10.8.2.19 ;   }
