@@ -246,6 +246,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/cut/</loc>
+         <lastmod>2022-01-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/dat/</loc>
          <lastmod>2022-01-22</lastmod>
          <changefreq>daily</changefreq>
@@ -812,6 +817,11 @@
     </url>
     <url>
          <loc>https://danielhoherd.com/tech-notes/microbit/</loc>
+         <lastmod>2022-01-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://danielhoherd.com/tech-notes/microcontrollers/</loc>
          <lastmod>2022-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1397,6 +1407,11 @@
     </url>
     <url>
          <loc>https://danielhoherd.com/tech-notes/touch/</loc>
+         <lastmod>2022-01-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://danielhoherd.com/tech-notes/tr/</loc>
          <lastmod>2022-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
