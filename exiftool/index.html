@@ -5466,8 +5466,9 @@ args+=( '-d' './%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le' )
 find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;${args[@]}&quot;
 </code></pre>
 <h3 id="print-filenames-that-are-missing-a-tag">Print filenames that are missing a tag</h3>
-<p>This example prints all filenames for jpg files that do not have GPS Coordinates</p>
-<pre><code class="language-sh">exiftool -p '$Filename' -if 'not defined $GPSPosition' *.jpg
+<p>This example creates a file with all full path names for jpg and dng files that do not have GPS Coordinates</p>
+<pre><code class="language-sh">find /some/dir -iname '*.jpg' -or -iname '*.dng' -print0 |
+xargs -0 exiftool -p '${Directory}/${Filename}' -if 'not defined $GPSPosition' &gt;&gt; ~/no-geo.txt
 </code></pre>
 <h3 id="rename-music-files-in-a-directory">Rename music files in a directory</h3>
 <p>If you use a semicolon inside of a tag that is used to generate a filename, it will have filename-invalid characters stripped. The invalid character list is: <code>/ \ ? * : | " &lt; &gt;</code>. See the next section for more examples of semicolon behavior.</p>
