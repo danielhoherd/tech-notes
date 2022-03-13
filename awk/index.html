@@ -622,6 +622,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length" class="md-nav__link">
+    Show a list of dns hostname queries with domain stripped, sorted by hostname length
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1147,6 +1154,21 @@
     <li class="md-nav__item">
       <a href="../cut/" class="md-nav__link">
         cut
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dasel/" class="md-nav__link">
+        dasel
       </a>
     </li>
   
@@ -5216,6 +5238,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length" class="md-nav__link">
+    Show a list of dns hostname queries with domain stripped, sorted by hostname length
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5353,6 +5382,15 @@ https://quay.io/astronomer/ap-base          quay.io/astronomer/ap-base:3.14.2
 https://quay.io/astronomer/ap-cli-install   quay.io/astronomer/ap-cli-install:0.25.2
 ...snip...
 </code></pre>
+<h3 id="show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length">Show a list of dns hostname queries with domain stripped, sorted by hostname length</h3>
+<p>This samples 100k dns queries, strips off all the domain names in the queried hostname, and prints the length of that first component of the FQDN (the bare hostname) along with the bare hostname itself, and shows the longest 25 entries.</p>
+<pre><code class="language-s">tcpdump -c 100000 -l -n -e dst port 53 |
+awk '$14 == &quot;A?&quot; {gsub(/\..*/, &quot;&quot;, $15) ; print(length($15), $15) ; fflush(&quot;/dev/stdout&quot;) ;}' |
+sort -u |
+sort -n |
+tail -n 25
+</code></pre>
+<p>Run this on your kube-dns nodes to see how close you're getting to the 63 character limit. You will never see errors though, because any name with comopnents that are longer than 63 characters are not sent over the wire, so you'll need to check your logs for those. A good string to search for is "63 characters".</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="http://www.grymoire.com/Unix/Awk.html">http://www.grymoire.com/Unix/Awk.html</a></li>
