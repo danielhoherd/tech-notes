@@ -5125,14 +5125,20 @@ respawn limit 10 5' app_worker_*.conf
 <pre><code class="language-sh">sed -n '/ROUTING TABLE/,$p' /etc/openvpn/openvpn-status.log
 </code></pre>
 <h3 id="print-only-lines-after-a-match">Print only lines after a match</h3>
+<p>The syntax in both of these is <code>&lt;sed_address_one&gt;,&lt;sed_address_two&gt; &lt;action&gt;</code></p>
 <pre><code class="language-sh">$ k describe pod -n moms-iot-oven cookie-baker-2022-proxy |
-sed -n '/^Events/,//p;'
+sed -ne '/^Events/,$ p;'
 Events:
   Type    Reason   Age                       From     Message
   ----    ------   ----                      ----     -------
   Normal  Pulling  56m (x1281 over 4d13h)    kubelet  Pulling image &quot;ubuntu:2004&quot;
   Normal  BackOff  118s (x29062 over 4d13h)  kubelet  Back-off pulling image &quot;ubuntu:2004&quot;
 </code></pre>
+<p>That says "Do not print each line by default (<code>-n</code>). Start at the sed address which is a 'context address' regex <code>/^Events/</code>, and end at the special sed address <code>$</code> which means the last line of input, and print those lines. (All of this info is in the man page.)</p>
+<p>Or if you don't want to include the match:</p>
+<pre><code class="language-sh">sed -e '1,/^Events/ d'
+</code></pre>
+<p>This says "Start at line one and delete every line up to and including the match <code>^Events</code>."</p>
 <h3 id="print-file-contents-between-two-string-matches">Print file contents between two string matches</h3>
 <p>This will print the contents of the log file between <code>ROUTING TABLE</code> and <code>GLOBAL STATS</code> inclusive.</p>
 <pre><code class="language-sh">sed -n '/^ROUTING TABLE/,/^GLOBAL STATS/p;/^GLOBAL STATS/q' /etc/openvpn/openvpn-status.log

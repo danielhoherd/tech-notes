@@ -979,6 +979,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pretty-format-a-gpx-file" class="md-nav__link">
+    Pretty format a gpx file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4888,6 +4895,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pretty-format-a-gpx-file" class="md-nav__link">
+    Pretty format a gpx file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4918,14 +4932,17 @@
   open &quot;$(date &quot;+https://company-name.pagerduty.com/api/v1/reports/raw/incidents.csv?since=${past}&amp;until=${present}&amp;time_zone=${TZ}&quot;)&quot;
 }
 </code></pre>
-<p>Then restructure it:</p>
-<pre><code class="language-sh">cat incidents.csv |
-dasel -r csv -w json |
-jq -r '&quot;\(.created_on) https://company-name.pagerduty.com/incidents/\(.id) \(.description)&quot;'
+<p>Then restructure it using <code>--format</code> to interpolate variables into a template string:</p>
+<pre><code class="language-sh">dasel -f incidents.csv -w json -m --format '{{ .created_on }} https://company-name.pagerduty.com/incidents/{{ .id }} {{ .description }}' '.[*]'
 </code></pre>
 <p>The output will be something like:</p>
 <pre><code>2022-02-02T20:02:02-08:00 https://company-name.pagerduty.com/incidents/Q0ZL9NU2 [FIRING:1] TargetDown (cat-downloader)
 </code></pre>
+<h3 id="pretty-format-a-gpx-file">Pretty format a gpx file</h3>
+<p>This is useful for comparing two files, for instance where one may have been appended, and you need to make sure.</p>
+<pre><code class="language-sh">dasel -r xml -f 2022-01-02-18-20-00.gpx &gt; old.gpx
+</code></pre>
+<p>Keep in mind though that pretty-formatted gpx files take up significantly more space. <code>dasel</code> does not appear capable of compact <code>-c</code> formatting xml, though there is <a href="https://github.com/TomWright/dasel/issues/213">an issue requesting it</a>.</p>
 
               
             </article>

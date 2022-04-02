@@ -4190,6 +4190,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#open-a-db-read-only" class="md-nav__link">
+    Open a db read-only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#import-a-csv-file" class="md-nav__link">
     Import a csv file
   </a>
@@ -4227,6 +4234,20 @@
           <li class="md-nav__item">
   <a href="#output-rows-via-the-unix-shell" class="md-nav__link">
     Output rows via the unix shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-a-field-where-its-value-occurs-more-than-n-times" class="md-nav__link">
+    Select a field where its value occurs more than N times
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-field-a-where-the-value-field-b-occurs-more-than-n-times" class="md-nav__link">
+    Select field A where the value Field B occurs more than N times
   </a>
   
 </li>
@@ -4280,8 +4301,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#open-a-db-read-only" class="md-nav__link">
-    Open a db read-only
+  <a href="#use-exiftool-and-sqlite-utils-to-find-duplicate-photos" class="md-nav__link">
+    Use exiftool and sqlite-utils to find duplicate photos
   </a>
   
 </li>
@@ -4986,6 +5007,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#open-a-db-read-only" class="md-nav__link">
+    Open a db read-only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#import-a-csv-file" class="md-nav__link">
     Import a csv file
   </a>
@@ -5023,6 +5051,20 @@
           <li class="md-nav__item">
   <a href="#output-rows-via-the-unix-shell" class="md-nav__link">
     Output rows via the unix shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-a-field-where-its-value-occurs-more-than-n-times" class="md-nav__link">
+    Select a field where its value occurs more than N times
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-field-a-where-the-value-field-b-occurs-more-than-n-times" class="md-nav__link">
+    Select field A where the value Field B occurs more than N times
   </a>
   
 </li>
@@ -5076,8 +5118,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#open-a-db-read-only" class="md-nav__link">
-    Open a db read-only
+  <a href="#use-exiftool-and-sqlite-utils-to-find-duplicate-photos" class="md-nav__link">
+    Use exiftool and sqlite-utils to find duplicate photos
   </a>
   
 </li>
@@ -5114,6 +5156,9 @@
 <li><a href="https://www.sqlite.org/appfileformat.html">https://www.sqlite.org/appfileformat.html</a></li>
 </ul>
 <h2 id="syntax-examples">Syntax Examples</h2>
+<h3 id="open-a-db-read-only">Open a db read-only</h3>
+<pre><code class="language-sh">sqlite3 &quot;file:///absolute/path/to/file/datasette.db?mode=ro&quot;
+</code></pre>
 <h3 id="import-a-csv-file">Import a csv file</h3>
 <p>This method does not appear to support <code>~/filename</code> or <code>$HOME/filename</code>, but does support relative and absolute paths. The <code>sqlite3</code> help text says that <code>-csv</code> will "set output mode to 'csv'", but it also affects <code>.import</code> statements.</p>
 <pre><code class="language-sh">sqlite3 -csv filename.db &quot;.import path/to/some_file.csv destination_table_name&quot;
@@ -5151,6 +5196,21 @@ UNIQUE (id,hostname));&quot;
 </code></pre>
 <p>If <code>-column</code> is truncating your output, instead use <code>-list -separator ' '</code></p>
 <p><code>-line</code> is the equivalent of mysql's <code>\G</code> or postgres's <code>\x</code></p>
+<h3 id="select-a-field-where-its-value-occurs-more-than-n-times">Select a field where its value occurs more than N times</h3>
+<pre><code class="language-sql">select DateTimeOriginal
+from photos
+group by DateTimeOriginal
+having count(DateTimeOriginal) &gt; 1 ;
+</code></pre>
+<h3 id="select-field-a-where-the-value-field-b-occurs-more-than-n-times">Select field A where the value Field B occurs more than N times</h3>
+<p>This selects all values for field A (SourceFile), including where duplicates exist for field B (DateTimeOriginal). The prior example would not have shown this if we had added <code>SourceFile</code> to the <code>select</code>.</p>
+<pre><code class="language-sql">select SourceFile from photos
+where DateTimeOriginal in (
+  select DateTimeOriginal from photos
+  group by DateTimeOriginal
+  having count(DateTimeOriginal) &gt; 1
+) order by SourceFile ;
+</code></pre>
 <h3 id="select-a-random-row-from-a-table">Select a random row from a table</h3>
 <pre><code class="language-sh">TABLE='costreport'
 sqlite3 -line CostReport-1.db &quot;SELECT * FROM $TABLE
@@ -5192,6 +5252,7 @@ ORDER BY cost ;
 alias ss=&quot;skypesearch john.doe&quot;
 </code></pre>
 <h3 id="quickly-create-an-image-database">Quickly create an image database</h3>
+<p>A better way to do this would be to <a href="../datasette/">use sqlite-utils, which is part of datasette</a>, and there is an example below that shows how to do this.</p>
 <pre><code class="language-sh">## Create the database
 sqlite3 images.db &quot;create table images (filename varchar(255), createdate timestamp, unique(filename))&quot;
 ## Populate the database. This can be blindly re-run when new files are added.
@@ -5199,8 +5260,25 @@ exiftool -d &quot;%s&quot; -p 'insert into images values (&quot;$filename&quot;,
 ## Query the database
 sqlite3 images.db &quot;SELECT filename,datetime(createdate,'unixepoch','localtime') as date FROM images WHERE date LIKE '2014-08-02%';&quot;
 </code></pre>
-<h3 id="open-a-db-read-only">Open a db read-only</h3>
-<pre><code class="language-sh">sqlite3 &quot;file:///absolute/path/to/file/datasette.db?mode=ro&quot;
+<h3 id="use-exiftool-and-sqlite-utils-to-find-duplicate-photos">Use exiftool and sqlite-utils to find duplicate photos</h3>
+<p>This example shows how to delete JPG files where a DNG also exists, for photos taken with a camera that keeps track of the ImageNumber, like most DSLRs.</p>
+<p>First, ingest all the exif data from your photos into a sqlite db. We specify only the fields we need from exiftool, and output the data as a json blob, then use <code>jq</code> to reformat the json as one record per line, then send that into <code>sqlite-utils</code>. The <code>sqlite-utils</code> <code>--nl</code> option tells it to expect one record per line, <code>--pk SourceFile</code> specifies that field (which is always present in exiftool json output) as the primary key to ensure uniqueness, <code>--replace</code> will update any rows where the primary key already exists (so we can re-run this on an existing database). If we were not specifying exiftool fields, we would need an <code>--alter</code> flag here to tell sqlite-utils to add columns to the table for exif fields that did not exist in any previously imported photos.</p>
+<pre><code class="language-sh">SOURCE_DIR=/some/absolute/path/with/photos
+find &quot;${SOURCE_DIR}&quot; -type f -iname '*.jpg' -print0 -or -iname '*.dng' -print0 |
+xargs -0 exiftool -SerialNumber -ImageNumber -FileType -json |
+jq -c '.[]' |
+sqlite-utils insert --nl --pk SourceFile --replace ~/photos.db photos -
+</code></pre>
+<p>Now do a sql select for all JPG files that finds the duplicates. The idea here is to find distinct shots from a specific camera body which are identified by concatenating the SerialNumber and the ImageNumber together, and only select rows with FileType = JPEG where that same shot also has a FileType = DNG entry. This avoids deletion of JPG files where there is no DNG for the same shot.</p>
+<p>This example does <code>echo rm</code> just for the example. Remove <code>echo</code> to actually do the deletion. This example also shows how to interpolate fields in sqlite3 by using <code>||</code> to concatenate fields and strings to produce a single string that is used to compare with, or output as a result.</p>
+<pre><code class="language-sh">sqlite3 ~/photos.db &quot;
+select SourceFile from photos
+where FileType = 'JPEG'
+and SerialNumber || ImageNumber in (
+  select SerialNumber || ImageNumber from photos where FileType = 'DNG'
+) ;
+&quot; |
+xargs -r echo rm -fv
 </code></pre>
 
               
