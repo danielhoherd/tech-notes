@@ -2270,6 +2270,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#select-key-name-with-dots" class="md-nav__link">
+    Select key name with dots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#grab-first-element-of-an-array-and-print-the-value-of-timestamp-of-that-element" class="md-nav__link">
     Grab first element of an array, and print the value of 'timestamp' of that element.
   </a>
@@ -4966,6 +4973,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#select-key-name-with-dots" class="md-nav__link">
+    Select key name with dots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#grab-first-element-of-an-array-and-print-the-value-of-timestamp-of-that-element" class="md-nav__link">
     Grab first element of an array, and print the value of 'timestamp' of that element.
   </a>
@@ -5066,6 +5080,8 @@
 <h3 id="sort-a-json-file">Sort a json file</h3>
 <pre><code class="language-sh">jq -S . foo.json
 </code></pre>
+<h3 id="select-key-name-with-dots">Select key name with dots</h3>
+<p>The syntax <code>.foo.bar</code> is the same as <code>.["foo"]["bar"]</code>, so to select keys that have dots, you would do <code>.annotations["deployment.kubernetes.io/revision"]</code></p>
 <h3 id="grab-first-element-of-an-array-and-print-the-value-of-timestamp-of-that-element">Grab first element of an array, and print the value of 'timestamp' of that element.</h3>
 <pre><code class="language-sh">echo '
 [
@@ -5080,12 +5096,12 @@
 </code></pre>
 <h3 id="construct-flickr-urls-from-an-api-call">Construct Flickr URLs from an API call</h3>
 <pre><code class="language-sh">curl -s &quot;https://api.flickr.com/services/rest/?&quot;\
-&quot;&amp;api_key=9c72f03c0583a34bd703bd82d8773cc0&quot;\
+&quot;&amp;api_key=0123456789abcdef&quot;\
 &quot;&amp;format=json&quot;\
 &quot;&amp;method=flickr.photos.getRecent&quot;\
 &quot;&amp;nojsoncallback=1&quot; |
   jq -S '
-    .[&quot;photos&quot;][&quot;photo&quot;][] |
+    .photos.photo[] |
     &quot;https://flickr.com/photos/&quot; + .owner + &quot;/&quot; + .id
   '
 </code></pre>
@@ -5108,9 +5124,9 @@ data:
     value: foo_value
   - name: bar_name
     value: bar_value&quot; |
-python -c &quot;import yaml, sys, json; print json.dumps(yaml.safe_load(sys.stdin))&quot; |
+python -c &quot;import yaml, sys, json; print(json.dumps(yaml.safe_load(sys.stdin)))&quot; |
 jq '
-  .[&quot;data&quot;][] |
+  .data[] |
   select(type==&quot;object&quot;) |
   select (.name | . and contains(&quot;bar_n&quot;))
 '
@@ -5152,7 +5168,7 @@ job3:
   &lt;&lt;: *template
   remote_host: 10.3.3.3
 &quot; |
-python -c &quot;import yaml, sys, json; print json.dumps(yaml.safe_load(sys.stdin))&quot; |
+python -c &quot;import yaml, sys, json; print(json.dumps(yaml.safe_load(sys.stdin)))&quot; |
 jq -S .
 </code></pre>
 <h3 id="select-matches-and-print-a-subset-of-values">Select matches, and print a subset of values</h3>

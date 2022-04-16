@@ -5078,51 +5078,51 @@
 <p>Network sniffing tool.</p>
 <h2 id="syntax-examples">Syntax Examples</h2>
 <h3 id="capture-packets-to-and-from-an-ip-address">Capture packets to and from an IP address</h3>
-<p>Only captures data that includes 1.2.3.4 as source or destination address</p>
-<pre><code>tcpdump host 1.2.3.4
+<p>Captures all data that includes 1.2.3.4 as the source or destination address, but no other traffic.</p>
+<pre><code class="language-sh">tcpdump host 1.2.3.4
 </code></pre>
 <h3 id="capture-traffic-that-contains-a-given-mac-address">Capture traffic that contains a given mac address</h3>
 <p>writes capfile.cap containing all traffic to or from the specified mac address on the network attached to eth1</p>
-<pre><code>tcpdump -w capfile.cap -i eth1 ether host 00:03:fa:46:2c:08
+<pre><code class="language-sh">tcpdump -w capfile.cap -i eth1 ether host 00:03:fa:46:2c:08
 </code></pre>
 <h3 id="filter-packets-from-an-existing-capture">Filter packets from an existing capture</h3>
 <p>Filters port 53 packets out of the old capfile into the new</p>
-<pre><code>tcpdump -r oldcapfile.cap -w newcapfile.cap port 53
+<pre><code class="language-sh">tcpdump -r oldcapfile.cap -w newcapfile.cap port 53
 </code></pre>
 <h3 id="capture-all-pop3-traffic-and-all-traffic-from-a-particular-host">Capture all pop3 traffic and all traffic from a particular host</h3>
 <p>Captures all pop3 traffic and all traffic to or from the specified host on the first interface of a Mac OS X computer</p>
-<pre><code>tcpdump -w foo.cap -i en0 ether host 00:03:9a:28:44:01 or port 110
+<pre><code class="language-sh">tcpdump -w foo.cap -i en0 ether host 00:03:9a:28:44:01 or port 110
 </code></pre>
 <h3 id="capture-all-traffic-not-a-mac-address">Capture all traffic not a mac address</h3>
 <p>Captures all traffic not from the host 00:1b:63:ce:83:2e, useful for filtering out your own traffic.</p>
-<pre><code>tcpdump -i en1 not ether src 00:1b:63:ce:83:2e
+<pre><code class="language-sh">tcpdump -i en1 not ether src 00:1b:63:ce:83:2e
 </code></pre>
 <h3 id="capture-lldp-traffic">Capture LLDP traffic</h3>
 <p>This matches 2 bytes starting at the 12th byte against 88cc</p>
-<pre><code>tcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'
+<pre><code class="language-sh">tcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'
 </code></pre>
 <h3 id="capture-syn-packets">Capture SYN packets</h3>
-<pre><code>tcpdump -n 'tcp[13] &amp; 2!=0'
+<pre><code class="language-sh">tcpdump -n 'tcp[13] &amp; 2!=0'
 </code></pre>
 <h3 id="capture-synack-packets">Capture SYN/ACK packets</h3>
-<pre><code>tcpdump -n 'tcp[13]=18'
+<pre><code class="language-sh">tcpdump -n 'tcp[13]=18'
 </code></pre>
 <p>Or another way</p>
-<pre><code>tcpdump 'tcp[tcpflags] &amp;&amp; tcp-syn != 0'
+<pre><code class="language-sh">tcpdump 'tcp[tcpflags] &amp;&amp; tcp-syn != 0'
 </code></pre>
 <p>Or capture all SYN packets going only to two ethernet destinations:</p>
-<pre><code>tcpdump 'tcp[13] &amp; 2!=0 &amp;&amp; (ether dst 00:22:64:f4:d0:70 or ether dst 00:22:64:f4:d0:6e)'
+<pre><code class="language-sh">tcpdump 'tcp[13] &amp; 2!=0 &amp;&amp; (ether dst 00:22:64:f4:d0:70 or ether dst 00:22:64:f4:d0:6e)'
 </code></pre>
 <h3 id="write-capture-to-file-and-replay-it-at-the-same-time">Write capture to file and replay it at the same time</h3>
-<pre><code>sudo tcpdump -n 'host 216.200.102.84' -s 1500 -l -w - | tee logcopy.pcap | tcpdump -r -
+<pre><code class="language-sh">sudo tcpdump -n 'host 216.200.102.84' -s 1500 -l -w - | tee logcopy.pcap | tcpdump -r -
 </code></pre>
 <h3 id="write-a-circular-buffer-of-traffic">Write a circular buffer of traffic</h3>
 <p>This will write 5 files 1 mb each and loop through them as the destination for writing traffic. That is, the filenames do not indicate chronology. The files will be named foo.cap[0-4]</p>
-<pre><code>sudo tcpdump -C 1 -W 5 -w foo.cap
+<pre><code class="language-sh">sudo tcpdump -C 1 -W 5 -w foo.cap
 </code></pre>
 <h3 id="print-out-a-list-of-observed-src-ip-addresses-every-5-seconds">Print out a list of observed src ip addresses every 5 seconds</h3>
 <p>This is limited to 192.168.1 matches</p>
-<pre><code>while true ; do
+<pre><code class="language-sh">while true ; do
   date '+%F %T%z'
   sudo timeout 5 tcpdump -n 2&gt;/dev/null |
   awk '$3 ~ /10.8/ {
