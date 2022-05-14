@@ -3440,6 +3440,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-queries" class="md-nav__link">
+    Example queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Example queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-sizes-for-all-dbs-in-a-given-server" class="md-nav__link">
+    Show sizes for all DBs in a given server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-of-the-table-sizes-for-a-given-schema" class="md-nav__link">
+    Show all of the table sizes for a given schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-the-rows-with-the-largest-values" class="md-nav__link">
+    Show the rows with the largest values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See Also
   </a>
@@ -4452,6 +4486,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../tar/" class="md-nav__link">
+        tar
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tcl/" class="md-nav__link">
         TCL
       </a>
@@ -5011,6 +5060,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-queries" class="md-nav__link">
+    Example queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Example queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-sizes-for-all-dbs-in-a-given-server" class="md-nav__link">
+    Show sizes for all DBs in a given server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-of-the-table-sizes-for-a-given-schema" class="md-nav__link">
+    Show all of the table sizes for a given schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-the-rows-with-the-largest-values" class="md-nav__link">
+    Show the rows with the largest values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See Also
   </a>
@@ -5135,6 +5218,80 @@ services:
 <pre><code>cat foo.sql |
 docker exec -i &quot;${POSTGRES_CONTAINER}&quot; \
   psql -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
+</code></pre>
+<h2 id="example-queries">Example queries</h2>
+<h3 id="show-sizes-for-all-dbs-in-a-given-server">Show sizes for all DBs in a given server</h3>
+<pre><code>pokemon_collector=&gt; SELECT
+    pg_database.datname,
+    pg_database_size(pg_database.datname) AS size,
+    pg_size_pretty(pg_database_size(pg_database.datname))
+    FROM pg_database
+    ORDER BY size ;
+     datname    |     size      | pg_size_pretty
+----------------+---------------+----------------
+ postgres       |       7436824 | 7263 kB
+ cloudsqladmin  |       7641624 | 7463 kB
+ pokemon        |       8231448 | 8039 kB
+ smeargle_4080  |      10230296 | 9991 kB
+ ampharos_7008  |      10877464 | 10 MB
+ litten_7803    |      12655128 | 12 MB
+ silvally_9992  |   64589765144 | 60 GB
+ cinderace_8705 |   86162946584 | 80 GB
+ emolga_1932    |   92073171480 | 86 GB
+ aegislash_4257 | 1265669151256 | 1179 GB
+(10 rows)
+</code></pre>
+<h3 id="show-all-of-the-table-sizes-for-a-given-schema">Show all of the table sizes for a given schema</h3>
+<pre><code>sunny_moon_4257_airflow=&gt; SELECT table_name, pg_total_relation_size(table_name), pg_size_pretty(pg_total_relation_size(table_name))
+FROM sunny_moon_4257_airflow.information_schema.tables
+where table_schema = 'airflow'
+ORDER BY pg_total_relation_size(table_name) desc ;
+          table_name           | pg_total_relation_size | pg_size_pretty
+-------------------------------+------------------------+----------------
+ xcom                          |          1269437857792 | 1182 GB
+ job                           |               77586432 | 74 MB
+ dag_run                       |               60440576 | 58 MB
+ log                           |               58630144 | 56 MB
+ task_instance                 |               31784960 | 30 MB
+ serialized_dag                |                 851968 | 832 kB
+ rendered_task_instance_fields |                 843776 | 824 kB
+ task_fail                     |                 638976 | 624 kB
+ import_error                  |                 393216 | 384 kB
+ dag                           |                 122880 | 120 kB
+ dag_code                      |                 122880 | 120 kB
+ ab_user                       |                  98304 | 96 kB
+ ab_permission_view_role       |                  90112 | 88 kB
+ astro_available_version       |                  90112 | 88 kB
+ slot_pool                     |                  81920 | 80 kB
+ ab_user_role                  |                  73728 | 72 kB
+ ab_view_menu                  |                  73728 | 72 kB
+ ab_permission                 |                  73728 | 72 kB
+ ab_role                       |                  73728 | 72 kB
+ ab_permission_view            |                  73728 | 72 kB
+ astro_version_check           |                  65536 | 64 kB
+ sensor_instance               |                  57344 | 56 kB
+ alembic_version               |                  57344 | 56 kB
+ connection                    |                  24576 | 24 kB
+ task_reschedule               |                  24576 | 24 kB
+ ab_register_user              |                  24576 | 24 kB
+ sla_miss                      |                  24576 | 24 kB
+ variable                      |                  24576 | 24 kB
+ dag_pickle                    |                  16384 | 16 kB
+ known_event                   |                  16384 | 16 kB
+ dag_tag                       |                   8192 | 8192 bytes
+ known_event_type              |                   8192 | 8192 bytes
+(32 rows)
+</code></pre>
+<h3 id="show-the-rows-with-the-largest-values">Show the rows with the largest values</h3>
+<pre><code>sunny_moon_4257_airflow=&gt; select timestamp, pg_column_size(value) as size from xcom order by size desc limit 20 ;
+           timestamp           |   size
+-------------------------------+-----------
+ 2021-09-25 14:23:40.0142+00   | 188149150
+ 2021-09-24 14:24:39.699152+00 | 171979158
+ 2021-09-23 14:24:08.201579+00 | 158880026
+ 2021-09-22 14:24:03.309817+00 | 144807562
+ 2021-09-21 14:24:25.052796+00 | 129923562
+(5 rows)
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
