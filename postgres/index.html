@@ -3400,6 +3400,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#terminate-all-processes-connected-to-a-given-database" class="md-nav__link">
+    Terminate all processes connected to a given database
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3873,6 +3880,21 @@
     <li class="md-nav__item">
       <a href="../rsync/" class="md-nav__link">
         rsync
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
       </a>
     </li>
   
@@ -4711,6 +4733,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../velero/" class="md-nav__link">
         velero
       </a>
@@ -5020,6 +5057,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#terminate-all-processes-connected-to-a-given-database" class="md-nav__link">
+    Terminate all processes connected to a given database
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5184,6 +5228,12 @@
        state_change
 from pg_stat_activity
 where state != 'idle' ;
+</code></pre>
+<h3 id="terminate-all-processes-connected-to-a-given-database">Terminate all processes connected to a given database</h3>
+<pre><code class="language-sql">select pg_terminate_backend(pg_stat_activity.pid)
+from pg_stat_activity
+where pg_stat_activity.datname = 'some_db_name'
+  and pid &lt;&gt; pg_backend_pid();
 </code></pre>
 <h2 id="postgres-in-docker">Postgres in Docker</h2>
 <ul>

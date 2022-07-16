@@ -2716,6 +2716,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#show-all-ingresses-and-what-hostnames-they-handle" class="md-nav__link">
+    Show all ingresses and what hostnames they handle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parse-swaggerjson-for-api-definitions" class="md-nav__link">
     Parse swagger.json for API definitions
   </a>
@@ -4128,6 +4135,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../saltstack/" class="md-nav__link">
         saltstack
       </a>
@@ -4953,6 +4975,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../velero/" class="md-nav__link">
         velero
       </a>
@@ -5538,6 +5575,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#show-all-ingresses-and-what-hostnames-they-handle" class="md-nav__link">
+    Show all ingresses and what hostnames they handle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parse-swaggerjson-for-api-definitions" class="md-nav__link">
     Parse swagger.json for API definitions
   </a>
@@ -5923,6 +5967,19 @@ d4ce465a0942f   2 weeks ago   Ready  etcd-s1                         kube-system
 <li>Upstream: <a href="https://en.wikipedia.org/wiki/Kubernetes#History">https://en.wikipedia.org/wiki/Kubernetes#History</a></li>
 </ul>
 <h2 id="code-snips">Code snips</h2>
+<h3 id="show-all-ingresses-and-what-hostnames-they-handle">Show all ingresses and what hostnames they handle</h3>
+<p>This is useful when you have a lot of ingresses or very long hostnames which cause them to be hidden by an ellipse with normal or even wide output.</p>
+<pre><code class="language-sh">kubectl get ingresses -n &quot;$NS&quot; --output 'jsonpath={range $.items[*]}{.metadata.name}{&quot;:&quot;}{range @.spec.rules[*]}{&quot;\n\t&quot;}{.host}{end}{&quot;\n&quot;}{end}
+</code></pre>
+<p>This will output a list like</p>
+<pre><code>rodent-ingress:
+    mouse.example.com
+    hamster.example.com
+bird-ingress:
+    parrot.example.com
+    swallow.example.com
+    owl.example.com
+</code></pre>
 <h3 id="parse-swaggerjson-for-api-definitions">Parse swagger.json for API definitions</h3>
 <p>This is useful when manually writing helm chart templates to handle a range of k8s versions. (Keep an eye on <a href="https://github.com/helm/helm/issues/9765">https://github.com/helm/helm/issues/9765</a> though for hopefully a better way than manually doing this.)</p>
 <pre><code class="language-sh"># Download a range of swagger.json files named by version. EG: v1.18.0.json

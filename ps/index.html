@@ -3497,6 +3497,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-linux-kernel-namespaces-of-all-processes" class="md-nav__link">
+    Show linux kernel namespaces of all processes
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3805,6 +3812,21 @@
     <li class="md-nav__item">
       <a href="../rsync/" class="md-nav__link">
         rsync
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
       </a>
     </li>
   
@@ -4643,6 +4665,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../velero/" class="md-nav__link">
         velero
       </a>
@@ -4959,6 +4996,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-linux-kernel-namespaces-of-all-processes" class="md-nav__link">
+    Show linux kernel namespaces of all processes
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4981,17 +5025,17 @@
 <p><code>ps</code> shows a list of processes in a unix system.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="show-the-exact-command-used-to-start-all-process">show the exact command used to start all process</h3>
-<pre><code class="language-bash">ps axwwo command
+<pre><code class="language-sh">ps axwwo command
 </code></pre>
 <h3 id="show-a-process-tree-view">show a process tree view</h3>
-<pre><code class="language-bash">ps auxf
+<pre><code class="language-sh">ps auxf
 </code></pre>
 <h3 id="show-only-all-running-processes">show only all running processes</h3>
 <p>This excludes sleeping processes and threads.</p>
-<pre><code class="language-bash">ps auxr
+<pre><code class="language-sh">ps auxr
 </code></pre>
 <h3 id="show-process-list-sorted-by-process-start-time">Show process list sorted by process start time</h3>
-<pre><code class="language-bash">ps hax -o lstart,pid,args |
+<pre><code class="language-sh">ps hax -o lstart,pid,args |
   while read -r a b c d e f g ; do
     echo &quot;$(date -d &quot;$a $b $c $d $e&quot; &quot;+%F %T%z&quot;) $f $g&quot; ;
   done |
@@ -5002,8 +5046,19 @@
 <li><code>-N</code> after a condition makes hides the results of that condition</li>
 <li>All linux kernel threads have parent pid 2 (kthreadd)</li>
 </ul>
-<pre><code class="language-bash">FILTERED_USER=zerocool # user must exist
+<pre><code class="language-sh">FILTERED_USER=zerocool # user must exist
 ps -o pid,ppid,user,comm,flags,%cpu,sz,%mem,cgname --user &quot;${FILTERED_USER}&quot; -N --ppid 2 -N
+</code></pre>
+<h3 id="show-linux-kernel-namespaces-of-all-processes">Show linux kernel namespaces of all processes</h3>
+<p>You have to use <code>sudo</code> to see all processes in all namespaces. <code>awk</code> is to filter out kernel threads, which are irrelevant in this context.</p>
+<pre><code class="language-sh">sudo ps -axe -o user,pid,ipcns,mntns,netns,pidns,userns,utsns,comm | awk '$3!=&quot;-&quot;'
+</code></pre>
+<p>The output will look like:</p>
+<pre><code>$ sudo ps -axe -o user,pid,ipcns,mntns,netns,pidns,userns,utsns,comm | awk '$3!=&quot;-&quot;' | grep -E &quot;udevd|init|MNTNS|dockerd&quot;
+USER         PID      IPCNS      MNTNS      NETNS      PIDNS     USERNS      UTSNS COMMAND
+root         477 4026531839 4026532239 4026531840 4026531836 4026531837 4026532259 systemd-udevd
+root         748 4026531839 4026531841 4026531840 4026531836 4026531837 4026531838 dockerd
+root       17781 4026532479 4026532477 4026531840 4026532480 4026531837 4026532478 s6-linux-init-s
 </code></pre>
 
               

@@ -973,6 +973,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#convert-between-formats" class="md-nav__link">
+    Convert between formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restructure-a-pagerduty-csv" class="md-nav__link">
     Restructure a pagerduty csv
   </a>
@@ -3797,6 +3804,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../saltstack/" class="md-nav__link">
         saltstack
       </a>
@@ -4622,6 +4644,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../velero/" class="md-nav__link">
         velero
       </a>
@@ -4904,6 +4941,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#convert-between-formats" class="md-nav__link">
+    Convert between formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restructure-a-pagerduty-csv" class="md-nav__link">
     Restructure a pagerduty csv
   </a>
@@ -4938,6 +4982,13 @@
 <h1 id="dasel">dasel</h1>
 <p>"Select, put and delete data from JSON, TOML, YAML, XML and CSV files with a single tool. Supports conversion between formats and can be used as a Go package." - <a href="https://github.com/TomWright/dasel">https://github.com/TomWright/dasel</a></p>
 <h2 id="example-usage">Example usage</h2>
+<h3 id="convert-between-formats">Convert between formats</h3>
+<p>yaml to toml</p>
+<pre><code class="language-sh">dasel --read yaml --write toml --file vector.yaml &gt; vector.toml
+</code></pre>
+<p>json to yaml with a data filter</p>
+<pre><code class="language-sh">dasel -r json -w yaml -f ansible-facts.json '.ansible_facts.ansible_default_ipv4'
+</code></pre>
 <h3 id="restructure-a-pagerduty-csv">Restructure a pagerduty csv</h3>
 <p>Download the csv using this shell function that uses BSD (macOS) <code>date</code> and <code>open</code>:</p>
 <pre><code class="language-sh">pagerduty-csv-download() {

@@ -1992,6 +1992,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#create-a-new-postgres-db-instance" class="md-nav__link">
+    Create a new postgres db instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrade-postgres-to-a-new-version-in-place" class="md-nav__link">
+    Upgrade postgres to a new version in-place
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-backups-for-an-instance" class="md-nav__link">
+    List backups for an instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-backup" class="md-nav__link">
+    Create a backup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-a-backup-from-one-instance-to-another" class="md-nav__link">
+    Restore a backup from one instance to another
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-a-backup-from-a-sql-file-stored-in-a-bucket" class="md-nav__link">
+    Restore a backup from a sql file stored in a bucket
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4038,6 +4080,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../saltstack/" class="md-nav__link">
         saltstack
       </a>
@@ -4863,6 +4920,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../velero/" class="md-nav__link">
         velero
       </a>
@@ -5399,6 +5471,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#create-a-new-postgres-db-instance" class="md-nav__link">
+    Create a new postgres db instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrade-postgres-to-a-new-version-in-place" class="md-nav__link">
+    Upgrade postgres to a new version in-place
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-backups-for-an-instance" class="md-nav__link">
+    List backups for an instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-backup" class="md-nav__link">
+    Create a backup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-a-backup-from-one-instance-to-another" class="md-nav__link">
+    Restore a backup from one instance to another
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-a-backup-from-a-sql-file-stored-in-a-bucket" class="md-nav__link">
+    Restore a backup from a sql file stored in a bucket
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5453,7 +5567,7 @@ gke-dev-cluster-terraform-20090525165-d1058ae2-c0mc  us-east4-a     n1-standard-
 gke-dev-cluster-terraform-20210624231-9d581566-1oo9  us-east4-a     n1-standard-8                10.0.0.56                    RUNNING
 </code></pre>
 <h3 id="launch-cloud-shell-from-cli">Launch cloud shell from CLI</h3>
-<p>This launches a free VM in GCP that you can use to access GCP cli tools. The home directory is kept for like 6 months or something, so configuring your shell and storing useful scripts isn't a bad idea.</p>
+<p><a href="https://cloud.google.com/shell">Google Cloud Shell</a> is a free VM in GCP that you can use to access GCP cli tools, or do whatever else you might want to do in a free VM. The home directory is kept for like 6 months or something, so configuring your shell and storing useful scripts isn't a bad idea.</p>
 <pre><code class="language-sh">gcloud cloud-shell ssh --authorize-session
 </code></pre>
 <h3 id="use-vscode-with-cloud-shell">Use vscode with cloud-shell</h3>
@@ -5618,13 +5732,20 @@ $ TZ=Z gdate '+%Y%m%dT%H%M%SZ %A' -d 2021-05-20T17:00:00-0800
 20210521T010000Z Friday
 </code></pre>
 <h4 id="set-and-verify-the-maintenance-schedule">Set and verify the maintenance schedule:</h4>
-<pre><code class="language-sh">gcloud container clusters update --project=&quot;$PROJECT_NAME&quot; --zone=&quot;$ZONE&quot; &quot;$CLUSTER_NAME&quot; \
+<pre><code class="language-sh">gcloud container clusters update \
+  --project=&quot;$PROJECT_NAME&quot; \
+  --zone=&quot;$ZONE&quot; \
+  &quot;$CLUSTER_NAME&quot; \
   --maintenance-window-start=&quot;20210520T130000Z&quot; \
   --maintenance-window-end=&quot;20210521T010000Z&quot; \
   --maintenance-window-recurrence=&quot;FREQ=WEEKLY;BYDAY=TH&quot;
 </code></pre>
 <p>You should see <code>Updating &lt;cluster_name&gt;...done.</code> followed by some hyperlinks. Next you should validate that it was set right:</p>
-<pre><code class="language-sh">gcloud container clusters describe --format=json --project=&quot;$PROJECT_NAME&quot; --zone=&quot;$ZONE&quot; &quot;$CLUSTER_NAME&quot; |
+<pre><code class="language-sh">gcloud container clusters describe \
+  --format=json \
+  --project=&quot;$PROJECT_NAME&quot; \
+  --zone=&quot;$ZONE&quot; \
+  &quot;$CLUSTER_NAME&quot; |
 jq .maintenancePolicy.window.recurringWindow
 </code></pre>
 <p>You should see a small json blob like:</p>
@@ -5661,9 +5782,47 @@ jsonPayload.reason=&quot;Pulling&quot;
 <li><a href="https://console.cloud.google.com/logs/query;query=%20%20resource.type%3D%22k8s_pod%22%0A%20%20jsonPayload.reason%3D%22Pulling%22">https://console.cloud.google.com/logs/query;query=%20%20resource.type%3D%22k8s_pod%22%0A%20%20jsonPayload.reason%3D%22Pulling%22</a></li>
 </ul>
 <h2 id="cloud-sql-examples">Cloud SQL examples</h2>
+<p>Docs are here: <a href="https://cloud.google.com/sql/docs/postgres/">https://cloud.google.com/sql/docs/postgres/</a></p>
 <h3 id="list-instances">List instances</h3>
-<pre><code>gcloud sql instances list
+<pre><code class="language-sh">gcloud sql instances list
 </code></pre>
+<h3 id="create-a-new-postgres-db-instance">Create a new postgres db instance</h3>
+<p>In the following example, the tier is custom, with 24 cpu cores and 122880mb of memory. You can see the standard tiers that are available with <code>glcloud sql tiers list</code>. Also, this creates an instance of <code>POSTGRES_14</code>, but other versions are listed here: <a href="https://cloud.google.com/sql/docs/postgres/create-instance#gcloud">https://cloud.google.com/sql/docs/postgres/create-instance#gcloud</a></p>
+<pre><code class="language-sh">gcloud sql instances create \
+  --project=${GCP_PROJECT} \
+  --region=${INSTANCE_REGION} \
+  --database-version=POSTGRES_14 \
+  --tier=db-custom-24-122880 \
+  ${INSTANCE_NAME}
+</code></pre>
+<h3 id="upgrade-postgres-to-a-new-version-in-place">Upgrade postgres to a new version in-place</h3>
+<p><a href="https://cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace">https://cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace</a></p>
+<pre><code class="language-sh">gcloud beta sql instances patch &quot;${INSTANCE_NAME}&quot; --database-version=POSTGRES_14
+</code></pre>
+<h3 id="list-backups-for-an-instance">List backups for an instance</h3>
+<pre><code class="language-sh">gcloud sql backups list --instance=&quot;${INSTANCE_NAME}&quot;
+</code></pre>
+<h3 id="create-a-backup">Create a backup</h3>
+<pre><code class="language-sh">gcloud sql backups create \
+  --instance=&quot;${INSTANCE_NAME}&quot; \
+  --description=&quot;Pre pg14 upgrade&quot;
+</code></pre>
+<h3 id="restore-a-backup-from-one-instance-to-another">Restore a backup from one instance to another</h3>
+<p>This has to be done within the same GCP project</p>
+<pre><code class="language-sh">gcloud sql backups restore \
+  --backup-instance=&quot;${OLD_INSTANCE}&quot; \
+  --restore-instance=&quot;${NEW_INSTANCE}&quot; \
+  &quot;${BACKUP_ID}&quot;
+</code></pre>
+<h3 id="restore-a-backup-from-a-sql-file-stored-in-a-bucket">Restore a backup from a sql file stored in a bucket</h3>
+<p>Depending on the contents of your sql backup, you may have to create the target database first. If the db does not exist and the sql file does not working <code>CREATE</code> statements you'll see the ambiguous error <code>system error occurred pre-import</code> and an unhelpful python stack trace.</p>
+<pre><code class="language-sh">gcloud sql import sql ${INSTANCE_NAME} \
+  --user &quot;${DB_USERNAME}&quot; \
+  --database &quot;${TARGET_DB}&quot; \
+  gs://some-bucket-name/some_backup.sql \
+  --verbosity debug
+</code></pre>
+<p>Add <code>--async</code> if you just want it to go to the background and return you to your shell prompt.</p>
 
               
             </article>

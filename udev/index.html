@@ -3736,6 +3736,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../saltstack/" class="md-nav__link">
         saltstack
       </a>
@@ -4592,6 +4607,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#list-builtin-modules" class="md-nav__link">
+    List builtin modules
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4637,6 +4659,21 @@
     <li class="md-nav__item">
       <a href="../vagrant/" class="md-nav__link">
         vagrant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
       </a>
     </li>
   
@@ -4966,6 +5003,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#list-builtin-modules" class="md-nav__link">
+    List builtin modules
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5026,6 +5070,9 @@ MountFlags=shared
 <p>Then run <code>systemctl daemon-reload ; service systemd-udevd --full-restart ;</code> See <code>man 7 mount_namespaces</code> for more info.</p>
 <h3 id="trigger-a-disk-add-event-for-a-disk-that-has-already-been-inserted">Trigger a disk add event for a disk that has already been inserted</h3>
 <pre><code class="language-sh">udevadm trigger -t devices --name /dev/sda1 --action=add
+</code></pre>
+<h3 id="list-builtin-modules">List builtin modules</h3>
+<pre><code class="language-sh">udevadm test-builtin --help
 </code></pre>
 <h2 id="links">Links</h2>
 <ul>

@@ -3736,6 +3736,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../saltstack/" class="md-nav__link">
         saltstack
       </a>
@@ -4199,6 +4214,13 @@
           <li class="md-nav__item">
   <a href="#import-a-csv-file" class="md-nav__link">
     Import a csv file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-to-a-csv-file-including-headers" class="md-nav__link">
+    Export to a csv file, including headers
   </a>
   
 </li>
@@ -4733,6 +4755,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../velero/" class="md-nav__link">
         velero
       </a>
@@ -5036,6 +5073,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#export-to-a-csv-file-including-headers" class="md-nav__link">
+    Export to a csv file, including headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#create-a-table" class="md-nav__link">
     Create a table
   </a>
@@ -5169,6 +5213,8 @@
 <li>GUI tool with sqlite support - <a href="https://dbeaver.io">https://dbeaver.io</a></li>
 <li>"An open source multi-tool for exploring and publishing data" <a href="https://docs.datasette.io/en/stable/">https://docs.datasette.io/en/stable/</a> / <a href="https://simonwillison.net/2018/Aug/19/instantly-publish-datasette/">https://simonwillison.net/2018/Aug/19/instantly-publish-datasette/</a></li>
 <li><a href="https://www.sqlite.org/appfileformat.html">https://www.sqlite.org/appfileformat.html</a></li>
+<li><a href="https://sqlite.org/src4/doc/trunk/www/design.wiki">https://sqlite.org/src4/doc/trunk/www/design.wiki</a> The Design of SQLite4</li>
+<li><a href="https://til.simonwillison.net/sqlite/one-line-csv-operations">https://til.simonwillison.net/sqlite/one-line-csv-operations</a> Simon Willison has a lot of great sqlite knowledge, tools, and examples.</li>
 </ul>
 <h2 id="syntax-examples">Syntax Examples</h2>
 <h3 id="open-a-db-read-only">Open a db read-only</h3>
@@ -5177,6 +5223,10 @@
 <h3 id="import-a-csv-file">Import a csv file</h3>
 <p>This method does not appear to support <code>~/filename</code> or <code>$HOME/filename</code>, but does support relative and absolute paths. The <code>sqlite3</code> help text says that <code>-csv</code> will "set output mode to 'csv'", but it also affects <code>.import</code> statements.</p>
 <pre><code class="language-sh">sqlite3 -csv filename.db &quot;.import path/to/some_file.csv destination_table_name&quot;
+</code></pre>
+<h3 id="export-to-a-csv-file-including-headers">Export to a csv file, including headers</h3>
+<p>This would export the <code>cards</code> database table as a csv:</p>
+<pre><code class="language-sh">sqlite3 -csv pokemon-card-collection.db -cmd '.headers on' 'select * from cards' &gt; pokemon-cards.csv
 </code></pre>
 <h3 id="create-a-table">Create a table</h3>
 <pre><code class="language-sql">CREATE TABLE servers (
