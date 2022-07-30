@@ -5098,7 +5098,7 @@
 <li>Generate a host key: <code>openssl genrsa -out foo.com.key 2048</code></li>
 <li>Generate a CSR from that key: <code>openssl req -new -key foo.com.key -out foo.com.csr</code></li>
 </ol>
-<p>To set up VirtualHosts, follow this template: <a href="http://wiki.apache.org/httpd/NameBasedSSLVHosts">http://wiki.apache.org/httpd/NameBasedSSLVHosts</a></p>
+<p>To set up VirtualHosts, follow this template: <a href="https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts">https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts</a></p>
 <h2 id="examples">Examples</h2>
 <h3 id="download-a-certificate-from-an-https-server">Download a certificate from an https server</h3>
 <pre><code class="language-sh">get_certificate_from_server() {
@@ -5169,9 +5169,9 @@ function decrypt_file() { openssl enc -aes-256-cbc -d -in &quot;$1&quot; -out &q
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="https://tools.ietf.org/html/rfc5246">https://tools.ietf.org/html/rfc5246</a> - The Transport Layer Security (TLS) Protocol Version 1.2</li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc5246">https://datatracker.ietf.org/doc/html/rfc5246</a> - The Transport Layer Security (TLS) Protocol Version 1.2</li>
 <li><a href="https://github.com/cloudflare/cfssl">https://github.com/cloudflare/cfssl</a> - CFSSL: Cloudflare's PKI and TLS toolkit <a href="https://cfssl.org">https://cfssl.org</a></li>
-<li><a href="https://tls.ulfheim.net">https://tls.ulfheim.net</a> - Every byte of a TLS connection explained and reproduced</li>
+<li><a href="https://tls12.xargs.org">https://tls12.xargs.org</a> - Every byte of a TLS connection explained and reproduced</li>
 <li><a href="https://github.com/FiloSottile/mkcert">https://github.com/FiloSottile/mkcert</a> - simple local dev Certificate Authority</li>
 <li><a href="https://www.tutorialsteacher.com/https/ssl-certificate-format">https://www.tutorialsteacher.com/https/ssl-certificate-format</a> - Good overview of certificate formats, including diagrams</li>
 <li><a href="https://shkspr.mobi/blog/2022/01/should-you-use-lets-encrypt-for-internal-hostnames">https://shkspr.mobi/blog/2022/01/should-you-use-lets-encrypt-for-internal-hostnames</a></li>
