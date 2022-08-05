@@ -2567,6 +2567,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#decode-a-secret" class="md-nav__link">
+    Decode a secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5426,6 +5433,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#decode-a-secret" class="md-nav__link">
+    Decode a secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5734,8 +5748,8 @@ ubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,s
 <h3 id="working-with-several-configs">Working with several configs</h3>
 <p>Sometimes you want to have individual configs, such as when you are using configs that are updated by other engineers and pulled down via git, and sometimes you want to have one monolithic config, such as when you are using a tool that cannot easily work with multiple configs.</p>
 <h4 id="use-multiple-configs-via-alias">Use multiple configs via alias</h4>
-<p>This is a great method for requiring explicit selection of the environment, which is good for prod.</p>
-<pre><code>alias foo-k-prod=&quot;export KUBECONFIG=$HOME/.kube/foo-prod-config ; kubectl config set-context foo-prod --namespace=default ;&quot;
+<p>This is a great method for requiring explicit selection of the environment, which is good for not accidentally operating in prod. Using <code>KUBECONFIG</code> also allows your to set different k8s environments per terminal session, which is great for doing comparisons across clusters.</p>
+<pre><code>alias k8s-foo-prod=&quot;export KUBECONFIG=$HOME/.kube/foo-prod-config ; kubectl config set-context foo-prod --namespace=default ;&quot;
 </code></pre>
 <p>See also <a href="../google-cloud/#add-separate-kubectl-configs-for-different-eks-clusters">Google Cloud</a> for more examples like this related to GCP.</p>
 <h4 id="merge-several-configs">Merge several configs</h4>
@@ -5831,6 +5845,10 @@ StatefulSet/demo-prometheus configmap-reloader HOSTNAME=demo-prometheus-1
 StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
 </code></pre>
 <p>That's obviously a contrived example, but the real learning here is that it is possible to iterate deep json data while referencing values form higher levels by storing that higher level as variables.</p>
+<h3 id="decode-a-secret">Decode a secret</h3>
+<p>When using <code>-o jsonpath</code> you have to escape any key names that have periods, which is unlike some other json tools like <code>jq</code> where the syntax would be <code>.data["pgbouncer.ini"]</code></p>
+<pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o jsonpath='{.data.pgbouncer\.ini}' | base64 -d
+</code></pre>
 <h3 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h3>
 <pre><code class="language-sh">watch kubectl get pods --all-namespaces -o wide
 </code></pre>

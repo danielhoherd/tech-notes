@@ -5483,6 +5483,7 @@ done
   -o KbdInteractiveAuthentication=no \
   -o KbdInteractiveDevices=no
 </code></pre>
+<p>This is also really handy for putting into <code>GIT_SSH_COMMAND</code> to avoid password prompts in scripts.</p>
 <h3 id="prefer-password-auth">Prefer password auth</h3>
 <p>Sometimes you need to prefer password auth over key based auth. For example, if you have lots of keys and you are trying to connect to a host that only allows one failure, you will expire your failures before you ever reach a password dialogue.</p>
 <pre><code class="language-sh">ssh -o PreferredAuthentications=password root@libreelec.local
