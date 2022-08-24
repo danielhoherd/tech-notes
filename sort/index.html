@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://danielhoherd.com/tech-notes/sort/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
@@ -40,7 +40,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -4110,6 +4110,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#avoid-leading-space-caveat" class="md-nav__link">
+    Avoid leading space caveat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#randomly-sort-a-file-in-place" class="md-nav__link">
     Randomly sort a file in place
   </a>
@@ -4160,13 +4167,6 @@
           <li class="md-nav__item">
   <a href="#sort-the-etcpasswd-by-uid" class="md-nav__link">
     Sort the /etc/passwd by UID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scan-for-airport-and-sort-by-columns" class="md-nav__link">
-    Scan for airport and sort by columns
   </a>
   
 </li>
@@ -4984,6 +4984,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#avoid-leading-space-caveat" class="md-nav__link">
+    Avoid leading space caveat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#randomly-sort-a-file-in-place" class="md-nav__link">
     Randomly sort a file in place
   </a>
@@ -5038,13 +5045,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#scan-for-airport-and-sort-by-columns" class="md-nav__link">
-    Scan for airport and sort by columns
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5068,6 +5068,38 @@
 <p>sort is a command to sort lines of data.</p>
 <h2 id="gnu-syntax-examples">GNU Syntax Examples</h2>
 <p>In OS X, this is <code>gsort</code>.</p>
+<h3 id="avoid-leading-space-caveat">Avoid leading space caveat</h3>
+<p>There is a big caveat to using GNU sort with data that has inconsistent whitespace.</p>
+<pre><code>$ cat test-data.txt
+foo     5
+bar  2
+baz         9
+$ gsort -k2 --debug test-data.txt
+gsort: text ordering performed using ‘en_US.UTF-8’ sorting rules
+gsort: leading blanks are significant in key 1; consider also specifying 'b'
+baz         9
+   __________
+_____________
+foo     5
+   ______
+_________
+bar  2
+   ___
+______
+</code></pre>
+<p>As the debug text indicates, using <code>-b</code> can avoid this, though I'm not sure why this isn't the default behavior:</p>
+<pre><code>$ gsort -b -k2 --debug test-data.txt
+gsort: text ordering performed using ‘en_US.UTF-8’ sorting rules
+bar  2
+     _
+______
+foo     5
+        _
+_________
+baz         9
+            _
+_____________
+</code></pre>
 <h3 id="randomly-sort-a-file-in-place">Randomly sort a file in place</h3>
 <p>By giving the <code>-o</code> the same output file as the input file we can shuffle in-place without errors. Trying this same thing using a pipe or a redirect will usually cause an empty file.</p>
 <p>Beware that this will put duplicate lines right next to each other. If you need better file content shuffling use <code>shuf</code>.</p>
@@ -5122,20 +5154,9 @@ sort -n -k3 -t-
 <p>Also works on /etc/group file and GID</p>
 <pre><code>sort -n -t: -k 3 /etc/passwd
 </code></pre>
-<h3 id="scan-for-airport-and-sort-by-columns">Scan for airport and sort by columns</h3>
-<p>Print out two rows signifying column numbers, which makes it easier to find which columns you want to sort by, then run a command and sort by column numbers. This assumes you're on macOS.</p>
-<pre><code>perl -e '
-foreach ( 1 .. 9 ) {
-    foreach ( 1 .. 9 ) { print &quot; &quot;; }
-    print $_;
-}
-print &quot;\n&quot;;
-foreach ( 1 .. 9 ) {
-    foreach ( 1 .. 9, 0 ) { print $_; }
-}
-print &quot;\n&quot;;' ; \
-airport --scan | sort -k 1.52,1.54
-</code></pre>
+
+
+
 
               
             </article>
@@ -5203,10 +5224,11 @@ airport --scan | sort -k 1.52,1.54
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="../extra_javascript/instant-page.js"></script>
       

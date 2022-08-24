@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://danielhoherd.com/tech-notes/jq/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
@@ -40,7 +40,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -2344,6 +2344,13 @@
           <li class="md-nav__item">
   <a href="#sort-all-json-contents" class="md-nav__link">
     Sort all JSON contents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-a-value-as-a-variable" class="md-nav__link">
+    Store a value as a variable
   </a>
   
 </li>
@@ -5096,6 +5103,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#store-a-value-as-a-variable" class="md-nav__link">
+    Store a value as a variable
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5124,6 +5138,7 @@
 
 <h1 id="jq">jq</h1>
 <p>"jq is a lightweight and flexible command-line JSON processor." - <a href="https://stedolan.github.io/jq/">https://stedolan.github.io/jq/</a></p>
+<p>It's worth noting at the outset that <a href="https://github.com/stedolan/jq/issues/2305"><code>jq</code> is having a maintenance crisis</a>. The version 1.6 is currently the newest version and was released in late 2018. There are over 600 issues and 114 pull requests. Although <code>jq</code> is a great software, it may be worth looking at something else. There are projects that <a href="https://github.com/itchyny/gojq">reimplement jq in other languages</a> that are more maintained, and there are alternatives like <a href="../dasel/">dasel</a>.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="sort-a-json-file">Sort a json file</h3>
 <pre><code class="language-sh">jq -S . foo.json
@@ -5244,10 +5259,35 @@ done
 <p>Or set up a shell alias</p>
 <pre><code class="language-sh">alias jqsort=&quot;jq -S '. | walk( if type == \&quot;array\&quot; then sort else . end )'&quot;
 </code></pre>
+<h3 id="store-a-value-as-a-variable">Store a value as a variable</h3>
+<p>When creaeting long pipelines, it's useful to be able to store a deep value as a variable. In the following example we store <code>.metadata.namespace</code> as <code>$namespace</code> and <code>.metadata.name</code> as <code>$podname</code> before digging into <code>.status</code> where we would no longer have access to <code>.metadata</code>:</p>
+<pre><code class="language-sh">kubectl get pod -A -l k8s-app=kube-dns -o=json |
+jq -r '
+  .items[] |
+  .metadata.namespace as $namespace |
+  .metadata.name as $podname |
+  .status.containerStatuses[] |
+  &quot;\($namespace) \($podname) \(.name) \(.restartCount)&quot;
+' |
+column -t
+</code></pre>
+<p>The output of this command is something like:</p>
+<pre><code>kube-system  kube-dns-66f64447b8-7tzkn  dnsmasq           5
+kube-system  kube-dns-66f64447b8-7tzkn  kubedns           0
+kube-system  kube-dns-66f64447b8-7tzkn  prometheus-to-sd  0
+kube-system  kube-dns-66f64447b8-7tzkn  sidecar           0
+kube-system  kube-dns-66f64447b8-b2jsf  dnsmasq           3
+kube-system  kube-dns-66f64447b8-b2jsf  kubedns           0
+kube-system  kube-dns-66f64447b8-b2jsf  prometheus-to-sd  0
+kube-system  kube-dns-66f64447b8-b2jsf  sidecar           0
+</code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="https://stedolan.github.io/jq/tutorial/">Tutorial</a></li>
 </ul>
+
+
+
 
               
             </article>
@@ -5315,10 +5355,11 @@ done
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="../extra_javascript/instant-page.js"></script>
       
