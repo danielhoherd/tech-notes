@@ -4124,8 +4124,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sort-by-two-fields-first-dictionary-second-reverse-numeric" class="md-nav__link">
-    Sort by two fields, first dictionary, second reverse numeric
+  <a href="#sort-by-multiple-fields-with-different-sort-requirements" class="md-nav__link">
+    Sort by multiple fields with different sort requirements
   </a>
   
 </li>
@@ -4998,8 +4998,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sort-by-two-fields-first-dictionary-second-reverse-numeric" class="md-nav__link">
-    Sort by two fields, first dictionary, second reverse numeric
+  <a href="#sort-by-multiple-fields-with-different-sort-requirements" class="md-nav__link">
+    Sort by multiple fields with different sort requirements
   </a>
   
 </li>
@@ -5105,12 +5105,27 @@ _____________
 <p>Beware that this will put duplicate lines right next to each other. If you need better file content shuffling use <code>shuf</code>.</p>
 <pre><code>sort -o foo -R foo
 </code></pre>
-<h3 id="sort-by-two-fields-first-dictionary-second-reverse-numeric">Sort by two fields, first dictionary, second reverse numeric</h3>
+<h3 id="sort-by-multiple-fields-with-different-sort-requirements">Sort by multiple fields with different sort requirements</h3>
 <p>When sorting by multiple fields, it's important to specify the start and end of where you want the sort to occur. If you do not do this, you may get too short of a comparison, or too long of a comparison. Check the output of <code>--debug</code> if you don't get the right sort order.</p>
 <pre><code># -k defines the sort key as starting position, sort style, ending position
 # -r is included in the second key to reverse numeric sort
 
 gsort -k1d,1 -k2nr,2
+</code></pre>
+<p>Another practical example of this is sorting <code>authorized_keys</code> files by their comment, putting commented keys at the bottom, which keeps the columns nicely aligned. For instance, if you have this file:</p>
+<pre><code>#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDhB9kjaireRsJgPASR2jJqU0o8UvIVIPunKNQmS+mw user@a-key-we-want-to-manually-enable
+#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKeUlnQ8TVgYkI1/DvPMhHJoujYarUvdBx3/BA1mlZLs another-user@some-other-commented-key
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMWu8gF1qT19FtikCMoIBnmEJH1nKyrcC/pRCnvWzoSa bastion-01
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICY9ScGyTpXOLnYnUfqGDfdwMf4kRIPey1xvPRJ8CsAX root@some-old-box
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFSoe1Ho3PjOrS4Hz+B+ILHh40Xi2kbN2f7qb2tNKb1d admin@some-other-box
+</code></pre>
+<p>Normal <code>sort authorized_keys</code> would put the comments at the top, and not sort by the third column, which is the human readable comment of the keys. A better view would be to reverse sort the first column so the comments are at the bottom, then sort by the third column so it's easy to glance through:</p>
+<pre><code>$ gsort -b -k1,1r -k3 authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFSoe1Ho3PjOrS4Hz+B+ILHh40Xi2kbN2f7qb2tNKb1d admin@some-other-box
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMWu8gF1qT19FtikCMoIBnmEJH1nKyrcC/pRCnvWzoSa bastion-01
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICY9ScGyTpXOLnYnUfqGDfdwMf4kRIPey1xvPRJ8CsAX root@some-old-box
+#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKeUlnQ8TVgYkI1/DvPMhHJoujYarUvdBx3/BA1mlZLs another-user@some-other-commented-key
+#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDhB9kjaireRsJgPASR2jJqU0o8UvIVIPunKNQmS+mw user@a-key-we-want-to-manually-enable
 </code></pre>
 <h3 id="sort-ip-addresses-by-first-octet-then-last-octet-showing-which-fields-are-sorted">Sort IP Addresses by first octet then last octet, showing which fields are sorted</h3>
 <pre><code>ip neigh show | sort -k1,1n -k4,4n -t. --debug
