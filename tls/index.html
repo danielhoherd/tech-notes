@@ -4527,6 +4527,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-the-issuer-and-dates-of-a-certificate" class="md-nav__link">
+    Show the issuer and dates of a certificate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#encrypt-a-file" class="md-nav__link">
     Encrypt a file
   </a>
@@ -5041,6 +5048,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-the-issuer-and-dates-of-a-certificate" class="md-nav__link">
+    Show the issuer and dates of a certificate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#encrypt-a-file" class="md-nav__link">
     Encrypt a file
   </a>
@@ -5155,6 +5169,16 @@ openssl s_client -connect &quot;${SERVER_NAME}:${SERVER_PORT:-443}&quot;
     openssl s_client -connect &quot;${1}:${2:-443}&quot; 2&gt;/dev/null &lt;/dev/null |
     openssl x509 -noout -dates
 }
+</code></pre>
+<h3 id="show-the-issuer-and-dates-of-a-certificate">Show the issuer and dates of a certificate</h3>
+<p>This is useful when you're moving certs between issuers, for instance if you moved from letsencrypt to something else, then later get an expiration notice from letsencrypt, and want to verify that you're not using that certificate anymore:</p>
+<pre><code class="language-sh">openssl s_client -connect ${REMOTE_HOST}:443 2&gt;/dev/null &lt;/dev/null |
+openssl x509 -noout -issuer -dates
+</code></pre>
+<p>The output will be something like:</p>
+<pre><code>issuer= /C=US/O=DigiCert Inc/CN=DigiCert TLS Hybrid ECC SHA384 2020 CA1
+notBefore=Feb 18 00:00:00 2022 GMT
+notAfter=Oct  5 23:59:59 2022 GMT
 </code></pre>
 <h3 id="encrypt-a-file">Encrypt a file</h3>
 <pre><code class="language-sh">openssl enc -aes-256-cbc -salt -in yourfile -out yourfile.enc
