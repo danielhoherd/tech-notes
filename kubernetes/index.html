@@ -2574,6 +2574,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#decode-ssl-secrets-and-show-info-about-the-certificates" class="md-nav__link">
+    Decode SSL secrets and show info about the certificates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5440,6 +5447,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#decode-ssl-secrets-and-show-info-about-the-certificates" class="md-nav__link">
+    Decode SSL secrets and show info about the certificates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5848,6 +5862,29 @@ StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
 <h3 id="decode-a-secret">Decode a secret</h3>
 <p>When using <code>-o jsonpath</code> you have to escape any key names that have periods, which is unlike some other json tools like <code>jq</code> where the syntax would be <code>.data["pgbouncer.ini"]</code></p>
 <pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o jsonpath='{.data.pgbouncer\.ini}' | base64 -d
+</code></pre>
+<h3 id="decode-ssl-secrets-and-show-info-about-the-certificates">Decode SSL secrets and show info about the certificates</h3>
+<pre><code class="language-sh">kubectl get secret -n istio-system istio.default -o json |
+jq -r '.data | keys[] as $k | &quot;\($k) \(.[$k])&quot;' |
+grep cert |
+while read -r k v ; do
+  echo &quot;------ $k ------&quot;
+  echo -n &quot;$v&quot; |
+  base64 -d |
+  openssl x509 -noout -subject -issuer -dates
+done
+</code></pre>
+<p>Example output:</p>
+<pre><code>------ cert-chain.pem ------
+subject=
+issuer= /O=cluster.local
+notBefore=Aug 10 13:55:50 2022 GMT
+notAfter=Nov  8 13:55:50 2022 GMT
+------ root-cert.pem ------
+subject= /O=cluster.local
+issuer= /O=cluster.local
+notBefore=Sep 29 13:52:55 2021 GMT
+notAfter=Sep 27 13:52:55 2031 GMT
 </code></pre>
 <h3 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h3>
 <pre><code class="language-sh">watch kubectl get pods --all-namespaces -o wide
