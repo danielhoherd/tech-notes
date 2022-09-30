@@ -198,7 +198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3d-printing/" class="md-nav__link">
+      <a href="../3d_printing/" class="md-nav__link">
         3D Printing
       </a>
     </li>
@@ -4110,13 +4110,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avoid-leading-space-caveat" class="md-nav__link">
-    Avoid leading space caveat
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#randomly-sort-a-file-in-place" class="md-nav__link">
     Randomly sort a file in place
   </a>
@@ -4124,8 +4117,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sort-by-multiple-fields-with-different-sort-requirements" class="md-nav__link">
-    Sort by multiple fields with different sort requirements
+  <a href="#sort-by-two-fields-first-dictionary-second-reverse-numeric" class="md-nav__link">
+    Sort by two fields, first dictionary, second reverse numeric
   </a>
   
 </li>
@@ -4167,6 +4160,13 @@
           <li class="md-nav__item">
   <a href="#sort-the-etcpasswd-by-uid" class="md-nav__link">
     Sort the /etc/passwd by UID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan-for-airport-and-sort-by-columns" class="md-nav__link">
+    Scan for airport and sort by columns
   </a>
   
 </li>
@@ -4762,21 +4762,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../wasm/" class="md-nav__link">
-        web assembly
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../wget/" class="md-nav__link">
         Wget
       </a>
@@ -4999,13 +4984,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avoid-leading-space-caveat" class="md-nav__link">
-    Avoid leading space caveat
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#randomly-sort-a-file-in-place" class="md-nav__link">
     Randomly sort a file in place
   </a>
@@ -5013,8 +4991,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sort-by-multiple-fields-with-different-sort-requirements" class="md-nav__link">
-    Sort by multiple fields with different sort requirements
+  <a href="#sort-by-two-fields-first-dictionary-second-reverse-numeric" class="md-nav__link">
+    Sort by two fields, first dictionary, second reverse numeric
   </a>
   
 </li>
@@ -5060,6 +5038,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scan-for-airport-and-sort-by-columns" class="md-nav__link">
+    Scan for airport and sort by columns
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5083,64 +5068,17 @@
 <p>sort is a command to sort lines of data.</p>
 <h2 id="gnu-syntax-examples">GNU Syntax Examples</h2>
 <p>In OS X, this is <code>gsort</code>.</p>
-<h3 id="avoid-leading-space-caveat">Avoid leading space caveat</h3>
-<p>There is a big caveat to using GNU sort with data that has inconsistent whitespace.</p>
-<pre><code>$ cat test-data.txt
-foo     5
-bar  2
-baz         9
-$ gsort -k2 --debug test-data.txt
-gsort: text ordering performed using ‘en_US.UTF-8’ sorting rules
-gsort: leading blanks are significant in key 1; consider also specifying 'b'
-baz         9
-   __________
-_____________
-foo     5
-   ______
-_________
-bar  2
-   ___
-______
-</code></pre>
-<p>As the debug text indicates, using <code>-b</code> can avoid this, though I'm not sure why this isn't the default behavior:</p>
-<pre><code>$ gsort -b -k2 --debug test-data.txt
-gsort: text ordering performed using ‘en_US.UTF-8’ sorting rules
-bar  2
-     _
-______
-foo     5
-        _
-_________
-baz         9
-            _
-_____________
-</code></pre>
 <h3 id="randomly-sort-a-file-in-place">Randomly sort a file in place</h3>
 <p>By giving the <code>-o</code> the same output file as the input file we can shuffle in-place without errors. Trying this same thing using a pipe or a redirect will usually cause an empty file.</p>
 <p>Beware that this will put duplicate lines right next to each other. If you need better file content shuffling use <code>shuf</code>.</p>
 <pre><code>sort -o foo -R foo
 </code></pre>
-<h3 id="sort-by-multiple-fields-with-different-sort-requirements">Sort by multiple fields with different sort requirements</h3>
+<h3 id="sort-by-two-fields-first-dictionary-second-reverse-numeric">Sort by two fields, first dictionary, second reverse numeric</h3>
 <p>When sorting by multiple fields, it's important to specify the start and end of where you want the sort to occur. If you do not do this, you may get too short of a comparison, or too long of a comparison. Check the output of <code>--debug</code> if you don't get the right sort order.</p>
 <pre><code># -k defines the sort key as starting position, sort style, ending position
 # -r is included in the second key to reverse numeric sort
 
 gsort -k1d,1 -k2nr,2
-</code></pre>
-<p>Another practical example of this is sorting <code>authorized_keys</code> files by their comment, putting commented keys at the bottom, which keeps the columns nicely aligned. For instance, if you have this file:</p>
-<pre><code>#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDhB9kjaireRsJgPASR2jJqU0o8UvIVIPunKNQmS+mw user@a-key-we-want-to-manually-enable
-#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKeUlnQ8TVgYkI1/DvPMhHJoujYarUvdBx3/BA1mlZLs another-user@some-other-commented-key
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMWu8gF1qT19FtikCMoIBnmEJH1nKyrcC/pRCnvWzoSa bastion-01
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICY9ScGyTpXOLnYnUfqGDfdwMf4kRIPey1xvPRJ8CsAX root@some-old-box
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFSoe1Ho3PjOrS4Hz+B+ILHh40Xi2kbN2f7qb2tNKb1d admin@some-other-box
-</code></pre>
-<p>Normal <code>sort authorized_keys</code> would put the comments at the top, and not sort by the third column, which is the human readable comment of the keys. A better view would be to reverse sort the first column so the comments are at the bottom, then sort by the third column so it's easy to glance through:</p>
-<pre><code>$ gsort -b -k1,1r -k3 authorized_keys
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFSoe1Ho3PjOrS4Hz+B+ILHh40Xi2kbN2f7qb2tNKb1d admin@some-other-box
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMWu8gF1qT19FtikCMoIBnmEJH1nKyrcC/pRCnvWzoSa bastion-01
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICY9ScGyTpXOLnYnUfqGDfdwMf4kRIPey1xvPRJ8CsAX root@some-old-box
-#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKeUlnQ8TVgYkI1/DvPMhHJoujYarUvdBx3/BA1mlZLs another-user@some-other-commented-key
-#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDhB9kjaireRsJgPASR2jJqU0o8UvIVIPunKNQmS+mw user@a-key-we-want-to-manually-enable
 </code></pre>
 <h3 id="sort-ip-addresses-by-first-octet-then-last-octet-showing-which-fields-are-sorted">Sort IP Addresses by first octet then last octet, showing which fields are sorted</h3>
 <pre><code>ip neigh show | sort -k1,1n -k4,4n -t. --debug
@@ -5183,6 +5121,20 @@ sort -n -k3 -t-
 <h3 id="sort-the-etcpasswd-by-uid">Sort the /etc/passwd by UID</h3>
 <p>Also works on /etc/group file and GID</p>
 <pre><code>sort -n -t: -k 3 /etc/passwd
+</code></pre>
+<h3 id="scan-for-airport-and-sort-by-columns">Scan for airport and sort by columns</h3>
+<p>Print out two rows signifying column numbers, which makes it easier to find which columns you want to sort by, then run a command and sort by column numbers. This assumes you're on macOS.</p>
+<pre><code>perl -e '
+foreach ( 1 .. 9 ) {
+    foreach ( 1 .. 9 ) { print &quot; &quot;; }
+    print $_;
+}
+print &quot;\n&quot;;
+foreach ( 1 .. 9 ) {
+    foreach ( 1 .. 9, 0 ) { print $_; }
+}
+print &quot;\n&quot;;' ; \
+airport --scan | sort -k 1.52,1.54
 </code></pre>
 
 

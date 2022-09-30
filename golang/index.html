@@ -198,7 +198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3d-printing/" class="md-nav__link">
+      <a href="../3d_printing/" class="md-nav__link">
         3D Printing
       </a>
     </li>
@@ -1719,6 +1719,13 @@
         <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-history" class="md-nav__link">
+    Release history
   </a>
   
 </li>
@@ -4735,21 +4742,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../wasm/" class="md-nav__link">
-        web assembly
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../wget/" class="md-nav__link">
         Wget
       </a>
@@ -4971,6 +4963,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#release-history" class="md-nav__link">
+    Release history
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips-and-examples" class="md-nav__link">
     Tips and examples
   </a>
@@ -5027,11 +5026,50 @@
 
 <h1 id="golang">golang</h1>
 <p>"Go is an open source programming language that makes it easy to build simple, reliable, and efficient software." - <a href="https://golang.org/">https://golang.org/</a></p>
-<p>Golang keeps to a 6-month minor release cadence. See <a href="https://golang.org/doc/devel/release.html">https://golang.org/doc/devel/release.html</a></p>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="http://www.golangbootcamp.com/book/intro">http://www.golangbootcamp.com/book/intro</a></li>
 </ul>
+<h2 id="release-history">Release history</h2>
+<p>Golang keeps to a 6-month minor release cadence. See also: <a href="https://golang.org/doc/devel/release.html">https://golang.org/doc/devel/release.html</a></p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Release Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.15</td>
+<td>2020-08-11</td>
+</tr>
+<tr>
+<td>1.14</td>
+<td>2020-02-25</td>
+</tr>
+<tr>
+<td>1.13</td>
+<td>2019-09-03</td>
+</tr>
+<tr>
+<td>1.12</td>
+<td>2020-02-25</td>
+</tr>
+<tr>
+<td>1.11</td>
+<td>2018-08-24</td>
+</tr>
+<tr>
+<td>1.10</td>
+<td>2018-02-16</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>2017-08-24</td>
+</tr>
+</tbody>
+</table>
 <h2 id="tips-and-examples">Tips and examples</h2>
 <ul>
 <li>Default <code>GOPATH</code> is <code>${HOME}/go</code> on unix systems.</li>
@@ -5044,23 +5082,20 @@
 <pre><code class="language-sh">go get github.com/solarkennedy/uq
 go build github.com/solarkennedy/uq
 </code></pre>
-<p>With newer golang versions, you can simply <code>go install github.com/solarkennedy/uq@latest</code></p>
 <h3 id="show-all-modules-used-by-a-golang-project">Show all modules used by a golang project</h3>
 <p>This will list all dependencies recursively in two columns with the library on the left and its direct dependencies on the right.</p>
-<pre><code class="language-sh">cd &quot;$SOURCE_REPO&quot;
-go mod graph
+<pre><code class="language-sh">go mod graph
 </code></pre>
 <h2 id="links_1">Links</h2>
 <ul>
-<li><a href="https://go.dev/learn">https://go.dev/learn</a></li>
-<li><a href="https://golang.org/cmd/go">https://golang.org/cmd/go</a></li>
-<li><a href="https://labix.org/gopkg.in">https://labix.org/gopkg.in</a></li>
-<li><a href="https://play.golang.org">https://play.golang.org</a></li>
-<li><a href="https://www.programming-books.io/essential/go/">https://www.programming-books.io/essential/go/</a></li>
-<li><a href="http://www.golangbootcamp.com/book">http://www.golangbootcamp.com/book</a></li>
-<li><a href="https://thewhitetulip.gitbook.io/bo">https://thewhitetulip.gitbook.io/bo</a>: "This is an easy to understand example based tutorial aimed at those who know a little of Go and nothing of webdev and want to learn how to write a webserver in Go."</li>
-<li><a href="https://changelog.com/gotime">https://changelog.com/gotime</a>: "Your source for diverse discussions from around the Go community"</li>
-<li><a href="https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw">https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw</a>: justforfunc YT series about programming in Go</li>
+<li><a href="https://golang.org/cmd/go/">https://golang.org/cmd/go/</a></li>
+<li><a href="https://gopkg.in">https://gopkg.in</a></li>
+<li><a href="https://play.golang.org/">https://play.golang.org/</a></li>
+<li><a href="https://essential-go.programming-books.io">https://essential-go.programming-books.io</a></li>
+<li><a href="http://www.golangbootcamp.com/book/">http://www.golangbootcamp.com/book/</a></li>
+<li><a href="https://thewhitetulip.gitbook.io/bo/">https://thewhitetulip.gitbook.io/bo/</a></li>
+<li><a href="https://changelog.com/gotime">https://changelog.com/gotime</a> - Golang podcast</li>
+<li><a href="https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw">https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw</a> - justforfunc YT series about programming in Go</li>
 <li><a href="https://algorithmswithgo.com">https://algorithmswithgo.com</a></li>
 <li><a href="https://gobyexample.com">https://gobyexample.com</a></li>
 <li><a href="https://github.com/golang/go/wiki/CodeReviewComments">https://github.com/golang/go/wiki/CodeReviewComments</a></li>

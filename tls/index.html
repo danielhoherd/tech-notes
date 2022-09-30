@@ -198,7 +198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3d-printing/" class="md-nav__link">
+      <a href="../3d_printing/" class="md-nav__link">
         3D Printing
       </a>
     </li>
@@ -4527,13 +4527,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-the-issuer-and-dates-of-a-certificate" class="md-nav__link">
-    Show the issuer and dates of a certificate
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#encrypt-a-file" class="md-nav__link">
     Encrypt a file
   </a>
@@ -4771,21 +4764,6 @@
     <li class="md-nav__item">
       <a href="../vpn/" class="md-nav__link">
         Virtual Private Networking
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wasm/" class="md-nav__link">
-        web assembly
       </a>
     </li>
   
@@ -5063,13 +5041,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#show-the-issuer-and-dates-of-a-certificate" class="md-nav__link">
-    Show the issuer and dates of a certificate
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#encrypt-a-file" class="md-nav__link">
     Encrypt a file
   </a>
@@ -5130,7 +5101,7 @@
 <li>Generate a host key: <code>openssl genrsa -out foo.com.key 2048</code></li>
 <li>Generate a CSR from that key: <code>openssl req -new -key foo.com.key -out foo.com.csr</code></li>
 </ol>
-<p>To set up VirtualHosts, follow this template: <a href="https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts">https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts</a></p>
+<p>To set up VirtualHosts, follow this template: <a href="http://wiki.apache.org/httpd/NameBasedSSLVHosts">http://wiki.apache.org/httpd/NameBasedSSLVHosts</a></p>
 <h2 id="examples">Examples</h2>
 <h3 id="download-a-certificate-from-an-https-server">Download a certificate from an https server</h3>
 <pre><code class="language-sh">get_certificate_from_server() {
@@ -5185,16 +5156,6 @@ openssl s_client -connect &quot;${SERVER_NAME}:${SERVER_PORT:-443}&quot;
     openssl x509 -noout -dates
 }
 </code></pre>
-<h3 id="show-the-issuer-and-dates-of-a-certificate">Show the issuer and dates of a certificate</h3>
-<p>This is useful when you're moving certs between issuers, for instance if you moved from letsencrypt to something else, then later get an expiration notice from letsencrypt, and want to verify that you're not using that certificate anymore:</p>
-<pre><code class="language-sh">openssl s_client -connect ${REMOTE_HOST}:443 2&gt;/dev/null &lt;/dev/null |
-openssl x509 -noout -issuer -dates
-</code></pre>
-<p>The output will be something like:</p>
-<pre><code>issuer= /C=US/O=DigiCert Inc/CN=DigiCert TLS Hybrid ECC SHA384 2020 CA1
-notBefore=Feb 18 00:00:00 2022 GMT
-notAfter=Oct  5 23:59:59 2022 GMT
-</code></pre>
 <h3 id="encrypt-a-file">Encrypt a file</h3>
 <pre><code class="language-sh">openssl enc -aes-256-cbc -salt -in yourfile -out yourfile.enc
 </code></pre>
@@ -5211,9 +5172,9 @@ function decrypt_file() { openssl enc -aes-256-cbc -d -in &quot;$1&quot; -out &q
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="https://datatracker.ietf.org/doc/html/rfc5246">https://datatracker.ietf.org/doc/html/rfc5246</a> - The Transport Layer Security (TLS) Protocol Version 1.2</li>
+<li><a href="https://tools.ietf.org/html/rfc5246">https://tools.ietf.org/html/rfc5246</a> - The Transport Layer Security (TLS) Protocol Version 1.2</li>
 <li><a href="https://github.com/cloudflare/cfssl">https://github.com/cloudflare/cfssl</a> - CFSSL: Cloudflare's PKI and TLS toolkit <a href="https://cfssl.org">https://cfssl.org</a></li>
-<li><a href="https://tls12.xargs.org">https://tls12.xargs.org</a> - Every byte of a TLS connection explained and reproduced</li>
+<li><a href="https://tls.ulfheim.net">https://tls.ulfheim.net</a> - Every byte of a TLS connection explained and reproduced</li>
 <li><a href="https://github.com/FiloSottile/mkcert">https://github.com/FiloSottile/mkcert</a> - simple local dev Certificate Authority</li>
 <li><a href="https://www.tutorialsteacher.com/https/ssl-certificate-format">https://www.tutorialsteacher.com/https/ssl-certificate-format</a> - Good overview of certificate formats, including diagrams</li>
 <li><a href="https://shkspr.mobi/blog/2022/01/should-you-use-lets-encrypt-for-internal-hostnames">https://shkspr.mobi/blog/2022/01/should-you-use-lets-encrypt-for-internal-hostnames</a></li>
