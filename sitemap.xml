@@ -1491,6 +1491,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/wasm/</loc>
+         <lastmod>2022-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/wget/</loc>
          <lastmod>2022-09-30</lastmod>
          <changefreq>daily</changefreq>
