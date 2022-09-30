@@ -2567,6 +2567,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#decode-a-secret" class="md-nav__link">
+    Decode a secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5426,6 +5433,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#decode-a-secret" class="md-nav__link">
+    Decode a secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
     Watch what's going on in your cluster
   </a>
@@ -5831,6 +5845,10 @@ StatefulSet/demo-prometheus configmap-reloader HOSTNAME=demo-prometheus-1
 StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
 </code></pre>
 <p>That's obviously a contrived example, but the real learning here is that it is possible to iterate deep json data while referencing values form higher levels by storing that higher level as variables.</p>
+<h3 id="decode-a-secret">Decode a secret</h3>
+<p>When using <code>-o jsonpath</code> you have to escape any key names that have periods, which is unlike some other json tools like <code>jq</code> where the syntax would be <code>.data["pgbouncer.ini"]</code></p>
+<pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o jsonpath='{.data.pgbouncer\.ini}' | base64 -d
+</code></pre>
 <h3 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h3>
 <pre><code class="language-sh">watch kubectl get pods --all-namespaces -o wide
 </code></pre>
