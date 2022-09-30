@@ -4164,13 +4164,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#scan-for-airport-and-sort-by-columns" class="md-nav__link">
-    Scan for airport and sort by columns
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5038,13 +5031,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#scan-for-airport-and-sort-by-columns" class="md-nav__link">
-    Scan for airport and sort by columns
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5121,20 +5107,6 @@ sort -n -k3 -t-
 <h3 id="sort-the-etcpasswd-by-uid">Sort the /etc/passwd by UID</h3>
 <p>Also works on /etc/group file and GID</p>
 <pre><code>sort -n -t: -k 3 /etc/passwd
-</code></pre>
-<h3 id="scan-for-airport-and-sort-by-columns">Scan for airport and sort by columns</h3>
-<p>Print out two rows signifying column numbers, which makes it easier to find which columns you want to sort by, then run a command and sort by column numbers. This assumes you're on macOS.</p>
-<pre><code>perl -e '
-foreach ( 1 .. 9 ) {
-    foreach ( 1 .. 9 ) { print &quot; &quot;; }
-    print $_;
-}
-print &quot;\n&quot;;
-foreach ( 1 .. 9 ) {
-    foreach ( 1 .. 9, 0 ) { print $_; }
-}
-print &quot;\n&quot;;' ; \
-airport --scan | sort -k 1.52,1.54
 </code></pre>
 
 
