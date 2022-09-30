@@ -2348,6 +2348,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#store-a-value-as-a-variable" class="md-nav__link">
+    Store a value as a variable
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5096,6 +5103,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#store-a-value-as-a-variable" class="md-nav__link">
+    Store a value as a variable
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5243,6 +5257,28 @@ done
 </code></pre>
 <p>Or set up a shell alias</p>
 <pre><code class="language-sh">alias jqsort=&quot;jq -S '. | walk( if type == \&quot;array\&quot; then sort else . end )'&quot;
+</code></pre>
+<h3 id="store-a-value-as-a-variable">Store a value as a variable</h3>
+<p>When creaeting long pipelines, it's useful to be able to store a deep value as a variable. In the following example we store <code>.metadata.namespace</code> as <code>$namespace</code> and <code>.metadata.name</code> as <code>$podname</code> before digging into <code>.status</code> where we would no longer have access to <code>.metadata</code>:</p>
+<pre><code class="language-sh">kubectl get pod -A -l k8s-app=kube-dns -o=json |
+jq -r '
+  .items[] |
+  .metadata.namespace as $namespace |
+  .metadata.name as $podname |
+  .status.containerStatuses[] |
+  &quot;\($namespace) \($podname) \(.name) \(.restartCount)&quot;
+' |
+column -t
+</code></pre>
+<p>The output of this command is something like:</p>
+<pre><code>kube-system  kube-dns-66f64447b8-7tzkn  dnsmasq           5
+kube-system  kube-dns-66f64447b8-7tzkn  kubedns           0
+kube-system  kube-dns-66f64447b8-7tzkn  prometheus-to-sd  0
+kube-system  kube-dns-66f64447b8-7tzkn  sidecar           0
+kube-system  kube-dns-66f64447b8-b2jsf  dnsmasq           3
+kube-system  kube-dns-66f64447b8-b2jsf  kubedns           0
+kube-system  kube-dns-66f64447b8-b2jsf  prometheus-to-sd  0
+kube-system  kube-dns-66f64447b8-b2jsf  sidecar           0
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
