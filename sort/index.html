@@ -4110,6 +4110,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#avoid-leading-space-caveat" class="md-nav__link">
+    Avoid leading space caveat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#randomly-sort-a-file-in-place" class="md-nav__link">
     Randomly sort a file in place
   </a>
@@ -4977,6 +4984,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#avoid-leading-space-caveat" class="md-nav__link">
+    Avoid leading space caveat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#randomly-sort-a-file-in-place" class="md-nav__link">
     Randomly sort a file in place
   </a>
@@ -5054,6 +5068,38 @@
 <p>sort is a command to sort lines of data.</p>
 <h2 id="gnu-syntax-examples">GNU Syntax Examples</h2>
 <p>In OS X, this is <code>gsort</code>.</p>
+<h3 id="avoid-leading-space-caveat">Avoid leading space caveat</h3>
+<p>There is a big caveat to using GNU sort with data that has inconsistent whitespace.</p>
+<pre><code>$ cat test-data.txt
+foo     5
+bar  2
+baz         9
+$ gsort -k2 --debug test-data.txt
+gsort: text ordering performed using ‘en_US.UTF-8’ sorting rules
+gsort: leading blanks are significant in key 1; consider also specifying 'b'
+baz         9
+   __________
+_____________
+foo     5
+   ______
+_________
+bar  2
+   ___
+______
+</code></pre>
+<p>As the debug text indicates, using <code>-b</code> can avoid this, though I'm not sure why this isn't the default behavior:</p>
+<pre><code>$ gsort -b -k2 --debug test-data.txt
+gsort: text ordering performed using ‘en_US.UTF-8’ sorting rules
+bar  2
+     _
+______
+foo     5
+        _
+_________
+baz         9
+            _
+_____________
+</code></pre>
 <h3 id="randomly-sort-a-file-in-place">Randomly sort a file in place</h3>
 <p>By giving the <code>-o</code> the same output file as the input file we can shuffle in-place without errors. Trying this same thing using a pipe or a redirect will usually cause an empty file.</p>
 <p>Beware that this will put duplicate lines right next to each other. If you need better file content shuffling use <code>shuf</code>.</p>
