@@ -4453,6 +4453,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-graph-of-module-dependencies" class="md-nav__link">
+    Generate a graph of module dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4929,6 +4949,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-graph-of-module-dependencies" class="md-nav__link">
+    Generate a graph of module dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4952,6 +4992,11 @@
 <li><a href="https://github.com/28mm/blast-radius">https://github.com/28mm/blast-radius</a> - Blast Radius is a tool for reasoning about Terraform dependency graphs with interactive visualizations.</li>
 <li><a href="https://terragrunt.gruntwork.io">https://terragrunt.gruntwork.io</a> - "Terragrunt is a thin wrapper that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state."</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<h3 id="generate-a-graph-of-module-dependencies">Generate a graph of module dependencies</h3>
+<pre><code class="language-sh">terraform init # must succeed
+terraform graph | dot -Tsvg &gt; graph.svg
+</code></pre>
 
 
 
