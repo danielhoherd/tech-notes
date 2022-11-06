@@ -5182,7 +5182,7 @@
 <pre><code class="language-sh">psql &quot;postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT:-5432}/${POSTGRES_DB}&quot;
 </code></pre>
 <h3 id="meta-commands">Meta Commands</h3>
-<p>postgres shell has a lot of meta commands. See <a href="https://www.postgresql.org/docs/11/app-psql.html#APP-PSQL-META-COMMANDS">https://www.postgresql.org/docs/11/app-psql.html#APP-PSQL-META-COMMANDS</a> for full descriptions.</p>
+<p>postgres shell has a lot of meta commands. See <a href="https://www.postgresql.org/docs/15/app-psql.html#APP-PSQL-META-COMMANDS">https://www.postgresql.org/docs/15/app-psql.html#APP-PSQL-META-COMMANDS</a> for full descriptions.</p>
 <table>
 <thead>
 <tr>
@@ -5268,7 +5268,7 @@ services:
     restart: &quot;always&quot;
     env_file: .env # Should contain POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
     # Uncomment the 'command' line to enable postgres query logging to the terminal
-    # https://www.postgresql.org/docs/11/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN
+    # https://www.postgresql.org/docs/15/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN
     # command: [ &quot;postgres&quot;, &quot;-c&quot;, &quot;log_destination=stderr&quot;, &quot;-c&quot;, &quot;log_min_messages=debug&quot;, &quot;-c&quot;, &quot;log_min_error_statement=debug&quot; ]
 
     expose:
@@ -5277,12 +5277,12 @@ services:
       - &quot;5432:5432&quot;
 </code></pre>
 <h3 id="dump-a-database">Dump a database</h3>
-<p><a href="https://www.postgresql.org/docs/11/app-pgdump.html">https://www.postgresql.org/docs/11/app-pgdump.html</a></p>
+<p><a href="https://www.postgresql.org/docs/15/app-pgdump.html">https://www.postgresql.org/docs/15/app-pgdump.html</a></p>
 <pre><code>docker exec &quot;${POSTGRES_CONTAINER}&quot; pg_dump -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
 </code></pre>
-<p>Full backups should be performed with <a href="https://www.postgresql.org/docs/11/app-pg-dumpall.html">pg_dumpall</a>.</p>
+<p>Full backups should be performed with <a href="https://www.postgresql.org/docs/15/app-pg-dumpall.html">pg_dumpall</a>.</p>
 <h3 id="load-local-data-into-a-db">Load local data into a db</h3>
-<p><a href="https://www.postgresql.org/docs/11/app-psql.html">https://www.postgresql.org/docs/11/app-psql.html</a></p>
+<p><a href="https://www.postgresql.org/docs/15/app-psql.html">https://www.postgresql.org/docs/15/app-psql.html</a></p>
 <pre><code>cat foo.sql |
 docker exec -i &quot;${POSTGRES_CONTAINER}&quot; \
   psql -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;

@@ -464,6 +464,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pass-in-a-variable-and-value" class="md-nav__link">
+    Pass in a variable and value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sort-a-file-by-line-lengths" class="md-nav__link">
     Sort a file by line lengths
   </a>
@@ -5140,6 +5147,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pass-in-a-variable-and-value" class="md-nav__link">
+    Pass in a variable and value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sort-a-file-by-line-lengths" class="md-nav__link">
     Sort a file by line lengths
   </a>
@@ -5338,79 +5352,82 @@
 <h2 id="examples">Examples</h2>
 <p>Some of these require GNU awk.</p>
 <h3 id="print-the-first-column-of-a-file">Print the first column of a file</h3>
-<pre><code>awk '${print $1}' filename.txt
+<pre><code class="language-sh">awk '${print $1}' filename.txt
 </code></pre>
 <h3 id="print-column-2-if-column-1-matches-a-string">Print column 2 if column 1 matches a string</h3>
-<pre><code>ps aux | awk '$1 == &quot;root&quot; {print $2}'
+<pre><code class="language-sh">ps aux | awk '$1 == &quot;root&quot; {print $2}'
+</code></pre>
+<h3 id="pass-in-a-variable-and-value">Pass in a variable and value</h3>
+<pre><code class="language-sh">ps | awk -v host=&quot;$HOSTNAME&quot; '{print host,$0}'
 </code></pre>
 <h3 id="sort-a-file-by-line-lengths">Sort a file by line lengths</h3>
-<pre><code>awk '{print length, $0}' testfile.txt | sort -n
+<pre><code class="language-sh">awk '{print length, $0}' testfile.txt | sort -n
 </code></pre>
 <h3 id="tdl-to-csv">TDL to CSV</h3>
-<pre><code>awk '{gsub(&quot;\t&quot;,&quot;\&quot;,\&quot;&quot;,$0); print;}' | sed 's#^#&quot;#;s#$#&quot;#;'
+<pre><code class="language-sh">awk '{gsub(&quot;\t&quot;,&quot;\&quot;,\&quot;&quot;,$0); print;}' | sed 's#^#&quot;#;s#$#&quot;#;'
 </code></pre>
 <h3 id="print-the-first-column-of-every-other-line">Print the first column of every other line</h3>
-<p>% is the modulus operator, which finds the remainder after an integer
+<p><code>%</code> is the modulus operator, which finds the remainder after an integer
 divide.</p>
-<pre><code>awk 'NR % 2 == 0 { print $1 }'
+<pre><code class="language-sh">awk 'NR % 2 == 0 { print $1 }'
 </code></pre>
 <h3 id="print-only-even-numbered-lines">Print only even numbered lines</h3>
-<pre><code>ls | awk 'NR % 2 == 0 { print $0 }'
+<pre><code class="language-sh">ls | awk 'NR % 2 == 0 { print $0 }'
 </code></pre>
 <h3 id="print-only-odd-numbered-lines">Print only odd numbered lines</h3>
-<pre><code>ls | awk 'NR % 2 != 0 { print $0 }'
+<pre><code class="language-sh">ls | awk 'NR % 2 != 0 { print $0 }'
 </code></pre>
 <h3 id="print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines">Print even numbered lines on the same line before odd numbered lines</h3>
-<pre><code>awk '{if (NR%2==0) { print $0 &quot; &quot; prev } else { prev=$0 }}'
+<pre><code class="language-sh">awk '{if (NR%2==0) { print $0 &quot; &quot; prev } else { prev=$0 }}'
 </code></pre>
 <h3 id="print-sum-all-the-first-columns-of-each-line-in-a-file">Print sum all the first columns of each line in a file</h3>
-<pre><code>awk '{sum += $1} END {print sum}' filename
+<pre><code class="language-sh">awk '{sum += $1} END {print sum}' filename
 </code></pre>
 <h3 id="print-sum-and-average-of-the-first-column-of-a-file">Print sum and average of the first column of a file</h3>
-<pre><code>awk '{sum += $1} END {avg = sum/NR ; printf &quot;Sum:     %s\nAverage: %s\n&quot;, sum, avg}' foo.txt
+<pre><code class="language-sh">awk '{sum += $1} END {avg = sum/NR ; printf &quot;Sum:     %s\nAverage: %s\n&quot;, sum, avg}' foo.txt
 </code></pre>
 <h3 id="split-file-by-recurring-string">Split file by recurring string</h3>
 <p>This will create a new file every time the string "SERVER" is found, essentially splitting the file by that string. Concatenating all of the output files would create the original file (potentially adding an extra newline).</p>
-<pre><code>awk '/SERVER/{n++}{print &gt;&quot;out&quot; sprintf(&quot;%02d&quot;, n) &quot;.txt&quot; }' example.txt
+<pre><code class="language-sh">awk '/SERVER/{n++}{print &gt;&quot;out&quot; sprintf(&quot;%02d&quot;, n) &quot;.txt&quot; }' example.txt
 </code></pre>
 <h3 id="show-count-of-syslog-messages-per-minute">Show count of syslog messages per minute</h3>
-<pre><code>awk -F: {'print $1 `“`:`”` $2'} /var/log/messages |uniq -c
+<pre><code class="language-sh">awk -F: {'print $1 `“`:`”` $2'} /var/log/messages |uniq -c
 </code></pre>
 <h3 id="show-count-of-root-logins-per-minute">Show count of root logins per minute</h3>
-<pre><code>awk -F: '/root/{print $1 &quot;:&quot; $2}' /var/log/auth.log |uniq -c
+<pre><code class="language-sh">awk -F: '/root/{print $1 &quot;:&quot; $2}' /var/log/auth.log |uniq -c
 </code></pre>
 <h3 id="print-lines-in-ls-where-uid-is-numeric">Print lines in ls where UID is numeric</h3>
-<pre><code>ls -la | awk '$3 ~/[0-9]/{print}'
+<pre><code class="language-sh">ls -la | awk '$3 ~/[0-9]/{print}'
 </code></pre>
 <h3 id="show-only-zfs-snapshots-whose-size-is-zero">Show only zfs snapshots whose size is zero</h3>
-<pre><code>zfs list -t snapshot | awk '$2 == 0'
+<pre><code class="language-sh">zfs list -t snapshot | awk '$2 == 0'
 </code></pre>
 <h3 id="print-a-line-if-the-third-field-does-not-match-a-regex">Print a line if the third field does not match a regex</h3>
-<pre><code>tcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'
+<pre><code class="language-sh">tcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'
 </code></pre>
 <h3 id="show-500-errors-in-a-standard-apache-access-log">Show 500 errors in a standard apache access log</h3>
-<pre><code>awk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log
+<pre><code class="language-sh">awk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log
 </code></pre>
 <h3 id="show-total-rss-and-vsz-count-for-all-cronolog-processes">Show total rss and vsz count for all cronolog processes</h3>
-<pre><code>ps aux |
+<pre><code class="language-sh">ps aux |
   grep -i cronolo[g] |
   awk '{vsz += $5; rss += $6} END {print &quot;vsz total = &quot;vsz ; print &quot;rss total = &quot;rss}'
 </code></pre>
 <h3 id="get-ipv4-address-on-bsdosx">Get IPv4 address on BSD/OSX</h3>
-<pre><code>ifconfig | awk '$1 == &quot;inet&quot; &amp;&amp; $2 != &quot;127.0.0.1&quot; {print $2}'
+<pre><code class="language-sh">ifconfig | awk '$1 == &quot;inet&quot; &amp;&amp; $2 != &quot;127.0.0.1&quot; {print $2}'
 </code></pre>
 <h3 id="get-ipv6-address-on-bsdosx">Get IPv6 address on BSD/OSX</h3>
-<pre><code>ifconfig | awk '$1 == &quot;inet6&quot; &amp;&amp; $2 !~ &quot;::1|.*lo&quot; {print $2}'
+<pre><code class="language-sh">ifconfig | awk '$1 == &quot;inet6&quot; &amp;&amp; $2 !~ &quot;::1|.*lo&quot; {print $2}'
 </code></pre>
 <h3 id="print-the-last-element">Print the last element</h3>
-<pre><code>ls -la | awk -F&quot; &quot; '{print $NF}'
+<pre><code class="language-sh">ls -la | awk -F&quot; &quot; '{print $NF}'
 </code></pre>
 <h3 id="print-2nd-to-last-element">Print 2nd to last element</h3>
-<pre><code>ls -la | awk -F&quot; &quot; '{print $(NF - 1)}'
+<pre><code class="language-sh">ls -la | awk -F&quot; &quot; '{print $(NF - 1)}'
 </code></pre>
 <h3 id="print-the-previous-line-on-string-match">Print the previous line on string match</h3>
 <p>This works by storing the previous line. If the current line matches the regex, the previous line is printed from the stored value.</p>
-<pre><code>$ awk '/32 host/ { print previous_line } {previous_line=$0}' /proc/net/fib_trie | column -t | sort -u
+<pre><code class="language-sh">$ awk '/32 host/ { print previous_line } {previous_line=$0}' /proc/net/fib_trie | column -t | sort -u
 |--  10.134.243.137
 |--  127.0.0.1
 |--  169.50.9.172
@@ -5447,7 +5464,7 @@ https://quay.io/astronomer/ap-cli-install   quay.io/astronomer/ap-cli-install:0.
 </code></pre>
 <h3 id="show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length">Show a list of dns hostname queries with domain stripped, sorted by hostname length</h3>
 <p>This samples 100k dns queries, strips off all the domain names in the queried hostname, and prints the length of that first component of the FQDN (the bare hostname) along with the bare hostname itself, and shows the longest 25 entries.</p>
-<pre><code class="language-s">tcpdump -c 100000 -l -n -e dst port 53 |
+<pre><code class="language-sh">tcpdump -c 100000 -l -n -e dst port 53 |
 awk '$14 == &quot;A?&quot; {gsub(/\..*/, &quot;&quot;, $15) ; print(length($15), $15) ; fflush(&quot;/dev/stdout&quot;) ;}' |
 sort -u |
 sort -n |
@@ -5456,7 +5473,7 @@ tail -n 25
 <p>Run this on your kube-dns nodes to see how close you're getting to the 63 character limit. You will never see errors though, because any name with comopnents that are longer than 63 characters are not sent over the wire, so you'll need to check your logs for those. A good string to search for is "63 characters".</p>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="http://www.grymoire.com/Unix/Awk.html">http://www.grymoire.com/Unix/Awk.html</a></li>
+<li><a href="https://www.grymoire.com/Unix/Awk.html">https://www.grymoire.com/Unix/Awk.html</a></li>
 </ul>
 
 
