@@ -10,24 +10,25 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/ostinato/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/marlin/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>ostinato - Daniel Hoherd's tech notes</title>
+        <title>Marlin - Daniel Hoherd's tech notes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
+
     
     
     
@@ -46,6 +47,7 @@
 
     
     
+    
   </head>
   
   
@@ -54,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
   
     
     
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ostinato" class="md-skip">
+        <a href="#marlin" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ostinato
+              Marlin
             
           </span>
         </div>
@@ -120,7 +122,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -588,8 +590,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../bosh/" class="md-nav__link">
-        BOSH
+      <a href="../bpf/" class="md-nav__link">
+        bpf
       </a>
     </li>
   
@@ -603,8 +605,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../bpf/" class="md-nav__link">
-        bpf
+      <a href="../c/" class="md-nav__link">
+        C
       </a>
     </li>
   
@@ -935,21 +937,6 @@
     <li class="md-nav__item">
       <a href="../dasel/" class="md-nav__link">
         dasel
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dat/" class="md-nav__link">
-        dat
       </a>
     </li>
   
@@ -2626,6 +2613,89 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Marlin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Marlin
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-firmware-info" class="md-nav__link">
+    Show firmware info
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perform-a-pid-autotune" class="md-nav__link">
+    Perform a PID Autotune
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     <li class="md-nav__item">
       <a href="../math/" class="md-nav__link">
@@ -3141,31 +3211,6 @@
       <a href="../osquery/" class="md-nav__link">
         osquery
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        ostinato
-      </a>
-      
     </li>
   
 
@@ -4885,28 +4930,101 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-firmware-info" class="md-nav__link">
+    Show firmware info
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perform-a-pid-autotune" class="md-nav__link">
+    Perform a PID Autotune
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
-<h1 id="ostinato">ostinato</h1>
-<p>"Ostinato is a packet crafter, network traffic generator and analyzer with a friendly GUI. Also a powerful Python API for network test automation. Craft and send packets of several streams with different protocols at different rates. Think of it as 'Wireshark in Reverse'." - <a href="http://ostinato.org/">http://ostinato.org/</a></p>
+<h1 id="marlin">Marlin</h1>
+<p>"Marlin is an open source firmware for the RepRap family of replicating rapid prototypers — popularly known as “3D printers.” It was derived from Sprinter and grbl, and became a standalone open source project on August 12, 2011 with its Github release. Marlin is licensed under the GPLv3 and is free for all applications." - <a href="https://marlinfw.org/docs/basics/introduction.html">https://marlinfw.org/docs/basics/introduction.html</a></p>
+<p>Marlin is used on the Ender line of printers, as well as many others.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="show-firmware-info">Show firmware info</h3>
+<p>In a serial terminal, type <a href="https://marlinfw.org/docs/gcode/M115.html"><code>M115</code></a>. You will see something like:</p>
+<pre><code>Send: M115
+Recv: FIRMWARE_NAME:2.0.8.2 (Jul  6 2022 19:18:56) SOURCE_CODE_URL:www.creality.com PROTOCOL_VERSION:1.0 MACHINE_TYPE:Ender-3 Pro EXTRUDER_COUNT:1 UUID:cede2a2f-41a2-4748-9b12-c55c62f367ff
+Recv: Cap:SERIAL_XON_XOFF:0
+Recv: Cap:BINARY_FILE_TRANSFER:0
+Recv: Cap:EEPROM:1
+...lots of similar lines lines...
+Recv: Cap:CHAMBER_TEMPERATURE:0
+Recv: Cap:COOLER_TEMPERATURE:0
+Recv: Cap:MEATPACK:0
+Recv: ok
+Send: M155 S2
+Recv: ok
+</code></pre>
+<h3 id="perform-a-pid-autotune">Perform a PID Autotune</h3>
+<p>In octoprint or some other terminal interface:</p>
+<ol>
+<li>enter <a href="https://marlinfw.org/docs/gcode/M303.html"><code>M303 S215 C10</code></a> to perform a 215ºC tuning test 10 times. You will get Kp, Ki, and Kd values back at the end of the test.</li>
+<li>Enter those values in the terminal as <a href="https://marlinfw.org/docs/gcode/M301.html"><code>301 Pxx.xx Ixx.xx Dxx.xx</code></a></li>
+<li>Enter <a href="https://marlinfw.org/docs/gcode/M500.html"><code>M500</code></a> to save the values to the EEPROM.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../3d-printing/">3D Printing</a></li>
+</ul>
 
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -4917,7 +5035,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../osquery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: osquery" rel="prev">
+        <a href="../make/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GNU make" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -4926,20 +5044,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              osquery
+              GNU make
             </div>
           </div>
         </a>
       
       
         
-        <a href="../outline/" class="md-footer__link md-footer__link--next" aria-label="Next: outline" rel="next">
+        <a href="../math/" class="md-footer__link md-footer__link--next" aria-label="Next: math" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              outline
+              math
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -4970,10 +5088,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="../extra_javascript/instant-page.js"></script>
       
