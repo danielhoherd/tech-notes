@@ -4042,6 +4042,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perform-a-self-test" class="md-nav__link">
+    Perform a self test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-the-results-of-a-self-test" class="md-nav__link">
+    View the results of a self test
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4972,6 +4986,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perform-a-self-test" class="md-nav__link">
+    Perform a self test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-the-results-of-a-self-test" class="md-nav__link">
+    View the results of a self test
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5003,17 +5031,24 @@
 <p>Linux interface to SMART data for hard disks.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="show-identifying-information-about-a-device">Show identifying information about a device</h3>
-<pre><code>smartctl -i /dev/sda
+<pre><code class="language-sh">smartctl -i /dev/sda
 </code></pre>
 <h3 id="show-drive-attributes">Show drive attributes</h3>
 <p>This shows a bunch of recorded information that is updated over the life of the drive.</p>
-<pre><code>smartctl -A /dev/sda
+<pre><code class="language-sh">smartctl -A /dev/sda
 </code></pre>
 <p>Show the same information with better output showing vendor flags</p>
-<pre><code>smartctl -A -f brief /dev/sda
+<pre><code class="language-sh">smartctl -A -f brief /dev/sda
 </code></pre>
 <h3 id="show-all-data">Show all data</h3>
-<pre><code>smartctl -x /dev/sda
+<pre><code class="language-sh">smartctl -x /dev/sda
+</code></pre>
+<h3 id="perform-a-self-test">Perform a self test</h3>
+<pre><code class="language-sh">smartctl -t short /dev/sda
+</code></pre>
+<h3 id="view-the-results-of-a-self-test">View the results of a self test</h3>
+<p>Make sure to check for the presence of a "Self-test routine in progress" line.</p>
+<pre><code class="language-sh">smartctl -l selftest /dev/sda
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

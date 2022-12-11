@@ -1129,6 +1129,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4984,6 +4991,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5020,6 +5034,12 @@ done
 <h3 id="wipe-first-and-last-1g-of-a-hard-disk">Wipe first and last 1G of a hard disk</h3>
 <pre><code>dd bs=4096 if=/dev/zero of=/dev/sdx count=256 seek=$(( $(blockdev --getsz /dev/sdx) - 256))
 </code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../dcfldd/">dcfldd</a></li>
+<li><a href="../ddrescue/">ddrescue</a></li>
+<li><a href="../pv/">pv</a></li>
+</ul>
 
 
 
