@@ -997,6 +997,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#compact-format-a-gpx-file" class="md-nav__link">
+    Compact format a gpx file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1950,6 +1957,21 @@
     <li class="md-nav__item">
       <a href="../hp/" class="md-nav__link">
         HP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htmx/" class="md-nav__link">
+        htmx
       </a>
     </li>
   
@@ -4965,6 +4987,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#compact-format-a-gpx-file" class="md-nav__link">
+    Compact format a gpx file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5014,7 +5043,12 @@
 <p>This is useful for comparing two files, for instance where one may have been appended, and you need to make sure.</p>
 <pre><code class="language-sh">dasel -r xml -f 2022-01-02-18-20-00.gpx &gt; old.gpx
 </code></pre>
-<p>Keep in mind though that pretty-formatted gpx files take up significantly more space. <code>dasel</code> does not appear capable of compact <code>-c</code> formatting xml, though there is <a href="https://github.com/TomWright/dasel/issues/213">an issue requesting it</a>.</p>
+<p>Keep in mind though that pretty-formatted gpx files take up significantly more space.</p>
+<h3 id="compact-format-a-gpx-file">Compact format a gpx file</h3>
+<p><a href="https://github.com/TomWright/dasel/releases/tag/v1.27.3"><code>dasel</code> 1.x</a> supports compact formatting, which can save disk space by eliminating whitespace characters. (<code>dasel</code> 2.x is currently missing the feature. A ticket reporting this feature removal is here: <a href="https://github.com/TomWright/dasel/issues/275">https://github.com/TomWright/dasel/issues/275</a>)</p>
+<pre><code class="language-sh">dasel -r xml -c -f
+</code></pre>
+<p>My tests show this compact output saving ~25% in gpx files compared to a formatted gpx file using whitespace, and 15% compared to a gpx file using tabs.</p>
 
 
 

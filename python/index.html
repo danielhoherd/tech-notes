@@ -1895,6 +1895,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../htmx/" class="md-nav__link">
+        htmx
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../htop/" class="md-nav__link">
         htop
       </a>
@@ -3602,13 +3617,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#recreating-a-venv" class="md-nav__link">
-    Recreating a venv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#use-venv-to-work-around-missing-pip" class="md-nav__link">
     Use venv to work around missing pip
   </a>
@@ -3729,6 +3737,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#manage-a-requirementstxt-file-like-a-pro" class="md-nav__link">
+    Manage a requirements.txt file like a pro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-currently-installed-versions-for-all-packages-in-requirementstxt" class="md-nav__link">
     Show currently installed versions for all packages in requirements.txt
   </a>
@@ -3772,6 +3787,13 @@
           <li class="md-nav__item">
   <a href="#generate-a-flame-graph" class="md-nav__link">
     Generate a flame graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-a-package-from-git" class="md-nav__link">
+    Install a package from git
   </a>
   
 </li>
@@ -5193,13 +5215,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#recreating-a-venv" class="md-nav__link">
-    Recreating a venv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#use-venv-to-work-around-missing-pip" class="md-nav__link">
     Use venv to work around missing pip
   </a>
@@ -5320,6 +5335,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#manage-a-requirementstxt-file-like-a-pro" class="md-nav__link">
+    Manage a requirements.txt file like a pro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-currently-installed-versions-for-all-packages-in-requirementstxt" class="md-nav__link">
     Show currently installed versions for all packages in requirements.txt
   </a>
@@ -5363,6 +5385,13 @@
           <li class="md-nav__item">
   <a href="#generate-a-flame-graph" class="md-nav__link">
     Generate a flame graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-a-package-from-git" class="md-nav__link">
+    Install a package from git
   </a>
   
 </li>
@@ -5439,16 +5468,8 @@
 <p>Virtual environments isolate your project away from the system's python interpreter and modules, so you can have full control over what code is available to your project. This makes it easy to develop, debug, and deploy to a new system. It's basically always a good idea to use a virtual environment. You will thank yourself later by learning this one up front.</p>
 <h4 id="virtual-environments-using-venv">Virtual environments using venv</h4>
 <h5 id="creating-a-venv">Creating a venv</h5>
-<pre><code class="language-sh">echo &quot;venv&quot; &gt;&gt; .gitignore
+<pre><code class="language-sh">echo &quot;venv&quot; &gt;&gt; .gitignore  # optional
 virtualenv venv
-. venv/bin/activate
-pip install requests
-pip freeze &gt; requirements.txt
-## write code, interact with it, whatever
-deactivate
-</code></pre>
-<h5 id="recreating-a-venv">Recreating a venv</h5>
-<pre><code class="language-sh">virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ## write code, interact with it, whatever
@@ -5461,8 +5482,8 @@ deactivate
 <h4 id="virtual-environments-with-poetry">Virtual environments with poetry</h4>
 <p><code>poetry</code> is the new-school 2019 way of doing virtual environments. poetry stores its requirements in the new standard pyproject.toml file, and keeps the virtual environment stored outside of the current directory.</p>
 <ul>
-<li><a href="https://poetry.eustace.io/docs/">https://poetry.eustace.io/docs/</a></li>
-<li><a href="https://poetry.eustace.io/docs/pyproject/">https://poetry.eustace.io/docs/pyproject/</a></li>
+<li><a href="https://python-poetry.org/docs/">https://python-poetry.org/docs/</a></li>
+<li><a href="https://python-poetry.org/docs/pyproject/">https://python-poetry.org/docs/pyproject/</a></li>
 </ul>
 <h5 id="creating-a-virtual-environment-using-poetry">Creating a virtual environment using poetry</h5>
 <pre><code class="language-sh">cd project_dir
@@ -5526,6 +5547,33 @@ ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
 <pre><code class="language-sh">## ~/.bash_profile
 if PYTHON3_USER_BASE=$(python3 -m site --user-base 2&gt;/dev/null) ; then PATH=&quot;${PYTHON3_USER_BASE}/bin:${PATH}&quot; ; fi
 </code></pre>
+<h3 id="manage-a-requirementstxt-file-like-a-pro">Manage a requirements.txt file like a pro</h3>
+<p>Managing requirements.txt manually can lead to a variety of problems related to dependencies and package compatibility. The best way to manage the <code>requirements.txt</code> file is by using the <a href="https://pypi.org/project/pip-tools/">pip-tools</a> command <code>pip-compile</code>, which builds a <code>requirements.in</code> file into a <code>requirements.txt</code>.</p>
+<p>In your requirements.txt you define only your direct dependencies:</p>
+<pre><code>pendulum
+typer
+</code></pre>
+<p>Then you run <code>pip-compile --upgrade requirements.in</code>, which would create a requirements.txt file like:</p>
+<pre><code>#
+# This file is autogenerated by pip-compile with Python 3.10
+# by the following command:
+#
+#    pip-compile requirements.in
+#
+click==8.1.3
+    # via typer
+pendulum==2.1.2
+    # via -r requirements.in
+python-dateutil==2.8.2
+    # via pendulum
+pytzdata==2020.1
+    # via pendulum
+six==1.16.0
+    # via python-dateutil
+typer==0.7.0
+    # via -r requirements.in
+</code></pre>
+<p>You can also specify <code>--generate-hashes</code> to get a more reliable lockfile style result.</p>
 <h3 id="show-currently-installed-versions-for-all-packages-in-requirementstxt">Show currently installed versions for all packages in requirements.txt</h3>
 <p>This can be used to update a requirements.txt file to the exact installed version.</p>
 <pre><code class="language-sh">pip freeze | grep -f &lt;(grep -o '^\w\+' requirements.txt)
@@ -5566,6 +5614,10 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
 <pre><code class="language-sh">pip3 install flameprof
 python -m cProfile -o myscript.prof myscript.py
 flameprof myscript.prof.prof &gt; output.svg
+</code></pre>
+<h3 id="install-a-package-from-git">Install a package from git</h3>
+<p>This is great for locally developed packages. This also works with <a href="https://pypi.org/project/pipx/">pipx</a>, which will install tools into their own virtualenv.</p>
+<pre><code>pip install git+ssh://gitserver/path/repo.git@git-ref
 </code></pre>
 <h2 id="links">Links</h2>
 <h3 id="decorators">Decorators</h3>
