@@ -1888,6 +1888,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-a-bar-chart-of-disk-usage-of-gcp-bucket-contents" class="md-nav__link">
+    Show a bar chart of disk usage of gcp bucket contents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#set-maintenance-window-on-a-gke-cluster" class="md-nav__link">
     Set maintenance window on a GKE cluster
   </a>
@@ -3949,6 +3956,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../retropie/" class="md-nav__link">
+        retropie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../rhel/" class="md-nav__link">
         rhel
       </a>
@@ -5397,6 +5419,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-a-bar-chart-of-disk-usage-of-gcp-bucket-contents" class="md-nav__link">
+    Show a bar chart of disk usage of gcp bucket contents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#set-maintenance-window-on-a-gke-cluster" class="md-nav__link">
     Set maintenance window on a GKE cluster
   </a>
@@ -5742,6 +5771,41 @@ kubectl create secret &quot;docker-pull-$PROJECT&quot; &quot;$PROJECT&quot; \
     ETag:                   COP7ew7D5+CAEoI=
     Generation:             1595460011829230
     Metageneration:         5
+</code></pre>
+<h3 id="show-a-bar-chart-of-disk-usage-of-gcp-bucket-contents">Show a bar chart of disk usage of gcp bucket contents</h3>
+<p>The general idea here is you use <code>gsutil du gs://whatever/somepath</code>, use swap the first and second columns, and pipe that to <code>termgraph</code>. In this example I use awk to do the column swap, filter out all files so we're only checking full directory sizes, and trim the directory name and part of the filename:</p>
+<pre><code>$ gsutil du gs://cat-pic-downloader-backups/backups/*full* | awk '/\/$/ {gsub(/.*velero-/, &quot;&quot;, $2) ; print $2,$1 ;}' | termgraph
+
+full-back-up-20190128040005/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 307.60M
+full-back-up-20190129040006/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 305.13M
+full-back-up-20190130040007/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 298.71M
+full-back-up-20190201040008/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 298.80M
+full-back-up-20190202040009/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 297.77M
+full-back-up-20190203040010/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 297.64M
+full-back-up-20190204040011/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 297.61M
+full-back-up-20190205040012/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 296.78M
+full-back-up-20190206040013/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 294.78M
+full-back-up-20190207040014/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 292.45M
+full-back-up-20190208040015/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 292.05M
+full-back-up-20190209040016/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 292.74M
+full-back-up-20190210040017/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 291.43M
+full-back-up-20190211040018/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 291.73M
+full-back-up-20190212040019/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 291.55M
+full-back-up-20190213040020/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 289.23M
+full-back-up-20190214040022/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 287.54M
+full-back-up-20190215040023/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 286.56M
+full-back-up-20190216040024/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 286.87M
+full-back-up-20190217040025/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 286.58M
+full-back-up-20190218040026/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 286.01M
+full-back-up-20190219040027/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 286.23M
+full-back-up-20190220040028/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 285.57M
+full-back-up-20190221040029/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.66M
+full-back-up-20190222040030/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.62M
+full-back-up-20190223040031/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.29M
+full-back-up-20190224040032/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.27M
+full-back-up-20190225040033/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.31M
+full-back-up-20190226040034/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.19M
+full-back-up-20190227040035/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.44M
 </code></pre>
 <h3 id="set-maintenance-window-on-a-gke-cluster">Set maintenance window on a GKE cluster</h3>
 <p>This syntax is a bit difficult to work with. It must be given in <a href="https://datatracker.ietf.org/doc/html/rfc5545">RFC-5545 (iCal)</a>, but GCP only supports a subset of the spec. Most frustratingly, GCP doesn't support timezones. <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions#using-gcloud-init">They warn you about this</a>, saying the "timezone will not be stored", so if you want to start something at Wednesday 03:00:00+0600 you have to specify that as Tuesday 21:00:00. 🙄</p>

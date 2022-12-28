@@ -3680,6 +3680,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../retropie/" class="md-nav__link">
+        retropie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../rhel/" class="md-nav__link">
         rhel
       </a>
@@ -5045,8 +5060,8 @@
 </code></pre>
 <p>Keep in mind though that pretty-formatted gpx files take up significantly more space.</p>
 <h3 id="compact-format-a-gpx-file">Compact format a gpx file</h3>
-<p><a href="https://github.com/TomWright/dasel/releases/tag/v1.27.3"><code>dasel</code> 1.x</a> supports compact formatting, which can save disk space by eliminating whitespace characters. (<code>dasel</code> 2.x is currently missing the feature. A ticket reporting this feature removal is here: <a href="https://github.com/TomWright/dasel/issues/275">https://github.com/TomWright/dasel/issues/275</a>)</p>
-<pre><code class="language-sh">dasel -r xml -c -f
+<p><code>dasel</code> supports compact formatting, which can save disk space by eliminating whitespace characters. In <code>dasel</code> 1.x this is <code>-c</code>, but in 2.x it is <code>--pretty=false</code>.</p>
+<pre><code class="language-sh">dasel -r xml -f books.xml --pretty=false
 </code></pre>
 <p>My tests show this compact output saving ~25% in gpx files compared to a formatted gpx file using whitespace, and 15% compared to a gpx file using tabs.</p>
 
