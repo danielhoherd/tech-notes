@@ -1557,6 +1557,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#copy-all-gps-location-data-from-one-file-into-other-files" class="md-nav__link">
+    Copy all GPS location data from one file into other files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5282,6 +5289,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#copy-all-gps-location-data-from-one-file-into-other-files" class="md-nav__link">
+    Copy all GPS location data from one file into other files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5334,10 +5348,10 @@ Rights                          : All rights reserved
 </code></pre>
 <h3 id="expanded-basic-usage">Expanded basic usage</h3>
 <p>This prints out a lot more information than normal usage, and indicates what type of metadata it is.</p>
-<pre><code class="language-sh">exiftool -a -u -G:1:2 &quot;$filename&quot;
+<pre><code class="language-sh">exiftool -a -u -G:1:2 -- &quot;$filename&quot;
 </code></pre>
 <p>Here is an example of each unique column 1 in a file</p>
-<pre><code>$ exiftool -a -u -G:1:2 &quot;$filename&quot; | sort -u -k1,1
+<pre><code>$ exiftool -a -u -G:1:2 -- &quot;$filename&quot; | sort -u -k1,1
 [Adobe:Image]   DCT Encode Version              : 100
 [Composite:Camera] Scale Factor To 35 mm Equivalent: 7.0
 [Composite:Image] Aperture                      : 1.8
@@ -5391,6 +5405,7 @@ Rights                          : All rights reserved
   -FocalLength='85' \
   -LongFocal='85' \
   -ShortFocal='85' \
+  -- \
   &quot;$filename&quot;
 </code></pre>
 <h3 id="correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</h3>
@@ -5405,7 +5420,7 @@ exiftool -AllDates+='0:0:0 0:1:56' -- &quot;$filename&quot;
 <h3 id="delete-certain-keywords-from-files">Delete certain keywords from files</h3>
 <p>This example uses bash expansion to create multiple <code>-keywords-=</code> statements from the words inside of the braces. Use <code>echo exiftool</code> to see what command is actually being called when testing. Keywords can also be stored in the <code>subject</code> tag, so we clean that too.</p>
 <pre><code class="language-sh">find ~/your/pictures/ -type f -name '*.jpg' |
-xargs exiftool -overwrite_original -{keywords,subject}-={keyword1,&quot;a keyword with spaces&quot;,keyword3,&quot;another keyword with spaces&quot;}
+xargs exiftool -overwrite_original -{keywords,subject}-={keyword1,&quot;a keyword with spaces&quot;,keyword3,&quot;another keyword with spaces&quot;} --
 </code></pre>
 <p>A more readable way to do this is to use an array and loop over it to create args, then pass the args to exiftool. This technique is quite useful for use with a variety of tools. You could also change this logic to add tags instead of deleting them.</p>
 <pre><code class="language-sh">tags=(
@@ -5431,36 +5446,36 @@ exiftool -overwrite_original &quot;${args[@]}&quot; -- &quot;$@&quot;
     shift
   done
   filename=$1
-  exiftool &quot;${args[@]}&quot; &quot;${filename}&quot;
+  exiftool &quot;${args[@]}&quot; -- &quot;${filename}&quot;
 }
 </code></pre>
 <p>Here it is in action:</p>
-<pre><code>$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show there are no keywords
+<pre><code>$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show there are no keywords
 Warning: [Minor] Tag 'keywords' not defined - 20211016-21-25-03_450QaA.jpg
 
 $ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # add keywords
     1 image files updated
 
-$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that keywords were added
+$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that keywords were added
 Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
 
 $ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # re-add existing keywords
     1 image files updated
 
-$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that duplicates were not added
+$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that duplicates were not added
 Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
 </code></pre>
 <p>It even works to remove duplicates where they already exist, likely because the <code>-=</code> matches all instances of the keyword.</p>
-<pre><code>$ exiftool -keywords+=&quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # add a duplicate
+<pre><code>$ exiftool -keywords+=&quot;San Francisco&quot; -- 20211016-21-25-03_450QaA.jpg  # add a duplicate
     1 image files updated
 
-$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that there are duplicates
+$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that there are duplicates
 Sutro Heights, San Francisco, San Francisco 20211016-21-25-03_450QaA.jpg
 
 $ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg
     1 image files updated
 
-$ exiftool -p '$keywords $filename' 20211016-21-25-03_450QaA.jpg  # show that duplicates have been removed
+$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that duplicates have been removed
 Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
 </code></pre>
 <p>To add the same keywords to many files, loop through the files one at a time using something like:</p>
@@ -5481,11 +5496,11 @@ exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&q
 </code></pre>
 <h3 id="rename-files-into-directories-with-date-components-as-directory-names">Rename files into directories with date components as directory names</h3>
 <p>Using the above technique, it's not possible to create directories using date components as parts of the directory structure.</p>
-<pre><code>$ exiftool -d '%Y/%m/%d/%F-%H-%M-%S' '-TestName&lt;${DateTimeOriginal;}.%le' example.jpg
+<pre><code>$ exiftool -d '%Y/%m/%d/%F-%H-%M-%S' '-TestName&lt;${DateTimeOriginal;}.%le' -- example.jpg
 'example.jpg' --&gt; '201803042018-03-04-00-01-29.jpg'
 </code></pre>
 <p>Notice how all the directory delimiters were left out. To work around this, you can use a date format string with <code>DafeFmt</code> directly in the date tag instead of in <code>-d</code>:</p>
-<pre><code>$ exiftool '-TestName&lt;${DateTimeOriginal;DateFmt(&quot;%Y/%m/%d/%F-%H-%M-%S&quot;)}.%le' example.jpg
+<pre><code>$ exiftool '-TestName&lt;${DateTimeOriginal;DateFmt(&quot;%Y/%m/%d/%F-%H-%M-%S&quot;)}.%le' -- example.jpg
 'example.jpg' --&gt; '2018/03/04/2018-03-04-00-01-29.jpg'
 </code></pre>
 <h3 id="set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</h3>
@@ -5493,9 +5508,10 @@ exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&q
 <pre><code class="language-sh">exiftool &quot;-FileModifyDate&lt;DateTimeOriginal&quot; -- *.jpg
 </code></pre>
 <h3 id="generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes</h3>
+<p>The <code>-n</code> flag here tells exiftool not to convert numbers into human readable formats. This is somewhat ironic in some circumstances, such as with location where using <code>-n</code> makes the GPS location show up as decimal, which IMHO is much more reaable.</p>
 <pre><code>$ find /src_dir/ -iname '*.dng' |
-  xargs  exiftool -p '$filename,$Model,$FileSize#' 2&gt;/dev/null |
-  sort   -t, -k3 -n |
+  xargs exiftool -p '$filename,$Model,$FileSize#' -- 2&gt;/dev/null |
+  sort -t, -k3 -n |
   column -s, -t
 2012-01-26-23-19-54-6795223065_2e771d1012_o.jpg   iPhone 4S             1242739
 2013-02-03-10-01-56-8441346635_df4404a1f6_o.jpg   NIKON D5200           1646481
@@ -5514,7 +5530,7 @@ exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&q
 </code></pre>
 <h3 id="generate-rsync-commands-for-files-matching-a-string">Generate rsync commands for files matching a string</h3>
 <p>Useful for reviewing commands before running them, the following example generates a command for every file, then uses awk to do a numeric comparison on the last field to sort out images under a certain ImageHeight. These rsync commands can be pasted into a terminal to run. (Generating a list of files for use with <code>rsync --files-from</code> would be a better option for this specific use case, but this illustration could be adapted for commands that do not have such an option.)</p>
-<pre><code>$ exiftool -d &quot;%s&quot; -p 'rsync -aP $filename otherhost:~/Pictures/ # $ImageHeight' * 2&gt;/dev/null | awk '$NF &gt;= 2800 {print}'
+<pre><code>$ exiftool -d &quot;%s&quot; -p 'rsync -aP $filename otherhost:~/Pictures/ # $ImageHeight' -- * 2&gt;/dev/null | awk '$NF &gt;= 2800 {print}'
 rsync -aP 2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg otherhost:~/Pictures/ # 2869
 rsync -aP 2018-02-06-09-50-04-31514483967_a422a3e3aa_o.jpg otherhost:~/Pictures/ # 2880
 rsync -aP 2018-02-06-15-04-43-45541501845_8dbdc3b208_o.jpg otherhost:~/Pictures/ # 2880
@@ -5523,7 +5539,7 @@ rsync -aP 2018-12-19-10-53-27-45663859984_0f93ac24ec_o.jpg otherhost:~/Pictures/
 </code></pre>
 <h3 id="rename-files-to-their-shuttercount">Rename files to their ShutterCount</h3>
 <p>Filenames will not be changed if ShutterCount field is not populated.</p>
-<pre><code class="language-sh">exiftool -P '-filename&lt;${ShutterCount;}.%e' *.dng
+<pre><code class="language-sh">exiftool -P '-filename&lt;${ShutterCount;}.%e' -- *.dng
 </code></pre>
 <h3 id="rename-files-based-on-a-set-of-possible-names">Rename files based on a set of possible names</h3>
 <p>Exiftool will use the last parameter where all variables are present.</p>
@@ -5534,6 +5550,7 @@ rsync -aP 2018-12-19-10-53-27-45663859984_0f93ac24ec_o.jpg otherhost:~/Pictures/
   '-filename&lt;${CreateDate} - ${Make;} - ${Model;}.%e' \
   '-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;} - ${ShutterCount}.%e' \
   '-filename&lt;${CreateDate} - ${Make;} - ${Model;} - ${ShutterCount}.%e' \
+  -- \
   *.dng
 </code></pre>
 <h3 id="use-testname-tag-target-to-test-what-files-would-be-renamed-to">Use TestName tag target to test what files would be renamed to</h3>
@@ -5559,24 +5576,26 @@ done ;
 
 args+=( '-d' './%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le' )
 
-find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;${args[@]}&quot;
+find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;${args[@]}&quot; --
 </code></pre>
 <h3 id="print-filenames-that-are-missing-a-tag">Print filenames that are missing a tag</h3>
 <p>This example creates a file with all full path names for jpg and dng files that do not have GPS Coordinates</p>
 <pre><code class="language-sh">find /some/dir -iname '*.jpg' -or -iname '*.dng' -print0 |
-xargs -0 exiftool -p '${Directory}/${Filename}' -if 'not defined $GPSPosition' &gt;&gt; ~/no-geo.txt
+xargs -0 exiftool -p '${Directory}/${Filename}' -if 'not defined $GPSPosition' -- &gt;&gt; ~/no-geo.txt
 </code></pre>
 <h3 id="rename-music-files-in-a-directory">Rename music files in a directory</h3>
 <p>If you use a semicolon inside of a tag that is used to generate a filename, it will have filename-invalid characters stripped. The invalid character list is: <code>/ \ ? * : | " &lt; &gt;</code>. See the next section for more examples of semicolon behavior.</p>
 <pre><code class="language-sh">exiftool \
   '-FileName&lt;${Artist;} - ${Title;}.%e' \
   '-FileName&lt;${Artist;} - ${Album;} - ${Title;}.%e' \
+  -- \
   *.mp3 *.m4a
 </code></pre>
 <p>The way I solved this prior to knowing the semicolon behavior was to use a regex replace, which is included here because it could be useful in other circumstances:</p>
 <pre><code class="language-sh">exiftool \
   '-FileName&lt;${Artist;s/\//_/} - ${Title;s/\//_/}.%e' \
   '-FileName&lt;${Artist;s/\//_/} - ${Album;s/\//_/} - ${Title;s/\//_/}.%e' \
+  -- \
   *.mp3 *.m4a
 </code></pre>
 <h3 id="rename-files-into-subdir-based-on-multiple-tags">Rename files into subdir based on multiple tags</h3>
@@ -5586,7 +5605,6 @@ xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-FileName&lt;${DateTi
 </code></pre>
 <p>EG:</p>
 <pre><code>$ find . -type f -iname '*.jpg' -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-TestName&lt;${DateTimeOriginal}_${Headline}%-c.%le' --
-2021-03-12 11:59:19-0800
 './20170406-17-11-59.jpg' --&gt; '2017/04/06/20170406-17-11-59_qrWLGF.jpg'
 './20170401-22-20-56.jpg' --&gt; '2017/04/01/20170401-22-20-56_907nMU.jpg'
 './20170403-07-14-18.jpg' --&gt; '2017/04/03/20170403-07-14-18_JMPDVd.jpg'
@@ -5595,7 +5613,6 @@ xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-FileName&lt;${DateTi
 </code></pre>
 <p>But if we use a semicolon, the invalid characters are stripped, and thus directories are not created.</p>
 <pre><code>$ find . -type f -iname '*.jpg' -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-TestName&lt;${DateTimeOriginal;}_${Headline}%-c.%le' --
-2021-03-12 11:58:50-0800
 './20170406-17-11-59.jpg' --&gt; './2017040620170406-17-11-59_qrWLGF.jpg'
 './20170401-22-20-56.jpg' --&gt; './2017040120170401-22-20-56_907nMU.jpg'
 './20170403-07-14-18.jpg' --&gt; './2017040320170403-07-14-18_JMPDVd.jpg'
@@ -5612,8 +5629,8 @@ xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-FileName&lt;${DateTi
 long_args=(  &quot;-TestName&lt;${opt}&quot; '-d' &quot;${working_path}/long/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot;  '-if' '${Duration#} &gt;  10' )
 short_args=( &quot;-TestName&lt;${opt}&quot; '-d' &quot;${working_path}/short/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot; '-if' '${Duration#} &lt;= 10' )
 
-find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${long_args[@]}&quot;
-find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${short_args[@]}&quot;
+find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${long_args[@]}&quot; --
+find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${short_args[@]}&quot; --
 </code></pre>
 <h3 id="add-missing-date-metadata-to-nintendo-switch-screenshots">Add missing date metadata to Nintendo Switch screenshots</h3>
 <p>Nintendo Switch screenshots are named with the date, but do not contain this information in the EXIF, which makes this data fragile.</p>
@@ -5629,6 +5646,9 @@ done | while read -r Y M D h m s f ; do
     -d '%Y%m%d-%H-%M-%S%%-c.%%le' \
     -- &quot;$f&quot;
 done
+</code></pre>
+<h3 id="copy-all-gps-location-data-from-one-file-into-other-files">Copy all GPS location data from one file into other files</h3>
+<pre><code class="language-sh">exiftool -tagsfromfile source-file.jpg '-gpsl*&lt;gpsl*' -- dest-file-1.jpg dest-file-2.jpg
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

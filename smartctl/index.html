@@ -4086,6 +4086,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-how-many-hours-each-drive-has-been-powered-on" class="md-nav__link">
+    Show how many hours each drive has been powered on
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5030,6 +5037,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-how-many-hours-each-drive-has-been-powered-on" class="md-nav__link">
+    Show how many hours each drive has been powered on
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5079,6 +5093,17 @@
 <h3 id="view-the-results-of-a-self-test">View the results of a self test</h3>
 <p>Make sure to check for the presence of a "Self-test routine in progress" line.</p>
 <pre><code class="language-sh">smartctl -l selftest /dev/sda
+</code></pre>
+<h3 id="show-how-many-hours-each-drive-has-been-powered-on">Show how many hours each drive has been powered on</h3>
+<pre><code>$ lsblk -pdo NAME,SIZE,MODEL,SERIAL -n |
+while read -r drive size extras ; do
+  echo &quot;$drive\t$(sudo smartctl -A &quot;$drive&quot; | awk '/Hours/ {print $NF}')\t$size\t$extras&quot;
+done | column -s'\t' -t
+/dev/sda    35265    238.5G    Samsung SSD 850  S33KNX0JB59421F
+/dev/sdb    41261    7.3T      HGST HUH728080AL VKHAVT1X
+/dev/sdc    41305    7.3T      HGST HUH728080AL VKH46K7X
+/dev/sdd    41320    7.3T      HGST HUH728080AL VKH82NNX
+/dev/sdf    73       10.9T     HGST HUH721212AL 8CK26DWK
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
