@@ -2210,6 +2210,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../join/" class="md-nav__link">
+        join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../jot/" class="md-nav__link">
         jot
       </a>
@@ -2368,6 +2383,13 @@
           <li class="md-nav__item">
   <a href="#store-a-value-as-a-variable" class="md-nav__link">
     Store a value as a variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-value-for-missing-keys" class="md-nav__link">
+    Default value for missing keys
   </a>
   
 </li>
@@ -5157,6 +5179,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#default-value-for-missing-keys" class="md-nav__link">
+    Default value for missing keys
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5328,6 +5357,14 @@ kube-system  kube-dns-66f64447b8-b2jsf  dnsmasq           3
 kube-system  kube-dns-66f64447b8-b2jsf  kubedns           0
 kube-system  kube-dns-66f64447b8-b2jsf  prometheus-to-sd  0
 kube-system  kube-dns-66f64447b8-b2jsf  sidecar           0
+</code></pre>
+<h3 id="default-value-for-missing-keys">Default value for missing keys</h3>
+<pre><code>$ echo '{&quot;foo&quot;: 1, &quot;bar&quot;: 2}' | jq '[.foo // &quot;missing&quot;, .bar // &quot;missing&quot;, .baz // &quot;missing&quot;]'
+[
+  1,
+  2,
+  &quot;missing&quot;
+]
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

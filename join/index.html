@@ -10,14 +10,14 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/dasel/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/join/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>dasel - Daniel Hoherd's tech notes</title>
+        <title>join - Daniel Hoherd's tech notes</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dasel" class="md-skip">
+        <a href="#join" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dasel
+              join
             
           </span>
         </div>
@@ -948,86 +948,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          dasel
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../dasel/" class="md-nav__link">
         dasel
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#example-usage" class="md-nav__link">
-    Example usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Example usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#convert-between-formats" class="md-nav__link">
-    Convert between formats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restructure-a-pagerduty-csv" class="md-nav__link">
-    Restructure a pagerduty csv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pretty-format-a-gpx-file" class="md-nav__link">
-    Pretty format a gpx file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compact-format-a-gpx-file" class="md-nav__link">
-    Compact format a gpx file
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2283,11 +2208,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../join/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         join
       </a>
+      
     </li>
   
 
@@ -4997,55 +4932,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#example-usage" class="md-nav__link">
-    Example usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Example usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#convert-between-formats" class="md-nav__link">
-    Convert between formats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restructure-a-pagerduty-csv" class="md-nav__link">
-    Restructure a pagerduty csv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pretty-format-a-gpx-file" class="md-nav__link">
-    Pretty format a gpx file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compact-format-a-gpx-file" class="md-nav__link">
-    Compact format a gpx file
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -5059,41 +4945,105 @@
                   
 
 
-<h1 id="dasel">dasel</h1>
-<p>"Select, put and delete data from JSON, TOML, YAML, XML and CSV files with a single tool. Supports conversion between formats and can be used as a Go package." - <a href="https://github.com/TomWright/dasel">https://github.com/TomWright/dasel</a></p>
-<h2 id="example-usage">Example usage</h2>
-<h3 id="convert-between-formats">Convert between formats</h3>
-<p>yaml to toml</p>
-<pre><code class="language-sh">dasel --read yaml --write toml --file vector.yaml &gt; vector.toml
+<h1 id="join">join</h1>
+<p>"The join utility performs an 'equality join' on the specified files and writes the result to the standard output." - <code>man join</code></p>
+<p><code>join</code> is a unix tool that is similar to a sql join, combining two files by joining on a column. The macOS man page has more example than the GNU man page, but as usual the syntaxes aren't exactly the same.</p>
+<h1 id="examples">Examples</h1>
+<p>The following example use the following <code>dates.txt</code> file as file 1. Notice it is missing data between December 25 and December 31 (inclusive).</p>
+<pre><code>2022-12-21 9
+2022-12-22 2
+2022-12-23 1
+2022-12-24 5
+2023-01-01 6
+2023-01-02 6
+2023-01-03 2
 </code></pre>
-<p>json to yaml with a data filter</p>
-<pre><code class="language-sh">dasel -r json -w yaml -f ansible-facts.json '.ansible_facts.ansible_default_ipv4'
+<p>We also use a loop that produces dates that contain the dates missing from <code>dates.txt</code> but do not go back as far in time:</p>
+<pre><code>$ for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done
+2022-12-24 offset=10
+2022-12-25 offset=9
+2022-12-26 offset=8
+2022-12-27 offset=7
+2022-12-28 offset=6
+2022-12-29 offset=5
+2022-12-30 offset=4
+2022-12-31 offset=3
+2023-01-01 offset=2
+2023-01-02 offset=1
+2023-01-03 offset=0
 </code></pre>
-<h3 id="restructure-a-pagerduty-csv">Restructure a pagerduty csv</h3>
-<p>Download the csv using this shell function that uses BSD (macOS) <code>date</code> and <code>open</code>:</p>
-<pre><code class="language-sh">pagerduty-csv-download() {
-  TZ=America/Los_Angeles
-  past=&quot;$(date -v-7d &quot;+%FT%T&quot;)&quot;
-  present=&quot;$(date &quot;+%FT%T&quot;)&quot;
-  open &quot;$(date &quot;+https://company-name.pagerduty.com/api/v1/reports/raw/incidents.csv?since=${past}&amp;until=${present}&amp;time_zone=${TZ}&quot;)&quot;
-}
+<h2 id="show-only-lines-with-common-columns">Show only lines with common columns</h2>
+<pre><code>$ join dates.txt &lt;(for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F $OFFSET&quot; ; done)
+2022-12-24 5 10
+2023-01-01 6 2
+2023-01-02 6 1
+2023-01-03 2 0
 </code></pre>
-<p>Then restructure it using <code>--format</code> to interpolate variables into a template string:</p>
-<pre><code class="language-sh">dasel -f incidents.csv -w json -m --format '{{ .created_on }} https://company-name.pagerduty.com/incidents/{{ .id }} {{ .description }}' '.[*]'
+<h2 id="show-all-lines-as-long-as-data-is-present-in-file-1">Show all lines, as long as data is present in file 1</h2>
+<pre><code>$ join -a 1 dates.txt &lt;(for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+2022-12-21 9
+2022-12-22 2
+2022-12-23 1
+2022-12-24 5 offset=10
+2023-01-01 6 offset=2
+2023-01-02 6 offset=1
+2023-01-03 2 offset=0
 </code></pre>
-<p>The output will be something like:</p>
-<pre><code>2022-02-02T20:02:02-08:00 https://company-name.pagerduty.com/incidents/Q0ZL9NU2 [FIRING:1] TargetDown (cat-downloader)
+<h2 id="show-all-lines-as-long-as-data-is-present-in-file-2">Show all lines, as long as data is present in file 2</h2>
+<pre><code>$ join -a 2 dates.txt &lt;(for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+2022-12-24 5 offset=10
+2022-12-25 offset=9
+2022-12-26 offset=8
+2022-12-27 offset=7
+2022-12-28 offset=6
+2022-12-29 offset=5
+2022-12-30 offset=4
+2022-12-31 offset=3
+2023-01-01 6 offset=2
+2023-01-02 6 offset=1
+2023-01-03 2 offset=0
 </code></pre>
-<h3 id="pretty-format-a-gpx-file">Pretty format a gpx file</h3>
-<p>This is useful for comparing two files, for instance where one may have been appended, and you need to make sure.</p>
-<pre><code class="language-sh">dasel -r xml -f 2022-01-02-18-20-00.gpx &gt; old.gpx
+<h2 id="only-show-certain-columns-in-the-output">Only show certain columns in the output</h2>
+<p>We can specify which columns we want to see in the output, which includes the ability to join on a column that is not shown the output:</p>
+<pre><code>$ join -o 1.2,2.2 dates.txt &lt;(for OFFSET in {10..0} ; do gdate -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+5 offset=10
+6 offset=2
+6 offset=1
+2 offset=0
 </code></pre>
-<p>Keep in mind though that pretty-formatted gpx files take up significantly more space.</p>
-<h3 id="compact-format-a-gpx-file">Compact format a gpx file</h3>
-<p><code>dasel</code> supports compact formatting, which can save disk space by eliminating whitespace characters. In <code>dasel</code> 1.x this is <code>-c</code>, but in 2.x it is <code>--pretty=false</code>.</p>
-<pre><code class="language-sh">dasel -r xml -f books.xml --pretty=false
+<h2 id="fill-in-missing-data-an-arbitrary-string">Fill in missing data an arbitrary string</h2>
+<p>We use <code>-e Null</code> to indicate we want to fill in missing values with <code>Null</code>. In order for <code>-e</code> to work right, e have to specify the output columns with <code>-o</code>. We also have to specify <code>-a 2</code> to indicate we want to see all lines from file 2. Because we are showing all lines in file 2, we use <code>-o 2.1</code> instead of <code>-o 1.1</code> so that the date column is not populated with <code>Null</code> values.</p>
+<pre><code>$ join -e Null -o 2.1,1.2,2.2 -a 2 dates.txt &lt;(for OFFSET in {10..0} ; do gdate -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+2022-12-24 5 offset=10
+2022-12-25 Null offset=9
+2022-12-26 Null offset=8
+2022-12-27 Null offset=7
+2022-12-28 Null offset=6
+2022-12-29 Null offset=5
+2022-12-30 Null offset=4
+2022-12-31 Null offset=3
+2023-01-01 6 offset=2
+2023-01-02 6 offset=1
+2023-01-03 2 offset=0
 </code></pre>
-<p>My tests show this compact output saving ~25% in gpx files compared to a formatted gpx file using whitespace, and 15% compared to a gpx file using tabs.</p>
+<p>A practical example of the above is making sure you have an entire sequence filled in, for example when graphing a set where no entry is created for days that have no data points. This ensures we're seeing a complete set, not just the days that have data:</p>
+<pre><code>$ join -e 0 -o 2.1,1.2 -a 2 dates.txt &lt;(for OFFSET in {13..0} ; do gdate -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done) | termgraph --format='{:.0f}'
+
+2022-12-21: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 9
+2022-12-22: ▇▇▇▇▇▇▇▇▇▇▇ 2
+2022-12-23: ▇▇▇▇▇ 1
+2022-12-24: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 5
+2022-12-25:  0
+2022-12-26:  0
+2022-12-27:  0
+2022-12-28:  0
+2022-12-29:  0
+2022-12-30:  0
+2022-12-31:  0
+2023-01-01: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 6
+2023-01-02: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 6
+2023-01-03: ▇▇▇▇▇▇▇▇▇▇▇ 2
+</code></pre>
 
 
 
@@ -5114,7 +5064,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../cut/" class="md-footer__link md-footer__link--prev" aria-label="Previous: cut" rel="prev">
+        <a href="../jmespath/" class="md-footer__link md-footer__link--prev" aria-label="Previous: jmespath" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -5123,20 +5073,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              cut
+              jmespath
             </div>
           </div>
         </a>
       
       
         
-        <a href="../data/" class="md-footer__link md-footer__link--next" aria-label="Next: data" rel="next">
+        <a href="../jot/" class="md-footer__link md-footer__link--next" aria-label="Next: jot" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              data
+              jot
             </div>
           </div>
           <div class="md-footer__button md-icon">

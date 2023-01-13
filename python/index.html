@@ -2210,6 +2210,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../join/" class="md-nav__link">
+        join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../jot/" class="md-nav__link">
         jot
       </a>
@@ -3761,6 +3776,13 @@
           <li class="md-nav__item">
   <a href="#show-currently-installed-versions-for-all-packages-in-requirementstxt" class="md-nav__link">
     Show currently installed versions for all packages in requirements.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-tz-aware-datetime-using-only-the-standard-library" class="md-nav__link">
+    Generate a TZ aware datetime using only the standard library
   </a>
   
 </li>
@@ -5379,6 +5401,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#generate-a-tz-aware-datetime-using-only-the-standard-library" class="md-nav__link">
+    Generate a TZ aware datetime using only the standard library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#common-date-operations" class="md-nav__link">
     Common date operations
   </a>
@@ -5613,6 +5642,10 @@ typer==0.7.0
   grep -f &lt;(grep -o '^\w\+' requirements.txt) |
   sed 's/==/~=/' |
   awk -F. '{print $1 &quot;.&quot; $2}'
+</code></pre>
+<h3 id="generate-a-tz-aware-datetime-using-only-the-standard-library">Generate a TZ aware datetime using only the standard library</h3>
+<pre><code class="language-py">LOCAL_TIMEZONE = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
+datetime.datetime.now(LOCAL_TIMEZONE)
 </code></pre>
 <h3 id="common-date-operations">Common date operations</h3>
 <p>None of these examples deal with timezones.</p>
