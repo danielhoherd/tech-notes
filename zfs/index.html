@@ -5050,6 +5050,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#expand-a-zpool-in-place-after-replacing-disks-with-larger-disks" class="md-nav__link">
+    Expand a zpool in place after replacing disks with larger disks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5531,6 +5538,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#expand-a-zpool-in-place-after-replacing-disks-with-larger-disks" class="md-nav__link">
+    Expand a zpool in place after replacing disks with larger disks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5945,6 +5959,16 @@ config:
 
 errors: No known data errors
 </code></pre>
+<h3 id="expand-a-zpool-in-place-after-replacing-disks-with-larger-disks">Expand a zpool in place after replacing disks with larger disks</h3>
+<p>Expansion happens automatically if you have done <code>zpool set autoexpand=on tank</code>. If you did not do that and you find your pool has not expanded, you can perform the following:</p>
+<p>List the absolute paths of your devices with something like:</p>
+<pre><code class="language-sh">zpool list -v -PH | awk '$1 ~ &quot;^\/dev\/&quot; {gsub(&quot;-part1&quot;,&quot;&quot;,$1) ; print $1 ;}'
+</code></pre>
+<p>Then go through your device list and run</p>
+<pre><code class="language-sh">zpool online -e tank &lt;disk-name&gt; # do the expansion
+zpool list -v tank # check the EXPANDSZ column for the disk
+</code></pre>
+<p>After doing all of these your pool should be expanded.</p>
 <h2 id="zfs_1">zfs</h2>
 <h3 id="show-differences-between-current-filesystem-state-and-snapshot-state">show differences between current filesystem state and snapshot state</h3>
 <pre><code>zfs diff tank tank@snap

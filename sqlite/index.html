@@ -4378,6 +4378,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vacuum-a-database-file" class="md-nav__link">
+    Vacuum a database file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5247,6 +5254,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vacuum-a-database-file" class="md-nav__link">
+    Vacuum a database file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5410,6 +5424,10 @@ and SerialNumber || ImageNumber in (
 ) ;
 &quot; |
 xargs -r echo rm -fv
+</code></pre>
+<h3 id="vacuum-a-database-file">Vacuum a database file</h3>
+<p>"The VACUUM command rebuilds the database file, repacking it into a minimal amount of disk space." - <a href="https://www.sqlite.org/lang_vacuum.html">https://www.sqlite.org/lang_vacuum.html</a></p>
+<pre><code class="language-sh">sqlite3 filename.db &quot;VACUUM;&quot;
 </code></pre>
 
 
