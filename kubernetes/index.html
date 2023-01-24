@@ -1,1264 +1,5802 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Daniel Austin Hoherd">
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>kubernetes - Daniel Hoherd's tech notes</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "kubernetes";
-    var mkdocs_page_input_path = "kubernetes.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Daniel Austin Hoherd">
+      
+      
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/kubernetes/">
+      
+      
+        <link rel="prev" href="../keybase/">
+      
+      
+        <link rel="next" href="../launchd/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>kubernetes - Daniel Hoherd's tech notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">About these notes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../3d_printing/">3D Printing</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../airport/">Apple Airport</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../amazon-ec2/">Amazon EC2</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../amazon/">Amazon</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ansible/">Ansible</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../apfs/">Apple APFS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../aptly/">Aptly</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../aria2/">Aria2</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../arpwatch/">arpwatch</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../atomicparsley/">AtomicParsley</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../atop/">atop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../autonomous-vehicles/">Autonomous Vehicle Links</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../avahi/">Avahi</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../awk/">awk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../awless/">awless</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../awscli/">Amazon awscli</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../backups/">Backups</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../badblocks/">badblocks</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bash/">GNU bash</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bbcp/">bbcp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bc/">GNU bc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bind/">BIND</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../blkid/">blkid</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bluetooth/">bluetooth</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bosh/">BOSH</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bpf/">bpf</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../calico/">calico</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../calver/">CalVer</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../centos/">CentOS Linux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ceph/">Ceph</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cgroups/">cgroups</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../chkconfig/">chkconfig</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../chocolatey/">Choclatey</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../chronos/">chronos</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../circleci/">CircleCI</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cncf/">CNCF</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cobbler/">Cobbler</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../computing/">Computing</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../conjure-up/">conjure-up</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../consul/">consul</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cookiecutter/">cookiecutter</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cowsay/">cowsay</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cradlepoint/">Cradlepoint</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cron/">cron</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cryptsetup/">cryptsetup</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../curl/">cURL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dat/">dat</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../date/">date</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dcfldd/">dcfldd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dcgc/">Docker Custodian</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dcraw/">dcraw</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dd-wrt/">dd-wrt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dd/">dd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ddrescue/">ddrescue</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../deb/">deb</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../defaults/">defaults</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../devops/">devops</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dig/">dig</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dmidecode/">dmidecode</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../docker/">docker</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dsrc/">dsrc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dtrace/">dtrace</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../du/">du</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../duplicity/">duplicity</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../education/">education</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../eleduino/">Eleduino</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../etcd/">etcd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ethtool/">ethtool</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../exiftool/">exiftool</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fedramp/">Fedramp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ffmpeg/">ffmpeg</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../figlet/">figlet</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../find/">find</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../findmnt/">findmnt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fio/">fio</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../flask/">flask</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fluentd/">fluentd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fortune/">fortune</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fuser/">fuser</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../genicam/">GenICam</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../geodata/">geodata</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gige-vision/">GigE Vision</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gitlab/">Gitlab</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gitolite/">gitolite</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../glances/">glances</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../golang/">golang</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google-cloud/">Google Cloud</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google-earth/">Google Earth</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google-sheets/">Google Sheets</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google/">Google</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../graphicsmagick/">GraphicsMagick</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../grep/">grep</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../grub/">GNU GRUB</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hadoop/">Hadoop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../handbrake/">Handbrake</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hashids/">Hashids</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../helm/">helm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../home-assistant/">Home Assistant</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hp/">HP</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../htop/">htop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../httpstat/">httpstat</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iTunes/">iTunes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iftop/">iftop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../image-formats/">Graphical Image Formats</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../imagemagick/">ImageMagick</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../img2xterm/">img2xterm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../innotop/">innotop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../inotify/">inotify</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../internet/">The Internet</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iotop/">iotop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ip/">ip</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iperf/">iperf</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ipmi/">IPMI</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iptables/">iptables</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jargon/">jargon</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jdupes/">jdupes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jmespath/">jmespath</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jot/">jot</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jpeginfo/">jpeginfo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jq/">jq</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../json/">JSON</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jsonpath/">JSONPath</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../juniper/">Juniper</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jwt/">jwt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../kaniko/">kaniko</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../keel/">keel</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../keybase/">keybase</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">kubernetes</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../launchd/">launchd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ldap/">ldap</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lego/">LEGO</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lektor/">Lektor</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../linksys/">linksys</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../linux-performance-monitoring/">linux-performance-monitoring</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../linux/">linux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../logstash/">logstash</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lsblk/">lsblk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lshw/">lshw</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lsof/">lsof</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lvm/">lvm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lxc/">LXC</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../machine-learning/">Machine Learning</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../macos/">macOS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../make/">GNU make</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../math/">math</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mdraid/">mdraid</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../metallb/">MetalLB</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../microbit/">micro:bit</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../micropython/">MicroPython</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../minikube/">minikube</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../molecule/">Molecule</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mongodb/">MongoDB</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mqtt/">mqtt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mutt/">mutt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../myrepos/">myrepos</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mysql/">MySQL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../namei/">namei</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ncftp/">ncftp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../netgear/">NETGEAR</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nethogs/">nethogs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../networking/">networking</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../networksetup/">networksetup</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../neverware/">neverware</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nfs/">nfs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-3ds/">Nintendo 3DS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-amiibo/">Nintendo Amiibo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-switch/">Nintendo Switch</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wii/">Nintendo Wii</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wiiu/">Nintendo Wii U</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ntop/">ntop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ntp/">NTP</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nvidia/">nvidia</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../openvpn/">openvpn</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../osquery/">osquery</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ostinato/">ostinato</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../outline/">outline</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pac/">pac</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pandoc/">pandoc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../panopticlick/">panopticlick</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../passwords/">passwords</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../perl/">perl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pgp/">pgp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../philips-hue/">philips-hue</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../php/">php</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../plex/">plex</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../postgres/">PostgreSQL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../powershell/">powershell</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../powertop/">powertop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../procurve/">procurve</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../prometheus/">Prometheus</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../protobuf/">protobuf</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ps/">ps</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ps_mem/">ps_mem</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../psp/">psp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pssh/">pssh</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ptp/">ptp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../puppet/">Puppet</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pv/">pv</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pytest/">pytest</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../python/">python</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../q/">q</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/">raspberry-pi</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../redis/">redis</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rhel/">rhel</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../robotics/">robotics</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../roku/">Roku</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rook/">rook</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ros/">ros</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rpm/">rpm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rrd/">rrd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rst/">reStructuredText</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rsync/">rsync</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../saltstack/">saltstack</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../samsung/">Samsung</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../screenshot/">Screenshots</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sdr/">sdr</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sed/">sed</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../selinux/">selinux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../semver/">semver</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sensu/">sensu</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../serverless/">serverless</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sgdisk/">sgdisk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../shairport-sync/">shairport-sync</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../shred/">Shred</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../shutdown/">shutdown</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sips/">sips</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../slides/">slides</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../smartctl/">smartctl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../smartstack/">smartstack</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../snap/">snap</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../snmp/">snmp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../solo/">solo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sort/">sort</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sphinx/">sphinx</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../split/">split</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../splunk/">splunk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sqlite/">sqlite</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ss/">ss</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ssh/">ssh</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sshuttle/">sshuttle</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../stat/">stat</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../strace/">strace</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sudo/">sudo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../swagger/">swagger</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../swift/">Swift</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sysctl/">sysctl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sysdig/">sysdig</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../systemd-resolved/">systemd-resolved</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../systemd/">systemd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../tcl/">TCL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../tcpdump/">tcpdump</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../terraform/">Terraform</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../time/">time</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../tls/">tls</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../top-variant-list/">top-variant-list</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../top/">top</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../touch/">touch</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ubuntu/">Ubuntu Linux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../udev/">udev</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../upstart/">Upstart</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vagrant/">vagrant</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vim/">vim</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../virtualbox/">VirtualBox</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vpn/">Virtual Private Networking</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wget/">Wget</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../winbind/">winbind</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wireshark/">Wireshark</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wonder-workshop/">wonder-workshop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wuzz/">wuzz</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../xargs/">xargs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../yaml/">yaml</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../youtube-dl/">youtube-dl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../yum/">yum</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zerotier/">ZeroTier</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zfs/">ZFS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zookeeper/">zookeeper</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zsh/">zsh</a>
-                    </li>
-                </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kubernetes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Daniel Hoherd's tech notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              kubernetes
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daniel Hoherd's tech notes</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
       
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Daniel Hoherd's tech notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        About these notes
+      </a>
+    </li>
+  
+
     
-    <li>kubernetes</li>
-    <li class="wy-breadcrumbs-aside">
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3d-printing/" class="md-nav__link">
+        3D Printing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airflow/" class="md-nav__link">
+        Airflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airport/" class="md-nav__link">
+        Apple Airport
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amazon/" class="md-nav__link">
+        Amazon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ansible/" class="md-nav__link">
+        Ansible
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apfs/" class="md-nav__link">
+        Apple APFS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aptly/" class="md-nav__link">
+        Aptly
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aria2/" class="md-nav__link">
+        Aria2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arpwatch/" class="md-nav__link">
+        arpwatch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomicparsley/" class="md-nav__link">
+        AtomicParsley
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atop/" class="md-nav__link">
+        atop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-vehicles/" class="md-nav__link">
+        Autonomous Vehicle Links
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avahi/" class="md-nav__link">
+        Avahi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awk/" class="md-nav__link">
+        awk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awless/" class="md-nav__link">
+        awless
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-cloudformation/" class="md-nav__link">
+        Amazon AWS Cloudformation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awscli/" class="md-nav__link">
+        Amazon awscli
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backups/" class="md-nav__link">
+        Backups
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../badblocks/" class="md-nav__link">
+        badblocks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bash/" class="md-nav__link">
+        GNU bash
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bbcp/" class="md-nav__link">
+        bbcp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bc/" class="md-nav__link">
+        GNU bc
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bind/" class="md-nav__link">
+        BIND
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blkid/" class="md-nav__link">
+        blkid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bluetooth/" class="md-nav__link">
+        bluetooth
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bpf/" class="md-nav__link">
+        bpf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/" class="md-nav__link">
+        C
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calico/" class="md-nav__link">
+        calico
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calver/" class="md-nav__link">
+        CalVer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centos/" class="md-nav__link">
+        CentOS Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceph/" class="md-nav__link">
+        Ceph
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chkconfig/" class="md-nav__link">
+        chkconfig
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chocolatey/" class="md-nav__link">
+        Choclatey
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chronos/" class="md-nav__link">
+        chronos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circleci/" class="md-nav__link">
+        CircleCI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cncf/" class="md-nav__link">
+        CNCF
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cobbler/" class="md-nav__link">
+        Cobbler
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colorblindness/" class="md-nav__link">
+        Colorblindness
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computing/" class="md-nav__link">
+        Computing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consul/" class="md-nav__link">
+        consul
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cookiecutter/" class="md-nav__link">
+        cookiecutter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cowsay/" class="md-nav__link">
+        cowsay
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/" class="md-nav__link">
+        C++
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cradlepoint/" class="md-nav__link">
+        Cradlepoint
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cron/" class="md-nav__link">
+        cron
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cryptsetup/" class="md-nav__link">
+        cryptsetup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csplit/" class="md-nav__link">
+        csplit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curl/" class="md-nav__link">
+        cURL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cut/" class="md-nav__link">
+        cut
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dasel/" class="md-nav__link">
+        dasel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datasette/" class="md-nav__link">
+        Datasette
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../date/" class="md-nav__link">
+        date
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcfldd/" class="md-nav__link">
+        dcfldd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcgc/" class="md-nav__link">
+        Docker Custodian
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcraw/" class="md-nav__link">
+        dcraw
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dd-wrt/" class="md-nav__link">
+        dd-wrt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dd/" class="md-nav__link">
+        dd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ddrescue/" class="md-nav__link">
+        ddrescue
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deb/" class="md-nav__link">
+        deb
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaults/" class="md-nav__link">
+        defaults
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/" class="md-nav__link">
+        devops
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dhcp/" class="md-nav__link">
+        DHCP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dhcpd.conf/" class="md-nav__link">
+        dhcpd.conf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dig/" class="md-nav__link">
+        dig
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dmidecode/" class="md-nav__link">
+        dmidecode
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsrc/" class="md-nav__link">
+        dsrc
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dtrace/" class="md-nav__link">
+        dtrace
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../du/" class="md-nav__link">
+        du
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplicity/" class="md-nav__link">
+        duplicity
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../education/" class="md-nav__link">
+        education
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elasticsearch/" class="md-nav__link">
+        Elasticsearch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eleduino/" class="md-nav__link">
+        Eleduino
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etcd/" class="md-nav__link">
+        etcd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ethtool/" class="md-nav__link">
+        ethtool
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exiftool/" class="md-nav__link">
+        exiftool
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fedramp/" class="md-nav__link">
+        Fedramp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        ffmpeg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../figlet/" class="md-nav__link">
+        figlet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../find/" class="md-nav__link">
+        find
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findmnt/" class="md-nav__link">
+        findmnt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fio/" class="md-nav__link">
+        fio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flask/" class="md-nav__link">
+        flask
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluent-bit/" class="md-nav__link">
+        fluent-bit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluentd/" class="md-nav__link">
+        fluentd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fortune/" class="md-nav__link">
+        fortune
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuser/" class="md-nav__link">
+        fuser
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genicam/" class="md-nav__link">
+        GenICam
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geodata/" class="md-nav__link">
+        geodata
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gige-vision/" class="md-nav__link">
+        GigE Vision
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Github
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab/" class="md-nav__link">
+        Gitlab
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitolite/" class="md-nav__link">
+        gitolite
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glances/" class="md-nav__link">
+        glances
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../golang/" class="md-nav__link">
+        golang
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-cloud/" class="md-nav__link">
+        Google Cloud
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-earth/" class="md-nav__link">
+        Google Earth
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-sheets/" class="md-nav__link">
+        Google Sheets
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google/" class="md-nav__link">
+        Google
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphicsmagick/" class="md-nav__link">
+        GraphicsMagick
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql/" class="md-nav__link">
+        GraphQL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grep/" class="md-nav__link">
+        grep
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grub/" class="md-nav__link">
+        GNU GRUB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hadoop/" class="md-nav__link">
+        Hadoop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handbrake/" class="md-nav__link">
+        Handbrake
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashids/" class="md-nav__link">
+        Hashids
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/" class="md-nav__link">
+        helm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home-assistant/" class="md-nav__link">
+        Home Assistant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hp/" class="md-nav__link">
+        HP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htmx/" class="md-nav__link">
+        htmx
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htop/" class="md-nav__link">
+        htop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../httpstat/" class="md-nav__link">
+        httpstat
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iTunes/" class="md-nav__link">
+        iTunes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iftop/" class="md-nav__link">
+        iftop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-formats/" class="md-nav__link">
+        Graphical Image Formats
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imagemagick/" class="md-nav__link">
+        ImageMagick
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../img2xterm/" class="md-nav__link">
+        img2xterm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innotop/" class="md-nav__link">
+        innotop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inotify/" class="md-nav__link">
+        inotify
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../internet/" class="md-nav__link">
+        The Internet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        Interviews
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iotop/" class="md-nav__link">
+        iotop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ip/" class="md-nav__link">
+        ip
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iperf/" class="md-nav__link">
+        iperf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipmi/" class="md-nav__link">
+        IPMI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iptables/" class="md-nav__link">
+        iptables
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jargon/" class="md-nav__link">
+        jargon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jdupes/" class="md-nav__link">
+        jdupes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jmespath/" class="md-nav__link">
+        jmespath
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../join/" class="md-nav__link">
+        join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jot/" class="md-nav__link">
+        jot
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jpeginfo/" class="md-nav__link">
+        jpeginfo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jq/" class="md-nav__link">
+        jq
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jsonnet/" class="md-nav__link">
+        jsonnet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jsonpath/" class="md-nav__link">
+        JSONPath
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../juniper/" class="md-nav__link">
+        Juniper
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter/" class="md-nav__link">
+        Jupyter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwt/" class="md-nav__link">
+        jwt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kaniko/" class="md-nav__link">
+        kaniko
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keel/" class="md-nav__link">
+        keel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keybase/" class="md-nav__link">
+        keybase
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          kubernetes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        kubernetes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    Glossary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-usage" class="md-nav__link">
+    cli usage
+  </a>
+  
+    <nav class="md-nav" aria-label="cli usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-about-kubernetes" class="md-nav__link">
+    Learn about kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-api-permissions-you-have" class="md-nav__link">
+    Show what API permissions you have
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-kubeadm-configs" class="md-nav__link">
+    Multiple kubeadm configs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubeadm" class="md-nav__link">
+    kubeadm
+  </a>
+  
+    <nav class="md-nav" aria-label="kubeadm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-your-kubeadm-tokens" class="md-nav__link">
+    Show your kubeadm tokens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubectl" class="md-nav__link">
+    kubectl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-several-configs" class="md-nav__link">
+    Working with several configs
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with several configs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-multiple-configs-via-alias" class="md-nav__link">
+    Use multiple configs via alias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-several-configs" class="md-nav__link">
+    Merge several configs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-kubeconfig-env-var-from-several-config-files" class="md-nav__link">
+    Create a KUBECONFIG env var from several config files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-nodes-and-their-taints" class="md-nav__link">
+    Show nodes and their taints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drain-and-cordon-a-node" class="md-nav__link">
+    Drain and cordon a node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-namespaces-and-how-many-hours-old-they-are" class="md-nav__link">
+    Show namespaces and how many hours old they are
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-sorted-by-creation-time" class="md-nav__link">
+    Show pods, sorted by creation time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-that-are-not-running" class="md-nav__link">
+    Show pods that are not running
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-that-are-terminating" class="md-nav__link">
+    Show pods that are terminating
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-images-referenced-by-your-k8s-manifests" class="md-nav__link">
+    Show all images referenced by your k8s manifests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_managerpod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_manager/pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decode-a-secret" class="md-nav__link">
+    Decode a secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decode-ssl-secrets-and-show-info-about-the-certificates" class="md-nav__link">
+    Decode SSL secrets and show info about the certificates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
+    Watch what's going on in your cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-daemonsets-that-are-not-up-to-date" class="md-nav__link">
+    Show daemonsets that are not up to date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-events-in-a-given-namespace" class="md-nav__link">
+    Watch events in a given namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-containers-for-each-pod-matching-a-label" class="md-nav__link">
+    Show all containers for each pod matching a label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-everything-in-a-namespace" class="md-nav__link">
+    Show a list of everything in a namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-pod-since-n-hours-ago" class="md-nav__link">
+    Show logs for a given pod since N hours ago
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-pod-since-a-given-date" class="md-nav__link">
+    Show logs for a given pod since a given date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-custom-column-names" class="md-nav__link">
+    Output custom column names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perform-a-restart-of-a-service-daemonset-or-statefulset" class="md-nav__link">
+    Perform a restart of a service, daemonset or statefulset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-cronjob-out-of-schedule" class="md-nav__link">
+    Run a cronjob out of schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-yaml-file-for-a-resource-type" class="md-nav__link">
+    Create a yaml file for a resource type
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installations" class="md-nav__link">
+    Installations
+  </a>
+  
+    <nav class="md-nav" aria-label="Installations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manually-on-ubuntu-16" class="md-nav__link">
+    Manually on Ubuntu 16
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-k8s-dns-logging" class="md-nav__link">
+    Enable k8s dns logging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-entity-map" class="md-nav__link">
+    DNS Entity map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crictl" class="md-nav__link">
+    crictl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-provider-versions" class="md-nav__link">
+    Cloud Provider versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-snips" class="md-nav__link">
+    Code snips
+  </a>
+  
+    <nav class="md-nav" aria-label="Code snips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-all-ingresses-and-what-hostnames-they-handle" class="md-nav__link">
+    Show all ingresses and what hostnames they handle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-swaggerjson-for-api-definitions" class="md-nav__link">
+    Parse swagger.json for API definitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-zombie-pods" class="md-nav__link">
+    Use jq to find zombie pods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-all-pods-with-a-specific-container-state" class="md-nav__link">
+    Use jq to find all pods with a specific container state
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-pods-that-have-problematic-phases" class="md-nav__link">
+    Use jq to find pods that have problematic phases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-kernel-namespaces" class="md-nav__link">
+    linux kernel namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
-  </ul>
   
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launchd/" class="md-nav__link">
+        launchd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        ldap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lego/" class="md-nav__link">
+        LEGO
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lektor/" class="md-nav__link">
+        Lektor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linksys/" class="md-nav__link">
+        linksys
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-performance-monitoring/" class="md-nav__link">
+        Linux Performance Monitoring
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logstash/" class="md-nav__link">
+        logstash
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsblk/" class="md-nav__link">
+        lsblk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lshw/" class="md-nav__link">
+        lshw
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsof/" class="md-nav__link">
+        lsof
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lvm/" class="md-nav__link">
+        lvm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lxc/" class="md-nav__link">
+        LXC
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macos/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        GNU make
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../marlin/" class="md-nav__link">
+        Marlin
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        math
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdraid/" class="md-nav__link">
+        mdraid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metallb/" class="md-nav__link">
+        MetalLB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microbit/" class="md-nav__link">
+        micro:bit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microcontrollers/" class="md-nav__link">
+        microcontrollers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../micropython/" class="md-nav__link">
+        MicroPython
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../molecule/" class="md-nav__link">
+        Molecule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mongodb/" class="md-nav__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mqtt/" class="md-nav__link">
+        mqtt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mutt/" class="md-nav__link">
+        mutt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../myrepos/" class="md-nav__link">
+        myrepos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namei/" class="md-nav__link">
+        namei
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncftp/" class="md-nav__link">
+        ncftp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neopixel/" class="md-nav__link">
+        Adafruit Neopixel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../netgear/" class="md-nav__link">
+        NETGEAR
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nethogs/" class="md-nav__link">
+        nethogs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        networking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networksetup/" class="md-nav__link">
+        networksetup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neverware/" class="md-nav__link">
+        neverware
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfs/" class="md-nav__link">
+        nfs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngrok/" class="md-nav__link">
+        ngrok
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-3ds/" class="md-nav__link">
+        Nintendo 3DS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-amiibo/" class="md-nav__link">
+        Nintendo Amiibo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-switch/" class="md-nav__link">
+        Nintendo Switch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-wii/" class="md-nav__link">
+        Nintendo Wii
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-wiiu/" class="md-nav__link">
+        Nintendo Wii U
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntop/" class="md-nav__link">
+        ntop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntp/" class="md-nav__link">
+        NTP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvidia/" class="md-nav__link">
+        nvidia
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        openvpn
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osquery/" class="md-nav__link">
+        osquery
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outline/" class="md-nav__link">
+        outline
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pac/" class="md-nav__link">
+        pac
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandoc/" class="md-nav__link">
+        pandoc
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../panopticlick/" class="md-nav__link">
+        panopticlick
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passwords/" class="md-nav__link">
+        passwords
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perl/" class="md-nav__link">
+        perl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pgp/" class="md-nav__link">
+        pgp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../philips-hue/" class="md-nav__link">
+        Philips Hue
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        php
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plex/" class="md-nav__link">
+        plex
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powershell/" class="md-nav__link">
+        powershell
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powertop/" class="md-nav__link">
+        powertop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../procurve/" class="md-nav__link">
+        procurve
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protobuf/" class="md-nav__link">
+        protobuf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ps/" class="md-nav__link">
+        ps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ps_mem/" class="md-nav__link">
+        ps_mem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../psp/" class="md-nav__link">
+        psp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pssh/" class="md-nav__link">
+        pssh
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptp/" class="md-nav__link">
+        ptp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puppet/" class="md-nav__link">
+        Puppet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv/" class="md-nav__link">
+        pv
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytest/" class="md-nav__link">
+        pytest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../q/" class="md-nav__link">
+        q
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raspberry-pi/" class="md-nav__link">
+        raspberry-pi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../retropie/" class="md-nav__link">
+        retropie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rhel/" class="md-nav__link">
+        rhel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        robotics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roku/" class="md-nav__link">
+        Roku
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rook/" class="md-nav__link">
+        rook
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ros/" class="md-nav__link">
+        ros
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpm/" class="md-nav__link">
+        rpm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rrd/" class="md-nav__link">
+        rrd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rst/" class="md-nav__link">
+        reStructuredText
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rsync/" class="md-nav__link">
+        rsync
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saltstack/" class="md-nav__link">
+        saltstack
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samba/" class="md-nav__link">
+        Samba
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samsung/" class="md-nav__link">
+        Samsung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screenshot/" class="md-nav__link">
+        Screenshots
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdr/" class="md-nav__link">
+        sdr
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sed/" class="md-nav__link">
+        sed
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selinux/" class="md-nav__link">
+        selinux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semver/" class="md-nav__link">
+        semver
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensu/" class="md-nav__link">
+        sensu
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        serverless
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sgdisk/" class="md-nav__link">
+        sgdisk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shairport-sync/" class="md-nav__link">
+        shairport-sync
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shred/" class="md-nav__link">
+        Shred
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shutdown/" class="md-nav__link">
+        shutdown
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sips/" class="md-nav__link">
+        sips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slides/" class="md-nav__link">
+        slides
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartctl/" class="md-nav__link">
+        smartctl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartstack/" class="md-nav__link">
+        smartstack
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snap/" class="md-nav__link">
+        snap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snmp/" class="md-nav__link">
+        snmp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solo/" class="md-nav__link">
+        solo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sort/" class="md-nav__link">
+        sort
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound-and-music/" class="md-nav__link">
+        Sound and Music
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sphinx/" class="md-nav__link">
+        sphinx
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split/" class="md-nav__link">
+        split
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splunk/" class="md-nav__link">
+        splunk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spotlight/" class="md-nav__link">
+        Spotlight
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqlite/" class="md-nav__link">
+        sqlite
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ss/" class="md-nav__link">
+        ss
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        ssh
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshuttle/" class="md-nav__link">
+        sshuttle
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat/" class="md-nav__link">
+        stat
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strace/" class="md-nav__link">
+        strace
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sudo/" class="md-nav__link">
+        sudo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swagger/" class="md-nav__link">
+        swagger
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swift/" class="md-nav__link">
+        Swift
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysctl/" class="md-nav__link">
+        sysctl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysdig/" class="md-nav__link">
+        sysdig
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd-resolved/" class="md-nav__link">
+        systemd-resolved
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd/" class="md-nav__link">
+        systemd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tar/" class="md-nav__link">
+        tar
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcl/" class="md-nav__link">
+        TCL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcpdump/" class="md-nav__link">
+        tcpdump
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        tcpflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        time
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tls/" class="md-nav__link">
+        tls
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../top-variant-list/" class="md-nav__link">
+        Top Variant List
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../top/" class="md-nav__link">
+        top
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../touch/" class="md-nav__link">
+        touch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tr/" class="md-nav__link">
+        tr
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        Ubuntu Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev/" class="md-nav__link">
+        udev
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upstart/" class="md-nav__link">
+        Upstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vagrant/" class="md-nav__link">
+        vagrant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        velero
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/" class="md-nav__link">
+        vim
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualbox/" class="md-nav__link">
+        VirtualBox
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpn/" class="md-nav__link">
+        Virtual Private Networking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wasm/" class="md-nav__link">
+        web assembly
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wget/" class="md-nav__link">
+        Wget
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../winbind/" class="md-nav__link">
+        winbind
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireshark/" class="md-nav__link">
+        Wireshark
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wonder-workshop/" class="md-nav__link">
+        wonder-workshop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wuzz/" class="md-nav__link">
+        wuzz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xargs/" class="md-nav__link">
+        xargs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yaml/" class="md-nav__link">
+        yaml
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../youtube-dl/" class="md-nav__link">
+        youtube-dl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yum/" class="md-nav__link">
+        yum
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zerotier/" class="md-nav__link">
+        ZeroTier
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zfs/" class="md-nav__link">
+        ZFS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zookeeper/" class="md-nav__link">
+        zookeeper
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zsh/" class="md-nav__link">
+        zsh
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
               
-                <p>"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure." - <a href="https://kubernetes.io/docs/whatisk8s">https://kubernetes.io/docs/whatisk8s</a></p>
-<h1 id="glossary">Glossary</h1>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    Glossary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-usage" class="md-nav__link">
+    cli usage
+  </a>
+  
+    <nav class="md-nav" aria-label="cli usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-about-kubernetes" class="md-nav__link">
+    Learn about kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-api-permissions-you-have" class="md-nav__link">
+    Show what API permissions you have
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-kubeadm-configs" class="md-nav__link">
+    Multiple kubeadm configs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubeadm" class="md-nav__link">
+    kubeadm
+  </a>
+  
+    <nav class="md-nav" aria-label="kubeadm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-your-kubeadm-tokens" class="md-nav__link">
+    Show your kubeadm tokens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubectl" class="md-nav__link">
+    kubectl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-several-configs" class="md-nav__link">
+    Working with several configs
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with several configs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-multiple-configs-via-alias" class="md-nav__link">
+    Use multiple configs via alias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-several-configs" class="md-nav__link">
+    Merge several configs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-kubeconfig-env-var-from-several-config-files" class="md-nav__link">
+    Create a KUBECONFIG env var from several config files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-nodes-and-their-taints" class="md-nav__link">
+    Show nodes and their taints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drain-and-cordon-a-node" class="md-nav__link">
+    Drain and cordon a node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-namespaces-and-how-many-hours-old-they-are" class="md-nav__link">
+    Show namespaces and how many hours old they are
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-sorted-by-creation-time" class="md-nav__link">
+    Show pods, sorted by creation time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-that-are-not-running" class="md-nav__link">
+    Show pods that are not running
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-that-are-terminating" class="md-nav__link">
+    Show pods that are terminating
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-images-referenced-by-your-k8s-manifests" class="md-nav__link">
+    Show all images referenced by your k8s manifests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-containers-formatted-as-pod_managerpod_name-container_name" class="md-nav__link">
+    Show a list of containers formatted as pod_manager/pod_name container_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decode-a-secret" class="md-nav__link">
+    Decode a secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decode-ssl-secrets-and-show-info-about-the-certificates" class="md-nav__link">
+    Decode SSL secrets and show info about the certificates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-whats-going-on-in-your-cluster" class="md-nav__link">
+    Watch what's going on in your cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-daemonsets-that-are-not-up-to-date" class="md-nav__link">
+    Show daemonsets that are not up to date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-events-in-a-given-namespace" class="md-nav__link">
+    Watch events in a given namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-all-containers-for-each-pod-matching-a-label" class="md-nav__link">
+    Show all containers for each pod matching a label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-everything-in-a-namespace" class="md-nav__link">
+    Show a list of everything in a namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-pod-since-n-hours-ago" class="md-nav__link">
+    Show logs for a given pod since N hours ago
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-pod-since-a-given-date" class="md-nav__link">
+    Show logs for a given pod since a given date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-custom-column-names" class="md-nav__link">
+    Output custom column names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perform-a-restart-of-a-service-daemonset-or-statefulset" class="md-nav__link">
+    Perform a restart of a service, daemonset or statefulset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-cronjob-out-of-schedule" class="md-nav__link">
+    Run a cronjob out of schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-yaml-file-for-a-resource-type" class="md-nav__link">
+    Create a yaml file for a resource type
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installations" class="md-nav__link">
+    Installations
+  </a>
+  
+    <nav class="md-nav" aria-label="Installations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manually-on-ubuntu-16" class="md-nav__link">
+    Manually on Ubuntu 16
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-k8s-dns-logging" class="md-nav__link">
+    Enable k8s dns logging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-entity-map" class="md-nav__link">
+    DNS Entity map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crictl" class="md-nav__link">
+    crictl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-provider-versions" class="md-nav__link">
+    Cloud Provider versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-snips" class="md-nav__link">
+    Code snips
+  </a>
+  
+    <nav class="md-nav" aria-label="Code snips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-all-ingresses-and-what-hostnames-they-handle" class="md-nav__link">
+    Show all ingresses and what hostnames they handle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-swaggerjson-for-api-definitions" class="md-nav__link">
+    Parse swagger.json for API definitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-zombie-pods" class="md-nav__link">
+    Use jq to find zombie pods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-all-pods-with-a-specific-container-state" class="md-nav__link">
+    Use jq to find all pods with a specific container state
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-jq-to-find-pods-that-have-problematic-phases" class="md-nav__link">
+    Use jq to find pods that have problematic phases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-kernel-namespaces" class="md-nav__link">
+    linux kernel namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kubernetes">kubernetes</h1>
+<p>"Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure." - <a href="https://kubernetes.io/docs/whatisk8s">https://kubernetes.io/docs/whatisk8s</a></p>
+<h2 id="glossary">Glossary</h2>
 <p>More terms in the k8s glossary: <a href="https://kubernetes.io/docs/reference/glossary/">https://kubernetes.io/docs/reference/glossary/</a></p>
 <ul>
-<li>Container Network Interface (CNI) - https://github.com/containernetworking/cni</li>
-<li>Container Runtime Interface (CRI) - https://github.com/containerd/cri/</li>
-<li>Container Storage Interface (CSI) - https://github.com/container-storage-interface/spec</li>
+<li>Container Network Interface (CNI) - <a href="https://github.com/containernetworking/cni">https://github.com/containernetworking/cni</a></li>
+<li>Container Runtime Interface (CRI) - <a href="https://github.com/containerd/cri">https://github.com/containerd/cri</a></li>
+<li>Container Storage Interface (CSI) - <a href="https://github.com/container-storage-interface/spec">https://github.com/container-storage-interface/spec</a></li>
 <li>Custom Resource Definition (CRD)</li>
 <li>Horizontal Pod Autoscaling (HPA)</li>
 </ul>
-<h1 id="cli-usage">cli usage</h1>
-<h2 id="learn-about-kubernetes">Learn about kubernetes</h2>
-<pre><code class="sh">kubectl explain roles
+<h2 id="cli-usage">cli usage</h2>
+<h3 id="learn-about-kubernetes">Learn about kubernetes</h3>
+<pre><code class="language-sh">kubectl explain roles
 </code></pre>
-
-<h2 id="multiple-kubeadm-configs">Multiple kubeadm configs</h2>
+<h3 id="show-what-api-permissions-you-have">Show what API permissions you have</h3>
+<pre><code>$ kubectl auth can-i --list
+Resources                                       Non-Resource URLs   Resource Names   Verbs
+*.*                                             []                  []               [*]
+                                                [*]                 []               [*]
+selfsubjectaccessreviews.authorization.k8s.io   []                  []               [create]
+selfsubjectrulesreviews.authorization.k8s.io    []                  []               [create]
+                                                [/api/*]            []               [get]
+                                                [/api]              []               [get]
+                                                [/apis/*]           []               [get]
+                                                [/apis]             []               [get]
+                                                [/healthz]          []               [get]
+                                                [/healthz]          []               [get]
+                                                [/livez]            []               [get]
+                                                [/livez]            []               [get]
+                                                [/openapi/*]        []               [get]
+                                                [/openapi]          []               [get]
+                                                [/readyz]           []               [get]
+                                                [/readyz]           []               [get]
+                                                [/version/]         []               [get]
+                                                [/version/]         []               [get]
+                                                [/version]          []               [get]
+                                                [/version]          []               [get]
+</code></pre>
+<h3 id="multiple-kubeadm-configs">Multiple kubeadm configs</h3>
 <p>The default config is <code>~/.kube/config</code>, but if you want to use multiple configs you can do this:</p>
-<pre><code class="sh">export KUBECONFIG=&quot;${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config&quot;
+<pre><code class="language-sh">export KUBECONFIG=&quot;${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config&quot;
 </code></pre>
-
 <p>I have seen weird problems when the order of configs is changed, such as <code>certificate-authority-data</code> and <code>client-certificate-data</code> being missing.</p>
-<h2 id="kubeadm">kubeadm</h2>
+<h3 id="kubeadm">kubeadm</h3>
 <p>"kubeadm: easily bootstrap a secure Kubernetes cluster." - <code>kubeadm --help</code></p>
 <ul>
 <li><a href="https://github.com/kubernetes/kubeadm">https://github.com/kubernetes/kubeadm</a></li>
 </ul>
-<h3 id="show-your-kubeadm-tokens">Show your kubeadm tokens</h3>
+<h4 id="show-your-kubeadm-tokens">Show your kubeadm tokens</h4>
 <pre><code>$ sudo kubeadm token list
 TOKEN                     TTL       EXPIRES                     USAGES                   DESCRIPTION                                                EXTRA GROUPS
 ubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,signing   The default bootstrap token generated by 'kubeadm init'.   system:bootstrappers:kubeadm:default-node-token
 </code></pre>
-
 <p>See <code>sudo kubeadm token -h</code> for more usage.</p>
-<h2 id="kubectl">kubectl</h2>
+<h3 id="kubectl">kubectl</h3>
 <p>"kubectl controls the Kubernetes cluster manager." - <code>kubectl --help</code></p>
 <ul>
 <li>
@@ -1288,12 +5826,18 @@ ubyc9a.1eq2ihwtnz7c7c9e   23h       2018-05-24T16:19:33-04:00   authentication,s
 <li><code>kubectl scale deployment &lt;deployment_name&gt; --replicas=5</code> - scale a deployment to 5 pods.</li>
 <li><code>kubectl rollout history deployment &lt;deployment_name&gt;</code></li>
 <li><code>kubectl get cm</code> - get a list of config maps.</li>
+<li><code>kubectl get apiservices</code> - get a list of api service endpoints. Show <code>-o yaml</code> to view status about availability, endpoint, etc..</li>
 </ul>
-<h2 id="working-with-several-configs">Working with several configs</h2>
+<h3 id="working-with-several-configs">Working with several configs</h3>
 <p>Sometimes you want to have individual configs, such as when you are using configs that are updated by other engineers and pulled down via git, and sometimes you want to have one monolithic config, such as when you are using a tool that cannot easily work with multiple configs.</p>
-<h3 id="merge-several-configs">Merge several configs</h3>
+<h4 id="use-multiple-configs-via-alias">Use multiple configs via alias</h4>
+<p>This is a great method for requiring explicit selection of the environment, which is good for not accidentally operating in prod. Using <code>KUBECONFIG</code> also allows your to set different k8s environments per terminal session, which is great for doing comparisons across clusters.</p>
+<pre><code>alias k8s-foo-prod=&quot;export KUBECONFIG=$HOME/.kube/foo-prod-config ; kubectl config set-context foo-prod --namespace=default ;&quot;
+</code></pre>
+<p>See also <a href="../google-cloud/#add-separate-kubectl-configs-for-different-eks-clusters">Google Cloud</a> for more examples like this related to GCP.</p>
+<h4 id="merge-several-configs">Merge several configs</h4>
 <p>This produces a monolithic file named <code>kube_config</code> which can be moved to <code>~/.kube/config</code>. It merges the contents of your existing <code>~/.kube/config</code> file.</p>
-<pre><code class="sh">REPO_DIR=/path/to/repo/
+<pre><code class="language-sh">REPO_DIR=/path/to/repo/
 export KUBECONFIG=&quot;${HOME}/.kube/config&quot;
 for X in $(find &quot;$REPO_DIR/kube_config.d&quot; -name '*.config') ; do
     KUBECONFIG+=&quot;:$X&quot;
@@ -1302,34 +5846,146 @@ kubectl config view --flatten &gt; kube_config
 echo &quot;Config file successfully created at ${PWD}/kube_config&quot;
 echo &quot;Run: mv -i ${PWD}/kube_config ${HOME}/.kube/config&quot;
 </code></pre>
-
-<h3 id="create-a-kubeconfig-env-var-from-several-config-files">Create a KUBECONFIG env var from several config files</h3>
+<h4 id="create-a-kubeconfig-env-var-from-several-config-files">Create a KUBECONFIG env var from several config files</h4>
 <p>This produces a <code>KUBECONFIG</code> that looks like <code>file1:file2:file3</code></p>
-<pre><code class="sh">REPO_DIR=/path/to/repo/
+<pre><code class="language-sh">REPO_DIR=/path/to/repo/
 KUBECONFIG=&quot;${HOME}/.kube/config&quot;
 for config in $(find &quot;$REPO_DIR/kube_config.d&quot; -name '*.config') ; do
     KUBECONFIG+=&quot;:$config&quot;
 done
 echo &quot;KUBECONFIG=${KUBECONFIG}&quot; ;
 </code></pre>
-
-<h2 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h2>
-<pre><code class="sh">watch kubectl get pods --all-namespaces -o wide
+<h3 id="show-nodes-and-their-taints">Show nodes and their taints</h3>
+<pre><code class="language-sh">kubectl get nodes --output 'jsonpath={range $.items[*]}{.metadata.name} {.spec.taints[*]}{&quot;\n&quot;}{end}'
 </code></pre>
-
-<h2 id="show-logs-for-a-given-pod-since-n-hours-ago">Show logs for a given pod since N hours ago</h2>
-<pre><code class="sh">pod_name=httpbin
+<h3 id="drain-and-cordon-a-node">Drain and cordon a node</h3>
+<p>Do this before deleting or reloading a node.</p>
+<pre><code class="language-sh">kubectl drain --ignore-daemonsets --force --delete-emptydir-data &quot;$NODE_NAME&quot;
+</code></pre>
+<h3 id="show-namespaces-and-how-many-hours-old-they-are">Show namespaces and how many hours old they are</h3>
+<pre><code class="language-sh">kubectl get namespace --sort-by=&quot;.metadata.creationTimestamp&quot; -o json |
+jq -r '
+  .items[] |
+  ((now - (.metadata.creationTimestamp | fromdateiso8601))/3600 | floor) as $hours_old |
+  &quot;\(.metadata.name) \($hours_old)&quot;
+'
+</code></pre>
+<h3 id="show-pods-sorted-by-creation-time">Show pods, sorted by creation time</h3>
+<p>Only descending sort is supported</p>
+<pre><code class="language-sh">kubectl get pods --sort-by=.metadata.creationTimestamp
+</code></pre>
+<p>To sort ascending you can use <code>awk</code> and <code>tac</code> (which is <code>cat</code> in reverse)</p>
+<pre><code class="language-sh">kubectl get pods --sort-by=.metadata.creationTimestamp |
+awk 'NR == 1; NR &gt; 1 {print $0 | &quot;tac&quot;}'
+</code></pre>
+<h3 id="show-pods-that-are-not-running">Show pods that are not running</h3>
+<pre><code class="language-sh">kubectl get pods --all-namespaces --field-selector='status.phase!=Running' --sort-by=.metadata.creationTimestamp
+</code></pre>
+<h3 id="show-pods-that-are-terminating">Show pods that are terminating</h3>
+<p>Unfortunately "Terminating" shows up as a status, but is not a phase, so we have to jump through some hoops to show this list. Here's one way to do this:</p>
+<pre><code class="language-sh">kubectl get pods -A |
+awk '$4 == &quot;Terminating&quot; {print $1,$2}' |
+while read -r NS POD ; do
+  kubectl get pod &quot;$POD&quot; -n &quot;$NS&quot; -o custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,TERMINATION_GRACE_PERIOD:.spec.terminationGracePeriodSeconds
+done |
+column -t |
+sort -u
+</code></pre>
+<p>And the output will be something like:</p>
+<pre><code>NAMESPACE                       NAME                                                TERMINATION_GRACE_PERIOD
+otv-blazing-ray-3043            blazing-ray-3043-miner-7556f86b76-8mpdj            600
+otv-gravitational-century-8705  gravitational-century-8705-miner-66b6dd97cc-c2mqq  600
+otv-lunar-nova-0800             lunar-nova-0800-miner-86684cd6f8-d79wm             600
+</code></pre>
+<h3 id="show-all-images-referenced-by-your-k8s-manifests">Show all images referenced by your k8s manifests</h3>
+<pre><code class="language-sh">kubectl get pods --all-namespaces -o jsonpath=&quot;{..image}&quot; |
+tr -s '[[:space:]]' '\n' |
+sort |
+uniq -c |
+sort -n
+</code></pre>
+<h3 id="show-a-list-of-containers-formatted-as-pod_name-container_name">Show a list of containers formatted as pod_name container_name</h3>
+<pre><code class="language-sh">kubectl get pods -n &quot;$NS&quot; -o json |
+  jq -r '.items[] | .metadata.name as $podname | .spec.containers[] | &quot;\($podname) \(.name)&quot;' |
+  column -t
+</code></pre>
+<h3 id="show-a-list-of-containers-formatted-as-pod_managerpod_name-container_name">Show a list of containers formatted as pod_manager/pod_name container_name</h3>
+<p>When you need to check all of the containers of pods in a given pod manager (sts, ds, deployment), you need a list that is formatted in a very specific way.</p>
+<p>For instance, to get a list of containers inside the prometheus sts pods</p>
+<pre><code class="language-sh">kubectl get sts -l component=prometheus -n &quot;$NS&quot; -o json |
+  jq -r '.items[] | .kind as $kind | .metadata.name as $name | .spec.template.spec.containers[] | &quot;\($kind)/\($name) \(.name)&quot;' |
+  column -t
+</code></pre>
+<p>Which produces the output:</p>
+<pre><code>StatefulSet/demo-prometheus  configmap-reloader
+StatefulSet/demo-prometheus  prometheus
+</code></pre>
+<p>This can then be fed into anything needing such syntax, for example <code>kubectl exec</code> to check the runtime env of these containers:</p>
+<pre><code>$ kubectl get sts -l component=prometheus -n $NS -o json |
+  jq -r '.items[] | .kind as $kind | .metadata.name as $name | .spec.template.spec.containers[] | &quot;\($kind)/\($name) \(.name)&quot;' |
+  while read -r p c ; do echo &quot;$p $c $(kubectl -n $NS exec $p -c $c -- env | grep '^HOSTNAME=')&quot; ; done ;
+StatefulSet/demo-prometheus configmap-reloader HOSTNAME=demo-prometheus-1
+StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
+</code></pre>
+<p>That's obviously a contrived example, but the real learning here is that it is possible to iterate deep json data while referencing values form higher levels by storing that higher level as variables.</p>
+<h3 id="decode-a-secret">Decode a secret</h3>
+<p>When using <code>-o jsonpath</code> you have to escape any key names that have periods, which is unlike some other json tools like <code>jq</code> where the syntax would be <code>.data["pgbouncer.ini"]</code></p>
+<pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o jsonpath='{.data.pgbouncer\.ini}' | base64 -d
+</code></pre>
+<h3 id="decode-ssl-secrets-and-show-info-about-the-certificates">Decode SSL secrets and show info about the certificates</h3>
+<pre><code class="language-sh">kubectl get secret -n istio-system istio.default -o json |
+jq -r '.data | keys[] as $k | &quot;\($k) \(.[$k])&quot;' |
+grep cert |
+while read -r k v ; do
+  echo &quot;------ $k ------&quot;
+  echo -n &quot;$v&quot; |
+  base64 -d |
+  openssl x509 -noout -subject -issuer -dates
+done
+</code></pre>
+<p>Example output:</p>
+<pre><code>------ cert-chain.pem ------
+subject=
+issuer= /O=cluster.local
+notBefore=Aug 10 13:55:50 2022 GMT
+notAfter=Nov  8 13:55:50 2022 GMT
+------ root-cert.pem ------
+subject= /O=cluster.local
+issuer= /O=cluster.local
+notBefore=Sep 29 13:52:55 2021 GMT
+notAfter=Sep 27 13:52:55 2031 GMT
+</code></pre>
+<h3 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h3>
+<pre><code class="language-sh">watch kubectl get pods --all-namespaces -o wide
+</code></pre>
+<h3 id="show-daemonsets-that-are-not-up-to-date">Show daemonsets that are not up to date</h3>
+<pre><code class="language-sh">kubectl get daemonset -A | awk '$3 != $6 {print}'
+</code></pre>
+<h3 id="watch-events-in-a-given-namespace">Watch events in a given namespace</h3>
+<pre><code class="language-sh">kubectl -n kube-system get events --field-selector type=Warning -w
+</code></pre>
+<p>Or format the event messages with more useful information (really wide output)</p>
+<pre><code class="language-sh">kubectl get events -w -o custom-columns=FirstSeen:.firstTimestamp,LastSeen:lastTimestamp,Kind:involvedObject.kind,Name:.involvedObject.name,Count:.count,From:.source.component,Type:.type,Reason:.reason,Message:.message
+</code></pre>
+<h3 id="show-all-containers-for-each-pod-matching-a-label">Show all containers for each pod matching a label</h3>
+<pre><code class="language-sh">kubectl -n kube-system get pod -l k8s-app=kube-dns -o=jsonpath='{range .items[*]}{&quot;\n&quot;}{.metadata.name}{&quot;:\n\t&quot;}{range .spec.containers[*]}{.name}{&quot;:\t&quot;}{.image}{&quot;\n\t&quot;}{end}{&quot;\n&quot;}{end}'
+</code></pre>
+<h3 id="show-a-list-of-everything-in-a-namespace">Show a list of everything in a namespace</h3>
+<pre><code class="language-sh">NS=kube-system
+kubectl get all -n &quot;$NS&quot; --output 'jsonpath={range $.items[*]}{.kind} {.metadata.name}{&quot;\n&quot;}{end}' |
+grep -v '^List $'  # exclude empty namespace
+</code></pre>
+<h3 id="show-logs-for-a-given-pod-since-n-hours-ago">Show logs for a given pod since N hours ago</h3>
+<pre><code class="language-sh">pod_name=httpbin
 kubectl logs $pod_name --since=12h
 </code></pre>
-
 <p>The <code>--since</code> arg can take [s]econds, [m]inutes and [h]ours. Longer durations should use <code>--since-time=&lt;rfc3339 timestamp&gt;</code></p>
-<h2 id="show-logs-for-a-given-pod-since-a-given-date">Show logs for a given pod since a given date</h2>
+<h3 id="show-logs-for-a-given-pod-since-a-given-date">Show logs for a given pod since a given date</h3>
 <p>The <code>--since-time</code> arg takes <a href="https://tools.ietf.org/html/rfc3339">RFC3339</a> datetime. EG: <code>1991-08-03T13:31:46-07:00</code>. This format requirement is strict, and is incompatible with the GNU date <code>--rfc-3339=seconds</code> output, which uses a space instead of a T to separate the full date from the full time, and <code>+%FT%F%z</code>, which does not include a colon between hours and minutes.</p>
-<pre><code class="sh">pod_name=httpbin
+<pre><code class="language-sh">pod_name=httpbin
 kubectl logs $pod_name --since-time=&quot;$(date --iso-8601=seconds -d '-5 weeks')&quot;
 </code></pre>
-
-<h2 id="output-custom-column-names">Output custom column names</h2>
+<h3 id="output-custom-column-names">Output custom column names</h3>
 <pre><code>$ kubectl get pvc --all-namespaces -o custom-columns='NAME:metadata.name,SIZE:spec.resources.requests.storage'
 NAME                   SIZE
 foo-logs               256Gi
@@ -1342,11 +5998,44 @@ runner-ppzmy1zx-project-11548552-concurrent-0q2pmk   2019-10-23T17:00:56Z   user
 runner-ppzmy1zx-project-11548552-concurrent-1f7nfx   2019-10-23T17:04:27Z   user1@example.com
 runner-ppzmy1zx-project-11548552-concurrent-2n84rv   2019-10-23T17:04:19Z   user1@example.com
 </code></pre>
-
-<h1 id="installations">Installations</h1>
+<h3 id="perform-a-restart-of-a-service-daemonset-or-statefulset">Perform a restart of a service, daemonset or statefulset</h3>
+<pre><code>DEPLOYMENT_NAME=gibson_garbagefile_seeker
+kubectl rollout restart deployment $DEPLOYMENT_NAME
+</code></pre>
+<h3 id="run-a-cronjob-out-of-schedule">Run a cronjob out of schedule</h3>
+<pre><code class="language-sh">kubectl create job --from=cronjob/download-cat-pix download-cat-pix-manual-run
+</code></pre>
+<h3 id="create-a-yaml-file-for-a-resource-type">Create a yaml file for a resource type</h3>
+<p>You can generate yaml for a variety of entities without having to create them on the server. Each entity requires different syntax, so you have to work through the error messages to get to a final solution.</p>
+<p><a href="https://kubernetes.io/docs/reference/kubectl/conventions/#generators">https://kubernetes.io/docs/reference/kubectl/conventions/#generators</a></p>
+<pre><code>$ kubectl create --dry-run=client -o yaml cronjob --schedule='15 * * * *' --image=image-name:1.2.3 job-name
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: job-name
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: job-name
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: image-name:1.2.3
+            name: job-name
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+status: {}
+</code></pre>
+<h2 id="installations">Installations</h2>
 <p>The standard way to install k8s by yourself is to use <code>kubeadm</code>.</p>
-<h2 id="manually-on-ubuntu-16">Manually on Ubuntu 16</h2>
-<pre><code class="sh"># as root
+<h3 id="manually-on-ubuntu-16">Manually on Ubuntu 16</h3>
+<pre><code class="language-sh">## as root
 swapoff -a # https://github.com/kubernetes/kubernetes/issues/53533
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
@@ -1359,31 +6048,31 @@ apt install -y docker-ce
 apt install -y kubelet kubeadm kubectl
 kubeadm init
 </code></pre>
-
 <p><code>kubeadm init</code> guide: <a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions</a></p>
-<h1 id="dns">DNS</h1>
+<h2 id="dns">DNS</h2>
 <p>Kubernetes lets you resolve resources via DNS</p>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/">https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/</a></li>
 </ul>
-<h2 id="enable-k8s-dns-logging">Enable k8s dns logging</h2>
-<pre><code class="sh">kubectl -n kube-system edit configmap coredns
-# Add 'log' to the 'Corefile' config
+<h3 id="enable-k8s-dns-logging">Enable k8s dns logging</h3>
+<pre><code class="language-sh">kubectl -n kube-system edit configmap coredns
+## Add 'log' to the 'Corefile' config
 </code></pre>
-
-<h2 id="dns-entity-map">DNS Entity map</h2>
+<h3 id="dns-entity-map">DNS Entity map</h3>
 <ul>
-<li>Kubernetes Service: <code>&lt;service&gt;.&lt;namespace&gt;.svc.cluster.local</code> (eg: <code>httpbin.default.svc.cluster.local</code>)
-  <code>sh
-  kubectl get svc --all-namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"."}{.metadata.namespace}{".svc.cluster.local\n"}'
-  kubectl get svc --all-namespaces -o json | jq -r  '.items[] | "\(.metadata.name).\(.metadata.namespace).svc.cluster.local"'</code></li>
-<li>With core-dns you can run <code>dig SRV +short *.*.svc.cluster.local</code> to get a list of all serivces</li>
-<li>Kubernetes service srv records: <em><service_port_name>.</em><protocol>.<service>.<namespace>.svc.cluster.local (eg: _http._tcp.httpbin.default.svc.cluster.local)</li>
-<li>Pod by IP address: <pod-ip-address>.<namespace>.pod.cluster.local (eg: 192-168-1-6.default.pod.cluster.local)</li>
+<li>Kubernetes Service: <code>&lt;service&gt;.&lt;namespace&gt;.svc.cluster.local.</code> (eg: <code>httpbin.default.svc.cluster.local.</code>)</li>
+</ul>
+<pre><code class="language-sh">kubectl get svc --all-namespaces -o jsonpath='{range .items[*]}{.metadata.name}{&quot;.&quot;}{.metadata.namespace}{&quot;.svc.cluster.local.\n&quot;}'
+kubectl get svc --all-namespaces -o json | jq -r  '.items[] | &quot;\(.metadata.name).\(.metadata.namespace).svc.cluster.local.&quot;'
+</code></pre>
+<ul>
+<li>With core-dns you can run <code>dig SRV +short *.*.svc.cluster.local.</code> to get a list of all services.</li>
+<li>Kubernetes service srv records: <code>_${service_port_name}._${protocol}.${service}.${namespace}.svc.cluster.local.</code> (eg: <code>_http._tcp.httpbin.default.svc.cluster.local.</code>)</li>
+<li>Pod by IP address: <code>${pod_ip_address}.${namespace}.pod.cluster.local.</code> (eg: <code>192-168-1-6.default.pod.cluster.local.</code>)</li>
 <li>Pod by name: ...?</li>
 </ul>
-<h2 id="crictl">crictl</h2>
+<h3 id="crictl">crictl</h3>
 <p>crictl is a tool to inspect the local Container Runtime Interface (CRI)</p>
 <pre><code>user@k3snode:~$ sudo crictl pods
 POD ID          CREATED       STATE  NAME                            NAMESPACE    ATTEMPT
@@ -1397,18 +6086,102 @@ ef64eea461bc0   2 weeks ago   Ready  kube-controller-manager-s1      kube-system
 14ec5abe1e3ab   2 weeks ago   Ready  kube-apiserver-s1               kube-system  11
 d4ce465a0942f   2 weeks ago   Ready  etcd-s1                         kube-system  10
 </code></pre>
-
-<h1 id="links">Links</h1>
+<h2 id="cloud-provider-versions">Cloud Provider versions</h2>
 <ul>
+<li>AKS: <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar">https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar</a></li>
+<li>EKS: <a href="https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar">https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar</a></li>
+<li>GKE: <a href="https://cloud.google.com/kubernetes-engine/docs/release-schedule">https://cloud.google.com/kubernetes-engine/docs/release-schedule</a></li>
+<li>Upstream: <a href="https://en.wikipedia.org/wiki/Kubernetes#History">https://en.wikipedia.org/wiki/Kubernetes#History</a></li>
+</ul>
+<h2 id="code-snips">Code snips</h2>
+<h3 id="show-all-ingresses-and-what-hostnames-they-handle">Show all ingresses and what hostnames they handle</h3>
+<p>This is useful when you have a lot of ingresses or very long hostnames which cause them to be hidden by an ellipse with normal or even wide output.</p>
+<pre><code class="language-sh">kubectl get ingresses -n &quot;$NS&quot; --output 'jsonpath={range $.items[*]}{.metadata.name}{&quot;:&quot;}{range @.spec.rules[*]}{&quot;\n\t&quot;}{.host}{end}{&quot;\n&quot;}{end}
+</code></pre>
+<p>This will output a list like</p>
+<pre><code>rodent-ingress:
+    mouse.example.com
+    hamster.example.com
+bird-ingress:
+    parrot.example.com
+    swallow.example.com
+    owl.example.com
+</code></pre>
+<h3 id="parse-swaggerjson-for-api-definitions">Parse swagger.json for API definitions</h3>
+<p>This is useful when manually writing helm chart templates to handle a range of k8s versions. (Keep an eye on <a href="https://github.com/helm/helm/issues/9765">https://github.com/helm/helm/issues/9765</a> though for hopefully a better way than manually doing this.)</p>
+<pre><code class="language-sh"># Download a range of swagger.json files named by version. EG: v1.18.0.json
+for X in {15..22} ;
+  do ver=&quot;v1.$X.0&quot;
+  curl -LsSo &quot;${ver}.json&quot; &quot;https://raw.githubusercontent.com/kubernetes/kubernetes/${ver}/api/openapi-spec/swagger.json&quot;
+done
+
+# Parse these into a text list of API versions supported by the version. EG: v1.18.0-definitions.txt
+for X in v1.* ; do
+  jq -r '.definitions | keys | .[]' $X &gt; ${X/.json/}-definitions.txt
+done
+
+# Then you can grep for a definition to see what versions support it
+grep 'Ingress$' *definitions.txt | grep -vE 'LoadBalancer'
+</code></pre>
+<h3 id="use-jq-to-find-zombie-pods">Use jq to find zombie pods</h3>
+<p>If the base container shuts down, sometimes the istio sidecar can continue to run. You can find this condition with:</p>
+<pre><code class="language-sh">kubectl get pods -A -o json | jq '
+  .items[] |
+  select(.status.containerStatuses[].name == &quot;base&quot; and .status.containerStatuses[].state.terminated.exitCode == 0) |
+  select(.status.containerStatuses[].name == &quot;istio-proxy&quot; and .status.containerStatuses[].state.terminated.exitCode == null) |
+  {
+    &quot;name&quot;: .metadata.name,
+    &quot;namespace&quot;: .metadata.namespace,
+    &quot;status&quot;: [
+      .status.containerStatuses[] |
+      {
+        &quot;name&quot;: .name,
+        &quot;exit_code&quot;: .state.terminated.exitCode
+      }
+    ]
+  }
+'
+</code></pre>
+<h3 id="use-jq-to-find-all-pods-with-a-specific-container-state">Use jq to find all pods with a specific container state</h3>
+<pre><code class="language-sh">kubectl get pods -A -o json | jq '
+  .items[]? |
+  select(.status.containerStatuses[]?.state.waiting.reason == &quot;CreateContainerConfigError&quot;) |
+  .metadata.name
+'
+</code></pre>
+<h3 id="use-jq-to-find-pods-that-have-problematic-phases">Use jq to find pods that have problematic phases</h3>
+<pre><code>kubectl get pods -A -o json |
+jq -c '
+  .items[] |
+  select(.status.phase|test(&quot;Pending|Unknown&quot;)) |
+  [.status.phase, .metadata.creationTimestamp, .metadata.namespace, .metadata.name]
+'
+</code></pre>
+<h2 id="linux-kernel-namespaces">linux kernel namespaces</h2>
+<p><a href="https://man7.org/linux/man-pages/man7/namespaces.7.html">Linux kernel namespaces</a> are part of the magic that allows containers to run, and kubernetes pods take this a step further by allowing multiple containers to run inside a pod, and share only some of the namespaces. Which ones?</p>
+<pre><code>diff -t -W 65 -y ns-container-1.txt ns-container-2.txt
+$ readlink /proc/$$/task/*/ns/*   $ readlink /proc/$$/task/*/ns/*
+cgroup:[4026531835]               cgroup:[4026531835]
+ipc:[4026532832]                  ipc:[4026532832]
+mnt:[4026533233]                | mnt:[4026533326]
+net:[4026532835]                  net:[4026532835]
+pid:[4026533325]                | pid:[4026533328]
+pid:[4026533325]                | pid:[4026533328]
+user:[4026531837]                 user:[4026531837]
+uts:[4026533324]                | uts:[4026533327]
+</code></pre>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/docs/reference/kubectl/cheatsheet/</a></li>
 <li><a href="http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf">http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf</a></li>
 <li><a href="http://on-demand.gputechconf.com/gtc/2018/video/S8893/">http://on-demand.gputechconf.com/gtc/2018/video/S8893/</a></li>
 <li><a href="http://slack.kubernetes.io/">http://slack.kubernetes.io/</a></li>
 <li><a href="https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster">https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster</a></li>
 <li><a href="https://docs.projectcalico.org/latest/introduction/">https://docs.projectcalico.org/latest/introduction/</a></li>
-<li><a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">https://github.com/kelseyhightower/kubernetes-the-hard-way</a> - "The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together."</li>
-<li><a href="https://github.com/kinvolk/kubernetes-the-hard-way-vagrant">https://github.com/kinvolk/kubernetes-the-hard-way-vagrant</a> - "A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant."</li>
+<li><a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">https://github.com/kelseyhightower/kubernetes-the-hard-way</a>: "The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together."</li>
+<li><a href="https://github.com/kinvolk/kubernetes-the-hard-way-vagrant">https://github.com/kinvolk/kubernetes-the-hard-way-vagrant</a>: "A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant."</li>
 <li><a href="https://github.com/kubernetes/dashboard#kubernetes-dashboard">https://github.com/kubernetes/dashboard#kubernetes-dashboard</a></li>
-<li><a href="https://github.com/kubernetes/kompose">https://github.com/kubernetes/kompose</a> - Compose to Kubernetes</li>
+<li><a href="https://github.com/kubernetes/kompose">https://github.com/kubernetes/kompose</a>: Compose to Kubernetes</li>
 <li><a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">https://kubernetes.io/docs/concepts/cluster-administration/addons/</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/cluster-administration/logging/">https://kubernetes.io/docs/concepts/cluster-administration/logging/</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">https://kubernetes.io/docs/concepts/services-networking/network-policies/</a></li>
@@ -1418,66 +6191,73 @@ d4ce465a0942f   2 weeks ago   Ready  etcd-s1                         kube-system
 <li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm</a></li>
 <li><a href="https://www.cncf.io/certification/expert/CKA/">https://www.cncf.io/certification/expert/CKA/</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#hook-details">https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#hook-details</a></li>
-<li><a href="https://github.com/ClusterHQ/flocker">https://github.com/ClusterHQ/flocker</a> - Flocker is an open-source Container Data Volume Manager for your Dockerized applications.</li>
+<li><a href="https://github.com/ClusterHQ/flocker">https://github.com/ClusterHQ/flocker</a>: Flocker is an open-source Container Data Volume Manager for your Dockerized applications.</li>
 <li><a href="https://cloudplatform.googleblog.com/2018/05/Beyond-CPU-horizontal-pod-autoscaling-comes-to-Google-Kubernetes-Engine.html">https://cloudplatform.googleblog.com/2018/05/Beyond-CPU-horizontal-pod-autoscaling-comes-to-Google-Kubernetes-Engine.html</a></li>
-<li><a href="https://github.com/vapor-ware/ksync">https://github.com/vapor-ware/ksync</a> - Sync local filesystem with a target container</li>
-<li><a href="https://metallb.universe.tf">https://metallb.universe.tf</a> - For those of us not running in a cloud, <a href="MetalLB">metallb</a> can serve as a k8s native LB.</li>
-<li><a href="https://k3s.io">https://k3s.io</a> - Lightweight Kubernetes. Easy to install. A binary of less than 40 MB. Only 512 MB of RAM required to run.</li>
-<li><a href="https://learnk8s.io/production-best-practices/">https://learnk8s.io/production-best-practices/</a> - A curated checklist of best practices designed to help you release to production.</li>
-<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start#multinode-clusters">https://kind.sigs.k8s.io/docs/user/quick-start#multinode-clusters</a> - Multi-node kubernetes clusters running within docker</li>
-<li><a href="https://www.stackrox.com/categories/eks-vs-gke-vs-aks">https://www.stackrox.com/categories/eks-vs-gke-vs-aks</a> - Available cloud versions of hosted k8s and notable changes</li>
+<li><a href="https://github.com/vapor-ware/ksync">https://github.com/vapor-ware/ksync</a>: Sync local filesystem with a target container</li>
+<li><a href="https://metallb.universe.tf">https://metallb.universe.tf</a>: For those of us not running in a cloud, <a href="../metallb/">MetalLB</a> can serve as a k8s native LB.</li>
+<li><a href="https://k3s.io">https://k3s.io</a>: Lightweight Kubernetes. Easy to install. A binary of less than 40 MB. Only 512 MB of RAM required to run.</li>
+<li><a href="https://learnk8s.io/production-best-practices/">https://learnk8s.io/production-best-practices/</a>: A curated checklist of best practices designed to help you release to production.</li>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start#multinode-clusters">https://kind.sigs.k8s.io/docs/user/quick-start#multinode-clusters</a>: Multi-node kubernetes clusters running within docker</li>
+<li><a href="https://www.stackrox.com/categories/eks-vs-gke-vs-aks">https://www.stackrox.com/categories/eks-vs-gke-vs-aks</a>: Available cloud versions of hosted k8s and notable changes</li>
+<li><a href="https://velero.io">https://velero.io</a>: cluster backups</li>
+<li><a href="https://www.k8sref.io">https://www.k8sref.io</a>: k8s API reference</li>
+<li>kube-dns-autoscaler: <a href="https://gist.github.com/MrHohn/1198bccc2adbd8cf3b066ab37ccd8355">https://gist.github.com/MrHohn/1198bccc2adbd8cf3b066ab37ccd8355</a> / <a href="https://github.com/kubernetes-sigs/cluster-proportional-autoscaler">https://github.com/kubernetes-sigs/cluster-proportional-autoscaler</a></li>
+<li>Kubernetes pods /etc/resolv.conf ndots:5 option and why it may negatively affect your application performances: <a href="https://pracucci.com/kubernetes-dns-resolution-ndots-options-and-why-it-may-affect-application-performances.html">https://pracucci.com/kubernetes-dns-resolution-ndots-options-and-why-it-may-affect-application-performances.html</a></li>
+<li><a href="https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/">https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/</a> "Kubernetes admission controllers are plugins that govern and enforce how the cluster is used. They can be thought of as a gatekeeper that intercept (authenticated) API requests and may change the request object or deny the request altogether."</li>
+<li><a href="https://tunein.engineering/implementing-leader-election-for-kubernetes-pods-2477deef8f13">https://tunein.engineering/implementing-leader-election-for-kubernetes-pods-2477deef8f13</a>: Leader election for Kubernetes pods</li>
+<li><a href="https://medium.com/kubernetes-tutorials/making-sense-of-taints-and-tolerations-in-kubernetes-446e75010f4e">https://medium.com/kubernetes-tutorials/making-sense-of-taints-and-tolerations-in-kubernetes-446e75010f4e</a></li>
+<li><a href="https://web.archive.org/web/20190306132233/https://supergiant.io/blog/learn-how-to-assign-pods-to-nodes-in-kubernetes-using-nodeselector-and-affinity-features/">https://web.archive.org/web/20190306132233/https://supergiant.io/blog/learn-how-to-assign-pods-to-nodes-in-kubernetes-using-nodeselector-and-affinity-features/</a></li>
+<li><a href="https://fluxcd.io">https://fluxcd.io</a>: "Open and extensible continuous delivery solution for Kubernetes. Powered by GitOps Toolkit."</li>
+<li><a href="https://k8slens.dev">https://k8slens.dev</a>: "Lens is the only IDE you’ll ever need to take control of your Kubernetes clusters."</li>
+<li><a href="https://kustomize.io">https://kustomize.io</a>: "Kubernetes native configuration management"</li>
+<li><a href="https://github.com/kubernetes-sigs/kustomize/tree/master/examples">https://github.com/kubernetes-sigs/kustomize/tree/master/examples</a>: Kustomize examples</li>
+<li><a href="https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/">https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/</a>: Downward API allows you to mount k8s spec information as env vars</li>
+<li><a href="https://isovalent.com/blog/post/2021-12-08-ebpf-servicemesh">https://isovalent.com/blog/post/2021-12-08-ebpf-servicemesh</a>: How eBPF will solve Service Mesh - Goodbye Sidecars</li>
 </ul>
-              
+
+
+
+
+
+                
+              </article>
             </div>
-          </div>
-          <footer>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../launchd/" class="btn btn-neutral float-right" title="launchd">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../keybase/" class="btn btn-neutral" title="keybase"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
       
+        <script src="../extra_javascript/instant-page.js"></script>
       
-        <span><a href="../keybase/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../launchd/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
-</body>
+    
+  </body>
 </html>

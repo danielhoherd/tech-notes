@@ -1,1575 +1,6643 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Daniel Austin Hoherd">
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Git - Daniel Hoherd's tech notes</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Git";
-    var mkdocs_page_input_path = "git.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Daniel Austin Hoherd">
+      
+      
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/git/">
+      
+      
+        <link rel="prev" href="../gige-vision/">
+      
+      
+        <link rel="next" href="../github/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Git - Daniel Hoherd's tech notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daniel Hoherd's tech notes</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">About these notes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../3d_printing/">3D Printing</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../airport/">Apple Airport</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../amazon-ec2/">Amazon EC2</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../amazon/">Amazon</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ansible/">Ansible</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../apfs/">Apple APFS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../aptly/">Aptly</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../aria2/">Aria2</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../arpwatch/">arpwatch</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../atomicparsley/">AtomicParsley</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../atop/">atop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../autonomous-vehicles/">Autonomous Vehicle Links</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../avahi/">Avahi</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../awk/">awk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../awless/">awless</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../aws-cloudformation/">Amazon AWS Cloudformation</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../awscli/">Amazon awscli</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../backups/">Backups</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../badblocks/">badblocks</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bash/">GNU bash</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bbcp/">bbcp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bc/">GNU bc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bind/">BIND</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../blkid/">blkid</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bluetooth/">bluetooth</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bosh/">BOSH</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bpf/">bpf</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../calico/">calico</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../calver/">CalVer</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../centos/">CentOS Linux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ceph/">Ceph</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cgroups/">cgroups</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../chkconfig/">chkconfig</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../chocolatey/">Choclatey</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../chronos/">chronos</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../circleci/">CircleCI</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cncf/">CNCF</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cobbler/">Cobbler</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../computing/">Computing</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../conjure-up/">conjure-up</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../consul/">consul</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cookiecutter/">cookiecutter</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cowsay/">cowsay</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cradlepoint/">Cradlepoint</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cron/">cron</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cryptsetup/">cryptsetup</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../curl/">cURL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dat/">dat</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../date/">date</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dcfldd/">dcfldd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dcgc/">Docker Custodian</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dcraw/">dcraw</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dd-wrt/">dd-wrt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dd/">dd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ddrescue/">ddrescue</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../deb/">deb</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../defaults/">defaults</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../devops/">devops</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dig/">dig</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dmidecode/">dmidecode</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../docker/">docker</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dsrc/">dsrc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dtrace/">dtrace</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../du/">du</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../duplicity/">duplicity</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../education/">education</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../eleduino/">Eleduino</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../etcd/">etcd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ethtool/">ethtool</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../exiftool/">exiftool</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fedramp/">Fedramp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ffmpeg/">ffmpeg</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../figlet/">figlet</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../find/">find</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../findmnt/">findmnt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fio/">fio</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../flask/">flask</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fluentd/">fluentd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fortune/">fortune</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../fuser/">fuser</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../genicam/">GenICam</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../geodata/">geodata</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gige-vision/">GigE Vision</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Git</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gitlab/">Gitlab</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gitolite/">gitolite</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../glances/">glances</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../golang/">golang</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google-cloud/">Google Cloud</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google-earth/">Google Earth</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google-sheets/">Google Sheets</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../google/">Google</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../graphicsmagick/">GraphicsMagick</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../grep/">grep</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../grub/">GNU GRUB</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hadoop/">Hadoop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../handbrake/">Handbrake</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hashids/">Hashids</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../helm/">helm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../home-assistant/">Home Assistant</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hp/">HP</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../htop/">htop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../httpstat/">httpstat</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iTunes/">iTunes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iftop/">iftop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../image-formats/">Graphical Image Formats</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../imagemagick/">ImageMagick</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../img2xterm/">img2xterm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../innotop/">innotop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../inotify/">inotify</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../internet/">The Internet</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iotop/">iotop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ip/">ip</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iperf/">iperf</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ipmi/">IPMI</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iptables/">iptables</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jargon/">jargon</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jdupes/">jdupes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jmespath/">jmespath</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jot/">jot</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jpeginfo/">jpeginfo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jq/">jq</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../json/">JSON</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jsonpath/">JSONPath</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../juniper/">Juniper</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../jwt/">jwt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../kaniko/">kaniko</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../keel/">keel</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../keybase/">keybase</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../kubernetes/">kubernetes</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../launchd/">launchd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ldap/">ldap</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lego/">LEGO</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lektor/">Lektor</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../linksys/">linksys</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../linux-performance-monitoring/">linux-performance-monitoring</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../linux/">linux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../logstash/">logstash</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lsblk/">lsblk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lshw/">lshw</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lsof/">lsof</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lvm/">lvm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../lxc/">LXC</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../machine-learning/">Machine Learning</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../macos/">macOS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../make/">GNU make</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../math/">math</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mdraid/">mdraid</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../metallb/">MetalLB</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../microbit/">micro:bit</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../micropython/">MicroPython</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../minikube/">minikube</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../molecule/">Molecule</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mongodb/">MongoDB</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mqtt/">mqtt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mutt/">mutt</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../myrepos/">myrepos</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mysql/">MySQL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../namei/">namei</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ncftp/">ncftp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../netgear/">NETGEAR</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nethogs/">nethogs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../networking/">networking</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../networksetup/">networksetup</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../neverware/">neverware</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nfs/">nfs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-3ds/">Nintendo 3DS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-amiibo/">Nintendo Amiibo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-switch/">Nintendo Switch</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wii/">Nintendo Wii</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nintendo-wiiu/">Nintendo Wii U</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ntop/">ntop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ntp/">NTP</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../nvidia/">nvidia</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../openvpn/">openvpn</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../osquery/">osquery</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ostinato/">ostinato</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../outline/">outline</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pac/">pac</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pandoc/">pandoc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../panopticlick/">panopticlick</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../passwords/">passwords</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../perl/">perl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pgp/">pgp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../philips-hue/">philips-hue</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../php/">php</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../plex/">plex</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../postgres/">PostgreSQL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../powershell/">powershell</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../powertop/">powertop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../procurve/">procurve</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../prometheus/">Prometheus</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../protobuf/">protobuf</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ps/">ps</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ps_mem/">ps_mem</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../psp/">psp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pssh/">pssh</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ptp/">ptp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../puppet/">Puppet</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pv/">pv</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pytest/">pytest</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../python/">python</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../q/">q</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/">raspberry-pi</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../redis/">redis</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rhel/">rhel</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../robotics/">robotics</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../roku/">Roku</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rook/">rook</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ros/">ros</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rpm/">rpm</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rrd/">rrd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rst/">reStructuredText</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../rsync/">rsync</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../saltstack/">saltstack</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../samsung/">Samsung</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../screenshot/">Screenshots</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sdr/">sdr</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sed/">sed</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../selinux/">selinux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../semver/">semver</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sensu/">sensu</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../serverless/">serverless</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sgdisk/">sgdisk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../shairport-sync/">shairport-sync</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../shred/">Shred</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../shutdown/">shutdown</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sips/">sips</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../slides/">slides</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../smartctl/">smartctl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../smartstack/">smartstack</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../snap/">snap</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../snmp/">snmp</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../solo/">solo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sort/">sort</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sphinx/">sphinx</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../split/">split</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../splunk/">splunk</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sqlite/">sqlite</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ss/">ss</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ssh/">ssh</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sshuttle/">sshuttle</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../stat/">stat</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../strace/">strace</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sudo/">sudo</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../swagger/">swagger</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../swift/">Swift</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sysctl/">sysctl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sysdig/">sysdig</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../systemd-resolved/">systemd-resolved</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../systemd/">systemd</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../tcl/">TCL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../tcpdump/">tcpdump</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../terraform/">Terraform</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../time/">time</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../tls/">tls</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../top-variant-list/">top-variant-list</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../top/">top</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../touch/">touch</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ubuntu/">Ubuntu Linux</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../udev/">udev</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../upstart/">Upstart</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vagrant/">vagrant</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vim/">vim</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../virtualbox/">VirtualBox</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vpn/">Virtual Private Networking</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wget/">Wget</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../winbind/">winbind</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wireshark/">Wireshark</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wonder-workshop/">wonder-workshop</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../wuzz/">wuzz</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../xargs/">xargs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../yaml/">yaml</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../youtube-dl/">youtube-dl</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../yum/">yum</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zerotier/">ZeroTier</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zfs/">ZFS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zookeeper/">zookeeper</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../zsh/">zsh</a>
-                    </li>
-                </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Daniel Hoherd's tech notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daniel Hoherd's tech notes</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
       
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Daniel Hoherd's tech notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        About these notes
+      </a>
+    </li>
+  
+
     
-    <li>Git</li>
-    <li class="wy-breadcrumbs-aside">
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3d-printing/" class="md-nav__link">
+        3D Printing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airflow/" class="md-nav__link">
+        Airflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airport/" class="md-nav__link">
+        Apple Airport
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amazon/" class="md-nav__link">
+        Amazon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ansible/" class="md-nav__link">
+        Ansible
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apfs/" class="md-nav__link">
+        Apple APFS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aptly/" class="md-nav__link">
+        Aptly
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aria2/" class="md-nav__link">
+        Aria2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arpwatch/" class="md-nav__link">
+        arpwatch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomicparsley/" class="md-nav__link">
+        AtomicParsley
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atop/" class="md-nav__link">
+        atop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        Automotive
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-vehicles/" class="md-nav__link">
+        Autonomous Vehicle Links
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avahi/" class="md-nav__link">
+        Avahi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awk/" class="md-nav__link">
+        awk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awless/" class="md-nav__link">
+        awless
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-cloudformation/" class="md-nav__link">
+        Amazon AWS Cloudformation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awscli/" class="md-nav__link">
+        Amazon awscli
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backups/" class="md-nav__link">
+        Backups
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../badblocks/" class="md-nav__link">
+        badblocks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bash/" class="md-nav__link">
+        GNU bash
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bbcp/" class="md-nav__link">
+        bbcp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bc/" class="md-nav__link">
+        GNU bc
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bind/" class="md-nav__link">
+        BIND
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blkid/" class="md-nav__link">
+        blkid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bluetooth/" class="md-nav__link">
+        bluetooth
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bpf/" class="md-nav__link">
+        bpf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/" class="md-nav__link">
+        C
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calico/" class="md-nav__link">
+        calico
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calver/" class="md-nav__link">
+        CalVer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centos/" class="md-nav__link">
+        CentOS Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceph/" class="md-nav__link">
+        Ceph
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chkconfig/" class="md-nav__link">
+        chkconfig
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chocolatey/" class="md-nav__link">
+        Choclatey
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chronos/" class="md-nav__link">
+        chronos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circleci/" class="md-nav__link">
+        CircleCI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cncf/" class="md-nav__link">
+        CNCF
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cobbler/" class="md-nav__link">
+        Cobbler
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colorblindness/" class="md-nav__link">
+        Colorblindness
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computing/" class="md-nav__link">
+        Computing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consul/" class="md-nav__link">
+        consul
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cookiecutter/" class="md-nav__link">
+        cookiecutter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cowsay/" class="md-nav__link">
+        cowsay
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/" class="md-nav__link">
+        C++
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cradlepoint/" class="md-nav__link">
+        Cradlepoint
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cron/" class="md-nav__link">
+        cron
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cryptsetup/" class="md-nav__link">
+        cryptsetup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csplit/" class="md-nav__link">
+        csplit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curl/" class="md-nav__link">
+        cURL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cut/" class="md-nav__link">
+        cut
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dasel/" class="md-nav__link">
+        dasel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datasette/" class="md-nav__link">
+        Datasette
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../date/" class="md-nav__link">
+        date
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcfldd/" class="md-nav__link">
+        dcfldd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcgc/" class="md-nav__link">
+        Docker Custodian
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcraw/" class="md-nav__link">
+        dcraw
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dd-wrt/" class="md-nav__link">
+        dd-wrt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dd/" class="md-nav__link">
+        dd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ddrescue/" class="md-nav__link">
+        ddrescue
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deb/" class="md-nav__link">
+        deb
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaults/" class="md-nav__link">
+        defaults
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/" class="md-nav__link">
+        devops
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dhcp/" class="md-nav__link">
+        DHCP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dhcpd.conf/" class="md-nav__link">
+        dhcpd.conf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dig/" class="md-nav__link">
+        dig
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dmidecode/" class="md-nav__link">
+        dmidecode
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsrc/" class="md-nav__link">
+        dsrc
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dtrace/" class="md-nav__link">
+        dtrace
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../du/" class="md-nav__link">
+        du
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplicity/" class="md-nav__link">
+        duplicity
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../education/" class="md-nav__link">
+        education
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elasticsearch/" class="md-nav__link">
+        Elasticsearch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eleduino/" class="md-nav__link">
+        Eleduino
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etcd/" class="md-nav__link">
+        etcd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ethtool/" class="md-nav__link">
+        ethtool
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exiftool/" class="md-nav__link">
+        exiftool
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fedramp/" class="md-nav__link">
+        Fedramp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        ffmpeg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../figlet/" class="md-nav__link">
+        figlet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../find/" class="md-nav__link">
+        find
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findmnt/" class="md-nav__link">
+        findmnt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fio/" class="md-nav__link">
+        fio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flask/" class="md-nav__link">
+        flask
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluent-bit/" class="md-nav__link">
+        fluent-bit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluentd/" class="md-nav__link">
+        fluentd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fortune/" class="md-nav__link">
+        fortune
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuser/" class="md-nav__link">
+        fuser
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genicam/" class="md-nav__link">
+        GenICam
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geodata/" class="md-nav__link">
+        geodata
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gige-vision/" class="md-nav__link">
+        GigE Vision
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Git
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Git
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-init" class="md-nav__link">
+    git init
+  </a>
+  
+    <nav class="md-nav" aria-label="git init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-git-repository-for-the-cwd" class="md-nav__link">
+    Create a git repository for the CWD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clone" class="md-nav__link">
+    git clone
+  </a>
+  
+    <nav class="md-nav" aria-label="git clone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-local-repo" class="md-nav__link">
+    Clone a local repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-remote-git-repo-via-ssh" class="md-nav__link">
+    Clone a remote git repo via ssh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-and-specify-a-key-when-using-ssh-agent" class="md-nav__link">
+    Clone and specify a key when using ssh-agent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filesystem-operations" class="md-nav__link">
+    git filesystem operations
+  </a>
+  
+    <nav class="md-nav" aria-label="git filesystem operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-everything-in-the-cwd-to-the-git-repo" class="md-nav__link">
+    Add everything in the CWD to the git repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-a-file-in-the-git-repo" class="md-nav__link">
+    Rename a file in the git repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-file-from-the-repo" class="md-nav__link">
+    Delete a file from the repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-status" class="md-nav__link">
+    git status
+  </a>
+  
+    <nav class="md-nav" aria-label="git status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-status-of-git" class="md-nav__link">
+    Check the status of git
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    git commit
+  </a>
+  
+    <nav class="md-nav" aria-label="git commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-the-current-changes" class="md-nav__link">
+    Commit the current changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-all-changes-with-commit-a" class="md-nav__link">
+    Commit all changes with commit -a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-git-commit-hooks" class="md-nav__link">
+    Skip git commit hooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tag" class="md-nav__link">
+    git tag
+  </a>
+  
+    <nav class="md-nav" aria-label="git tag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-annotated-tag" class="md-nav__link">
+    Create an annotated tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-light-tag" class="md-nav__link">
+    Create a light tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-local-tag" class="md-nav__link">
+    Delete a local tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-remote-tag" class="md-nav__link">
+    Delete a remote tag
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-config" class="md-nav__link">
+    git config
+  </a>
+  
+    <nav class="md-nav" aria-label="git config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#always-use-ssh-for-githubcom" class="md-nav__link">
+    Always use ssh for github.com
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-client-setup" class="md-nav__link">
+    Git client setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-a-gitconfig-file-with-some-params" class="md-nav__link">
+    Edit a .git/config file with some params
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-your-configs-in-a-dotted-one-one-per-option-format" class="md-nav__link">
+    Show your configs in a dotted one-one-per-option format
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-diff" class="md-nav__link">
+    git diff
+  </a>
+  
+    <nav class="md-nav" aria-label="git diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diff-between-staged-and-committed" class="md-nav__link">
+    diff between staged and committed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-that-shows-per-word-colored-differences" class="md-nav__link">
+    diff that shows per-word colored differences
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-readable-word-diff" class="md-nav__link">
+    Machine readable word diff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-and-ignore-whitespace" class="md-nav__link">
+    Diff and ignore whitespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-diffs-between-master-and-a-given-date" class="md-nav__link">
+    Show diffs between master and a given date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-has-changed-since-a-point-in-time" class="md-nav__link">
+    Show what has changed since a point in time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-blame" class="md-nav__link">
+    git blame
+  </a>
+  
+    <nav class="md-nav" aria-label="git blame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-usage" class="md-nav__link">
+    Simple usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-non-whitespace-changes-in-blame" class="md-nav__link">
+    Show non-whitespace changes in blame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-log" class="md-nav__link">
+    git log
+  </a>
+  
+    <nav class="md-nav" aria-label="git log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-the-commit-history" class="md-nav__link">
+    View the commit history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-one-log-entry" class="md-nav__link">
+    Show one log entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-git-commits-that-contain-a-given-string" class="md-nav__link">
+    Show git commits that contain a given string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-commit-messages-that-match-a-given-regex" class="md-nav__link">
+    Show commit messages that match a given regex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-dir-in-the-last-3-days" class="md-nav__link">
+    Show logs for a given dir in the last 3 days
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-raw-log-history-for-5-most-recent-commits" class="md-nav__link">
+    Show raw log history for 5 most recent commits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#really-pretty-logs" class="md-nav__link">
+    Really pretty logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-shortlog" class="md-nav__link">
+    git shortlog
+  </a>
+  
+    <nav class="md-nav" aria-label="git shortlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-number-of-commits-by-user-including-e-mail" class="md-nav__link">
+    Show number of commits by user, including e-mail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-show" class="md-nav__link">
+    git show
+  </a>
+  
+    <nav class="md-nav" aria-label="git show">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-the-changes-from-a-specific-sha" class="md-nav__link">
+    Show the changes from a specific SHA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-complete-file-as-of-a-given-sha" class="md-nav__link">
+    Show a complete file as of a given SHA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branches" class="md-nav__link">
+    git branches
+  </a>
+  
+    <nav class="md-nav" aria-label="git branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-branch" class="md-nav__link">
+    Create a branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-which-branch-youre-in" class="md-nav__link">
+    Check which branch you're in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-move-a-branch" class="md-nav__link">
+    Rename (move) a branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-merge" class="md-nav__link">
+    git merge
+  </a>
+  
+    <nav class="md-nav" aria-label="git merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merge-branch-with-master" class="md-nav__link">
+    Merge branch with master
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-fast-forward-merges" class="md-nav__link">
+    disable fast-forward merges
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filter-repo" class="md-nav__link">
+    git filter-repo
+  </a>
+  
+    <nav class="md-nav" aria-label="git filter-repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-one-subdir-into-its-own-repo-renaming-some-files" class="md-nav__link">
+    Extract one subdir into its own repo, renaming some files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remotes" class="md-nav__link">
+    remotes
+  </a>
+  
+    <nav class="md-nav" aria-label="remotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-remote" class="md-nav__link">
+    Add a remote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-to-a-specific-remote" class="md-nav__link">
+    Push to a specific remote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter-the-source-of-origin" class="md-nav__link">
+    Alter the source of origin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    git reset
+  </a>
+  
+    <nav class="md-nav" aria-label="git reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-to-a-prior-state-based-on-what-has-been-done-locally" class="md-nav__link">
+    Reset to a prior state based on what has been done locally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-feature-branch-to-state-when-it-was-branched-from-master" class="md-nav__link">
+    Reset feature branch to state when it was branched from master
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-reset-of-local-changes" class="md-nav__link">
+    Hard reset of local changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clean" class="md-nav__link">
+    git clean
+  </a>
+  
+    <nav class="md-nav" aria-label="git clean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-all-untracked-files-and-directories" class="md-nav__link">
+    Remove all untracked files and directories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous-tricks" class="md-nav__link">
+    Miscellaneous tricks
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refresh-all-git-repos-in-a-path" class="md-nav__link">
+    Refresh all Git repos in a path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date" class="md-nav__link">
+    Show a numbered list of remote branches sorted by last commit date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-cleanup" class="md-nav__link">
+    Branch cleanup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-grep" class="md-nav__link">
+    git grep
+  </a>
+  
+    <nav class="md-nav" aria-label="git grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-string-in-all-branches" class="md-nav__link">
+    Find a string in all branches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
-  </ul>
   
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Github
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab/" class="md-nav__link">
+        Gitlab
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitolite/" class="md-nav__link">
+        gitolite
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glances/" class="md-nav__link">
+        glances
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        GNU Screen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../golang/" class="md-nav__link">
+        golang
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-cloud/" class="md-nav__link">
+        Google Cloud
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-earth/" class="md-nav__link">
+        Google Earth
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-sheets/" class="md-nav__link">
+        Google Sheets
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google/" class="md-nav__link">
+        Google
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphicsmagick/" class="md-nav__link">
+        GraphicsMagick
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql/" class="md-nav__link">
+        GraphQL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grep/" class="md-nav__link">
+        grep
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grub/" class="md-nav__link">
+        GNU GRUB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hadoop/" class="md-nav__link">
+        Hadoop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handbrake/" class="md-nav__link">
+        Handbrake
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashids/" class="md-nav__link">
+        Hashids
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/" class="md-nav__link">
+        helm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home-assistant/" class="md-nav__link">
+        Home Assistant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hp/" class="md-nav__link">
+        HP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htmx/" class="md-nav__link">
+        htmx
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htop/" class="md-nav__link">
+        htop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../httpstat/" class="md-nav__link">
+        httpstat
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iTunes/" class="md-nav__link">
+        iTunes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iftop/" class="md-nav__link">
+        iftop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-formats/" class="md-nav__link">
+        Graphical Image Formats
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imagemagick/" class="md-nav__link">
+        ImageMagick
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../img2xterm/" class="md-nav__link">
+        img2xterm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innotop/" class="md-nav__link">
+        innotop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inotify/" class="md-nav__link">
+        inotify
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../internet/" class="md-nav__link">
+        The Internet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        Interviews
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iotop/" class="md-nav__link">
+        iotop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ip/" class="md-nav__link">
+        ip
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iperf/" class="md-nav__link">
+        iperf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipmi/" class="md-nav__link">
+        IPMI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iptables/" class="md-nav__link">
+        iptables
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jargon/" class="md-nav__link">
+        jargon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jdupes/" class="md-nav__link">
+        jdupes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jmespath/" class="md-nav__link">
+        jmespath
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../join/" class="md-nav__link">
+        join
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jot/" class="md-nav__link">
+        jot
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jpeginfo/" class="md-nav__link">
+        jpeginfo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jq/" class="md-nav__link">
+        jq
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jsonnet/" class="md-nav__link">
+        jsonnet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jsonpath/" class="md-nav__link">
+        JSONPath
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../juniper/" class="md-nav__link">
+        Juniper
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter/" class="md-nav__link">
+        Jupyter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwt/" class="md-nav__link">
+        jwt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kaniko/" class="md-nav__link">
+        kaniko
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keel/" class="md-nav__link">
+        keel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keybase/" class="md-nav__link">
+        keybase
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        kubernetes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launchd/" class="md-nav__link">
+        launchd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        ldap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lego/" class="md-nav__link">
+        LEGO
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lektor/" class="md-nav__link">
+        Lektor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linksys/" class="md-nav__link">
+        linksys
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-performance-monitoring/" class="md-nav__link">
+        Linux Performance Monitoring
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logstash/" class="md-nav__link">
+        logstash
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsblk/" class="md-nav__link">
+        lsblk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lshw/" class="md-nav__link">
+        lshw
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsof/" class="md-nav__link">
+        lsof
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lvm/" class="md-nav__link">
+        lvm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lxc/" class="md-nav__link">
+        LXC
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macos/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        GNU make
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../marlin/" class="md-nav__link">
+        Marlin
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        math
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdraid/" class="md-nav__link">
+        mdraid
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metallb/" class="md-nav__link">
+        MetalLB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microbit/" class="md-nav__link">
+        micro:bit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microcontrollers/" class="md-nav__link">
+        microcontrollers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../micropython/" class="md-nav__link">
+        MicroPython
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../molecule/" class="md-nav__link">
+        Molecule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mongodb/" class="md-nav__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mqtt/" class="md-nav__link">
+        mqtt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mutt/" class="md-nav__link">
+        mutt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../myrepos/" class="md-nav__link">
+        myrepos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namei/" class="md-nav__link">
+        namei
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncftp/" class="md-nav__link">
+        ncftp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neopixel/" class="md-nav__link">
+        Adafruit Neopixel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../netgear/" class="md-nav__link">
+        NETGEAR
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nethogs/" class="md-nav__link">
+        nethogs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        networking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networksetup/" class="md-nav__link">
+        networksetup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neverware/" class="md-nav__link">
+        neverware
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfs/" class="md-nav__link">
+        nfs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngrok/" class="md-nav__link">
+        ngrok
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-3ds/" class="md-nav__link">
+        Nintendo 3DS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-amiibo/" class="md-nav__link">
+        Nintendo Amiibo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-switch/" class="md-nav__link">
+        Nintendo Switch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-wii/" class="md-nav__link">
+        Nintendo Wii
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-wiiu/" class="md-nav__link">
+        Nintendo Wii U
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntop/" class="md-nav__link">
+        ntop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntp/" class="md-nav__link">
+        NTP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvidia/" class="md-nav__link">
+        nvidia
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        openvpn
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osquery/" class="md-nav__link">
+        osquery
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outline/" class="md-nav__link">
+        outline
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pac/" class="md-nav__link">
+        pac
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandoc/" class="md-nav__link">
+        pandoc
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../panopticlick/" class="md-nav__link">
+        panopticlick
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passwords/" class="md-nav__link">
+        passwords
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perl/" class="md-nav__link">
+        perl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pgp/" class="md-nav__link">
+        pgp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../philips-hue/" class="md-nav__link">
+        Philips Hue
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        php
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plex/" class="md-nav__link">
+        plex
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powershell/" class="md-nav__link">
+        powershell
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powertop/" class="md-nav__link">
+        powertop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../procurve/" class="md-nav__link">
+        procurve
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protobuf/" class="md-nav__link">
+        protobuf
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ps/" class="md-nav__link">
+        ps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ps_mem/" class="md-nav__link">
+        ps_mem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../psp/" class="md-nav__link">
+        psp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pssh/" class="md-nav__link">
+        pssh
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptp/" class="md-nav__link">
+        ptp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puppet/" class="md-nav__link">
+        Puppet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv/" class="md-nav__link">
+        pv
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytest/" class="md-nav__link">
+        pytest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../q/" class="md-nav__link">
+        q
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raspberry-pi/" class="md-nav__link">
+        raspberry-pi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        redis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../retropie/" class="md-nav__link">
+        retropie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rhel/" class="md-nav__link">
+        rhel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        robotics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roku/" class="md-nav__link">
+        Roku
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rook/" class="md-nav__link">
+        rook
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ros/" class="md-nav__link">
+        ros
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpm/" class="md-nav__link">
+        rpm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rrd/" class="md-nav__link">
+        rrd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rst/" class="md-nav__link">
+        reStructuredText
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rsync/" class="md-nav__link">
+        rsync
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        Rust
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saltstack/" class="md-nav__link">
+        saltstack
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samba/" class="md-nav__link">
+        Samba
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samsung/" class="md-nav__link">
+        Samsung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screenshot/" class="md-nav__link">
+        Screenshots
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdr/" class="md-nav__link">
+        sdr
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sed/" class="md-nav__link">
+        sed
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selinux/" class="md-nav__link">
+        selinux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semver/" class="md-nav__link">
+        semver
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensu/" class="md-nav__link">
+        sensu
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        serverless
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sgdisk/" class="md-nav__link">
+        sgdisk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shairport-sync/" class="md-nav__link">
+        shairport-sync
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shred/" class="md-nav__link">
+        Shred
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shutdown/" class="md-nav__link">
+        shutdown
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sips/" class="md-nav__link">
+        sips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slides/" class="md-nav__link">
+        slides
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartctl/" class="md-nav__link">
+        smartctl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartstack/" class="md-nav__link">
+        smartstack
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snap/" class="md-nav__link">
+        snap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snmp/" class="md-nav__link">
+        snmp
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solo/" class="md-nav__link">
+        solo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sort/" class="md-nav__link">
+        sort
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound-and-music/" class="md-nav__link">
+        Sound and Music
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sphinx/" class="md-nav__link">
+        sphinx
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split/" class="md-nav__link">
+        split
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splunk/" class="md-nav__link">
+        splunk
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spotlight/" class="md-nav__link">
+        Spotlight
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqlite/" class="md-nav__link">
+        sqlite
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ss/" class="md-nav__link">
+        ss
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        ssh
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshuttle/" class="md-nav__link">
+        sshuttle
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat/" class="md-nav__link">
+        stat
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strace/" class="md-nav__link">
+        strace
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sudo/" class="md-nav__link">
+        sudo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swagger/" class="md-nav__link">
+        swagger
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swift/" class="md-nav__link">
+        Swift
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysctl/" class="md-nav__link">
+        sysctl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysdig/" class="md-nav__link">
+        sysdig
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd-resolved/" class="md-nav__link">
+        systemd-resolved
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd/" class="md-nav__link">
+        systemd
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tar/" class="md-nav__link">
+        tar
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcl/" class="md-nav__link">
+        TCL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcpdump/" class="md-nav__link">
+        tcpdump
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        tcpflow
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        time
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tls/" class="md-nav__link">
+        tls
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../top-variant-list/" class="md-nav__link">
+        Top Variant List
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../top/" class="md-nav__link">
+        top
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../touch/" class="md-nav__link">
+        touch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tr/" class="md-nav__link">
+        tr
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        Ubuntu Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev/" class="md-nav__link">
+        udev
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upstart/" class="md-nav__link">
+        Upstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vagrant/" class="md-nav__link">
+        vagrant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        velero
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/" class="md-nav__link">
+        vim
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualbox/" class="md-nav__link">
+        VirtualBox
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpn/" class="md-nav__link">
+        Virtual Private Networking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wasm/" class="md-nav__link">
+        web assembly
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wget/" class="md-nav__link">
+        Wget
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../winbind/" class="md-nav__link">
+        winbind
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireshark/" class="md-nav__link">
+        Wireshark
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wonder-workshop/" class="md-nav__link">
+        wonder-workshop
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wuzz/" class="md-nav__link">
+        wuzz
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xargs/" class="md-nav__link">
+        xargs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yaml/" class="md-nav__link">
+        yaml
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../youtube-dl/" class="md-nav__link">
+        youtube-dl
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yum/" class="md-nav__link">
+        yum
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zerotier/" class="md-nav__link">
+        ZeroTier
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zfs/" class="md-nav__link">
+        ZFS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zookeeper/" class="md-nav__link">
+        zookeeper
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zsh/" class="md-nav__link">
+        zsh
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
               
-                <p>baddass version control</p>
-<h1 id="links">Links</h1>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-init" class="md-nav__link">
+    git init
+  </a>
+  
+    <nav class="md-nav" aria-label="git init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-git-repository-for-the-cwd" class="md-nav__link">
+    Create a git repository for the CWD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clone" class="md-nav__link">
+    git clone
+  </a>
+  
+    <nav class="md-nav" aria-label="git clone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-local-repo" class="md-nav__link">
+    Clone a local repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-remote-git-repo-via-ssh" class="md-nav__link">
+    Clone a remote git repo via ssh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-and-specify-a-key-when-using-ssh-agent" class="md-nav__link">
+    Clone and specify a key when using ssh-agent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filesystem-operations" class="md-nav__link">
+    git filesystem operations
+  </a>
+  
+    <nav class="md-nav" aria-label="git filesystem operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-everything-in-the-cwd-to-the-git-repo" class="md-nav__link">
+    Add everything in the CWD to the git repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-a-file-in-the-git-repo" class="md-nav__link">
+    Rename a file in the git repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-file-from-the-repo" class="md-nav__link">
+    Delete a file from the repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-status" class="md-nav__link">
+    git status
+  </a>
+  
+    <nav class="md-nav" aria-label="git status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-status-of-git" class="md-nav__link">
+    Check the status of git
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    git commit
+  </a>
+  
+    <nav class="md-nav" aria-label="git commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-the-current-changes" class="md-nav__link">
+    Commit the current changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-all-changes-with-commit-a" class="md-nav__link">
+    Commit all changes with commit -a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-git-commit-hooks" class="md-nav__link">
+    Skip git commit hooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tag" class="md-nav__link">
+    git tag
+  </a>
+  
+    <nav class="md-nav" aria-label="git tag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-annotated-tag" class="md-nav__link">
+    Create an annotated tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-light-tag" class="md-nav__link">
+    Create a light tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-local-tag" class="md-nav__link">
+    Delete a local tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-remote-tag" class="md-nav__link">
+    Delete a remote tag
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-config" class="md-nav__link">
+    git config
+  </a>
+  
+    <nav class="md-nav" aria-label="git config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#always-use-ssh-for-githubcom" class="md-nav__link">
+    Always use ssh for github.com
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-client-setup" class="md-nav__link">
+    Git client setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-a-gitconfig-file-with-some-params" class="md-nav__link">
+    Edit a .git/config file with some params
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-your-configs-in-a-dotted-one-one-per-option-format" class="md-nav__link">
+    Show your configs in a dotted one-one-per-option format
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-diff" class="md-nav__link">
+    git diff
+  </a>
+  
+    <nav class="md-nav" aria-label="git diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diff-between-staged-and-committed" class="md-nav__link">
+    diff between staged and committed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-that-shows-per-word-colored-differences" class="md-nav__link">
+    diff that shows per-word colored differences
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-readable-word-diff" class="md-nav__link">
+    Machine readable word diff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-and-ignore-whitespace" class="md-nav__link">
+    Diff and ignore whitespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-diffs-between-master-and-a-given-date" class="md-nav__link">
+    Show diffs between master and a given date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-has-changed-since-a-point-in-time" class="md-nav__link">
+    Show what has changed since a point in time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-blame" class="md-nav__link">
+    git blame
+  </a>
+  
+    <nav class="md-nav" aria-label="git blame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-usage" class="md-nav__link">
+    Simple usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-non-whitespace-changes-in-blame" class="md-nav__link">
+    Show non-whitespace changes in blame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-log" class="md-nav__link">
+    git log
+  </a>
+  
+    <nav class="md-nav" aria-label="git log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-the-commit-history" class="md-nav__link">
+    View the commit history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-one-log-entry" class="md-nav__link">
+    Show one log entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-git-commits-that-contain-a-given-string" class="md-nav__link">
+    Show git commits that contain a given string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-commit-messages-that-match-a-given-regex" class="md-nav__link">
+    Show commit messages that match a given regex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-dir-in-the-last-3-days" class="md-nav__link">
+    Show logs for a given dir in the last 3 days
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-raw-log-history-for-5-most-recent-commits" class="md-nav__link">
+    Show raw log history for 5 most recent commits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#really-pretty-logs" class="md-nav__link">
+    Really pretty logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-shortlog" class="md-nav__link">
+    git shortlog
+  </a>
+  
+    <nav class="md-nav" aria-label="git shortlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-number-of-commits-by-user-including-e-mail" class="md-nav__link">
+    Show number of commits by user, including e-mail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-show" class="md-nav__link">
+    git show
+  </a>
+  
+    <nav class="md-nav" aria-label="git show">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-the-changes-from-a-specific-sha" class="md-nav__link">
+    Show the changes from a specific SHA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-complete-file-as-of-a-given-sha" class="md-nav__link">
+    Show a complete file as of a given SHA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branches" class="md-nav__link">
+    git branches
+  </a>
+  
+    <nav class="md-nav" aria-label="git branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-branch" class="md-nav__link">
+    Create a branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-which-branch-youre-in" class="md-nav__link">
+    Check which branch you're in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-move-a-branch" class="md-nav__link">
+    Rename (move) a branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-merge" class="md-nav__link">
+    git merge
+  </a>
+  
+    <nav class="md-nav" aria-label="git merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merge-branch-with-master" class="md-nav__link">
+    Merge branch with master
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-fast-forward-merges" class="md-nav__link">
+    disable fast-forward merges
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filter-repo" class="md-nav__link">
+    git filter-repo
+  </a>
+  
+    <nav class="md-nav" aria-label="git filter-repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-one-subdir-into-its-own-repo-renaming-some-files" class="md-nav__link">
+    Extract one subdir into its own repo, renaming some files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remotes" class="md-nav__link">
+    remotes
+  </a>
+  
+    <nav class="md-nav" aria-label="remotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-remote" class="md-nav__link">
+    Add a remote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-to-a-specific-remote" class="md-nav__link">
+    Push to a specific remote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter-the-source-of-origin" class="md-nav__link">
+    Alter the source of origin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    git reset
+  </a>
+  
+    <nav class="md-nav" aria-label="git reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-to-a-prior-state-based-on-what-has-been-done-locally" class="md-nav__link">
+    Reset to a prior state based on what has been done locally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-feature-branch-to-state-when-it-was-branched-from-master" class="md-nav__link">
+    Reset feature branch to state when it was branched from master
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-reset-of-local-changes" class="md-nav__link">
+    Hard reset of local changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clean" class="md-nav__link">
+    git clean
+  </a>
+  
+    <nav class="md-nav" aria-label="git clean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-all-untracked-files-and-directories" class="md-nav__link">
+    Remove all untracked files and directories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous-tricks" class="md-nav__link">
+    Miscellaneous tricks
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refresh-all-git-repos-in-a-path" class="md-nav__link">
+    Refresh all Git repos in a path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date" class="md-nav__link">
+    Show a numbered list of remote branches sorted by last commit date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-cleanup" class="md-nav__link">
+    Branch cleanup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-grep" class="md-nav__link">
+    git grep
+  </a>
+  
+    <nav class="md-nav" aria-label="git grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-string-in-all-branches" class="md-nav__link">
+    Find a string in all branches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="git">Git</h1>
+<p>baddass version control</p>
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://gitref.org/">http://gitref.org/</a></li>
-<li><a href="http://repo.or.cz/w/git.git/blob/HEAD:/contrib/completion/git-completion.bash">http://repo.or.cz/w/git.git/blob/HEAD:/contrib/completion/git-completion.bash</a></li>
 <li><a href="http://git-scm.com/book/en/Getting-Started-Git-Basics">http://git-scm.com/book/en/Getting-Started-Git-Basics</a></li>
 <li><a href="http://git-scm.com/book/en/Git-on-the-Server-Setting-Up-the-Server">http://git-scm.com/book/en/Git-on-the-Server-Setting-Up-the-Server</a></li>
 <li><a href="http://scottchacon.com/2011/08/31/github-flow.html">http://scottchacon.com/2011/08/31/github-flow.html</a></li>
-<li><a href="https://guides.github.com/introduction/flow/index.html">https://guides.github.com/introduction/flow/index.html</a></li>
-<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></li>
 <li><a href="https://training.github.com/kit/intermediate/">https://training.github.com/kit/intermediate/</a></li>
-<li><a href="https://github.com/git/git/tree/master/Documentation/RelNotes">https://github.com/git/git/tree/master/Documentation/RelNotes</a></li>
-<li><a href="https://www.gitignore.io/">https://www.gitignore.io/</a></li>
-<li><a href="https://github.com/metacloud/gilt">https://github.com/metacloud/gilt</a> - A GIT layering tool</li>
+<li><a href="https://github.com/metacloud/gilt">gitl - A GIT layering tool</a></li>
+<li><a href="https://github.com/git/git/tree/master/Documentation/RelNotes">Git release notes</a></li>
+<li><a href="https://guides.github.com/introduction/flow/index.html">Understanding the GitHub flow</a></li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model">A successful Git branching model</a></li>
+<li><a href="https://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a></li>
+<li><a href="https://www.conventionalcommits.org/">Conventional Commits: A specification for adding human and machine readable meaning to commit messages</a></li>
+<li><a href="https://github.com/googleapis/release-please">Release Please automates CHANGELOG generation, the creation of GitHub releases, and version bumps for your projects.</a></li>
 </ul>
-<h1 id="examples">Examples</h1>
-<h2 id="git-init">git init</h2>
-<h3 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD</h3>
-<pre><code>git init
+<h2 id="examples">Examples</h2>
+<h3 id="git-init">git init</h3>
+<h4 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD</h4>
+<pre><code class="language-sh">git init
 echo &quot;&quot; &gt;&gt; .gitignore
 echo &quot;# Ignore other unneeded files.
 *.swp
 *~
 .DS_Store&quot; &gt;&gt; .gitignore
 </code></pre>
-
-<h2 id="git-clone">git clone</h2>
-<h3 id="clone-a-local-repo">Clone a local repo</h3>
-<pre><code>git clone /path/to/repo
+<h3 id="git-clone">git clone</h3>
+<h4 id="clone-a-local-repo">Clone a local repo</h4>
+<pre><code class="language-sh">git clone /path/to/repo
 </code></pre>
-
-<h3 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh</h3>
-<pre><code>git clone user@ssh_server:/opt/git/project
+<h4 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh</h4>
+<pre><code class="language-sh">git clone user@ssh_server:/opt/git/project
 </code></pre>
-
-<h2 id="git-filesystem-operations">git filesystem operations</h2>
-<h3 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo</h3>
-<pre><code>git add .
+<h4 id="clone-and-specify-a-key-when-using-ssh-agent">Clone and specify a key when using ssh-agent</h4>
+<p>When using ssh-agent, if you have several keys loaded this can present problems. One of those problems is if you have multiple keys loaded that have different authorizations on a remote git server like Github. For instance, say you have <code>~/.ssh/id_ed25519_home</code> as your personal private key and <code>~/.ssh/id_ed225519_work</code> as your private work key. If you try to clone a work repo and git tries to authenticate with your home identity first, it will be unauthorized and the clone will fail, even though you have a second identity loaded that could have succeeded. To work around this, do something like:</p>
+<pre><code class="language-sh">export GIT_SSH_COMMAND=&quot;ssh -o IdentitiesOnly=yes -i $HOME/.ssh/id_ed225519_work&quot;
+git clone git@github.com:your-work-gh-org/super-secret-repo.git
 </code></pre>
+<p>This works fine for one key having authorization to all private repos. This becomes difficult when you have multiple repos, each with a key that only has authorization for that single repo, such as using deploy keys tied to a single repo. If you try that when doing something like <code>yarn install</code>, which is trying to clone multiple private repos, it will fail 100% of the time. In that case, you can follow the next example. You may have to read it twice, because setting up the configuration makes more sense if you do ssh then git, but logically it makes more sense if you go from git into ssh, which is how the process actually flows.</p>
+<p>Construct an ssh_config file that configures a unique <code>Host</code> for each private repo you need to clone and private key file that has access to it:</p>
+<pre><code>Host secret_repo_1
+   Hostname github.com
+   IdentityFile ~/.ssh/private_key_for_repo_1
 
-<h3 id="rename-a-file-in-the-git-repo">Rename a file in the git repo</h3>
+Host secret_repo_2
+   Hostname github.com
+   IdentityFile ~/.ssh/private_key_for_repo_2
+
+IdentitiesOnly yes
+</code></pre>
+<p>The ssh_configs above allow ssh access to what is essentially a host alias where the key that is authorized for the repo is used when ssh tries to connect to the correlated Host entry. In the next step, we do the same thing in reverse by crafting a <code>gitconfig</code> file with one stanza for each of the ssh Host entries from your ssh_config, pointing it back to github:</p>
+<pre><code>[url &quot;git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git&quot;]
+    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-1.git
+
+[url &quot;git@secret_repo_2:your-work-gh-org/super-secret-repo-2.git&quot;]
+    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-2.git
+</code></pre>
+<p>We then export two variables in the shell:</p>
+<pre><code>export GIT_SSH_COMMAND=&quot;ssh -F $PWD/your_crafted_ssh_config_file&quot;
+export GIT_CONFIG_GLOBAL=&quot;$PWD/your_crafted_gitconfig_file&quot;
+</code></pre>
+<p>What happens next is when you execute <code>git clone git@github.com:your-work-gh-org/super-secret-repo-1.git</code>, which is the originally source git URL, your git_config alters the URL to be <code>git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git</code>. The server name is passed into <code>ssh</code>, which uses your custom ssh_config file to connect to github.com using the options for that entry that are specified in the git_config, which includes using the identity file that is unique to that git repository. The same series of steps happens for secret_repo_2. The result is that each of these git repositories can be cloned using their original github URL, but these custom ssh configs are used in the process, which allows the right authentication mechanisms to be used for each individual git repository. This all happens without us having to alter the source code of the repo we are building, EG: without modifying <code>package.json</code> which is used by <code>yarn</code>. Using these techniques, we can set up CI to build software from private repositories using deploy keys where otherwise we would be unable to due to ssh authentication errors that might work fine for somebody who has a single ssh key that is authorized to clone all of the repositories.</p>
+<h3 id="git-filesystem-operations">git filesystem operations</h3>
+<h4 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo</h4>
+<pre><code class="language-sh">git add .
+</code></pre>
+<h4 id="rename-a-file-in-the-git-repo">Rename a file in the git repo</h4>
 <p>This also renames the filesystem file.</p>
-<pre><code>git mv README.rdoc README.md
+<pre><code class="language-sh">git mv README.rdoc README.md
 </code></pre>
-
-<h3 id="delete-a-file-from-the-repo">Delete a file from the repo</h3>
-<pre><code>git rm filename
+<h4 id="delete-a-file-from-the-repo">Delete a file from the repo</h4>
+<pre><code class="language-sh">git rm filename
 </code></pre>
-
-<h2 id="git-status">git status</h2>
-<h3 id="check-the-status-of-git">Check the status of git</h3>
-<pre><code>git status
+<h3 id="git-status">git status</h3>
+<h4 id="check-the-status-of-git">Check the status of git</h4>
+<pre><code class="language-sh">git status
 </code></pre>
-
-<h2 id="git-commit">git commit</h2>
-<h3 id="commit-the-current-changes">Commit the current changes</h3>
-<pre><code>git commit -m &quot;Initial commit&quot;
+<h3 id="git-commit">git commit</h3>
+<h4 id="commit-the-current-changes">Commit the current changes</h4>
+<pre><code class="language-sh">git commit -m &quot;Initial commit&quot;
 </code></pre>
-
-<h3 id="commit-all-changes-with-commit-a">Commit all changes with commit -a</h3>
-<pre><code>git commit -a -m &quot;Improve the README file&quot;
+<h4 id="commit-all-changes-with-commit-a">Commit all changes with commit -a</h4>
+<pre><code class="language-sh">git commit -a -m &quot;Improve the README file&quot;
 </code></pre>
-
-<h3 id="skip-git-commit-hooks">Skip git commit hooks</h3>
-<pre><code>git commit --no-verify
+<h4 id="skip-git-commit-hooks">Skip git commit hooks</h4>
+<pre><code class="language-sh">git commit --no-verify
 </code></pre>
-
-<h2 id="git-tag">git tag</h2>
+<h3 id="git-tag">git tag</h3>
 <p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
 <p>Git supports two types of tags: lightweight and annotated.</p>
-<h3 id="create-an-annotated-tag">Create an annotated tag</h3>
+<h4 id="create-an-annotated-tag">Create an annotated tag</h4>
 <p>Annotated tags, are stored as full objects in the Git database.</p>
-<pre><code>git tag -m &quot;Improve X and Y.&quot; v0.5.3
+<pre><code class="language-sh">git tag -m &quot;Improve X and Y.&quot; v0.5.3
 </code></pre>
-
-<h3 id="create-a-light-tag">Create a light tag</h3>
+<h4 id="create-a-light-tag">Create a light tag</h4>
 <p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
-<pre><code>git tag v0.5.3
+<pre><code class="language-sh">git tag v0.5.3
 </code></pre>
-
-<h3 id="delete-a-local-tag">Delete a local tag</h3>
-<pre><code>git tag -d v0.5.3
+<h4 id="delete-a-local-tag">Delete a local tag</h4>
+<pre><code class="language-sh">git tag -d v0.5.3
 </code></pre>
-
-<h3 id="delete-a-remote-tag">Delete a remote tag</h3>
-<pre><code>git push --delete origin v0.5.3
+<h4 id="delete-a-remote-tag">Delete a remote tag</h4>
+<pre><code class="language-sh">git push --delete origin v0.5.3
 </code></pre>
-
-<h2 id="git-config">git config</h2>
+<h3 id="git-config">git config</h3>
 <p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
 <ul>
 <li>Local = per-repo settings. IE: stored in .git/config directory for the repo</li>
 <li>Global = per-user settings. IE: stored in ~/.gitconfig</li>
 <li>System = per-system settings, found in /etc/ or wherever git is looking for system settings.</li>
 </ul>
-<h3 id="git-client-setup">Git client setup</h3>
+<h4 id="always-use-ssh-for-githubcom">Always use ssh for github.com</h4>
+<pre><code class="language-sh">git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
+</code></pre>
+<h4 id="git-client-setup">Git client setup</h4>
 <p>This creates and modifies ~/.gitconfig with some parameters:</p>
-<pre><code>git config --global user.name &quot;Daniel Hoherd&quot;
+<pre><code class="language-sh">git config --global user.name &quot;Daniel Hoherd&quot;
 git config --global user.email daniel.hoherd@gmail.com
 git config --global alias.co checkout
 git config --global core.editor &quot;vim&quot;
 git config --global merge.tool vimdiff
 git config --global log.date iso
 </code></pre>
-
-<h3 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params</h3>
-<pre><code>git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
+<h4 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params</h4>
+<pre><code class="language-sh">git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
 git config --replace-all svn-remote.svn.fetch ops:refs/remotes/trunk
 git config --add svn-remote.svn.preserve-empty-dirs true
 git config --unset svn-remote.svn.branches
 git config --unset svn-remote.svn.tags
 git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 </code></pre>
-
-<h3 id="export-your-gitconfig-in-a-git-config-friendly-format">Export your .gitconfig in a git config friendly format</h3>
-<pre><code>git config --list
+<h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format</h4>
+<pre><code class="language-sh">git config --list
 </code></pre>
-
-<h2 id="git-diff">git diff</h2>
+<h3 id="git-diff">git diff</h3>
 <p>Show differences between objects and stuff.</p>
-<h3 id="diff-between-staged-and-committed">diff between staged and committed</h3>
+<h4 id="diff-between-staged-and-committed">diff between staged and committed</h4>
 <p>This is useful when you're adding files that were not previously in the repo alongside changes to existing files, since a bare <code>git diff</code> before adding the files will only show changes to files that were already in the repo.</p>
-<pre><code>git diff --staged
+<pre><code class="language-sh">git diff --staged
 </code></pre>
-
-<h3 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences</h3>
-<pre><code>git diff --color-words
+<h4 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences</h4>
+<pre><code class="language-sh">git diff --color-words
 </code></pre>
-
-<h3 id="machine-readable-word-diff">Machine readable word diff</h3>
-<pre><code>git diff --word-diff
+<h4 id="machine-readable-word-diff">Machine readable word diff</h4>
+<pre><code class="language-sh">git diff --word-diff
 </code></pre>
-
-<h3 id="diff-and-ignore-whitespace">Diff and ignore whitespace</h3>
+<h4 id="diff-and-ignore-whitespace">Diff and ignore whitespace</h4>
 <p>This does not ignore line ending changes or blank line insertion and removals.</p>
-<pre><code>git diff -w
+<pre><code class="language-sh">git diff -w
 </code></pre>
-
-<h3 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date</h3>
-<pre><code>git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
+<h4 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date</h4>
+<pre><code class="language-sh">git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
 </code></pre>
-
-<h3 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time</h3>
-<pre><code>git whatchanged --since=&quot;18 hours ago&quot; -p
+<h4 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time</h4>
+<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; -p
 </code></pre>
-
 <p>or...</p>
-<pre><code>git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
+<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
 </code></pre>
-
-<h2 id="git-blame">git blame</h2>
+<h3 id="git-blame">git blame</h3>
 <p><code>git blame</code> shows information about the commit associated with each line of a file.</p>
-<h3 id="simple-usage">Simple usage</h3>
-<pre><code>git blame &lt;filename&gt;
+<h4 id="simple-usage">Simple usage</h4>
+<pre><code class="language-sh">git blame &lt;filename&gt;
 </code></pre>
-
-<h3 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame</h3>
+<h4 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame</h4>
 <p>When somebody has reformatted code but didn't make any code changes, this will show the prior commits where something more than whitespace changed.</p>
-<pre><code>git blame -w &lt;filename&gt;
+<pre><code class="language-sh">git blame -w &lt;filename&gt;
 </code></pre>
-
-<h2 id="git-log">git log</h2>
+<h3 id="git-log">git log</h3>
 <p>Shows commit history.</p>
-<h3 id="view-the-commit-history">View the commit history</h3>
-<pre><code>git log
+<h4 id="view-the-commit-history">View the commit history</h4>
+<pre><code class="language-sh">git log
 </code></pre>
-
-<h3 id="show-one-log-entry">Show one log entry</h3>
-<pre><code>git log -1
+<h4 id="show-one-log-entry">Show one log entry</h4>
+<pre><code class="language-sh">git log -1
 </code></pre>
-
-<h3 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string</h3>
+<h4 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string</h4>
 <p>This searches the content of the diff, not the commit message.</p>
-<pre><code>git log -S search_string
+<pre><code class="language-sh">git log -S search_string
 </code></pre>
-
-<h3 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex</h3>
-<pre><code>git log --grep='[Ww]hitespace'
+<h4 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex</h4>
+<pre><code class="language-sh">git log --grep='[Ww]hitespace'
 </code></pre>
-
-<h3 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days</h3>
-<pre><code>git log --since=3.days modules/profile_sensu
+<h4 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days</h4>
+<pre><code class="language-sh">git log --since=3.days modules/profile_sensu
 </code></pre>
-
-<h3 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits</h3>
+<h4 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits</h4>
 <p>Useful for seeing TZ settings.</p>
-<pre><code>git log --format=raw -5
+<pre><code class="language-sh">git log --format=raw -5
 </code></pre>
-
-<h3 id="really-pretty-logs">Really pretty logs</h3>
-<pre><code>log --graph --oneline --decorate --all
+<h4 id="really-pretty-logs">Really pretty logs</h4>
+<pre><code class="language-sh">log --graph --oneline --decorate --all
 </code></pre>
-
-<h2 id="git-show">git show</h2>
-<h3 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h3>
-<pre><code>git show f73f9ec7c07e
+<h3 id="git-shortlog">git shortlog</h3>
+<h4 id="show-number-of-commits-by-user-including-e-mail">Show number of commits by user, including e-mail</h4>
+<p>Using the <code>-e</code> flag includes e-mail address. The list is unique per entry, so if you use a different name along with the same e-mail address, that shows up as two entries in the list.</p>
+<pre><code class="language-sh">git shortlog -ens
 </code></pre>
-
-<h3 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA</h3>
+<p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> operation.</p>
+<h3 id="git-show">git show</h3>
+<h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h4>
+<pre><code class="language-sh">git show f73f9ec7c07e
+</code></pre>
+<h4 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA</h4>
 <p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given SHA.</p>
-<pre><code>git show f73f9ec7c07e:dir/filename.yaml
+<pre><code class="language-sh">git show f73f9ec7c07e:dir/filename.yaml
 </code></pre>
-
-<h2 id="git-branches">git branches</h2>
+<h3 id="git-branches">git branches</h3>
 <p>Branches are an integral part of git. They allow you to work on distinct changes without mixing them all up together.</p>
-<h3 id="create-a-branch">Create a branch</h3>
-<pre><code>git checkout -b readme-fix
+<h4 id="create-a-branch">Create a branch</h4>
+<pre><code class="language-sh">git checkout -b readme-fix
 </code></pre>
-
-<h3 id="check-which-branch-youre-in">Check which branch you're in</h3>
-<pre><code>git branch
+<h4 id="check-which-branch-youre-in">Check which branch you're in</h4>
+<pre><code class="language-sh">git branch
 </code></pre>
-
-<h3 id="rename-move-a-branch">Rename (move) a branch</h3>
-<pre><code>git branch -m oldname newname
+<h4 id="rename-move-a-branch">Rename (move) a branch</h4>
+<pre><code class="language-sh">git branch -m oldname newname
 </code></pre>
-
-<h2 id="git-merge">git merge</h2>
+<h3 id="git-merge">git merge</h3>
 <p>This lets you merge two branches.</p>
-<h3 id="merge-branch-with-master">Merge branch with master</h3>
-<pre><code>git checkout master
+<h4 id="merge-branch-with-master">Merge branch with master</h4>
+<pre><code class="language-sh">git checkout master
 git merge readme-fix-branch
 git branch -d readme-fix-branch
 </code></pre>
-
-<h3 id="disable-fast-forward-merges">disable fast-forward merges</h3>
+<h4 id="disable-fast-forward-merges">disable fast-forward merges</h4>
 <p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
-<pre><code>git config --global merge.ff false
+<pre><code class="language-sh">git config --global merge.ff false
 </code></pre>
-
-<h2 id="remotes">remotes</h2>
-<h3 id="add-a-remote">Add a remote</h3>
-<pre><code>git remote add upstream https://github.com/danielhoherd/homepass
+<h3 id="git-filter-repo">git filter-repo</h3>
+<p><a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> is not a standard tool with git, but can be installed separately. It is used for rewriting the history of the git repo, allowing move, rename, merging and trimming operations, rewriting commit IDs, and more. This is a destructive tool, so it should be performed on a fresh clone of the repo while you iterate on finding the right sequence of operations to perform to get to your desired state. The destructive nature is that it rewrites the entire history of the repo, so if your repo depends on specific SHAs or any other specific history, you probably need to take a harder look at how to solve your problem.</p>
+<h4 id="extract-one-subdir-into-its-own-repo-renaming-some-files">Extract one subdir into its own repo, renaming some files</h4>
+<p>This is great if you want to extract part of a repo for public release, or just for organizational purposes.</p>
+<p>Extract the path <code>scratch-work/scripts</code> into <code>bin</code>, removing all other history in the repo.</p>
+<pre><code>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
 </code></pre>
-
-<h3 id="push-to-a-specific-remote">Push to a specific remote</h3>
-<pre><code># push to the master branch of the remote named upstream
+<h3 id="remotes">remotes</h3>
+<h4 id="add-a-remote">Add a remote</h4>
+<pre><code class="language-sh">git remote add upstream https://github.com/danielhoherd/homepass
+</code></pre>
+<h4 id="push-to-a-specific-remote">Push to a specific remote</h4>
+<pre><code class="language-sh"># push to the master branch of the remote named upstream
 git push upstream master
 </code></pre>
-
-<h3 id="alter-the-source-of-origin">Alter the source of origin</h3>
+<h4 id="alter-the-source-of-origin">Alter the source of origin</h4>
 <p>If you move your repo to another location, use this command to change the upstream URL:</p>
-<pre><code>git remote set-url origin https://user@newhost/newpath/reponame
+<pre><code class="language-sh">git remote set-url origin https://user@newhost/newpath/reponame
 </code></pre>
-
-<h2 id="git-reset">git reset</h2>
+<h3 id="git-reset">git reset</h3>
 <p><code>git reset</code> allows you to reset your state to what it was at a previous point.</p>
-<h3 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally</h3>
+<h4 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally</h4>
 <p>The reflog is a log of what steps have been performed locally. You can view the reflog, then reset to a prior state.</p>
-<pre><code>git reflog # show all HEAD changes
+<pre><code class="language-sh">git reflog # show all HEAD changes
 git reset --hard 45e0ae5 # reset all git tracked state to 45e0ae5
 </code></pre>
-
 <p>Alternately, you can use a date:</p>
-<pre><code>git reflog --date=iso # absolute date based reflog references
+<pre><code class="language-sh">git reflog --date=iso # absolute date based reflog references
 git reset &quot;HEAD@{2015-03-25 14:45:30 -0700}&quot; --hard
 </code></pre>
-
-<h3 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master</h3>
+<h4 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master</h4>
 <p>Do this if you want to start your branch over with only the current changes. This is useful if you've been iterating through lots of bad changes that were committed and want to clean them all out. It basically lets you squash to a single commit on your branch.</p>
-<pre><code>git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+<pre><code class="language-sh">git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
 </code></pre>
-
-<h3 id="hard-reset-of-local-changes">Hard reset of local changes</h3>
+<h4 id="hard-reset-of-local-changes">Hard reset of local changes</h4>
 <p>This will abandon all local changes and resolve merge conflicts</p>
-<pre><code>git fetch origin
+<pre><code class="language-sh">git fetch origin
 git reset --hard origin/master
 </code></pre>
-
-<h2 id="git-clean">git clean</h2>
-<h3 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories</h3>
+<h3 id="git-clean">git clean</h3>
+<h4 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories</h4>
 <p>This is useful after your reset to a prior state. It deletes all files and directories that show up in the untracked section of <code>git status</code></p>
-<pre><code>git clean -ffdx
+<pre><code class="language-sh">git clean -ffdx
 </code></pre>
-
-<h2 id="miscellaneous-tricks">Miscellaneous tricks</h2>
-<h3 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h3>
-<pre><code>find /var/www/html/mediawiki/ -name .git | while read -r X ; do
+<h3 id="miscellaneous-tricks">Miscellaneous tricks</h3>
+<h4 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h4>
+<pre><code class="language-sh">find /var/www/html/mediawiki/ -name .git | while read -r X ; do
   pushd &quot;$(dirname &quot;${X}&quot;)&quot; &amp;&amp; \
   [ $(git remote -v | wc -l) -gt 0 ] &amp;&amp; \
   git pull &amp;&amp; \
   popd ;
 done ;
 </code></pre>
-
-<h3 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date</h3>
-<pre><code>git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
+<h4 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date</h4>
+<pre><code class="language-sh">git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
 --pretty=format:'%ad %h%d %an | %s %n' --date=iso -1 | sort | nl -ba
 </code></pre>
-
-<h3 id="branch-cleanup">Branch cleanup</h3>
+<h4 id="branch-cleanup">Branch cleanup</h4>
 <pre><code>git gc --prune=now
 git remote prune origin
 </code></pre>
-              
+<h3 id="git-grep">git grep</h3>
+<h4 id="find-a-string-in-all-branches">Find a string in all branches</h4>
+<p>This finds the word "hunter2" in the tests directory of all branches.</p>
+<pre><code class="language-sh">git grep '\bhunter2\b' $(git branch -a --format='%(refname:short)') tests/
+</code></pre>
+
+
+
+
+
+                
+              </article>
             </div>
-          </div>
-          <footer>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../gitlab/" class="btn btn-neutral float-right" title="Gitlab">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../gige-vision/" class="btn btn-neutral" title="GigE Vision"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
       
+        <script src="../extra_javascript/instant-page.js"></script>
       
-        <span><a href="../gige-vision/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../gitlab/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
-</body>
+    
+  </body>
 </html>
