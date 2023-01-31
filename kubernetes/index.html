@@ -2475,8 +2475,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-kubeadm-configs" class="md-nav__link">
-    Multiple kubeadm configs
+  <a href="#multiple-kubernetes-client-configs" class="md-nav__link">
+    Multiple kubernetes client configs
   </a>
   
 </li>
@@ -2573,6 +2573,13 @@
           <li class="md-nav__item">
   <a href="#show-pods-that-are-not-running" class="md-nav__link">
     Show pods that are not running
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-that-are-not-running-or-did-not-exit-cleanly" class="md-nav__link">
+    Show pods that are not running or did not exit cleanly
   </a>
   
 </li>
@@ -5378,8 +5385,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-kubeadm-configs" class="md-nav__link">
-    Multiple kubeadm configs
+  <a href="#multiple-kubernetes-client-configs" class="md-nav__link">
+    Multiple kubernetes client configs
   </a>
   
 </li>
@@ -5476,6 +5483,13 @@
           <li class="md-nav__item">
   <a href="#show-pods-that-are-not-running" class="md-nav__link">
     Show pods that are not running
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-pods-that-are-not-running-or-did-not-exit-cleanly" class="md-nav__link">
+    Show pods that are not running or did not exit cleanly
   </a>
   
 </li>
@@ -5782,7 +5796,7 @@ selfsubjectrulesreviews.authorization.k8s.io    []                  []          
                                                 [/version]          []               [get]
                                                 [/version]          []               [get]
 </code></pre>
-<h3 id="multiple-kubeadm-configs">Multiple kubeadm configs</h3>
+<h3 id="multiple-kubernetes-client-configs">Multiple kubernetes client configs</h3>
 <p>The default config is <code>~/.kube/config</code>, but if you want to use multiple configs you can do this:</p>
 <pre><code class="language-sh">export KUBECONFIG=&quot;${HOME}/code/kubespray/artifacts/admin.conf:${HOME}/.kube/config&quot;
 </code></pre>
@@ -5878,10 +5892,13 @@ jq -r '
 </code></pre>
 <p>To sort ascending you can use <code>awk</code> and <code>tac</code> (which is <code>cat</code> in reverse)</p>
 <pre><code class="language-sh">kubectl get pods --sort-by=.metadata.creationTimestamp |
-awk 'NR == 1; NR &gt; 1 {print $0 | &quot;tac&quot;}'
+awk 'NR == 1; NR &gt; 1 {print | &quot;tac&quot;}'
 </code></pre>
 <h3 id="show-pods-that-are-not-running">Show pods that are not running</h3>
 <pre><code class="language-sh">kubectl get pods --all-namespaces --field-selector='status.phase!=Running' --sort-by=.metadata.creationTimestamp
+</code></pre>
+<h3 id="show-pods-that-are-not-running-or-did-not-exit-cleanly">Show pods that are not running or did not exit cleanly</h3>
+<pre><code class="language-sh">kubectl get pods --all-namespaces --field-selector='status.phase!=Running,status.phase!=Succeeded' --sort-by=.metadata.creationTimestamp
 </code></pre>
 <h3 id="show-pods-that-are-terminating">Show pods that are terminating</h3>
 <p>Unfortunately "Terminating" shows up as a status, but is not a phase, so we have to jump through some hoops to show this list. Here's one way to do this:</p>
