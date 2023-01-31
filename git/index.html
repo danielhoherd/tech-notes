@@ -1828,6 +1828,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-what-tags-contain-a-given-sha" class="md-nav__link">
+    Show what tags contain a given sha
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2090,6 +2097,13 @@
           <li class="md-nav__item">
   <a href="#rename-move-a-branch" class="md-nav__link">
     Rename (move) a branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-branches-contain-a-given-sha" class="md-nav__link">
+    Show what branches contain a given sha
   </a>
   
 </li>
@@ -5820,6 +5834,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-what-tags-contain-a-given-sha" class="md-nav__link">
+    Show what tags contain a given sha
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6082,6 +6103,13 @@
           <li class="md-nav__item">
   <a href="#rename-move-a-branch" class="md-nav__link">
     Rename (move) a branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-branches-contain-a-given-sha" class="md-nav__link">
+    Show what branches contain a given sha
   </a>
   
 </li>
@@ -6405,6 +6433,9 @@ export GIT_CONFIG_GLOBAL=&quot;$PWD/your_crafted_gitconfig_file&quot;
 <h4 id="delete-a-remote-tag">Delete a remote tag</h4>
 <pre><code class="language-sh">git push --delete origin v0.5.3
 </code></pre>
+<h4 id="show-what-tags-contain-a-given-sha">Show what tags contain a given sha</h4>
+<pre><code class="language-sh">git tag --contains abc123
+</code></pre>
 <h3 id="git-config">git config</h3>
 <p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
 <ul>
@@ -6518,6 +6549,9 @@ git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 </code></pre>
 <h4 id="rename-move-a-branch">Rename (move) a branch</h4>
 <pre><code class="language-sh">git branch -m oldname newname
+</code></pre>
+<h4 id="show-what-branches-contain-a-given-sha">Show what branches contain a given sha</h4>
+<pre><code class="language-sh">git branch --contains abc123
 </code></pre>
 <h3 id="git-merge">git merge</h3>
 <p>This lets you merge two branches.</p>

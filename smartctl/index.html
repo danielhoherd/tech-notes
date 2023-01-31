@@ -5133,10 +5133,10 @@
 <pre><code class="language-sh">smartctl -l selftest /dev/sda
 </code></pre>
 <h3 id="show-how-many-hours-each-drive-has-been-powered-on">Show how many hours each drive has been powered on</h3>
-<pre><code>$ lsblk -pdo NAME,SIZE,MODEL,SERIAL -n |
+<pre><code>$ lsblk -I8 -pdo NAME,SIZE,MODEL,SERIAL -n |
 while read -r drive size extras ; do
-  echo &quot;$drive\t$(sudo smartctl -A &quot;$drive&quot; | awk '/Hours/ {print $NF}')\t$size\t$extras&quot;
-done | column -s'\t' -t
+  echo &quot;$drive|$(sudo smartctl -A &quot;$drive&quot; | awk '/Power_On_Hours/ {print $NF}')|$size|$extras&quot;
+done | column -s'|' -t
 /dev/sda    35265    238.5G    Samsung SSD 850  S33KNX0JB59421F
 /dev/sdb    41261    7.3T      HGST HUH728080AL VKHAVT1X
 /dev/sdc    41305    7.3T      HGST HUH728080AL VKH46K7X
