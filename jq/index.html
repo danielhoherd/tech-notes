@@ -2401,6 +2401,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#craft-json-data-for-use-with-curl" class="md-nav__link">
+    Craft json data for use with curl
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5193,6 +5200,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#craft-json-data-for-use-with-curl" class="md-nav__link">
+    Craft json data for use with curl
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5373,6 +5387,30 @@ kube-system  kube-dns-66f64447b8-b2jsf  sidecar           0
   2,
   &quot;missing&quot;
 ]
+</code></pre>
+<h3 id="craft-json-data-for-use-with-curl">Craft json data for use with curl</h3>
+<p>When using <code>curl --data</code>, in-line JSON can get out of hand real quick. To avoid confusing syntaxes, use <code>jq</code> to create a temp file, then reference that file in <code>curl</code>:</p>
+<pre><code class="language-sh">JSON_DATA=$(mktemp)
+jq -n '{service_account: env.SERVICE_ACCOUNT_ID, secret_key: env.SERVICE_ACCOUNT_KEY}' &gt; &quot;$JSON_DATA&quot;
+</code></pre>
+<p>The above commands create a temporary file with the correct and valid JSON:</p>
+<pre><code>$ cat &quot;$JSON_DATA&quot;
+{
+  &quot;service_account&quot;: &quot;whoever@serviceaccount.example.com&quot;,
+  &quot;secret_key&quot;: &quot;abc123&quot;
+}
+</code></pre>
+<p>Then reference that in curl:</p>
+<pre><code>$ curl -s --request POST --header &quot;content-type: application/json&quot; --data &quot;@${JSON_DATA}&quot; https://httpbin.org/anything
+{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;{  \&quot;service_account\&quot;: \&quot;whoever@serviceaccount.example.com\&quot;,  \&quot;secret_key\&quot;: \&quot;abc123\&quot;}&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Content-Length&quot;: &quot;84&quot;,
+...
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

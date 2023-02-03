@@ -3703,6 +3703,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#benchmarking" class="md-nav__link">
+    Benchmarking
+  </a>
+  
+    <nav class="md-nav" aria-label="Benchmarking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-flame-graph" class="md-nav__link">
+    Generate a flame graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debugging" class="md-nav__link">
     Debugging
   </a>
@@ -3829,13 +3863,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-a-flame-graph" class="md-nav__link">
-    Generate a flame graph
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#install-a-package-from-git" class="md-nav__link">
     Install a package from git
   </a>
@@ -3848,7 +3875,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
+  <a href="#links_1" class="md-nav__link">
     Links
   </a>
   
@@ -5323,6 +5350,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#benchmarking" class="md-nav__link">
+    Benchmarking
+  </a>
+  
+    <nav class="md-nav" aria-label="Benchmarking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-flame-graph" class="md-nav__link">
+    Generate a flame graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debugging" class="md-nav__link">
     Debugging
   </a>
@@ -5449,13 +5510,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-a-flame-graph" class="md-nav__link">
-    Generate a flame graph
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#install-a-package-from-git" class="md-nav__link">
     Install a package from git
   </a>
@@ -5468,7 +5522,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
+  <a href="#links_1" class="md-nav__link">
     Links
   </a>
   
@@ -5565,6 +5619,22 @@ exit
 <pre><code>sys.path.append('/Users/username/code/somedir')
 import module # from somedir
 </code></pre>
+<h2 id="benchmarking">Benchmarking</h2>
+<h3 id="links">Links</h3>
+<ul>
+<li><a href="https://youtu.be/YY7yJHo0M5I">https://youtu.be/YY7yJHo0M5I</a>: Talk - Anthony Shaw: Write faster Python! Common performance anti patterns</li>
+<li><a href="https://pypi.org/project/scalene">https://pypi.org/project/scalene</a></li>
+<li><a href="https://pypi.org/project/austin-python">https://pypi.org/project/austin-python</a></li>
+<li><a href="https://docs.python.org/3/library/profile.html">https://docs.python.org/3/library/profile.html</a></li>
+<li><a href="https://docs.python.org/3/library/timeit.html">https://docs.python.org/3/library/timeit.html</a></li>
+</ul>
+<h3 id="generate-a-flame-graph">Generate a flame graph</h3>
+<p>Until <a href="https://github.com/baverman/flameprof/pull/5">https://github.com/baverman/flameprof/pull/5</a> is merged you may have to edit the installed <code>flameprof</code> shell script.</p>
+<pre><code class="language-sh">pip3 install flameprof
+python -m cProfile -o myscript.prof myscript.py
+flameprof myscript.prof.prof &gt; output.svg
+</code></pre>
+<h3 id="_1"></h3>
 <h2 id="debugging">Debugging</h2>
 <h3 id="verbose-environment-var">Verbose environment var</h3>
 <p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE</a></p>
@@ -5680,17 +5750,11 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
 &gt;&gt;&gt; datetime.strptime('2019-05-01 10:01:59', &quot;%Y-%m-%d %H:%M:%S&quot;).strftime('%A %B %d, %Y')
 'Wednesday May 01, 2019'  # to a string, via datetime object
 </code></pre>
-<h3 id="generate-a-flame-graph">Generate a flame graph</h3>
-<p>Until <a href="https://github.com/baverman/flameprof/pull/5">https://github.com/baverman/flameprof/pull/5</a> is merged you may have to edit the installed <code>flameprof</code> shell script.</p>
-<pre><code class="language-sh">pip3 install flameprof
-python -m cProfile -o myscript.prof myscript.py
-flameprof myscript.prof.prof &gt; output.svg
-</code></pre>
 <h3 id="install-a-package-from-git">Install a package from git</h3>
 <p>This is great for locally developed packages. This also works with <a href="https://pypi.org/project/pipx/">pipx</a>, which will install tools into their own virtualenv.</p>
 <pre><code>pip install git+ssh://gitserver/path/repo.git@git-ref
 </code></pre>
-<h2 id="links">Links</h2>
+<h2 id="links_1">Links</h2>
 <h3 id="decorators">Decorators</h3>
 <ul>
 <li><a href="https://wiki.python.org/moin/PythonDecoratorLibrary">https://wiki.python.org/moin/PythonDecoratorLibrary</a></li>
