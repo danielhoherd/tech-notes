@@ -10,20 +10,20 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/solo/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/document-query/">
       
       
-        <link rel="prev" href="../snmp/">
+        <link rel="prev" href="../docker/">
       
       
-        <link rel="next" href="../sort/">
+        <link rel="next" href="../dsrc/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>solo - Daniel Hoherd's tech notes</title>
+        <title>document query tools - Daniel Hoherd's tech notes</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#solo" class="md-skip">
+        <a href="#document-query-tools" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              solo
+              document query tools
             
           </span>
         </div>
@@ -1240,11 +1240,52 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../document-query/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          document query tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         document query tools
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4120,21 +4161,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../solo/" class="md-nav__link">
         solo
       </a>
-      
     </li>
   
 
@@ -4954,6 +4985,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4968,9 +5014,18 @@
 
 
 
-<h1 id="solo">solo</h1>
-<p>solo is a command that uses a per-user loopback IP# and a designated port to ensure that multiple copies of a command are not run. This takes the place of pid files and process tracking, and has the benefit of never leaving around a false positive. It also lets you skip building trap, pid file and process checking into every shell script you write.</p>
-<p><a href="https://github.com/timkay/solo">https://github.com/timkay/solo</a></p>
+<h1 id="document-query-tools">document query tools</h1>
+<p>Tools to query documents from the command line.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://github.com/BurntSushi/xsv">https://github.com/BurntSushi/xsv</a></li>
+<li><a href="https://github.com/TomWright/dasel">https://github.com/TomWright/dasel</a>: Also check out <a href="../dasel/">my notes on dasel</a></li>
+<li><a href="https://github.com/harelba/q">https://github.com/harelba/q</a>: Also check out <a href="../q/">my notes on q</a></li>
+<li><a href="https://github.com/itchyny/gojq">https://github.com/itchyny/gojq</a></li>
+<li><a href="https://github.com/mgdm/htmlq">https://github.com/mgdm/htmlq</a></li>
+<li><a href="https://github.com/mikefarah/yq">https://github.com/mikefarah/yq</a></li>
+<li><a href="https://github.com/stedolan/jq">https://github.com/stedolan/jq</a>: Also check out <a href="../jq/">my notes on jq</a>. As of 2023-01 this seems to be abandonware. May be moved to <a href="https://github.com/jqlang/jq">https://github.com/jqlang/jq</a></li>
+</ul>
 
 
 

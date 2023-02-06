@@ -1242,6 +1242,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../document-query/" class="md-nav__link">
+        document query tools
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../dsrc/" class="md-nav__link">
         dsrc
       </a>
@@ -5205,8 +5220,8 @@ get_certificate_from_server github.com
 </code></pre>
 <h3 id="validate-a-keys-cert-pair">Validate a keys / cert pair</h3>
 <p>To validate that a particular key was used to generate a certificate, useful for testing https key/crt files, do the following and make sure the modulus sections match:</p>
-<pre><code class="language-sh">openssl rsa  -noout -text -in server.key | grep -i -A9 modulus
-openssl x509 -noout -text -in server.crt | grep -i -A9 modulus
+<pre><code class="language-sh">openssl rsa  -noout -modulus -in server.key
+openssl x509 -noout -modulus -in server.crt # or server.pem
 </code></pre>
 <p>Or as a function:</p>
 <pre><code class="language-sh">function crt-key-compare {
