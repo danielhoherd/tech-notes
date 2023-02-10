@@ -5182,7 +5182,7 @@
 </code></pre>
 <h3 id="show-metadata-about-a-specific-release-in-json">Show metadata about a specific release in json</h3>
 <p>You can find the revision in a few places, like <code>helm list -A</code>. Default is to store data about the last 10 releases per release_name.</p>
-<pre><code class="language-sh">helm history -n $NS $release_name -o json | jq '.[] | select(.revision == 157)'
+<pre><code class="language-sh">helm history -n &quot;$NS&quot; &quot;$RELEASE_NAME&quot; -o json | jq '.[] | select(.revision == 157)'
 </code></pre>
 <h3 id="show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release">Show raw data about what helm sent to the k8s server for a recent release</h3>
 <p>First, find the secret that you will want to search. You can get the release number from <code>helm history -n "$NS" foo</code> or dig in <code>kubectl -n $NS get secret</code></p>
@@ -5192,9 +5192,7 @@ sh.helm.release.v1.foo.v339  helm.sh/release.v1  1  13d
 sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
 </code></pre>
 <p>Then send that secret into the following command to get the full manifest that was sent to the k8s api:</p>
-<pre><code class="language-sh">k -n &quot;$NS&quot; get secret sh.helm.release.v1.foo.v339 -o jsonpath='{.data.release}' |
-  base64 -d |
-  base64 -d |
+<pre><code class="language-sh">k -n &quot;$NS&quot; get secret &quot;$SECRET&quot; -o go-template='{{ .data.release | base64decode | base64decode }}' |
   gzip -d
 </code></pre>
 <p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>

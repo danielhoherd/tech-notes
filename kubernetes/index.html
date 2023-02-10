@@ -5963,8 +5963,17 @@ StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
 </code></pre>
 <p>That's obviously a contrived example, but the real learning here is that it is possible to iterate deep json data while referencing values form higher levels by storing that higher level as variables.</p>
 <h3 id="decode-a-secret">Decode a secret</h3>
-<p>When using <code>-o jsonpath</code> you have to escape any key names that have periods, which is unlike some other json tools like <code>jq</code> where the syntax would be <code>.data["pgbouncer.ini"]</code></p>
+<p>Use built in base64 decoding like this:</p>
+<pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o go-template='{{ printf &quot;%s\n&quot; (.data.password | base64decode) }}'
+</code></pre>
+<p>Things get tricky when you have a dot in the key name:</p>
+<pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o go-template='{{ printf &quot;%s\n&quot; (index .data &quot;pgbouncer.ini&quot; | base64decode) }}'
+</code></pre>
+<p>Or you can use <code>-o jsonpath</code> with an external base64 decoder:</p>
 <pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o jsonpath='{.data.pgbouncer\.ini}' | base64 -d
+</code></pre>
+<p>Alternatively you can use jq, which has the cleanest syntax when accessing keys with dots in the name:</p>
+<pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o json | jq -r '.data[&quot;pgbouncer.ini&quot;]' | base64 -d
 </code></pre>
 <h3 id="decode-ssl-secrets-and-show-info-about-the-certificates">Decode SSL secrets and show info about the certificates</h3>
 <pre><code class="language-sh">kubectl get secret -n istio-system istio.default -o json |
