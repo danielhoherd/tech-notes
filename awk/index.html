@@ -529,8 +529,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#print-sum-and-average-of-the-first-column-of-a-file" class="md-nav__link">
-    Print sum and average of the first column of a file
+  <a href="#print-count-sum-and-average-of-the-first-column-of-stdin" class="md-nav__link">
+    Print count, sum, and average of the first column of stdin
   </a>
   
 </li>
@@ -5272,8 +5272,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#print-sum-and-average-of-the-first-column-of-a-file" class="md-nav__link">
-    Print sum and average of the first column of a file
+  <a href="#print-count-sum-and-average-of-the-first-column-of-stdin" class="md-nav__link">
+    Print count, sum, and average of the first column of stdin
   </a>
   
 </li>
@@ -5454,8 +5454,9 @@ divide.</p>
 <h3 id="print-sum-all-the-first-columns-of-each-line-in-a-file">Print sum all the first columns of each line in a file</h3>
 <pre><code class="language-sh">awk '{sum += $1} END {print sum}' filename
 </code></pre>
-<h3 id="print-sum-and-average-of-the-first-column-of-a-file">Print sum and average of the first column of a file</h3>
-<pre><code class="language-sh">awk '{sum += $1} END {avg = sum/NR ; printf &quot;Sum:     %s\nAverage: %s\n&quot;, sum, avg}' foo.txt
+<h3 id="print-count-sum-and-average-of-the-first-column-of-stdin">Print count, sum, and average of the first column of stdin</h3>
+<pre><code class="language-sh">for _ in {1..100} ; do echo $((RANDOM % 100)) ; done |
+awk '{sum += $1} END {avg = sum/NR ; printf &quot;Count:   %s\nSum:     %s\nAverage: %s\n&quot;, NR, sum, avg}'
 </code></pre>
 <h3 id="split-file-by-recurring-string">Split file by recurring string</h3>
 <p>This will create a new file every time the string "SERVER" is found, essentially splitting the file by that string. Concatenating all of the output files would create the original file (potentially adding an extra newline).</p>
