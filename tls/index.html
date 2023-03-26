@@ -5263,18 +5263,18 @@ openssl x509 -noout -modulus -in server.crt # or server.pem
 <h3 id="see-some-information-about-a-servers-certificate">See some information about a server's certificate</h3>
 <pre><code class="language-sh">SERVER_NAME=linuxforums.org
 SERVER_PORT=443
-openssl s_client -connect &quot;${SERVER_NAME}:${SERVER_PORT:-443}&quot;
+openssl s_client -connect &quot;${SERVER_NAME}:${SERVER_PORT:-443}&quot; -servername &quot;${SERVER_NAME}
 </code></pre>
 <h3 id="see-just-the-dates-of-a-webservers-ssl-certificate">See just the dates of a webserver's SSL certificate</h3>
 <pre><code class="language-sh">check-server-cert-dates() {
     test -z &quot;$1&quot; &amp;&amp; { echo &quot;Usage: check-server-cert-dates &lt;servername&gt; [port]&quot; ; return 1 ; }
-    openssl s_client -connect &quot;${1}:${2:-443}&quot; 2&gt;/dev/null &lt;/dev/null |
+    openssl s_client -connect &quot;${1}:${2:-443}&quot; -servername &quot;$1&quot; 2&gt;/dev/null &lt;/dev/null |
     openssl x509 -noout -dates
 }
 </code></pre>
 <h3 id="show-the-issuer-and-dates-of-a-certificate">Show the issuer and dates of a certificate</h3>
 <p>This is useful when you're moving certs between issuers, for instance if you moved from letsencrypt to something else, then later get an expiration notice from letsencrypt, and want to verify that you're not using that certificate anymore:</p>
-<pre><code class="language-sh">openssl s_client -connect ${REMOTE_HOST}:443 2&gt;/dev/null &lt;/dev/null |
+<pre><code class="language-sh">openssl s_client -connect &quot;${REMOTE_HOST}:443&quot; -servername &quot;$REMOTE_HOST&quot; 2&gt;/dev/null &lt;/dev/null |
 openssl x509 -noout -issuer -dates
 </code></pre>
 <p>The output will be something like:</p>
