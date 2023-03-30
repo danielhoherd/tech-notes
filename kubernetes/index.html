@@ -2666,6 +2666,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-all-pods-and-their-containers-requests-and-limits" class="md-nav__link">
+    Show all pods and their container's requests and limits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-daemonsets-that-are-not-up-to-date" class="md-nav__link">
     Show daemonsets that are not up to date
   </a>
@@ -5591,6 +5598,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-all-pods-and-their-containers-requests-and-limits" class="md-nav__link">
+    Show all pods and their container's requests and limits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-daemonsets-that-are-not-up-to-date" class="md-nav__link">
     Show daemonsets that are not up to date
   </a>
@@ -6031,6 +6045,13 @@ notAfter=Sep 27 13:52:55 2031 GMT
 </code></pre>
 <h3 id="watch-whats-going-on-in-your-cluster">Watch what's going on in your cluster</h3>
 <pre><code class="language-sh">watch kubectl get pods --all-namespaces -o wide
+</code></pre>
+<p>or</p>
+<pre><code class="language-sh">kubectl get pods --all-namespaces -o wide -w
+</code></pre>
+<h3 id="show-all-pods-and-their-containers-requests-and-limits">Show all pods and their container's requests and limits</h3>
+<pre><code class="language-sh">kubectl get pods --all-namespaces \
+  -o jsonpath='{range .items[*]}{.metadata.namespace}{&quot;\t&quot;}{.metadata.name}{&quot;\t&quot;}{.spec.containers[*].resources}{&quot;\n&quot;}{end}'
 </code></pre>
 <h3 id="show-daemonsets-that-are-not-up-to-date">Show daemonsets that are not up to date</h3>
 <pre><code class="language-sh">kubectl get daemonset -A | awk '$3 != $6 {print}'
