@@ -5205,9 +5205,13 @@
 <pre><code class="language-sh">curl -L http://whatever
 </code></pre>
 <h3 id="show-the-http-code-for-a-given-request">Show the HTTP code for a given request</h3>
-<p>This downloads 1 byte from the remote URI and shows the HTTP code, so it's a quick way to discover HTTP codes.</p>
+<p>Use the http method <code>HEAD</code> to only the headers of the remote URI and shows the HTTP code. This is useful for efficiently checking the existence of a URI that would be a large download.</p>
+<pre><code class="language-sh">curl --head -s -w &quot;%{http_code}\n&quot; -o /dev/null http://www.example.com/
+</code></pre>
+<p>Not all HTTP servers support the <code>HEAD</code> method though, so a slightly worse alternative is:</p>
 <pre><code class="language-sh">curl --max-filesize 1 -s -w &quot;%{http_code}\n&quot; -o /dev/null http://www.example.com/
 </code></pre>
+<p><code>--max-filesize 1</code> will download something more than 0 bytes, though usually not the whole file. Notable is that curl does not seem to tell the truth about how many bytes were actually downloaded when using <code>--max-filesize 1 -w '%{size_download}'</code>. This can be verified by opening a simple http server (eg: <code>python3 -m http.server</code>), then running <code>tcpflow -c</code>, and then requesting the root dir of your simple http server. You will see the directory listing being sent across the wire, but curl will report 0 bytes being downloaded. The true download size depends on what file is being downloaded and how big it is. For large binary files, I have observed this as being 0 bytes.</p>
 <h3 id="request-a-specific-vhost-from-a-server">Request a specific vhost from a server</h3>
 <p>This is useful for testing production code on non-production multi-tennant name based virtual hosts.</p>
 <pre><code class="language-sh">curl -H 'Host: www.domain.com' http://example.com

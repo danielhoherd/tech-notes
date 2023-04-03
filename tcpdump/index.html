@@ -4596,6 +4596,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-how-many-bytes-were-captured-in-a-cap-file" class="md-nav__link">
+    Show how many bytes were captured in a cap file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#print-out-a-list-of-observed-src-ip-addresses-every-5-seconds" class="md-nav__link">
     Print out a list of observed src ip addresses every 5 seconds
   </a>
@@ -5199,6 +5206,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-how-many-bytes-were-captured-in-a-cap-file" class="md-nav__link">
+    Show how many bytes were captured in a cap file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#print-out-a-list-of-observed-src-ip-addresses-every-5-seconds" class="md-nav__link">
     Print out a list of observed src ip addresses every 5 seconds
   </a>
@@ -5284,6 +5298,10 @@
 <h3 id="write-a-circular-buffer-of-traffic">Write a circular buffer of traffic</h3>
 <p>This will write 5 files 1 mb each and loop through them as the destination for writing traffic. That is, the filenames do not indicate chronology. The files will be named foo.cap[0-4]</p>
 <pre><code class="language-sh">sudo tcpdump -C 1 -W 5 -w foo.cap
+</code></pre>
+<h3 id="show-how-many-bytes-were-captured-in-a-cap-file">Show how many bytes were captured in a cap file</h3>
+<p>This prints out some stats about captured packets, then adds up all the bytes. The size is from layer 3 up, so it excludes ethernet frame data.</p>
+<pre><code class="language-sh">tcpdump -q -n -r hillary-clintons-email.cap | awk '{sum+=$NF} END {print sum}'
 </code></pre>
 <h3 id="print-out-a-list-of-observed-src-ip-addresses-every-5-seconds">Print out a list of observed src ip addresses every 5 seconds</h3>
 <p>This is limited to 192.168.1 matches</p>
