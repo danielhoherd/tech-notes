@@ -4886,13 +4886,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-the-type-of-each-listing-from-ls" class="md-nav__link">
-    Get the type of each listing from ls
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token" class="md-nav__link">
     Handle spaces and use the arg as something other than the last token
   </a>
@@ -5073,13 +5066,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-the-type-of-each-listing-from-ls" class="md-nav__link">
-    Get the type of each listing from ls
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token" class="md-nav__link">
     Handle spaces and use the arg as something other than the last token
   </a>
@@ -5130,24 +5116,22 @@
 <h1 id="xargs">xargs</h1>
 <p>xargs issues commands with the STDIN as arguments, by default appended to the end of the command.</p>
 <h2 id="examples">Examples</h2>
-<h3 id="get-the-type-of-each-listing-from-ls">Get the type of each listing from ls</h3>
-<pre><code>ls | xargs file
-</code></pre>
 <h3 id="handle-spaces-and-use-the-arg-as-something-other-than-the-last-token">Handle spaces and use the arg as something other than the last token</h3>
 <p>The <code>-I</code> argument takes a string to use as a delimiter for any input.</p>
-<pre><code>ls | xargs -I {} mv &quot;{}&quot; ~/some/dir/
+<pre><code class="language-sh">ls | xargs -I {} mv &quot;{}&quot; ~/some/dir/
 </code></pre>
 <h3 id="pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time">Pass 5 args to each echo command, and never do more than 3 echo processes at a time</h3>
-<pre><code>echo {1..100} | xargs -n5 -P3 echo
+<pre><code class="language-sh">echo {1..100} | xargs -n5 -P3 echo
 </code></pre>
+<p>This is a contrived example, and the <code>-P3</code> won't really get you anything, but if you were running a single-threaded command that took a long then this would help you complete the work quicker.</p>
 <h3 id="use-sed-to-change-git-files-containing-a-certain-string">use sed to change git files containing a certain string</h3>
 <p>This uses GNU <code>sed -i</code>, on macOS you should use <code>sed -i ''</code> or <code>gsed -i</code>.</p>
-<pre><code>git grep -l 192.168.5 | xargs sed -i 's/192.168.5/172.18.0/'
+<pre><code class="language-sh">git grep -l 192.168.5 | xargs sed -i 's/192.168.5/172.18.0/g'
 </code></pre>
 <h3 id="issue-the-same-command-several-times-in-parallel">Issue the same command several times in parallel</h3>
 <p>This takes 1 directory as input and starts a sub-shell that cd's to the directory and runs a command. Up to 4 subhells are run in parallel. This is very similar to the <a href="https://www.gnu.org/software/parallel/">GNU parallel</a> command.</p>
-<pre><code>find ~/code/ -mindepth 1 -maxdepth 1 -type d |
-xargs -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
+<pre><code class="language-sh">find ~/code/ -mindepth 1 -maxdepth 1 -type d -print0 |
+xargs -0 -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
 </code></pre>
 
 
