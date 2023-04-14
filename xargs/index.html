@@ -4886,13 +4886,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-the-type-of-each-listing-from-ls" class="md-nav__link">
-    Get the type of each listing from ls
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token" class="md-nav__link">
     Handle spaces and use the arg as something other than the last token
   </a>
@@ -4900,8 +4893,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time" class="md-nav__link">
-    Pass 5 args to each echo command, and never do more than 3 echo processes at a time
+  <a href="#tun-3-concurrent-processes-each-consuming-5-results" class="md-nav__link">
+    Tun 3 concurrent processes, each consuming 5 results
   </a>
   
 </li>
@@ -5073,13 +5066,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-the-type-of-each-listing-from-ls" class="md-nav__link">
-    Get the type of each listing from ls
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token" class="md-nav__link">
     Handle spaces and use the arg as something other than the last token
   </a>
@@ -5087,8 +5073,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time" class="md-nav__link">
-    Pass 5 args to each echo command, and never do more than 3 echo processes at a time
+  <a href="#tun-3-concurrent-processes-each-consuming-5-results" class="md-nav__link">
+    Tun 3 concurrent processes, each consuming 5 results
   </a>
   
 </li>
@@ -5130,24 +5116,25 @@
 <h1 id="xargs">xargs</h1>
 <p>xargs issues commands with the STDIN as arguments, by default appended to the end of the command.</p>
 <h2 id="examples">Examples</h2>
-<h3 id="get-the-type-of-each-listing-from-ls">Get the type of each listing from ls</h3>
-<pre><code>ls | xargs file
-</code></pre>
 <h3 id="handle-spaces-and-use-the-arg-as-something-other-than-the-last-token">Handle spaces and use the arg as something other than the last token</h3>
-<p>The <code>-I</code> argument takes a string to use as a delimiter for any input.</p>
-<pre><code>ls | xargs -I {} mv &quot;{}&quot; ~/some/dir/
+<p>The <code>-I</code> argument takes a string to use as a delimiter for any input. The <code>-print0</code> arg causes <code>find</code> to terminate each result with a null, which allows it to handle filename with characters that might not play nicely with the shell. We have to then use <code>xargs -0</code> to make it also handle the null terminated lines. Lots of commands have a feature like this, so be on the lookout for it.</p>
+<pre><code class="language-sh">find . -maxdepth 1 -type f -print0 |
+xargs -0 -I {} mv &quot;{}&quot; ~/some/dir/
 </code></pre>
-<h3 id="pass-5-args-to-each-echo-command-and-never-do-more-than-3-echo-processes-at-a-time">Pass 5 args to each echo command, and never do more than 3 echo processes at a time</h3>
-<pre><code>echo {1..100} | xargs -n5 -P3 echo
+<h3 id="tun-3-concurrent-processes-each-consuming-5-results">Tun 3 concurrent processes, each consuming 5 results</h3>
+<pre><code class="language-sh">find /dir/with/large/files -type f -print0 |
+xargs -0 -n5 -P3 sha256sum
 </code></pre>
+<p>This would run 3 instances of <code>sha256sum</code> with each instance operating on 5 files. Since <code>sha256sum</code> is single-threaded, this would speed things up by using multiple CPU cores instead of being bound to a single CPU core.</p>
 <h3 id="use-sed-to-change-git-files-containing-a-certain-string">use sed to change git files containing a certain string</h3>
-<p>This uses GNU <code>sed -i</code>, on macOS you should use <code>sed -i ''</code> or <code>gsed -i</code>.</p>
-<pre><code>git grep -l 192.168.5 | xargs sed -i 's/192.168.5/172.18.0/'
+<p>This uses GNU <code>sed -i</code>, on macOS you should use <code>sed -i ''</code> or <code>gsed -i</code>. The <code>-z</code> on <code>git grep</code> causes it to null terminate the entries so <code>xargs -0</code> will work.</p>
+<pre><code class="language-sh">git grep -z -l 192.168.5 |
+xargs -0 sed -i 's/192.168.5/172.18.0/g'
 </code></pre>
 <h3 id="issue-the-same-command-several-times-in-parallel">Issue the same command several times in parallel</h3>
 <p>This takes 1 directory as input and starts a sub-shell that cd's to the directory and runs a command. Up to 4 subhells are run in parallel. This is very similar to the <a href="https://www.gnu.org/software/parallel/">GNU parallel</a> command.</p>
-<pre><code>find ~/code/ -mindepth 1 -maxdepth 1 -type d |
-xargs -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
+<pre><code class="language-sh">find ~/code/ -mindepth 1 -maxdepth 1 -type d -print0 |
+xargs -0 -I {} -n1 -P4 bash -c &quot;cd {} ; make install-hooks ;&quot;
 </code></pre>
 
 

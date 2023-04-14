@@ -6050,8 +6050,23 @@ notAfter=Sep 27 13:52:55 2031 GMT
 <pre><code class="language-sh">kubectl get pods --all-namespaces -o wide -w
 </code></pre>
 <h3 id="show-all-pods-and-their-containers-requests-and-limits">Show all pods and their container's requests and limits</h3>
-<pre><code class="language-sh">kubectl get pods --all-namespaces \
-  -o jsonpath='{range .items[*]}{.metadata.namespace}{&quot;\t&quot;}{.metadata.name}{&quot;\t&quot;}{.spec.containers[*].resources}{&quot;\n&quot;}{end}'
+<pre><code class="language-sh">kubectl get pods --all-namespaces -o json |
+jq -r '
+  .items[] |
+  .metadata.namespace as $namespace |
+  .metadata.name as $pod_name |
+  .spec.containers[] |
+  [$namespace, $pod_name, .name, (.resources | tostring)] |
+  @tsv
+' | column -t -s$'\t'
+</code></pre>
+<p>This will produce output like with the columns namespace, pod, container, resources as a json blob:</p>
+<pre><code>development  gamehouse-nats-0                  nats                {&quot;limits&quot;:{&quot;cpu&quot;:&quot;250m&quot;,&quot;memory&quot;:&quot;100Mi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;75m&quot;,&quot;memory&quot;:&quot;30Mi&quot;}}
+development  gamehouse-nats-2                  metrics             {&quot;limits&quot;:{&quot;cpu&quot;:&quot;250m&quot;,&quot;memory&quot;:&quot;100Mi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;75m&quot;,&quot;memory&quot;:&quot;30Mi&quot;}}
+development  gamehouse-nginx-85885cbb75-m5t58  nginx               {&quot;limits&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;10Mi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;80m&quot;,&quot;memory&quot;:&quot;7Mi&quot;}}
+development  gamehouse-nginx-85885cbb75-wdmhf  nginx               {&quot;limits&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;10Mi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;80m&quot;,&quot;memory&quot;:&quot;7Mi&quot;}}
+development  gamehouse-prometheus-0            configmap-reloader  {&quot;limits&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;25Mi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;100m&quot;,&quot;memory&quot;:&quot;25Mi&quot;}}
+development  gamehouse-prometheus-0            prometheus          {&quot;limits&quot;:{&quot;cpu&quot;:&quot;3&quot;,&quot;memory&quot;:&quot;20Gi&quot;},&quot;requests&quot;:{&quot;cpu&quot;:&quot;1&quot;,&quot;memory&quot;:&quot;4Gi&quot;}}
 </code></pre>
 <h3 id="show-daemonsets-that-are-not-up-to-date">Show daemonsets that are not up to date</h3>
 <pre><code class="language-sh">kubectl get daemonset -A | awk '$3 != $6 {print}'
