@@ -2329,6 +2329,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exclude-certain-directories-from-git-grep-results" class="md-nav__link">
+    Exclude certain directories from git grep results
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6350,6 +6357,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exclude-certain-directories-from-git-grep-results" class="md-nav__link">
+    Exclude certain directories from git grep results
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6676,6 +6690,11 @@ git remote prune origin
 <p>This finds the word "hunter2" in the tests directory of all branches.</p>
 <pre><code class="language-sh">git grep '\bhunter2\b' $(git branch -a --format='%(refname:short)') tests/
 </code></pre>
+<h4 id="exclude-certain-directories-from-git-grep-results">Exclude certain directories from <code>git grep</code> results</h4>
+<p>You can accomplish this using pathspec syntax.</p>
+<pre><code class="language-sh">git grep searchstring -- ':!excluded-dir' ':!*junk-glob*'
+</code></pre>
+<p>See the <a href="https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec">pathspec definition in the git glossary</a> for more info.</p>
 
 
 
