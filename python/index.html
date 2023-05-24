@@ -5680,7 +5680,7 @@ exit
 import module # from somedir
 </code></pre>
 <h3 id="convert-between-character-number-and-string">Convert between character number and string</h3>
-<p>You can use these functions to convert ascii and unicode characters into their numeric representations and back.</p>
+<p>You can use these functions to convert ascii and unicode characters into their numeric representations and back. Technically, <a href="https://docs.python.org/3/library/functions.html#ord"><code>ord</code></a> converts a unicode character into a unicode <a href="https://en.wikipedia.org/wiki/Code_point">code point</a>, and <a href="https://docs.python.org/3/library/functions.html#chr"><code>chr</code></a> does the reverse.</p>
 <pre><code>&gt;&gt;&gt; ord('🐍')
 128013
 &gt;&gt;&gt; chr(128013)
