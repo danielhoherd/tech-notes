@@ -4385,6 +4385,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#select-data-from-a-table-and-include-an-incrementing-id-column" class="md-nav__link">
+    Select data from a table and include an incrementing id column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sum-one-column-ordered-by-another-column" class="md-nav__link">
     Sum one column ordered by another column
   </a>
@@ -5261,6 +5268,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#select-data-from-a-table-and-include-an-incrementing-id-column" class="md-nav__link">
+    Select data from a table and include an incrementing id column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sum-one-column-ordered-by-another-column" class="md-nav__link">
     Sum one column ordered by another column
   </a>
@@ -5416,6 +5430,38 @@ sqlite3 -line CostReport-1.db &quot;SELECT * FROM $TABLE
 WHERE _ROWID_ &gt;= (abs(random()) % (SELECT max(_ROWID_) FROM $TABLE))
 LIMIT 1 ;&quot;
 </code></pre>
+<h3 id="select-data-from-a-table-and-include-an-incrementing-id-column">Select data from a table and include an incrementing id column</h3>
+<p>Given the following data:</p>
+<pre><code>sqlite&gt; .schema
+CREATE TABLE IF NOT EXISTS &quot;people&quot;(
+&quot;name&quot; TEXT, &quot;age&quot; TEXT);
+sqlite&gt; .mode box
+sqlite&gt; select * from people ;
+┌───────┬─────┐
+│ name  │ age │
+├───────┼─────┤
+│ brad  │ 18  │
+│ david │ 9   │
+│ grace │ 29  │
+│ john  │ 51  │
+│ katie │ 23  │
+│ nora  │ 33  │
+└───────┴─────┘
+</code></pre>
+<p>You can sort by age and add an id column to show the numeric ordering of their age:</p>
+<pre><code>sqlite&gt; select row_number() over (order by cast(age as integer)) as id, * from people ;
+┌────┬───────┬─────┐
+│ id │ name  │ age │
+├────┼───────┼─────┤
+│ 1  │ david │ 9   │
+│ 2  │ brad  │ 18  │
+│ 3  │ katie │ 23  │
+│ 4  │ grace │ 29  │
+│ 5  │ nora  │ 33  │
+│ 6  │ john  │ 51  │
+└────┴───────┴─────┘
+</code></pre>
+<p>The <code>row_number() over (order by cast(age as integer)) as id</code> adds the extra column. Because the <code>age</code> column is a string we have to cast it to an integer for the sort to work correctly.</p>
 <h3 id="sum-one-column-ordered-by-another-column">Sum one column ordered by another column</h3>
 <p>This does a quick cost analysis on an AWS Cost-Report-1.csv file.</p>
 <pre><code class="language-sh">## First sanitize the column names
