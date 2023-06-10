@@ -2744,6 +2744,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../mechanical-keyboards/" class="md-nav__link">
+        Keyboards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metallb/" class="md-nav__link">
         MetalLB
       </a>
@@ -3740,6 +3755,13 @@
           <li class="md-nav__item">
   <a href="#import-module-from-absolute-path" class="md-nav__link">
     Import module from absolute path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-between-character-number-and-string" class="md-nav__link">
+    Convert between character number and string
   </a>
   
 </li>
@@ -4886,6 +4908,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        tmux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../top-variant-list/" class="md-nav__link">
         Top Variant List
       </a>
@@ -5391,6 +5428,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#convert-between-character-number-and-string" class="md-nav__link">
+    Convert between character number and string
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5664,6 +5708,13 @@ exit
 <h3 id="import-module-from-absolute-path">Import module from absolute path</h3>
 <pre><code>sys.path.append('/Users/username/code/somedir')
 import module # from somedir
+</code></pre>
+<h3 id="convert-between-character-number-and-string">Convert between character number and string</h3>
+<p>You can use these functions to convert ascii and unicode characters into their numeric representations and back. Technically, <a href="https://docs.python.org/3/library/functions.html#ord"><code>ord</code></a> converts a unicode character into a unicode <a href="https://en.wikipedia.org/wiki/Code_point">code point</a>, and <a href="https://docs.python.org/3/library/functions.html#chr"><code>chr</code></a> does the reverse.</p>
+<pre><code>&gt;&gt;&gt; ord('🐍')
+128013
+&gt;&gt;&gt; chr(128013)
+'🐍'
 </code></pre>
 <h2 id="benchmarking">Benchmarking</h2>
 <h3 id="links">Links</h3>
