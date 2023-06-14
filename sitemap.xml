@@ -1521,6 +1521,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/virtual-reality/</loc>
+         <lastmod>2023-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/virtualbox/</loc>
          <lastmod>2023-06-14</lastmod>
          <changefreq>daily</changefreq>
