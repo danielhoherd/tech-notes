@@ -10,20 +10,20 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/ntp/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/fediverse/">
       
       
-        <link rel="prev" href="../ntop/">
+        <link rel="prev" href="../exiftool/">
       
       
-        <link rel="next" href="../nvidia/">
+        <link rel="next" href="../fedramp/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>NTP - Daniel Hoherd's tech notes</title>
+        <title>fediverse - Daniel Hoherd's tech notes</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ntp" class="md-skip">
+        <a href="#fediverse" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NTP
+              fediverse
             
           </span>
         </div>
@@ -1422,11 +1422,52 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../fediverse/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          fediverse
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         fediverse
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3222,66 +3263,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          NTP
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ntp/" class="md-nav__link">
         NTP
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ntp-daemon-in-systemd" class="md-nav__link">
-    ntp daemon in systemd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See Also
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5104,20 +5090,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#ntp-daemon-in-systemd" class="md-nav__link">
-    ntp daemon in systemd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See Also
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -5133,25 +5105,13 @@
                   
 
 
-<h1 id="ntp">NTP</h1>
-<p>"Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks. In operation since before 1985, NTP is one of the oldest Internet protocols in current use." - <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">https://en.wikipedia.org/wiki/Network_Time_Protocol</a></p>
+<h1 id="fediverse">fediverse</h1>
+<p>"The fediverse is an ensemble of federated (i.e. interconnected) servers that are used for web publishing and file hosting, which, while independently hosted, can communicate with each other." - <a href="https://en.wikipedia.org/wiki/Fediverse">https://en.wikipedia.org/wiki/Fediverse</a></p>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://tools.ietf.org/html/rfc5905">RFC 5905: Network Time Protocol Version 4: Protocol and Algorithms Specification</a></li>
-<li><a href="https://blog.cloudflare.com/understanding-and-mitigating-ntp-based-ddos-attacks/">Understanding and mitigating NTP-based DDoS attacks</a></li>
-<li><a href="https://developers.google.com/time/smear">Google Public NTP: Leap Smear</a></li>
-<li><a href="https://developers.redhat.com/blog/2015/06/01/five-different-ways-handle-leap-seconds-ntp/">Five different ways to handle leap seconds with NTP</a></li>
-<li><a href="http://www.madore.org/~david/computers/unix-leap-seconds.html">The Unix leap second mess</a></li>
-<li><a href="http://www.ntp.org/ntpfaq/NTP-s-algo-real.htm#AEN2499">ntp.org FAQ: What happens during a Leap Second?</a></li>
-<li><a href="http://www.satsignal.eu/ntp/Raspberry-Pi-NTP.html">The Raspberry Pi as a Stratum-1 NTP Server</a></li>
-<li><a href="https://blog.meinbergglobal.com/2013/11/22/ntp-vs-ptp-network-timing-smackdown/">NTP vs PTP: Network Timing Smackdown!</a></li>
-</ul>
-<h2 id="ntp-daemon-in-systemd">ntp daemon in systemd</h2>
-<p>Systemd has its own time and date tools that replace classic linux tools like <code>ntpd</code>. See <code>systemd-timesyncd</code> and <code>timedatectl</code>. <code>systemd-timesyncd</code> refuses to start if the <code>ntp</code> package is installed.</p>
-<h2 id="see-also">See Also</h2>
-<ul>
-<li><a href="../time/">time</a> - Notes on time technologies</li>
-<li><a href="../ptp/">ptp</a> - Precision Time Protocol</li>
+<li><a href="https://en.wikipedia.org/wiki/Fediverse">https://en.wikipedia.org/wiki/Fediverse</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ActivityPub">https://en.wikipedia.org/wiki/ActivityPub</a>: The fediverse is largely interconnected using the ActivityPub protocol.</li>
+<li><a href="https://fedidevs.org">https://fedidevs.org</a>: Fediverse Developer Network</li>
 </ul>
 
 
