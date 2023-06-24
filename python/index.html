@@ -5860,7 +5860,7 @@ typer==0.7.0
 <h3 id="generate-a-tz-aware-datetime-using-only-the-standard-library">Generate a TZ aware datetime using only the standard library</h3>
 <pre><code class="language-py">from datetime import datetime, timezone
 TZ = datetime.now(timezone.utc).astimezone().tzinfo
-datetime.now(TZ).isoformat(timespec='seconds')
+datetime.now(TZ).isoformat(timespec='seconds')  # 2023-06-24T12:50:01-04:00
 </code></pre>
 <h3 id="common-date-operations">Common date operations</h3>
 <p>None of these examples deal with timezones.</p>
