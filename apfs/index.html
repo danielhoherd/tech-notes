@@ -5315,7 +5315,8 @@ com.apple.TimeMachine.2017-11-03-084837
 com.apple.TimeMachine.2017-11-04-182813
 </code></pre>
 <h3 id="mount-a-snapshot">Mount a snapshot</h3>
-<p>Fill in <code>$snapshot_name</code> using one of the lines from <code>tmutil listlocalsnapshots /</code>, then:</p>
+<p>The easiest way to mount snapshots is to open <code>Time Machine.app</code> and browse backwards in time. This will mount your snapshots at <code>/Volumes/com.apple.TimeMachine.localsnapshots/Backups.backupdb/$HOSTNAME/$SNAPSHOT_DATE/Data</code> or a similar path.</p>
+<p>If you just want to mount a single snapshot, fill in <code>$snapshot_name</code> using one of the lines from <code>tmutil listlocalsnapshots /</code>, then:</p>
 <pre><code>mkdir apfs_snap
 mount_apfs -o nobrowse,ro -s &quot;$snapshot_name&quot; /System/Volumes/data &quot;$PWD/apfs_snap&quot;
 </code></pre>
