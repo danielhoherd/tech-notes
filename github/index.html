@@ -1735,6 +1735,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#add-a-collapsible-section-in-markdown" class="md-nav__link">
+    Add a collapsible section in markdown
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5170,6 +5177,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#add-a-collapsible-section-in-markdown" class="md-nav__link">
+    Add a collapsible section in markdown
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5213,6 +5227,22 @@ sort -d |
 nl
 </code></pre>
 <p><a href="https://developer.github.com/v3/repos/">https://developer.github.com/v3/repos/</a></p>
+<h3 id="add-a-collapsible-section-in-markdown">Add a collapsible section in markdown</h3>
+<p>Markdown supports adding HTML elements. One element that can be useful for hiding large chunks of data that are related to a comment but might drown it out is the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> element. This works in markdown documents, and PR and issue descriptions and comments.</p>
+<pre><code class="language-md">&lt;details&gt;
+&lt;summary&gt;Clickable thing that unfolds the details&lt;/summary&gt;
+whatever markdown you want
+
+1. list item 1
+2. list item 2
+
+```py
+import platform
+platform.uname()
+```
+
+&lt;/details&gt;
+</code></pre>
 <h2 id="links">Links</h2>
 <ul>
 <li>CLI interface: <a href="https://github.com/cli/cli">https://github.com/cli/cli</a></li>
