@@ -2025,6 +2025,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#splay-cron-jobs" class="md-nav__link">
+    Splay cron jobs
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5240,6 +5247,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#splay-cron-jobs" class="md-nav__link">
+    Splay cron jobs
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5311,6 +5325,42 @@ sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
   gzip -d
 </code></pre>
 <p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>
+<h3 id="splay-cron-jobs">Splay cron jobs</h3>
+<p>The functions available when using Helm templates are not as plentiful and general purpose like you would expect in a normal programming language, so we have to get creative for some things. One thing that would be great is if Helm provided a deterministic random feature. It does have randomness, but there is no way to seed the random number generator. To work around this, we can use other functions that do take inputs in order to generate deterministic random-ish numbers. One such example is using <code>adler32sum</code>, which returns a base-10 hash value of an input.</p>
+<p>The following example splays a cron job that runs every 15 across minutes 3-12 inclusive.</p>
+<pre><code>'{{- add 3 (regexFind &quot;.$&quot; (adler32sum .Release.Name)) -}}-59/15 * * * *'
+</code></pre>
+<p>Here is a python script that shows what minute number would be generated for several inputs:</p>
+<pre><code class="language-py">#!/usr/bin/env python3
+
+from zlib import adler32
+from pathlib import Path
+
+_input = Path(&quot;/usr/share/dict/words&quot;).read_text().split()
+output = {x + 3: 0 for x in range(10)}
+
+for item in _input:
+    cksum = adler32(str.encode(item))
+    splay_minute = int(str(cksum)[-1]) + 3
+    output[splay_minute] += 1
+
+for k, v in output.items():
+    print(f&quot;{k:2d}: {v}&quot;)
+</code></pre>
+<p>And the output shows a pretty even splay across all minutes:</p>
+<pre><code>$ ./test-adler32sum.py
+ 3: 23483
+ 4: 23523
+ 5: 23699
+ 6: 23628
+ 7: 23464
+ 8: 23750
+ 9: 23435
+10: 23833
+11: 23605
+12: 23556
+</code></pre>
+<p>Surely there is more rigorous statistical analysis needed to better understand exactly how the inputs are being spread, but if you care that much about it, you are probably better off submitting a pr with your desired behavior to <a href="https://github.com/Masterminds/sprig">https://github.com/Masterminds/sprig</a>, which is where the helm template functions come from.</p>
 <h2 id="links_1">Links</h2>
 <ul>
 <li><a href="https://github.com/databus23/helm-diff">https://github.com/databus23/helm-diff</a>: "This is a Helm plugin giving your a preview of what a helm upgrade would change."</li>
