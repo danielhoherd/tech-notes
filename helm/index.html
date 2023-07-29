@@ -5330,7 +5330,8 @@ sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
 <p>The following example splays a cron job that runs every 15 across minutes 3-12 inclusive, which should avoid high-demand minutes at the beginning of 0/15, and still give a few minutes for work to complete before coming back around to the next 0/15 interval.</p>
 <pre><code>'{{- add 3 (regexFind &quot;.$&quot; (adler32sum .Release.Name)) -}}-59/15 * * * *'
 </code></pre>
-<p>Here is a python script that shows what minute number would be generated for several inputs:</p>
+<p>This bit of code aler32sums the <code>.Release.Name</code> value, which is expected to be unique for every deployment but may not be in your environment, takes only the right-most digit, which is 0-9, and adds 3 to it, then uses that number as the starting minute in the cron schedule, EG: <code>7-59/* * * * *</code>.</p>
+<p>Here is a python script that shows what minute number would be generated for 235,976 inputs:</p>
 <pre><code class="language-py">#!/usr/bin/env python3
 
 from zlib import adler32
@@ -5347,7 +5348,7 @@ for item in _input:
 for k, v in output.items():
     print(f&quot;{k:2d}: {v}&quot;)
 </code></pre>
-<p>And the output shows a pretty even splay across all minutes:</p>
+<p>And the output shows a pretty even splay across all minutes, with each minute containing roughly 1/10th of the input lines:</p>
 <pre><code>$ ./test-adler32sum.py
  3: 23483
  4: 23523
