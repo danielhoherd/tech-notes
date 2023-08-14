@@ -5512,7 +5512,7 @@
 </ul>
 <h2 id="tricks">Tricks</h2>
 <h3 id="strip-all-tags">Strip all tags</h3>
-<pre><code class="language-sh">exiftool -all= &quot;$filename&quot;
+<pre><code class="language-sh">exiftool -all= -- &quot;$filename&quot;
 </code></pre>
 <h3 id="show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them</h3>
 <pre><code class="language-sh">exiftool -S -- &quot;$filename&quot;
