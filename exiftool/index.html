@@ -1537,13 +1537,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-testname-tag-target-to-test-what-files-would-be-renamed-to" class="md-nav__link">
-    Use TestName tag target to test what files would be renamed to
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#print-filenames-that-are-missing-a-tag" class="md-nav__link">
     Print filenames that are missing a tag
   </a>
@@ -1553,6 +1546,13 @@
           <li class="md-nav__item">
   <a href="#print-filenames-of-photos-that-are-older-than-10-years" class="md-nav__link">
     Print filenames of photos that are older than 10 years
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-testname-tag-target-to-test-what-files-would-be-renamed-to" class="md-nav__link">
+    Use TestName tag target to test what files would be renamed to
   </a>
   
 </li>
@@ -5381,13 +5381,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-testname-tag-target-to-test-what-files-would-be-renamed-to" class="md-nav__link">
-    Use TestName tag target to test what files would be renamed to
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#print-filenames-that-are-missing-a-tag" class="md-nav__link">
     Print filenames that are missing a tag
   </a>
@@ -5397,6 +5390,13 @@
           <li class="md-nav__item">
   <a href="#print-filenames-of-photos-that-are-older-than-10-years" class="md-nav__link">
     Print filenames of photos that are older than 10 years
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-testname-tag-target-to-test-what-files-would-be-renamed-to" class="md-nav__link">
+    Use TestName tag target to test what files would be renamed to
   </a>
   
 </li>
@@ -5697,6 +5697,14 @@ rsync -aP 2018-02-06-15-04-43-45541501845_8dbdc3b208_o.jpg otherhost:~/Pictures/
 rsync -aP 2018-02-06-15-05-43-31514485997_e2551fdbbc_o.jpg otherhost:~/Pictures/ # 2880
 rsync -aP 2018-12-19-10-53-27-45663859984_0f93ac24ec_o.jpg otherhost:~/Pictures/ # 2880
 </code></pre>
+<h3 id="print-filenames-that-are-missing-a-tag">Print filenames that are missing a tag</h3>
+<p>This example creates a file with all full path names for jpg and dng files that do not have GPS Coordinates</p>
+<pre><code class="language-sh">find /some/dir -iname '*.jpg' -or -iname '*.dng' -print0 |
+xargs -0 exiftool -p '${Directory}/${Filename}' -if 'not defined $GPSPosition' -- &gt;&gt; ~/no-geo.txt
+</code></pre>
+<h3 id="print-filenames-of-photos-that-are-older-than-10-years">Print filenames of photos that are older than 10 years</h3>
+<pre><code class="language-sh">exiftool -if '$now ge ${DateTimeOriginal;ShiftTime($_,&quot;10:0:0 0&quot;)}' -p '$FileName' *.jpg
+</code></pre>
 <h3 id="use-testname-tag-target-to-test-what-files-would-be-renamed-to">Use TestName tag target to test what files would be renamed to</h3>
 <p>This block builds an array of possible tags to use as a filename, creates an exiftool argument string from that array, then tests what files would be named to. This is useful when dealing with files from various sources that don't all use the same tag to store the original media creation time. By using <code>TestName</code> instead of <code>FileName</code> as the target, we observe what would occur, essentially a dry-run, instead of actually renaming the files.</p>
 <p>There is a funky behavior of %-c when you operate on a file that should ideally not be renamed. Exiftool will toggle back and forth each run appending and removing <code>-1</code>.</p>
@@ -5721,14 +5729,6 @@ done ;
 args+=( '-d' './%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le' )
 
 find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;${args[@]}&quot; --
-</code></pre>
-<h3 id="print-filenames-that-are-missing-a-tag">Print filenames that are missing a tag</h3>
-<p>This example creates a file with all full path names for jpg and dng files that do not have GPS Coordinates</p>
-<pre><code class="language-sh">find /some/dir -iname '*.jpg' -or -iname '*.dng' -print0 |
-xargs -0 exiftool -p '${Directory}/${Filename}' -if 'not defined $GPSPosition' -- &gt;&gt; ~/no-geo.txt
-</code></pre>
-<h3 id="print-filenames-of-photos-that-are-older-than-10-years">Print filenames of photos that are older than 10 years</h3>
-<pre><code class="language-sh">exiftool -if '$now ge ${DateTimeOriginal;ShiftTime($_,&quot;10:0:0 0&quot;)}' -p '$FileName' *.jpg
 </code></pre>
 <h3 id="rename-files-to-their-shuttercount">Rename files to their ShutterCount</h3>
 <p>Filenames will not be changed if ShutterCount field is not populated.</p>
