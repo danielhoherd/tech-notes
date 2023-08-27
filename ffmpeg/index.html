@@ -5300,13 +5300,15 @@
 </ul>
 <h2 id="examples">Examples</h2>
 <h3 id="convert-container-format">Convert container format</h3>
-<pre><code>for X in *.mov ; do ffmpeg -i &quot;${X}&quot; -c copy -map 0 &quot;${X%.mov}.mp4&quot; ; done ;
+<p>This will copy all streams from every mkv container file in the current directory into an mp4 container file. Some codecs will not be compatible in the mp4 container, so codecs like h265 will result in incompatible files and will need to be transcoded in order to be mp4 compatible.</p>
+<pre><code class="language-sh">for X in *.mkv ; do ffmpeg -i &quot;${X}&quot; -codec copy -map 0 &quot;${X%.mkv}.mp4&quot; ; done ;
 </code></pre>
 <h3 id="time-lapse">Time Lapse</h3>
 <h4 id="generate-a-movie-from-an-image-sequence-like-001jpg-999jpg">Generate a movie from an image sequence like 001.jpg-999.jpg</h4>
-<p><code>ffmpeg -r 10 -b 1800 -i %03d.jpg test1800.mp4</code></p>
+<pre><code class="language-sh">ffmpeg -r 10 -b 1800 -i %03d.jpg test1800.mp4
+</code></pre>
 <h4 id="rename-files-as-a-sequence">Rename files as a sequence:</h4>
-<pre><code>i=0 ;
+<pre><code class="language-sh">i=0 ;
 find . -type f |
   while read -r F ; do
     let i=${i}+1 ;
@@ -5315,18 +5317,24 @@ find . -type f |
   done ;
 </code></pre>
 <h4 id="sample-some-of-the-middle-of-the-time-lapse">Sample some of the middle of the time-lapse</h4>
-<p><code>ffmpeg -pattern_type sequence -start_number 3000 -r 30 -i %06d.jpg -s 1440x1080 -frames 120 "$(date +%F_%T).mp4"</code></p>
+<pre><code class="language-sh">ffmpeg -pattern_type sequence -start_number 3000 -r 30 -i %06d.jpg -s 1440x1080 -frames 120 &quot;$(date +%F_%T).mp4&quot;
+</code></pre>
 <h4 id="turn-these-images-into-a-video">Turn these images into a video</h4>
-<p><code>ffmpeg -pattern_type sequence -r 30 -i %06d.jpg -s 1440x1080 "$(date +%F_%T).mp4"</code></p>
+<pre><code class="language-sh">ffmpeg -pattern_type sequence -r 30 -i %06d.jpg -s 1440x1080 &quot;$(date +%F_%T).mp4&quot;
+</code></pre>
 <h3 id="audio-replace">Audio Replace</h3>
 <p>Replace the audio of DSC_4436.AVI with 01 Gymnopedie 1.mp3 and limit the duration of the output so the music doesn't play beyond the end of the video.</p>
-<p><code>ffmpeg -t 00:00:47.99 -i DSC_4436.AVI -i "01 Gymnopedie 1.mp3" -map 0:0 -map 1:0 -vcodec copy -acodec copy output.AVI</code></p>
+<pre><code class="language-sh">ffmpeg -t 00:00:47.99 -i DSC_4436.AVI -i &quot;01 Gymnopedie 1.mp3&quot; -map 0:0 -map 1:0 -vcodec copy -acodec copy output.AVI
+</code></pre>
 <h3 id="slow-down-video-to-half-speed-drop-audio">Slow down video to half speed, drop audio</h3>
-<p><code>ffmpeg -i DHO_8751.MOV -an -vf "setpts=(2/1)*PTS" output.mp4</code></p>
+<pre><code class="language-sh">ffmpeg -i DHO_8751.MOV -an -vf &quot;setpts=(2/1)*PTS&quot; output.mp4
+</code></pre>
 <h3 id="extract-two-seconds-worth-of-frames-at-24fps-starting-at-15m">Extract two seconds worth of frames at 24fps starting at 15m</h3>
-<p><code>ffmpeg -i movie.mkv -r 24 -t 00:00:02.00 -ss 00:15:00 temp/movie-%4d.jpg</code></p>
+<pre><code class="language-sh">ffmpeg -i movie.mkv -r 24 -t 00:00:02.00 -ss 00:15:00 temp/movie-%4d.jpg
+</code></pre>
 <h3 id="detect-errors-in-files">Detect errors in files</h3>
-<p><code>ffmpeg -v error -i 20091024-08-46-00.mpg -f null - 2&gt;&gt; error.log</code></p>
+<pre><code class="language-sh">ffmpeg -v error -i 20091024-08-46-00.mpg -f null - 2&gt;&gt; error.log
+</code></pre>
 
 
 
