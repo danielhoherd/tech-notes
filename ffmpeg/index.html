@@ -1512,6 +1512,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sample-video-output-settings" class="md-nav__link">
+    Sample video output settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#time-lapse" class="md-nav__link">
     Time Lapse
   </a>
@@ -5205,6 +5212,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sample-video-output-settings" class="md-nav__link">
+    Sample video output settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#time-lapse" class="md-nav__link">
     Time Lapse
   </a>
@@ -5300,9 +5314,19 @@
 </ul>
 <h2 id="examples">Examples</h2>
 <h3 id="convert-container-format">Convert container format</h3>
-<p>This will copy all streams from every mkv container file in the current directory into an mp4 container file. Some codecs will not be compatible in the mp4 container, so codecs like h265 will result in incompatible files and will need to be transcoded in order to be mp4 compatible.</p>
+<p>This will copy all streams from every mkv container file in the current directory into an mp4 container file.</p>
 <pre><code class="language-sh">for X in *.mkv ; do ffmpeg -i &quot;${X}&quot; -codec copy -map 0 &quot;${X%.mkv}.mp4&quot; ; done ;
 </code></pre>
+<p>Some codecs will not be compatible and will need to be transcoded in order to be mp4 compatible. Here is an example that transcodes video to h264 using hardware hardware transcoding (h264_videotoolbox):</p>
+<pre><code class="language-sh">FILE=all-your-base.mkv
+ffmpeg -i &quot;${FILE}&quot; -c:v h264_videotoolbox -b:v 4000k -c:a copy &quot;${FILE%.mkv}.mp4&quot;
+</code></pre>
+<h3 id="sample-video-output-settings">Sample video output settings</h3>
+<p>Before spending a long time converting a video, it's good to sample what you would see. You can render only a portion of the movie to make sure your settings are not too low. The following example starts encoding from 35 minutes into the source file (<code>-ss HH:MM:SS.ss</code>) and produces 20 seconds of output (<code>-t HH:MM:SS.ss</code>):</p>
+<pre><code class="language-sh">ffmpeg -ss 00:35:00 -t 00:00:20.00 -i &quot;${FILE}&quot; -c:v h264_videotoolbox -b:v 4000k -c:a copy &quot;${FILE%.mkv}.mp4&quot;
+</code></pre>
+<p>Note that the <code>HH:MM:SS.ss</code> is given in the <code>time duration</code> spec that is detailed in <code>man ffmpeg-utils</code> and can have other forms.</p>
+<p>Also note that <code>-ss</code> behaves differently depending on where it is placed in the command in regard to the input and output files.</p>
 <h3 id="time-lapse">Time Lapse</h3>
 <h4 id="generate-a-movie-from-an-image-sequence-like-001jpg-999jpg">Generate a movie from an image sequence like 001.jpg-999.jpg</h4>
 <pre><code class="language-sh">ffmpeg -r 10 -b 1800 -i %03d.jpg test1800.mp4
