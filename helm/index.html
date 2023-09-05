@@ -5326,6 +5326,7 @@ sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
 </code></pre>
 <p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>
 <h3 id="splay-cron-jobs">Splay cron jobs</h3>
+<p>Splaying cron jobs avoids the <a href="https://en.wikipedia.org/wiki/Thundering_herd_problem">thundering herd problem</a> by spreading the jobs out over time with deterministic randomness.</p>
 <p>The functions available when using Helm templates are not as plentiful and general purpose like you would expect in a normal programming language, so we have to get creative for some things. One thing that would be great is if Helm provided a deterministic random feature. It does have randomness, but there is no way to seed the random number generator. To work around this, we can use other functions that do take inputs in order to generate deterministic random-ish numbers. One such example is using <code>adler32sum</code>, which returns a base-10 hash value of an input.</p>
 <p>The following example splays a cron job that runs every 15 minutes from 3-12 inclusive, which should avoid high-demand minutes at the beginning of 0/15, and still give a few minutes for work to complete before coming back around to the next 0/15 interval.</p>
 <pre><code>'{{- add 3 (regexFind &quot;.$&quot; (adler32sum .Release.Name)) -}}-59/15 * * * *'
