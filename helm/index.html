@@ -2047,6 +2047,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#detect-helm-resources-that-do-not-have-proper-annotations" class="md-nav__link">
+    Detect helm resources that do not have proper annotations
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5269,6 +5276,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#detect-helm-resources-that-do-not-have-proper-annotations" class="md-nav__link">
+    Detect helm resources that do not have proper annotations
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5378,6 +5392,11 @@ for k, v in output.items():
 12: 23556
 </code></pre>
 <p>Surely there is more rigorous statistical analysis needed to better understand exactly how the inputs are being spread, but if you care that much about it, you are probably better off submitting a pr with your desired behavior to <a href="https://github.com/Masterminds/sprig">https://github.com/Masterminds/sprig</a>, which is where the helm template functions come from.</p>
+<h3 id="detect-helm-resources-that-do-not-have-proper-annotations">Detect helm resources that do not have proper annotations</h3>
+<p>Helm requires that certain annotations exist. This this check will return all deployments that do not contain the required anntoations:</p>
+<pre><code class="language-sh">kubectl get deployments -A -o json |
+jq '.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quot; == null) or (.metadata.annotations.&quot;meta.helm.sh/release-namespace&quot; == null)) | .metadata.name'
+</code></pre>
 <h2 id="links_1">Links</h2>
 <ul>
 <li><a href="https://github.com/databus23/helm-diff">https://github.com/databus23/helm-diff</a>: "This is a Helm plugin giving your a preview of what a helm upgrade would change."</li>
