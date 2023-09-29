@@ -10,20 +10,20 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/lshw/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/drone/">
       
       
-        <link rel="prev" href="../lsblk/">
+        <link rel="prev" href="../document-query/">
       
       
-        <link rel="next" href="../lsof/">
+        <link rel="next" href="../dsrc/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>lshw - Daniel Hoherd's tech notes</title>
+        <title>Drone - Daniel Hoherd's tech notes</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lshw" class="md-skip">
+        <a href="#drone" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              lshw
+              Drone
             
           </span>
         </div>
@@ -1281,11 +1281,52 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../drone/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Drone
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Drone
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2661,79 +2702,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          lshw
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../lshw/" class="md-nav__link">
         lshw
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lshw-help" class="md-nav__link">
-    lshw --help
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-of-short-output" class="md-nav__link">
-    Example of -short output
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See also
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5165,35 +5138,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lshw-help" class="md-nav__link">
-    lshw --help
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-of-short-output" class="md-nav__link">
-    Example of -short output
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See also
+  <a href="#links" class="md-nav__link">
+    Links
   </a>
   
 </li>
@@ -5213,97 +5159,15 @@
                   
 
 
-<h1 id="lshw">lshw</h1>
-<p>lshw is a cli tool on linux to show you information about your hardware. It outputs in several formats that are human and computer friendly.</p>
-<h2 id="examples">Examples</h2>
-<h3 id="lshw-help">lshw --help</h3>
-<pre><code>$ lshw --help
-Hardware Lister (lshw) - B.02.18
-usage: lshw [-format] [-options ...]
-       lshw -version
-
-        -version        print program version (B.02.18)
-
-format can be
-        -html           output hardware tree as HTML
-        -xml            output hardware tree as XML
-        -json           output hardware tree as a JSON object
-        -short          output hardware paths
-        -businfo        output bus information
-
-options can be
-        -class CLASS    only show a certain class of hardware
-        -C CLASS        same as '-class CLASS'
-        -c CLASS        same as '-class CLASS'
-        -disable TEST   disable a test (like pci, isapnp, cpuid, etc. )
-        -enable TEST    enable a test (like pci, isapnp, cpuid, etc. )
-        -quiet          don't display status
-        -sanitize       sanitize output (remove sensitive information like serial numbers, etc.)
-        -numeric        output numeric IDs (for PCI, USB, etc.)
-        -notime         exclude volatile attributes (timestamps) from output
-</code></pre>
-<h3 id="example-of-short-output">Example of -short output</h3>
-<p>It's best to use sudo, otherwise you will not see all hardware.</p>
-<pre><code>$ sudo lshw -short
-H/W path                   Device      Class          Description
-=================================================================
-                                       system         OptiPlex 7010 (OptiPlex 7010)
-/0                                     bus            0YXT71
-/0/0                                   memory         64KiB BIOS
-/0/5e                                  processor      Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz
-/0/5e/3a                               memory         256KiB L1 cache
-/0/5e/3b                               memory         1MiB L2 cache
-/0/5e/3c                               memory         8MiB L3 cache
-/0/3d                                  memory         16GiB System Memory
-/0/3d/0                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
-/0/3d/1                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
-/0/3d/2                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
-/0/3d/3                                memory         4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
-/0/100                                 bridge         Xeon E3-1200 v2/3rd Gen Core processor DRAM Controller
-/0/100/2                               display        Xeon E3-1200 v2/3rd Gen Core processor Graphics Controller
-/0/100/14                              bus            7 Series/C210 Series Chipset Family USB xHCI Host Controller
-/0/100/14/0                usb3        bus            xHCI Host Controller
-/0/100/14/1                usb4        bus            xHCI Host Controller
-/0/100/14/1/4              scsi6       storage        Elements 25A1
-/0/100/14/1/4/0.0.0        /dev/sdb    disk           4TB Elements 25A1
-/0/100/14/1/4/0.0.0/1      /dev/sdb1   volume         3725GiB OS X ZFS partition or Solaris /usr partition
-/0/100/14/1/4/0.0.0/9      /dev/sdb9   volume         8191KiB reserved partition
-/0/100/16                              communication  7 Series/C216 Chipset Family MEI Controller #1
-/0/100/16.3                            communication  7 Series/C210 Series Chipset Family KT Controller
-/0/100/19                  eno1        network        82579LM Gigabit Network Connection
-/0/100/1a                              bus            7 Series/C216 Chipset Family USB Enhanced Host Controller #2
-/0/100/1a/1                usb1        bus            EHCI Host Controller
-/0/100/1a/1/1                          bus            Integrated Rate Matching Hub
-/0/100/1a/1/1/2                        generic        BCM20702A0
-/0/100/1b                              multimedia     7 Series/C216 Chipset Family High Definition Audio Controller
-/0/100/1d                              bus            7 Series/C216 Chipset Family USB Enhanced Host Controller #1
-/0/100/1d/1                usb2        bus            EHCI Host Controller
-/0/100/1d/1/1                          bus            Integrated Rate Matching Hub
-/0/100/1d/1/1/5                        bus            USB2.0 Hub
-/0/100/1d/1/1/5/2          scsi7       storage        External
-/0/100/1d/1/1/5/2/0.0.0    /dev/sdc    disk           256GB External
-/0/100/1d/1/1/5/2/0.0.0/1              volume         512MiB EFI GPT partition
-/0/100/1d/1/1/5/2/0.0.0/2  /dev/sdc2   volume         221GiB EXT4 volume
-/0/100/1e                              bridge         82801 PCI Bridge
-/0/100/1f                              bridge         Q77 Express Chipset LPC Controller
-/0/100/1f.2                            storage        7 Series/C210 Series Chipset Family 6-port SATA Controller [AHCI mode]
-/0/100/1f.3                            bus            7 Series/C216 Chipset Family SMBus Controller
-/0/1                       scsi0       storage
-/0/1/0.0.0                 /dev/sda    disk           256GB Samsung SSD 850
-/0/1/0.0.0/1               /dev/sda1   volume         238GiB EXT4 volume
-/0/2                       scsi1       storage
-/0/2/0.0.0                 /dev/cdrom  disk           DVD+-RW SW830
-/1                         docker0     network        Ethernet interface
-</code></pre>
-<h2 id="see-also">See also</h2>
+<h1 id="drone">Drone</h1>
+<p>Drones, UAV (unmanned aerial vehicles, UAS (unmanned aerial systems).</p>
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="../lsblk/">lsblk</a></li>
-<li>lscpu</li>
-<li>lslogins</li>
-<li>lsmod</li>
-<li>lsof</li>
-<li>lspci</li>
-<li>lsusb</li>
+<li><a href="https://www.faa.gov/uas">https://www.faa.gov/uas</a></li>
+<li><a href="https://drone-laws.com">https://drone-laws.com</a></li>
+<li><a href="https://www.faa.gov/uas/getting_started/remote_id">https://www.faa.gov/uas/getting_started/remote_id</a></li>
+<li><a href="https://dronedj.com/2023/09/25/list-dji-drone-remote-id">https://dronedj.com/2023/09/25/list-dji-drone-remote-id</a></li>
+<li><a href="https://www.youtube.com/@JoshuaBardwell">https://www.youtube.com/@JoshuaBardwell</a></li>
 </ul>
 
 
