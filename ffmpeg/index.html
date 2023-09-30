@@ -1602,6 +1602,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dump-a-raw-stream" class="md-nav__link">
+    Dump a raw stream
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5317,6 +5324,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dump-a-raw-stream" class="md-nav__link">
+    Dump a raw stream
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5388,6 +5402,36 @@ find . -type f |
 </code></pre>
 <h3 id="detect-errors-in-files">Detect errors in files</h3>
 <pre><code class="language-sh">ffmpeg -v error -i 20091024-08-46-00.mpg -f null - 2&gt;&gt; error.log
+</code></pre>
+<h3 id="dump-a-raw-stream">Dump a raw stream</h3>
+<p>If you encounter a file that has an unsupported stream and you want to dump it for analysis, you can use <code>ffprobe</code> to see what streams there are. <code>ffprobe</code> will produce output including something like:</p>
+<pre><code>Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'DJI_20230929174507_0003_D.MP4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    creation_time   : 2023-09-29T21:45:07.000000Z
+    encoder         : DJI Mini4 Pro
+  Duration: 00:00:18.28, start: 0.000000, bitrate: 93326 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 3840x2160, 90422 kb/s, 29.97 fps, 29.97 tbr, 30k tbn (default)
+    Metadata:
+      creation_time   : 2023-09-29T21:45:07.000000Z
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](und): Data: none (djmd / 0x646D6A64), 68 kb/s
+    Metadata:
+      creation_time   : 2023-09-29T21:45:07.000000Z
+      handler_name    : DJI meta
+  Stream #0:2[0x3](und): Data: none (dbgi / 0x69676264), 2315 kb/s
+    Metadata:
+      creation_time   : 2023-09-29T21:45:07.000000Z
+      handler_name    : DJI dbgi
+  Stream #0:3[0x0]: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 90k tbr, 90k tbn (attached pic)
+Unsupported codec with id 0 for input stream 1
+Unsupported codec with id 0 for input stream 2
+</code></pre>
+<p>Here we see 4 streams. 0:0 is a video stream, 0:1 is a DJI meta data stream, 0:2 is a DJI dbgi data stream, and 0:3 is a video mjpeg stream. Using this list as a reference, we can dump an individual stream. For instance, to dump the 0:2 stream:</p>
+<pre><code class="language-sh">ffmpeg -i DJI_20230929174507_0003_D.MP4 -map 0:2 -f data -c copy stream2.bin
 </code></pre>
 
 
