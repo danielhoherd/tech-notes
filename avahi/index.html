@@ -5180,7 +5180,7 @@
 <p><a href="https://github.com/lathiat/avahi/blob/master/service-type-database/service-types">Service types</a> are defined in <code>/usr/share/avahi/service-types</code></p>
 <h2 id="service-configs">Service configs</h2>
 <p>Correctly formatted and named files in <code>/etc/avahi/services/whatever.service</code> are loaded on the fly, no need to restart <code>avahi-daemon</code>. If your service doesn't immediately show up, check syslog for errors.</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; standalone='no'?&gt;&lt;!--*-nxml-*--&gt;
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; standalone='no'?&gt;&lt;!--*-nxml-*--&gt;
 &lt;!DOCTYPE service-group SYSTEM &quot;avahi-service.dtd&quot;&gt;
 &lt;service-group&gt;
   &lt;name replace-wildcards=&quot;yes&quot;&gt;%h&lt;/name&gt;
