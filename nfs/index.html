@@ -3185,6 +3185,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wait-for-network-to-be-online-before-mounting" class="md-nav__link">
+    Wait for network to be online before mounting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#regarding-mount-points-within-shares" class="md-nav__link">
     Regarding mount points within shares
   </a>
@@ -5241,6 +5248,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wait-for-network-to-be-online-before-mounting" class="md-nav__link">
+    Wait for network to be online before mounting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#regarding-mount-points-within-shares" class="md-nav__link">
     Regarding mount points within shares
   </a>
@@ -5356,6 +5370,24 @@
 <li>Great info here: <a href="http://nfs.sourceforge.net/">http://nfs.sourceforge.net/</a></li>
 </ul>
 <h2 id="tips-and-tricks">Tips and Tricks</h2>
+<h3 id="wait-for-network-to-be-online-before-mounting">Wait for network to be online before mounting</h3>
+<p>If you are using <code>/etc/fstab</code> for your nfs mounts, you may run into a race condition where the network target comes online and allows NFS mounts to continue, but DHCP has not yet completed. This causes the NFS mounts to fail.</p>
+<p>To fix this race condition, enable <code>systemd-networkd-wait-online.service</code></p>
+<pre><code class="language-sh">sudo systemctl enable systemd-networkd-wait-online.service
+</code></pre>
+<p>Then edit your <code>/etc/fstab</code> entry to rely on that target.</p>
+<pre><code>192.168.0.99:/share/media  /mnt/shared-media  nfs  x-systemd.requires=network-online.target, ... the_rest_of_the_options
+</code></pre>
+<p>This solution so far works, but has the negative side effect of making boot take longer due to waiting for dhclient requests to time out before continuing. On Debian 12, this adds 2 minutes to the total boot time shown by <code>systemd-analyze plot &gt; boot-$(date +%F).svg</code>.</p>
+<p>If you know the exact interface your mount points rely on, then you can tailor the <code>wait-online.service</code> to only wait for that one interface:</p>
+<pre><code class="language-sh">sudo systemctl edit systemd-networkd-wait-online.service
+</code></pre>
+<p>Then add the following section to the correct location as directed by the comments in the editor window:</p>
+<pre><code>[Service]
+ExecStart=
+ExecStart=/lib/systemd/systemd-networkd-wait-online --ipv4 --interface=your_interface_name
+</code></pre>
+<p>The reason there is an empty <code>ExecStart=</code> is that this is how systemd is instructed to empty out the previous assignments instead of appending to them. This works with other option too. More info here: <a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html">https://www.freedesktop.org/software/systemd/man/systemd.service.html</a></p>
 <h3 id="regarding-mount-points-within-shares">Regarding mount points within shares</h3>
 <p>If you have a mount point within an NFS share, you must have a separate entry in your exports file that sets the permissions of this mount point. Currently OS X has a problem with this, but officially this is the way to do it.</p>
 <h3 id="show-hosts-that-are-connected-to-this-nfs-server">Show hosts that are connected to this NFS server</h3>
