@@ -2658,6 +2658,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#drain-all-but-the-top-20-nodes-in-some-node-pool-selected-by-most-cpu-usage" class="md-nav__link">
+    Drain all but the top 20 nodes in some node-pool selected by most CPU usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-namespaces-and-how-many-hours-old-they-are" class="md-nav__link">
     Show namespaces and how many hours old they are
   </a>
@@ -5635,6 +5642,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#drain-all-but-the-top-20-nodes-in-some-node-pool-selected-by-most-cpu-usage" class="md-nav__link">
+    Drain all but the top 20 nodes in some node-pool selected by most CPU usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-namespaces-and-how-many-hours-old-they-are" class="md-nav__link">
     Show namespaces and how many hours old they are
   </a>
@@ -6051,6 +6065,12 @@ echo &quot;KUBECONFIG=${KUBECONFIG}&quot; ;
 <h3 id="drain-and-cordon-a-node">Drain and cordon a node</h3>
 <p>Do this before deleting or reloading a node.</p>
 <pre><code class="language-sh">kubectl drain --ignore-daemonsets --force --delete-emptydir-data &quot;$NODE_NAME&quot;
+</code></pre>
+<h3 id="drain-all-but-the-top-20-nodes-in-some-node-pool-selected-by-most-cpu-usage">Drain all but the top 20 nodes in some node-pool selected by most CPU usage</h3>
+<pre><code>kubectl top nodes --sort-by=cpu |
+awk '/node-pool-identifiable-string/ {print $1}' |
+tail -n +20 |
+sargs kubectl drain --ignore-daemonsets --force --delete-emptydir-data
 </code></pre>
 <h3 id="show-namespaces-and-how-many-hours-old-they-are">Show namespaces and how many hours old they are</h3>
 <pre><code class="language-sh">kubectl get namespace --sort-by=&quot;.metadata.creationTimestamp&quot; -o json |
