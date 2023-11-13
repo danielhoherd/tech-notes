@@ -1973,6 +1973,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reduce-frame-rate" class="md-nav__link">
+    Reduce frame rate
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6651,6 +6658,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reduce-frame-rate" class="md-nav__link">
+    Reduce frame rate
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6752,6 +6766,10 @@ Unsupported codec with id 0 for input stream 2
 </code></pre>
 <p>Here we see 4 streams. 0:0 is a video stream, 0:1 is a DJI meta data stream, 0:2 is a DJI dbgi data stream, and 0:3 is a video mjpeg stream. Using this list as a reference, we can dump an individual stream. For instance, to dump the 0:2 stream:</p>
 <pre><code class="language-sh">ffmpeg -i DJI_20230929174507_0003_D.MP4 -map 0:2 -f data -c copy stream2.bin
+</code></pre>
+<h3 id="reduce-frame-rate">Reduce frame rate</h3>
+<p>This example is taken directly from <a href="https://trac.ffmpeg.org/wiki/ChangingFrameRate">https://trac.ffmpeg.org/wiki/ChangingFrameRate</a></p>
+<pre><code class="language-sh">ffmpeg -i src.mp4 -filter:v fps=30 dest.mp4
 </code></pre>
 
 
