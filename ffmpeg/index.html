@@ -1973,6 +1973,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reduce-frame-rate" class="md-nav__link">
+    Reduce frame rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-video-from-a-macos-webcam" class="md-nav__link">
+    Record video from a macOS webcam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screen-record-a-macos-desktop" class="md-nav__link">
+    Screen record a macOS desktop
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6651,6 +6672,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reduce-frame-rate" class="md-nav__link">
+    Reduce frame rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-video-from-a-macos-webcam" class="md-nav__link">
+    Record video from a macOS webcam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screen-record-a-macos-desktop" class="md-nav__link">
+    Screen record a macOS desktop
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6752,6 +6794,17 @@ Unsupported codec with id 0 for input stream 2
 </code></pre>
 <p>Here we see 4 streams. 0:0 is a video stream, 0:1 is a DJI meta data stream, 0:2 is a DJI dbgi data stream, and 0:3 is a video mjpeg stream. Using this list as a reference, we can dump an individual stream. For instance, to dump the 0:2 stream:</p>
 <pre><code class="language-sh">ffmpeg -i DJI_20230929174507_0003_D.MP4 -map 0:2 -f data -c copy stream2.bin
+</code></pre>
+<h3 id="reduce-frame-rate">Reduce frame rate</h3>
+<p>This example is taken directly from <a href="https://trac.ffmpeg.org/wiki/ChangingFrameRate">https://trac.ffmpeg.org/wiki/ChangingFrameRate</a></p>
+<pre><code class="language-sh">ffmpeg -i src.mp4 -filter:v fps=30 dest.mp4
+</code></pre>
+<h3 id="record-video-from-a-macos-webcam">Record video from a macOS webcam</h3>
+<p>This is video only, no audio</p>
+<pre><code class="language-sh">ffmpeg -f avfoundation -r 30 -i 1 webcam.mov
+</code></pre>
+<h3 id="screen-record-a-macos-desktop">Screen record a macOS desktop</h3>
+<pre><code class="language-sh">ffmpeg -f avfoundation -r 30 -i 3 screen_capture.mov
 </code></pre>
 
 

@@ -6842,7 +6842,7 @@
 
 
 <h1 id="docker">docker</h1>
-<p>"An open source project to pack, ship and run any application as a lightweight container." - <a href="https://www.docker.com/">https://www.docker.com/</a></p>
+<p>"An open source project to pack, ship and run any application as a lightweight container." - <a href="https://www.docker.com">https://www.docker.com</a></p>
 <h2 id="docker-desktop">Docker Desktop</h2>
 <p>In August 2021, Docker pulled a license bait and switch with Docker Desktop. If you want a Docker Desktop alternative on macOS that has a <code>docker</code> command but doesn't use Docker Desktop, you can do the following:</p>
 <pre><code class="language-sh">brew install hyperkit minikube docker kubernetes-cli
@@ -6870,7 +6870,7 @@ eval $(minikube docker-env)
 <li>-i, --interactive</li>
 <li>-t, --tty</li>
 </ul>
-<p><a href="https://docs.docker.com/reference/commandline/cli/#run">https://docs.docker.com/reference/commandline/cli/#run</a></p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/run">https://docs.docker.com/engine/reference/commandline/run</a></p>
 <h3 id="get-a-bash-terminal-on-a-running-docker-container">Get a bash terminal on a running docker container</h3>
 <pre><code class="language-sh">docker exec -i -t running-container-name bash
 </code></pre>
@@ -6915,7 +6915,7 @@ column -t
 <h3 id="show-what-has-changed-since-a-container-was-started">Show what has changed since a container was started</h3>
 <pre><code class="language-sh">docker diff &quot;$some_running_image&quot;
 </code></pre>
-<p><a href="https://docs.docker.com/reference/commandline/cli/#diff">https://docs.docker.com/reference/commandline/cli/#diff</a></p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/diff">https://docs.docker.com/engine/reference/commandline/diff</a></p>
 <h3 id="view-the-terminal-scrollback-of-a-a-container">View the terminal scrollback of a a container</h3>
 <pre><code class="language-sh">docker logs &quot;$some_running_image&quot;
 </code></pre>
@@ -6923,7 +6923,7 @@ column -t
 <p>This allows you to restart previous instances of a container.</p>
 <pre><code class="language-sh">docker ps -a
 </code></pre>
-<p><a href="https://docs.docker.com/reference/commandline/cli/#ps">https://docs.docker.com/reference/commandline/cli/#ps</a></p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/ps">https://docs.docker.com/engine/reference/commandline/ps</a></p>
 <h3 id="start-a-named-container">Start a named container</h3>
 <p>By default containers don't restart when your system restarts, so you have to start them manually.</p>
 <pre><code class="language-sh">docker start ttrss
@@ -6939,7 +6939,7 @@ column -t
 <pre><code class="language-sh">docker system prune
 </code></pre>
 <h3 id="delete-old-containers">Delete old containers</h3>
-<p><a href="https://docs.docker.com/reference/commandline/cli/#rm">https://docs.docker.com/reference/commandline/cli/#rm</a></p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/rm">https://docs.docker.com/engine/reference/commandline/rm</a></p>
 <p>You may have to remove <code>-r</code> from <code>xargs</code> on non-GNU systems.</p>
 <pre><code class="language-sh">docker ps -a --format=&quot;{{.ID}} {{.Status}}&quot; |
 awk '$2 == &quot;Exited&quot; &amp;&amp; $5 ~ /(days|weeks|months)/ {print $1}' |
@@ -6950,7 +6950,7 @@ xargs -r docker rm
 <p>This is safe to run as long as valuable containers are running, as it won't delete any images that are attached to running containers.</p>
 <pre><code class="language-sh">docker rmi $(docker images | grep '^&lt;none&gt;' | awk '{print $3}')
 </code></pre>
-<p><a href="https://docs.docker.com/reference/commandline/cli/#rmi">https://docs.docker.com/reference/commandline/cli/#rmi</a></p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/rmi">https://docs.docker.com/engine/reference/commandline/rmi</a></p>
 <p>A more systematic approach is to use <a href="https://github.com/Yelp/docker-custodian">Docker Custodian</a>.</p>
 <h3 id="show-processes-running-inside-all-docker-containers">Show processes running inside all docker containers</h3>
 <p>On hosts without cgroup integration, run:</p>
@@ -6977,7 +6977,7 @@ jq '.tags[].name'
 <li><a href="https://www.docker.io">https://www.docker.io</a>: Main page</li>
 <li><a href="http://dockerfile.github.io">http://dockerfile.github.io</a>: Trusted builds of FOSS software</li>
 <li><a href="https://registry.hub.docker.com">https://registry.hub.docker.com</a>: Public docker images</li>
-<li><a href="https://docs.docker.com/reference/builder/">https://docs.docker.com/reference/builder/</a>: How to build Dockerfiles</li>
+<li><a href="https://docs.docker.com/build/builders">https://docs.docker.com/build/builders</a>: How to build Dockerfiles</li>
 <li><a href="https://cloud.google.com/solutions/best-practices-for-building-containers">https://cloud.google.com/solutions/best-practices-for-building-containers</a></li>
 <li><a href="https://github.com/wagoodman/dive">https://github.com/wagoodman/dive</a>: A tool for exploring each layer in a docker image</li>
 <li><a href="https://hpcw.github.io">https://hpcw.github.io</a>: High Performance Container Workshop videos</li>
