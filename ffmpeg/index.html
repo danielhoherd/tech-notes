@@ -1994,6 +1994,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#generate-a-timelapse-from-dji-hyperlapse-photos" class="md-nav__link">
+    Generate a timelapse from DJI hyperlapse photos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crop-a-video" class="md-nav__link">
+    Crop a video
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6693,6 +6707,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#generate-a-timelapse-from-dji-hyperlapse-photos" class="md-nav__link">
+    Generate a timelapse from DJI hyperlapse photos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crop-a-video" class="md-nav__link">
+    Crop a video
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6806,6 +6834,16 @@ Unsupported codec with id 0 for input stream 2
 <h3 id="screen-record-a-macos-desktop">Screen record a macOS desktop</h3>
 <pre><code class="language-sh">ffmpeg -f avfoundation -r 30 -i 3 screen_capture.mov
 </code></pre>
+<h3 id="generate-a-timelapse-from-dji-hyperlapse-photos">Generate a timelapse from DJI hyperlapse photos</h3>
+<p>The DJI Hyperlapse videos are pretty awful, with unnecessary cropping and perspetive warping. You're better off generating your own movie from the still images it took. To do so, <code>cd</code> to the directory with the hyperlapse photos in it and run:</p>
+<pre><code class="language-sh">ffmpeg -framerate 30 -pattern_type glob -i &quot;HYPERLAPSE*.JPG&quot; -s:v 4032x3024 -c:v libx264 -crf 17 -pix_fmt yuv420p timelapse.mp4
+</code></pre>
+<p>You may need to adjust the 4032x3024 dimensions if you are not using the Mini 4 Pro.</p>
+<h3 id="crop-a-video">Crop a video</h3>
+<p>Find the dimensions of your video with <code>exiftool -ImageSize "$FileName"</code> or <code>ffprobe -v error -show_entries stream=width,height -of default=noprint_wrappers=1 "$FileName"</code>. Once you have that, you must construct a command like this:</p>
+<pre><code class="language-sh">ffmpeg -i Sunset.mp4 -filter:v &quot;crop=2884:2160:478:0&quot; Sunset-cropped.mp4
+</code></pre>
+<p>Where 2884 is the width, 2160 is the height, 478 is how far to shift the crop from the left edge of the frame, and 0 is how far to shift the crop from the top of the frame.</p>
 
 
 
