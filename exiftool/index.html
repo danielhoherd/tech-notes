@@ -2001,6 +2001,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#review-and-delete-all-dji-photos-that-are-looking-at-the-sky" class="md-nav__link">
+    Review and delete all DJI photos that are looking at the sky
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6828,6 +6835,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#review-and-delete-all-dji-photos-that-are-looking-at-the-sky" class="md-nav__link">
+    Review and delete all DJI photos that are looking at the sky
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7185,6 +7199,18 @@ done
 <h3 id="copy-all-gps-location-data-from-one-file-into-other-files">Copy all GPS location data from one file into other files</h3>
 <pre><code class="language-sh">exiftool -tagsfromfile source-file.jpg '-gpsl*&lt;gpsl*' -- dest-file-1.jpg dest-file-2.jpg
 </code></pre>
+<h3 id="review-and-delete-all-dji-photos-that-are-looking-at-the-sky">Review and delete all DJI photos that are looking at the sky</h3>
+<p>When taking panorama's with a DJI drone, you end up with a lot of photos of clouds and blue sky. These can be found by looking at <code>GimbalPitchDegree</code>. Review them in macOS Preview.app with:</p>
+<pre><code class="language-sh">find PANORAMA -type f |
+xargs exiftool -if '$GimbalPitchDegree &gt; 40' -p '${Directory}/${Filename}' -- 2&gt;/dev/null |
+xargs -r open
+</code></pre>
+<p>Once you've verified that none of them are worth preserving, delete them with:</p>
+<pre><code class="language-sh">find PANORAMA -type f |
+xargs exiftool -if '$GimbalPitchDegree &gt; 40' -p '${Directory}/${Filename}' -- 2&gt;/dev/null |
+xargs -r rm -fv
+</code></pre>
+<p>If you want to filter out photos that are mostly sky but also contain a bit of the ground in the bottom third of the frame, use <code>&gt; 9</code> instead of <code>&gt; 40</code>.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="../graphicsmagick/">graphicsmagick</a></li>
