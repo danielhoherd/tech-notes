@@ -7318,23 +7318,24 @@
 <h2 id="links">Links</h2>
 <ul>
 <li>OpenZFS - <a href="http://open-zfs.org">http://open-zfs.org</a></li>
-<li>Tuning Guide - <a href="http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide">http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide</a></li>
+<li>Tuning Guide - <a href="https://web.archive.org/web/20161223004915/http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide">https://web.archive.org/web/20161223004915/http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide</a></li>
 <li>Hardware recommendations - <a href="http://blog.zorinaq.com/?e=10">http://blog.zorinaq.com/?e=10</a></li>
 <li>Mac ZFS - <a href="http://code.google.com/p/maczfs/">http://code.google.com/p/maczfs/</a></li>
 <li>Shadow migration feature - <a href="http://docs.oracle.com/cd/E23824_01/html/821-1448/gkkud.html">http://docs.oracle.com/cd/E23824_01/html/821-1448/gkkud.html</a></li>
 <li>Speed tuning - <a href="http://icesquare.com/wordpress/how-to-improve-zfs-performance/">http://icesquare.com/wordpress/how-to-improve-zfs-performance/</a></li>
-<li>ZFS RAID levels - <a href="http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/">http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/</a></li>
+<li>ZFS RAID levels - <a href="https://web.archive.org/web/20201120053331/http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/">https://web.archive.org/web/20201120053331/http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/</a></li>
 <li><a href="http://en.wikipedia.org/wiki/ZFS">http://en.wikipedia.org/wiki/ZFS</a></li>
 <li><a href="http://wiki.freebsd.org/ZFSQuickStartGuide">http://wiki.freebsd.org/ZFSQuickStartGuide</a></li>
 <li><a href="http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide">http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide</a></li>
 <li><a href="http://zfsguru.com">http://zfsguru.com</a></li>
 <li><a href="http://zfsonlinux.org/faq.html">http://zfsonlinux.org/faq.html</a></li>
-<li><a href="http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html">http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html</a></li>
+<li><a href="https://web.archive.org/web/20190603150811/http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html">https://web.archive.org/web/20190603150811/http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-113-size-zfs-dedup-1354231.html</a></li>
 <li><a href="http://wiki.freebsd.org/ZFSTuningGuide#Deduplication">http://wiki.freebsd.org/ZFSTuningGuide#Deduplication</a></li>
 <li>Corruption / failure to import - <a href="https://github.com/zfsonlinux/zfs/issues/2457">https://github.com/zfsonlinux/zfs/issues/2457</a></li>
 <li><a href="https://www.percona.com/blog/2018/05/15/about-zfs-performance/">https://www.percona.com/blog/2018/05/15/about-zfs-performance/</a></li>
 <li><a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
 <li><a href="https://freebsdfoundation.org/blog/raid-z-expansion-feature-for-zfs">https://freebsdfoundation.org/blog/raid-z-expansion-feature-for-zfs</a></li>
+<li><a href="https://www.binwang.me/2023-12-14-ZFS-Profiling-on-Arch-Linux.html">https://www.binwang.me/2023-12-14-ZFS-Profiling-on-Arch-Linux.html</a></li>
 </ul>
 <h2 id="tips">Tips</h2>
 <h3 id="memory">Memory</h3>
@@ -7360,12 +7361,12 @@
 <p>Good explanation: <a href="https://blogs.oracle.com/brendan/entry/test">https://blogs.oracle.com/brendan/entry/test</a></p>
 <h2 id="zdb">zdb</h2>
 <h3 id="show-the-potential-savings-of-turning-on-dedupe-on-zpool-tank">Show the potential savings of turning on dedupe on zpool tank</h3>
-<p><a href="http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup">http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup</a></p>
-<pre><code>zdb -S tank
+<p><a href="https://web.archive.org/web/20130217052412/http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup">https://web.archive.org/web/20130217052412/http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup</a></p>
+<pre><code class="language-sh">zdb -S tank
 </code></pre>
 <h3 id="show-transactions-and-human-readable-dates-in-the-zdb-history">Show transactions and human readable dates in the zdb history</h3>
 <p>Use <code>zdb -e</code> for pools that are not mounted.</p>
-<pre><code>zdb -hh tank \
+<pre><code class="language-sh">zdb -hh tank \
 | egrep 'txg|time' \
 | while read -r _ a b ; do
   if [ &quot;$a&quot; == &quot;time:&quot; ] ; then
@@ -7377,29 +7378,29 @@ done
 </code></pre>
 <h2 id="zpool">zpool</h2>
 <h3 id="create-a-zpool-and-its-base-filesystem">Create a zpool and its base filesystem</h3>
-<pre><code>zpool create -f -o cachefile=/tmp/zpool.cache zpoolname /dev/ada1 #create a zpool
+<pre><code class="language-sh">zpool create -f -o cachefile=/tmp/zpool.cache zpoolname /dev/ada1 #create a zpool
 </code></pre>
 <h3 id="add-a-cache-device-to-a-pool">Add a cache device to a pool</h3>
-<pre><code>## add ada0p3 as a cache device to the tank zpool
+<pre><code class="language-sh">## add ada0p3 as a cache device to the tank zpool
 zpool add tank cache ada0p3
 </code></pre>
 <h3 id="show-all-configured-zpool-options-for-a-given-zpool">Show all configured zpool options for a given zpool</h3>
-<pre><code>zpool get all tank
+<pre><code class="language-sh">zpool get all tank
 </code></pre>
 <h3 id="show-history-of-all-operations-on-a-given-pool">Show history of all operations on a given pool</h3>
-<pre><code>## show history of operations on the pool, eg: snapshots, attribute changes
+<pre><code class="language-sh">## show history of operations on the pool, eg: snapshots, attribute changes
 zpool history
 </code></pre>
 <h3 id="show-real-time-statistics-on-a-given-zpool">Show real time statistics on a given zpool</h3>
-<pre><code>## show per-device statistics every 1 second
+<pre><code class="language-sh">## show per-device statistics every 1 second
 zpool iostat -v 1
 </code></pre>
 <h3 id="show-basic-information-about-all-imported-zpools">Show basic information about all imported zpools</h3>
-<pre><code>## show zpool space info, deduplication ratio and health
+<pre><code class="language-sh">## show zpool space info, deduplication ratio and health
 zpool list
 </code></pre>
 <h3 id="show-deduplication-tables">Show deduplication tables</h3>
-<pre><code>## show deduplication table entries. Take entries * size / 1024 / 1024 to calculate DDT consumption
+<pre><code class="language-sh">## show deduplication table entries. Take entries * size / 1024 / 1024 to calculate DDT consumption
 zpool status -D z2
 </code></pre>
 <h3 id="import-a-pool-by-different-disk-path">Import a pool by different disk path</h3>
@@ -7459,54 +7460,54 @@ zpool list -v tank # check the EXPANDSZ column for the disk
 <p>After doing all of these your pool should be expanded.</p>
 <h2 id="zfs_1">zfs</h2>
 <h3 id="show-differences-between-current-filesystem-state-and-snapshot-state">show differences between current filesystem state and snapshot state</h3>
-<pre><code>zfs diff tank tank@snap
+<pre><code class="language-sh">zfs diff tank tank@snap
 </code></pre>
 <h3 id="show-configured-properties-for-a-filesystem">Show configured properties for a filesystem</h3>
-<pre><code>zfs get all
+<pre><code class="language-sh">zfs get all
 </code></pre>
 <h3 id="show-custom-filesystem-attributes">Show custom filesystem attributes</h3>
-<pre><code>## show custom attributes that override inherited attributes
+<pre><code class="language-sh">## show custom attributes that override inherited attributes
 zfs get all -s local tank
 </code></pre>
 <h3 id="show-an-overview-of-all-mounted-zfs-filesystems">Show an overview of all mounted zfs filesystems</h3>
-<pre><code>## show disk space including free physical disk space and mount info
+<pre><code class="language-sh">## show disk space including free physical disk space and mount info
 zfs list
 </code></pre>
 <h3 id="show-specified-fields-of-each-filesystem">Show specified fields of each filesystem</h3>
-<pre><code>## show the listed fields of all filesystems
+<pre><code class="language-sh">## show the listed fields of all filesystems
 zfs list -t all -o name,referenced,used,written,creation,userused@root
 </code></pre>
 <h3 id="show-only-snapshots">Show only snapshots</h3>
-<pre><code>zfs list -t snapshot
+<pre><code class="language-sh">zfs list -t snapshot
 </code></pre>
 <h3 id="show-space-consumed-by-file-owner">Show space consumed by file owner</h3>
-<pre><code>zfs userspace tank
+<pre><code class="language-sh">zfs userspace tank
 </code></pre>
 <h3 id="disable-atime-updates-for-a-filesystem">Disable atime updates for a filesystem</h3>
-<pre><code>zfs set atime=off tank
+<pre><code class="language-sh">zfs set atime=off tank
 </code></pre>
 <h3 id="set-compression-to-lz4-for-a-filesystem">Set compression to lz4 for a filesystem</h3>
-<pre><code>zfs set compression=lz4 tank
+<pre><code class="language-sh">zfs set compression=lz4 tank
 </code></pre>
 <h3 id="set-deduplication-to-enabled-for-a-filesystem">Set deduplication to enabled for a filesystem</h3>
-<pre><code>zfs set dedup=on tank
+<pre><code class="language-sh">zfs set dedup=on tank
 </code></pre>
 <h3 id="set-a-filesystem-to-readonly">Set a filesystem to readonly</h3>
-<pre><code>zfs set readonly=on zpoolname/dataset
+<pre><code class="language-sh">zfs set readonly=on zpoolname/dataset
 </code></pre>
 <h3 id="set-a-filesystem-to-allow-nfs-sharing">Set a filesystem to allow NFS sharing</h3>
-<pre><code>zfs set sharenfs=on tank
+<pre><code class="language-sh">zfs set sharenfs=on tank
 </code></pre>
 <h3 id="create-a-dataset">Create a dataset</h3>
-<pre><code>## create a dataset 'sole' on zpool 'tank'
+<pre><code class="language-sh">## create a dataset 'sole' on zpool 'tank'
 zfs create tank/sole
 </code></pre>
 <h3 id="destroy-multiple-snapshots">Destroy multiple snapshots</h3>
-<pre><code>zfs destroy tank@20130413-weekly,20130420-weekly,20130428-weekly,20130505-weekly
+<pre><code class="language-sh">zfs destroy tank@20130413-weekly,20130420-weekly,20130428-weekly,20130505-weekly
 </code></pre>
 <h3 id="zfs-send-receive">zfs send / receive</h3>
 <p>Replicate a zpool (use the latest snapshot name as the source) to a blank zpool:</p>
-<pre><code>zfs send -v -D -R tank@20120907-oldest | zfs receive -F -v z2
+<pre><code class="language-sh">zfs send -v -D -R tank@20120907-oldest | zfs receive -F -v z2
 </code></pre>
 <ul>
 <li>-D enables a deduplicated stream.</li>
@@ -7515,22 +7516,22 @@ zfs create tank/sole
 <li>-v enables verbose mode</li>
 </ul>
 <h3 id="recursively-zfs-send-a-filesystem-to-a-remote-host-and-receive-it-as-a-new-dataset">recursively zfs send a filesystem to a remote host and receive it as a new dataset</h3>
-<pre><code>zfs send -v -D -R z1@20120907-oldest | ssh otherhost zfs receive -v z2/z1
+<pre><code class="language-sh">zfs send -v -D -R z1@20120907-oldest | ssh otherhost zfs receive -v z2/z1
 </code></pre>
 <h3 id="show-summary-of-what-would-be-sent">Show summary of what would be sent</h3>
 <p>This shows an entire dataset up to the given snapshot</p>
-<pre><code>zfs send -n -v -D -R tank@20140531-monthly
+<pre><code class="language-sh">zfs send -n -v -D -R tank@20140531-monthly
 </code></pre>
 <h3 id="show-the-space-differences-between-two-snapshots">Show the space differences between two snapshots</h3>
-<pre><code>zfs send -n -v -D -i tank@20140531-monthly tank@20141031-monthly
+<pre><code class="language-sh">zfs send -n -v -D -i tank@20140531-monthly tank@20141031-monthly
 </code></pre>
 <h3 id="show-the-amount-of-new-space-consumed-by-each-monthly">Show the amount of new space consumed by each monthly</h3>
-<pre><code>zfs list -o name | grep 'tank@.*monthly' | while read -r X ; do [[ ! $a =~ .*monthly ]] &amp;&amp; a=$X || zfs send -n -v -D -i $a $X &amp;&amp; a=$X ; done 2&gt;&amp;1 | grep send
+<pre><code class="language-sh">zfs list -o name | grep 'tank@.*monthly' | while read -r X ; do [[ ! $a =~ .*monthly ]] &amp;&amp; a=$X || zfs send -n -v -D -i $a $X &amp;&amp; a=$X ; done 2&gt;&amp;1 | grep send
 </code></pre>
 <h2 id="complex-examples">Complex examples</h2>
 <h3 id="create-a-raidz-called-tank">Create a raidz called tank</h3>
 <p>Create a raidz pool from 4 disks and set some properties:</p>
-<pre><code>pool=tank
+<pre><code class="language-sh">pool=tank
 zpool create -f &quot;${pool}&quot; raidz /dev/disk/by-id/scsi-SATA_HGST_HDN724040A_PK2338P4H*-part1 -o ashift=12
 zfs set dedup=on &quot;${pool}&quot;
 zpool set listsnapshots=on &quot;${pool}&quot;
@@ -7538,23 +7539,23 @@ zfs set atime=off &quot;${pool}&quot;
 zfs set compression=lz4 &quot;${pool}&quot;
 </code></pre>
 <h3 id="create-a-case-insensitive-raidz3-out-of-50-files">Create a case insensitive raidz3 out of 50 files</h3>
-<pre><code>pool=tank
+<pre><code class="language-sh">pool=tank
 for X in {1..50} ; do mkfile -n 2g ${pool}.$X ; done ;
 sudo zpool create -O casesensitivity=insensitive ${pool} raidz3 /Users/danielh/Desktop/Stuff/${pool}/${pool}.{1..50}
 </code></pre>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="mount-a-pool-that-is-giving-you-trouble">Mount a pool that is giving you Trouble</h3>
-<pre><code>zpool import -o failmode=continue -o readonly=on zpool_name
+<pre><code class="language-sh">zpool import -o failmode=continue -o readonly=on zpool_name
 </code></pre>
 <p>This helped me get read access to a pool that was kernel panicking with the following error when I tried to import it normally:</p>
-<pre><code>Dec  7 14:48:40 localhost kernel: PANIC: blkptr at ffff8803fddb4200 DVA 0 has invalid OFFSET 294940902907904
+<pre><code class="language-sh">Dec  7 14:48:40 localhost kernel: PANIC: blkptr at ffff8803fddb4200 DVA 0 has invalid OFFSET 294940902907904
 </code></pre>
 <h2 id="zfs-on-mac-os-x">ZFS on Mac OS X</h2>
 <ul>
 <li><a href="http://openzfsonosx.org">http://openzfsonosx.org</a></li>
 </ul>
 <h3 id="create-a-zfs-partition-on-devdisk3">Create a ZFS partition on /dev/disk3</h3>
-<pre><code>## Must eject device in Disk Utility first
+<pre><code class="language-sh">## Must eject device in Disk Utility first
 diskutil partitiondisk /dev/disk3 GPTFormat ZFS %noformat% 100% # strange syntax, but works
 zpool create backups1 /dev/disk3s2 # create the zpool
 mdutil -i off /Volumes/backups1 # required on MacZFS since spotlight does not function
@@ -7565,12 +7566,12 @@ mdutil -i off /Volumes/backups1 # required on MacZFS since spotlight does not fu
 <li>If you get permission denied, check selinux settings</li>
 </ul>
 <h3 id="centos-6-repository">CentOS 6 Repository</h3>
-<pre><code>sudo yum install -y epel-release # assumes later CentOS 6 where epel is provided upstream
+<pre><code class="language-sh">sudo yum install -y epel-release # assumes later CentOS 6 where epel is provided upstream
 sudo yum localinstall --nogpgcheck http://archive.zfsonlinux.org/epel/zfs-release.el6.noarch.rpm
 sudo yum install zfs -y
 </code></pre>
 <h4 id="reinstalling-when-things-fail">Reinstalling when things fail</h4>
-<pre><code>##!/bin/bash -x
+<pre><code class="language-sh">##!/bin/bash -x
 yum install -y kernel-devel-$(uname -r)
 zfs_version=0.6.5.4
 dkms remove  -m zfs -v &quot;${zfs_version}&quot; --all
@@ -7582,10 +7583,10 @@ dkms install -m zfs -v &quot;${zfs_version}&quot; --force
 </code></pre>
 <h4 id="inspect-the-rpm-for-what-scripts-it-runs">Inspect the rpm for what scripts it runs</h4>
 <p>This is useful for debugging failures after kernel upgrade.</p>
-<pre><code>rpm -q --scripts zfs-dkms
+<pre><code class="language-sh">rpm -q --scripts zfs-dkms
 </code></pre>
 <h3 id="building-on-centos-6">Building on CentOS 6</h3>
-<pre><code>yum groupinstall &quot;Development tools&quot; &amp;&amp; yum install -y libuuid-devel zlib-devel bc lsscsi mdadm parted kernel-debug
+<pre><code class="language-sh">yum groupinstall &quot;Development tools&quot; &amp;&amp; yum install -y libuuid-devel zlib-devel bc lsscsi mdadm parted kernel-debug
 ## For spl, then again for zfs:
 ./configure &amp;&amp; make &amp;&amp; make rpm &amp;&amp; rpm -i *64.rpm
 </code></pre>
