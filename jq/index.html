@@ -7111,7 +7111,6 @@
 
 <h1 id="jq">jq</h1>
 <p>"jq is a lightweight and flexible command-line JSON processor." - <a href="https://stedolan.github.io/jq/">https://stedolan.github.io/jq/</a></p>
-<p>It's worth noting at the outset that <a href="https://github.com/stedolan/jq/issues/2305"><code>jq</code> is having a maintenance crisis</a>. The version 1.6 is currently the newest version and was released in late 2018. There are over 600 issues and 114 pull requests. Although <code>jq</code> is a great software, it may be worth looking at something else. There are projects that <a href="https://github.com/itchyny/gojq">reimplement jq in other languages</a> that are more maintained, and there are alternatives like <a href="../dasel/">dasel</a>.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="sort-a-json-file">Sort a json file</h3>
 <pre><code class="language-sh">jq -S . foo.json
@@ -7233,7 +7232,7 @@ done
 <pre><code class="language-sh">alias jqsort=&quot;jq -S '. | walk( if type == \&quot;array\&quot; then sort else . end )'&quot;
 </code></pre>
 <h3 id="store-a-value-as-a-variable">Store a value as a variable</h3>
-<p>When creaeting long pipelines, it's useful to be able to store a deep value as a variable. In the following example we store <code>.metadata.namespace</code> as <code>$namespace</code> and <code>.metadata.name</code> as <code>$podname</code> before digging into <code>.status</code> where we would no longer have access to <code>.metadata</code>:</p>
+<p>When creating long pipelines, it's useful to be able to store a deep value as a variable. In the following example we store <code>.metadata.namespace</code> as <code>$namespace</code> and <code>.metadata.name</code> as <code>$podname</code> before digging into <code>.status</code> where we would no longer have access to <code>.metadata</code>:</p>
 <pre><code class="language-sh">kubectl get pod -A -l k8s-app=kube-dns -o=json |
 jq -r '
   .items[] |
