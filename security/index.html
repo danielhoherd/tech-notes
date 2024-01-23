@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/imagemagick/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/security/">
       
       
-        <link rel="prev" href="../image-formats/">
+        <link rel="prev" href="../sdr/">
       
       
-        <link rel="next" href="../img2xterm/">
+        <link rel="next" href="../sed/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>ImageMagick - Daniel Hoherd's tech notes</title>
+        <title>Security - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#imagemagick" class="md-skip">
+        <a href="#security" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ImageMagick
+              Security
             
           </span>
         </div>
@@ -2734,30 +2734,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ImageMagick
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../imagemagick/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2766,158 +2746,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Limitations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#techniques" class="md-nav__link">
-    <span class="md-ellipsis">
-      Techniques
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Techniques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overlay-the-date-on-the-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overlay the date on the image
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-all-tags-and-metadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      Delete all tags and metadata
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-blurry-dark-terminal-backgrounds-from-normal-backgrounds" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate blurry, dark terminal backgrounds from normal backgrounds
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-shady-versions-of-desktop-pictures-in-os-x" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate shady versions of desktop pictures in OS X
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#crop-the-center-of-images-out" class="md-nav__link">
-    <span class="md-ellipsis">
-      Crop the center of images out
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#average-many-photos-for-a-long-exposure-style-shot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Average many photos for a long-exposure style shot
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiply-several-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multiply several images
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#combine-images-always-using-the-minimum-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      Combine images always using the minimum value
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#combine-images-always-using-the-maximum-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      Combine images always using the maximum value
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swap-red-and-blue-channels-for-ir-photos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Swap red and blue channels (for IR photos)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#animate-some-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      Animate some images
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See Also
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5506,10 +5334,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -5518,6 +5366,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physical" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6969,132 +6855,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
+  <a href="#internet" class="md-nav__link">
     <span class="md-ellipsis">
-      Limitations
+      Internet
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#techniques" class="md-nav__link">
+  <a href="#physical" class="md-nav__link">
     <span class="md-ellipsis">
-      Techniques
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Techniques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overlay-the-date-on-the-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overlay the date on the image
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-all-tags-and-metadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      Delete all tags and metadata
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-blurry-dark-terminal-backgrounds-from-normal-backgrounds" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate blurry, dark terminal backgrounds from normal backgrounds
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-shady-versions-of-desktop-pictures-in-os-x" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate shady versions of desktop pictures in OS X
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#crop-the-center-of-images-out" class="md-nav__link">
-    <span class="md-ellipsis">
-      Crop the center of images out
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#average-many-photos-for-a-long-exposure-style-shot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Average many photos for a long-exposure style shot
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiply-several-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multiply several images
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#combine-images-always-using-the-minimum-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      Combine images always using the minimum value
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#combine-images-always-using-the-maximum-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      Combine images always using the maximum value
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swap-red-and-blue-channels-for-ir-photos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Swap red and blue channels (for IR photos)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#animate-some-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      Animate some images
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See Also
+      Physical
     </span>
   </a>
   
@@ -7115,66 +6887,14 @@
                   
 
 
-<h1 id="imagemagick">ImageMagick</h1>
-<p>"ImageMagick is a free and open-source software suite for displaying, converting, and editing raster image and vector image files. It can read and write over 200 image file formats." - <a href="https://en.wikipedia.org/wiki/ImageMagick">https://en.wikipedia.org/wiki/ImageMagick</a></p>
-<p>ImageMagick is a framework for manipulating images. <code>convert</code> is the CLI front-end for it, and there are other modules/libraries for php, perl, etc..</p>
-<h2 id="limitations">Limitations</h2>
+<h1 id="security">Security</h1>
+<h2 id="internet">Internet</h2>
 <ul>
-<li>Does '''NOT''' handle DNG files. In OS X use <a href="../sips/">sips</a> to do this.</li>
+<li><a href="https://www.cisecurity.org">https://www.cisecurity.org</a></li>
 </ul>
-<h2 id="techniques">Techniques</h2>
-<h3 id="overlay-the-date-on-the-image">Overlay the date on the image</h3>
-<pre><code>for X in *.jpg ; do
-  convert ${X} -font Times-Roman -pointsize 70 -fill black -annotate +100+100 %[exif:DateTimeOriginal] ${X}-date.jpg
-done
-
-for X in *date.jpg ; do
-  convert ${X} -font Times-Roman -pointsize 70 -fill white -annotate +98+98 %[exif:DateTimeOriginal] ${X}-date2.jpg
-done
-</code></pre>
-<h3 id="delete-all-tags-and-metadata">Delete all tags and metadata</h3>
-<pre><code>convert -strip infile.jpg outfile.jpg
-</code></pre>
-<h3 id="generate-blurry-dark-terminal-backgrounds-from-normal-backgrounds">Generate blurry, dark terminal backgrounds from normal backgrounds</h3>
-<pre><code>for X in * ; do
-  convert -resize 1100x1100 &quot;${X}&quot; -blur 0x4 -fill black -colorize 75% terminal.&quot;${X}&quot;
-done
-</code></pre>
-<h3 id="generate-shady-versions-of-desktop-pictures-in-os-x">Generate shady versions of desktop pictures in OS X</h3>
-<pre><code>for X in /Library/Desktop\ Pictures/*.jpg ; do
-  IMG=$(basename &quot;${X}&quot;)
-  convert -resize 1100x1100 &quot;${X}&quot; -blur 0x4 -set option:modulate:colorspace hsb -modulate 20 ~/Pictures/terminal.&quot;${IMG}&quot;
-done
-</code></pre>
-<h3 id="crop-the-center-of-images-out">Crop the center of images out</h3>
-<pre><code>for X in /Volumes/data-b/Timelapse/20120407-14* ; do
-  convert &quot;${X}&quot; -gravity Center -crop 1920x1080+0+0 $(basename ${X})
-done
-</code></pre>
-<h3 id="average-many-photos-for-a-long-exposure-style-shot">Average many photos for a long-exposure style shot</h3>
-<pre><code>convert *.jpg -average average.jpg
-</code></pre>
-<h3 id="multiply-several-images">Multiply several images</h3>
-<pre><code>convert *.jpg -background white -compose multiply -flatten multiply.jpg
-</code></pre>
-<h3 id="combine-images-always-using-the-minimum-value">Combine images always using the minimum value</h3>
-<pre><code>convert *.jpg -background white -compose darken -flatten minimum.jpg
-</code></pre>
-<h3 id="combine-images-always-using-the-maximum-value">Combine images always using the maximum value</h3>
-<pre><code>convert *.jpg -background black -compose lighten -flatten maximum.jpg
-</code></pre>
-<h3 id="swap-red-and-blue-channels-for-ir-photos">Swap red and blue channels (for IR photos)</h3>
-<pre><code>convert infile.jpg -separate -swap 0,2 -combine swapped.jpg
-</code></pre>
-<h3 id="animate-some-images">Animate some images</h3>
-<pre><code>convert -delay 20 -loop 0 *.jpg animation.gif
-</code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="physical">Physical</h2>
 <ul>
-<li><a href="../exiftool/">exiftool</a></li>
-<li><a href="../graphicsmagick/">graphicsmagick</a></li>
-<li><a href="../jpeginfo/">jpeginfo</a></li>
-<li><a href="../sips/">sips</a></li>
+<li><a href="https://www.youtube.com/@lockpickinglawyer">https://www.youtube.com/@lockpickinglawyer</a></li>
 </ul>
 
 
