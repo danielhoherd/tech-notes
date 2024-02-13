@@ -1036,6 +1036,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/orbstack/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/osquery/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -1517,6 +1522,11 @@
     </url>
     <url>
          <loc>https://danielhoherd.com/tech-notes/upstart/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://danielhoherd.com/tech-notes/utm/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
