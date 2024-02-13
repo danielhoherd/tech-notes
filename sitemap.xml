@@ -311,6 +311,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/debian/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/defaults/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>

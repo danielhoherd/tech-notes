@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/dd-wrt/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/debian/">
       
       
-        <link rel="prev" href="../dcraw/">
+        <link rel="prev" href="../deb/">
       
       
-        <link rel="next" href="../dd/">
+        <link rel="next" href="../defaults/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>dd-wrt - Daniel Hoherd's tech notes</title>
+        <title>debian - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dd-wrt" class="md-skip">
+        <a href="#debian" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dd-wrt
+              debian
             
           </span>
         </div>
@@ -1354,30 +1354,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    dd-wrt
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../dd-wrt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1386,245 +1366,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#netgear-r7000" class="md-nav__link">
-    <span class="md-ellipsis">
-      Netgear R7000
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Netgear R7000">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restart-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restart script
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Version notes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version notes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2015-12-24-v30-r28598-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2015-12-24 v3.0-r28598 kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2015-12-03-v30-r28600m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2015-12-03 v3.0-r28600M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-01-18-v30-r31160m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-01-18 v3.0-r31160M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-10-v30-r31520m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-10 v3.0-r31520M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-26-v30-r31575m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-26 v3.0-r31575M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-26-v30-r31780m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-26 v3.0-r31780M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-31-v30-r31800m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-31 v3.0-r31800M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-04-08-v30-r31830m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-04-08 v3.0-r31830M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-04-16-v30-r31870m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-04-16 v3.0-r31870M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-04-30-v30-r31920m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-04-30 v3.0-r31920M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-05-11-v30-r31980m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-05-11 v3.0-r31980M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-06-03-v30-r32170m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-06-03 v3.0-r32170M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-08-02-v30-r33000m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-08-02 v3.0-r33000M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-10-22-v30-r33575m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-10-22 v3.0-r33575M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-11-03-v30-r33655m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-11-03 v3.0-r33655M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-11-03-v30-r33675m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-11-03 v3.0-r33675M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-01-03-v30-r34320m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-01-03 v3.0-r34320M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-02-11-v30-r34900m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-02-11 v3.0-r34900M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-02-19-v30-r35030m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-02-19 v3.0-r35030M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-04-04-v30-r35550m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-04-04 v3.0-r35550M kongac
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1693,10 +1434,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../debian/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1705,6 +1455,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -7029,233 +6780,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#netgear-r7000" class="md-nav__link">
-    <span class="md-ellipsis">
-      Netgear R7000
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Netgear R7000">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restart-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restart script
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Version notes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version notes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2015-12-24-v30-r28598-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2015-12-24 v3.0-r28598 kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2015-12-03-v30-r28600m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2015-12-03 v3.0-r28600M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-01-18-v30-r31160m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-01-18 v3.0-r31160M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-10-v30-r31520m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-10 v3.0-r31520M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-26-v30-r31575m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-26 v3.0-r31575M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-26-v30-r31780m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-26 v3.0-r31780M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-03-31-v30-r31800m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-03-31 v3.0-r31800M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-04-08-v30-r31830m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-04-08 v3.0-r31830M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-04-16-v30-r31870m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-04-16 v3.0-r31870M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-04-30-v30-r31920m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-04-30 v3.0-r31920M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-05-11-v30-r31980m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-05-11 v3.0-r31980M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-06-03-v30-r32170m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-06-03 v3.0-r32170M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-08-02-v30-r33000m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-08-02 v3.0-r33000M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-10-22-v30-r33575m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-10-22 v3.0-r33575M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-11-03-v30-r33655m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-11-03 v3.0-r33655M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2017-11-03-v30-r33675m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2017-11-03 v3.0-r33675M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-01-03-v30-r34320m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-01-03 v3.0-r34320M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-02-11-v30-r34900m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-02-11 v3.0-r34900M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-02-19-v30-r35030m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-02-19 v3.0-r35030M kongac
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2018-04-04-v30-r35550m-kongac" class="md-nav__link">
-    <span class="md-ellipsis">
-      2018-04-04 v3.0-r35550M kongac
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -7269,132 +6793,9 @@
                   
 
 
-<h1 id="dd-wrt">dd-wrt</h1>
-<p>"DD-WRT is a Linux based alternative OpenSource firmware suitable for a great variety of WLAN routers and embedded systems." - <a href="https://www.dd-wrt.com">https://www.dd-wrt.com</a></p>
-<h2 id="netgear-r7000">Netgear R7000</h2>
-<ul>
-<li><a href="https://www.myopenrouter.com/downloads/dd-wrt-r7000">https://www.myopenrouter.com/downloads/dd-wrt-r7000</a></li>
-<li><a href="http://www.desipro.de/ddwrt/K3-AC-Arm/">http://www.desipro.de/ddwrt/K3-AC-Arm/</a></li>
-</ul>
-<h3 id="restart-script">Restart script</h3>
-<p>This device with dd-wrt has caused me so much trouble I have to monitor it and reboot it when it fails. Here is a short script to do that. I have this set up in cron to run every 5 minutes. The router will not reboot unless it's been up for 10 minutes.</p>
-<pre><code>fping -q google.com || {
-  date '+%F %T%z Router is locked up. Restarting it.' | tee -a &quot;${HOME}/router_reboot.log&quot;
-  ssh root@192.168.1.1 'set -x ; uptime ; awk &quot;int(\$1) &lt; 600 { exit 1 }&quot; /proc/uptime &amp;&amp; reboot ;' | tee -a &quot;${HOME}/router_reboot.log&quot;
-}
-</code></pre>
-<h3 id="version-notes">Version notes</h3>
-<h4 id="2015-12-24-v30-r28598-kongac">2015-12-24 v3.0-r28598 kongac</h4>
-<ul>
-<li>Cannot edit DHCP reservations. Only can push and pop from the list, but cannot edit the added entries.</li>
-</ul>
-<h4 id="2015-12-03-v30-r28600m-kongac">2015-12-03 v3.0-r28600M kongac</h4>
-<ul>
-<li>No observed differences from v3.0-r28598</li>
-</ul>
-<h4 id="2017-01-18-v30-r31160m-kongac">2017-01-18 v3.0-r31160M kongac</h4>
-<ul>
-<li>General instability. Periodic lockups requiring power cycle to fix.</li>
-<li>Potential weirdness playing with other wifi access points, unable to roam from this to Airport AC as I used to.</li>
-</ul>
-<h4 id="2017-03-10-v30-r31520m-kongac">2017-03-10 v3.0-r31520M kongac</h4>
-<ul>
-<li><a href="http://www.dd-wrt.com/phpBB2/viewtopic.php?p=1071890">http://www.dd-wrt.com/phpBB2/viewtopic.php?p=1071890</a></li>
-<li>Installed 2017-03-20</li>
-<li>Experienced hard lock within 24 hours, had to power cycle to fix. Found posts in dd-wrt forum about other folks experiencing the same issue.</li>
-</ul>
-<h4 id="2017-03-26-v30-r31575m-kongac">2017-03-26 v3.0-r31575M kongac</h4>
-<ul>
-<li>Installed on 2017-03-21</li>
-<li>Appears to have fixed the hard lock-ups</li>
-</ul>
-<h4 id="2017-03-26-v30-r31780m-kongac">2017-03-26 v3.0-r31780M kongac</h4>
-<ul>
-<li>Installed on 2017-03-31 via <code>ddup --flash-latest</code>. First attempt failed. Rebooted, and second attempt worked.</li>
-<li>Never had any problems with this</li>
-</ul>
-<h4 id="2017-03-31-v30-r31800m-kongac">2017-03-31 v3.0-r31800M kongac</h4>
-<ul>
-<li>Installed on 2017-04-01</li>
-<li>1 router lockup 3 days after installation</li>
-<li>2 router lockups on day 4</li>
-</ul>
-<h4 id="2017-04-08-v30-r31830m-kongac">2017-04-08 v3.0-r31830M kongac</h4>
-<ul>
-<li>Installed on 2017-04-07</li>
-<li>Locked up after 10 days</li>
-</ul>
-<h4 id="2017-04-16-v30-r31870m-kongac">2017-04-16 v3.0-r31870M kongac</h4>
-<ul>
-<li>Installed on 2017-04-17</li>
-<li>Router locked up after 4 days</li>
-</ul>
-<h4 id="2017-04-30-v30-r31920m-kongac">2017-04-30 v3.0-r31920M kongac</h4>
-<ul>
-<li>Installed on 2017-05-02</li>
-<li>Had periodic lockups</li>
-</ul>
-<h4 id="2017-05-11-v30-r31980m-kongac">2017-05-11 v3.0-r31980M kongac</h4>
-<ul>
-<li>Installed on 2017-05-14</li>
-<li>Experienced wifi problem, dhcp problem, and routing problems within 24 hours</li>
-<li>Experienced the same problems within 12 hours after reboot</li>
-<li>Uptime peak is 9 days</li>
-</ul>
-<h4 id="2017-06-03-v30-r32170m-kongac">2017-06-03 v3.0-r32170M kongac</h4>
-<ul>
-<li>Installed on 2017-06-08</li>
-<li>Sometimes wireless clients are unable to connect to the network.</li>
-<li>Sometimes the router becomes inaccessible to clients even though it is still up.</li>
-</ul>
-<h4 id="2017-08-02-v30-r33000m-kongac">2017-08-02 v3.0-r33000M kongac</h4>
-<ul>
-<li>Installed on 2017-08-05</li>
-<li>Quite stable</li>
-</ul>
-<h4 id="2017-10-22-v30-r33575m-kongac">2017-10-22 v3.0-r33575M kongac</h4>
-<ul>
-<li>Installed on 2017-10-22</li>
-<li>Seeing lock-ups and wifi unavailability after 24 hours</li>
-<li>Seeing more lock-ups and wifi unavailability hours after restart</li>
-</ul>
-<h4 id="2017-11-03-v30-r33655m-kongac">2017-11-03 v3.0-r33655M kongac</h4>
-<ul>
-<li>Installed on 2017-11-04</li>
-<li>WiFi instability observed within hours</li>
-</ul>
-<h4 id="2017-11-03-v30-r33675m-kongac">2017-11-03 v3.0-r33675M kongac</h4>
-<ul>
-<li>2017-12-25: Discovered this firmware had been installed</li>
-</ul>
-<h4 id="2018-01-03-v30-r34320m-kongac">2018-01-03 v3.0-r34320M kongac</h4>
-<ul>
-<li>Installed on 2018-01-16</li>
-<li>DD-WRT v3.0-r34320M kongac (c) 2017 NewMedia-NET GmbH</li>
-<li>Release: 01/03/18</li>
-<li>http://www.desipro.de/ddwrt/K3-AC-Arm/TEST/dd-wrt.v24-K3_AC_ARM_STD.bin</li>
-<li>Frequent lock-ups</li>
-</ul>
-<h4 id="2018-02-11-v30-r34900m-kongac">2018-02-11 v3.0-r34900M kongac</h4>
-<ul>
-<li>Installed on 2018-02-16</li>
-<li>DD-WRT v3.0-r34900M kongac (c) 2018 NewMedia-NET GmbH</li>
-<li>Release: 02/11/18</li>
-<li>Very unstable wifi</li>
-</ul>
-<h4 id="2018-02-19-v30-r35030m-kongac">2018-02-19 v3.0-r35030M kongac</h4>
-<ul>
-<li>Installed on 2018-02-24 (?)</li>
-<li>DD-WRT v3.0-r35030M kongac (c) 2018 NewMedia-NET GmbH</li>
-<li>Release: 02/19/18</li>
-<li>This version cannot seem to stay up for more than 12 hours without losing connectivity.</li>
-</ul>
-<h4 id="2018-04-04-v30-r35550m-kongac">2018-04-04 v3.0-r35550M kongac</h4>
-<ul>
-<li>Installed on 2018-04-04</li>
-<li>DD-WRT v3.0-r35550M kongac (03/28/18)</li>
-<li>Still having stability problems, didn't make it 2h before needing a reboot.</li>
-</ul>
+<h1 id="debian">debian</h1>
+<p>"Debian is a free operating system, developed and maintained by the Debian project." - <a href="https://www.debian.org/intro">https://www.debian.org/intro</a></p>
+<p>Debian is a solid linux distribution that serves as the upstream base for many other linux distributions, including <a href="../ubuntu/">Ubuntu</a> and <a href="https://www.raspberrypi.com/software">Raspberry Pi OS</a>.</p>
 
 
 
