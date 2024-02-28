@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -6944,7 +6944,7 @@
 &gt;&gt;&gt; jmespath.search(&quot;[?name == `bar-name`]&quot;, l)
 [{'name': 'bar-name', 'the.age': 'bar-the.age'}]
 </code></pre>
-<p>However, in jmespath you also must double-quotes keys (variable names) that contain dots. (Double-quotes are optional for keys that do not contain dots.) This becomes a bit burdensome to keep track of, and also failure-prone:</p>
+<p>However, in jmespath you also must double-quote keys (variable names) that contain dots. (Double-quotes are optional for keys that do not contain dots.) This becomes a bit burdensome to keep track of, and also failure-prone:</p>
 <pre><code class="language-py">&gt;&gt;&gt; l = [{&quot;name&quot;: &quot;foo-name&quot;, &quot;the.age&quot;: &quot;foo-the.age&quot;}, {&quot;name&quot;: &quot;bar-name&quot;, &quot;the.age&quot;: &quot;bar-the.age&quot;}]
 &gt;&gt;&gt; l[1]['the.age']
 'bar-the.age'
