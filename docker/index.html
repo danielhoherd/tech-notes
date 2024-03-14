@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -1661,6 +1661,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#naming-inconsistencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming inconsistencies
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#docker-desktop" class="md-nav__link">
@@ -7057,6 +7066,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#naming-inconsistencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming inconsistencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker-desktop" class="md-nav__link">
     <span class="md-ellipsis">
       Docker Desktop
@@ -7313,6 +7331,21 @@
 
 <h1 id="docker">docker</h1>
 <p>"An open source project to pack, ship and run any application as a lightweight container." - <a href="https://www.docker.com">https://www.docker.com</a></p>
+<h2 id="naming-inconsistencies">Naming inconsistencies</h2>
+<p>As of 2024, there are a bunch of frustrating naming inconsistencies with Docker and OCI images. The <a href="https://docs.docker.com/reference/cli/docker/image/tag/#description">docker image tag documentation</a> shows the "image name" as being broken down into the following components: <code>[registry[:port]/][namespace/]repository[:tag]</code>. Unfortunately this does not harmonize with what is used in various tools, including the official Docker tools.</p>
+<p>For example, the <code>docker</code> command line shows the full "image name" minus the "tag" component if you ask it for the "repository":</p>
+<pre><code>$ docker images quay.io:443/prometheus/busybox:glibc --format=json | jq -r .Repository
+quay.io:443/prometheus/busybox
+</code></pre>
+<p>And the docker python module shows the entire "image name" when you ask it for the "tag"</p>
+<pre><code>&gt;&gt;&gt; client.images.get('quay.io:443/prometheus/busybox:glibc').tags
+['quay.io/prometheus/busybox:glibc']
+</code></pre>
+<p>Other documents list other definitions. I think that the community needs to get this terminology straight in order for us to build consistent, resilient software. There are some discussions open about this topic, but it does not seem to be high priority:</p>
+<ul>
+<li><a href="https://github.com/opencontainers/artifacts/issues/32#issuecomment-954898503">https://github.com/opencontainers/artifacts/issues/32#issuecomment-954898503</a></li>
+<li><a href="https://github.com/opencontainers/distribution-spec/issues/279">https://github.com/opencontainers/distribution-spec/issues/279</a></li>
+</ul>
 <h2 id="docker-desktop">Docker Desktop</h2>
 <p>In August 2021, Docker pulled a license bait and switch with Docker Desktop. If you want a Docker Desktop alternative on macOS that has a <code>docker</code> command but doesn't use Docker Desktop, you can do the following:</p>
 <pre><code class="language-sh">brew install hyperkit minikube docker kubernetes-cli
@@ -7320,8 +7353,8 @@ minikube config set driver hyperkit
 minikube start
 eval $(minikube docker-env)
 </code></pre>
-<p>This will give you <code>docker</code> commands that target the minikube CRI, and is actually a great dev environment.</p>
-<p>Alternatively, if you have a linux machine that runs docker handy, you can skip the minikube stuff and <code>export DOCKER_HOST=ssh://linux-docker-host</code> to launch containers on the linux dockerd.</p>
+<p>This will give you <code>docker</code> commands that targets the minikube CRI, and is actually a great dev environment.</p>
+<p>Alternatively, if you have a linux machine that runs docker handy, you can skip the minikube stuff and <code>export DOCKER_HOST=ssh://linux-docker-host</code> to launch containers on the linux dockerd. This has the caveats that you cannot mount local filesystems into the remote docker host, and if you want to use it for building your project directory will be sent over the network to the remote docker host.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="show-help-on-the-run-command">Show help on the run command</h3>
 <pre><code>docker help run
