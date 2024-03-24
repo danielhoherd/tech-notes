@@ -5867,6 +5867,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#create-a-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a view
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-rows-to-the-table-from-unix-shell" class="md-nav__link">
     <span class="md-ellipsis">
       Add rows to the table from unix shell
@@ -7082,6 +7091,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#create-a-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a view
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-rows-to-the-table-from-unix-shell" class="md-nav__link">
     <span class="md-ellipsis">
       Add rows to the table from unix shell
@@ -7277,6 +7295,13 @@ UNIQUE (id,hostname));&quot;
 </code></pre>
 <h3 id="add-a-column-to-the-table">Add a column to the table</h3>
 <pre><code class="language-sql">ALTER TABLE servers ADD os varchar(255);
+</code></pre>
+<h3 id="create-a-view">Create a view</h3>
+<p>"a view is the result set of a stored query, which can be queried in the same manner as a persistent database collection object" - <a href="https://en.wikipedia.org/wiki/View_(SQL)">https://en.wikipedia.org/wiki/View_(SQL)</a></p>
+<p><a href="https://www.sqlite.org/lang_createview.html">https://www.sqlite.org/lang_createview.html</a></p>
+<p>The following view would show only rows from <code>servers</code> where the <code>ip_addr</code> starts with <code>192.168.</code>. This is an effective way to move logic into the database, potentially reudcing app complexity:</p>
+<pre><code class="language-sql">CREATE VIEW local_servers AS
+SELECT hostname,ip_addr FROM servers WHERE ip_addr like '192.168.%' ;
 </code></pre>
 <h3 id="add-rows-to-the-table-from-unix-shell">Add rows to the table from unix shell</h3>
 <pre><code class="language-sh">sqlite3 foo.db &quot;insert into baz values ('50','some text');&quot;
