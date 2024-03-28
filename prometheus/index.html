@@ -4761,6 +4761,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#validate-a-prometheus-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validate a prometheus config
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6868,6 +6877,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#validate-a-prometheus-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validate a prometheus config
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6910,6 +6928,9 @@ while read -r pod ; do
   kill %%
   sleep 5  # to let the previous process exit before starting another port forward
 done
+</code></pre>
+<h3 id="validate-a-prometheus-config">Validate a prometheus config</h3>
+<pre><code class="language-sh">promtool check config --syntax-only prometheus-config.yaml
 </code></pre>
 <h2 id="links">Links</h2>
 <ul>
