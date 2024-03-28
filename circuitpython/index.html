@@ -981,6 +981,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#paste-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paste mode
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6868,6 +6877,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#paste-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paste mode
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6921,6 +6939,8 @@ with open('boot.py', mode='w') as f:
 storage.remount('/', readonly=False)
 os.remove('/boot.py')
 </code></pre>
+<h3 id="paste-mode">Paste mode</h3>
+<p>You can enter paste mode by pressing <code>CTRL-E</code>. This lets you paste in multi-line code that will not be interpreted until you press <code>CTRL-D</code>. This also lets you paste code that has spaces init without the REPL saying your syntax is invalid due to indentation problems or other whitespace nuances of the normal REPL.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../python/">python</a></li>
