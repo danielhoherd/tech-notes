@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/inotify/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/flipper-zero/">
       
       
-        <link rel="prev" href="../img2xterm/">
+        <link rel="prev" href="../flask/">
       
       
-        <link rel="next" href="../internet/">
+        <link rel="next" href="../fluent-bit/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>inotify - Daniel Hoherd's tech notes</title>
+        <title>Flipper Zero - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inotify" class="md-skip">
+        <a href="#flipper-zero" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              inotify
+              Flipper Zero
             
           </span>
         </div>
@@ -2034,10 +2034,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../flipper-zero/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Flipper Zero
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2046,6 +2066,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2754,30 +2803,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    inotify
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../inotify/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2786,50 +2815,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#continuously-show-filesystem-events-on-a-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Continuously show filesystem events on a file
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6861,26 +6846,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples
+      Links
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#continuously-show-filesystem-events-on-a-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Continuously show filesystem events on a file
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6899,17 +6869,13 @@
                   
 
 
-<h1 id="inotify">inotify</h1>
+<h1 id="flipper-zero">Flipper Zero</h1>
+<p>"Multi-tool Device for Geeks" - <a href="https://flipperzero.one">https://flipperzero.one</a></p>
+<h2 id="links">Links</h2>
 <ul>
-<li>"inotify - monitoring file system events" - <code>man inotify</code></li>
-<li>"inotifywatch - gather filesystem access statistics using inotify" - <code>man inotifywatch</code></li>
-<li>"The inotify cron daemon (incrond) is a daemon which monitors filesystem events and executes commands defined in system and user tables. It's (sic) use is generally similar to cron(8)." - <code>man incrond</code></li>
+<li><a href="https://docs.flipper.net">https://docs.flipper.net</a>: The official docs, which are awesome.</li>
+<li><a href="https://instantiator.dev/post/flipper-zero-app-tutorial-01">https://instantiator.dev/post/flipper-zero-app-tutorial-01</a></li>
 </ul>
-<h2 id="examples">Examples</h2>
-<h3 id="continuously-show-filesystem-events-on-a-file">Continuously show filesystem events on a file</h3>
-<p>This shows a datestamp when /var/log/syslog is modified. Theoretically we could use <code>%N</code> to get millisecond precision, but it doesn't work.</p>
-<pre><code>sudo sudo inotifywait -m --timefmt '%F %T.%z' --format '%T %w %e %f' /var/log/syslog
-</code></pre>
 
 
 

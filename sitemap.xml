@@ -461,6 +461,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/flipper-zero/</loc>
+         <lastmod>2024-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/fluent-bit/</loc>
          <lastmod>2024-04-08</lastmod>
          <changefreq>daily</changefreq>
