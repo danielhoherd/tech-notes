@@ -2611,6 +2611,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#include-pre-release-versions-in-all-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Include pre-release versions in all versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-values-of-a-deployed-chart" class="md-nav__link">
     <span class="md-ellipsis">
       Get values of a deployed chart
@@ -6959,6 +6968,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#include-pre-release-versions-in-all-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Include pre-release versions in all versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-values-of-a-deployed-chart" class="md-nav__link">
     <span class="md-ellipsis">
       Get values of a deployed chart
@@ -7068,8 +7086,13 @@
 </ul>
 <h2 id="tips">Tips</h2>
 <h3 id="list-all-versions-of-a-chart-in-a-given-repo">List all versions of a chart in a given repo</h3>
-<pre><code class="language-sh">helm search repo -l repo_name/chart_name --devel
+<pre><code class="language-sh">helm search repo repo_name/chart_name --devel --versions
 </code></pre>
+<h3 id="include-pre-release-versions-in-all-versions">Include pre-release versions in all versions</h3>
+<p>You have to use <a href="https://github.com/Masterminds/semver">mastermind/semver</a> constraints with helm, which dictate that you have to include a pre-release component if you want to match against prereleases:</p>
+<pre><code class="language-sh">helm search repo repo_name/chart_name --devel --versions --version '^1.5-0'
+</code></pre>
+<p>This would show all versions including prereleases before or equal to 1.5.x. If you only want to show the latest version even if it is a prerelease, leave off <code>--versions</code>.</p>
 <h3 id="get-values-of-a-deployed-chart">Get values of a deployed chart</h3>
 <p>This only shows values that were passed in, not default values.</p>
 <p><code>$release_name</code> is the NAME column in <code>helm list</code></p>
