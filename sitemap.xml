@@ -1271,6 +1271,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://danielhoherd.com/tech-notes/science/</loc>
+         <lastmod>2024-04-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://danielhoherd.com/tech-notes/screenshot/</loc>
          <lastmod>2024-04-12</lastmod>
          <changefreq>daily</changefreq>
