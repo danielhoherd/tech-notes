@@ -8141,7 +8141,7 @@ kubectl logs $pod_name --since=12h
 <h3 id="show-logs-for-a-given-pod-since-a-given-date">Show logs for a given pod since a given date</h3>
 <p>The <code>--since-time</code> arg takes <a href="https://tools.ietf.org/html/rfc3339">RFC3339</a> datetime. EG: <code>1991-08-03T13:31:46-07:00</code>. This format requirement is strict, and is incompatible with the GNU date <code>--rfc-3339=seconds</code> output, which uses a space instead of a T to separate the full date from the full time, and <code>+%FT%F%z</code>, which does not include a colon between hours and minutes.</p>
 <pre><code class="language-sh">pod_name=httpbin
-kubectl logs $pod_name --since-time=&quot;$(date --iso-8601=seconds -d '-5 weeks')&quot;
+kubectl logs $pod_name --since-time=&quot;$(date -Iseconds -d '-5 weeks')&quot;
 </code></pre>
 <h3 id="output-custom-column-names">Output custom column names</h3>
 <pre><code>$ kubectl get pvc --all-namespaces -o custom-columns='NAME:metadata.name,SIZE:spec.resources.requests.storage'
@@ -8332,10 +8332,9 @@ uts:[4026533324]                | uts:[4026533327]
 <ul>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/docs/reference/kubectl/cheatsheet/</a></li>
 <li><a href="http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf">http://on-demand.gputechconf.com/gtc/2018/presentation/s8893-the-path-to-gpu-as-a-service-in-kubernetes.pdf</a></li>
-<li><a href="http://on-demand.gputechconf.com/gtc/2018/video/S8893/">http://on-demand.gputechconf.com/gtc/2018/video/S8893/</a></li>
 <li><a href="http://slack.kubernetes.io/">http://slack.kubernetes.io/</a></li>
 <li><a href="https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster">https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster</a></li>
-<li><a href="https://docs.projectcalico.org/latest/introduction/">https://docs.projectcalico.org/latest/introduction/</a></li>
+<li><a href="https://docs.tigera.io/calico/latest/about">https://docs.tigera.io/calico/latest/about</a>: "Calico is a networking and security solution that enables Kubernetes workloads and non-Kubernetes/legacy workloads to communicate seamlessly and securely."</li>
 <li><a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">https://github.com/kelseyhightower/kubernetes-the-hard-way</a>: "The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together."</li>
 <li><a href="https://github.com/kinvolk/kubernetes-the-hard-way-vagrant">https://github.com/kinvolk/kubernetes-the-hard-way-vagrant</a>: "A port of Kelsey Hightower's 'Kubernetes the Hard Way' tutorial to Vagrant."</li>
 <li><a href="https://github.com/kubernetes/dashboard#kubernetes-dashboard">https://github.com/kubernetes/dashboard#kubernetes-dashboard</a></li>
@@ -8343,8 +8342,7 @@ uts:[4026533324]                | uts:[4026533327]
 <li><a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">https://kubernetes.io/docs/concepts/cluster-administration/addons/</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/cluster-administration/logging/">https://kubernetes.io/docs/concepts/cluster-administration/logging/</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">https://kubernetes.io/docs/concepts/services-networking/network-policies/</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">https://kubernetes.io/docs/concepts/workloads/controllers/deployment/</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/index.html">https://kubernetes.io/docs/concepts/workloads/pods/pod/index.html</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/workloads/">https://kubernetes.io/docs/concepts/workloads/</a></li>
 <li><a href="https://kubernetes.io/docs/getting-started-guides/minikube/">https://kubernetes.io/docs/getting-started-guides/minikube/</a></li>
 <li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm</a></li>
 <li><a href="https://www.cncf.io/certification/expert/CKA/">https://www.cncf.io/certification/expert/CKA/</a></li>
@@ -8358,7 +8356,6 @@ uts:[4026533324]                | uts:[4026533327]
 <li><a href="https://kind.sigs.k8s.io/docs/user/quick-start#multinode-clusters">https://kind.sigs.k8s.io/docs/user/quick-start#multinode-clusters</a>: Multi-node kubernetes clusters running within docker</li>
 <li><a href="https://www.stackrox.com/categories/eks-vs-gke-vs-aks">https://www.stackrox.com/categories/eks-vs-gke-vs-aks</a>: Available cloud versions of hosted k8s and notable changes</li>
 <li><a href="https://velero.io">https://velero.io</a>: cluster backups</li>
-<li><a href="https://www.k8sref.io">https://www.k8sref.io</a>: k8s API reference</li>
 <li>kube-dns-autoscaler: <a href="https://gist.github.com/MrHohn/1198bccc2adbd8cf3b066ab37ccd8355">https://gist.github.com/MrHohn/1198bccc2adbd8cf3b066ab37ccd8355</a> / <a href="https://github.com/kubernetes-sigs/cluster-proportional-autoscaler">https://github.com/kubernetes-sigs/cluster-proportional-autoscaler</a></li>
 <li>Kubernetes pods /etc/resolv.conf ndots:5 option and why it may negatively affect your application performances: <a href="https://pracucci.com/kubernetes-dns-resolution-ndots-options-and-why-it-may-affect-application-performances.html">https://pracucci.com/kubernetes-dns-resolution-ndots-options-and-why-it-may-affect-application-performances.html</a></li>
 <li><a href="https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/">https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/</a> "Kubernetes admission controllers are plugins that govern and enforce how the cluster is used. They can be thought of as a gatekeeper that intercept (authenticated) API requests and may change the request object or deny the request altogether."</li>
