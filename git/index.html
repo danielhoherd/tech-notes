@@ -8724,6 +8724,9 @@ git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
 <h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format</h4>
 <pre><code class="language-sh">git config --list
 </code></pre>
+<p>Also include the file that each configuration setting is defined in:</p>
+<pre><code class="language-sh">git config --list --show-origin
+</code></pre>
 <h3 id="git-diff">git diff</h3>
 <p>Show differences between objects and stuff.</p>
 <h4 id="diff-between-staged-and-committed">diff between staged and committed</h4>
