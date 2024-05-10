@@ -8282,13 +8282,18 @@ kubeadm init
 <li>Kubernetes Service: <code>&lt;service&gt;.&lt;namespace&gt;.svc.cluster.local.</code> (eg: <code>httpbin.default.svc.cluster.local.</code>)</li>
 </ul>
 <pre><code class="language-sh">kubectl get svc --all-namespaces -o jsonpath='{range .items[*]}{.metadata.name}{&quot;.&quot;}{.metadata.namespace}{&quot;.svc.cluster.local.\n&quot;}'
-kubectl get svc --all-namespaces -o json | jq -r  '.items[] | &quot;\(.metadata.name).\(.metadata.namespace).svc.cluster.local.&quot;'
+</code></pre>
+<p>Or with <code>jq</code>:</p>
+<pre><code class="language-sh">kubectl get svc --all-namespaces -o json |
+jq -r  '.items[] | &quot;\(.metadata.name).\(.metadata.namespace).svc.cluster.local.&quot;'
+</code></pre>
+<p>And if you want to also add port numbers:</p>
+<pre><code class="language-sh">kubectl get svc --all-namespaces -o json |
+jq -r '.items[] | &quot;\(.metadata.name).\(.metadata.namespace).svc.cluster.local.&quot; as $base | .spec.ports[] | &quot;\($base):\(.port)&quot;'
 </code></pre>
 <ul>
 <li>With core-dns you can run <code>dig SRV +short *.*.svc.cluster.local.</code> to get a list of all services.</li>
 <li>Kubernetes service srv records: <code>_${service_port_name}._${protocol}.${service}.${namespace}.svc.cluster.local.</code> (eg: <code>_http._tcp.httpbin.default.svc.cluster.local.</code>)</li>
-<li>Pod by IP address: <code>${pod_ip_address}.${namespace}.pod.cluster.local.</code> (eg: <code>192-168-1-6.default.pod.cluster.local.</code>)</li>
-<li>Pod by name: ...?</li>
 </ul>
 <h3 id="crictl">crictl</h3>
 <p>crictl is a tool to inspect the local Container Runtime Interface (CRI)</p>
