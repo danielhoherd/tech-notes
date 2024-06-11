@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/nethogs/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/terminal-emulator/">
       
       
-        <link rel="prev" href="../netgear/">
+        <link rel="prev" href="../tcpflow/">
       
       
-        <link rel="next" href="../networking/">
+        <link rel="next" href="../terraform/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>nethogs - Daniel Hoherd's tech notes</title>
+        <title>Terminal Emulator - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nethogs" class="md-skip">
+        <a href="#terminal-emulator" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              nethogs
+              Terminal Emulator
             
           </span>
         </div>
@@ -4074,30 +4074,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    nethogs
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../nethogs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4106,35 +4086,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See also
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6223,10 +6174,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../terminal-emulator/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Terminal Emulator
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -6235,6 +6206,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6926,9 +6935,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
+  <a href="#comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      See also
+      Comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
     </span>
   </a>
   
@@ -6949,12 +6967,68 @@
                   
 
 
-<h1 id="nethogs">nethogs</h1>
-<p>"Linux 'net top' tool" - <a href="https://github.com/raboof/nethogs">https://github.com/raboof/nethogs</a></p>
-<p>Nethogs shows you which PIDs used or are using how much bandwidth.</p>
-<h2 id="see-also">See also</h2>
+<h1 id="terminal-emulator">Terminal Emulator</h1>
+<h2 id="comparison">Comparison</h2>
+<p>Tracking things I care about in a some terminal emulators I use.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: left;">iTerm2</th>
+<th style="text-align: left;">kitty</th>
+<th style="text-align: left;">alacritty</th>
+<th>cool-retro-term</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Select a rectangle</td>
+<td style="text-align: left;">cmd-opt</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">ctrl-opt</td>
+<td>N</td>
+</tr>
+<tr>
+<td style="text-align: center;">Tabs</td>
+<td style="text-align: left;">cmd-t</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td>N</td>
+</tr>
+<tr>
+<td style="text-align: center;">Panes</td>
+<td style="text-align: left;">cmd-d / cmd-shift-d</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td>N</td>
+</tr>
+<tr>
+<td style="text-align: center;">Broadcast input</td>
+<td style="text-align: left;">opt-cmd-i</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td>N</td>
+</tr>
+<tr>
+<td style="text-align: center;">Speed</td>
+<td style="text-align: left;">medium</td>
+<td style="text-align: left;">fast</td>
+<td style="text-align: left;">fast</td>
+<td>slow</td>
+</tr>
+<tr>
+<td style="text-align: center;">Easily export prefs</td>
+<td style="text-align: left;">Decent</td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Y</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="../top-variant-list/">Top variant list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_terminal_emulators">https://en.wikipedia.org/wiki/List_of_terminal_emulators</a></li>
+<li><a href="https://sw.kovidgoyal.net/kitty/performance">https://sw.kovidgoyal.net/kitty/performance</a>: Performance comparison of several popular terminal emulators comopared to kitty</li>
 </ul>
 
 
