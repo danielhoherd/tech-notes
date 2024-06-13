@@ -7522,10 +7522,10 @@ awk '{sum += $1} END {avg = sum/NR ; printf &quot;Count:   %s\nSum:     %s\nAver
 <pre><code class="language-sh">zfs list -t snapshot | awk '$2 == 0'
 </code></pre>
 <h3 id="print-a-line-if-the-third-field-does-not-match-a-regex">Print a line if the third field does not match a regex</h3>
-<pre><code class="language-sh">tcpdump -r ops1prod-syn.cap | sort -k2 | awk '$3 !~ /ztmis.prod/ { print }'
+<pre><code class="language-sh">echo {100..200} | fold -w 12 | awk '$3 !~ /[13579]$/ {print}'
 </code></pre>
 <h3 id="show-500-errors-in-a-standard-apache-access-log">Show 500 errors in a standard apache access log</h3>
-<pre><code class="language-sh">awk '$9 ~ /5[0-9][0-9]/' www_zoosk_access.log
+<pre><code class="language-sh">awk '$9 ~ /5[0-9][0-9]/' access.log
 </code></pre>
 <h3 id="show-total-rss-and-vsz-count-for-all-cronolog-processes">Show total rss and vsz count for all cronolog processes</h3>
 <pre><code class="language-sh">ps aux |
