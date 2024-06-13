@@ -8032,7 +8032,7 @@
 <li>Mirrororing l2arc does not matter because if it fails, reads come from the spinning disks.</li>
 <li>Too big of a device can suck up resources and cause poor performance. See <a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
 </ul>
-<p>Good explanation: <a href="https://blogs.oracle.com/brendan/entry/test">https://blogs.oracle.com/brendan/entry/test</a></p>
+<p>Good explanation: <a href="https://web.archive.org/web/20160324170916/https://blogs.oracle.com/brendan/entry/test">https://web.archive.org/web/20160324170916/https://blogs.oracle.com/brendan/entry/test</a></p>
 <h2 id="zdb">zdb</h2>
 <h3 id="show-the-potential-savings-of-turning-on-dedupe-on-zpool-tank">Show the potential savings of turning on dedupe on zpool tank</h3>
 <p><a href="https://web.archive.org/web/20130217052412/http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup">https://web.archive.org/web/20130217052412/http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup</a></p>
@@ -8215,7 +8215,7 @@ zfs set compression=lz4 &quot;${pool}&quot;
 <h3 id="create-a-case-insensitive-raidz3-out-of-50-files">Create a case insensitive raidz3 out of 50 files</h3>
 <pre><code class="language-sh">pool=tank
 for X in {1..50} ; do mkfile -n 2g ${pool}.$X ; done ;
-sudo zpool create -O casesensitivity=insensitive ${pool} raidz3 /Users/danielh/Desktop/Stuff/${pool}/${pool}.{1..50}
+sudo zpool create -O casesensitivity=insensitive ${pool} raidz3 &quot;${PWD}/${pool}&quot;.{1..50}
 </code></pre>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="mount-a-pool-that-is-giving-you-trouble">Mount a pool that is giving you Trouble</h3>
