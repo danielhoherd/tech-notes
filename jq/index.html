@@ -3307,6 +3307,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#get-the-most-recently-dated-blob" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the most recently dated blob
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7220,6 +7229,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#get-the-most-recently-dated-blob" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the most recently dated blob
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7424,6 +7442,10 @@ jq -n '{service_account: env.SERVICE_ACCOUNT_ID, secret_key: env.SERVICE_ACCOUNT
     &quot;Accept&quot;: &quot;*/*&quot;,
     &quot;Content-Length&quot;: &quot;84&quot;,
 ...
+</code></pre>
+<h3 id="get-the-most-recently-dated-blob">Get the most recently dated blob</h3>
+<pre><code class="language-sh">curl -fssL https://storage.googleapis.com/updates.astronomer.io/astronomer-certified |
+jq '.available_releases | sort_by(.release_date)[-1]'
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
