@@ -5136,6 +5136,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-stats-about-call-count-and-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show stats about call count and times
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#generate-a-flame-graph" class="md-nav__link">
     <span class="md-ellipsis">
       Generate a flame graph
@@ -7422,6 +7431,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-stats-about-call-count-and-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show stats about call count and times
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#generate-a-flame-graph" class="md-nav__link">
     <span class="md-ellipsis">
       Generate a flame graph
@@ -7739,11 +7757,20 @@ import module # from somedir
 <li><a href="https://docs.python.org/3/library/profile.html">https://docs.python.org/3/library/profile.html</a></li>
 <li><a href="https://docs.python.org/3/library/timeit.html">https://docs.python.org/3/library/timeit.html</a></li>
 </ul>
+<h3 id="show-stats-about-call-count-and-times">Show stats about call count and times</h3>
+<p>This example shows how to profile a pytest run, and then generate a stats.txt file showing stats sorted by total time:</p>
+<pre><code class="language-sh">python -m cProfile -o output.prof pytest -sv tests
+cat &lt;&lt;EOF | python -m pstats output.prof &gt; stats.txt
+sort time
+stats
+EOF
+</code></pre>
+<p>Yes, that syntax is ugly, and yes, the stats module could use a better CLI, but it works. Creating a function to make the CLI interface better is left as an exercise for the reader.</p>
 <h3 id="generate-a-flame-graph">Generate a flame graph</h3>
 <p>Until <a href="https://github.com/baverman/flameprof/pull/5">https://github.com/baverman/flameprof/pull/5</a> is merged you may have to edit the installed <code>flameprof</code> shell script.</p>
 <pre><code class="language-sh">pip3 install flameprof
-python -m cProfile -o myscript.prof myscript.py
-flameprof myscript.prof.prof &gt; output.svg
+python -m cProfile -o output.prof myscript.py
+flameprof output.prof &gt; output.svg
 </code></pre>
 <h3 id="_1"></h3>
 <h2 id="debugging">Debugging</h2>
