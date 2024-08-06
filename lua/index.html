@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/macos/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/lua/">
       
       
-        <link rel="prev" href="../machine-learning/">
+        <link rel="prev" href="../lsof/">
       
       
-        <link rel="next" href="../make/">
+        <link rel="next" href="../lvm/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>macOS - Daniel Hoherd's tech notes</title>
+        <title>LUA - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macos" class="md-skip">
+        <a href="#lua" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              macOS
+              LUA
             
           </span>
         </div>
@@ -3574,10 +3574,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../lua/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    LUA
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3586,6 +3606,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3654,30 +3703,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    macOS
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../macos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3686,167 +3715,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Useful Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Useful Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logout-user-from-a-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      Logout user from a shell
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-sshd-client-timeout-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fix sshd client timeout config
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-hardware-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      Show hardware info
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-package-from-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install package from CLI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-ftp-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Start FTP server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-swap-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check swap usage
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#disable-wifi-disconnect-when-locking-screen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disable wifi disconnect when locking screen
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-some-downloaded-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Show some downloaded files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send-notifications-from-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Send Notifications from Terminal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-verbose-eap-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable verbose eap logging
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network" class="md-nav__link">
-    <span class="md-ellipsis">
-      Network
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migration-assistant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Migration Assistant
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remap-caps-lock-to-escape" class="md-nav__link">
-    <span class="md-ellipsis">
-      Remap caps-lock to escape
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -7086,138 +6954,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#useful-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Useful Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Useful Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logout-user-from-a-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      Logout user from a shell
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-sshd-client-timeout-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fix sshd client timeout config
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-hardware-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      Show hardware info
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-package-from-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install package from CLI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-ftp-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Start FTP server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-swap-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check swap usage
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#disable-wifi-disconnect-when-locking-screen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disable wifi disconnect when locking screen
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-some-downloaded-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Show some downloaded files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send-notifications-from-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Send Notifications from Terminal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-verbose-eap-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable verbose eap logging
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network" class="md-nav__link">
-    <span class="md-ellipsis">
-      Network
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migration-assistant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Migration Assistant
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remap-caps-lock-to-escape" class="md-nav__link">
-    <span class="md-ellipsis">
-      Remap caps-lock to escape
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -7233,90 +6969,15 @@
                   
 
 
-<h1 id="macos">macOS</h1>
-<p>Apple's Unix desktop operating system.</p>
+<h1 id="lua">LUA</h1>
+<p>"Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description." - <a href="https://www.lua.org/about.html">https://www.lua.org/about.html</a></p>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://medium.com/@hammen/significant-changes-in-macos-10-15-catalina-of-interest-to-mac-admins-fbc3865c055e">Significant Changes in macOS 10.15 Catalina of Interest to Mac Admins</a></li>
-<li><a href="https://git.herrbischoff.com/awesome-macos-command-line/about/">https://git.herrbischoff.com/awesome-macos-command-line/about/</a></li>
-<li><a href="https://support.apple.com/en-us/108900">https://support.apple.com/en-us/108900</a>: How to revive or restore Mac firmware</li>
+<li><a href="https://www.lua.org">https://www.lua.org</a></li>
+<li><a href="https://learnxinyminutes.com/docs/lua">https://learnxinyminutes.com/docs/lua</a></li>
+<li><a href="https://pico-8.fandom.com/wiki/Lua">https://pico-8.fandom.com/wiki/Lua</a></li>
+<li><a href="https://www.lexaloffle.com/dl/docs/pico-8_manual.html#Lua_Syntax_Primer">https://www.lexaloffle.com/dl/docs/pico-8_manual.html#Lua_Syntax_Primer</a></li>
 </ul>
-<h2 id="useful-commands">Useful Commands</h2>
-<ul>
-<li>caffeinate</li>
-<li>mdutil</li>
-<li>networksetup</li>
-<li>scutil</li>
-<li>serverinfo</li>
-<li>sharing</li>
-<li>tccutil</li>
-</ul>
-<h3 id="logout-user-from-a-shell">Logout user from a shell</h3>
-<pre><code class="language-sh">sudo launchctl bootout gui/$(id -u &quot;$USERNAME&quot;)
-</code></pre>
-<p>or</p>
-<pre><code class="language-sh">sudo launchctl bootout user/$(id -u &quot;$USERNAME&quot;)
-</code></pre>
-<h3 id="fix-sshd-client-timeout-config">Fix sshd client timeout config</h3>
-<p>macOS has an <code>/etc/ssh/sshd_config</code> that will never disconnect idle clients. With sketchy wifi, or for a variety of other reasons, this can cause ssh connections to pile up, causing a DoS on the ssh server. When this happens, a client that is attempting to connect may see <code>kex_exchange_identification: read: Connection reset by peer</code>. To fix this, set the following config values to anything other than 0. See <a href="https://man.openbsd.org/sshd_config"><code>man 5 sshd_config</code></a> for more info.</p>
-<p>The following settings would allow an unresponsive ssh session 10 minutes before terminating it:</p>
-<pre><code>ClientAliveInterval 120
-ClientAliveCountMax 5
-</code></pre>
-<p>Using BSD sed, you can quickly set this:</p>
-<pre><code class="language-sh">sudo sed -i '' -E 's/^#?ClientAliveInterval [0-9]+/ClientAliveInterval 120/ ; s/^#?ClientAliveCountMax [0-9]+/ClientAliveCountMax 5/ ;' /etc/ssh/sshd_config
-sudo bash -c &quot;launchctl stop com.openssh.sshd ; launchctl start com.openssh.sshd ;&quot;
-</code></pre>
-<h3 id="show-hardware-info">Show hardware info</h3>
-<pre><code>system_profiler SPHardwareDataType
-</code></pre>
-<h3 id="install-package-from-cli">Install package from CLI</h3>
-<p>Use <a href="https://brew.sh">brew.sh</a> for most things. Otherwise:</p>
-<pre><code class="language-sh">sudo installer -pkg /Volumes/ExifTool-9.16/ExifTool-9.16.pkg -target /
-</code></pre>
-<h3 id="start-ftp-server">Start FTP server</h3>
-<pre><code class="language-sh">sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
-</code></pre>
-<h3 id="check-swap-usage">Check swap usage</h3>
-<pre><code class="language-sh">sysctl vm.swapusage
-</code></pre>
-<h3 id="disable-wifi-disconnect-when-locking-screen">Disable wifi disconnect when locking screen</h3>
-<pre><code class="language-sh">sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources airport en1 prefs DisconnectOnLogout=NO
-</code></pre>
-<h3 id="show-some-downloaded-files">Show some downloaded files</h3>
-<p>This shows a list of all the quarantine checked downloads:</p>
-<pre><code class="language-sh">sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select distinct LSQuarantineDataURLString from LSQuarantineEvent'
-</code></pre>
-<h3 id="send-notifications-from-terminal">Send Notifications from Terminal</h3>
-<pre><code class="language-sh">sudo gem install terminal-notifier
-terminal-notifier -message &quot;Hello, this is my message&quot; -title &quot;Message Title&quot;
-</code></pre>
-<h3 id="enable-verbose-eap-logging">Enable verbose eap logging</h3>
-<pre><code class="language-sh">sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.eapolclient LogFlags -int -1
-</code></pre>
-<h2 id="network">Network</h2>
-<ul>
-<li>gif0 - Generic Tunnel Interface. See <code>man gif</code>.</li>
-<li>stf0 - Six To Four tunnel. See <code>man stf</code>.</li>
-</ul>
-<h2 id="migration-assistant">Migration Assistant</h2>
-<p>Some files are not migrated using Migration Assistant. EG:</p>
-<ul>
-<li>/etc/hosts</li>
-<li>crontabs</li>
-<li>/etc/apache2/httpd.conf</li>
-</ul>
-<h2 id="remap-caps-lock-to-escape">Remap caps-lock to escape</h2>
-<p>This remaps using a different mechanism than what the Keyboard pref pane uses, so the change will not be reflected there, so you will want to make sure to save both of these functions so you can reset when you need normal behavior.</p>
-<pre><code class="language-sh">caps_to_esc_map(){
-    hidutil property --set \
-    '{&quot;UserKeyMapping&quot;:[{&quot;HIDKeyboardModifierMappingSrc&quot;:0x700000039,&quot;HIDKeyboardModifierMappingDst&quot;:0x700000029}]}'
-}
-
-caps_to_esc_unmap(){
-    hidutil property --set '{&quot;UserKeyMapping&quot;:[]}'
-}
-</code></pre>
 
 
 
