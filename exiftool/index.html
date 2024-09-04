@@ -2186,6 +2186,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#geotag-non-geotagged-files-using-a-specific-tz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geotag non-geotagged files using a specific TZ
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4480,6 +4489,26 @@
   
   <span class="md-ellipsis">
     networksetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFC
   </span>
   
 
@@ -7458,6 +7487,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#geotag-non-geotagged-files-using-a-specific-tz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geotag non-geotagged files using a specific TZ
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7829,6 +7867,12 @@ xargs exiftool -if '$GimbalPitchDegree &gt; 40' -p '${Directory}/${Filename}' --
 xargs -r rm -fv
 </code></pre>
 <p>If you want to filter out photos that are mostly sky but also contain a bit of the ground in the bottom third of the frame, use <code>&gt; 9</code> instead of <code>&gt; 40</code>.</p>
+<h3 id="geotag-non-geotagged-files-using-a-specific-tz">Geotag non-geotagged files using a specific TZ</h3>
+<p>Timezones in photo images is kind of a mess. In order to be specific about what TZ you took photos in, you can override it using the syntax in the example below. For instance, I keep all my photos in UTC so I never have to wonder what TZ I took them in and I never have to worry about DST. This example also skips any files that have existing geotags.</p>
+<pre><code class="language-sh">find ~/Pictures/whatever -type f -iname '*.dng' -print0 |
+  xargs -0 exiftool -if 'not defined $GPSPosition' -geotag ~/gps_tracks.gpx '-Geotime&lt;${createdate}+00:00' --
+</code></pre>
+<p>This page gives more examples: <a href="https://exiftool.org/geotag.html">https://exiftool.org/geotag.html</a></p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="../graphicsmagick/">graphicsmagick</a></li>

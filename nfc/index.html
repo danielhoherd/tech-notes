@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/flipper-zero/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/nfc/">
       
       
-        <link rel="prev" href="../flask/">
+        <link rel="prev" href="../networksetup/">
       
       
-        <link rel="next" href="../fluent-bit/">
+        <link rel="next" href="../nfs/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Flipper Zero - Daniel Hoherd's tech notes</title>
+        <title>NFC - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flipper-zero" class="md-skip">
+        <a href="#nfc" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flipper Zero
+              NFC
             
           </span>
         </div>
@@ -2094,30 +2094,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Flipper Zero
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../flipper-zero/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2126,44 +2106,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See also
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4252,10 +4194,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../nfc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    NFC
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -4264,6 +4226,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mifare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mifare
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See also
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6995,6 +7004,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mifare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mifare
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       Links
@@ -7027,17 +7045,22 @@
                   
 
 
-<h1 id="flipper-zero">Flipper Zero</h1>
-<p>"Multi-tool Device for Geeks" - <a href="https://flipperzero.one">https://flipperzero.one</a></p>
+<h1 id="nfc">NFC</h1>
+<p>"Near-field communication (NFC) is a set of communication protocols that enables communication between two electronic devices over a distance of 4 centimetres (1.6 in) or less." - <a href="https://en.wikipedia.org/wiki/Near-field_communication">https://en.wikipedia.org/wiki/Near-field_communication</a></p>
+<h2 id="mifare">Mifare</h2>
+<ul>
+<li>FM11RF08S universal backdoor key: A396EFA4E24F via <a href="https://eprint.iacr.org/2024/1275.pdf">https://eprint.iacr.org/2024/1275.pdf</a></li>
+</ul>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://docs.flipper.net">https://docs.flipper.net</a>: The official docs, which are awesome.</li>
-<li><a href="https://instantiator.dev/post/flipper-zero-app-tutorial-01">https://instantiator.dev/post/flipper-zero-app-tutorial-01</a></li>
+<li><a href="https://gototags.com/nfc/standards/iso-14443">https://gototags.com/nfc/standards/iso-14443</a></li>
+<li><a href="https://nfc-tools.github.io">https://nfc-tools.github.io</a></li>
+<li><a href="https://docs.flipper.net/nfc">https://docs.flipper.net/nfc</a></li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
-<li>My <a href="../nfc/">NFC</a> notes</li>
 <li>My <a href="../nintendo-amiibo/">Nintendo Amiibo</a> notes</li>
+<li>My <a href="../flipper-zero/">Flipper Zero</a> notes</li>
 </ul>
 
 

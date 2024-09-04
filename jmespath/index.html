@@ -3132,22 +3132,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#quotes-matter" class="md-nav__link">
     <span class="md-ellipsis">
       Quotes matter
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quotes matter">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4264,6 +4264,26 @@
   
   <span class="md-ellipsis">
     networksetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFC
   </span>
   
 
@@ -7008,22 +7028,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#quotes-matter" class="md-nav__link">
     <span class="md-ellipsis">
       Quotes matter
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quotes matter">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7064,7 +7084,6 @@
 <li><a href="https://github.com/jmespath/jmespath.terminal">https://github.com/jmespath/jmespath.terminal</a></li>
 <li><a href="https://github.com/jmespath/jp">https://github.com/jmespath/jp</a></li>
 </ul>
-<h2 id="examples">Examples</h2>
 <h2 id="quotes-matter">Quotes matter</h2>
 <p>Something that is completely absent from <a href="https://jmespath.org/tutorial.html">the jmespath tutorial</a> is that quotes matter. You must quote value strings with single quotes or back-ticks, which means you have to quote the python function args with double quotes, use back-ticks, or escape your single quotes:</p>
 <pre><code class="language-py">&gt;&gt;&gt; print(l)
@@ -7110,6 +7129,7 @@
 [{'name': 'bar-name', 'the.age': 'bar-the.age'}]
 </code></pre>
 <p>The TL;DR is to only double-quote variable names, and single-quote or back-tick-quote anything that is a string literal. This requirement is inconsistent with normal python comparisons. The behavior is strict and unintuitive to people unfamiliar with jmespath. The fact that the failures are silent is quite problematic and leads to low confidence that jmespath is behaving as expected. jmespath would do well to have a linter to warn about this behavior, and at least mention the different types of quotes and their behaviors in the tutorial. (FWIW, these details are buried in <a href="https://jmespath.org/specification.html#spec">the jmespath spec</a>, including the nuanced differences between single-quotes and back-ticks.)</p>
+<h2 id="examples">Examples</h2>
 <h3 id="grab-some-kubernetes-fields-and-remap-them-to-be-less-deep">Grab some kubernetes fields and remap them to be less deep</h3>
 <pre><code class="language-sh">kubectl get po --all-namespaces -o json |
 jp &quot;items[*].{name: metadata.name, namespace: metadata.namespace, imagePullSecrets: spec.imagePullSecrets[*].name}&quot;
