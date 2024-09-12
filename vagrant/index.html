@@ -7157,34 +7157,34 @@
 <li>Examples: <a href="https://github.com/patrickdlee/vagrant-examples">https://github.com/patrickdlee/vagrant-examples</a></li>
 </ul>
 <h2 id="os-x-shell-tweaks">OS X Shell tweaks</h2>
-<pre><code>brew tap homebrew/completions
+<pre><code class="language-sh">brew tap homebrew/completions
 brew install vagrant-completion
 </code></pre>
 <p>Then in .bash_profile:</p>
-<pre><code>if [ -f $(brew --prefix)/etc/bash_completion ]; then
+<pre><code class="language-sh">if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 </code></pre>
 <h2 id="plugins">Plugins</h2>
-<pre><code>vagrant plugin install vagrant-vbguest
+<pre><code class="language-sh">vagrant plugin install vagrant-vbguest
 vagrant plugin install vagrant-hosts
 </code></pre>
 <h2 id="usage-examples">Usage Examples</h2>
 <h3 id="list-which-boxes-you-have-stored-locally">List which boxes you have stored locally</h3>
-<pre><code>vagrant box List
+<pre><code class="language-sh">vagrant box List
 </code></pre>
 <h3 id="remove-an-old-version-of-a-vagrant-box">Remove an old version of a vagrant box</h3>
-<pre><code>vagrant box remove ubuntu/trusty64 --box-version 20151201.0.0
+<pre><code class="language-sh">vagrant box remove ubuntu/trusty64 --box-version 20151201.0.0
 </code></pre>
 <h3 id="script-box-updates">Script box updates</h3>
 <p>This may fail in some circumstances, I haven't tested it exhaustively.</p>
-<pre><code>vagrant box outdated --machine-readable --global |
+<pre><code class="language-sh">vagrant box outdated --machine-readable --global |
   awk -F, '$4 == &quot;warn&quot; {print $5; exit 1}' |
   awk -F&quot;'&quot; '{print $2}' |
   xargs -n1 vagrant box update --box
 </code></pre>
 <h3 id="show-status-of-all-running-vagrant-boxes-not-just-the-one-in-the-cwd">Show status of all running Vagrant boxes, not just the one in the CWD</h3>
-<pre><code>vagrant global-status
+<pre><code class="language-sh">vagrant global-status
 </code></pre>
 
 
