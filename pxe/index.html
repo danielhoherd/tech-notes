@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/cron/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/pxe/">
       
       
-        <link rel="prev" href="../cradlepoint/">
+        <link rel="prev" href="../pv/">
       
       
-        <link rel="next" href="../cryptsetup/">
+        <link rel="next" href="../pytest/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>cron - Daniel Hoherd's tech notes</title>
+        <title>pxe - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cron" class="md-skip">
+        <a href="#pxe" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              cron
+              pxe
             
           </span>
         </div>
@@ -1134,30 +1134,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    cron
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cron/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1166,149 +1146,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#locations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Locations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dst" class="md-nav__link">
-    <span class="md-ellipsis">
-      DST
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syntax-quirks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Syntax quirks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#default-editor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Default Editor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quick-and-dirty-realignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick and dirty realignment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-random-delay" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add a random delay
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#programmatic-editing-of-the-crontab" class="md-nav__link">
-    <span class="md-ellipsis">
-      Programmatic editing of the crontab
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-if-and-when-parts-are-running" class="md-nav__link">
-    <span class="md-ellipsis">
-      See if and when parts are running
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#os-x-alarm-clock" class="md-nav__link">
-    <span class="md-ellipsis">
-      OS X Alarm Clock
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detect-if-you-are-running-in-an-interactive-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detect if you are running in an interactive shell
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5177,10 +5014,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../pxe/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    pxe
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -5189,6 +5046,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -7140,120 +7026,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#locations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Locations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dst" class="md-nav__link">
-    <span class="md-ellipsis">
-      DST
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syntax-quirks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Syntax quirks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#default-editor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Default Editor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quick-and-dirty-realignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick and dirty realignment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-random-delay" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add a random delay
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#programmatic-editing-of-the-crontab" class="md-nav__link">
-    <span class="md-ellipsis">
-      Programmatic editing of the crontab
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-if-and-when-parts-are-running" class="md-nav__link">
-    <span class="md-ellipsis">
-      See if and when parts are running
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#os-x-alarm-clock" class="md-nav__link">
-    <span class="md-ellipsis">
-      OS X Alarm Clock
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detect-if-you-are-running-in-an-interactive-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detect if you are running in an interactive shell
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       Links
@@ -7277,66 +7049,12 @@
                   
 
 
-<h1 id="cron">cron</h1>
-<p>Per-user and system-wide scheduled tasks, handled by the cron daemon.</p>
-<h2 id="locations">Locations</h2>
-<p>Cron scripts and entries can run from several locations. By using /etc/crontab.d/scriptname you can set different MAILTO and ENV variables and isolate your scheduled jobs. User jobs can be edited via <code>crontab -e</code>.</p>
-<h2 id="dst">DST</h2>
-<p>Some cron daemons don't handle DST correctly. Because of this, do not schedule jobs within the our of 1am. During DST changes this hour happens twice or is skipped altogether.</p>
-<p>Cronie says it handled DST gracefully, running jobs that should have run but haven't yet due to time changes, or no running jobs twice when time goes back.</p>
-<h2 id="syntax-quirks">Syntax quirks</h2>
-<p>Some systems have problems with #/# syntax. (eg: <code>*/5 * * * * /usr/bin/whatever</code>)</p>
-<h2 id="default-editor">Default Editor</h2>
-<p>In some systems, the default editor is found by the symlink located at /etc/defaults/editor. To override this, export the <code>EDITOR</code> environment variable. (eg: <code>export EDITOR=/usr/bin/vim</code>)</p>
-<h2 id="examples">Examples</h2>
-<h3 id="quick-and-dirty-realignment">Quick and dirty realignment</h3>
-<p>This will definitely fail in some circumstances.</p>
-<pre><code class="language-sh">alias crontab-align='crontab -l | while read -r a b c d e f ; do
-  if [[ &quot;$a&quot; =~ ^# ]] ; then
-    echo &quot;$a $b $c $d $e $f&quot; ;
-  else
-    printf &quot;% -20s %s\n&quot; &quot;$a $b $c $d $e&quot; &quot;$f&quot; ;
-  fi ;
-done'
-
-crontab-align | crontab -
-</code></pre>
-<h3 id="add-a-random-delay">Add a random delay</h3>
-<p>This example sleeps for a random number of seconds lower than 1800, including 0. The <code>%</code> symbol has to be escaped in crontabs.</p>
-<pre><code>0 * * * *   sleep $((RANDOM \% 1800)) ; /usr/local/bin/do-a-thing.sh ;
-</code></pre>
-<h3 id="programmatic-editing-of-the-crontab">Programmatic editing of the crontab</h3>
-<p>This is potentially dangerous because you can wipe out a user's crontab.</p>
-<pre><code class="language-sh">crontab -l | sed -e '/downtime/s/^\#//' | crontab -
-echo &quot;* * * * * /usr/local/bin/every_minute.sh&quot; | crontab -
-</code></pre>
-<h3 id="see-if-and-when-parts-are-running">See if and when parts are running</h3>
-<p>Put this in <code>/etc/cron.*/01-cron-log</code> and when those parts run you will see the message in syslog.</p>
-<pre><code>logger -t cron Running `basename $PWD`
-</code></pre>
-<h3 id="os-x-alarm-clock">OS X Alarm Clock</h3>
-<pre><code>59 5 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot;' -e 'set the sound volume to 100' -e 'end tell'
-0  6 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot;' -e 'play playlist &quot;Old Podcasts&quot;' -e 'end tell'
-15 8 * * 1-5    /usr/bin/osascript -e 'tell application &quot;iTunes&quot; to stop'
-</code></pre>
-<h3 id="detect-if-you-are-running-in-an-interactive-shell">Detect if you are running in an interactive shell</h3>
-<p>When writing scripts to use with crontab, sometimes you want to give different flags if they are given by a human. The most obvious case of this is verbosity, where you may want to be very verbose when a human runs the command but be quiet in cron.</p>
-<pre><code class="language-sh"># Check if we're running in an interactive shell
-if [ -t 0 ] ; then
-  verbosity=&quot;--verbose&quot;
-else
-  verbosity=&quot;--quiet&quot;
-fi
-
-/usr/bin/some-command &quot;${verbosity}&quot;
-</code></pre>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>Having junk files like temp vim files in /var/cron/tabs can make cron go to 100% cpu usage. Remove all non crontab files and kill cron to fix it.</p>
+<h1 id="pxe">pxe</h1>
+<p>"In computing, the Preboot eXecution Environment, PXE (most often pronounced as pixie, often called PXE Boot/pixie boot.) specification describes a standardized client-server environment that boots a software assembly, retrieved from a network, on PXE-enabled clients. ... The concept behind the PXE originated in the early days of protocols like BOOTP/DHCP/TFTP, and as of 2015 it forms part of the Unified Extensible Firmware Interface (UEFI) standard. In modern data centers, PXE is the most frequent choice for operating system booting, installation and deployment." - <a href="https://en.wikipedia.org/wiki/Preboot_Execution_Environment">https://en.wikipedia.org/wiki/Preboot_Execution_Environment</a></p>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://cronheatmap.com">https://cronheatmap.com</a>: Visualize a daily heatmap of your cron jobs</li>
-<li><a href="https://crontab.guru/">https://crontab.guru/</a>: Online crontab linter and explainer</li>
-<li><a href="https://github.com/kiorky/croniter">https://github.com/kiorky/croniter</a>: python module that "provides iteration for the datetime object with a cron like format"</li>
+<li><a href="https://netboot.xyz">https://netboot.xyz</a></li>
+<li><a href="https://ipxe.org">https://ipxe.org</a></li>
 </ul>
 
 
