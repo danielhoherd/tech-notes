@@ -1,0 +1,10154 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Daniel Austin Hoherd">
+      
+      
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/git/">
+      
+      
+        <link rel="prev" href="../gige-vision/">
+      
+      
+        <link rel="next" href="../github/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Git - Daniel Hoherd's tech notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../static_assets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Daniel Hoherd's tech notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Daniel Hoherd's tech notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About these notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3d-printing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3D Printing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Airflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apple Airport
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amazon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amazon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Android
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apple APFS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aptly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aptly
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aria2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aria2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arpwatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    arpwatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomicparsley/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AtomicParsley
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automotive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automotive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-vehicles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autonomous Vehicle Links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avahi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Avahi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    awk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    awless
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-cloudformation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amazon AWS Cloudformation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awscli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amazon awscli
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../badblocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    badblocks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GNU bash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bazzite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bazzite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bbcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bbcp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GNU bc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BIND
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blkid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    blkid
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bluetooth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bluetooth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bpf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bpf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../btrfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    btrfs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    calico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CalVer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CentOS Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ceph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chkconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    chkconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chocolatey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Choclatey
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chronos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    chronos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circleci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CircleCI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuitpython/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    circuitpython
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cncf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CNCF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cobbler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cobbler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colorblindness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Colorblindness
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consul/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    consul
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cookiecutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cookiecutter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cowsay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cowsay
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cradlepoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cradlepoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cryptography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cryptsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cryptsetup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csplit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    csplit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../css/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cascading Style Sheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cURL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cut
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../d2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    d2 diagram language
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dasel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dasel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datasette/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Datasette
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    date
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcfldd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dcfldd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcgc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Custodian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcraw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dcraw
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dd-wrt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dd-wrt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ddrescue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ddrescue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    deb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    defaults
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    devops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DHCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dhcpd.conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dhcpd.conf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    diagrams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dmidecode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dmidecode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    document query tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Drone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsrc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dsrc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dtrace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dtrace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../du/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    du
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplicity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    duplicity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../e-bike/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-bike
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ebpf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    eBPF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../education/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    education
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elasticsearch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elasticsearch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eleduino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eleduino
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etcd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    etcd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ethtool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ethtool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exiftool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    exiftool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../falco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    falco
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fediverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fediverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fedramp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fedramp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../figlet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    figlet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../finance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    find
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findmnt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    findmnt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flask/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    flask
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flipper-zero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flipper Zero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluent-bit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fluent-bit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluentd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fluentd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fortune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fortune
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fuser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genicam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GenICam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geodata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    geodata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gige-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GigE Vision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      git init
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-git-repository-for-the-cwd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a git repository for the CWD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-your-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug your .gitignore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      git clone
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git clone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-local-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone a local repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-remote-git-repo-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone a remote git repo via ssh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-and-specify-a-key-when-using-ssh-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone and specify a key when using ssh-agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filesystem-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      git filesystem operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git filesystem operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-everything-in-the-cwd-to-the-git-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add everything in the CWD to the git repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-a-file-in-the-git-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename a file in the git repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-file-from-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete a file from the repo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      git status
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-status-of-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the status of git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      git commit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-the-current-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit the current changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-all-changes-with-commit-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit all changes with commit -a
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-git-commit-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skip git commit hooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      git tag
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git tag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-annotated-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an annotated tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-light-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a light tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-local-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete a local tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-remote-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete a remote tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-tags-contain-a-given-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show what tags contain a given sha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      git config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#always-use-ssh-for-githubcom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Always use ssh for github.com
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-client-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git client setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-a-gitconfig-file-with-some-params" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit a .git/config file with some params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-your-configs-in-a-dotted-one-one-per-option-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show your configs in a dotted one-one-per-option format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      git diff
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diff-between-staged-and-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      diff between staged and committed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-that-shows-per-word-colored-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      diff that shows per-word colored differences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-readable-word-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine readable word diff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-and-ignore-whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diff and ignore whitespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-diffs-between-master-and-a-given-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show diffs between master and a given date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-has-changed-since-a-point-in-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show what has changed since a point in time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-blame" class="md-nav__link">
+    <span class="md-ellipsis">
+      git blame
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git blame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-non-whitespace-changes-in-blame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show non-whitespace changes in blame
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      git log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-the-commit-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      View the commit history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-one-log-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show one log entry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-git-commits-that-contain-a-given-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show git commits that contain a given string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-commit-messages-that-match-a-given-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show commit messages that match a given regex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-dir-in-the-last-3-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show logs for a given dir in the last 3 days
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-raw-log-history-for-5-most-recent-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show raw log history for 5 most recent commits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#really-pretty-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Really pretty logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-shortlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      git shortlog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git shortlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-number-of-commits-by-user-including-e-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show number of commits by user, including e-mail
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-show" class="md-nav__link">
+    <span class="md-ellipsis">
+      git show
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git show">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-the-changes-from-a-specific-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show the changes from a specific SHA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-complete-file-as-of-a-given-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a complete file as of a given SHA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      git branches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-which-branch-youre-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check which branch you're in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-move-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename (move) a branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-branches-contain-a-given-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show what branches contain a given sha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      git merge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merge-branch-with-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge branch with master
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-fast-forward-merges" class="md-nav__link">
+    <span class="md-ellipsis">
+      disable fast-forward merges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filter-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      git filter-repo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git filter-repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-one-subdir-into-its-own-repo-renaming-some-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extract one subdir into its own repo, renaming some files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      remotes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="remotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a remote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-to-a-specific-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push to a specific remote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter-the-source-of-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alter the source of origin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      git reset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-to-a-prior-state-based-on-what-has-been-done-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset to a prior state based on what has been done locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-feature-branch-to-state-when-it-was-branched-from-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset feature branch to state when it was branched from master
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-reset-of-local-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hard reset of local changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      git clean
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git clean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-all-untracked-files-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove all untracked files and directories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous tricks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refresh-all-git-repos-in-a-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refresh all Git repos in a path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a numbered list of remote branches sorted by last commit date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch cleanup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggressive-repo-state-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggressive repo state cleanup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      git grep
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-string-in-all-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find a string in all branches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-certain-directories-from-git-grep-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude certain directories from git grep results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gitlab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitolite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gitolite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    glsl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnu-screen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GNU Screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../golang/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    golang
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-earth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Earth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-sheets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Sheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphicsmagick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphicsMagick
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    grep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GNU GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hadoop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hadoop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handbrake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handbrake
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hashids
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    helm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home Assistant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htmx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    htmx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    htop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../httpstat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    httpstat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iTunes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iTunes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphical Image Formats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imagemagick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ImageMagick
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../img2xterm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    img2xterm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inotify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inotify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../internet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Internet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interviews
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iotop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iotop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iperf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iperf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IPMI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iptables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iptables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../irc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    irc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../irssi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    irssi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jargon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jargon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jdupes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jdupes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jmespath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jmespath
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../join/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    join
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jpeginfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jpeginfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSON
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jsonnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jsonnet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jsonpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSONPath
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jujutsu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jujutsu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../juniper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Juniper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jupyter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jwt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kaniko/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    kaniko
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    keel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keybase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    keybase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launchd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    launchd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ldap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lego/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LEGO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lektor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lektor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linksys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    linksys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-performance-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux Performance Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logstash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    logstash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsblk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lsblk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lshw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lshw
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsof/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lsof
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lvm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lxc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LXC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    macOS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GNU make
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../marlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Marlin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdraid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mdraid
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mechanical-keyboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keyboards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metallb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MetalLB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microbit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    micro:bit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microcontrollers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    microcontrollers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../micropython/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MicroPython
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    minikube
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../molecule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Molecule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mqtt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mtr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mtr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mutt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mutt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../myrepos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    myrepos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namei/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    namei
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncftp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ncftp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neopixel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adafruit Neopixel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../netgear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NETGEAR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nethogs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    nethogs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networksetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    networksetup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NFC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    nfs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngrok/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ngrok
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-3ds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nintendo 3DS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-amiibo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nintendo Amiibo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-nes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nintendo Entertainment System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nintendo Switch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-wii/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nintendo Wii
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nintendo-wiiu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nintendo Wii U
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nmcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    nmcli
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ntop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvidia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    nvidia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    oauth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Open Policy Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    openvpn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orbstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    orbstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osquery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    osquery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    outline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pac
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pandoc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../panopticlick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    panopticlick
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passwords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    passwords
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    perl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pgp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pgp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../philips-hue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Philips Hue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../photography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    photography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    php
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    plex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    powershell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powertop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    powertop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../procurve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    procurve
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protobuf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    protobuf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ps_mem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ps_mem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../psp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    psp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pssh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ptp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puppet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Puppet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pv
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pxe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pxe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pytest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../q/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    q
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raspberry-pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    raspberry-pi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    redis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../retropie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    retropie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rhel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rhel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roku/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roku
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rpm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rrd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rrd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rst/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    reStructuredText
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rsync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saltstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    saltstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Samba
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samsung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Samsung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Screenshots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sdr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sed
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    selinux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    semver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sensu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    serverless
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sgdisk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sgdisk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shairport-sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shairport-sync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shred/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shred
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shutdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shutdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sips
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartctl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    smartctl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    smartstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    snap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    snmp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    solo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound-and-music/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sound and Music
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sphinx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sphinx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../split/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    split
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splunk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    splunk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spotlight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spotlight
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sqlite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ss
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ssh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshuttle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sshuttle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    stat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stoicism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stoicism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    strace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sudo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sudo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysctl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sysctl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysdig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    sysdig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd-resolved/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    systemd-resolved
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TCL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcpdump/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tcpdump
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcpflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tcpflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal-emulator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminal Emulator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tmux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../top-variant-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Top Variant List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    top
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../touch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    touch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    udev
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vagrant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    vagrant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    vector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    velero
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    vim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual-reality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtual Realtiy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VirtualBox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VPN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wasm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    web assembly
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webgl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    webgl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../winbind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    winbind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireshark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wonder-workshop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    wonder-workshop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wuzz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    wuzz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xargs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xargs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    yaml
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../youtube-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    youtube-dl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    yum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zerotier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ZeroTier
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ZFS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zookeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    zookeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zsh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    zsh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      git init
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-git-repository-for-the-cwd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a git repository for the CWD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-your-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug your .gitignore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      git clone
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git clone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-local-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone a local repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-remote-git-repo-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone a remote git repo via ssh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-and-specify-a-key-when-using-ssh-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone and specify a key when using ssh-agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filesystem-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      git filesystem operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git filesystem operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-everything-in-the-cwd-to-the-git-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add everything in the CWD to the git repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-a-file-in-the-git-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename a file in the git repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-file-from-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete a file from the repo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      git status
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-status-of-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the status of git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      git commit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-the-current-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit the current changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-all-changes-with-commit-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit all changes with commit -a
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-git-commit-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skip git commit hooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      git tag
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git tag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-annotated-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an annotated tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-light-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a light tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-local-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete a local tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-remote-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete a remote tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-tags-contain-a-given-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show what tags contain a given sha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      git config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#always-use-ssh-for-githubcom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Always use ssh for github.com
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-client-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git client setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-a-gitconfig-file-with-some-params" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit a .git/config file with some params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-your-configs-in-a-dotted-one-one-per-option-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show your configs in a dotted one-one-per-option format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      git diff
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diff-between-staged-and-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      diff between staged and committed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-that-shows-per-word-colored-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      diff that shows per-word colored differences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-readable-word-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine readable word diff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-and-ignore-whitespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diff and ignore whitespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-diffs-between-master-and-a-given-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show diffs between master and a given date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-has-changed-since-a-point-in-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show what has changed since a point in time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-blame" class="md-nav__link">
+    <span class="md-ellipsis">
+      git blame
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git blame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-non-whitespace-changes-in-blame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show non-whitespace changes in blame
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      git log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-the-commit-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      View the commit history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-one-log-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show one log entry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-git-commits-that-contain-a-given-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show git commits that contain a given string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-commit-messages-that-match-a-given-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show commit messages that match a given regex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-logs-for-a-given-dir-in-the-last-3-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show logs for a given dir in the last 3 days
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-raw-log-history-for-5-most-recent-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show raw log history for 5 most recent commits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#really-pretty-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Really pretty logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-shortlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      git shortlog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git shortlog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-number-of-commits-by-user-including-e-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show number of commits by user, including e-mail
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-show" class="md-nav__link">
+    <span class="md-ellipsis">
+      git show
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git show">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-the-changes-from-a-specific-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show the changes from a specific SHA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-complete-file-as-of-a-given-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a complete file as of a given SHA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      git branches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-which-branch-youre-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check which branch you're in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-move-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename (move) a branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-what-branches-contain-a-given-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show what branches contain a given sha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      git merge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merge-branch-with-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge branch with master
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-fast-forward-merges" class="md-nav__link">
+    <span class="md-ellipsis">
+      disable fast-forward merges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-filter-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      git filter-repo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git filter-repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract-one-subdir-into-its-own-repo-renaming-some-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extract one subdir into its own repo, renaming some files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      remotes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="remotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a remote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-to-a-specific-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push to a specific remote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter-the-source-of-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alter the source of origin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      git reset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-to-a-prior-state-based-on-what-has-been-done-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset to a prior state based on what has been done locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-feature-branch-to-state-when-it-was-branched-from-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset feature branch to state when it was branched from master
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-reset-of-local-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hard reset of local changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      git clean
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git clean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-all-untracked-files-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove all untracked files and directories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous tricks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refresh-all-git-repos-in-a-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refresh all Git repos in a path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a numbered list of remote branches sorted by last commit date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch cleanup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggressive-repo-state-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggressive repo state cleanup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      git grep
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-a-string-in-all-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find a string in all branches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-certain-directories-from-git-grep-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude certain directories from git grep results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="git">Git</h1>
+<p>baddass version control</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://git-scm.com/book/">https://git-scm.com/book/</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-github/github-flow">https://docs.github.com/en/get-started/using-github/github-flow</a></li>
+<li><a href="https://github.com/retr0h/gilt">https://github.com/retr0h/gilt</a>: gilt - A GIT layering tool</li>
+<li><a href="https://github.com/git/git/tree/master/Documentation/RelNotes">https://github.com/git/git/tree/master/Documentation/RelNotes</a>: Git release notes</li>
+<li><a href="https://guides.github.com/introduction/flow/index.html">https://guides.github.com/introduction/flow/index.html</a>: Understanding the GitHub flow</li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model">http://nvie.com/posts/a-successful-git-branching-model</a>: A successful Git branching model</li>
+<li><a href="https://chris.beams.io/posts/git-commit">https://chris.beams.io/posts/git-commit</a>: How to Write a Git Commit Message</li>
+<li><a href="https://www.conventionalcommits.org">https://www.conventionalcommits.org</a>: Conventional Commits: A specification for adding human and machine readable meaning to commit messages</li>
+<li><a href="https://github.com/googleapis/release-please">https://github.com/googleapis/release-please</a>: Release Please automates CHANGELOG generation, the creation of GitHub releases, and version bumps for your projects.</li>
+<li><a href="https://diziet.dreamwidth.org/14666.html">https://diziet.dreamwidth.org/14666.html</a>: Never use git submodules</li>
+<li><a href="https://forgejo.org">https://forgejo.org</a>: git hosting software with organization and user management in a web UI</li>
+<li><a href="https://github.blog/2023-10-16-measuring-git-performance-with-opentelemetry">https://github.blog/2023-10-16-measuring-git-performance-with-opentelemetry</a></li>
+<li><a href="https://glasskube.dev/guides/git/">https://glasskube.dev/guides/git/</a>: "The guide to Git I never had."</li>
+<li><a href="https://pre-commit.com">https://pre-commit.com</a>: I use this in nearly every git repo I create, and I suggest everybody else do the same.</li>
+<li><a href="https://stefaniemolin.com/tags/pre-commit%20hooks/">https://stefaniemolin.com/tags/pre-commit%20hooks/</a>: Stefanie Molin's pre-commit articles</li>
+<li><a href="https://www.golinuxcloud.com/git-head-caret-vs-tilde-at-sign-examples">https://www.golinuxcloud.com/git-head-caret-vs-tilde-at-sign-examples</a>: "Understanding git HEAD~ vs HEAD^ vs HEAD@{}"</li>
+<li><a href="https://blog.izissise.net/posts/gitconfig">https://blog.izissise.net/posts/gitconfig</a></li>
+<li><a href="https://github.com/dandavison/delta">https://github.com/dandavison/delta</a>: "A syntax-highlighting pager for git, diff, grep, and blame output"</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="git-init">git init</h3>
+<h4 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD</h4>
+<pre><code class="language-sh">git init
+echo &quot;&quot; &gt;&gt; .gitignore
+echo &quot;# Ignore other unneeded files.
+*.swp
+*~
+.DS_Store&quot; &gt;&gt; .gitignore
+</code></pre>
+<h4 id="debug-your-gitignore">Debug your .gitignore</h4>
+<pre><code class="language-sh">git check-ignore -v some_path another_thing .and-one-more
+</code></pre>
+<p>This will print out which rule is ignoring the given things, if any of them match any rules, and will print nothing if none of the given items are ignored.</p>
+<h3 id="git-clone">git clone</h3>
+<h4 id="clone-a-local-repo">Clone a local repo</h4>
+<pre><code class="language-sh">git clone /path/to/repo
+</code></pre>
+<h4 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh</h4>
+<pre><code class="language-sh">git clone user@ssh_server:/opt/git/project
+</code></pre>
+<h4 id="clone-and-specify-a-key-when-using-ssh-agent">Clone and specify a key when using ssh-agent</h4>
+<p>When using ssh-agent, if you have several keys loaded this can present problems. One of those problems is if you have multiple keys loaded that have different authorizations on a remote git server like Github. For instance, say you have <code>~/.ssh/id_ed25519_home</code> as your personal private key and <code>~/.ssh/id_ed225519_work</code> as your private work key. If you try to clone a work repo and git tries to authenticate with your home identity first, it will be unauthorized and the clone will fail, even though you have a second identity loaded that could have succeeded. To work around this, do something like:</p>
+<pre><code class="language-sh">export GIT_SSH_COMMAND=&quot;ssh -o IdentitiesOnly=yes -i $HOME/.ssh/id_ed225519_work&quot;
+git clone git@github.com:your-work-gh-org/super-secret-repo.git
+</code></pre>
+<p>This works fine for one key having authorization to all private repos. This becomes difficult when you have multiple repos, each with a key that only has authorization for that single repo, such as using deploy keys tied to a single repo. If you try that when doing something like <code>yarn install</code>, which is trying to clone multiple private repos, it will fail 100% of the time. In that case, you can follow the next example. You may have to read it twice, because setting up the configuration makes more sense if you do ssh then git, but logically it makes more sense if you go from git into ssh, which is how the process actually flows.</p>
+<p>Construct an ssh_config file that configures a unique <code>Host</code> for each private repo you need to clone and private key file that has access to it:</p>
+<pre><code>Host secret_repo_1
+   Hostname github.com
+   IdentityFile ~/.ssh/private_key_for_repo_1
+
+Host secret_repo_2
+   Hostname github.com
+   IdentityFile ~/.ssh/private_key_for_repo_2
+
+IdentitiesOnly yes
+</code></pre>
+<p>The ssh_configs above allow ssh access to what is essentially a host alias where the key that is authorized for the repo is used when ssh tries to connect to the correlated Host entry. In the next step, we do the same thing in reverse by crafting a <code>gitconfig</code> file with one stanza for each of the ssh Host entries from your ssh_config, pointing it back to github:</p>
+<pre><code>[url &quot;git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git&quot;]
+    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-1.git
+
+[url &quot;git@secret_repo_2:your-work-gh-org/super-secret-repo-2.git&quot;]
+    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-2.git
+</code></pre>
+<p>We then export two variables in the shell:</p>
+<pre><code>export GIT_SSH_COMMAND=&quot;ssh -F $PWD/your_crafted_ssh_config_file&quot;
+export GIT_CONFIG_GLOBAL=&quot;$PWD/your_crafted_gitconfig_file&quot;
+</code></pre>
+<p>What happens next is when you execute <code>git clone git@github.com:your-work-gh-org/super-secret-repo-1.git</code>, which is the originally source git URL, your git_config alters the URL to be <code>git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git</code>. The server name is passed into <code>ssh</code>, which uses your custom ssh_config file to connect to github.com using the options for that entry that are specified in the git_config, which includes using the identity file that is unique to that git repository. The same series of steps happens for secret_repo_2. The result is that each of these git repositories can be cloned using their original github URL, but these custom ssh configs are used in the process, which allows the right authentication mechanisms to be used for each individual git repository. This all happens without us having to alter the source code of the repo we are building, EG: without modifying <code>package.json</code> which is used by <code>yarn</code>. Using these techniques, we can set up CI to build software from private repositories using deploy keys where otherwise we would be unable to due to ssh authentication errors that might work fine for somebody who has a single ssh key that is authorized to clone all of the repositories.</p>
+<h3 id="git-filesystem-operations">git filesystem operations</h3>
+<h4 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo</h4>
+<pre><code class="language-sh">git add .
+</code></pre>
+<h4 id="rename-a-file-in-the-git-repo">Rename a file in the git repo</h4>
+<p>This also renames the filesystem file.</p>
+<pre><code class="language-sh">git mv README.rdoc README.md
+</code></pre>
+<h4 id="delete-a-file-from-the-repo">Delete a file from the repo</h4>
+<pre><code class="language-sh">git rm filename
+</code></pre>
+<h3 id="git-status">git status</h3>
+<h4 id="check-the-status-of-git">Check the status of git</h4>
+<pre><code class="language-sh">git status
+</code></pre>
+<h3 id="git-commit">git commit</h3>
+<h4 id="commit-the-current-changes">Commit the current changes</h4>
+<pre><code class="language-sh">git commit -m &quot;Initial commit&quot;
+</code></pre>
+<h4 id="commit-all-changes-with-commit-a">Commit all changes with commit -a</h4>
+<pre><code class="language-sh">git commit -a -m &quot;Improve the README file&quot;
+</code></pre>
+<h4 id="skip-git-commit-hooks">Skip git commit hooks</h4>
+<pre><code class="language-sh">git commit --no-verify
+</code></pre>
+<h3 id="git-tag">git tag</h3>
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
+<p>Git supports two types of tags: lightweight and annotated.</p>
+<h4 id="create-an-annotated-tag">Create an annotated tag</h4>
+<p>Annotated tags, are stored as full objects in the Git database.</p>
+<pre><code class="language-sh">git tag -m &quot;Improve X and Y.&quot; v0.5.3
+</code></pre>
+<h4 id="create-a-light-tag">Create a light tag</h4>
+<p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
+<pre><code class="language-sh">git tag v0.5.3
+</code></pre>
+<h4 id="delete-a-local-tag">Delete a local tag</h4>
+<pre><code class="language-sh">git tag -d v0.5.3
+</code></pre>
+<h4 id="delete-a-remote-tag">Delete a remote tag</h4>
+<pre><code class="language-sh">git push --delete origin v0.5.3
+</code></pre>
+<h4 id="show-what-tags-contain-a-given-sha">Show what tags contain a given sha</h4>
+<pre><code class="language-sh">git tag --contains abc123
+</code></pre>
+<h3 id="git-config">git config</h3>
+<p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
+<ul>
+<li>Local = per-repo settings. IE: stored in .git/config directory for the repo</li>
+<li>Global = per-user settings. IE: stored in ~/.gitconfig</li>
+<li>System = per-system settings, found in /etc/ or wherever git is looking for system settings.</li>
+</ul>
+<h4 id="always-use-ssh-for-githubcom">Always use ssh for github.com</h4>
+<pre><code class="language-sh">git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
+</code></pre>
+<h4 id="git-client-setup">Git client setup</h4>
+<p>This creates and modifies ~/.gitconfig with some parameters:</p>
+<pre><code class="language-sh">git config --global user.name &quot;Daniel Hoherd&quot;
+git config --global user.email daniel.hoherd@gmail.com
+git config --global alias.co checkout
+git config --global core.editor &quot;vim&quot;
+git config --global merge.tool vimdiff
+git config --global log.date iso
+</code></pre>
+<h4 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params</h4>
+<pre><code class="language-sh">git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
+git config --replace-all svn-remote.svn.fetch ops:refs/remotes/trunk
+git config --add svn-remote.svn.preserve-empty-dirs true
+git config --unset svn-remote.svn.branches
+git config --unset svn-remote.svn.tags
+git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
+</code></pre>
+<h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format</h4>
+<pre><code class="language-sh">git config --list
+</code></pre>
+<p>Also include the file that each configuration setting is defined in:</p>
+<pre><code class="language-sh">git config --list --show-origin
+</code></pre>
+<h3 id="git-diff">git diff</h3>
+<p>Show differences between objects and stuff.</p>
+<h4 id="diff-between-staged-and-committed">diff between staged and committed</h4>
+<p>This is useful when you're adding files that were not previously in the repo alongside changes to existing files, since a bare <code>git diff</code> before adding the files will only show changes to files that were already in the repo.</p>
+<pre><code class="language-sh">git diff --staged
+</code></pre>
+<h4 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences</h4>
+<pre><code class="language-sh">git diff --color-words
+</code></pre>
+<h4 id="machine-readable-word-diff">Machine readable word diff</h4>
+<pre><code class="language-sh">git diff --word-diff
+</code></pre>
+<h4 id="diff-and-ignore-whitespace">Diff and ignore whitespace</h4>
+<p>This does not ignore line ending changes or blank line insertion and removals.</p>
+<pre><code class="language-sh">git diff -w
+</code></pre>
+<h4 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date</h4>
+<pre><code class="language-sh">git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
+</code></pre>
+<h4 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time</h4>
+<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; -p
+</code></pre>
+<p>or...</p>
+<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
+</code></pre>
+<h3 id="git-blame">git blame</h3>
+<p><code>git blame</code> shows information about the commit associated with each line of a file.</p>
+<h4 id="simple-usage">Simple usage</h4>
+<pre><code class="language-sh">git blame &lt;filename&gt;
+</code></pre>
+<h4 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame</h4>
+<p>When somebody has reformatted code but didn't make any code changes, this will show the prior commits where something more than whitespace changed.</p>
+<pre><code class="language-sh">git blame -w &lt;filename&gt;
+</code></pre>
+<h3 id="git-log">git log</h3>
+<p>Shows commit history.</p>
+<h4 id="view-the-commit-history">View the commit history</h4>
+<pre><code class="language-sh">git log
+</code></pre>
+<h4 id="show-one-log-entry">Show one log entry</h4>
+<pre><code class="language-sh">git log -1
+</code></pre>
+<h4 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string</h4>
+<p>This searches the content of the diff, not the commit message.</p>
+<pre><code class="language-sh">git log -S search_string
+</code></pre>
+<h4 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex</h4>
+<pre><code class="language-sh">git log --grep='[Ww]hitespace'
+</code></pre>
+<h4 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days</h4>
+<pre><code class="language-sh">git log --since=3.days modules/profile_sensu
+</code></pre>
+<h4 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits</h4>
+<p>Useful for seeing TZ settings.</p>
+<pre><code class="language-sh">git log --format=raw -5
+</code></pre>
+<h4 id="really-pretty-logs">Really pretty logs</h4>
+<pre><code class="language-sh">log --graph --oneline --decorate --all
+</code></pre>
+<h3 id="git-shortlog">git shortlog</h3>
+<h4 id="show-number-of-commits-by-user-including-e-mail">Show number of commits by user, including e-mail</h4>
+<p>Using the <code>-e</code> flag includes e-mail address. The list is unique per entry, so if you use a different name along with the same e-mail address, that shows up as two entries in the list.</p>
+<pre><code class="language-sh">git shortlog -ens
+</code></pre>
+<p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> operation.</p>
+<h3 id="git-show">git show</h3>
+<h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h4>
+<pre><code class="language-sh">git show f73f9ec7c07e
+</code></pre>
+<h4 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA</h4>
+<p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given SHA.</p>
+<pre><code class="language-sh">git show f73f9ec7c07e:dir/filename.yaml
+</code></pre>
+<h3 id="git-branches">git branches</h3>
+<p>Branches are an integral part of git. They allow you to work on distinct changes without mixing them all up together.</p>
+<h4 id="create-a-branch">Create a branch</h4>
+<pre><code class="language-sh">git checkout -b readme-fix
+</code></pre>
+<h4 id="check-which-branch-youre-in">Check which branch you're in</h4>
+<pre><code class="language-sh">git branch
+</code></pre>
+<h4 id="rename-move-a-branch">Rename (move) a branch</h4>
+<pre><code class="language-sh">git branch -m oldname newname
+</code></pre>
+<h4 id="show-what-branches-contain-a-given-sha">Show what branches contain a given sha</h4>
+<pre><code class="language-sh">git branch --contains abc123
+</code></pre>
+<h3 id="git-merge">git merge</h3>
+<p>This lets you merge two branches.</p>
+<h4 id="merge-branch-with-master">Merge branch with master</h4>
+<pre><code class="language-sh">git checkout master
+git merge readme-fix-branch
+git branch -d readme-fix-branch
+</code></pre>
+<h4 id="disable-fast-forward-merges">disable fast-forward merges</h4>
+<p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
+<pre><code class="language-sh">git config --global merge.ff false
+</code></pre>
+<h3 id="git-filter-repo">git filter-repo</h3>
+<p><a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> is not a standard tool with git, but can be installed separately. It is used for rewriting the history of the git repo, allowing move, rename, merging and trimming operations, rewriting commit IDs, and more. This is a destructive tool, so it should be performed on a fresh clone of the repo while you iterate on finding the right sequence of operations to perform to get to your desired state. The destructive nature is that it rewrites the entire history of the repo, so if your repo depends on specific SHAs or any other specific history, you probably need to take a harder look at how to solve your problem.</p>
+<h4 id="extract-one-subdir-into-its-own-repo-renaming-some-files">Extract one subdir into its own repo, renaming some files</h4>
+<p>This is great if you want to extract part of a repo for public release, or just for organizational purposes.</p>
+<p>Extract the path <code>scratch-work/scripts</code> into <code>bin</code>, removing all other history in the repo.</p>
+<pre><code>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
+</code></pre>
+<h3 id="remotes">remotes</h3>
+<h4 id="add-a-remote">Add a remote</h4>
+<pre><code class="language-sh">git remote add upstream https://github.com/danielhoherd/homepass
+</code></pre>
+<h4 id="push-to-a-specific-remote">Push to a specific remote</h4>
+<pre><code class="language-sh"># push to the master branch of the remote named upstream
+git push upstream master
+</code></pre>
+<h4 id="alter-the-source-of-origin">Alter the source of origin</h4>
+<p>If you move your repo to another location, use this command to change the upstream URL:</p>
+<pre><code class="language-sh">git remote set-url origin https://user@newhost/newpath/reponame
+</code></pre>
+<h3 id="git-reset">git reset</h3>
+<p><code>git reset</code> allows you to reset your state to what it was at a previous point.</p>
+<h4 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally</h4>
+<p>The reflog is a log of what steps have been performed locally. You can view the reflog, then reset to a prior state.</p>
+<pre><code class="language-sh">git reflog # show all HEAD changes
+git reset --hard 45e0ae5 # reset all git tracked state to 45e0ae5
+</code></pre>
+<p>Alternately, you can use a date:</p>
+<pre><code class="language-sh">git reflog --date=iso # absolute date based reflog references
+git reset &quot;HEAD@{2015-03-25 14:45:30 -0700}&quot; --hard
+</code></pre>
+<h4 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master</h4>
+<p>Do this if you want to start your branch over with only the current changes. This is useful if you've been iterating through lots of bad changes that were committed and want to clean them all out. It basically lets you squash to a single commit on your branch.</p>
+<pre><code class="language-sh">git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+</code></pre>
+<h4 id="hard-reset-of-local-changes">Hard reset of local changes</h4>
+<p>This will abandon all local changes and resolve merge conflicts</p>
+<pre><code class="language-sh">git fetch origin
+git reset --hard origin/master
+</code></pre>
+<h3 id="git-clean">git clean</h3>
+<h4 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories</h4>
+<p>This is useful after your reset to a prior state. It deletes all files and directories that show up in the untracked section of <code>git status</code></p>
+<pre><code class="language-sh">git clean -ffdx
+</code></pre>
+<h3 id="miscellaneous-tricks">Miscellaneous tricks</h3>
+<h4 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h4>
+<pre><code class="language-sh">find /var/www/html/mediawiki/ -name .git | while read -r X ; do
+  pushd &quot;$(dirname &quot;${X}&quot;)&quot; &amp;&amp; \
+  [ $(git remote -v | wc -l) -gt 0 ] &amp;&amp; \
+  git pull &amp;&amp; \
+  popd ;
+done ;
+</code></pre>
+<h4 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date</h4>
+<pre><code class="language-sh">git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
+--pretty=format:'%ad %h%d %an | %s %n' --date=iso -1 | sort | nl -ba
+</code></pre>
+<h4 id="branch-cleanup">Branch cleanup</h4>
+<pre><code>git gc --prune=now
+git remote prune origin
+</code></pre>
+<h4 id="aggressive-repo-state-cleanup">Aggressive repo state cleanup</h4>
+<p>This aggressively deletes all old refs and then does some garbage collection. On some repos, this can save a significant amount of space. I've been able to reduce some repo size by 92% using these commands:</p>
+<pre><code class="language-sh">git reset --hard &quot;$whatever_point_you_want_to_be_at&quot;
+# now delete all branches and tags you don't want to include in your repo state
+git reflog expire --expire=now --all
+git gc --prune=now
+git gc --aggressive --prune=now
+</code></pre>
+<h3 id="git-grep">git grep</h3>
+<h4 id="find-a-string-in-all-branches">Find a string in all branches</h4>
+<p>This finds the word "hunter2" in the tests directory of all branches.</p>
+<pre><code class="language-sh">git grep '\bhunter2\b' $(git branch -a --format='%(refname:short)') tests/
+</code></pre>
+<h4 id="exclude-certain-directories-from-git-grep-results">Exclude certain directories from <code>git grep</code> results</h4>
+<p>You can accomplish this using pathspec syntax.</p>
+<pre><code class="language-sh">git grep searchstring -- ':!excluded-dir' ':!*junk-glob*'
+</code></pre>
+<p>See the <a href="https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec">pathspec definition in the git glossary</a> for more info.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../static_assets/instant-page.js"></script>
+      
+    
+  </body>
+</html>
