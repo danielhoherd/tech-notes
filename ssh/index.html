@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -7187,6 +7187,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#allow-ssh-users-to-access-desktop-documents-and-other-folders-on-macos-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow ssh users to access Desktop, Documents, and other folders on macOS 26+
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       See Also
@@ -8667,6 +8676,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#allow-ssh-users-to-access-desktop-documents-and-other-folders-on-macos-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow ssh users to access Desktop, Documents, and other folders on macOS 26+
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       See Also
@@ -8842,6 +8860,8 @@ echo &quot;Successfully fixed ssh authentication files permissions.&quot;
 <p>In /etc/ssh/sshd_config</p>
 <pre><code>PermitRootLogin without-password
 </code></pre>
+<h2 id="allow-ssh-users-to-access-desktop-documents-and-other-folders-on-macos-26">Allow ssh users to access Desktop, Documents, and other folders on macOS 26+</h2>
+<p>Give <code>/usr/libexec/sshd-keygen-wrapper</code> full disk access in settings -&gt; Security settings -&gt; Full Disk Access. You should not need to give any other commands Full Disk Access.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="https://github.com/apenwarr/sshuttle">sshuttle</a> - IP network router over ssh</li>
