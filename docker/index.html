@@ -2375,6 +2375,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#dockerfile-nomenclature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile nomenclature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-help-on-the-run-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10191,6 +10202,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#dockerfile-nomenclature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile nomenclature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#show-help-on-the-run-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10485,7 +10507,7 @@
 quay.io:443/prometheus/busybox
 </code></pre>
 <p>And the docker python module shows the entire "image name" when you ask it for the "tag"</p>
-<pre><code>&gt;&gt;&gt; client.images.get('quay.io:443/prometheus/busybox:glibc').tags
+<pre><code class="language-pycon">&gt;&gt;&gt; client.images.get('quay.io:443/prometheus/busybox:glibc').tags
 ['quay.io/prometheus/busybox:glibc']
 </code></pre>
 <p>Other documents list other definitions. I think that the community needs to get this terminology straight in order for us to build consistent, resilient software. There are some discussions open about this topic, but it does not seem to be high priority:</p>
@@ -10503,22 +10525,33 @@ eval $(minikube docker-env)
 <p>This will give you <code>docker</code> commands that targets the minikube CRI, and is actually a great dev environment.</p>
 <p>Alternatively, if you have a linux machine that runs docker handy, you can skip the minikube stuff and <code>export DOCKER_HOST=ssh://linux-docker-host</code> to launch containers on the linux dockerd. This has the caveats that you cannot mount local filesystems into the remote docker host, and if you want to use it for building your project directory will be sent over the network to the remote docker host.</p>
 <h2 id="examples">Examples</h2>
+<h3 id="dockerfile-nomenclature">Dockerfile nomenclature</h3>
+<p>Docker nomenclature is sometimes unintuitive.</p>
+<p><code>ARG</code> defines an argument that passed when building, not when executing. <a href="https://docs.docker.com/reference/dockerfile#arg">https://docs.docker.com/reference/dockerfile#arg</a></p>
+<p><code>ENTRYPOINT</code> is a command and its optional arguments that should always run by default inside the container. You can think of the as the default command. <a href="https://docs.docker.com/reference/dockerfile#entrypoint">https://docs.docker.com/reference/dockerfile#entrypoint</a></p>
+<p><code>CMD</code> is arguments for the <code>ENTRYPOINT</code> if it exists, otherwise it is the command that should run in the container. <a href="https://docs.docker.com/reference/dockerfile#cmd">https://docs.docker.com/reference/dockerfile#cmd</a></p>
+<p>For example:</p>
+<pre><code class="language-Dockerfile"># Note: these must use double-quotes
+ENTRYPOINT [&quot;/usr/bin/bash&quot;]
+CMD [&quot;-c&quot;, &quot;ls&quot;, &quot;-l&quot;, &quot;/etc&quot;]
+</code></pre>
+<p>With this built container, if you run <code>docker run -ti -c "echo hi"</code> this would run <code>/usr/bin/bash -c "echo hi"</code>. But you can also override the entrypoint with <code>--entrypoint=/usr/bin/python</code> so these mechanics do overlap a bit and don't always make intuitive sense.</p>
 <h3 id="show-help-on-the-run-command">Show help on the run command</h3>
-<pre><code>docker help run
+<pre><code class="language-sh">docker help run
 </code></pre>
 <h3 id="show-the-history-of-an-image-and-count-its-layers">Show the history of an image, and count its layers</h3>
-<pre><code>docker history ubuntu:bionic | nl -ba -v0
+<pre><code class="language-sh">docker history ubuntu:bionic | nl -ba -v0
 </code></pre>
 <h3 id="run-the-docker-command-against-a-remote-host">Run the docker command against a remote host</h3>
 <p>Using this method can save your mac a lot of resources and easily get a laptop to have access to a much larger machine's resources. Not all features work, such as bind mounts from the local machine.</p>
 <pre><code class="language-sh">DOCKER_HOST=ssh://some-linux-machine docker ps
 </code></pre>
 <h3 id="run-a-docker-image-in-an-interactive-shell">Run a docker image in an interactive shell</h3>
-<pre><code class="language-sh">docker run -i -t ubuntu:focal bash
+<pre><code class="language-sh">docker run -i -t ubuntu bash
 </code></pre>
 <ul>
-<li>-i, --interactive</li>
-<li>-t, --tty</li>
+<li><code>-i</code>, <code>--interactive</code></li>
+<li><code>-t</code>, <code>--tty</code></li>
 </ul>
 <p><a href="https://docs.docker.com/engine/reference/commandline/run">https://docs.docker.com/engine/reference/commandline/run</a></p>
 <h3 id="get-a-bash-terminal-on-a-running-docker-container">Get a bash terminal on a running docker container</h3>
@@ -10604,10 +10637,10 @@ xargs -r docker rm
 <p>A more systematic approach is to use <a href="https://github.com/Yelp/docker-custodian">Docker Custodian</a>.</p>
 <h3 id="show-processes-running-inside-all-docker-containers">Show processes running inside all docker containers</h3>
 <p>On hosts without cgroup integration, run:</p>
-<pre><code class="language-ps">pgrep docker | xargs -n1 pstree
+<pre><code class="language-sh">pgrep docker | xargs -n1 pstree
 </code></pre>
 <h3 id="show-a-list-of-tags-for-a-given-image-on-docker-hub">Show a list of tags for a given image on docker hub</h3>
-<pre><code class="language-sh">$ curl --silent -f -lSL &quot;https://index.docker.io/v1/repositories/org-name/image-name/tags&quot; |
+<pre><code>$ curl --silent -f -lSL &quot;https://index.docker.io/v1/repositories/org-name/image-name/tags&quot; |
 jq '.[].name'
 &quot;latest&quot;
 &quot;0.11.1&quot;
