@@ -864,7 +864,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Notes">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -872,6 +883,17 @@
     <span class="md-ellipsis">
       
         Upgrade the OS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-cached-boot-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show cached boot images
       
     </span>
   </a>
@@ -1214,6 +1236,33 @@
     
   
     Ceph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chainguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chainguard
   
 
     
@@ -9901,7 +9950,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Notes">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9909,6 +9969,17 @@
     <span class="md-ellipsis">
       
         Upgrade the OS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-cached-boot-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show cached boot images
       
     </span>
   </a>
@@ -9955,11 +10026,27 @@
 <p>Notable, the base OS images are only hosted for 90 days, after which they are deleted.</p>
 <p>OS operations are done through a custom <code>just</code> script called <code>ujust</code> which is just a <code>just</code> wrapper pointing to a specific configuration.</p>
 <p>Network configuration is done through <a href="../nmcli/"><code>nmcli</code></a></p>
+<h2 id="examples">Examples</h2>
 <h3 id="upgrade-the-os">Upgrade the OS</h3>
-<p><code>ujust update</code></p>
+<pre><code class="language-sh">ujust update
+</code></pre>
+<h3 id="show-cached-boot-images">Show cached boot images</h3>
+<pre><code>$ rpm-ostree status
+State: idle
+Deployments:
+● ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck-nvidia:stable
+                   Digest: sha256:372fcf8ee1fe18306cd1097baa9b91c968def197f1396a8f009b0e163d7d463c
+                  Version: 43.20251127 (2025-11-27T17:41:29Z)
+
+  ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck-nvidia:stable
+                   Digest: sha256:146fe9b1612348777df3cbf8f0f4f700356a689260a3c672a0696590a34c9bb0
+                  Version: 43.20251114.1 (2025-11-15T00:12:03Z)
+</code></pre>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="https://bazzite.gg">https://bazzite.gg</a></li>
+<li><a href="https://universal-blue.org">https://universal-blue.org</a> is the foundation for Bazzite.</li>
+<li><a href="https://coreos.github.io/rpm-ostree">https://coreos.github.io/rpm-ostree</a></li>
 </ul>
 
 

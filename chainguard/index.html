@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/yum/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/chainguard/">
       
       
-        <link rel="prev" href="../youtube-dl/">
+        <link rel="prev" href="../ceph/">
       
       
-        <link rel="next" href="../zerotier/">
+        <link rel="next" href="../chkconfig/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>yum - Daniel Hoherd's tech notes</title>
+        <title>Chainguard - Daniel Hoherd's tech notes</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#yum" class="md-skip">
+        <a href="#chainguard" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              yum
+              Chainguard
             
           </span>
         </div>
@@ -1144,10 +1144,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../chainguard/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chainguard
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1163,6 +1190,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -9676,37 +9734,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    yum
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../yum/" class="md-nav__link">
         
   
   
@@ -9722,230 +9753,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#show-a-list-of-enabled-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show a list of enabled repositories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-a-list-of-available-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show a list of available repositories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-all-installed-packages-their-versions-and-their-source-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show all installed packages, their versions and their source repo
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-available-packages-and-the-repo-they-come-from" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List available packages and the repo they come from
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-all-duplicates-in-a-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show all duplicates in a search
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#query-available-packages-in-a-given-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Query available packages in a given repository
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrade-and-skip-broken-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrade and skip broken dependencies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrade-and-skip-certain-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrade and skip certain packages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-for-package-conflicts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check for package conflicts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#find-a-package-that-includes-a-specific-command-or-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Find a package that includes a specific command or file
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-for-groups-of-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check for groups of packages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-optional-installs-in-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enable optional installs in groups
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#download-but-do-not-install-packages-for-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Download but do not install packages for update
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-a-local-file-using-yum" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install a local file using yum
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-updates-for-centos5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto-updates for Centos5
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-updates-for-centos6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto-updates for Centos6
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -10085,203 +9892,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#show-a-list-of-enabled-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show a list of enabled repositories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-a-list-of-available-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show a list of available repositories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-all-installed-packages-their-versions-and-their-source-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show all installed packages, their versions and their source repo
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-available-packages-and-the-repo-they-come-from" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List available packages and the repo they come from
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#show-all-duplicates-in-a-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Show all duplicates in a search
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#query-available-packages-in-a-given-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Query available packages in a given repository
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrade-and-skip-broken-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrade and skip broken dependencies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upgrade-and-skip-certain-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Upgrade and skip certain packages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-for-package-conflicts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check for package conflicts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#find-a-package-that-includes-a-specific-command-or-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Find a package that includes a specific command or file
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-for-groups-of-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check for groups of packages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-optional-installs-in-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enable optional installs in groups
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#download-but-do-not-install-packages-for-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Download but do not install packages for update
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-a-local-file-using-yum" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install a local file using yum
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-updates-for-centos5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto-updates for Centos5
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-updates-for-centos6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto-updates for Centos6
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
+        Links
       
     </span>
   </a>
@@ -10305,60 +9919,18 @@
 
 
 
-<h1 id="yum">yum</h1>
-<p>"yum - Yellowdog Updater Modified" - <code>man yum</code></p>
-<p>"yum is an interactive, rpm based, package manager." - <code>man yum</code></p>
-<h2 id="examples">Examples</h2>
-<h3 id="show-a-list-of-enabled-repositories">Show a list of enabled repositories</h3>
-<pre><code>yum repolist
-</code></pre>
-<h3 id="show-a-list-of-available-repositories">Show a list of available repositories</h3>
-<pre><code>yum repolist all
-</code></pre>
-<h3 id="show-all-installed-packages-their-versions-and-their-source-repo">Show all installed packages, their versions and their source repo</h3>
-<pre><code>yum list installed
-</code></pre>
-<h3 id="list-available-packages-and-the-repo-they-come-from">List available packages and the repo they come from</h3>
-<pre><code>yum list available | grep jre
-</code></pre>
-<h3 id="show-all-duplicates-in-a-search">Show all duplicates in a search</h3>
-<p>This is a good way to get a complete list of packages that are available that match a certain string</p>
-<pre><code>yum --showduplicates search thrift
-</code></pre>
-<h3 id="query-available-packages-in-a-given-repository">Query available packages in a given repository</h3>
-<pre><code>yum --disablerepo=&quot;*&quot; --enablerepo=&quot;epel&quot; list available
-</code></pre>
-<h3 id="upgrade-and-skip-broken-dependencies">Upgrade and skip broken dependencies</h3>
-<pre><code>yum upgrade -y --skip-broken
-</code></pre>
-<h3 id="upgrade-and-skip-certain-packages">Upgrade and skip certain packages</h3>
-<pre><code>yum upgrade --exclude=*rabbitmq*
-</code></pre>
-<h3 id="check-for-package-conflicts">Check for package conflicts</h3>
-<p>install yum-utils, then run package-cleanup</p>
-<h3 id="find-a-package-that-includes-a-specific-command-or-file">Find a package that includes a specific command or file</h3>
-<pre><code>yum whatprovides &quot;*/filename&quot;
-</code></pre>
-<h3 id="check-for-groups-of-packages">Check for groups of packages</h3>
-<p>yum grouplist</p>
-<h3 id="enable-optional-installs-in-groups">Enable optional installs in groups</h3>
-<p>Add <code>group_package_types=mandatory,default,optional</code> in /etc/yum.conf</p>
-<h3 id="download-but-do-not-install-packages-for-update">Download but do not install packages for update</h3>
-<pre><code>yum upgrade --downloadonly --skip-broken
-</code></pre>
-<h3 id="install-a-local-file-using-yum">Install a local file using yum</h3>
-<pre><code>yum localinstall whatever.rpm
-</code></pre>
-<h3 id="auto-updates-for-centos5">Auto-updates for Centos5</h3>
-<pre><code>yum install yum-updatesd
-</code></pre>
-<h3 id="auto-updates-for-centos6">Auto-updates for Centos6</h3>
-<pre><code>yum install yum-cron
-</code></pre>
-<h2 id="see-also">See Also</h2>
+<h1 id="chainguard">Chainguard</h1>
+<p>"1,800+ trusted container images to eliminate your vulnerabilities and mitigate malware." - <a href="https://www.chainguard.dev">https://www.chainguard.dev</a></p>
+<h2 id="links">Links</h2>
 <ul>
-<li>rpm - interact with rpms directly</li>
-<li><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html</a></li>
+<li><a href="https://edu.chainguard.dev/chainguard/chainctl-usage">https://edu.chainguard.dev/chainguard/chainctl-usage</a></li>
+<li><a href="https://edu.chainguard.dev/chainguard/chainguard-images/about/differences-development-production">https://edu.chainguard.dev/chainguard/chainguard-images/about/differences-development-production</a></li>
+<li><a href="https://edu.chainguard.dev/chainguard/chainguard-registry/overview/#using-a-caching-proxy-with-chainguards-registry">https://edu.chainguard.dev/chainguard/chainguard-registry/overview/#using-a-caching-proxy-with-chainguards-registry</a></li>
+<li><a href="https://edu.chainguard.dev/chainguard/migration/dockerfile-conversion">https://edu.chainguard.dev/chainguard/migration/dockerfile-conversion</a></li>
+<li><a href="https://github.com/chainguard-dev/dfc">https://github.com/chainguard-dev/dfc</a></li>
+<li><a href="https://images.chainguard.dev/security">https://images.chainguard.dev/security</a></li>
+<li><a href="https://www.chainguard.dev/legal/cve-sla">https://www.chainguard.dev/legal/cve-sla</a></li>
+<li><a href="https://www.chainguard.dev/unchained/this-shit-is-hard-vulnerability-scanner-integration">https://www.chainguard.dev/unchained/this-shit-is-hard-vulnerability-scanner-integration</a></li>
 </ul>
 
 

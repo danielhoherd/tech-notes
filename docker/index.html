@@ -1147,6 +1147,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../chainguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chainguard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../chkconfig/" class="md-nav__link">
         
   
@@ -2632,6 +2659,17 @@
     <span class="md-ellipsis">
       
         Show a list of tags for a given image on docker hub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-a-docker-composeyml-file-into-other-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert a docker-compose.yml file into other formats
       
     </span>
   </a>
@@ -10465,6 +10503,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#convert-a-docker-composeyml-file-into-other-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert a docker-compose.yml file into other formats
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10654,6 +10703,13 @@ jq '.tags[].name'
 &quot;2.0.0&quot;
 &quot;latest&quot;
 &quot;1.3.0&quot;
+</code></pre>
+<h3 id="convert-a-docker-composeyml-file-into-other-formats">Convert a docker-compose.yml file into other formats</h3>
+<p>By default, the destination format is a kustomize dir:</p>
+<pre><code class="language-sh">docker compose bridge convert
+</code></pre>
+<p>You can also convert into a helm chart:</p>
+<pre><code class="language-sh">docker compose bridge convert -t docker/compose-bridge-helm
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
