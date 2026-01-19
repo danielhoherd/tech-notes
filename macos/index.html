@@ -5338,17 +5338,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Links
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#useful-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5502,6 +5491,17 @@
     <span class="md-ellipsis">
       
         Remap caps-lock to escape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
       
     </span>
   </a>
@@ -10187,17 +10187,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Links
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#useful-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10357,6 +10346,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10376,14 +10376,6 @@
 
 <h1 id="macos">macOS</h1>
 <p>Apple's Unix desktop operating system.</p>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://medium.com/@hammen/significant-changes-in-macos-10-15-catalina-of-interest-to-mac-admins-fbc3865c055e">Significant Changes in macOS 10.15 Catalina of Interest to Mac Admins</a></li>
-<li><a href="https://git.herrbischoff.com/awesome-macos-command-line/about/">https://git.herrbischoff.com/awesome-macos-command-line/about/</a></li>
-<li><a href="https://support.apple.com/en-us/108900">https://support.apple.com/en-us/108900</a>: How to revive or restore Mac firmware</li>
-<li><a href="https://weiyen.net/articles/useful-macos-cmd-line-utilities">https://weiyen.net/articles/useful-macos-cmd-line-utilities</a></li>
-<li><a href="https://dortania.github.io/OpenCore-Legacy-Patcher">https://dortania.github.io/OpenCore-Legacy-Patcher</a>: Run newer macOS versions on older, unsupported Mac hardware.</li>
-</ul>
 <h2 id="useful-commands">Useful Commands</h2>
 <ul>
 <li>caffeinate</li>
@@ -10432,8 +10424,8 @@ sudo bash -c &quot;launchctl stop com.openssh.sshd ; launchctl start com.openssh
 <pre><code class="language-sh">sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select distinct LSQuarantineDataURLString from LSQuarantineEvent'
 </code></pre>
 <h3 id="send-notifications-from-terminal">Send Notifications from Terminal</h3>
-<pre><code class="language-sh">sudo gem install terminal-notifier
-terminal-notifier -message &quot;Hello, this is my message&quot; -title &quot;Message Title&quot;
+<p><a href="https://github.com/julienXX/terminal-notifier">https://github.com/julienXX/terminal-notifier</a></p>
+<pre><code class="language-sh">brew install terminal-notifier
 </code></pre>
 <h3 id="enable-verbose-eap-logging">Enable verbose eap logging</h3>
 <pre><code class="language-sh">sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.eapolclient LogFlags -int -1
@@ -10461,6 +10453,16 @@ caps_to_esc_unmap(){
     hidutil property --set '{&quot;UserKeyMapping&quot;:[]}'
 }
 </code></pre>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://medium.com/@hammen/significant-changes-in-macos-10-15-catalina-of-interest-to-mac-admins-fbc3865c055e">Significant Changes in macOS 10.15 Catalina of Interest to Mac Admins</a></li>
+<li><a href="https://github.com/ruedigerp/awesome-osx-command-line">https://github.com/ruedigerp/awesome-osx-command-line</a></li>
+<li><a href="https://support.apple.com/en-us/108900">https://support.apple.com/en-us/108900</a>: How to revive or restore Mac firmware</li>
+<li><a href="https://weiyen.net/articles/useful-macos-cmd-line-utilities">https://weiyen.net/articles/useful-macos-cmd-line-utilities</a></li>
+<li><a href="https://dortania.github.io/OpenCore-Legacy-Patcher">https://dortania.github.io/OpenCore-Legacy-Patcher</a>: Run newer macOS versions on older, unsupported Mac hardware.</li>
+<li><a href="https://tonsky.me/blog/tahoe-icons">https://tonsky.me/blog/tahoe-icons</a></li>
+<li><a href="https://noheger.at/blog/2026/01/11/the-struggle-of-resizing-windows-on-macos-tahoe">https://noheger.at/blog/2026/01/11/the-struggle-of-resizing-windows-on-macos-tahoe</a></li>
+</ul>
 
 
 
