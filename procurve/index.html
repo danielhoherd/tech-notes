@@ -5926,6 +5926,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../navidrome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    navidrome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ncftp/" class="md-nav__link">
         
   
@@ -10439,7 +10466,8 @@
 <li>Via tftp: <code>switch# copy tftp flash 172.28.115.151 flashfilename.swi primary</code> <em>This doesn't always work, try scp if it fails.</em></li>
 </ul>
 <p>Then on the switch...</p>
-<p><code>system boot flash primary</code></p>
+<pre><code class="language-sh">boot system flash primary
+</code></pre>
 <h2 id="config-examples">Config Examples</h2>
 <h3 id="set-an-ip-for-the-default-vlan">Set an IP# for the default VLAN</h3>
 <pre><code>interface vlan 1 ip address 172.28.115.234 255.255.255.0
