@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/postgres/">
       
       
         <link rel="prev" href="../plex/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>PostgreSQL - Daniel Hoherd's tech notes</title>
+        <title>PostgreSQL - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -7033,7 +7047,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -7052,7 +7066,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -7061,7 +7076,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10320,7 +10335,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10329,7 +10345,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10527,19 +10543,25 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="postgresql">PostgreSQL</h1>
+<h1 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h1>
 <p>"PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance." - <a href="https://www.postgresql.org">https://www.postgresql.org</a></p>
-<h2 id="usage">Usage</h2>
-<h3 id="connect-to-a-database">Connect to a database</h3>
-<pre><code class="language-sh">psql &quot;postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT:-5432}/${POSTGRES_DB}&quot;
-</code></pre>
-<h3 id="meta-commands">Meta Commands</h3>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h3 id="connect-to-a-database">Connect to a database<a class="headerlink" href="#connect-to-a-database" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>psql<span class="w"> </span><span class="s2">&quot;postgres://</span><span class="si">${</span><span class="nv">POSTGRES_USER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">POSTGRES_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">POSTGRES_HOSTNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">POSTGRES_PORT</span><span class="k">:-</span><span class="nv">5432</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">POSTGRES_DB</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="meta-commands">Meta Commands<a class="headerlink" href="#meta-commands" title="Permanent link">&para;</a></h3>
 <p>postgres shell has a lot of meta commands. See <a href="https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMANDS">https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMANDS</a> for full descriptions.</p>
 <table>
 <thead>
@@ -10583,147 +10605,147 @@
 </tr>
 </tbody>
 </table>
-<h3 id="show-postgres-version">Show postgres version</h3>
-<pre><code>astronomer_houston=&gt; SELECT version();
-                                          version
---------------------------------------------------------------------------------------------
- PostgreSQL 9.6.18 on x86_64-pc-linux-gnu, compiled by Debian clang version 10.0.1 , 64-bit
-(1 row)
-</code></pre>
-<h3 id="show-processes">Show processes</h3>
+<h3 id="show-postgres-version">Show postgres version<a class="headerlink" href="#show-postgres-version" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>astronomer_houston=&gt; SELECT version();
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                                          version
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>--------------------------------------------------------------------------------------------
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> PostgreSQL 9.6.18 on x86_64-pc-linux-gnu, compiled by Debian clang version 10.0.1 , 64-bit
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>(1 row)
+</span></code></pre></div>
+<h3 id="show-processes">Show processes<a class="headerlink" href="#show-processes" title="Permanent link">&para;</a></h3>
 <p>Each process is one connection to the db. (See <a href="https://www.postgresql.org/docs/18/connect-estab.html">How Connections are Establisted</a>)</p>
-<pre><code class="language-sql">select * from pg_stat_activity ;
-</code></pre>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
 <p>or</p>
-<pre><code class="language-sql">select count(*) from pg_stat_activity where usename = 'airflow' ; -- note this is usename, not useRname
-</code></pre>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">usename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;airflow&#39;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- note this is usename, not useRname</span>
+</span></code></pre></div>
 <p>or a more refined view</p>
-<pre><code class="language-sql">select pid as process_id,
-       usename as username,
-       datname as database_name,
-       client_addr as client_address,
-       application_name,
-       backend_start,
-       state,
-       state_change
-from pg_stat_activity
-where state != 'idle' ;
-</code></pre>
-<h3 id="terminate-all-processes-connected-to-a-given-database">Terminate all processes connected to a given database</h3>
-<pre><code class="language-sql">select pg_terminate_backend(pg_stat_activity.pid)
-from pg_stat_activity
-where pg_stat_activity.datname = 'some_db_name'
-  and pid &lt;&gt; pg_backend_pid();
-</code></pre>
-<h2 id="postgres-in-docker">Postgres in Docker</h2>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">select</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">process_id</span><span class="p">,</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">       </span><span class="n">usename</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">username</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">       </span><span class="n">datname</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">database_name</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">       </span><span class="n">client_addr</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">client_address</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">       </span><span class="n">application_name</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">       </span><span class="n">backend_start</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">       </span><span class="k">state</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">       </span><span class="n">state_change</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">where</span><span class="w"> </span><span class="k">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;idle&#39;</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="terminate-all-processes-connected-to-a-given-database">Terminate all processes connected to a given database<a class="headerlink" href="#terminate-all-processes-connected-to-a-given-database" title="Permanent link">&para;</a></h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">select</span><span class="w"> </span><span class="n">pg_terminate_backend</span><span class="p">(</span><span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">pid</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">where</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">datname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;some_db_name&#39;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="k">and</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">pg_backend_pid</span><span class="p">();</span>
+</span></code></pre></div>
+<h2 id="postgres-in-docker">Postgres in Docker<a class="headerlink" href="#postgres-in-docker" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Official images: <a href="https://hub.docker.com/_/postgres">https://hub.docker.com/_/postgres</a></li>
 </ul>
 <p>Some of these syntaxes apply to non-docker interactions too, so long as you remove the docker-isms from them.</p>
-<h3 id="example-docker-compose-file-for-local-development">Example docker-compose file for local development</h3>
-<pre><code class="language-yaml">## https://docs.docker.com/compose/compose-file/
-version: &quot;3.7&quot;
-services:
-  postgres:
-    # https://hub.docker.com/_/postgres
-    image: &quot;postgres:latest&quot;
-    restart: &quot;always&quot;
-    env_file: .env # Should contain POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
-    # Uncomment the 'command' line to enable postgres query logging to the terminal
-    # https://www.postgresql.org/docs/18/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN
-    # command: [ &quot;postgres&quot;, &quot;-c&quot;, &quot;log_destination=stderr&quot;, &quot;-c&quot;, &quot;log_min_messages=debug&quot;, &quot;-c&quot;, &quot;log_min_error_statement=debug&quot; ]
-
-    expose:
-      - &quot;5432&quot;
-    ports:
-      - &quot;5432:5432&quot;
-</code></pre>
-<h3 id="dump-a-database">Dump a database</h3>
+<h3 id="example-docker-compose-file-for-local-development">Example docker-compose file for local development<a class="headerlink" href="#example-docker-compose-file-for-local-development" title="Permanent link">&para;</a></h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">## https://docs.docker.com/compose/compose-file/</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.7&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c1"># https://hub.docker.com/_/postgres</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres:latest&quot;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;always&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span><span class="w"> </span><span class="c1"># Should contain POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c1"># Uncomment the &#39;command&#39; line to enable postgres query logging to the terminal</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1"># https://www.postgresql.org/docs/18/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="c1"># command: [ &quot;postgres&quot;, &quot;-c&quot;, &quot;log_destination=stderr&quot;, &quot;-c&quot;, &quot;log_min_messages=debug&quot;, &quot;-c&quot;, &quot;log_min_error_statement=debug&quot; ]</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="nt">expose</span><span class="p">:</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432&quot;</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+</span></code></pre></div>
+<h3 id="dump-a-database">Dump a database<a class="headerlink" href="#dump-a-database" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.postgresql.org/docs/18/app-pgdump.html">https://www.postgresql.org/docs/18/app-pgdump.html</a></p>
-<pre><code>docker exec &quot;${POSTGRES_CONTAINER}&quot; pg_dump -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker exec &quot;${POSTGRES_CONTAINER}&quot; pg_dump -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
+</span></code></pre></div>
 <p>Full backups should be performed with <a href="https://www.postgresql.org/docs/18/app-pg-dumpall.html">pg_dumpall</a>.</p>
-<h3 id="load-local-data-into-a-db">Load local data into a db</h3>
+<h3 id="load-local-data-into-a-db">Load local data into a db<a class="headerlink" href="#load-local-data-into-a-db" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.postgresql.org/docs/18/app-psql.html">https://www.postgresql.org/docs/18/app-psql.html</a></p>
-<pre><code>cat foo.sql |
-docker exec -i &quot;${POSTGRES_CONTAINER}&quot; \
-  psql -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
-</code></pre>
-<h2 id="example-queries">Example queries</h2>
-<h3 id="show-sizes-for-all-dbs-in-a-given-server">Show sizes for all DBs in a given server</h3>
-<pre><code>pokemon_collector=&gt; SELECT
-    pg_database.datname,
-    pg_database_size(pg_database.datname) AS size,
-    pg_size_pretty(pg_database_size(pg_database.datname))
-    FROM pg_database
-    ORDER BY size ;
-     datname    |     size      | pg_size_pretty
-----------------+---------------+----------------
- postgres       |       7436824 | 7263 kB
- cloudsqladmin  |       7641624 | 7463 kB
- pokemon        |       8231448 | 8039 kB
- smeargle_4080  |      10230296 | 9991 kB
- ampharos_7008  |      10877464 | 10 MB
- litten_7803    |      12655128 | 12 MB
- silvally_9992  |   64589765144 | 60 GB
- cinderace_8705 |   86162946584 | 80 GB
- emolga_1932    |   92073171480 | 86 GB
- aegislash_4257 | 1265669151256 | 1179 GB
-(10 rows)
-</code></pre>
-<h3 id="show-all-of-the-table-sizes-for-a-given-schema">Show all of the table sizes for a given schema</h3>
-<pre><code>sunny_moon_4257_airflow=&gt; SELECT table_name, pg_total_relation_size(table_name), pg_size_pretty(pg_total_relation_size(table_name))
-FROM sunny_moon_4257_airflow.information_schema.tables
-where table_schema = 'airflow'
-ORDER BY pg_total_relation_size(table_name) desc ;
-          table_name           | pg_total_relation_size | pg_size_pretty
--------------------------------+------------------------+----------------
- xcom                          |          1269437857792 | 1182 GB
- job                           |               77586432 | 74 MB
- dag_run                       |               60440576 | 58 MB
- log                           |               58630144 | 56 MB
- task_instance                 |               31784960 | 30 MB
- serialized_dag                |                 851968 | 832 kB
- rendered_task_instance_fields |                 843776 | 824 kB
- task_fail                     |                 638976 | 624 kB
- import_error                  |                 393216 | 384 kB
- dag                           |                 122880 | 120 kB
- dag_code                      |                 122880 | 120 kB
- ab_user                       |                  98304 | 96 kB
- ab_permission_view_role       |                  90112 | 88 kB
- astro_available_version       |                  90112 | 88 kB
- slot_pool                     |                  81920 | 80 kB
- ab_user_role                  |                  73728 | 72 kB
- ab_view_menu                  |                  73728 | 72 kB
- ab_permission                 |                  73728 | 72 kB
- ab_role                       |                  73728 | 72 kB
- ab_permission_view            |                  73728 | 72 kB
- astro_version_check           |                  65536 | 64 kB
- sensor_instance               |                  57344 | 56 kB
- alembic_version               |                  57344 | 56 kB
- connection                    |                  24576 | 24 kB
- task_reschedule               |                  24576 | 24 kB
- ab_register_user              |                  24576 | 24 kB
- sla_miss                      |                  24576 | 24 kB
- variable                      |                  24576 | 24 kB
- dag_pickle                    |                  16384 | 16 kB
- known_event                   |                  16384 | 16 kB
- dag_tag                       |                   8192 | 8192 bytes
- known_event_type              |                   8192 | 8192 bytes
-(32 rows)
-</code></pre>
-<h3 id="show-the-rows-with-the-largest-values">Show the rows with the largest values</h3>
-<pre><code>sunny_moon_4257_airflow=&gt; select timestamp, pg_column_size(value) as size from xcom order by size desc limit 20 ;
-           timestamp           |   size
--------------------------------+-----------
- 2021-09-25 14:23:40.0142+00   | 188149150
- 2021-09-24 14:24:39.699152+00 | 171979158
- 2021-09-23 14:24:08.201579+00 | 158880026
- 2021-09-22 14:24:03.309817+00 | 144807562
- 2021-09-21 14:24:25.052796+00 | 129923562
-(5 rows)
-</code></pre>
-<h2 id="see-also">See Also</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cat foo.sql |
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>docker exec -i &quot;${POSTGRES_CONTAINER}&quot; \
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  psql -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
+</span></code></pre></div>
+<h2 id="example-queries">Example queries<a class="headerlink" href="#example-queries" title="Permanent link">&para;</a></h2>
+<h3 id="show-sizes-for-all-dbs-in-a-given-server">Show sizes for all DBs in a given server<a class="headerlink" href="#show-sizes-for-all-dbs-in-a-given-server" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pokemon_collector=&gt; SELECT
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    pg_database.datname,
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    pg_database_size(pg_database.datname) AS size,
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    pg_size_pretty(pg_database_size(pg_database.datname))
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    FROM pg_database
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    ORDER BY size ;
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>     datname    |     size      | pg_size_pretty
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>----------------+---------------+----------------
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a> postgres       |       7436824 | 7263 kB
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a> cloudsqladmin  |       7641624 | 7463 kB
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a> pokemon        |       8231448 | 8039 kB
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a> smeargle_4080  |      10230296 | 9991 kB
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a> ampharos_7008  |      10877464 | 10 MB
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a> litten_7803    |      12655128 | 12 MB
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a> silvally_9992  |   64589765144 | 60 GB
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a> cinderace_8705 |   86162946584 | 80 GB
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a> emolga_1932    |   92073171480 | 86 GB
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a> aegislash_4257 | 1265669151256 | 1179 GB
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>(10 rows)
+</span></code></pre></div>
+<h3 id="show-all-of-the-table-sizes-for-a-given-schema">Show all of the table sizes for a given schema<a class="headerlink" href="#show-all-of-the-table-sizes-for-a-given-schema" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sunny_moon_4257_airflow=&gt; SELECT table_name, pg_total_relation_size(table_name), pg_size_pretty(pg_total_relation_size(table_name))
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>FROM sunny_moon_4257_airflow.information_schema.tables
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>where table_schema = &#39;airflow&#39;
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>ORDER BY pg_total_relation_size(table_name) desc ;
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>          table_name           | pg_total_relation_size | pg_size_pretty
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>-------------------------------+------------------------+----------------
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a> xcom                          |          1269437857792 | 1182 GB
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a> job                           |               77586432 | 74 MB
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a> dag_run                       |               60440576 | 58 MB
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a> log                           |               58630144 | 56 MB
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a> task_instance                 |               31784960 | 30 MB
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a> serialized_dag                |                 851968 | 832 kB
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a> rendered_task_instance_fields |                 843776 | 824 kB
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a> task_fail                     |                 638976 | 624 kB
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a> import_error                  |                 393216 | 384 kB
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a> dag                           |                 122880 | 120 kB
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a> dag_code                      |                 122880 | 120 kB
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a> ab_user                       |                  98304 | 96 kB
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a> ab_permission_view_role       |                  90112 | 88 kB
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a> astro_available_version       |                  90112 | 88 kB
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a> slot_pool                     |                  81920 | 80 kB
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a> ab_user_role                  |                  73728 | 72 kB
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a> ab_view_menu                  |                  73728 | 72 kB
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a> ab_permission                 |                  73728 | 72 kB
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a> ab_role                       |                  73728 | 72 kB
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a> ab_permission_view            |                  73728 | 72 kB
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a> astro_version_check           |                  65536 | 64 kB
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a> sensor_instance               |                  57344 | 56 kB
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a> alembic_version               |                  57344 | 56 kB
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a> connection                    |                  24576 | 24 kB
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a> task_reschedule               |                  24576 | 24 kB
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a> ab_register_user              |                  24576 | 24 kB
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a> sla_miss                      |                  24576 | 24 kB
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a> variable                      |                  24576 | 24 kB
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a> dag_pickle                    |                  16384 | 16 kB
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a> known_event                   |                  16384 | 16 kB
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a> dag_tag                       |                   8192 | 8192 bytes
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a> known_event_type              |                   8192 | 8192 bytes
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>(32 rows)
+</span></code></pre></div>
+<h3 id="show-the-rows-with-the-largest-values">Show the rows with the largest values<a class="headerlink" href="#show-the-rows-with-the-largest-values" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sunny_moon_4257_airflow=&gt; select timestamp, pg_column_size(value) as size from xcom order by size desc limit 20 ;
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>           timestamp           |   size
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>-------------------------------+-----------
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> 2021-09-25 14:23:40.0142+00   | 188149150
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a> 2021-09-24 14:24:39.699152+00 | 171979158
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a> 2021-09-23 14:24:08.201579+00 | 158880026
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a> 2021-09-22 14:24:03.309817+00 | 144807562
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a> 2021-09-21 14:24:25.052796+00 | 129923562
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>(5 rows)
+</span></code></pre></div>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.pgcli.com">pgcli</a>: "Pgcli is a command line interface for Postgres with auto-completion and syntax highlighting." <a href="https://github.com/dbcli/pgcli">https://github.com/dbcli/pgcli</a></li>
 <li><a href="http://www.pgadmin.org">http://www.pgadmin.org</a> - Graphical UI for postgres</li>
@@ -10752,13 +10774,23 @@ ORDER BY pg_total_relation_size(table_name) desc ;
 
 
 
+
+
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -10768,23 +10800,15 @@ ORDER BY pg_total_relation_size(table_name) desc ;
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -10802,12 +10826,11 @@ ORDER BY pg_total_relation_size(table_name) desc ;
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

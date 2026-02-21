@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/helm/">
       
       
         <link rel="prev" href="../hashids/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>helm - Daniel Hoherd's tech notes</title>
+        <title>helm - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -3874,7 +3888,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3893,7 +3907,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -3902,7 +3917,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10275,7 +10290,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10284,7 +10300,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10437,107 +10453,115 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="helm">helm</h1>
+<h1 id="helm">helm<a class="headerlink" href="#helm" title="Permanent link">&para;</a></h1>
 <p>"The Kubernetes Package Manager" - <a href="https://github.com/kubernetes/helm">https://github.com/kubernetes/helm</a></p>
 <p>These notes are all about helm version 3. <a href="https://helm.sh/docs/topics/charts/">Charts</a> that require helm 3 should use <code>apiVersion: v2</code>, though helm 3 does support v1.</p>
-<h2 id="links">Links</h2>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://helm.sh/docs/intro/quickstart">https://helm.sh/docs/intro/quickstart</a></li>
 <li><a href="https://github.com/databus23/helm-diff">https://github.com/databus23/helm-diff</a>: "This is a Helm plugin giving your a preview of what a helm upgrade would change."</li>
 <li><a href="https://blog.flant.com/advanced-helm-templating">https://blog.flant.com/advanced-helm-templating</a></li>
 <li><a href="https://helmfile.readthedocs.io">https://helmfile.readthedocs.io</a></li>
 </ul>
-<h2 id="tips">Tips</h2>
-<h3 id="list-all-versions-of-a-chart-in-a-given-repo">List all versions of a chart in a given repo</h3>
-<pre><code class="language-sh">helm search repo repo_name/chart_name --devel --versions
-</code></pre>
-<h3 id="include-pre-release-versions-in-all-versions">Include pre-release versions in all versions</h3>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h2>
+<h3 id="list-all-versions-of-a-chart-in-a-given-repo">List all versions of a chart in a given repo<a class="headerlink" href="#list-all-versions-of-a-chart-in-a-given-repo" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>repo_name/chart_name<span class="w"> </span>--devel<span class="w"> </span>--versions
+</span></code></pre></div>
+<h3 id="include-pre-release-versions-in-all-versions">Include pre-release versions in all versions<a class="headerlink" href="#include-pre-release-versions-in-all-versions" title="Permanent link">&para;</a></h3>
 <p>You have to use <a href="https://github.com/Masterminds/semver">mastermind/semver</a> constraints with helm, which dictate that you have to include a pre-release component if you want to match against prereleases:</p>
-<pre><code class="language-sh">helm search repo repo_name/chart_name --devel --versions --version '^1.5-0'
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>repo_name/chart_name<span class="w"> </span>--devel<span class="w"> </span>--versions<span class="w"> </span>--version<span class="w"> </span><span class="s1">&#39;^1.5-0&#39;</span>
+</span></code></pre></div>
 <p>This would show all versions including prereleases before or equal to 1.5.x. If you only want to show the latest version even if it is a prerelease, leave off <code>--versions</code>.</p>
-<h3 id="get-values-of-a-deployed-chart">Get values of a deployed chart</h3>
+<h3 id="get-values-of-a-deployed-chart">Get values of a deployed chart<a class="headerlink" href="#get-values-of-a-deployed-chart" title="Permanent link">&para;</a></h3>
 <p>This only shows values that were passed in, not default values.</p>
 <p><code>$release_name</code> is the NAME column in <code>helm list</code></p>
-<pre><code class="language-sh">helm get values -o yaml &quot;$release_name&quot; &gt; values.yaml
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$release_name</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>values.yaml
+</span></code></pre></div>
 <p>To get a list of all values, use</p>
-<pre><code class="language-sh">helm get values --all -o yaml &quot;$release_name&quot; &gt; values.yaml`
-</code></pre>
-<h3 id="show-notes-for-a-deployed-service">Show notes for a deployed service</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--all<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$release_name</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>values.yaml<span class="sb">`</span>
+</span></code></pre></div>
+<h3 id="show-notes-for-a-deployed-service">Show notes for a deployed service<a class="headerlink" href="#show-notes-for-a-deployed-service" title="Permanent link">&para;</a></h3>
 <p>Notes are printed when you install a service, but they can be viewed again by running <code>helm status &lt;release_name&gt;</code> where <code>&lt;release_name&gt;</code> is one of the releases from <code>helm list</code>.</p>
-<h3 id="install-the-stable-repo">Install the stable repo</h3>
-<pre><code class="language-sh">helm repo add stable https://charts.helm.sh/stable
-</code></pre>
-<h3 id="install-the-incubator-repo">Install the incubator repo</h3>
+<h3 id="install-the-stable-repo">Install the stable repo<a class="headerlink" href="#install-the-stable-repo" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>stable<span class="w"> </span>https://charts.helm.sh/stable
+</span></code></pre></div>
+<h3 id="install-the-incubator-repo">Install the incubator repo<a class="headerlink" href="#install-the-incubator-repo" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/helm/charts#how-do-i-enable-the-incubator-repository">https://github.com/helm/charts#how-do-i-enable-the-incubator-repository</a></p>
-<pre><code class="language-sh">helm repo add incubator https://charts.helm.sh/incubator
-</code></pre>
-<h3 id="show-metadata-about-a-specific-release-in-json">Show metadata about a specific release in json</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>incubator<span class="w"> </span>https://charts.helm.sh/incubator
+</span></code></pre></div>
+<h3 id="show-metadata-about-a-specific-release-in-json">Show metadata about a specific release in json<a class="headerlink" href="#show-metadata-about-a-specific-release-in-json" title="Permanent link">&para;</a></h3>
 <p>You can find the revision in a few places, like <code>helm list -A</code>. Default is to store data about the last 10 releases per release_name.</p>
-<pre><code class="language-sh">helm history -n &quot;$NS&quot; &quot;$RELEASE_NAME&quot; -o json | jq '.[] | select(.revision == 157)'
-</code></pre>
-<h3 id="show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release">Show raw data about what helm sent to the k8s server for a recent release</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>helm<span class="w"> </span><span class="nb">history</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NS</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RELEASE_NAME</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[] | select(.revision == 157)&#39;</span>
+</span></code></pre></div>
+<h3 id="show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release">Show raw data about what helm sent to the k8s server for a recent release<a class="headerlink" href="#show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release" title="Permanent link">&para;</a></h3>
 <p>First, find the secret that you will want to search. You can get the release number from <code>helm history -n "$NS" foo</code> or dig in <code>kubectl -n $NS get secret</code></p>
-<pre><code>$ k -n &quot;$NS&quot; get secret | grep sh.helm.release | tail -n 3 | column -t
-sh.helm.release.v1.foo.v338  helm.sh/release.v1  1  14d
-sh.helm.release.v1.foo.v339  helm.sh/release.v1  1  13d
-sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ k -n &quot;$NS&quot; get secret | grep sh.helm.release | tail -n 3 | column -t
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sh.helm.release.v1.foo.v338  helm.sh/release.v1  1  14d
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sh.helm.release.v1.foo.v339  helm.sh/release.v1  1  13d
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
+</span></code></pre></div>
 <p>Then send that secret into the following command to get the full manifest that was sent to the k8s api:</p>
-<pre><code class="language-sh">k -n &quot;$NS&quot; get secret &quot;$SECRET&quot; -o go-template='{{ .data.release | base64decode | base64decode }}' |
-  gzip -d
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>k<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NS</span><span class="s2">&quot;</span><span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SECRET</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>go-template<span class="o">=</span><span class="s1">&#39;{{ .data.release | base64decode | base64decode }}&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>gzip<span class="w"> </span>-d
+</span></code></pre></div>
 <p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>
-<h3 id="splay-cron-jobs">Splay cron jobs</h3>
+<h3 id="splay-cron-jobs">Splay cron jobs<a class="headerlink" href="#splay-cron-jobs" title="Permanent link">&para;</a></h3>
 <p>Splaying cron jobs avoids the <a href="https://en.wikipedia.org/wiki/Thundering_herd_problem">thundering herd problem</a> by spreading the jobs out over time with deterministic randomness.</p>
 <p>The functions available when using Helm templates are not as plentiful and general purpose like you would expect in a normal programming language, so we have to get creative for some things. One thing that would be great is if Helm provided a deterministic random feature. It does have randomness, but there is no way to seed the random number generator. To work around this, we can use other functions that do take inputs in order to generate deterministic random-ish numbers. One such example is using <code>adler32sum</code>, which returns a base-10 hash value of an input.</p>
 <p>The following example splays a cron job that runs every 15 minutes from 3-12 inclusive, which should avoid high-demand minutes at the beginning of 0/15, and still give a few minutes for work to complete before coming back around to the next 0/15 interval.</p>
-<pre><code>'{{- add 3 (regexFind &quot;.$&quot; (adler32sum .Release.Name)) -}}-59/15 * * * *'
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&#39;{{- add 3 (regexFind &quot;.$&quot; (adler32sum .Release.Name)) -}}-59/15 * * * *&#39;
+</span></code></pre></div>
 <p>This bit of code aler32sums the <code>.Release.Name</code> value, which is expected to be unique for every deployment but may not be in your environment, takes only the right-most digit, which is 0-9, and adds 3 to it, then uses that number as the starting minute in the cron schedule, EG: <code>7-59/* * * * *</code>.</p>
 <p>Here is a python script that shows what minute number would be generated for 235,976 inputs:</p>
-<pre><code class="language-py">#!/usr/bin/env python3
-
-from zlib import adler32
-from pathlib import Path
-
-_input = Path(&quot;/usr/share/dict/words&quot;).read_text().split()
-output = {x + 3: 0 for x in range(10)}
-
-for item in _input:
-    cksum = adler32(str.encode(item))
-    splay_minute = int(str(cksum)[-1]) + 3
-    output[splay_minute] += 1
-
-for k, v in output.items():
-    print(f&quot;{k:2d}: {v}&quot;)
-</code></pre>
-<p>And the output shows a pretty even splay across all minutes, with each minute containing roughly 1/10th of the input lines:</p>
-<pre><code>$ ./test-adler32sum.py
- 3: 23483
- 4: 23523
- 5: 23699
- 6: 23628
- 7: 23464
- 8: 23750
- 9: 23435
-10: 23833
-11: 23605
-12: 23556
-</code></pre>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">adler32</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">_input</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/usr/share/dict/words&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">_input</span><span class="p">:</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">cksum</span> <span class="o">=</span> <span class="n">adler32</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">splay_minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cksum</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">3</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">output</span><span class="p">[</span><span class="n">splay_minute</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>And the output shows a pretty even splay across all minutes, with each minute containing roughly 1/10<sup>th</sup> of the input lines:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ ./test-adler32sum.py
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a> 3: 23483
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> 4: 23523
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> 5: 23699
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a> 6: 23628
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a> 7: 23464
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a> 8: 23750
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a> 9: 23435
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>10: 23833
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>11: 23605
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>12: 23556
+</span></code></pre></div>
 <p>Surely there is more rigorous statistical analysis needed to better understand exactly how the inputs are being spread, but if you care that much about it, you are probably better off submitting a pr with your desired behavior to <a href="https://github.com/Masterminds/sprig">https://github.com/Masterminds/sprig</a>, which is where the helm template functions come from.</p>
-<h3 id="detect-helm-resources-that-do-not-have-proper-annotations">Detect helm resources that do not have proper annotations</h3>
+<h3 id="detect-helm-resources-that-do-not-have-proper-annotations">Detect helm resources that do not have proper annotations<a class="headerlink" href="#detect-helm-resources-that-do-not-have-proper-annotations" title="Permanent link">&para;</a></h3>
 <p>Helm requires that certain annotations exist. This this check will return all deployments that do not contain the required anntoations:</p>
-<pre><code class="language-sh">kubectl get deployments -A -o json |
-jq '.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quot; == null) or (.metadata.annotations.&quot;meta.helm.sh/release-namespace&quot; == null)) | .metadata.name'
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployments<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>jq<span class="w"> </span><span class="s1">&#39;.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quot; == null) or (.metadata.annotations.&quot;meta.helm.sh/release-namespace&quot; == null)) | .metadata.name&#39;</span>
+</span></code></pre></div>
+
+
 
 
 
@@ -10555,8 +10579,16 @@ jq '.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quo
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -10566,23 +10598,15 @@ jq '.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quo
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -10600,12 +10624,11 @@ jq '.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quo
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

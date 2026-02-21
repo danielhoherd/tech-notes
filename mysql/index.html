@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/mysql/">
       
       
         <link rel="prev" href="../myrepos/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>MySQL - Daniel Hoherd's tech notes</title>
+        <title>MySQL - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -5953,7 +5967,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5972,7 +5986,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -5981,7 +5996,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10641,7 +10656,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10650,7 +10666,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -11169,193 +11185,199 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="mysql">MySQL</h1>
+<h1 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
 <p>"MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language. The MySQL development project has made its source code available under the terms of the GNU General Public License, as well as under a variety of proprietary agreements. MySQL was owned and sponsored by a single for-profit firm, the Swedish company MySQL AB, and is now owned by Oracle Corporation." - <a href="https://en.wikipedia.org/wiki/MySQL">https://en.wikipedia.org/wiki/MySQL</a></p>
-<h2 id="examples">Examples</h2>
-<h3 id="show-variables-of-the-running-server">Show variables of the running server</h3>
-<pre><code>mysqladmin variables
-</code></pre>
-<h3 id="enable-bin-logging">Enable bin logging</h3>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="show-variables-of-the-running-server">Show variables of the running server<a class="headerlink" href="#show-variables-of-the-running-server" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mysqladmin variables
+</span></code></pre></div>
+<h3 id="enable-bin-logging">Enable bin logging<a class="headerlink" href="#enable-bin-logging" title="Permanent link">&para;</a></h3>
 <p>Edit /etc/my.cnf:</p>
-<pre><code>log-bin=/var/lib/mysql/mysql-bin
-</code></pre>
-<h3 id="show-how-a-table-was-created">Show how a table was created</h3>
-<pre><code>SHOW CREATE TABLE table_name \G
-</code></pre>
-<h3 id="create-a-table">Create a table</h3>
-<pre><code>CREATE TABLE photo_sizes (
-  `photo_id` char(32) NOT NULL,
-  `format` mediumtext,
-  `width` mediumtext,
-  `height` mediumtext,
-  `source` mediumtext,
-  `url` mediumtext,
-  PRIMARY KEY(`photo_id`)
-) ;
-</code></pre>
-<h3 id="create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key</h3>
-<pre><code>CREATE TABLE `photo_sizes` (
-  `photo_id` char(32) NOT NULL,
-  `format` char(32) NOT NULL DEFAULT '',
-  `width` mediumtext,
-  `height` mediumtext,
-  `source` mediumtext,
-  `url` mediumtext,
-  PRIMARY KEY (`photo_id`,`format`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1
-</code></pre>
-<h3 id="show-what-processes-are-running">Show what processes are running</h3>
-<pre><code>show processlist;
-</code></pre>
-<h3 id="dump-databases-to-sql-files">Dump databases to sql files</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>log-bin=/var/lib/mysql/mysql-bin
+</span></code></pre></div>
+<h3 id="show-how-a-table-was-created">Show how a table was created<a class="headerlink" href="#show-how-a-table-was-created" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SHOW CREATE TABLE table_name \G
+</span></code></pre></div>
+<h3 id="create-a-table">Create a table<a class="headerlink" href="#create-a-table" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CREATE TABLE photo_sizes (
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  `photo_id` char(32) NOT NULL,
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  `format` mediumtext,
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  `width` mediumtext,
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  `height` mediumtext,
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  `source` mediumtext,
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  `url` mediumtext,
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  PRIMARY KEY(`photo_id`)
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>) ;
+</span></code></pre></div>
+<h3 id="create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key<a class="headerlink" href="#create-a-table-with-multiple-columns-as-the-primary-key" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>CREATE TABLE `photo_sizes` (
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  `photo_id` char(32) NOT NULL,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  `format` char(32) NOT NULL DEFAULT &#39;&#39;,
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  `width` mediumtext,
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  `height` mediumtext,
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  `source` mediumtext,
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  `url` mediumtext,
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  PRIMARY KEY (`photo_id`,`format`)
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>) ENGINE=MyISAM DEFAULT CHARSET=latin1
+</span></code></pre></div>
+<h3 id="show-what-processes-are-running">Show what processes are running<a class="headerlink" href="#show-what-processes-are-running" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>show processlist;
+</span></code></pre></div>
+<h3 id="dump-databases-to-sql-files">Dump databases to sql files<a class="headerlink" href="#dump-databases-to-sql-files" title="Permanent link">&para;</a></h3>
 <p>All databases</p>
-<pre><code>mysqldump -u root -phunter2 --all-databases | gzip -9 &gt; ~/$(date +%F-%H%m).sql.gz
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mysqldump -u root -phunter2 --all-databases | gzip -9 &gt; ~/$(date +%F-%H%m).sql.gz
+</span></code></pre></div>
 <p>Or just a single database</p>
-<pre><code>mysqldump -u root -phunter2 my_favorite_db | gzip -9 &gt; ~/my_favorite_db-$(date +%F-%H%m).sql.gz
-</code></pre>
-<h3 id="duplicate-a-database">Duplicate a database</h3>
-<pre><code>sudo mysqldump -v mogilefs | sudo mysql -D mogilefs_sjc
-</code></pre>
-<h3 id="dump-the-schema-of-a-database-with-no-actual-data">Dump the schema of a database with no actual data</h3>
-<pre><code>sudo mysqldump --no-data dbname &gt; schema.sql
-</code></pre>
-<h3 id="show-privileges">Show privileges</h3>
-<pre><code>show GRANTS ;
-</code></pre>
-<h3 id="create-a-new-user">Create a new user</h3>
-<pre><code>CREATE USER 'a_new_user'@'10.0.5.%' IDENTIFIED BY 'the_user_password';
-GRANT ALL PRIVILEGES ON some_database.* TO 'a_new_user'@'10.0.5.%' WITH GRANT OPTION;
-</code></pre>
-<h3 id="delete-a-user">Delete a user</h3>
-<pre><code>DELETE from mysql.user where user = 'user_name';
-</code></pre>
-<h3 id="grant-privileges">Grant Privileges</h3>
-<pre><code>GRANT ALL ON database.* TO 'newuser'@'localhost';
-</code></pre>
-<h3 id="change-root-password">Change root password</h3>
-<pre><code>/usr/bin/mysqladmin -u root password 'new-password'
-/usr/bin/mysqladmin -u root -h hostname password 'new-password'
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mysqldump -u root -phunter2 my_favorite_db | gzip -9 &gt; ~/my_favorite_db-$(date +%F-%H%m).sql.gz
+</span></code></pre></div>
+<h3 id="duplicate-a-database">Duplicate a database<a class="headerlink" href="#duplicate-a-database" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo mysqldump -v mogilefs | sudo mysql -D mogilefs_sjc
+</span></code></pre></div>
+<h3 id="dump-the-schema-of-a-database-with-no-actual-data">Dump the schema of a database with no actual data<a class="headerlink" href="#dump-the-schema-of-a-database-with-no-actual-data" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo mysqldump --no-data dbname &gt; schema.sql
+</span></code></pre></div>
+<h3 id="show-privileges">Show privileges<a class="headerlink" href="#show-privileges" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>show GRANTS ;
+</span></code></pre></div>
+<h3 id="create-a-new-user">Create a new user<a class="headerlink" href="#create-a-new-user" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CREATE USER &#39;a_new_user&#39;@&#39;10.0.5.%&#39; IDENTIFIED BY &#39;the_user_password&#39;;
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>GRANT ALL PRIVILEGES ON some_database.* TO &#39;a_new_user&#39;@&#39;10.0.5.%&#39; WITH GRANT OPTION;
+</span></code></pre></div>
+<h3 id="delete-a-user">Delete a user<a class="headerlink" href="#delete-a-user" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>DELETE from mysql.user where user = &#39;user_name&#39;;
+</span></code></pre></div>
+<h3 id="grant-privileges">Grant Privileges<a class="headerlink" href="#grant-privileges" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GRANT ALL ON database.* TO &#39;newuser&#39;@&#39;localhost&#39;;
+</span></code></pre></div>
+<h3 id="change-root-password">Change root password<a class="headerlink" href="#change-root-password" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/usr/bin/mysqladmin -u root password &#39;new-password&#39;
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/usr/bin/mysqladmin -u root -h hostname password &#39;new-password&#39;
+</span></code></pre></div>
 <p>or...</p>
-<pre><code>UPDATE mysql.user
-  SET Password=PASSWORD('hunter2')
-  WHERE User='leroy_jenkins'
-  AND Host='localhost' ;
-</code></pre>
-<h3 id="create-statements">Create statements</h3>
-<h4 id="create-an-index-on-table-images-for-column-rating_count">Create an index on table images for column rating_count</h4>
-<pre><code>create index rating_count on images (rating_count) ;
-</code></pre>
-<h4 id="drop-an-index-from-a-table">Drop an index from a table</h4>
-<pre><code>drop index rating_count on images ;
-</code></pre>
-<h3 id="table-alters">Table Alters</h3>
-<h4 id="add-a-column">Add a column</h4>
-<pre><code>alter table flixplor add o_width char(12);
-</code></pre>
-<h4 id="drop-a-column">Drop a column</h4>
-<pre><code>alter table flixplor drop column o_width;
-</code></pre>
-<h4 id="change-the-type-of-a-column">Change the type of a column</h4>
-<pre><code>alter table flixplor modify o_height mediumint ;
-</code></pre>
-<h4 id="add-a-current-timestamp-column">Add a current timestamp column</h4>
-<pre><code>alter table images add last_updated timestamp not null default current_timestamp on update current_timestamp;
-</code></pre>
-<h4 id="change-the-table-engine-to-innodb">Change the table engine to innodb</h4>
-<pre><code>ALTER TABLE images ENGINE=INNODB;
-</code></pre>
-<h4 id="change-a-tables-encoding">Change a table's encoding</h4>
-<pre><code>alter table raw_flickr_data CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
-</code></pre>
-<h3 id="table-inserts">Table Inserts</h3>
-<h4 id="add-a-record">Add a record</h4>
-<h3 id="table-updates">Table Updates</h3>
-<h4 id="update-if-key-exists">Update if key exists</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>UPDATE mysql.user
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  SET Password=PASSWORD(&#39;hunter2&#39;)
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  WHERE User=&#39;leroy_jenkins&#39;
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  AND Host=&#39;localhost&#39; ;
+</span></code></pre></div>
+<h3 id="create-statements">Create statements<a class="headerlink" href="#create-statements" title="Permanent link">&para;</a></h3>
+<h4 id="create-an-index-on-table-images-for-column-rating_count">Create an index on table images for column rating_count<a class="headerlink" href="#create-an-index-on-table-images-for-column-rating_count" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>create index rating_count on images (rating_count) ;
+</span></code></pre></div>
+<h4 id="drop-an-index-from-a-table">Drop an index from a table<a class="headerlink" href="#drop-an-index-from-a-table" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>drop index rating_count on images ;
+</span></code></pre></div>
+<h3 id="table-alters">Table Alters<a class="headerlink" href="#table-alters" title="Permanent link">&para;</a></h3>
+<h4 id="add-a-column">Add a column<a class="headerlink" href="#add-a-column" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>alter table flixplor add o_width char(12);
+</span></code></pre></div>
+<h4 id="drop-a-column">Drop a column<a class="headerlink" href="#drop-a-column" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>alter table flixplor drop column o_width;
+</span></code></pre></div>
+<h4 id="change-the-type-of-a-column">Change the type of a column<a class="headerlink" href="#change-the-type-of-a-column" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>alter table flixplor modify o_height mediumint ;
+</span></code></pre></div>
+<h4 id="add-a-current-timestamp-column">Add a current timestamp column<a class="headerlink" href="#add-a-current-timestamp-column" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>alter table images add last_updated timestamp not null default current_timestamp on update current_timestamp;
+</span></code></pre></div>
+<h4 id="change-the-table-engine-to-innodb">Change the table engine to innodb<a class="headerlink" href="#change-the-table-engine-to-innodb" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ALTER TABLE images ENGINE=INNODB;
+</span></code></pre></div>
+<h4 id="change-a-tables-encoding">Change a table's encoding<a class="headerlink" href="#change-a-tables-encoding" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>alter table raw_flickr_data CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
+</span></code></pre></div>
+<h3 id="table-inserts">Table Inserts<a class="headerlink" href="#table-inserts" title="Permanent link">&para;</a></h3>
+<h4 id="add-a-record">Add a record<a class="headerlink" href="#add-a-record" title="Permanent link">&para;</a></h4>
+<h3 id="table-updates">Table Updates<a class="headerlink" href="#table-updates" title="Permanent link">&para;</a></h3>
+<h4 id="update-if-key-exists">Update if key exists<a class="headerlink" href="#update-if-key-exists" title="Permanent link">&para;</a></h4>
 <p>For unique fields, you cannot insert, so you need to have an <code>on duplicate key</code> section in your statement.</p>
-<pre><code>INSERT INTO photo_sizes (
-  photo_id,
-  format,
-  height,
-  width,
-  url,
-  source
-) values (
-  '32704962848',
-  'Medium 640',
-  '427',
-  '640',
-  'https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/',
-  'https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg'
-) ON DUPLICATE KEY UPDATE
-  height='427',
-  width='640',
-  url='https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/',
-  source='https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg'
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>INSERT INTO photo_sizes (
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  photo_id,
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>  format,
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  height,
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>  width,
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>  url,
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>  source
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>) values (
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  &#39;32704962848&#39;,
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>  &#39;Medium 640&#39;,
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>  &#39;427&#39;,
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>  &#39;640&#39;,
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>  &#39;https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/&#39;,
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>  &#39;https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg&#39;
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>) ON DUPLICATE KEY UPDATE
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>  height=&#39;427&#39;,
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>  width=&#39;640&#39;,
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>  url=&#39;https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/&#39;,
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>  source=&#39;https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg&#39;
+</span></code></pre></div>
 <ul>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html">http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
 </ul>
-<h4 id="update-a-datetime-column-with-a-random-datetime">Update a datetime column with a random datetime</h4>
-<pre><code>UPDATE flixplor
-SET last_retrieval = subtime(
-  concat_ws(' ','2019-01-01' - interval rand() * 10000 day ,'00:00:00'), -- create a random YYYY-MM-DD within 10k days of given datetime
-  sec_to_time(floor(0 + (rand() * 86401))) -- create a random HH:MM:SS within a 24 hour period
-)
-WHERE last_retrieval &lt; '2019-01-01 00:00:00';
-</code></pre>
-<h3 id="table-selects">Table Selects</h3>
-<h4 id="select-values-and-dont-show-duplicates">Select values and don't show duplicates</h4>
-<pre><code>SELECT col from servers group by col ;
-</code></pre>
-<h4 id="select-photo_id-and-discard-duplicates-uniq">Select photo_id and discard duplicates (uniq)</h4>
-<pre><code>SELECT photo_id from photo_sizes group by photo_id ;
-</code></pre>
-<h4 id="select-and-count-unique-pairs-of-columns">Select and count unique pairs of columns</h4>
-<pre><code>SELECT model, unit, count(*) as n from servers group by model, unit having n &gt; 1 order by model asc ;
-</code></pre>
-<h4 id="select-the-count-of-rows-in-a-table">Select the count of rows in a table</h4>
-<pre><code>SELECT count(*) from flixplor where o_height &gt; 100 ;
-</code></pre>
-<h4 id="do-some-math-to-create-a-new-column-during-a-select">Do some math to create a new column during a select</h4>
-<pre><code>SELECT photo_id,last_retrieval,o_height,o_width,(o_height * o_width) as pixels from flixplor
-where last_reposted &lt; from_unixtime('1384268667') or last_reposted is NULL
-order by (o_height * o_width) limit 10 ;
-</code></pre>
-<h4 id="transform-datetime-into-a-date-diff">Transform datetime into a date diff</h4>
+<h4 id="update-a-datetime-column-with-a-random-datetime">Update a datetime column with a random datetime<a class="headerlink" href="#update-a-datetime-column-with-a-random-datetime" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>UPDATE flixplor
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>SET last_retrieval = subtime(
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>  concat_ws(&#39; &#39;,&#39;2019-01-01&#39; - interval rand() * 10000 day ,&#39;00:00:00&#39;), -- create a random YYYY-MM-DD within 10k days of given datetime
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>  sec_to_time(floor(0 + (rand() * 86401))) -- create a random HH:MM:SS within a 24 hour period
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>)
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>WHERE last_retrieval &lt; &#39;2019-01-01 00:00:00&#39;;
+</span></code></pre></div>
+<h3 id="table-selects">Table Selects<a class="headerlink" href="#table-selects" title="Permanent link">&para;</a></h3>
+<h4 id="select-values-and-dont-show-duplicates">Select values and don't show duplicates<a class="headerlink" href="#select-values-and-dont-show-duplicates" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>SELECT col from servers group by col ;
+</span></code></pre></div>
+<h4 id="select-photo_id-and-discard-duplicates-uniq">Select photo_id and discard duplicates (uniq)<a class="headerlink" href="#select-photo_id-and-discard-duplicates-uniq" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>SELECT photo_id from photo_sizes group by photo_id ;
+</span></code></pre></div>
+<h4 id="select-and-count-unique-pairs-of-columns">Select and count unique pairs of columns<a class="headerlink" href="#select-and-count-unique-pairs-of-columns" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>SELECT model, unit, count(*) as n from servers group by model, unit having n &gt; 1 order by model asc ;
+</span></code></pre></div>
+<h4 id="select-the-count-of-rows-in-a-table">Select the count of rows in a table<a class="headerlink" href="#select-the-count-of-rows-in-a-table" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>SELECT count(*) from flixplor where o_height &gt; 100 ;
+</span></code></pre></div>
+<h4 id="do-some-math-to-create-a-new-column-during-a-select">Do some math to create a new column during a select<a class="headerlink" href="#do-some-math-to-create-a-new-column-during-a-select" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>SELECT photo_id,last_retrieval,o_height,o_width,(o_height * o_width) as pixels from flixplor
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>where last_reposted &lt; from_unixtime(&#39;1384268667&#39;) or last_reposted is NULL
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>order by (o_height * o_width) limit 10 ;
+</span></code></pre></div>
+<h4 id="transform-datetime-into-a-date-diff">Transform datetime into a date diff<a class="headerlink" href="#transform-datetime-into-a-date-diff" title="Permanent link">&para;</a></h4>
 <p>This selects the number of hours since the given datestamp instead of the datestamp itself.</p>
-<pre><code>SELECT TIMESTAMPDIFF(HOUR, date_taken, NOW()) from photos ;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>SELECT TIMESTAMPDIFF(HOUR, date_taken, NOW()) from photos ;
+</span></code></pre></div>
 <p>See also DATEDIFF.</p>
-<h3 id="statement-explanations">Statement explanations</h3>
+<h3 id="statement-explanations">Statement explanations<a class="headerlink" href="#statement-explanations" title="Permanent link">&para;</a></h3>
 <p>The EXPLAIN statement can give you additional info about how complex your statement is.</p>
-<h4 id="explain-select">Explain select</h4>
-<pre><code>mysql&gt; explain SELECT *,(rating_sum / rating_count) as average from images where (rating_sum / rating_count) &gt; 20 or rating_count=0 ORDER BY RAND() LIMIT 1 ;
-+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
-| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows   | Extra                                        |
-+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
-|  1 | SIMPLE      | images | ALL  | rating_count  | NULL | NULL    | NULL | 301937 | Using where; Using temporary; Using filesort |
-+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
-1 row in set (0.00 sec)
-</code></pre>
-<h2 id="misc">Misc</h2>
+<h4 id="explain-select">Explain select<a class="headerlink" href="#explain-select" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>mysql&gt; explain SELECT *,(rating_sum / rating_count) as average from images where (rating_sum / rating_count) &gt; 20 or rating_count=0 ORDER BY RAND() LIMIT 1 ;
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows   | Extra                                        |
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>|  1 | SIMPLE      | images | ALL  | rating_count  | NULL | NULL    | NULL | 301937 | Using where; Using temporary; Using filesort |
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>+----+-------------+--------+------+---------------+------+---------+------+--------+----------------------------------------------+
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>1 row in set (0.00 sec)
+</span></code></pre></div>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Complete statement with \G for different output format</li>
 <li><code>ERROR 1045 (28000)</code> may be caused by invalid hostname in connect command. Replace the --host token with the full hostname of the db server. Or, restart mysql and try again.</li>
 </ul>
-<h2 id="recommended-reading">Recommended reading</h2>
+<h2 id="recommended-reading">Recommended reading<a class="headerlink" href="#recommended-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li>MySQL (5th Edition) (Developer's Library)</li>
+<li>MySQL (5<sup>th</sup> Edition) (Developer's Library)</li>
 <li>High Performance MySQL: Optimization, Backups, Replication, and More</li>
 </ul>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="http://www.sqlalchemy.org/">http://www.sqlalchemy.org/</a> - ORM, better for abstracting database in code</li>
 <li><a href="http://www.mycli.net/">http://www.mycli.net/</a> - A better CLI for MySQL</li>
@@ -11373,13 +11395,23 @@ order by (o_height * o_width) limit 10 ;
 
 
 
+
+
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -11389,23 +11421,15 @@ order by (o_height * o_width) limit 10 ;
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -11423,12 +11447,11 @@ order by (o_height * o_width) limit 10 ;
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/zfs/">
       
       
         <link rel="prev" href="../zerotier/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>ZFS - Daniel Hoherd's tech notes</title>
+        <title>ZFS - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -10030,7 +10044,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -10049,7 +10063,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10058,7 +10073,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10780,7 +10795,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10789,7 +10805,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -11447,15 +11463,21 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="zfs">ZFS</h1>
+<h1 id="zfs">ZFS<a class="headerlink" href="#zfs" title="Permanent link">&para;</a></h1>
 <p>ZFS is the Zetabyte File System.</p>
-<h2 id="links">Links</h2>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li>OpenZFS - <a href="http://open-zfs.org">http://open-zfs.org</a></li>
 <li>Tuning Guide - <a href="https://web.archive.org/web/20161223004915/http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide">https://web.archive.org/web/20161223004915/http://www.solarisinternals.com/wiki/index.php/ZFS_Evil_Tuning_Guide</a></li>
@@ -11479,23 +11501,23 @@
 <li><a href="https://despairlabs.com/blog/posts/2024-10-27-openzfs-dedup-is-good-dont-use-it">https://despairlabs.com/blog/posts/2024-10-27-openzfs-dedup-is-good-dont-use-it</a></li>
 <li><a href="https://www.zfshandbook.com">https://www.zfshandbook.com</a></li>
 </ul>
-<h2 id="tips">Tips</h2>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h2>
 <ul>
 <li>As of zfs 2.3, <code>-j</code> provides json output for many zfs commands.</li>
 </ul>
-<h3 id="memory">Memory</h3>
+<h3 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h3>
 <ul>
 <li>For normal operation, 1gb of memory per tb of disk space is suitable.</li>
 <li>For dedup operation, 5gb of memory per tb of addressable disk space is suitable.</li>
 </ul>
-<h3 id="log-devices">Log devices</h3>
+<h3 id="log-devices">Log devices<a class="headerlink" href="#log-devices" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Use a log device if you have lots of writes.</li>
 <li>Mirror it, because if you lose it you lose the whole volume.</li>
 <li>Speed and latency are most important, not size. Log flushes every 5 seconds.</li>
 <li>Get SLC if possible, otherwise MLC</li>
 </ul>
-<h3 id="l2arc-cache-devices">l2arc Cache devices</h3>
+<h3 id="l2arc-cache-devices">l2arc Cache devices<a class="headerlink" href="#l2arc-cache-devices" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Use if you have lots of reads.</li>
 <li>Size does matter, with big devices more data can be cached for faster reads of more data.</li>
@@ -11504,257 +11526,259 @@
 <li>Too big of a device can suck up resources and cause poor performance. See <a href="https://wiki.freebsd.org/ZFSTuningGuide">https://wiki.freebsd.org/ZFSTuningGuide</a></li>
 </ul>
 <p>Good explanation: <a href="https://web.archive.org/web/20160324170916/https://blogs.oracle.com/brendan/entry/test">https://web.archive.org/web/20160324170916/https://blogs.oracle.com/brendan/entry/test</a></p>
-<h2 id="zdb">zdb</h2>
-<h3 id="show-the-potential-savings-of-turning-on-dedupe-on-zpool-tank">Show the potential savings of turning on dedupe on zpool tank</h3>
+<h2 id="zdb">zdb<a class="headerlink" href="#zdb" title="Permanent link">&para;</a></h2>
+<h3 id="show-the-potential-savings-of-turning-on-dedupe-on-zpool-tank">Show the potential savings of turning on dedupe on zpool tank<a class="headerlink" href="#show-the-potential-savings-of-turning-on-dedupe-on-zpool-tank" title="Permanent link">&para;</a></h3>
 <p><a href="https://web.archive.org/web/20130217052412/http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup">https://web.archive.org/web/20130217052412/http://hub.opensolaris.org/bin/view/Community+Group+zfs/dedup</a></p>
-<pre><code class="language-sh">zdb -S tank
-</code></pre>
-<h3 id="show-transactions-and-human-readable-dates-in-the-zdb-history">Show transactions and human readable dates in the zdb history</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>zdb<span class="w"> </span>-S<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="show-transactions-and-human-readable-dates-in-the-zdb-history">Show transactions and human readable dates in the zdb history<a class="headerlink" href="#show-transactions-and-human-readable-dates-in-the-zdb-history" title="Permanent link">&para;</a></h3>
 <p>Use <code>zdb -e</code> for pools that are not mounted.</p>
-<pre><code class="language-sh">zdb -hh tank \
-| egrep 'txg|time' \
-| while read -r _ a b ; do
-  if [ &quot;$a&quot; == &quot;time:&quot; ] ; then
-    date -d @$b &quot;+$a %F %T&quot; ;
-  else
-    echo &quot;$a  $b&quot; ;
-  fi ;
-done
-</code></pre>
-<h2 id="zpool">zpool</h2>
-<h3 id="create-a-zpool-and-its-base-filesystem">Create a zpool and its base filesystem</h3>
-<pre><code class="language-sh">zpool create -f -o cachefile=/tmp/zpool.cache zpoolname /dev/ada1 #create a zpool
-</code></pre>
-<h3 id="add-a-cache-device-to-a-pool">Add a cache device to a pool</h3>
-<pre><code class="language-sh">## add ada0p3 as a cache device to the tank zpool
-zpool add tank cache ada0p3
-</code></pre>
-<h3 id="show-all-configured-zpool-options-for-a-given-zpool">Show all configured zpool options for a given zpool</h3>
-<pre><code class="language-sh">zpool get all tank
-</code></pre>
-<h3 id="show-history-of-all-operations-on-a-given-pool">Show history of all operations on a given pool</h3>
-<pre><code class="language-sh">## show history of operations on the pool, eg: snapshots, attribute changes
-zpool history
-</code></pre>
-<h3 id="show-real-time-statistics-on-a-given-zpool">Show real time statistics on a given zpool</h3>
-<pre><code class="language-sh">## show per-device statistics every 1 second
-zpool iostat -v 1
-</code></pre>
-<h3 id="show-basic-information-about-all-imported-zpools">Show basic information about all imported zpools</h3>
-<pre><code class="language-sh">## show zpool space info, deduplication ratio and health
-zpool list
-</code></pre>
-<h3 id="show-additional-columns-in-zpool-list-output">Show additional columns in <code>zpool list</code> output</h3>
-<pre><code>$ zpool status -c upath,model,size,temp,pwr_cyc
-  pool: z4
- state: ONLINE
-  scan: scrub in progress since Mon Sep 15 12:36:25 2025
-        1.92T / 11.5T scanned at 1.13G/s, 906G / 11.5T issued at 535M/s
-        0B repaired, 7.68% done, 05:47:18 to go
-config:
-
-        NAME        STATE     READ WRITE CKSUM     upath                 model  size  temp  pwr_cyc
-        z4          ONLINE       0     0     0
-          raidz1-0  ONLINE       0     0     0
-            sde     ONLINE       0     0     0  /dev/sde  HGST HUH728080ALE600  7.3T    50      115
-            sda     ONLINE       0     0     0  /dev/sda  HGST HUH728080ALE600  7.3T    48      113
-            sdc     ONLINE       0     0     0  /dev/sdc  HGST HUH728080ALE600  7.3T    51      113
-            sdd     ONLINE       0     0     0  /dev/sdd  HGST HUH728080ALE600  7.3T    49      113
-
-errors: No known data errors
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>zdb<span class="w"> </span>-hh<span class="w"> </span>tank<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s1">&#39;txg|time&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>_<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;time:&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="nv">$b</span><span class="w"> </span><span class="s2">&quot;+</span><span class="nv">$a</span><span class="s2"> %F %T&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">else</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">  </span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">fi</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">done</span>
+</span></code></pre></div>
+<h2 id="zpool">zpool<a class="headerlink" href="#zpool" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-zpool-and-its-base-filesystem">Create a zpool and its base filesystem<a class="headerlink" href="#create-a-zpool-and-its-base-filesystem" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>zpool<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>-o<span class="w"> </span><span class="nv">cachefile</span><span class="o">=</span>/tmp/zpool.cache<span class="w"> </span>zpoolname<span class="w"> </span>/dev/ada1<span class="w"> </span><span class="c1">#create a zpool</span>
+</span></code></pre></div>
+<h3 id="add-a-cache-device-to-a-pool">Add a cache device to a pool<a class="headerlink" href="#add-a-cache-device-to-a-pool" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">## add ada0p3 as a cache device to the tank zpool</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>zpool<span class="w"> </span>add<span class="w"> </span>tank<span class="w"> </span>cache<span class="w"> </span>ada0p3
+</span></code></pre></div>
+<h3 id="show-all-configured-zpool-options-for-a-given-zpool">Show all configured zpool options for a given zpool<a class="headerlink" href="#show-all-configured-zpool-options-for-a-given-zpool" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>zpool<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="show-history-of-all-operations-on-a-given-pool">Show history of all operations on a given pool<a class="headerlink" href="#show-history-of-all-operations-on-a-given-pool" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">## show history of operations on the pool, eg: snapshots, attribute changes</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>zpool<span class="w"> </span><span class="nb">history</span>
+</span></code></pre></div>
+<h3 id="show-real-time-statistics-on-a-given-zpool">Show real time statistics on a given zpool<a class="headerlink" href="#show-real-time-statistics-on-a-given-zpool" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">## show per-device statistics every 1 second</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>zpool<span class="w"> </span>iostat<span class="w"> </span>-v<span class="w"> </span><span class="m">1</span>
+</span></code></pre></div>
+<h3 id="show-basic-information-about-all-imported-zpools">Show basic information about all imported zpools<a class="headerlink" href="#show-basic-information-about-all-imported-zpools" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">## show zpool space info, deduplication ratio and health</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>zpool<span class="w"> </span>list
+</span></code></pre></div>
+<h3 id="show-additional-columns-in-zpool-list-output">Show additional columns in <code>zpool list</code> output<a class="headerlink" href="#show-additional-columns-in-zpool-list-output" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ zpool status -c upath,model,size,temp,pwr_cyc
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  pool: z4
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a> state: ONLINE
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  scan: scrub in progress since Mon Sep 15 12:36:25 2025
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        1.92T / 11.5T scanned at 1.13G/s, 906G / 11.5T issued at 535M/s
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        0B repaired, 7.68% done, 05:47:18 to go
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>config:
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        NAME        STATE     READ WRITE CKSUM     upath                 model  size  temp  pwr_cyc
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        z4          ONLINE       0     0     0
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>          raidz1-0  ONLINE       0     0     0
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>            sde     ONLINE       0     0     0  /dev/sde  HGST HUH728080ALE600  7.3T    50      115
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>            sda     ONLINE       0     0     0  /dev/sda  HGST HUH728080ALE600  7.3T    48      113
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>            sdc     ONLINE       0     0     0  /dev/sdc  HGST HUH728080ALE600  7.3T    51      113
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>            sdd     ONLINE       0     0     0  /dev/sdd  HGST HUH728080ALE600  7.3T    49      113
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>errors: No known data errors
+</span></code></pre></div>
 <p>You can view the available columns with <code>zpool list -c</code>.</p>
-<h3 id="show-deduplication-tables">Show deduplication tables</h3>
-<pre><code class="language-sh">## show deduplication table entries. Take entries * size / 1024 / 1024 to calculate DDT consumption
-zpool status -D z2
-</code></pre>
-<h3 id="import-a-pool-by-different-disk-path">Import a pool by different disk path</h3>
+<h3 id="show-deduplication-tables">Show deduplication tables<a class="headerlink" href="#show-deduplication-tables" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">## show deduplication table entries. Take entries * size / 1024 / 1024 to calculate DDT consumption</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>zpool<span class="w"> </span>status<span class="w"> </span>-D<span class="w"> </span>z2
+</span></code></pre></div>
+<h3 id="import-a-pool-by-different-disk-path">Import a pool by different disk path<a class="headerlink" href="#import-a-pool-by-different-disk-path" title="Permanent link">&para;</a></h3>
 <p>You can change the paths your pool is imported from. This is useful if you created your zpool using <code>/dev/sdN</code> when you should have used <code>/dev/disk/by-id/</code>, which is deterministic. The <code>-d</code> option lets you specify a directory to look within for the given pool's devices.</p>
-<pre><code class="language-sh">zpool import -d /dev/disk/by-id/ &quot;$ZPOOL_NAME&quot;
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>zpool<span class="w"> </span>import<span class="w"> </span>-d<span class="w"> </span>/dev/disk/by-id/<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ZPOOL_NAME</span><span class="s2">&quot;</span>
+</span></code></pre></div>
 <p>You may find that your pool was imported using links from this path that are not desirable, because there are several options available. For instance, you may find that your pool was imported using wwn links (EG: <code>wwn-0x5000cca22eca1056</code>) that are not very user friendly compared to a link that shows the model and serial number (EG: <code>scsi-SATA_HGST_HMS5C4141BM_PM1302LAGR5A0F</code>). Because these links are managed by <a href="../udev/">udev</a> and are created when the disk is seen by the system, either at boot or at insertion, and because nothing else should be referencing these symlinks, they are safe to delete. Export your pool, then delete unwanted symlinks for the devices related to your pool, leaving only the symlinks you want to use, then run <code>zpool import -d</code> once again.</p>
-<h3 id="replace-a-disk-in-a-zpool">Replace a disk in a zpool</h3>
-<pre><code>## Replace the first disk with the second in the tank pool
-zpool replace -f tank /dev/disk/by-id/ata-ST3000DM001-9YN166_W1F09CW9 /dev/disk/by-id/ata-ST3000DM001-9YN166_Z1F0N9S7
-</code></pre>
-<h4 id="real-example">Real example</h4>
-<pre><code>$ zpool replace -f tank /dev/disk/by-id/ata-HGST_HDN724040ALE640_PK1334PCJY9ASS /dev/disk/by-id/ata-HGST_HUH728080ALE600_VKHA6YDX
-$ zpool status
-  pool: home
- state: ONLINE
-  scan: scrub repaired 0 in 0h0m with 0 errors on Sun Dec 10 00:24:07 2017
-config:
-
-        NAME                                             STATE     READ WRITE CKSUM
-        home                                             ONLINE       0     0     0
-          ata-M4-CT064M4SSD2_0000000012170908F759-part4  ONLINE       0     0     0
-
-errors: No known data errors
-
-  pool: tank
- state: DEGRADED
-status: One or more devices is currently being resilvered.  The pool will
-        continue to function, possibly in a degraded state.
-action: Wait for the resilver to complete.
-  scan: resilver in progress since Mon Jan  8 19:57:45 2018
-    47.1M scanned out of 13.7T at 6.72M/s, 592h39m to go
-    11.5M resilvered, 0.00% done
-config:
-
-        NAME                                           STATE     READ WRITE CKSUM
-        tank                                           DEGRADED     0     0     0
-          raidz1-0                                     DEGRADED     0     0     0
-            replacing-0                                UNAVAIL      0     0     0
-              ata-HGST_HDN724040ALE640_PK1334PCJY9ASS  UNAVAIL      0     1     0  corrupted data
-              ata-HGST_HUH728080ALE600_VKHA6YDX        ONLINE       0     0     0  (resilvering)
-            ata-HGST_HDN724040ALE640_PK2334PEHG8LAT    ONLINE       0     0     0
-            ata-HGST_HDN724040ALE640_PK2334PEHGD37T    ONLINE       0     0     0
-            ata-HGST_HDN724040ALE640_PK2338P4H3TJPC    ONLINE       0     0     0
-
-errors: No known data errors
-</code></pre>
-<h3 id="expand-a-zpool-in-place-after-replacing-disks-with-larger-disks">Expand a zpool in place after replacing disks with larger disks</h3>
+<h3 id="replace-a-disk-in-a-zpool">Replace a disk in a zpool<a class="headerlink" href="#replace-a-disk-in-a-zpool" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>## Replace the first disk with the second in the tank pool
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>zpool replace -f tank /dev/disk/by-id/ata-ST3000DM001-9YN166_W1F09CW9 /dev/disk/by-id/ata-ST3000DM001-9YN166_Z1F0N9S7
+</span></code></pre></div>
+<h4 id="real-example">Real example<a class="headerlink" href="#real-example" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ zpool replace -f tank /dev/disk/by-id/ata-HGST_HDN724040ALE640_PK1334PCJY9ASS /dev/disk/by-id/ata-HGST_HUH728080ALE600_VKHA6YDX
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$ zpool status
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  pool: home
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a> state: ONLINE
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  scan: scrub repaired 0 in 0h0m with 0 errors on Sun Dec 10 00:24:07 2017
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>config:
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        NAME                                             STATE     READ WRITE CKSUM
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        home                                             ONLINE       0     0     0
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>          ata-M4-CT064M4SSD2_0000000012170908F759-part4  ONLINE       0     0     0
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>errors: No known data errors
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>  pool: tank
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a> state: DEGRADED
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>status: One or more devices is currently being resilvered.  The pool will
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>        continue to function, possibly in a degraded state.
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>action: Wait for the resilver to complete.
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>  scan: resilver in progress since Mon Jan  8 19:57:45 2018
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>    47.1M scanned out of 13.7T at 6.72M/s, 592h39m to go
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>    11.5M resilvered, 0.00% done
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>config:
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>        NAME                                           STATE     READ WRITE CKSUM
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>        tank                                           DEGRADED     0     0     0
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>          raidz1-0                                     DEGRADED     0     0     0
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>            replacing-0                                UNAVAIL      0     0     0
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>              ata-HGST_HDN724040ALE640_PK1334PCJY9ASS  UNAVAIL      0     1     0  corrupted data
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>              ata-HGST_HUH728080ALE600_VKHA6YDX        ONLINE       0     0     0  (resilvering)
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>            ata-HGST_HDN724040ALE640_PK2334PEHG8LAT    ONLINE       0     0     0
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>            ata-HGST_HDN724040ALE640_PK2334PEHGD37T    ONLINE       0     0     0
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>            ata-HGST_HDN724040ALE640_PK2338P4H3TJPC    ONLINE       0     0     0
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>errors: No known data errors
+</span></code></pre></div>
+<h3 id="expand-a-zpool-in-place-after-replacing-disks-with-larger-disks">Expand a zpool in place after replacing disks with larger disks<a class="headerlink" href="#expand-a-zpool-in-place-after-replacing-disks-with-larger-disks" title="Permanent link">&para;</a></h3>
 <p>Expansion happens automatically if you have done <code>zpool set autoexpand=on tank</code>. If you did not do that and you find your pool has not expanded, you can perform the following:</p>
 <p>List the absolute paths of your devices with something like:</p>
-<pre><code class="language-sh">zpool list -v -PH | awk '$1 ~ &quot;^\/dev\/&quot; {gsub(&quot;-part1&quot;,&quot;&quot;,$1) ; print $1 ;}'
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>zpool<span class="w"> </span>list<span class="w"> </span>-v<span class="w"> </span>-PH<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$1 ~ &quot;^\/dev\/&quot; {gsub(&quot;-part1&quot;,&quot;&quot;,$1) ; print $1 ;}&#39;</span>
+</span></code></pre></div>
 <p>Then go through your device list and run</p>
-<pre><code class="language-sh">zpool online -e tank &lt;disk-name&gt; # do the expansion
-zpool list -v tank # check the EXPANDSZ column for the disk
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>zpool<span class="w"> </span>online<span class="w"> </span>-e<span class="w"> </span>tank<span class="w"> </span>&lt;disk-name&gt;<span class="w"> </span><span class="c1"># do the expansion</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>zpool<span class="w"> </span>list<span class="w"> </span>-v<span class="w"> </span>tank<span class="w"> </span><span class="c1"># check the EXPANDSZ column for the disk</span>
+</span></code></pre></div>
 <p>After doing all of these your pool should be expanded.</p>
-<h2 id="zfs_1">zfs</h2>
-<h3 id="show-differences-between-current-filesystem-state-and-snapshot-state">show differences between current filesystem state and snapshot state</h3>
-<pre><code class="language-sh">zfs diff tank tank@snap
-</code></pre>
-<h3 id="show-configured-properties-for-a-filesystem">Show configured properties for a filesystem</h3>
-<pre><code class="language-sh">zfs get all
-</code></pre>
-<h3 id="show-custom-filesystem-attributes">Show custom filesystem attributes</h3>
-<pre><code class="language-sh">## show custom attributes that override inherited attributes
-zfs get all -s local tank
-</code></pre>
-<h3 id="show-an-overview-of-all-mounted-zfs-filesystems">Show an overview of all mounted zfs filesystems</h3>
-<pre><code class="language-sh">## show disk space including free physical disk space and mount info
-zfs list
-</code></pre>
-<h3 id="show-specified-fields-of-each-filesystem">Show specified fields of each filesystem</h3>
-<pre><code class="language-sh">## show the listed fields of all filesystems
-zfs list -t all -o name,referenced,used,written,creation,userused@root
-</code></pre>
-<h3 id="show-only-snapshots">Show only snapshots</h3>
-<pre><code class="language-sh">zfs list -t snapshot
-</code></pre>
-<h3 id="show-space-consumed-by-file-owner">Show space consumed by file owner</h3>
-<pre><code class="language-sh">zfs userspace tank
-</code></pre>
-<h3 id="disable-atime-updates-for-a-filesystem">Disable atime updates for a filesystem</h3>
-<pre><code class="language-sh">zfs set atime=off tank
-</code></pre>
-<h3 id="set-compression-to-lz4-for-a-filesystem">Set compression to lz4 for a filesystem</h3>
-<pre><code class="language-sh">zfs set compression=lz4 tank
-</code></pre>
-<h3 id="set-deduplication-to-enabled-for-a-filesystem">Set deduplication to enabled for a filesystem</h3>
-<pre><code class="language-sh">zfs set dedup=on tank
-</code></pre>
-<h3 id="set-a-filesystem-to-readonly">Set a filesystem to readonly</h3>
-<pre><code class="language-sh">zfs set readonly=on zpoolname/dataset
-</code></pre>
-<h3 id="set-a-filesystem-to-allow-nfs-sharing">Set a filesystem to allow NFS sharing</h3>
-<pre><code class="language-sh">zfs set sharenfs=on tank
-</code></pre>
-<h3 id="create-a-dataset">Create a dataset</h3>
-<pre><code class="language-sh">## create a dataset 'sole' on zpool 'tank'
-zfs create tank/sole
-</code></pre>
-<h3 id="destroy-multiple-snapshots">Destroy multiple snapshots</h3>
-<pre><code class="language-sh">zfs destroy tank@20130413-weekly,20130420-weekly,20130428-weekly,20130505-weekly
-</code></pre>
-<h3 id="zfs-send-receive">zfs send / receive</h3>
+<h2 id="zfs_1">zfs<a class="headerlink" href="#zfs_1" title="Permanent link">&para;</a></h2>
+<h3 id="show-differences-between-current-filesystem-state-and-snapshot-state">show differences between current filesystem state and snapshot state<a class="headerlink" href="#show-differences-between-current-filesystem-state-and-snapshot-state" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>zfs<span class="w"> </span>diff<span class="w"> </span>tank<span class="w"> </span>tank@snap
+</span></code></pre></div>
+<h3 id="show-configured-properties-for-a-filesystem">Show configured properties for a filesystem<a class="headerlink" href="#show-configured-properties-for-a-filesystem" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>zfs<span class="w"> </span>get<span class="w"> </span>all
+</span></code></pre></div>
+<h3 id="show-custom-filesystem-attributes">Show custom filesystem attributes<a class="headerlink" href="#show-custom-filesystem-attributes" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">## show custom attributes that override inherited attributes</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>zfs<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>-s<span class="w"> </span><span class="nb">local</span><span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="show-an-overview-of-all-mounted-zfs-filesystems">Show an overview of all mounted zfs filesystems<a class="headerlink" href="#show-an-overview-of-all-mounted-zfs-filesystems" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">## show disk space including free physical disk space and mount info</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>zfs<span class="w"> </span>list
+</span></code></pre></div>
+<h3 id="show-specified-fields-of-each-filesystem">Show specified fields of each filesystem<a class="headerlink" href="#show-specified-fields-of-each-filesystem" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">## show the listed fields of all filesystems</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>zfs<span class="w"> </span>list<span class="w"> </span>-t<span class="w"> </span>all<span class="w"> </span>-o<span class="w"> </span>name,referenced,used,written,creation,userused@root
+</span></code></pre></div>
+<h3 id="show-only-snapshots">Show only snapshots<a class="headerlink" href="#show-only-snapshots" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>zfs<span class="w"> </span>list<span class="w"> </span>-t<span class="w"> </span>snapshot
+</span></code></pre></div>
+<h3 id="show-space-consumed-by-file-owner">Show space consumed by file owner<a class="headerlink" href="#show-space-consumed-by-file-owner" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>zfs<span class="w"> </span>userspace<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="disable-atime-updates-for-a-filesystem">Disable atime updates for a filesystem<a class="headerlink" href="#disable-atime-updates-for-a-filesystem" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">atime</span><span class="o">=</span>off<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="set-compression-to-lz4-for-a-filesystem">Set compression to lz4 for a filesystem<a class="headerlink" href="#set-compression-to-lz4-for-a-filesystem" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">compression</span><span class="o">=</span>lz4<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="set-deduplication-to-enabled-for-a-filesystem">Set deduplication to enabled for a filesystem<a class="headerlink" href="#set-deduplication-to-enabled-for-a-filesystem" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">dedup</span><span class="o">=</span>on<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="set-a-filesystem-to-readonly">Set a filesystem to readonly<a class="headerlink" href="#set-a-filesystem-to-readonly" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">readonly</span><span class="o">=</span>on<span class="w"> </span>zpoolname/dataset
+</span></code></pre></div>
+<h3 id="set-a-filesystem-to-allow-nfs-sharing">Set a filesystem to allow NFS sharing<a class="headerlink" href="#set-a-filesystem-to-allow-nfs-sharing" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">sharenfs</span><span class="o">=</span>on<span class="w"> </span>tank
+</span></code></pre></div>
+<h3 id="create-a-dataset">Create a dataset<a class="headerlink" href="#create-a-dataset" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1">## create a dataset &#39;sole&#39; on zpool &#39;tank&#39;</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>zfs<span class="w"> </span>create<span class="w"> </span>tank/sole
+</span></code></pre></div>
+<h3 id="destroy-multiple-snapshots">Destroy multiple snapshots<a class="headerlink" href="#destroy-multiple-snapshots" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>zfs<span class="w"> </span>destroy<span class="w"> </span>tank@20130413-weekly,20130420-weekly,20130428-weekly,20130505-weekly
+</span></code></pre></div>
+<h3 id="zfs-send-receive">zfs send / receive<a class="headerlink" href="#zfs-send-receive" title="Permanent link">&para;</a></h3>
 <p>Replicate a zpool (use the latest snapshot name as the source) to a blank zpool:</p>
-<pre><code class="language-sh">zfs send -v -D -R tank@20120907-oldest | zfs receive -F -v z2
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>zfs<span class="w"> </span>send<span class="w"> </span>-v<span class="w"> </span>-D<span class="w"> </span>-R<span class="w"> </span>tank@20120907-oldest<span class="w"> </span><span class="p">|</span><span class="w"> </span>zfs<span class="w"> </span>receive<span class="w"> </span>-F<span class="w"> </span>-v<span class="w"> </span>z2
+</span></code></pre></div>
 <ul>
 <li>-D enables a deduplicated stream.</li>
 <li>-R enables a recursive send of all snapshots and filesystems up to that point.</li>
 <li>-F enables deletion of any snapshots on the target that don't exist on the sender</li>
 <li>-v enables verbose mode</li>
 </ul>
-<h3 id="recursively-zfs-send-a-filesystem-to-a-remote-host-and-receive-it-as-a-new-dataset">recursively zfs send a filesystem to a remote host and receive it as a new dataset</h3>
-<pre><code class="language-sh">zfs send -v -D -R z1@20120907-oldest | ssh otherhost zfs receive -v z2/z1
-</code></pre>
-<h3 id="show-summary-of-what-would-be-sent">Show summary of what would be sent</h3>
+<h3 id="recursively-zfs-send-a-filesystem-to-a-remote-host-and-receive-it-as-a-new-dataset">recursively zfs send a filesystem to a remote host and receive it as a new dataset<a class="headerlink" href="#recursively-zfs-send-a-filesystem-to-a-remote-host-and-receive-it-as-a-new-dataset" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>zfs<span class="w"> </span>send<span class="w"> </span>-v<span class="w"> </span>-D<span class="w"> </span>-R<span class="w"> </span>z1@20120907-oldest<span class="w"> </span><span class="p">|</span><span class="w"> </span>ssh<span class="w"> </span>otherhost<span class="w"> </span>zfs<span class="w"> </span>receive<span class="w"> </span>-v<span class="w"> </span>z2/z1
+</span></code></pre></div>
+<h3 id="show-summary-of-what-would-be-sent">Show summary of what would be sent<a class="headerlink" href="#show-summary-of-what-would-be-sent" title="Permanent link">&para;</a></h3>
 <p>This shows an entire dataset up to the given snapshot</p>
-<pre><code class="language-sh">zfs send -n -v -D -R tank@20140531-monthly
-</code></pre>
-<h3 id="show-the-space-differences-between-two-snapshots">Show the space differences between two snapshots</h3>
-<pre><code class="language-sh">zfs send -n -v -D -i tank@20140531-monthly tank@20141031-monthly
-</code></pre>
-<h3 id="show-the-amount-of-new-space-consumed-by-each-monthly">Show the amount of new space consumed by each monthly</h3>
-<pre><code class="language-sh">zfs list -o name | grep 'tank@.*monthly' | while read -r X ; do [[ ! $a =~ .*monthly ]] &amp;&amp; a=$X || zfs send -n -v -D -i $a $X &amp;&amp; a=$X ; done 2&gt;&amp;1 | grep send
-</code></pre>
-<h2 id="complex-examples">Complex examples</h2>
-<h3 id="create-a-raidz-called-tank">Create a raidz called tank</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>zfs<span class="w"> </span>send<span class="w"> </span>-n<span class="w"> </span>-v<span class="w"> </span>-D<span class="w"> </span>-R<span class="w"> </span>tank@20140531-monthly
+</span></code></pre></div>
+<h3 id="show-the-space-differences-between-two-snapshots">Show the space differences between two snapshots<a class="headerlink" href="#show-the-space-differences-between-two-snapshots" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>zfs<span class="w"> </span>send<span class="w"> </span>-n<span class="w"> </span>-v<span class="w"> </span>-D<span class="w"> </span>-i<span class="w"> </span>tank@20140531-monthly<span class="w"> </span>tank@20141031-monthly
+</span></code></pre></div>
+<h3 id="show-the-amount-of-new-space-consumed-by-each-monthly">Show the amount of new space consumed by each monthly<a class="headerlink" href="#show-the-amount-of-new-space-consumed-by-each-monthly" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>zfs<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>name<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;tank@.*monthly&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>X<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>.*monthly<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">a</span><span class="o">=</span><span class="nv">$X</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>zfs<span class="w"> </span>send<span class="w"> </span>-n<span class="w"> </span>-v<span class="w"> </span>-D<span class="w"> </span>-i<span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$X</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">a</span><span class="o">=</span><span class="nv">$X</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>send
+</span></code></pre></div>
+<h2 id="complex-examples">Complex examples<a class="headerlink" href="#complex-examples" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-raidz-called-tank">Create a raidz called tank<a class="headerlink" href="#create-a-raidz-called-tank" title="Permanent link">&para;</a></h3>
 <p>Create a raidz pool from 4 disks and set some properties:</p>
-<pre><code class="language-sh">pool=tank
-zpool create -f &quot;${pool}&quot; raidz /dev/disk/by-id/scsi-SATA_HGST_HDN724040A_PK2338P4H*-part1 -o ashift=12
-zfs set dedup=on &quot;${pool}&quot;
-zpool set listsnapshots=on &quot;${pool}&quot;
-zfs set atime=off &quot;${pool}&quot;
-zfs set compression=lz4 &quot;${pool}&quot;
-</code></pre>
-<h3 id="create-a-case-insensitive-raidz3-out-of-50-files">Create a case insensitive raidz3 out of 50 files</h3>
-<pre><code class="language-sh">pool=tank
-for X in {1..50} ; do mkfile -n 2g ${pool}.$X ; done ;
-sudo zpool create -O casesensitivity=insensitive ${pool} raidz3 &quot;${PWD}/${pool}&quot;.{1..50}
-</code></pre>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="mount-a-pool-that-is-giving-you-trouble">Mount a pool that is giving you Trouble</h3>
-<pre><code class="language-sh">zpool import -o failmode=continue -o readonly=on zpool_name
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nv">pool</span><span class="o">=</span>tank
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>zpool<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>raidz<span class="w"> </span>/dev/disk/by-id/scsi-SATA_HGST_HDN724040A_PK2338P4H*-part1<span class="w"> </span>-o<span class="w"> </span><span class="nv">ashift</span><span class="o">=</span><span class="m">12</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">dedup</span><span class="o">=</span>on<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>zpool<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">listsnapshots</span><span class="o">=</span>on<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">atime</span><span class="o">=</span>off<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">compression</span><span class="o">=</span>lz4<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="create-a-case-insensitive-raidz3-out-of-50-files">Create a case insensitive raidz3 out of 50 files<a class="headerlink" href="#create-a-case-insensitive-raidz3-out-of-50-files" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nv">pool</span><span class="o">=</span>tank
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..50<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>mkfile<span class="w"> </span>-n<span class="w"> </span>2g<span class="w"> </span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span>.<span class="nv">$X</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>sudo<span class="w"> </span>zpool<span class="w"> </span>create<span class="w"> </span>-O<span class="w"> </span><span class="nv">casesensitivity</span><span class="o">=</span>insensitive<span class="w"> </span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="w"> </span>raidz3<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">pool</span><span class="si">}</span><span class="s2">&quot;</span>.<span class="o">{</span><span class="m">1</span>..50<span class="o">}</span>
+</span></code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="mount-a-pool-that-is-giving-you-trouble">Mount a pool that is giving you Trouble<a class="headerlink" href="#mount-a-pool-that-is-giving-you-trouble" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>zpool<span class="w"> </span>import<span class="w"> </span>-o<span class="w"> </span><span class="nv">failmode</span><span class="o">=</span><span class="k">continue</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">readonly</span><span class="o">=</span>on<span class="w"> </span>zpool_name
+</span></code></pre></div>
 <p>This helped me get read access to a pool that was kernel panicking with the following error when I tried to import it normally:</p>
-<pre><code class="language-sh">Dec  7 14:48:40 localhost kernel: PANIC: blkptr at ffff8803fddb4200 DVA 0 has invalid OFFSET 294940902907904
-</code></pre>
-<h2 id="zfs-on-mac-os-x">ZFS on Mac OS X</h2>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Dec<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">14</span>:48:40<span class="w"> </span>localhost<span class="w"> </span>kernel:<span class="w"> </span>PANIC:<span class="w"> </span>blkptr<span class="w"> </span>at<span class="w"> </span>ffff8803fddb4200<span class="w"> </span>DVA<span class="w"> </span><span class="m">0</span><span class="w"> </span>has<span class="w"> </span>invalid<span class="w"> </span>OFFSET<span class="w"> </span><span class="m">294940902907904</span>
+</span></code></pre></div>
+<h2 id="zfs-on-mac-os-x">ZFS on Mac OS X<a class="headerlink" href="#zfs-on-mac-os-x" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="http://openzfsonosx.org">http://openzfsonosx.org</a></li>
 </ul>
-<h3 id="create-a-zfs-partition-on-devdisk3">Create a ZFS partition on /dev/disk3</h3>
-<pre><code class="language-sh">## Must eject device in Disk Utility first
-diskutil partitiondisk /dev/disk3 GPTFormat ZFS %noformat% 100% # strange syntax, but works
-zpool create backups1 /dev/disk3s2 # create the zpool
-mdutil -i off /Volumes/backups1 # required on MacZFS since spotlight does not function
-</code></pre>
-<h2 id="zfs-on-linux">ZFS on Linux</h2>
+<h3 id="create-a-zfs-partition-on-devdisk3">Create a ZFS partition on /dev/disk3<a class="headerlink" href="#create-a-zfs-partition-on-devdisk3" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1">## Must eject device in Disk Utility first</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>diskutil<span class="w"> </span>partitiondisk<span class="w"> </span>/dev/disk3<span class="w"> </span>GPTFormat<span class="w"> </span>ZFS<span class="w"> </span>%noformat%<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="c1"># strange syntax, but works</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>zpool<span class="w"> </span>create<span class="w"> </span>backups1<span class="w"> </span>/dev/disk3s2<span class="w"> </span><span class="c1"># create the zpool</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>mdutil<span class="w"> </span>-i<span class="w"> </span>off<span class="w"> </span>/Volumes/backups1<span class="w"> </span><span class="c1"># required on MacZFS since spotlight does not function</span>
+</span></code></pre></div>
+<h2 id="zfs-on-linux">ZFS on Linux<a class="headerlink" href="#zfs-on-linux" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If you get module errors: <code>modprobe zfs ; ldconfig</code></li>
 <li>If you get permission denied, check selinux settings</li>
 </ul>
-<h3 id="centos-6-repository">CentOS 6 Repository</h3>
-<pre><code class="language-sh">sudo yum install -y epel-release # assumes later CentOS 6 where epel is provided upstream
-sudo yum localinstall --nogpgcheck http://archive.zfsonlinux.org/epel/zfs-release.el6.noarch.rpm
-sudo yum install zfs -y
-</code></pre>
-<h4 id="reinstalling-when-things-fail">Reinstalling when things fail</h4>
-<pre><code class="language-sh">##!/bin/bash -x
-yum install -y kernel-devel-$(uname -r)
-zfs_version=0.6.5.4
-dkms remove  -m zfs -v &quot;${zfs_version}&quot; --all
-dkms remove  -m spl -v &quot;${zfs_version}&quot; --all
-dkms add     -m spl -v &quot;${zfs_version}&quot; --force
-dkms add     -m zfs -v &quot;${zfs_version}&quot; --force
-dkms install -m spl -v &quot;${zfs_version}&quot; --force
-dkms install -m zfs -v &quot;${zfs_version}&quot; --force
-</code></pre>
-<h4 id="inspect-the-rpm-for-what-scripts-it-runs">Inspect the rpm for what scripts it runs</h4>
+<h3 id="centos-6-repository">CentOS 6 Repository<a class="headerlink" href="#centos-6-repository" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>epel-release<span class="w"> </span><span class="c1"># assumes later CentOS 6 where epel is provided upstream</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>sudo<span class="w"> </span>yum<span class="w"> </span>localinstall<span class="w"> </span>--nogpgcheck<span class="w"> </span>http://archive.zfsonlinux.org/epel/zfs-release.el6.noarch.rpm
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>zfs<span class="w"> </span>-y
+</span></code></pre></div>
+<h4 id="reinstalling-when-things-fail">Reinstalling when things fail<a class="headerlink" href="#reinstalling-when-things-fail" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1">##!/bin/bash -x</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>kernel-devel-<span class="k">$(</span>uname<span class="w"> </span>-r<span class="k">)</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="nv">zfs_version</span><span class="o">=</span><span class="m">0</span>.6.5.4
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>dkms<span class="w"> </span>remove<span class="w">  </span>-m<span class="w"> </span>zfs<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">zfs_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--all
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>dkms<span class="w"> </span>remove<span class="w">  </span>-m<span class="w"> </span>spl<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">zfs_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--all
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>dkms<span class="w"> </span>add<span class="w">     </span>-m<span class="w"> </span>spl<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">zfs_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--force
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>dkms<span class="w"> </span>add<span class="w">     </span>-m<span class="w"> </span>zfs<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">zfs_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--force
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>dkms<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span>spl<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">zfs_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--force
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>dkms<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span>zfs<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">zfs_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--force
+</span></code></pre></div>
+<h4 id="inspect-the-rpm-for-what-scripts-it-runs">Inspect the rpm for what scripts it runs<a class="headerlink" href="#inspect-the-rpm-for-what-scripts-it-runs" title="Permanent link">&para;</a></h4>
 <p>This is useful for debugging failures after kernel upgrade.</p>
-<pre><code class="language-sh">rpm -q --scripts zfs-dkms
-</code></pre>
-<h3 id="building-on-centos-6">Building on CentOS 6</h3>
-<pre><code class="language-sh">yum groupinstall &quot;Development tools&quot; &amp;&amp; yum install -y libuuid-devel zlib-devel bc lsscsi mdadm parted kernel-debug
-## For spl, then again for zfs:
-./configure &amp;&amp; make &amp;&amp; make rpm &amp;&amp; rpm -i *64.rpm
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>rpm<span class="w"> </span>-q<span class="w"> </span>--scripts<span class="w"> </span>zfs-dkms
+</span></code></pre></div>
+<h3 id="building-on-centos-6">Building on CentOS 6<a class="headerlink" href="#building-on-centos-6" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>yum<span class="w"> </span>groupinstall<span class="w"> </span><span class="s2">&quot;Development tools&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libuuid-devel<span class="w"> </span>zlib-devel<span class="w"> </span>bc<span class="w"> </span>lsscsi<span class="w"> </span>mdadm<span class="w"> </span>parted<span class="w"> </span>kernel-debug
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="c1">## For spl, then again for zfs:</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>./configure<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>rpm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rpm<span class="w"> </span>-i<span class="w"> </span>*64.rpm
+</span></code></pre></div>
+
+
 
 
 
@@ -11772,8 +11796,16 @@ dkms install -m zfs -v &quot;${zfs_version}&quot; --force
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -11783,23 +11815,15 @@ dkms install -m zfs -v &quot;${zfs_version}&quot; --force
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -11817,12 +11841,11 @@ dkms install -m zfs -v &quot;${zfs_version}&quot; --force
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

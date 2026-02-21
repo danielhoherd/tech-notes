@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/exiftool/">
       
       
         <link rel="prev" href="../ethtool/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>exiftool - Daniel Hoherd's tech notes</title>
+        <title>exiftool - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -2794,7 +2808,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2813,7 +2827,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -2822,7 +2837,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10473,7 +10488,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10482,7 +10498,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10833,382 +10849,388 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="exiftool">exiftool</h1>
+<h1 id="exiftool">exiftool<a class="headerlink" href="#exiftool" title="Permanent link">&para;</a></h1>
 <p>CLI Tool to read and write image metadata for many kinds of images.</p>
 <ul>
 <li><a href="https://exiftool.org">https://exiftool.org</a></li>
 </ul>
-<h2 id="tricks">Tricks</h2>
-<h3 id="strip-all-tags">Strip all tags</h3>
-<pre><code class="language-sh">exiftool -all= -- &quot;$filename&quot;
-</code></pre>
-<h3 id="show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them</h3>
-<pre><code class="language-sh">exiftool -S -- &quot;$filename&quot;
-</code></pre>
+<h2 id="tricks">Tricks<a class="headerlink" href="#tricks" title="Permanent link">&para;</a></h2>
+<h3 id="strip-all-tags">Strip all tags<a class="headerlink" href="#strip-all-tags" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>exiftool<span class="w"> </span>-all<span class="o">=</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="show-tags-in-a-format-that-you-can-use-to-rewrite-them">Show tags in a format that you can use to rewrite them<a class="headerlink" href="#show-tags-in-a-format-that-you-can-use-to-rewrite-them" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>exiftool<span class="w"> </span>-S<span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+</span></code></pre></div>
 <p>For example</p>
-<pre><code>$ exiftool -S -- &quot;$filename&quot; | grep Daniel
-Artist: Daniel Austin Hoherd
-Copyright: ©Daniel Austin Hoherd
-Creator: Daniel Austin Hoherd
-Rights: ©Daniel Austin Hoherd
-$ exiftool -Rights='All rights reserved' -- &quot;$filename&quot;
-    1 image files updated
-$ exiftool -Rights -- &quot;$filename&quot;
-Rights                          : All rights reserved
-</code></pre>
-<h3 id="expanded-basic-usage">Expanded basic usage</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ exiftool -S -- &quot;$filename&quot; | grep Daniel
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Artist: Daniel Austin Hoherd
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Copyright: ©Daniel Austin Hoherd
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Creator: Daniel Austin Hoherd
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Rights: ©Daniel Austin Hoherd
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>$ exiftool -Rights=&#39;All rights reserved&#39; -- &quot;$filename&quot;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    1 image files updated
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>$ exiftool -Rights -- &quot;$filename&quot;
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Rights                          : All rights reserved
+</span></code></pre></div>
+<h3 id="expanded-basic-usage">Expanded basic usage<a class="headerlink" href="#expanded-basic-usage" title="Permanent link">&para;</a></h3>
 <p>This prints out a lot more information than normal usage, and indicates what type of metadata it is.</p>
-<pre><code class="language-sh">exiftool -a -u -G:1:2 -- &quot;$filename&quot;
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>exiftool<span class="w"> </span>-a<span class="w"> </span>-u<span class="w"> </span>-G:1:2<span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+</span></code></pre></div>
 <p>Here is an example of each unique column 1 in a file</p>
-<pre><code>$ exiftool -a -u -G:1:2 -- &quot;$filename&quot; | sort -u -k1,1
-[Adobe:Image]   DCT Encode Version              : 100
-[Composite:Camera] Scale Factor To 35 mm Equivalent: 7.0
-[Composite:Image] Aperture                      : 1.8
-[Composite:Location] GPS Latitude               : 37 deg 15' 53.04&quot; N
-[Composite:Time] Date/Time Created              : 2019:01:08 15:59:06
-[ExifIFD:Camera] Exposure Program               : Program AE
-[ExifIFD:Image] Exposure Time                   : 1/120
-[ExifIFD:Time]  Date/Time Original              : 2019:01:08 15:59:06
-[ExifTool:ExifTool] ExifTool Version Number     : 11.11
-[File:Image]    File Type                       : JPEG
-[GPS:Location]  GPS Version ID                  : 2.2.0.0
-[GPS:Time]      GPS Time Stamp                  : 23:59:06
-[ICC-header:Image] Profile CMM Type             : Linotronic
-[ICC-header:Time] Profile Date Time             : 1998:02:09 06:49:00
-[ICC-meas:Image] Measurement Observer           : CIE 1931
-[ICC-view:Image] Viewing Cond Illuminant        : 19.6445 20.3718 16.8089
-[ICC_Profile:Camera] Device Mfg Desc            : IEC http://www.iec.ch
-[ICC_Profile:Image] Profile Copyright           : Copyright (c) 1998 Hewlett-Packard Company
-[IFD0:Author]   Artist                          : Daniel Austin Hoherd
-[IFD0:Camera]   Make                            : Apple
-[IFD0:Image]    X Resolution                    : 240
-[IFD0:Time]     Modify Date                     : 2019:01:09 13:50:29
-[IFD1:Image]    Compression                     : JPEG (old-style)
-[IFD1:Preview]  Thumbnail Image                 : (Binary data 12008 bytes, use -b option to extract)
-[IPTC:Author]   By-line                         : Daniel Austin Hoherd
-[IPTC:Other]    Coded Character Set             : UTF8
-[IPTC:Time]     Date Created                    : 2019:01:08
-[Photoshop:Author] Copyright Flag               : True
-[Photoshop:Image] X Resolution                  : 240
-[Photoshop:Preview] Photoshop Thumbnail         : (Binary data 12008 bytes, use -b option to extract)
-[System:Image]  File Name                       : 2019-01-08-15-59-06-46628465322_d1657e4c95_o.jpg
-[System:Time]   File Modification Date/Time     : 2019:01:22 09:00:22-08:00
-[XMP-aux:Camera] Distortion Correction Already Applied: True
-[XMP-crs:Image] Already Applied                 : True
-[XMP-dc:Author] Creator                         : Daniel Austin Hoherd
-[XMP-dc:Image]  Format                          : image/jpeg
-[XMP-photoshop:Image] Headline                  : ljwZuD
-[XMP-photoshop:Time] Date Created               : 2019:01:08 15:59:06.448
-[XMP-x:Document] XMP Toolkit                    : Image::ExifTool 11.11
-[XMP-xmp:Image] Creator Tool                    : Adobe Photoshop Lightroom 6.14 (Macintosh)
-[XMP-xmp:Time]  Create Date                     : 2019:01:08 15:59:06.448
-[XMP-xmpMM:Other] Derived From Document ID      : 9880573B7AACBFC189C795E182E8A05D
-[XMP-xmpMM:Time] History When                   : 2019:01:09 13:50:29-08:00
-[XMP-xmpRights:Author] Marked                   : True
-</code></pre>
-<h3 id="add-missing-lens-data-on-rokinon-85mm">Add missing lens data on Rokinon 85mm</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ exiftool -a -u -G:1:2 -- &quot;$filename&quot; | sort -u -k1,1
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>[Adobe:Image]   DCT Encode Version              : 100
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>[Composite:Camera] Scale Factor To 35 mm Equivalent: 7.0
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>[Composite:Image] Aperture                      : 1.8
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>[Composite:Location] GPS Latitude               : 37 deg 15&#39; 53.04&quot; N
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>[Composite:Time] Date/Time Created              : 2019:01:08 15:59:06
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>[ExifIFD:Camera] Exposure Program               : Program AE
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>[ExifIFD:Image] Exposure Time                   : 1/120
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>[ExifIFD:Time]  Date/Time Original              : 2019:01:08 15:59:06
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>[ExifTool:ExifTool] ExifTool Version Number     : 11.11
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>[File:Image]    File Type                       : JPEG
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>[GPS:Location]  GPS Version ID                  : 2.2.0.0
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>[GPS:Time]      GPS Time Stamp                  : 23:59:06
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>[ICC-header:Image] Profile CMM Type             : Linotronic
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>[ICC-header:Time] Profile Date Time             : 1998:02:09 06:49:00
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>[ICC-meas:Image] Measurement Observer           : CIE 1931
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>[ICC-view:Image] Viewing Cond Illuminant        : 19.6445 20.3718 16.8089
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>[ICC_Profile:Camera] Device Mfg Desc            : IEC http://www.iec.ch
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>[ICC_Profile:Image] Profile Copyright           : Copyright (c) 1998 Hewlett-Packard Company
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>[IFD0:Author]   Artist                          : Daniel Austin Hoherd
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>[IFD0:Camera]   Make                            : Apple
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>[IFD0:Image]    X Resolution                    : 240
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>[IFD0:Time]     Modify Date                     : 2019:01:09 13:50:29
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>[IFD1:Image]    Compression                     : JPEG (old-style)
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>[IFD1:Preview]  Thumbnail Image                 : (Binary data 12008 bytes, use -b option to extract)
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>[IPTC:Author]   By-line                         : Daniel Austin Hoherd
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>[IPTC:Other]    Coded Character Set             : UTF8
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>[IPTC:Time]     Date Created                    : 2019:01:08
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>[Photoshop:Author] Copyright Flag               : True
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>[Photoshop:Image] X Resolution                  : 240
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>[Photoshop:Preview] Photoshop Thumbnail         : (Binary data 12008 bytes, use -b option to extract)
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>[System:Image]  File Name                       : 2019-01-08-15-59-06-46628465322_d1657e4c95_o.jpg
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>[System:Time]   File Modification Date/Time     : 2019:01:22 09:00:22-08:00
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>[XMP-aux:Camera] Distortion Correction Already Applied: True
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>[XMP-crs:Image] Already Applied                 : True
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>[XMP-dc:Author] Creator                         : Daniel Austin Hoherd
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>[XMP-dc:Image]  Format                          : image/jpeg
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>[XMP-photoshop:Image] Headline                  : ljwZuD
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>[XMP-photoshop:Time] Date Created               : 2019:01:08 15:59:06.448
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>[XMP-x:Document] XMP Toolkit                    : Image::ExifTool 11.11
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>[XMP-xmp:Image] Creator Tool                    : Adobe Photoshop Lightroom 6.14 (Macintosh)
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>[XMP-xmp:Time]  Create Date                     : 2019:01:08 15:59:06.448
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>[XMP-xmpMM:Other] Derived From Document ID      : 9880573B7AACBFC189C795E182E8A05D
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>[XMP-xmpMM:Time] History When                   : 2019:01:09 13:50:29-08:00
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>[XMP-xmpRights:Author] Marked                   : True
+</span></code></pre></div>
+<h3 id="add-missing-lens-data-on-rokinon-85mm">Add missing lens data on Rokinon 85mm<a class="headerlink" href="#add-missing-lens-data-on-rokinon-85mm" title="Permanent link">&para;</a></h3>
 <p>Rokinon 85mm is a mechanical lens with no electronics, so no data about photos taken with it are stored in the image. This adds some stock metadata describing characteristics of the lens that are always true, which helps these photos sort accurately, etc..</p>
-<pre><code class="language-sh">exiftool \
-  -overwrite_original \
-  -LensModel='Rokinon 85mm f/1.4' \
-  -FocalLength='85' \
-  -LongFocal='85' \
-  -ShortFocal='85' \
-  -- \
-  &quot;$filename&quot;
-</code></pre>
-<h3 id="correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>exiftool<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>-overwrite_original<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>-LensModel<span class="o">=</span><span class="s1">&#39;Rokinon 85mm f/1.4&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-FocalLength<span class="o">=</span><span class="s1">&#39;85&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-LongFocal<span class="o">=</span><span class="s1">&#39;85&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>-ShortFocal<span class="o">=</span><span class="s1">&#39;85&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="correct-exif-time-for-instance-to-sync-with-gps-time">Correct EXIF time, for instance to sync with GPS time<a class="headerlink" href="#correct-exif-time-for-instance-to-sync-with-gps-time" title="Permanent link">&para;</a></h3>
 <p>The following example increases all metadata dates by 1 minute and 56 seconds.</p>
-<pre><code class="language-sh"># exiftool -AllDates-='Y:M:D H:M:S'
-exiftool -AllDates+='0:0:0 0:1:56' -- &quot;$filename&quot;
-</code></pre>
-<h3 id="set-all-dates-to-something-obviously-wrong">Set all dates to something obviously wrong</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># exiftool -AllDates-=&#39;Y:M:D H:M:S&#39;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>exiftool<span class="w"> </span>-AllDates+<span class="o">=</span><span class="s1">&#39;0:0:0 0:1:56&#39;</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="set-all-dates-to-something-obviously-wrong">Set all dates to something obviously wrong<a class="headerlink" href="#set-all-dates-to-something-obviously-wrong" title="Permanent link">&para;</a></h3>
 <p>This is useful when scanning or photographing film or prints where you do not want the current date associated with the image.</p>
-<pre><code class="language-sh">exiftool -alldates='1900:01:01 01:01:01' -- *.tif
-</code></pre>
-<h3 id="delete-certain-keywords-from-files">Delete certain keywords from files</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>exiftool<span class="w"> </span>-alldates<span class="o">=</span><span class="s1">&#39;1900:01:01 01:01:01&#39;</span><span class="w"> </span>--<span class="w"> </span>*.tif
+</span></code></pre></div>
+<h3 id="delete-certain-keywords-from-files">Delete certain keywords from files<a class="headerlink" href="#delete-certain-keywords-from-files" title="Permanent link">&para;</a></h3>
 <p>This example uses bash expansion to create multiple <code>-keywords-=</code> statements from the words inside of the braces. Use <code>echo exiftool</code> to see what command is actually being called when testing. Keywords can also be stored in the <code>subject</code> tag, so we clean that too.</p>
-<pre><code class="language-sh">find ~/your/pictures/ -type f -name '*.jpg' |
-xargs exiftool -overwrite_original -{keywords,subject}-={keyword1,&quot;a keyword with spaces&quot;,keyword3,&quot;another keyword with spaces&quot;} --
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>find<span class="w"> </span>~/your/pictures/<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.jpg&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>xargs<span class="w"> </span>exiftool<span class="w"> </span>-overwrite_original<span class="w"> </span>-<span class="o">{</span>keywords,subject<span class="o">}</span>-<span class="o">={</span>keyword1,<span class="s2">&quot;a keyword with spaces&quot;</span>,keyword3,<span class="s2">&quot;another keyword with spaces&quot;</span><span class="o">}</span><span class="w"> </span>--
+</span></code></pre></div>
 <p>A more readable way to do this is to use an array and loop over it to create args, then pass the args to exiftool. This technique is quite useful for use with a variety of tools. You could also change this logic to add tags instead of deleting them.</p>
-<pre><code class="language-sh">tags=(
-  &quot;private tag 1&quot;
-  &quot;another private tag&quot;
-  &quot;some other tag that is private&quot;
-)
-
-args=()
-for tag in &quot;${tags[@]}&quot; ; do
-  args+=( &quot;-subject-=$tag&quot; &quot;-keywords-=$tag&quot; )
-done
-
-exiftool -overwrite_original &quot;${args[@]}&quot; -- &quot;$@&quot;
-</code></pre>
-<h3 id="append-keywords-to-a-file">Append keywords to a file</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">tags</span><span class="o">=(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="s2">&quot;private tag 1&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="s2">&quot;another private tag&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="s2">&quot;some other tag that is private&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="o">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nv">args</span><span class="o">=()</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">for</span><span class="w"> </span>tag<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">tags</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nv">args</span><span class="o">+=(</span><span class="w"> </span><span class="s2">&quot;-subject-=</span><span class="nv">$tag</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;-keywords-=</span><span class="nv">$tag</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">done</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>exiftool<span class="w"> </span>-overwrite_original<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="append-keywords-to-a-file">Append keywords to a file<a class="headerlink" href="#append-keywords-to-a-file" title="Permanent link">&para;</a></h3>
 <p>When adding keywords, the default behavior allows duplicates. This case is covered in <a href="https://exiftool.org/faq.html#Q17">FAQ #17</a> and indicates that you must remove and re-add each keyword in one operation in order to prevent duplicates. A bash function to do that follows. <strong>Be careful to use it on only ONE FILE at a time, otherwise you will add filenames as keywords!</strong></p>
-<pre><code class="language-sh">add_keyword_to_file(){
-  local args=()
-  [[ &quot;$#&quot; -ge 2 ]] || { echo &quot;ERROR: Must have at least 2 args: &lt;keyword&gt; [keyword]... &lt;file&gt;&quot; ; return 1 ;}
-  while [[ &quot;$#&quot; -gt 1 ]] ; do
-    args+=(&quot;-keywords-=${1}&quot; &quot;-keywords+=${1}&quot;)
-    shift
-  done
-  filename=$1
-  exiftool &quot;${args[@]}&quot; -- &quot;${filename}&quot;
-}
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>add_keyword_to_file<span class="o">(){</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">args</span><span class="o">=()</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-ge<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR: Must have at least 2 args: &lt;keyword&gt; [keyword]... &lt;file&gt;&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;</span><span class="o">}</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;-keywords-=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;-keywords+=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">)</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nb">shift</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="k">done</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nv">filename</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>exiftool<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="o">}</span>
+</span></code></pre></div>
 <p>Here it is in action:</p>
-<pre><code>$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show there are no keywords
-Warning: [Minor] Tag 'keywords' not defined - 20211016-21-25-03_450QaA.jpg
-
-$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # add keywords
-    1 image files updated
-
-$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that keywords were added
-Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
-
-$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # re-add existing keywords
-    1 image files updated
-
-$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that duplicates were not added
-Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ exiftool -p &#39;$keywords $filename&#39; -- 20211016-21-25-03_450QaA.jpg  # show there are no keywords
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Warning: [Minor] Tag &#39;keywords&#39; not defined - 20211016-21-25-03_450QaA.jpg
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # add keywords
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    1 image files updated
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>$ exiftool -p &#39;$keywords $filename&#39; -- 20211016-21-25-03_450QaA.jpg  # show that keywords were added
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg  # re-add existing keywords
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    1 image files updated
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>$ exiftool -p &#39;$keywords $filename&#39; -- 20211016-21-25-03_450QaA.jpg  # show that duplicates were not added
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
+</span></code></pre></div>
 <p>It even works to remove duplicates where they already exist, likely because the <code>-=</code> matches all instances of the keyword.</p>
-<pre><code>$ exiftool -keywords+=&quot;San Francisco&quot; -- 20211016-21-25-03_450QaA.jpg  # add a duplicate
-    1 image files updated
-
-$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that there are duplicates
-Sutro Heights, San Francisco, San Francisco 20211016-21-25-03_450QaA.jpg
-
-$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg
-    1 image files updated
-
-$ exiftool -p '$keywords $filename' -- 20211016-21-25-03_450QaA.jpg  # show that duplicates have been removed
-Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ exiftool -keywords+=&quot;San Francisco&quot; -- 20211016-21-25-03_450QaA.jpg  # add a duplicate
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    1 image files updated
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>$ exiftool -p &#39;$keywords $filename&#39; -- 20211016-21-25-03_450QaA.jpg  # show that there are duplicates
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Sutro Heights, San Francisco, San Francisco 20211016-21-25-03_450QaA.jpg
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>$ add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; 20211016-21-25-03_450QaA.jpg
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    1 image files updated
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>$ exiftool -p &#39;$keywords $filename&#39; -- 20211016-21-25-03_450QaA.jpg  # show that duplicates have been removed
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>Sutro Heights, San Francisco 20211016-21-25-03_450QaA.jpg
+</span></code></pre></div>
 <p>To add the same keywords to many files, loop through the files one at a time using something like:</p>
-<pre><code class="language-bash">for file in *.jpg ; do add_keyword_to_file &quot;Sutro Heights&quot; &quot;San Francisco&quot; &quot;${file}&quot; ; done ;
-</code></pre>
-<h3 id="set-file-modify-time-to-image-capture-time">Set file modify time to image capture time</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.jpg<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>add_keyword_to_file<span class="w"> </span><span class="s2">&quot;Sutro Heights&quot;</span><span class="w"> </span><span class="s2">&quot;San Francisco&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="set-file-modify-time-to-image-capture-time">Set file modify time to image capture time<a class="headerlink" href="#set-file-modify-time-to-image-capture-time" title="Permanent link">&para;</a></h3>
 <p>Useful when you want to sort in your file browser by modification time and get a chronological order of files.</p>
-<pre><code class="language-sh">exiftool &quot;-FileModifyDate&lt;DateTimeOriginal&quot; -- *.jpg
-</code></pre>
-<h3 id="generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>exiftool<span class="w"> </span><span class="s2">&quot;-FileModifyDate&lt;DateTimeOriginal&quot;</span><span class="w"> </span>--<span class="w"> </span>*.jpg
+</span></code></pre></div>
+<h3 id="generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes">Generate a table of Filename, Camera Model and File Size in bytes, sorted by bytes<a class="headerlink" href="#generate-a-table-of-filename-camera-model-and-file-size-in-bytes-sorted-by-bytes" title="Permanent link">&para;</a></h3>
 <p>The <code>-n</code> flag here tells exiftool not to convert numbers into human readable formats. This is somewhat ironic in some circumstances, such as with location where using <code>-n</code> makes the GPS location show up as decimal, which IMHO is much more reaable.</p>
-<pre><code>$ find /src_dir/ -iname '*.dng' |
-  xargs exiftool -p '$filename,$Model,$FileSize#' -- 2&gt;/dev/null |
-  sort -t, -k3 -n |
-  column -s, -t
-2012-01-26-23-19-54-6795223065_2e771d1012_o.jpg   iPhone 4S             1242739
-2013-02-03-10-01-56-8441346635_df4404a1f6_o.jpg   NIKON D5200           1646481
-2012-01-22-15-16-38-6746574603_d52311264f_o.jpg   Canon EOS REBEL T3i   1671734
-2011-01-22-23-44-31-6271225963_f9b95b2d7a_o.jpg   NIKON D3S             1773081
-2010-01-27-13-07-00-4313649499_835a6649c2_o.jpg   NIKON D300            1829578
-2016-02-03-07-26-32-24522158414_4aaf116d2a_o.jpg  iPhone 6              2319061
-2018-10-24-13-39-09-44676649345_1de0f581cd_o.jpg  iPhone XS Max         2971254
-2015-02-02-19-17-09-24587486051_3032823e4e_o.jpg  NIKON D800            3309696
-2014-01-27-13-52-41-12951707465_79a8dd3827_o.jpg  iPhone 5              3401479
-2017-01-22-18-33-28-31693592473_40478df088_o.jpg  ILCE-7                4230661
-2018-12-23-22-33-40-45536007225_8fdd50691a_o.jpg  NIKON D850            4924617
-2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg  iPhone 6s             8712631
-2018-12-28-16-56-42-39713091073_c57ec1a8a8_o.jpg  Canon EOS 5D Mark II  8741601
-2019-01-08-16-11-49-39716361093_479e6a2323_o.jpg  iPhone 8 Plus         12041600
-</code></pre>
-<h3 id="generate-rsync-commands-for-files-matching-a-string">Generate rsync commands for files matching a string</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$ find /src_dir/ -iname &#39;*.dng&#39; |
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  xargs exiftool -p &#39;$filename,$Model,$FileSize#&#39; -- 2&gt;/dev/null |
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  sort -t, -k3 -n |
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  column -s, -t
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>2012-01-26-23-19-54-6795223065_2e771d1012_o.jpg   iPhone 4S             1242739
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>2013-02-03-10-01-56-8441346635_df4404a1f6_o.jpg   NIKON D5200           1646481
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>2012-01-22-15-16-38-6746574603_d52311264f_o.jpg   Canon EOS REBEL T3i   1671734
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>2011-01-22-23-44-31-6271225963_f9b95b2d7a_o.jpg   NIKON D3S             1773081
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>2010-01-27-13-07-00-4313649499_835a6649c2_o.jpg   NIKON D300            1829578
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>2016-02-03-07-26-32-24522158414_4aaf116d2a_o.jpg  iPhone 6              2319061
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>2018-10-24-13-39-09-44676649345_1de0f581cd_o.jpg  iPhone XS Max         2971254
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>2015-02-02-19-17-09-24587486051_3032823e4e_o.jpg  NIKON D800            3309696
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>2014-01-27-13-52-41-12951707465_79a8dd3827_o.jpg  iPhone 5              3401479
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>2017-01-22-18-33-28-31693592473_40478df088_o.jpg  ILCE-7                4230661
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>2018-12-23-22-33-40-45536007225_8fdd50691a_o.jpg  NIKON D850            4924617
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg  iPhone 6s             8712631
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>2018-12-28-16-56-42-39713091073_c57ec1a8a8_o.jpg  Canon EOS 5D Mark II  8741601
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>2019-01-08-16-11-49-39716361093_479e6a2323_o.jpg  iPhone 8 Plus         12041600
+</span></code></pre></div>
+<h3 id="generate-rsync-commands-for-files-matching-a-string">Generate rsync commands for files matching a string<a class="headerlink" href="#generate-rsync-commands-for-files-matching-a-string" title="Permanent link">&para;</a></h3>
 <p>Useful for reviewing commands before running them, the following example generates a command for every file, then uses awk to do a numeric comparison on the last field to sort out images under a certain ImageHeight. These rsync commands can be pasted into a terminal to run. (Generating a list of files for use with <code>rsync --files-from</code> would be a better option for this specific use case, but this illustration could be adapted for commands that do not have such an option.)</p>
-<pre><code>$ exiftool -d &quot;%s&quot; -p 'rsync -aP $filename otherhost:~/Pictures/ # $ImageHeight' -- * 2&gt;/dev/null | awk '$NF &gt;= 2800 {print}'
-rsync -aP 2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg otherhost:~/Pictures/ # 2869
-rsync -aP 2018-02-06-09-50-04-31514483967_a422a3e3aa_o.jpg otherhost:~/Pictures/ # 2880
-rsync -aP 2018-02-06-15-04-43-45541501845_8dbdc3b208_o.jpg otherhost:~/Pictures/ # 2880
-rsync -aP 2018-02-06-15-05-43-31514485997_e2551fdbbc_o.jpg otherhost:~/Pictures/ # 2880
-rsync -aP 2018-12-19-10-53-27-45663859984_0f93ac24ec_o.jpg otherhost:~/Pictures/ # 2880
-</code></pre>
-<h3 id="print-filenames-that-are-missing-a-tag">Print filenames that are missing a tag</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$ exiftool -d &quot;%s&quot; -p &#39;rsync -aP $filename otherhost:~/Pictures/ # $ImageHeight&#39; -- * 2&gt;/dev/null | awk &#39;$NF &gt;= 2800 {print}&#39;
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>rsync -aP 2017-02-06-08-04-18-44658317900_98e04997fb_o.jpg otherhost:~/Pictures/ # 2869
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>rsync -aP 2018-02-06-09-50-04-31514483967_a422a3e3aa_o.jpg otherhost:~/Pictures/ # 2880
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>rsync -aP 2018-02-06-15-04-43-45541501845_8dbdc3b208_o.jpg otherhost:~/Pictures/ # 2880
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>rsync -aP 2018-02-06-15-05-43-31514485997_e2551fdbbc_o.jpg otherhost:~/Pictures/ # 2880
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>rsync -aP 2018-12-19-10-53-27-45663859984_0f93ac24ec_o.jpg otherhost:~/Pictures/ # 2880
+</span></code></pre></div>
+<h3 id="print-filenames-that-are-missing-a-tag">Print filenames that are missing a tag<a class="headerlink" href="#print-filenames-that-are-missing-a-tag" title="Permanent link">&para;</a></h3>
 <p>This example creates a file with all full path names for jpg and dng files that do not have GPS Coordinates</p>
-<pre><code class="language-sh">find /some/dir -iname '*.jpg' -or -iname '*.dng' -print0 |
-xargs -0 exiftool -p '${Directory}/${Filename}' -if 'not defined $GPSPosition' -- &gt;&gt; ~/no-geo.txt
-</code></pre>
-<h3 id="print-filenames-of-photos-that-are-older-than-10-years">Print filenames of photos that are older than 10 years</h3>
-<pre><code class="language-sh">exiftool -if '$now ge ${DateTimeOriginal;ShiftTime($_,&quot;10:0:0 0&quot;)}' -p '$FileName' *.jpg
-</code></pre>
-<h3 id="use-testname-tag-target-to-test-what-files-would-be-renamed-to">Use TestName tag target to test what files would be renamed to</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>find<span class="w"> </span>/some/dir<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*.jpg&#39;</span><span class="w"> </span>-or<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*.dng&#39;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>exiftool<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;${Directory}/${Filename}&#39;</span><span class="w"> </span>-if<span class="w"> </span><span class="s1">&#39;not defined $GPSPosition&#39;</span><span class="w"> </span>--<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/no-geo.txt
+</span></code></pre></div>
+<h3 id="print-filenames-of-photos-that-are-older-than-10-years">Print filenames of photos that are older than 10 years<a class="headerlink" href="#print-filenames-of-photos-that-are-older-than-10-years" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>exiftool<span class="w"> </span>-if<span class="w"> </span><span class="s1">&#39;$now ge ${DateTimeOriginal;ShiftTime($_,&quot;10:0:0 0&quot;)}&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;$FileName&#39;</span><span class="w"> </span>*.jpg
+</span></code></pre></div>
+<h3 id="use-testname-tag-target-to-test-what-files-would-be-renamed-to">Use TestName tag target to test what files would be renamed to<a class="headerlink" href="#use-testname-tag-target-to-test-what-files-would-be-renamed-to" title="Permanent link">&para;</a></h3>
 <p>This block builds an array of possible tags to use as a filename, creates an exiftool argument string from that array, then tests what files would be named to. This is useful when dealing with files from various sources that don't all use the same tag to store the original media creation time. By using <code>TestName</code> instead of <code>FileName</code> as the target, we observe what would occur, essentially a dry-run, instead of actually renaming the files.</p>
 <p>There is a funky behavior of %-c when you operate on a file that should ideally not be renamed. Exiftool will toggle back and forth each run appending and removing <code>-1</code>.</p>
 <p>This assumes GNU xargs for the <code>-r</code> flag.</p>
-<pre><code class="language-sh">#!/usr/bin/env bash
-set -x
-
-# The last valid variable from this list is used as the filename source
-create_date_sources=(
-  TrackCreateDate
-  RIFF:DateTimeOriginal
-  MediaCreateDate
-  FileModifyDate
-  DateTimeOriginal
-  CreateDate
-)
-
-for opt in &quot;${create_date_sources[@]}&quot; ; do
-  args+=( &quot;-TestName&lt;${opt}&quot; ) ;
-done ;
-
-args+=( '-d' './%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le' )
-
-find . -maxdepth 1 -type f ! -name '*.sh' -print0 | xargs -0 -r exiftool &quot;${args[@]}&quot; --
-</code></pre>
-<h3 id="rename-files-to-their-shuttercount">Rename files to their ShutterCount</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="ch">#!/usr/bin/env bash</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">set</span><span class="w"> </span>-x
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># The last valid variable from this list is used as the filename source</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nv">create_date_sources</span><span class="o">=(</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span>TrackCreateDate
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span>RIFF:DateTimeOriginal
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span>MediaCreateDate
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span>FileModifyDate
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">  </span>DateTimeOriginal
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span>CreateDate
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="o">)</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="k">for</span><span class="w"> </span>opt<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">create_date_sources</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">  </span><span class="nv">args</span><span class="o">+=(</span><span class="w"> </span><span class="s2">&quot;-TestName&lt;</span><span class="si">${</span><span class="nv">opt</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="nv">args</span><span class="o">+=(</span><span class="w"> </span><span class="s1">&#39;-d&#39;</span><span class="w"> </span><span class="s1">&#39;./%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&#39;</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>find<span class="w"> </span>.<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>!<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.sh&#39;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>-r<span class="w"> </span>exiftool<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--
+</span></code></pre></div>
+<h3 id="rename-files-to-their-shuttercount">Rename files to their ShutterCount<a class="headerlink" href="#rename-files-to-their-shuttercount" title="Permanent link">&para;</a></h3>
 <p>Filenames will not be changed if ShutterCount field is not populated.</p>
-<pre><code class="language-sh">exiftool -P '-filename&lt;${ShutterCount;}.%e' -- *.dng
-</code></pre>
-<h3 id="rename-files-based-on-a-set-of-possible-names">Rename files based on a set of possible names</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>exiftool<span class="w"> </span>-P<span class="w"> </span><span class="s1">&#39;-filename&lt;${ShutterCount;}.%e&#39;</span><span class="w"> </span>--<span class="w"> </span>*.dng
+</span></code></pre></div>
+<h3 id="rename-files-based-on-a-set-of-possible-names">Rename files based on a set of possible names<a class="headerlink" href="#rename-files-based-on-a-set-of-possible-names" title="Permanent link">&para;</a></h3>
 <p>Exiftool will use the last parameter where all variables are present.</p>
-<pre><code class="language-sh">exiftool -P -d '%F-%H-%M-%S' \
-  '-filename&lt;${DateTimeOriginal} - ${Make;}.%e' \
-  '-filename&lt;${CreateDate} - ${Make;}.%e' \
-  '-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;}.%e' \
-  '-filename&lt;${CreateDate} - ${Make;} - ${Model;}.%e' \
-  '-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;} - ${ShutterCount}.%e' \
-  '-filename&lt;${CreateDate} - ${Make;} - ${Model;} - ${ShutterCount}.%e' \
-  -- \
-  *.dng
-</code></pre>
-<h3 id="rename-gpx-files-based-on-the-capture-time">Rename GPX files based on the capture time</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>exiftool<span class="w"> </span>-P<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;%F-%H-%M-%S&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="s1">&#39;-filename&lt;${DateTimeOriginal} - ${Make;}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="s1">&#39;-filename&lt;${CreateDate} - ${Make;}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="s1">&#39;-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="s1">&#39;-filename&lt;${CreateDate} - ${Make;} - ${Model;}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="s1">&#39;-filename&lt;${DateTimeOriginal} - ${Make;} - ${Model;} - ${ShutterCount}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="s1">&#39;-filename&lt;${CreateDate} - ${Make;} - ${Model;} - ${ShutterCount}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">  </span>--<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">  </span>*.dng
+</span></code></pre></div>
+<h3 id="rename-gpx-files-based-on-the-capture-time">Rename GPX files based on the capture time<a class="headerlink" href="#rename-gpx-files-based-on-the-capture-time" title="Permanent link">&para;</a></h3>
 <p>You will end up with a filename like <code>2013-09-30-23-35-40.gpx</code> based off of the <em>first</em> trkpt timestamp.</p>
-<pre><code class="language-sh">exiftool -d '%Y%m%d-%H-%M-%S' '-FileName&lt;${GpxTrkTrksegTrkptTime;tr/ /-/;tr/:/-/;tr(/Z/)()d;}%-c.gpx' -- *.gpx
-</code></pre>
-<h3 id="rename-files-to-their-original-date-and-time-using-a-lower-case-file-extension">Rename files to their original date and time using a lower case file extension</h3>
-<pre><code class="language-sh"># %le = lowercase extension
-# %-c = unique filenames when the timestamp is exactly the same. EG: filename-1.jpg
-exiftool &quot;-FileName&lt;CreateDate&quot; -d &quot;%Y%m%d-%H-%M-%S%%-c.%%le&quot; -- *.jpg
-</code></pre>
-<h3 id="rename-files-using-a-combination-of-tags">Rename files using a combination of tags</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>exiftool<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;%Y%m%d-%H-%M-%S&#39;</span><span class="w"> </span><span class="s1">&#39;-FileName&lt;${GpxTrkTrksegTrkptTime;tr/ /-/;tr/:/-/;tr(/Z/)()d;}%-c.gpx&#39;</span><span class="w"> </span>--<span class="w"> </span>*.gpx
+</span></code></pre></div>
+<h3 id="rename-files-to-their-original-date-and-time-using-a-lower-case-file-extension">Rename files to their original date and time using a lower case file extension<a class="headerlink" href="#rename-files-to-their-original-date-and-time-using-a-lower-case-file-extension" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># %le = lowercase extension</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="c1"># %-c = unique filenames when the timestamp is exactly the same. EG: filename-1.jpg</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>exiftool<span class="w"> </span><span class="s2">&quot;-FileName&lt;CreateDate&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;%Y%m%d-%H-%M-%S%%-c.%%le&quot;</span><span class="w"> </span>--<span class="w"> </span>*.jpg
+</span></code></pre></div>
+<h3 id="rename-files-using-a-combination-of-tags">Rename files using a combination of tags<a class="headerlink" href="#rename-files-using-a-combination-of-tags" title="Permanent link">&para;</a></h3>
 <p>Using the name of the tag as output by <code>exiftool -S</code>, you can create complicated filenames by combining tags:</p>
-<pre><code class="language-sh">exiftool -d '%Y%m%d-%H-%M-%S' '-FileName&lt;${CreateDate;}_${Headline;}%-c.%e'
-</code></pre>
-<h3 id="rename-music-files-in-a-directory">Rename music files in a directory</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>exiftool<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;%Y%m%d-%H-%M-%S&#39;</span><span class="w"> </span><span class="s1">&#39;-FileName&lt;${CreateDate;}_${Headline;}%-c.%e&#39;</span>
+</span></code></pre></div>
+<h3 id="rename-music-files-in-a-directory">Rename music files in a directory<a class="headerlink" href="#rename-music-files-in-a-directory" title="Permanent link">&para;</a></h3>
 <p>If you use a semicolon inside of a tag that is used to generate a filename, it will have filename-invalid characters stripped. The invalid character list is: <code>/ \ ? * : | " &lt; &gt;</code>. See the next section for more examples of semicolon behavior.</p>
-<pre><code class="language-sh">exiftool \
-  '-FileName&lt;${Artist;} - ${Title;}.%e' \
-  '-FileName&lt;${Artist;} - ${Album;} - ${Title;}.%e' \
-  -- \
-  *.mp3 *.m4a
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>exiftool<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="s1">&#39;-FileName&lt;${Artist;} - ${Title;}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="s1">&#39;-FileName&lt;${Artist;} - ${Album;} - ${Title;}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span>--<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span>*.mp3<span class="w"> </span>*.m4a
+</span></code></pre></div>
 <p>The way I solved this prior to knowing the semicolon behavior was to use a regex replace, which is included here because it could be useful in other circumstances:</p>
-<pre><code class="language-sh">exiftool \
-  '-FileName&lt;${Artist;s/\//_/} - ${Title;s/\//_/}.%e' \
-  '-FileName&lt;${Artist;s/\//_/} - ${Album;s/\//_/} - ${Title;s/\//_/}.%e' \
-  -- \
-  *.mp3 *.m4a
-</code></pre>
-<h3 id="rename-files-into-directories-with-date-components-as-directory-names">Rename files into directories with date components as directory names</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>exiftool<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="s1">&#39;-FileName&lt;${Artist;s/\//_/} - ${Title;s/\//_/}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="s1">&#39;-FileName&lt;${Artist;s/\//_/} - ${Album;s/\//_/} - ${Title;s/\//_/}.%e&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span>--<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">  </span>*.mp3<span class="w"> </span>*.m4a
+</span></code></pre></div>
+<h3 id="rename-files-into-directories-with-date-components-as-directory-names">Rename files into directories with date components as directory names<a class="headerlink" href="#rename-files-into-directories-with-date-components-as-directory-names" title="Permanent link">&para;</a></h3>
 <p>Using the above technique, it's not possible to create directories using date components as parts of the directory structure.</p>
-<pre><code>$ exiftool -d '%Y/%m/%d/%F-%H-%M-%S' '-TestName&lt;${DateTimeOriginal;}.%le' -- example.jpg
-'example.jpg' --&gt; '201803042018-03-04-00-01-29.jpg'
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$ exiftool -d &#39;%Y/%m/%d/%F-%H-%M-%S&#39; &#39;-TestName&lt;${DateTimeOriginal;}.%le&#39; -- example.jpg
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>&#39;example.jpg&#39; --&gt; &#39;201803042018-03-04-00-01-29.jpg&#39;
+</span></code></pre></div>
 <p>Notice how all the directory delimiters were left out. To work around this, you can use a date format string with <code>DafeFmt</code> directly in the date tag instead of in <code>-d</code>:</p>
-<pre><code>$ exiftool '-TestName&lt;${DateTimeOriginal;DateFmt(&quot;%Y/%m/%d/%F-%H-%M-%S&quot;)}.%le' -- example.jpg
-'example.jpg' --&gt; '2018/03/04/2018-03-04-00-01-29.jpg'
-</code></pre>
-<h3 id="rename-files-into-subdir-based-on-multiple-tags">Rename files into subdir based on multiple tags</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$ exiftool &#39;-TestName&lt;${DateTimeOriginal;DateFmt(&quot;%Y/%m/%d/%F-%H-%M-%S&quot;)}.%le&#39; -- example.jpg
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>&#39;example.jpg&#39; --&gt; &#39;2018/03/04/2018-03-04-00-01-29.jpg&#39;
+</span></code></pre></div>
+<h3 id="rename-files-into-subdir-based-on-multiple-tags">Rename files into subdir based on multiple tags<a class="headerlink" href="#rename-files-into-subdir-based-on-multiple-tags" title="Permanent link">&para;</a></h3>
 <p>Making sure not use put a semicolon into the tags, as described in the last section, you can use more than one tag to rename a file, so long as you format your date string correctly.</p>
-<pre><code class="language-sh">find ./ -type f -iname '*.jpg' -print0 |
-xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-FileName&lt;${DateTimeOriginal}_${Headline}%-c.%le' --
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>find<span class="w"> </span>./<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*.jpg&#39;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>exiftool<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot;</span><span class="w"> </span><span class="s1">&#39;-FileName&lt;${DateTimeOriginal}_${Headline}%-c.%le&#39;</span><span class="w"> </span>--
+</span></code></pre></div>
 <p>EG:</p>
-<pre><code>$ find . -type f -iname '*.jpg' -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-TestName&lt;${DateTimeOriginal}_${Headline}%-c.%le' --
-'./20170406-17-11-59.jpg' --&gt; '2017/04/06/20170406-17-11-59_qrWLGF.jpg'
-'./20170401-22-20-56.jpg' --&gt; '2017/04/01/20170401-22-20-56_907nMU.jpg'
-'./20170403-07-14-18.jpg' --&gt; '2017/04/03/20170403-07-14-18_JMPDVd.jpg'
-    0 image files updated
-    3 image files unchanged
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>$ find . -type f -iname &#39;*.jpg&#39; -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; &#39;-TestName&lt;${DateTimeOriginal}_${Headline}%-c.%le&#39; --
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>&#39;./20170406-17-11-59.jpg&#39; --&gt; &#39;2017/04/06/20170406-17-11-59_qrWLGF.jpg&#39;
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>&#39;./20170401-22-20-56.jpg&#39; --&gt; &#39;2017/04/01/20170401-22-20-56_907nMU.jpg&#39;
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>&#39;./20170403-07-14-18.jpg&#39; --&gt; &#39;2017/04/03/20170403-07-14-18_JMPDVd.jpg&#39;
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>    0 image files updated
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>    3 image files unchanged
+</span></code></pre></div>
 <p>But if we use a semicolon in the tag (<code>${DateTimeOriginal;}</code>), characters that would be invalid in a filename are stripped, and the result is that directories are not created.</p>
-<pre><code>$ find . -type f -iname '*.jpg' -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; '-TestName&lt;${DateTimeOriginal;}_${Headline}%-c.%le' --
-'./20170406-17-11-59.jpg' --&gt; './2017040620170406-17-11-59_qrWLGF.jpg'
-'./20170401-22-20-56.jpg' --&gt; './2017040120170401-22-20-56_907nMU.jpg'
-'./20170403-07-14-18.jpg' --&gt; './2017040320170403-07-14-18_JMPDVd.jpg'
-    0 image files updated
-    3 image files unchanged
-</code></pre>
-<h3 id="move-short-videos-to-one-dir-long-videos-to-another-dir">Move short videos to one dir, long videos to another dir</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>$ find . -type f -iname &#39;*.jpg&#39; -print0 | xargs -0 exiftool -d &quot;%Y/%m/%d/%Y%m%d-%H-%M-%S&quot; &#39;-TestName&lt;${DateTimeOriginal;}_${Headline}%-c.%le&#39; --
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>&#39;./20170406-17-11-59.jpg&#39; --&gt; &#39;./2017040620170406-17-11-59_qrWLGF.jpg&#39;
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>&#39;./20170401-22-20-56.jpg&#39; --&gt; &#39;./2017040120170401-22-20-56_907nMU.jpg&#39;
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>&#39;./20170403-07-14-18.jpg&#39; --&gt; &#39;./2017040320170403-07-14-18_JMPDVd.jpg&#39;
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>    0 image files updated
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>    3 image files unchanged
+</span></code></pre></div>
+<h3 id="move-short-videos-to-one-dir-long-videos-to-another-dir">Move short videos to one dir, long videos to another dir<a class="headerlink" href="#move-short-videos-to-one-dir-long-videos-to-another-dir" title="Permanent link">&para;</a></h3>
 <p>In iOS, if you have Live Photo enabled it creates little movies each time you take a photo. While these can be very interesting context around photos, they can be quite irritating if you're playing through a collection of videos where these are mixed with videos of more moderate duration. The following code snip separates videos with a duration of more than 10 seconds from those with equal or lesser duration.</p>
-<pre><code class="language-sh"># -TestName is used here so it does not destroy data. Replace this with FileName to make this actually work.
-# $Duration# has the # sign appended to make this tag machine readable so it can accurately be compared.
-# We must use perl's numeric comparisons (&gt;, &lt;=), not string comparisons (gt, le)
-# exiftool does not support if else syntax, so for the else condition you must run a second command.
-
-long_args=(  &quot;-TestName&lt;${opt}&quot; '-d' &quot;${working_path}/long/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot;  '-if' '${Duration#} &gt;  10' )
-short_args=( &quot;-TestName&lt;${opt}&quot; '-d' &quot;${working_path}/short/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot; '-if' '${Duration#} &lt;= 10' )
-
-find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${long_args[@]}&quot; --
-find &quot;${PWD}&quot; -maxdepth 1 -type f -print0 | xargs -0 -r exiftool &quot;${short_args[@]}&quot; --
-</code></pre>
-<h3 id="add-missing-date-metadata-to-nintendo-switch-screenshots">Add missing date metadata to Nintendo Switch screenshots</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># -TestName is used here so it does not destroy data. Replace this with FileName to make this actually work.</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="c1"># $Duration# has the # sign appended to make this tag machine readable so it can accurately be compared.</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="c1"># We must use perl&#39;s numeric comparisons (&gt;, &lt;=), not string comparisons (gt, le)</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># exiftool does not support if else syntax, so for the else condition you must run a second command.</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="nv">long_args</span><span class="o">=(</span><span class="w">  </span><span class="s2">&quot;-TestName&lt;</span><span class="si">${</span><span class="nv">opt</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s1">&#39;-d&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">working_path</span><span class="si">}</span><span class="s2">/long/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot;</span><span class="w">  </span><span class="s1">&#39;-if&#39;</span><span class="w"> </span><span class="s1">&#39;${Duration#} &gt;  10&#39;</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="nv">short_args</span><span class="o">=(</span><span class="w"> </span><span class="s2">&quot;-TestName&lt;</span><span class="si">${</span><span class="nv">opt</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s1">&#39;-d&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">working_path</span><span class="si">}</span><span class="s2">/short/%Y/%m/%Y%m%d-%H-%M-%S%%-c.%%le&quot;</span><span class="w"> </span><span class="s1">&#39;-if&#39;</span><span class="w"> </span><span class="s1">&#39;${Duration#} &lt;= 10&#39;</span><span class="w"> </span><span class="o">)</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>find<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>-r<span class="w"> </span>exiftool<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">long_args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>find<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>-r<span class="w"> </span>exiftool<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">short_args</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--
+</span></code></pre></div>
+<h3 id="add-missing-date-metadata-to-nintendo-switch-screenshots">Add missing date metadata to Nintendo Switch screenshots<a class="headerlink" href="#add-missing-date-metadata-to-nintendo-switch-screenshots" title="Permanent link">&para;</a></h3>
 <p>Nintendo Switch screenshots are named with the date, but do not contain this information in the EXIF, which makes this data fragile.</p>
-<pre><code class="language-sh"># Filename like: 2020041909511400-87C68A817A974473877AC288310226F6.jpg
-for X in 202?????????????-????????????????????????????????.{jpg,mp4} ; do
-  echo &quot;${X}&quot; |
-  sed -E 's/^((....)(..)(..)(..)(..)(..).*)/\2 \3 \4 \5 \6 \7 \1/'
-done | while read -r Y M D h m s f ; do
-  exiftool \
-    -overwrite_original \
-    &quot;-alldates=$Y:$M:$D $h:$m:$s&quot; \
-    '-FileName&lt;DateTimeOriginal' \
-    -d '%Y%m%d-%H-%M-%S%%-c.%%le' \
-    -- &quot;$f&quot;
-done
-</code></pre>
-<h3 id="copy-all-gps-location-data-from-one-file-into-other-files">Copy all GPS location data from one file into other files</h3>
-<pre><code class="language-sh">exiftool -tagsfromfile source-file.jpg '-gpsl*&lt;gpsl*' -- dest-file-1.jpg dest-file-2.jpg
-</code></pre>
-<h3 id="review-and-delete-all-dji-photos-that-are-looking-at-the-sky">Review and delete all DJI photos that are looking at the sky</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># Filename like: 2020041909511400-87C68A817A974473877AC288310226F6.jpg</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">202</span>?????????????-????????????????????????????????.<span class="o">{</span>jpg,mp4<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/^((....)(..)(..)(..)(..)(..).*)/\2 \3 \4 \5 \6 \7 \1/&#39;</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>Y<span class="w"> </span>M<span class="w"> </span>D<span class="w"> </span>h<span class="w"> </span>m<span class="w"> </span>s<span class="w"> </span>f<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">  </span>exiftool<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">    </span>-overwrite_original<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">    </span><span class="s2">&quot;-alldates=</span><span class="nv">$Y</span><span class="s2">:</span><span class="nv">$M</span><span class="s2">:</span><span class="nv">$D</span><span class="s2"> </span><span class="nv">$h</span><span class="s2">:</span><span class="nv">$m</span><span class="s2">:</span><span class="nv">$s</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">    </span><span class="s1">&#39;-FileName&lt;DateTimeOriginal&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;%Y%m%d-%H-%M-%S%%-c.%%le&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">    </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="k">done</span>
+</span></code></pre></div>
+<h3 id="copy-all-gps-location-data-from-one-file-into-other-files">Copy all GPS location data from one file into other files<a class="headerlink" href="#copy-all-gps-location-data-from-one-file-into-other-files" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>exiftool<span class="w"> </span>-tagsfromfile<span class="w"> </span>source-file.jpg<span class="w"> </span><span class="s1">&#39;-gpsl*&lt;gpsl*&#39;</span><span class="w"> </span>--<span class="w"> </span>dest-file-1.jpg<span class="w"> </span>dest-file-2.jpg
+</span></code></pre></div>
+<h3 id="review-and-delete-all-dji-photos-that-are-looking-at-the-sky">Review and delete all DJI photos that are looking at the sky<a class="headerlink" href="#review-and-delete-all-dji-photos-that-are-looking-at-the-sky" title="Permanent link">&para;</a></h3>
 <p>When taking panorama's with a DJI drone, you end up with a lot of photos of clouds and blue sky. These can be found by looking at <code>GimbalPitchDegree</code>. Review them in macOS Preview.app with:</p>
-<pre><code class="language-sh">find PANORAMA -type f |
-xargs exiftool -if '$GimbalPitchDegree &gt; 40' -p '${Directory}/${Filename}' -- 2&gt;/dev/null |
-xargs -r open
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>find<span class="w"> </span>PANORAMA<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>xargs<span class="w"> </span>exiftool<span class="w"> </span>-if<span class="w"> </span><span class="s1">&#39;$GimbalPitchDegree &gt; 40&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;${Directory}/${Filename}&#39;</span><span class="w"> </span>--<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>xargs<span class="w"> </span>-r<span class="w"> </span>open
+</span></code></pre></div>
 <p>Once you've verified that none of them are worth preserving, delete them with:</p>
-<pre><code class="language-sh">find PANORAMA -type f |
-xargs exiftool -if '$GimbalPitchDegree &gt; 40' -p '${Directory}/${Filename}' -- 2&gt;/dev/null |
-xargs -r rm -fv
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>find<span class="w"> </span>PANORAMA<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>xargs<span class="w"> </span>exiftool<span class="w"> </span>-if<span class="w"> </span><span class="s1">&#39;$GimbalPitchDegree &gt; 40&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;${Directory}/${Filename}&#39;</span><span class="w"> </span>--<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>xargs<span class="w"> </span>-r<span class="w"> </span>rm<span class="w"> </span>-fv
+</span></code></pre></div>
 <p>If you want to filter out photos that are mostly sky but also contain a bit of the ground in the bottom third of the frame, use <code>&gt; 9</code> instead of <code>&gt; 40</code>.</p>
-<h3 id="geotag-non-geotagged-files-using-a-specific-tz">Geotag non-geotagged files using a specific TZ</h3>
+<h3 id="geotag-non-geotagged-files-using-a-specific-tz">Geotag non-geotagged files using a specific TZ<a class="headerlink" href="#geotag-non-geotagged-files-using-a-specific-tz" title="Permanent link">&para;</a></h3>
 <p>Timezones in photo images is kind of a mess. In order to be specific about what TZ you took photos in, you can override it using the syntax in the example below. For instance, I keep all my photos in UTC so I never have to wonder what TZ I took them in and I never have to worry about DST. This example also skips any files that have existing geotags.</p>
-<pre><code class="language-sh">find ~/Pictures/whatever -type f -iname '*.dng' -print0 |
-  xargs -0 exiftool -if 'not defined $GPSPosition' -geotag ~/gps_tracks.gpx '-Geotime&lt;${createdate}+00:00' --
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>find<span class="w"> </span>~/Pictures/whatever<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*.dng&#39;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span>xargs<span class="w"> </span>-0<span class="w"> </span>exiftool<span class="w"> </span>-if<span class="w"> </span><span class="s1">&#39;not defined $GPSPosition&#39;</span><span class="w"> </span>-geotag<span class="w"> </span>~/gps_tracks.gpx<span class="w"> </span><span class="s1">&#39;-Geotime&lt;${createdate}+00:00&#39;</span><span class="w"> </span>--
+</span></code></pre></div>
 <p>This page gives more examples: <a href="https://exiftool.org/geotag.html">https://exiftool.org/geotag.html</a></p>
-<h3 id="export-exif-data-as-json">Export exif data as JSON</h3>
+<h3 id="export-exif-data-as-json">Export exif data as JSON<a class="headerlink" href="#export-exif-data-as-json" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>-J/-json</code> flag to output JSON data, which is obviously really helpful.</p>
-<pre><code>$ exiftool -J -ExifToolVersion -LensFStops 20241027-20-44-44_177lgJ.dng | jq .
-[
-  {
-    &quot;SourceFile&quot;: &quot;20241027-20-44-44_177lgJ.dng&quot;,
-    &quot;ExifToolVersion&quot;: 12.5,
-    &quot;LensFStops&quot;: 6
-  }
-]
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$ exiftool -J -ExifToolVersion -LensFStops 20241027-20-44-44_177lgJ.dng | jq .
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>[
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>  {
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>    &quot;SourceFile&quot;: &quot;20241027-20-44-44_177lgJ.dng&quot;,
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    &quot;ExifToolVersion&quot;: 12.5,
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>    &quot;LensFStops&quot;: 6
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>  }
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>]
+</span></code></pre></div>
 <p>However, by default, all numeric looking values are not quoted, even if they are not numeric values, like version numbers. In the above example, the version number is <code>12.50</code>, not <code>12.5</code>, and the LensFSops is <code>6.00</code>, not <code>6</code>. To work around this, you can use <code>-api StructFormat=JSONQ</code>, where <code>JSONQ</code> is "JSON with quoted numbers". (See <a href="https://exiftool.org/ExifTool.html#StructFormat">https://exiftool.org/ExifTool.html#StructFormat</a> for more details.) You must be using exiftool &gt;= 12.88 (2024-07-11) for this feature to be available, otherwise it will silently produce non-quoted numeric values.</p>
-<pre><code>$ exiftool -api StructFormat=JSONQ -json -ExifToolVersion -LensFStops 20241027-20-44-44_177lgJ.dng | jq .
-[
-  {
-    &quot;SourceFile&quot;: &quot;20241027-20-44-44_177lgJ.dng&quot;,
-    &quot;ExifToolVersion&quot;: &quot;13.00&quot;,
-    &quot;LensFStops&quot;: &quot;6.00&quot;
-  }
-]
-</code></pre>
-<h2 id="see-also">See Also</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$ exiftool -api StructFormat=JSONQ -json -ExifToolVersion -LensFStops 20241027-20-44-44_177lgJ.dng | jq .
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>[
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>  {
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>    &quot;SourceFile&quot;: &quot;20241027-20-44-44_177lgJ.dng&quot;,
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>    &quot;ExifToolVersion&quot;: &quot;13.00&quot;,
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>    &quot;LensFStops&quot;: &quot;6.00&quot;
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>  }
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>]
+</span></code></pre></div>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../graphicsmagick/">graphicsmagick</a></li>
 <li><a href="../imagemagick/">imagemagick</a></li>
@@ -11227,13 +11249,23 @@ xargs -r rm -fv
 
 
 
+
+
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -11243,23 +11275,15 @@ xargs -r rm -fv
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -11277,12 +11301,11 @@ xargs -r rm -fv
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

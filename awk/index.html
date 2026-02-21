@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/awk/">
       
       
         <link rel="prev" href="../avahi/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>awk - Daniel Hoherd's tech notes</title>
+        <title>awk - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -661,7 +675,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -680,7 +694,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -689,7 +704,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10462,7 +10477,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10471,7 +10487,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10811,142 +10827,150 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="awk">awk</h1>
+<h1 id="awk">awk<a class="headerlink" href="#awk" title="Permanent link">&para;</a></h1>
 <p>"pattern-directed scanning and processing language" - <code>man awk</code></p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>Some of these require GNU awk.</p>
-<h3 id="print-the-first-column-of-a-file">Print the first column of a file</h3>
-<pre><code class="language-sh">awk '${print $1}' filename.txt
-</code></pre>
-<h3 id="print-column-2-if-column-1-matches-a-string">Print column 2 if column 1 matches a string</h3>
-<pre><code class="language-sh">ps aux | awk '$1 == &quot;root&quot; {print $2}'
-</code></pre>
-<h3 id="pass-in-a-variable-and-value">Pass in a variable and value</h3>
-<pre><code class="language-sh">ps | awk -v host=&quot;$HOSTNAME&quot; '{print host,$0}'
-</code></pre>
-<h3 id="sort-a-file-by-line-lengths">Sort a file by line lengths</h3>
-<pre><code class="language-sh">awk '{print length, $0}' testfile.txt | sort -n
-</code></pre>
-<h3 id="tdl-to-csv">TDL to CSV</h3>
-<pre><code class="language-sh">awk '{gsub(&quot;\t&quot;,&quot;\&quot;,\&quot;&quot;,$0); print;}' | sed 's#^#&quot;#;s#$#&quot;#;'
-</code></pre>
-<h3 id="print-the-first-column-of-every-other-line">Print the first column of every other line</h3>
+<h3 id="print-the-first-column-of-a-file">Print the first column of a file<a class="headerlink" href="#print-the-first-column-of-a-file" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>awk<span class="w"> </span><span class="s1">&#39;${print $1}&#39;</span><span class="w"> </span>filename.txt
+</span></code></pre></div>
+<h3 id="print-column-2-if-column-1-matches-a-string">Print column 2 if column 1 matches a string<a class="headerlink" href="#print-column-2-if-column-1-matches-a-string" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$1 == &quot;root&quot; {print $2}&#39;</span>
+</span></code></pre></div>
+<h3 id="pass-in-a-variable-and-value">Pass in a variable and value<a class="headerlink" href="#pass-in-a-variable-and-value" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-v<span class="w"> </span><span class="nv">host</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOSTNAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="s1">&#39;{print host,$0}&#39;</span>
+</span></code></pre></div>
+<h3 id="sort-a-file-by-line-lengths">Sort a file by line lengths<a class="headerlink" href="#sort-a-file-by-line-lengths" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>awk<span class="w"> </span><span class="s1">&#39;{print length, $0}&#39;</span><span class="w"> </span>testfile.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n
+</span></code></pre></div>
+<h3 id="tdl-to-csv">TDL to CSV<a class="headerlink" href="#tdl-to-csv" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>awk<span class="w"> </span><span class="s1">&#39;{gsub(&quot;\t&quot;,&quot;\&quot;,\&quot;&quot;,$0); print;}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s#^#&quot;#;s#$#&quot;#;&#39;</span>
+</span></code></pre></div>
+<h3 id="print-the-first-column-of-every-other-line">Print the first column of every other line<a class="headerlink" href="#print-the-first-column-of-every-other-line" title="Permanent link">&para;</a></h3>
 <p><code>%</code> is the modulus operator, which finds the remainder after an integer
 divide.</p>
-<pre><code class="language-sh">awk 'NR % 2 == 0 { print $1 }'
-</code></pre>
-<h3 id="print-only-even-numbered-lines">Print only even numbered lines</h3>
-<pre><code class="language-sh">ls | awk 'NR % 2 == 0 { print $0 }'
-</code></pre>
-<h3 id="print-only-odd-numbered-lines">Print only odd numbered lines</h3>
-<pre><code class="language-sh">ls | awk 'NR % 2 != 0 { print $0 }'
-</code></pre>
-<h3 id="print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines">Print even numbered lines on the same line before odd numbered lines</h3>
-<pre><code class="language-sh">awk '{if (NR%2==0) { print $0 &quot; &quot; prev } else { prev=$0 }}'
-</code></pre>
-<h3 id="print-sum-all-the-first-columns-of-each-line-in-a-file">Print sum all the first columns of each line in a file</h3>
-<pre><code class="language-sh">awk '{sum += $1} END {print sum}' filename
-</code></pre>
-<h3 id="print-count-sum-and-average-of-the-first-column-of-stdin">Print count, sum, and average of the first column of stdin</h3>
-<pre><code class="language-sh">for _ in {1..100} ; do echo $((RANDOM % 100)) ; done |
-awk '{sum += $1} END {avg = sum/NR ; printf &quot;Count:   %s\nSum:     %s\nAverage: %s\n&quot;, NR, sum, avg}'
-</code></pre>
-<h3 id="split-file-by-recurring-string">Split file by recurring string</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>awk<span class="w"> </span><span class="s1">&#39;NR % 2 == 0 { print $1 }&#39;</span>
+</span></code></pre></div>
+<h3 id="print-only-even-numbered-lines">Print only even numbered lines<a class="headerlink" href="#print-only-even-numbered-lines" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;NR % 2 == 0 { print $0 }&#39;</span>
+</span></code></pre></div>
+<h3 id="print-only-odd-numbered-lines">Print only odd numbered lines<a class="headerlink" href="#print-only-odd-numbered-lines" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;NR % 2 != 0 { print $0 }&#39;</span>
+</span></code></pre></div>
+<h3 id="print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines">Print even numbered lines on the same line before odd numbered lines<a class="headerlink" href="#print-even-numbered-lines-on-the-same-line-before-odd-numbered-lines" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>awk<span class="w"> </span><span class="s1">&#39;{if (NR%2==0) { print $0 &quot; &quot; prev } else { prev=$0 }}&#39;</span>
+</span></code></pre></div>
+<h3 id="print-sum-all-the-first-columns-of-each-line-in-a-file">Print sum all the first columns of each line in a file<a class="headerlink" href="#print-sum-all-the-first-columns-of-each-line-in-a-file" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>awk<span class="w"> </span><span class="s1">&#39;{sum += $1} END {print sum}&#39;</span><span class="w"> </span>filename
+</span></code></pre></div>
+<h3 id="print-count-sum-and-average-of-the-first-column-of-stdin">Print count, sum, and average of the first column of stdin<a class="headerlink" href="#print-count-sum-and-average-of-the-first-column-of-stdin" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">for</span><span class="w"> </span>_<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">RANDOM</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">100</span><span class="k">))</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>awk<span class="w"> </span><span class="s1">&#39;{sum += $1} END {avg = sum/NR ; printf &quot;Count:   %s\nSum:     %s\nAverage: %s\n&quot;, NR, sum, avg}&#39;</span>
+</span></code></pre></div>
+<h3 id="split-file-by-recurring-string">Split file by recurring string<a class="headerlink" href="#split-file-by-recurring-string" title="Permanent link">&para;</a></h3>
 <p>This will create a new file every time the string "SERVER" is found, essentially splitting the file by that string. Concatenating all of the output files would create the original file (potentially adding an extra newline).</p>
-<pre><code class="language-sh">awk '/SERVER/{n++}{print &gt;&quot;out&quot; sprintf(&quot;%02d&quot;, n) &quot;.txt&quot; }' example.txt
-</code></pre>
-<h3 id="show-count-of-syslog-messages-per-minute">Show count of syslog messages per minute</h3>
-<pre><code class="language-sh">awk -F: {'print $1 `“`:`”` $2'} /var/log/messages |uniq -c
-</code></pre>
-<h3 id="show-count-of-root-logins-per-minute">Show count of root logins per minute</h3>
-<pre><code class="language-sh">awk -F: '/root/{print $1 &quot;:&quot; $2}' /var/log/auth.log |uniq -c
-</code></pre>
-<h3 id="print-lines-in-ls-where-uid-is-numeric">Print lines in ls where UID is numeric</h3>
-<pre><code class="language-sh">ls -la | awk '$3 ~/[0-9]/{print}'
-</code></pre>
-<h3 id="show-only-zfs-snapshots-whose-size-is-zero">Show only zfs snapshots whose size is zero</h3>
-<pre><code class="language-sh">zfs list -t snapshot | awk '$2 == 0'
-</code></pre>
-<h3 id="print-a-line-if-the-third-field-does-not-match-a-regex">Print a line if the third field does not match a regex</h3>
-<pre><code class="language-sh">echo {100..200} | fold -w 12 | awk '$3 !~ /[13579]$/ {print}'
-</code></pre>
-<h3 id="show-500-errors-in-a-standard-apache-access-log">Show 500 errors in a standard apache access log</h3>
-<pre><code class="language-sh">awk '$9 ~ /5[0-9][0-9]/' access.log
-</code></pre>
-<h3 id="show-total-rss-and-vsz-count-for-all-cronolog-processes">Show total rss and vsz count for all cronolog processes</h3>
-<pre><code class="language-sh">ps aux |
-  grep -i cronolo[g] |
-  awk '{vsz += $5; rss += $6} END {print &quot;vsz total = &quot;vsz ; print &quot;rss total = &quot;rss}'
-</code></pre>
-<h3 id="get-ipv4-address-on-bsdosx">Get IPv4 address on BSD/OSX</h3>
-<pre><code class="language-sh">ifconfig | awk '$1 == &quot;inet&quot; &amp;&amp; $2 != &quot;127.0.0.1&quot; {print $2}'
-</code></pre>
-<h3 id="get-ipv6-address-on-bsdosx">Get IPv6 address on BSD/OSX</h3>
-<pre><code class="language-sh">ifconfig | awk '$1 == &quot;inet6&quot; &amp;&amp; $2 !~ &quot;::1|.*lo&quot; {print $2}'
-</code></pre>
-<h3 id="print-the-last-element">Print the last element</h3>
-<pre><code class="language-sh">ls -la | awk -F&quot; &quot; '{print $NF}'
-</code></pre>
-<h3 id="print-2nd-to-last-element">Print 2nd to last element</h3>
-<pre><code class="language-sh">ls -la | awk -F&quot; &quot; '{print $(NF - 1)}'
-</code></pre>
-<h3 id="print-the-previous-line-on-string-match">Print the previous line on string match</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>awk<span class="w"> </span><span class="s1">&#39;/SERVER/{n++}{print &gt;&quot;out&quot; sprintf(&quot;%02d&quot;, n) &quot;.txt&quot; }&#39;</span><span class="w"> </span>example.txt
+</span></code></pre></div>
+<h3 id="show-count-of-syslog-messages-per-minute">Show count of syslog messages per minute<a class="headerlink" href="#show-count-of-syslog-messages-per-minute" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>awk<span class="w"> </span>-F:<span class="w"> </span><span class="o">{</span><span class="s1">&#39;print $1 `“`:`”` $2&#39;</span><span class="o">}</span><span class="w"> </span>/var/log/messages<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span>-c
+</span></code></pre></div>
+<h3 id="show-count-of-root-logins-per-minute">Show count of root logins per minute<a class="headerlink" href="#show-count-of-root-logins-per-minute" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;/root/{print $1 &quot;:&quot; $2}&#39;</span><span class="w"> </span>/var/log/auth.log<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span>-c
+</span></code></pre></div>
+<h3 id="print-lines-in-ls-where-uid-is-numeric">Print lines in ls where UID is numeric<a class="headerlink" href="#print-lines-in-ls-where-uid-is-numeric" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$3 ~/[0-9]/{print}&#39;</span>
+</span></code></pre></div>
+<h3 id="show-only-zfs-snapshots-whose-size-is-zero">Show only zfs snapshots whose size is zero<a class="headerlink" href="#show-only-zfs-snapshots-whose-size-is-zero" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>zfs<span class="w"> </span>list<span class="w"> </span>-t<span class="w"> </span>snapshot<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$2 == 0&#39;</span>
+</span></code></pre></div>
+<h3 id="print-a-line-if-the-third-field-does-not-match-a-regex">Print a line if the third field does not match a regex<a class="headerlink" href="#print-a-line-if-the-third-field-does-not-match-a-regex" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">echo</span><span class="w"> </span><span class="o">{</span><span class="m">100</span>..200<span class="o">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>fold<span class="w"> </span>-w<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$3 !~ /[13579]$/ {print}&#39;</span>
+</span></code></pre></div>
+<h3 id="show-500-errors-in-a-standard-apache-access-log">Show 500 errors in a standard apache access log<a class="headerlink" href="#show-500-errors-in-a-standard-apache-access-log" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>awk<span class="w"> </span><span class="s1">&#39;$9 ~ /5[0-9][0-9]/&#39;</span><span class="w"> </span>access.log
+</span></code></pre></div>
+<h3 id="show-total-rss-and-vsz-count-for-all-cronolog-processes">Show total rss and vsz count for all cronolog processes<a class="headerlink" href="#show-total-rss-and-vsz-count-for-all-cronolog-processes" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span>grep<span class="w"> </span>-i<span class="w"> </span>cronolo<span class="o">[</span>g<span class="o">]</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;{vsz += $5; rss += $6} END {print &quot;vsz total = &quot;vsz ; print &quot;rss total = &quot;rss}&#39;</span>
+</span></code></pre></div>
+<h3 id="get-ipv4-address-on-bsdosx">Get IPv4 address on BSD/OSX<a class="headerlink" href="#get-ipv4-address-on-bsdosx" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$1 == &quot;inet&quot; &amp;&amp; $2 != &quot;127.0.0.1&quot; {print $2}&#39;</span>
+</span></code></pre></div>
+<h3 id="get-ipv6-address-on-bsdosx">Get IPv6 address on BSD/OSX<a class="headerlink" href="#get-ipv6-address-on-bsdosx" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$1 == &quot;inet6&quot; &amp;&amp; $2 !~ &quot;::1|.*lo&quot; {print $2}&#39;</span>
+</span></code></pre></div>
+<h3 id="print-the-last-element">Print the last element<a class="headerlink" href="#print-the-last-element" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s2">&quot; &quot;</span><span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span>
+</span></code></pre></div>
+<h3 id="print-2nd-to-last-element">Print 2<sup>nd</sup> to last element<a class="headerlink" href="#print-2nd-to-last-element" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s2">&quot; &quot;</span><span class="w"> </span><span class="s1">&#39;{print $(NF - 1)}&#39;</span>
+</span></code></pre></div>
+<h3 id="print-the-previous-line-on-string-match">Print the previous line on string match<a class="headerlink" href="#print-the-previous-line-on-string-match" title="Permanent link">&para;</a></h3>
 <p>This works by storing the previous line. If the current line matches the regex, the previous line is printed from the stored value.</p>
-<pre><code class="language-sh">$ awk '/32 host/ { print previous_line } {previous_line=$0}' /proc/net/fib_trie | column -t | sort -u
-|--  10.134.243.137
-|--  127.0.0.1
-|--  169.50.9.172
-</code></pre>
-<h3 id="add-content-to-line-1-if-there-is-no-match">Add content to line 1 if there is no match</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/32 host/ { print previous_line } {previous_line=$0}&#39;</span><span class="w"> </span>/proc/net/fib_trie<span class="w"> </span><span class="p">|</span><span class="w"> </span>column<span class="w"> </span>-t<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="p">|</span>--<span class="w">  </span><span class="m">10</span>.134.243.137
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="p">|</span>--<span class="w">  </span><span class="m">127</span>.0.0.1
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">|</span>--<span class="w">  </span><span class="m">169</span>.50.9.172
+</span></code></pre></div>
+<h3 id="add-content-to-line-1-if-there-is-no-match">Add content to line 1 if there is no match<a class="headerlink" href="#add-content-to-line-1-if-there-is-no-match" title="Permanent link">&para;</a></h3>
 <p>This adds a yaml document separator to the beginning of all yaml files in the current directory only if it does not already have one.</p>
-<pre><code class="language-sh">tempfile=$(mktemp)
-for file in ./*.yaml ; do
-  awk 'NR == 1 &amp;&amp; $0 != &quot;---&quot; {print &quot;---&quot;} {print}' &quot;${file}&quot; &gt; &quot;${tempfile}&quot; \
-  &amp;&amp; mv &quot;${tempfile}&quot; &quot;${file}&quot;
-done
-</code></pre>
-<h3 id="show-all-docker-images-in-a-helm-chart-and-their-https-links">Show all docker images in a helm chart and their https links</h3>
-<pre><code class="language-sh">helm template . --set global.baseDomain=foo.com -f /Users/danielh/a/google-environments/prod/cloud/app/config.yaml 2&gt;/dev/null |
-awk '/image: / {match($2, /(([^&quot;]*):[^&quot;]*)/, a) ; printf &quot;https://%s %s\n&quot;, a[2], a[1] ;}' |
-sort -u |
-column -t
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">tempfile</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="k">)</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>./*.yaml<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;NR == 1 &amp;&amp; $0 != &quot;---&quot; {print &quot;---&quot;} {print}&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">tempfile</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">tempfile</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="k">done</span>
+</span></code></pre></div>
+<h3 id="show-all-docker-images-in-a-helm-chart-and-their-https-links">Show all docker images in a helm chart and their https links<a class="headerlink" href="#show-all-docker-images-in-a-helm-chart-and-their-https-links" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>helm<span class="w"> </span>template<span class="w"> </span>.<span class="w"> </span>--set<span class="w"> </span>global.baseDomain<span class="o">=</span>foo.com<span class="w"> </span>-f<span class="w"> </span>/Users/danielh/a/google-environments/prod/cloud/app/config.yaml<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>awk<span class="w"> </span><span class="s1">&#39;/image: / {match($2, /(([^&quot;]*):[^&quot;]*)/, a) ; printf &quot;https://%s %s\n&quot;, a[2], a[1] ;}&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>column<span class="w"> </span>-t
+</span></code></pre></div>
 <p>A less complicated awk form of this that uses other shell commands would be</p>
-<pre><code class="language-sh">helm template . --set global.baseDomain=foo.com -f /Users/danielh/a/google-environments/prod/cloud/app/config.yaml 2&gt;/dev/null |
-grep 'image: ' |
-awk '{print $2}' |
-sed 's/&quot;//g' |
-sed 's/\(\(.*\):.*\)/https:\/\/\2 \1/' |
-sort -u |
-column -t
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>helm<span class="w"> </span>template<span class="w"> </span>.<span class="w"> </span>--set<span class="w"> </span>global.baseDomain<span class="o">=</span>foo.com<span class="w"> </span>-f<span class="w"> </span>/Users/danielh/a/google-environments/prod/cloud/app/config.yaml<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>grep<span class="w"> </span><span class="s1">&#39;image: &#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>sed<span class="w"> </span><span class="s1">&#39;s/&quot;//g&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>sed<span class="w"> </span><span class="s1">&#39;s/\(\(.*\):.*\)/https:\/\/\2 \1/&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>column<span class="w"> </span>-t
+</span></code></pre></div>
 <p>So it really depends on where you want to put your complications, how performant you want to be, and how readable you want it to be. These both produce identical output, but some people find it easier to read shorter commands with simpler syntaxes, which is great for maintainability when performance is not an issue.</p>
-<pre><code>https://quay.io/astronomer/ap-alertmanager  quay.io/astronomer/ap-alertmanager:0.23.0
-https://quay.io/astronomer/ap-astro-ui      quay.io/astronomer/ap-astro-ui:0.25.4
-https://quay.io/astronomer/ap-base          quay.io/astronomer/ap-base:3.14.2
-https://quay.io/astronomer/ap-cli-install   quay.io/astronomer/ap-cli-install:0.25.2
-...snip...
-</code></pre>
-<h3 id="show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length">Show a list of dns hostname queries with domain stripped, sorted by hostname length</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>https://quay.io/astronomer/ap-alertmanager  quay.io/astronomer/ap-alertmanager:0.23.0
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>https://quay.io/astronomer/ap-astro-ui      quay.io/astronomer/ap-astro-ui:0.25.4
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>https://quay.io/astronomer/ap-base          quay.io/astronomer/ap-base:3.14.2
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>https://quay.io/astronomer/ap-cli-install   quay.io/astronomer/ap-cli-install:0.25.2
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>...snip...
+</span></code></pre></div>
+<h3 id="show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length">Show a list of dns hostname queries with domain stripped, sorted by hostname length<a class="headerlink" href="#show-a-list-of-dns-hostname-queries-with-domain-stripped-sorted-by-hostname-length" title="Permanent link">&para;</a></h3>
 <p>This samples 100k dns queries, strips off all the domain names in the queried hostname, and prints the length of that first component of the FQDN (the bare hostname) along with the bare hostname itself, and shows the longest 25 entries.</p>
-<pre><code class="language-sh">tcpdump -c 100000 -l -n -e dst port 53 |
-awk '$14 == &quot;A?&quot; {gsub(/\..*/, &quot;&quot;, $15) ; print(length($15), $15) ; fflush(&quot;/dev/stdout&quot;) ;}' |
-sort -u |
-sort -n |
-tail -n 25
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>tcpdump<span class="w"> </span>-c<span class="w"> </span><span class="m">100000</span><span class="w"> </span>-l<span class="w"> </span>-n<span class="w"> </span>-e<span class="w"> </span>dst<span class="w"> </span>port<span class="w"> </span><span class="m">53</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>awk<span class="w"> </span><span class="s1">&#39;$14 == &quot;A?&quot; {gsub(/\..*/, &quot;&quot;, $15) ; print(length($15), $15) ; fflush(&quot;/dev/stdout&quot;) ;}&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">25</span>
+</span></code></pre></div>
 <p>Run this on your kube-dns nodes to see how close you're getting to the 63 character limit. You will never see errors though, because any name with components that are longer than 63 characters are not sent over the wire, so you'll need to check your logs for those. A good string to search for is "63 characters".</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.grymoire.com/Unix/Awk.html">https://www.grymoire.com/Unix/Awk.html</a></li>
 <li><a href="https://github.com/TheMozg/awk-raycaster">https://github.com/TheMozg/awk-raycaster</a>: An FPS written in awk</li>
 </ul>
+
+
 
 
 
@@ -10964,8 +10988,16 @@ tail -n 25
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -10975,23 +11007,15 @@ tail -n 25
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -11009,12 +11033,11 @@ tail -n 25
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

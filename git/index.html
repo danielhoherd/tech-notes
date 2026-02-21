@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/git/">
       
       
         <link rel="prev" href="../gige-vision/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>Git - Daniel Hoherd's tech notes</title>
+        <title>Git - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -3361,7 +3375,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3380,7 +3394,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -3389,7 +3404,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -11154,7 +11169,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -11163,7 +11179,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -12195,15 +12211,21 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="git">Git</h1>
+<h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
 <p>baddass version control</p>
-<h2 id="links">Links</h2>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://git-scm.com/book/">https://git-scm.com/book/</a></li>
 <li><a href="https://docs.github.com/en/get-started/using-github/github-flow">https://docs.github.com/en/get-started/using-github/github-flow</a></li>
@@ -12224,311 +12246,313 @@
 <li><a href="https://blog.izissise.net/posts/gitconfig">https://blog.izissise.net/posts/gitconfig</a></li>
 <li><a href="https://github.com/dandavison/delta">https://github.com/dandavison/delta</a>: "A syntax-highlighting pager for git, diff, grep, and blame output"</li>
 </ul>
-<h2 id="examples">Examples</h2>
-<h3 id="git-init">git init</h3>
-<h4 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD</h4>
-<pre><code class="language-sh">git init
-echo &quot;&quot; &gt;&gt; .gitignore
-echo &quot;# Ignore other unneeded files.
-*.swp
-*~
-.DS_Store&quot; &gt;&gt; .gitignore
-</code></pre>
-<h4 id="debug-your-gitignore">Debug your .gitignore</h4>
-<pre><code class="language-sh">git check-ignore -v some_path another_thing .and-one-more
-</code></pre>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="git-init">git init<a class="headerlink" href="#git-init" title="Permanent link">&para;</a></h3>
+<h4 id="create-a-git-repository-for-the-cwd">Create a git repository for the CWD<a class="headerlink" href="#create-a-git-repository-for-the-cwd" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>init
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Ignore other unneeded files.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s2">*.swp</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s2">*~</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s2">.DS_Store&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+</span></code></pre></div>
+<h4 id="debug-your-gitignore">Debug your .gitignore<a class="headerlink" href="#debug-your-gitignore" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>check-ignore<span class="w"> </span>-v<span class="w"> </span>some_path<span class="w"> </span>another_thing<span class="w"> </span>.and-one-more
+</span></code></pre></div>
 <p>This will print out which rule is ignoring the given things, if any of them match any rules, and will print nothing if none of the given items are ignored.</p>
-<h3 id="git-clone">git clone</h3>
-<h4 id="clone-a-local-repo">Clone a local repo</h4>
-<pre><code class="language-sh">git clone /path/to/repo
-</code></pre>
-<h4 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh</h4>
-<pre><code class="language-sh">git clone user@ssh_server:/opt/git/project
-</code></pre>
-<h4 id="clone-and-specify-a-key-when-using-ssh-agent">Clone and specify a key when using ssh-agent</h4>
+<h3 id="git-clone">git clone<a class="headerlink" href="#git-clone" title="Permanent link">&para;</a></h3>
+<h4 id="clone-a-local-repo">Clone a local repo<a class="headerlink" href="#clone-a-local-repo" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>/path/to/repo
+</span></code></pre></div>
+<h4 id="clone-a-remote-git-repo-via-ssh">Clone a remote git repo via ssh<a class="headerlink" href="#clone-a-remote-git-repo-via-ssh" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>user@ssh_server:/opt/git/project
+</span></code></pre></div>
+<h4 id="clone-and-specify-a-key-when-using-ssh-agent">Clone and specify a key when using ssh-agent<a class="headerlink" href="#clone-and-specify-a-key-when-using-ssh-agent" title="Permanent link">&para;</a></h4>
 <p>When using ssh-agent, if you have several keys loaded this can present problems. One of those problems is if you have multiple keys loaded that have different authorizations on a remote git server like Github. For instance, say you have <code>~/.ssh/id_ed25519_home</code> as your personal private key and <code>~/.ssh/id_ed225519_work</code> as your private work key. If you try to clone a work repo and git tries to authenticate with your home identity first, it will be unauthorized and the clone will fail, even though you have a second identity loaded that could have succeeded. To work around this, do something like:</p>
-<pre><code class="language-sh">export GIT_SSH_COMMAND=&quot;ssh -o IdentitiesOnly=yes -i $HOME/.ssh/id_ed225519_work&quot;
-git clone git@github.com:your-work-gh-org/super-secret-repo.git
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_SSH_COMMAND</span><span class="o">=</span><span class="s2">&quot;ssh -o IdentitiesOnly=yes -i </span><span class="nv">$HOME</span><span class="s2">/.ssh/id_ed225519_work&quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:your-work-gh-org/super-secret-repo.git
+</span></code></pre></div>
 <p>This works fine for one key having authorization to all private repos. This becomes difficult when you have multiple repos, each with a key that only has authorization for that single repo, such as using deploy keys tied to a single repo. If you try that when doing something like <code>yarn install</code>, which is trying to clone multiple private repos, it will fail 100% of the time. In that case, you can follow the next example. You may have to read it twice, because setting up the configuration makes more sense if you do ssh then git, but logically it makes more sense if you go from git into ssh, which is how the process actually flows.</p>
 <p>Construct an ssh_config file that configures a unique <code>Host</code> for each private repo you need to clone and private key file that has access to it:</p>
-<pre><code>Host secret_repo_1
-   Hostname github.com
-   IdentityFile ~/.ssh/private_key_for_repo_1
-
-Host secret_repo_2
-   Hostname github.com
-   IdentityFile ~/.ssh/private_key_for_repo_2
-
-IdentitiesOnly yes
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Host secret_repo_1
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   Hostname github.com
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   IdentityFile ~/.ssh/private_key_for_repo_1
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Host secret_repo_2
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>   Hostname github.com
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>   IdentityFile ~/.ssh/private_key_for_repo_2
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>IdentitiesOnly yes
+</span></code></pre></div>
 <p>The ssh_configs above allow ssh access to what is essentially a host alias where the key that is authorized for the repo is used when ssh tries to connect to the correlated Host entry. In the next step, we do the same thing in reverse by crafting a <code>gitconfig</code> file with one stanza for each of the ssh Host entries from your ssh_config, pointing it back to github:</p>
-<pre><code>[url &quot;git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git&quot;]
-    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-1.git
-
-[url &quot;git@secret_repo_2:your-work-gh-org/super-secret-repo-2.git&quot;]
-    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-2.git
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[url &quot;git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git&quot;]
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-1.git
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>[url &quot;git@secret_repo_2:your-work-gh-org/super-secret-repo-2.git&quot;]
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    insteadOf = git@github.com:your-work-gh-org/super-secret-repo-2.git
+</span></code></pre></div>
 <p>We then export two variables in the shell:</p>
-<pre><code>export GIT_SSH_COMMAND=&quot;ssh -F $PWD/your_crafted_ssh_config_file&quot;
-export GIT_CONFIG_GLOBAL=&quot;$PWD/your_crafted_gitconfig_file&quot;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export GIT_SSH_COMMAND=&quot;ssh -F $PWD/your_crafted_ssh_config_file&quot;
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>export GIT_CONFIG_GLOBAL=&quot;$PWD/your_crafted_gitconfig_file&quot;
+</span></code></pre></div>
 <p>What happens next is when you execute <code>git clone git@github.com:your-work-gh-org/super-secret-repo-1.git</code>, which is the originally source git URL, your git_config alters the URL to be <code>git@secret_repo_1:your-work-gh-org/super-secret-repo-1.git</code>. The server name is passed into <code>ssh</code>, which uses your custom ssh_config file to connect to github.com using the options for that entry that are specified in the git_config, which includes using the identity file that is unique to that git repository. The same series of steps happens for secret_repo_2. The result is that each of these git repositories can be cloned using their original github URL, but these custom ssh configs are used in the process, which allows the right authentication mechanisms to be used for each individual git repository. This all happens without us having to alter the source code of the repo we are building, EG: without modifying <code>package.json</code> which is used by <code>yarn</code>. Using these techniques, we can set up CI to build software from private repositories using deploy keys where otherwise we would be unable to due to ssh authentication errors that might work fine for somebody who has a single ssh key that is authorized to clone all of the repositories.</p>
-<h3 id="git-filesystem-operations">git filesystem operations</h3>
-<h4 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo</h4>
-<pre><code class="language-sh">git add .
-</code></pre>
-<h4 id="rename-a-file-in-the-git-repo">Rename a file in the git repo</h4>
+<h3 id="git-filesystem-operations">git filesystem operations<a class="headerlink" href="#git-filesystem-operations" title="Permanent link">&para;</a></h3>
+<h4 id="add-everything-in-the-cwd-to-the-git-repo">Add everything in the CWD to the git repo<a class="headerlink" href="#add-everything-in-the-cwd-to-the-git-repo" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span></code></pre></div>
+<h4 id="rename-a-file-in-the-git-repo">Rename a file in the git repo<a class="headerlink" href="#rename-a-file-in-the-git-repo" title="Permanent link">&para;</a></h4>
 <p>This also renames the filesystem file.</p>
-<pre><code class="language-sh">git mv README.rdoc README.md
-</code></pre>
-<h4 id="delete-a-file-from-the-repo">Delete a file from the repo</h4>
-<pre><code class="language-sh">git rm filename
-</code></pre>
-<h3 id="git-status">git status</h3>
-<h4 id="check-the-status-of-git">Check the status of git</h4>
-<pre><code class="language-sh">git status
-</code></pre>
-<h3 id="git-commit">git commit</h3>
-<h4 id="commit-the-current-changes">Commit the current changes</h4>
-<pre><code class="language-sh">git commit -m &quot;Initial commit&quot;
-</code></pre>
-<h4 id="commit-all-changes-with-commit-a">Commit all changes with commit -a</h4>
-<pre><code class="language-sh">git commit -a -m &quot;Improve the README file&quot;
-</code></pre>
-<h4 id="skip-git-commit-hooks">Skip git commit hooks</h4>
-<pre><code class="language-sh">git commit --no-verify
-</code></pre>
-<h3 id="git-tag">git tag</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>mv<span class="w"> </span>README.rdoc<span class="w"> </span>README.md
+</span></code></pre></div>
+<h4 id="delete-a-file-from-the-repo">Delete a file from the repo<a class="headerlink" href="#delete-a-file-from-the-repo" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>rm<span class="w"> </span>filename
+</span></code></pre></div>
+<h3 id="git-status">git status<a class="headerlink" href="#git-status" title="Permanent link">&para;</a></h3>
+<h4 id="check-the-status-of-git">Check the status of git<a class="headerlink" href="#check-the-status-of-git" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<h3 id="git-commit">git commit<a class="headerlink" href="#git-commit" title="Permanent link">&para;</a></h3>
+<h4 id="commit-the-current-changes">Commit the current changes<a class="headerlink" href="#commit-the-current-changes" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+</span></code></pre></div>
+<h4 id="commit-all-changes-with-commit-a">Commit all changes with commit -a<a class="headerlink" href="#commit-all-changes-with-commit-a" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Improve the README file&quot;</span>
+</span></code></pre></div>
+<h4 id="skip-git-commit-hooks">Skip git commit hooks<a class="headerlink" href="#skip-git-commit-hooks" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>commit<span class="w"> </span>--no-verify
+</span></code></pre></div>
+<h3 id="git-tag">git tag<a class="headerlink" href="#git-tag" title="Permanent link">&para;</a></h3>
 <p><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></p>
 <p>Git supports two types of tags: lightweight and annotated.</p>
-<h4 id="create-an-annotated-tag">Create an annotated tag</h4>
+<h4 id="create-an-annotated-tag">Create an annotated tag<a class="headerlink" href="#create-an-annotated-tag" title="Permanent link">&para;</a></h4>
 <p>Annotated tags, are stored as full objects in the Git database.</p>
-<pre><code class="language-sh">git tag -m &quot;Improve X and Y.&quot; v0.5.3
-</code></pre>
-<h4 id="create-a-light-tag">Create a light tag</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Improve X and Y.&quot;</span><span class="w"> </span>v0.5.3
+</span></code></pre></div>
+<h4 id="create-a-light-tag">Create a light tag<a class="headerlink" href="#create-a-light-tag" title="Permanent link">&para;</a></h4>
 <p>This is basically DNS A records for git SHAs. The SHA is referenced by the tag, no other info is stored. Using them is generally frowned upon because tags tend to be used where context is important, so the annotations that go with an annotated tag are more suitable.</p>
-<pre><code class="language-sh">git tag v0.5.3
-</code></pre>
-<h4 id="delete-a-local-tag">Delete a local tag</h4>
-<pre><code class="language-sh">git tag -d v0.5.3
-</code></pre>
-<h4 id="delete-a-remote-tag">Delete a remote tag</h4>
-<pre><code class="language-sh">git push --delete origin v0.5.3
-</code></pre>
-<h4 id="show-what-tags-contain-a-given-sha">Show what tags contain a given sha</h4>
-<pre><code class="language-sh">git tag --contains abc123
-</code></pre>
-<h3 id="git-config">git config</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v0.5.3
+</span></code></pre></div>
+<h4 id="delete-a-local-tag">Delete a local tag<a class="headerlink" href="#delete-a-local-tag" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>v0.5.3
+</span></code></pre></div>
+<h4 id="delete-a-remote-tag">Delete a remote tag<a class="headerlink" href="#delete-a-remote-tag" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>push<span class="w"> </span>--delete<span class="w"> </span>origin<span class="w"> </span>v0.5.3
+</span></code></pre></div>
+<h4 id="show-what-tags-contain-a-given-sha">Show what tags contain a given sha<a class="headerlink" href="#show-what-tags-contain-a-given-sha" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>tag<span class="w"> </span>--contains<span class="w"> </span>abc123
+</span></code></pre></div>
+<h3 id="git-config">git config<a class="headerlink" href="#git-config" title="Permanent link">&para;</a></h3>
 <p><code>git config</code> interacts with configs. There are three scopes: --local, --global, --system.</p>
 <ul>
 <li>Local = per-repo settings. IE: stored in .git/config directory for the repo</li>
 <li>Global = per-user settings. IE: stored in ~/.gitconfig</li>
 <li>System = per-system settings, found in /etc/ or wherever git is looking for system settings.</li>
 </ul>
-<h4 id="always-use-ssh-for-githubcom">Always use ssh for github.com</h4>
-<pre><code class="language-sh">git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
-</code></pre>
-<h4 id="git-client-setup">Git client setup</h4>
+<h4 id="always-use-ssh-for-githubcom">Always use ssh for github.com<a class="headerlink" href="#always-use-ssh-for-githubcom" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>url.<span class="s2">&quot;git@github.com:&quot;</span>.insteadOf<span class="w"> </span><span class="s2">&quot;https://github.com/&quot;</span>
+</span></code></pre></div>
+<h4 id="git-client-setup">Git client setup<a class="headerlink" href="#git-client-setup" title="Permanent link">&para;</a></h4>
 <p>This creates and modifies ~/.gitconfig with some parameters:</p>
-<pre><code class="language-sh">git config --global user.name &quot;Daniel Hoherd&quot;
-git config --global user.email daniel.hoherd@gmail.com
-git config --global alias.co checkout
-git config --global core.editor &quot;vim&quot;
-git config --global merge.tool vimdiff
-git config --global log.date iso
-</code></pre>
-<h4 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params</h4>
-<pre><code class="language-sh">git config --replace-all svn-remote.svn.url https://svn.example.com/ops/
-git config --replace-all svn-remote.svn.fetch ops:refs/remotes/trunk
-git config --add svn-remote.svn.preserve-empty-dirs true
-git config --unset svn-remote.svn.branches
-git config --unset svn-remote.svn.tags
-git config --add svn.authorsfile /srv-cluster/git-svn/git/author.txt
-</code></pre>
-<h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format</h4>
-<pre><code class="language-sh">git config --list
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Daniel Hoherd&quot;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>daniel.hoherd@gmail.com
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.co<span class="w"> </span>checkout
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;vim&quot;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>merge.tool<span class="w"> </span>vimdiff
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>log.date<span class="w"> </span>iso
+</span></code></pre></div>
+<h4 id="edit-a-gitconfig-file-with-some-params">Edit a .git/config file with some params<a class="headerlink" href="#edit-a-gitconfig-file-with-some-params" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>config<span class="w"> </span>--replace-all<span class="w"> </span>svn-remote.svn.url<span class="w"> </span>https://svn.example.com/ops/
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>git<span class="w"> </span>config<span class="w"> </span>--replace-all<span class="w"> </span>svn-remote.svn.fetch<span class="w"> </span>ops:refs/remotes/trunk
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>git<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>svn-remote.svn.preserve-empty-dirs<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>git<span class="w"> </span>config<span class="w"> </span>--unset<span class="w"> </span>svn-remote.svn.branches
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>git<span class="w"> </span>config<span class="w"> </span>--unset<span class="w"> </span>svn-remote.svn.tags
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>git<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>svn.authorsfile<span class="w"> </span>/srv-cluster/git-svn/git/author.txt
+</span></code></pre></div>
+<h4 id="show-your-configs-in-a-dotted-one-one-per-option-format">Show your configs in a dotted one-one-per-option format<a class="headerlink" href="#show-your-configs-in-a-dotted-one-one-per-option-format" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>config<span class="w"> </span>--list
+</span></code></pre></div>
 <p>Also include the file that each configuration setting is defined in:</p>
-<pre><code class="language-sh">git config --list --show-origin
-</code></pre>
-<h3 id="git-diff">git diff</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span>--show-origin
+</span></code></pre></div>
+<h3 id="git-diff">git diff<a class="headerlink" href="#git-diff" title="Permanent link">&para;</a></h3>
 <p>Show differences between objects and stuff.</p>
-<h4 id="diff-between-staged-and-committed">diff between staged and committed</h4>
+<h4 id="diff-between-staged-and-committed">diff between staged and committed<a class="headerlink" href="#diff-between-staged-and-committed" title="Permanent link">&para;</a></h4>
 <p>This is useful when you're adding files that were not previously in the repo alongside changes to existing files, since a bare <code>git diff</code> before adding the files will only show changes to files that were already in the repo.</p>
-<pre><code class="language-sh">git diff --staged
-</code></pre>
-<h4 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences</h4>
-<pre><code class="language-sh">git diff --color-words
-</code></pre>
-<h4 id="machine-readable-word-diff">Machine readable word diff</h4>
-<pre><code class="language-sh">git diff --word-diff
-</code></pre>
-<h4 id="diff-and-ignore-whitespace">Diff and ignore whitespace</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>diff<span class="w"> </span>--staged
+</span></code></pre></div>
+<h4 id="diff-that-shows-per-word-colored-differences">diff that shows per-word colored differences<a class="headerlink" href="#diff-that-shows-per-word-colored-differences" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>diff<span class="w"> </span>--color-words
+</span></code></pre></div>
+<h4 id="machine-readable-word-diff">Machine readable word diff<a class="headerlink" href="#machine-readable-word-diff" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>diff<span class="w"> </span>--word-diff
+</span></code></pre></div>
+<h4 id="diff-and-ignore-whitespace">Diff and ignore whitespace<a class="headerlink" href="#diff-and-ignore-whitespace" title="Permanent link">&para;</a></h4>
 <p>This does not ignore line ending changes or blank line insertion and removals.</p>
-<pre><code class="language-sh">git diff -w
-</code></pre>
-<h4 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date</h4>
-<pre><code class="language-sh">git diff $(git rev-list -n1 --before=&quot;1 month ago&quot; master)
-</code></pre>
-<h4 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time</h4>
-<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; -p
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>diff<span class="w"> </span>-w
+</span></code></pre></div>
+<h4 id="show-diffs-between-master-and-a-given-date">Show diffs between master and a given date<a class="headerlink" href="#show-diffs-between-master-and-a-given-date" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>diff<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>rev-list<span class="w"> </span>-n1<span class="w"> </span>--before<span class="o">=</span><span class="s2">&quot;1 month ago&quot;</span><span class="w"> </span>master<span class="k">)</span>
+</span></code></pre></div>
+<h4 id="show-what-has-changed-since-a-point-in-time">Show what has changed since a point in time<a class="headerlink" href="#show-what-has-changed-since-a-point-in-time" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>whatchanged<span class="w"> </span>--since<span class="o">=</span><span class="s2">&quot;18 hours ago&quot;</span><span class="w"> </span>-p
+</span></code></pre></div>
 <p>or...</p>
-<pre><code class="language-sh">git whatchanged --since=&quot;18 hours ago&quot; --until=&quot;6 hours ago&quot; -p
-</code></pre>
-<h3 id="git-blame">git blame</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>git<span class="w"> </span>whatchanged<span class="w"> </span>--since<span class="o">=</span><span class="s2">&quot;18 hours ago&quot;</span><span class="w"> </span>--until<span class="o">=</span><span class="s2">&quot;6 hours ago&quot;</span><span class="w"> </span>-p
+</span></code></pre></div>
+<h3 id="git-blame">git blame<a class="headerlink" href="#git-blame" title="Permanent link">&para;</a></h3>
 <p><code>git blame</code> shows information about the commit associated with each line of a file.</p>
-<h4 id="simple-usage">Simple usage</h4>
-<pre><code class="language-sh">git blame &lt;filename&gt;
-</code></pre>
-<h4 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame</h4>
+<h4 id="simple-usage">Simple usage<a class="headerlink" href="#simple-usage" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>blame<span class="w"> </span>&lt;filename&gt;
+</span></code></pre></div>
+<h4 id="show-non-whitespace-changes-in-blame">Show non-whitespace changes in blame<a class="headerlink" href="#show-non-whitespace-changes-in-blame" title="Permanent link">&para;</a></h4>
 <p>When somebody has reformatted code but didn't make any code changes, this will show the prior commits where something more than whitespace changed.</p>
-<pre><code class="language-sh">git blame -w &lt;filename&gt;
-</code></pre>
-<h3 id="git-log">git log</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>git<span class="w"> </span>blame<span class="w"> </span>-w<span class="w"> </span>&lt;filename&gt;
+</span></code></pre></div>
+<h3 id="git-log">git log<a class="headerlink" href="#git-log" title="Permanent link">&para;</a></h3>
 <p>Shows commit history.</p>
-<h4 id="view-the-commit-history">View the commit history</h4>
-<pre><code class="language-sh">git log
-</code></pre>
-<h4 id="show-one-log-entry">Show one log entry</h4>
-<pre><code class="language-sh">git log -1
-</code></pre>
-<h4 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string</h4>
+<h4 id="view-the-commit-history">View the commit history<a class="headerlink" href="#view-the-commit-history" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<h4 id="show-one-log-entry">Show one log entry<a class="headerlink" href="#show-one-log-entry" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>git<span class="w"> </span>log<span class="w"> </span>-1
+</span></code></pre></div>
+<h4 id="show-git-commits-that-contain-a-given-string">Show git commits that contain a given string<a class="headerlink" href="#show-git-commits-that-contain-a-given-string" title="Permanent link">&para;</a></h4>
 <p>This searches the content of the diff, not the commit message.</p>
-<pre><code class="language-sh">git log -S search_string
-</code></pre>
-<h4 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex</h4>
-<pre><code class="language-sh">git log --grep='[Ww]hitespace'
-</code></pre>
-<h4 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days</h4>
-<pre><code class="language-sh">git log --since=3.days modules/profile_sensu
-</code></pre>
-<h4 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>git<span class="w"> </span>log<span class="w"> </span>-S<span class="w"> </span>search_string
+</span></code></pre></div>
+<h4 id="show-commit-messages-that-match-a-given-regex">Show commit messages that match a given regex<a class="headerlink" href="#show-commit-messages-that-match-a-given-regex" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>git<span class="w"> </span>log<span class="w"> </span>--grep<span class="o">=</span><span class="s1">&#39;[Ww]hitespace&#39;</span>
+</span></code></pre></div>
+<h4 id="show-logs-for-a-given-dir-in-the-last-3-days">Show logs for a given dir in the last 3 days<a class="headerlink" href="#show-logs-for-a-given-dir-in-the-last-3-days" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>git<span class="w"> </span>log<span class="w"> </span>--since<span class="o">=</span><span class="m">3</span>.days<span class="w"> </span>modules/profile_sensu
+</span></code></pre></div>
+<h4 id="show-raw-log-history-for-5-most-recent-commits">Show raw log history for 5 most recent commits<a class="headerlink" href="#show-raw-log-history-for-5-most-recent-commits" title="Permanent link">&para;</a></h4>
 <p>Useful for seeing TZ settings.</p>
-<pre><code class="language-sh">git log --format=raw -5
-</code></pre>
-<h4 id="really-pretty-logs">Really pretty logs</h4>
-<pre><code class="language-sh">log --graph --oneline --decorate --all
-</code></pre>
-<h3 id="git-shortlog">git shortlog</h3>
-<h4 id="show-number-of-commits-by-user-including-e-mail">Show number of commits by user, including e-mail</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>git<span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span>raw<span class="w"> </span>-5
+</span></code></pre></div>
+<h4 id="really-pretty-logs">Really pretty logs<a class="headerlink" href="#really-pretty-logs" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>log<span class="w"> </span>--graph<span class="w"> </span>--oneline<span class="w"> </span>--decorate<span class="w"> </span>--all
+</span></code></pre></div>
+<h3 id="git-shortlog">git shortlog<a class="headerlink" href="#git-shortlog" title="Permanent link">&para;</a></h3>
+<h4 id="show-number-of-commits-by-user-including-e-mail">Show number of commits by user, including e-mail<a class="headerlink" href="#show-number-of-commits-by-user-including-e-mail" title="Permanent link">&para;</a></h4>
 <p>Using the <code>-e</code> flag includes e-mail address. The list is unique per entry, so if you use a different name along with the same e-mail address, that shows up as two entries in the list.</p>
-<pre><code class="language-sh">git shortlog -ens
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>git<span class="w"> </span>shortlog<span class="w"> </span>-ens
+</span></code></pre></div>
 <p>Keep in mind this is commits, not lines within the current codebase. If the repo is old, this information may not be useful for finding people who are in-the-know about the current contents of the repo. This is useful for preparing a user list for a <a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> operation.</p>
-<h3 id="git-show">git show</h3>
-<h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA</h4>
-<pre><code class="language-sh">git show f73f9ec7c07e
-</code></pre>
-<h4 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA</h4>
+<h3 id="git-show">git show<a class="headerlink" href="#git-show" title="Permanent link">&para;</a></h3>
+<h4 id="show-the-changes-from-a-specific-sha">Show the changes from a specific SHA<a class="headerlink" href="#show-the-changes-from-a-specific-sha" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>git<span class="w"> </span>show<span class="w"> </span>f73f9ec7c07e
+</span></code></pre></div>
+<h4 id="show-a-complete-file-as-of-a-given-sha">Show a complete file as of a given SHA<a class="headerlink" href="#show-a-complete-file-as-of-a-given-sha" title="Permanent link">&para;</a></h4>
 <p>This is an absolute path from the git root, not relative to CWD. This command will show the whole file as of the given SHA.</p>
-<pre><code class="language-sh">git show f73f9ec7c07e:dir/filename.yaml
-</code></pre>
-<h3 id="git-branches">git branches</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>git<span class="w"> </span>show<span class="w"> </span>f73f9ec7c07e:dir/filename.yaml
+</span></code></pre></div>
+<h3 id="git-branches">git branches<a class="headerlink" href="#git-branches" title="Permanent link">&para;</a></h3>
 <p>Branches are an integral part of git. They allow you to work on distinct changes without mixing them all up together.</p>
-<h4 id="create-a-branch">Create a branch</h4>
-<pre><code class="language-sh">git checkout -b readme-fix
-</code></pre>
-<h4 id="check-which-branch-youre-in">Check which branch you're in</h4>
-<pre><code class="language-sh">git branch
-</code></pre>
-<h4 id="rename-move-a-branch">Rename (move) a branch</h4>
-<pre><code class="language-sh">git branch -m oldname newname
-</code></pre>
-<h4 id="show-what-branches-contain-a-given-sha">Show what branches contain a given sha</h4>
-<pre><code class="language-sh">git branch --contains abc123
-</code></pre>
-<h3 id="git-merge">git merge</h3>
+<h4 id="create-a-branch">Create a branch<a class="headerlink" href="#create-a-branch" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>readme-fix
+</span></code></pre></div>
+<h4 id="check-which-branch-youre-in">Check which branch you're in<a class="headerlink" href="#check-which-branch-youre-in" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<h4 id="rename-move-a-branch">Rename (move) a branch<a class="headerlink" href="#rename-move-a-branch" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>oldname<span class="w"> </span>newname
+</span></code></pre></div>
+<h4 id="show-what-branches-contain-a-given-sha">Show what branches contain a given sha<a class="headerlink" href="#show-what-branches-contain-a-given-sha" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>git<span class="w"> </span>branch<span class="w"> </span>--contains<span class="w"> </span>abc123
+</span></code></pre></div>
+<h3 id="git-merge">git merge<a class="headerlink" href="#git-merge" title="Permanent link">&para;</a></h3>
 <p>This lets you merge two branches.</p>
-<h4 id="merge-branch-with-master">Merge branch with master</h4>
-<pre><code class="language-sh">git checkout master
-git merge readme-fix-branch
-git branch -d readme-fix-branch
-</code></pre>
-<h4 id="disable-fast-forward-merges">disable fast-forward merges</h4>
+<h4 id="merge-branch-with-master">Merge branch with master<a class="headerlink" href="#merge-branch-with-master" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>git<span class="w"> </span>merge<span class="w"> </span>readme-fix-branch
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>readme-fix-branch
+</span></code></pre></div>
+<h4 id="disable-fast-forward-merges">disable fast-forward merges<a class="headerlink" href="#disable-fast-forward-merges" title="Permanent link">&para;</a></h4>
 <p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
-<pre><code class="language-sh">git config --global merge.ff false
-</code></pre>
-<h3 id="git-filter-repo">git filter-repo</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>merge.ff<span class="w"> </span><span class="nb">false</span>
+</span></code></pre></div>
+<h3 id="git-filter-repo">git filter-repo<a class="headerlink" href="#git-filter-repo" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> is not a standard tool with git, but can be installed separately. It is used for rewriting the history of the git repo, allowing move, rename, merging and trimming operations, rewriting commit IDs, and more. This is a destructive tool, so it should be performed on a fresh clone of the repo while you iterate on finding the right sequence of operations to perform to get to your desired state. The destructive nature is that it rewrites the entire history of the repo, so if your repo depends on specific SHAs or any other specific history, you probably need to take a harder look at how to solve your problem.</p>
-<h4 id="extract-one-subdir-into-its-own-repo-renaming-some-files">Extract one subdir into its own repo, renaming some files</h4>
+<h4 id="extract-one-subdir-into-its-own-repo-renaming-some-files">Extract one subdir into its own repo, renaming some files<a class="headerlink" href="#extract-one-subdir-into-its-own-repo-renaming-some-files" title="Permanent link">&para;</a></h4>
 <p>This is great if you want to extract part of a repo for public release, or just for organizational purposes.</p>
 <p>Extract the path <code>scratch-work/scripts</code> into <code>bin</code>, removing all other history in the repo.</p>
-<pre><code>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
-</code></pre>
-<h3 id="remotes">remotes</h3>
-<h4 id="add-a-remote">Add a remote</h4>
-<pre><code class="language-sh">git remote add upstream https://github.com/danielhoherd/homepass
-</code></pre>
-<h4 id="push-to-a-specific-remote">Push to a specific remote</h4>
-<pre><code class="language-sh"># push to the master branch of the remote named upstream
-git push upstream master
-</code></pre>
-<h4 id="alter-the-source-of-origin">Alter the source of origin</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
+</span></code></pre></div>
+<h3 id="remotes">remotes<a class="headerlink" href="#remotes" title="Permanent link">&para;</a></h3>
+<h4 id="add-a-remote">Add a remote<a class="headerlink" href="#add-a-remote" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/danielhoherd/homepass
+</span></code></pre></div>
+<h4 id="push-to-a-specific-remote">Push to a specific remote<a class="headerlink" href="#push-to-a-specific-remote" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c1"># push to the master branch of the remote named upstream</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span>master
+</span></code></pre></div>
+<h4 id="alter-the-source-of-origin">Alter the source of origin<a class="headerlink" href="#alter-the-source-of-origin" title="Permanent link">&para;</a></h4>
 <p>If you move your repo to another location, use this command to change the upstream URL:</p>
-<pre><code class="language-sh">git remote set-url origin https://user@newhost/newpath/reponame
-</code></pre>
-<h3 id="git-reset">git reset</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>https://user@newhost/newpath/reponame
+</span></code></pre></div>
+<h3 id="git-reset">git reset<a class="headerlink" href="#git-reset" title="Permanent link">&para;</a></h3>
 <p><code>git reset</code> allows you to reset your state to what it was at a previous point.</p>
-<h4 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally</h4>
+<h4 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally<a class="headerlink" href="#reset-to-a-prior-state-based-on-what-has-been-done-locally" title="Permanent link">&para;</a></h4>
 <p>The reflog is a log of what steps have been performed locally. You can view the reflog, then reset to a prior state.</p>
-<pre><code class="language-sh">git reflog # show all HEAD changes
-git reset --hard 45e0ae5 # reset all git tracked state to 45e0ae5
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>git<span class="w"> </span>reflog<span class="w"> </span><span class="c1"># show all HEAD changes</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>45e0ae5<span class="w"> </span><span class="c1"># reset all git tracked state to 45e0ae5</span>
+</span></code></pre></div>
 <p>Alternately, you can use a date:</p>
-<pre><code class="language-sh">git reflog --date=iso # absolute date based reflog references
-git reset &quot;HEAD@{2015-03-25 14:45:30 -0700}&quot; --hard
-</code></pre>
-<h4 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>git<span class="w"> </span>reflog<span class="w"> </span>--date<span class="o">=</span>iso<span class="w"> </span><span class="c1"># absolute date based reflog references</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>git<span class="w"> </span>reset<span class="w"> </span><span class="s2">&quot;HEAD@{2015-03-25 14:45:30 -0700}&quot;</span><span class="w"> </span>--hard
+</span></code></pre></div>
+<h4 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master<a class="headerlink" href="#reset-feature-branch-to-state-when-it-was-branched-from-master" title="Permanent link">&para;</a></h4>
 <p>Do this if you want to start your branch over with only the current changes. This is useful if you've been iterating through lots of bad changes that were committed and want to clean them all out. It basically lets you squash to a single commit on your branch.</p>
-<pre><code class="language-sh">git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
-</code></pre>
-<h4 id="hard-reset-of-local-changes">Hard reset of local changes</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>git<span class="w"> </span>reset<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>merge-base<span class="w"> </span>master<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">))</span>
+</span></code></pre></div>
+<h4 id="hard-reset-of-local-changes">Hard reset of local changes<a class="headerlink" href="#hard-reset-of-local-changes" title="Permanent link">&para;</a></h4>
 <p>This will abandon all local changes and resolve merge conflicts</p>
-<pre><code class="language-sh">git fetch origin
-git reset --hard origin/master
-</code></pre>
-<h3 id="git-clean">git clean</h3>
-<h4 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/master
+</span></code></pre></div>
+<h3 id="git-clean">git clean<a class="headerlink" href="#git-clean" title="Permanent link">&para;</a></h3>
+<h4 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories<a class="headerlink" href="#remove-all-untracked-files-and-directories" title="Permanent link">&para;</a></h4>
 <p>This is useful after your reset to a prior state. It deletes all files and directories that show up in the untracked section of <code>git status</code></p>
-<pre><code class="language-sh">git clean -ffdx
-</code></pre>
-<h3 id="miscellaneous-tricks">Miscellaneous tricks</h3>
-<h4 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path</h4>
-<pre><code class="language-sh">find /var/www/html/mediawiki/ -name .git | while read -r X ; do
-  pushd &quot;$(dirname &quot;${X}&quot;)&quot; &amp;&amp; \
-  [ $(git remote -v | wc -l) -gt 0 ] &amp;&amp; \
-  git pull &amp;&amp; \
-  popd ;
-done ;
-</code></pre>
-<h4 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date</h4>
-<pre><code class="language-sh">git branch -r | grep -v HEAD | xargs -r -n1 git log -1 \
---pretty=format:'%ad %h%d %an | %s %n' --date=iso -1 | sort | nl -ba
-</code></pre>
-<h4 id="branch-cleanup">Branch cleanup</h4>
-<pre><code>git gc --prune=now
-git remote prune origin
-</code></pre>
-<h4 id="aggressive-repo-state-cleanup">Aggressive repo state cleanup</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>git<span class="w"> </span>clean<span class="w"> </span>-ffdx
+</span></code></pre></div>
+<h3 id="miscellaneous-tricks">Miscellaneous tricks<a class="headerlink" href="#miscellaneous-tricks" title="Permanent link">&para;</a></h3>
+<h4 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path<a class="headerlink" href="#refresh-all-git-repos-in-a-path" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>find<span class="w"> </span>/var/www/html/mediawiki/<span class="w"> </span>-name<span class="w"> </span>.git<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>X<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">  </span><span class="nb">pushd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">  </span>git<span class="w"> </span>pull<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="w">  </span><span class="nb">popd</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+</span></code></pre></div>
+<h4 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date<a class="headerlink" href="#show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>HEAD<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-n1<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>--pretty<span class="o">=</span>format:<span class="s1">&#39;%ad %h%d %an | %s %n&#39;</span><span class="w"> </span>--date<span class="o">=</span>iso<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>nl<span class="w"> </span>-ba
+</span></code></pre></div>
+<h4 id="branch-cleanup">Branch cleanup<a class="headerlink" href="#branch-cleanup" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>git gc --prune=now
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>git remote prune origin
+</span></code></pre></div>
+<h4 id="aggressive-repo-state-cleanup">Aggressive repo state cleanup<a class="headerlink" href="#aggressive-repo-state-cleanup" title="Permanent link">&para;</a></h4>
 <p>This aggressively deletes all old refs and then does some garbage collection. On some repos, this can save a significant amount of space. I've been able to reduce some repo size by 92% using these commands:</p>
-<pre><code class="language-sh">git reset --hard &quot;$whatever_point_you_want_to_be_at&quot;
-# now delete all branches and tags you don't want to include in your repo state
-git reflog expire --expire=now --all
-git gc --prune=now
-git gc --aggressive --prune=now
-</code></pre>
-<h3 id="git-grep">git grep</h3>
-<h4 id="find-a-string-in-all-branches">Find a string in all branches</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$whatever_point_you_want_to_be_at</span><span class="s2">&quot;</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="c1"># now delete all branches and tags you don&#39;t want to include in your repo state</span>
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>git<span class="w"> </span>reflog<span class="w"> </span>expire<span class="w"> </span>--expire<span class="o">=</span>now<span class="w"> </span>--all
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>git<span class="w"> </span>gc<span class="w"> </span>--prune<span class="o">=</span>now
+</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>git<span class="w"> </span>gc<span class="w"> </span>--aggressive<span class="w"> </span>--prune<span class="o">=</span>now
+</span></code></pre></div>
+<h3 id="git-grep">git grep<a class="headerlink" href="#git-grep" title="Permanent link">&para;</a></h3>
+<h4 id="find-a-string-in-all-branches">Find a string in all branches<a class="headerlink" href="#find-a-string-in-all-branches" title="Permanent link">&para;</a></h4>
 <p>This finds the word "hunter2" in the tests directory of all branches.</p>
-<pre><code class="language-sh">git grep '\bhunter2\b' $(git branch -a --format='%(refname:short)') tests/
-</code></pre>
-<h4 id="exclude-certain-directories-from-git-grep-results">Exclude certain directories from <code>git grep</code> results</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>git<span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;\bhunter2\b&#39;</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;%(refname:short)&#39;</span><span class="k">)</span><span class="w"> </span>tests/
+</span></code></pre></div>
+<h4 id="exclude-certain-directories-from-git-grep-results">Exclude certain directories from <code>git grep</code> results<a class="headerlink" href="#exclude-certain-directories-from-git-grep-results" title="Permanent link">&para;</a></h4>
 <p>You can accomplish this using pathspec syntax.</p>
-<pre><code class="language-sh">git grep searchstring -- ':!excluded-dir' ':!*junk-glob*'
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>git<span class="w"> </span>grep<span class="w"> </span>searchstring<span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;:!excluded-dir&#39;</span><span class="w"> </span><span class="s1">&#39;:!*junk-glob*&#39;</span>
+</span></code></pre></div>
 <p>See the <a href="https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec">pathspec definition in the git glossary</a> for more info.</p>
+
+
 
 
 
@@ -12546,8 +12570,16 @@ git gc --aggressive --prune=now
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -12557,23 +12589,15 @@ git gc --aggressive --prune=now
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -12591,12 +12615,11 @@ git gc --aggressive --prune=now
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>

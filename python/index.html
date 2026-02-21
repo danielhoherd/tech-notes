@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new project generated from the default template project.">
       
-        <meta name="author" content="Daniel Austin Hoherd">
       
+        <meta name="author" content="<your name here>">
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/python/">
       
       
         <link rel="prev" href="../pytest/">
@@ -23,15 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
-        <title>python - Daniel Hoherd's tech notes</title>
+        <title>python - Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.1e989742.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -45,14 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../static_assets/custom.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -61,7 +67,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -86,21 +99,21 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-header__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Daniel Hoherd's tech notes
+            Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -113,6 +126,32 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -122,43 +161,18 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
 </header>
@@ -184,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Daniel Hoherd&#39;s tech notes" class="md-nav__button md-logo" aria-label="Daniel Hoherd's tech notes" data-md-component="logo">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Daniel Hoherd's tech notes
+    Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -202,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
@@ -7438,7 +7452,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -7457,7 +7471,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -7466,7 +7481,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -10592,7 +10607,8 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -10601,7 +10617,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -11071,19 +11087,25 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-
-
-<h1 id="python">python</h1>
+<h1 id="python">python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
 <p>"Python is a programming language that lets you work more quickly and integrate your systems more effectively." - <a href="https://www.python.org/">https://www.python.org/</a></p>
-<h2 id="tips-and-techniques">Tips and techniques</h2>
+<h2 id="tips-and-techniques">Tips and techniques<a class="headerlink" href="#tips-and-techniques" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Don't use <code>assert</code> statements for regular validation. <code>assert</code> statements can be disabled at the interpreter level, which would vastly change the flow of your code if they were used widespread.</li>
 </ul>
-<h3 id="variable-names">Variable names</h3>
+<h3 id="variable-names">Variable names<a class="headerlink" href="#variable-names" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>_varname</code>: Semi-private. Basically a convention that developers use to indicate that the scope of a variable is local, but this locality is not enforced by the interpreter.</li>
 <li><code>__varname</code>: Private variable in name, but not in logic or security. The interpreter mangles the name of the var to make it globally unique, but it is still globally accessible.</li>
@@ -11091,49 +11113,49 @@
 <li><code>__magic_method__</code>: See <a href="https://diveintopython3.net/special-method-names.html">https://diveintopython3.net/special-method-names.html</a></li>
 <li><code>_</code>: Temp var, pretty common entity in programming. (eg: bash and perl both support this too.)</li>
 </ul>
-<h3 id="virtual-environments">Virtual Environments</h3>
+<h3 id="virtual-environments">Virtual Environments<a class="headerlink" href="#virtual-environments" title="Permanent link">&para;</a></h3>
 <p>Virtual environments isolate your project away from the system's python interpreter and modules, so you can have full control over what code is available to your project. This makes it easy to develop, debug, and deploy to a new system. It's basically always a good idea to use a virtual environment. You will thank yourself later by learning this one up front.</p>
-<h4 id="virtual-environments-using-venv">Virtual environments using venv</h4>
-<h5 id="creating-a-venv">Creating a venv</h5>
-<pre><code class="language-sh">echo &quot;venv&quot; &gt;&gt; .gitignore  # optional
-virtualenv venv
-. venv/bin/activate
-pip install -r requirements.txt
-## write code, interact with it, whatever
-deactivate
-</code></pre>
-<h5 id="use-venv-to-work-around-missing-pip">Use venv to work around missing pip</h5>
+<h4 id="virtual-environments-using-venv">Virtual environments using venv<a class="headerlink" href="#virtual-environments-using-venv" title="Permanent link">&para;</a></h4>
+<h5 id="creating-a-venv">Creating a venv<a class="headerlink" href="#creating-a-venv" title="Permanent link">&para;</a></h5>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;venv&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore<span class="w">  </span><span class="c1"># optional</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>virtualenv<span class="w"> </span>venv
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>.<span class="w"> </span>venv/bin/activate
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">## write code, interact with it, whatever</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>deactivate
+</span></code></pre></div>
+<h5 id="use-venv-to-work-around-missing-pip">Use venv to work around missing pip<a class="headerlink" href="#use-venv-to-work-around-missing-pip" title="Permanent link">&para;</a></h5>
 <p>This is mostly useful for installing for your user, since if you can't install pip you won't be able to install into system-wide locations.</p>
-<pre><code class="language-sh">virtualenv venv --system-site-packages &amp;&amp; venv/bin/pip install --user &quot;$PACKAGENAME&quot; &amp;&amp; rm -rf venv
-</code></pre>
-<h4 id="virtual-environments-with-poetry">Virtual environments with poetry</h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>virtualenv<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>venv/bin/pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PACKAGENAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>venv
+</span></code></pre></div>
+<h4 id="virtual-environments-with-poetry">Virtual environments with poetry<a class="headerlink" href="#virtual-environments-with-poetry" title="Permanent link">&para;</a></h4>
 <p><code>poetry</code> is the new-school 2019 way of doing virtual environments. poetry stores its requirements in the new standard pyproject.toml file, and keeps the virtual environment stored outside of the current directory.</p>
 <ul>
 <li><a href="https://python-poetry.org/docs/">https://python-poetry.org/docs/</a></li>
 <li><a href="https://python-poetry.org/docs/pyproject/">https://python-poetry.org/docs/pyproject/</a></li>
 </ul>
-<h5 id="creating-a-virtual-environment-using-poetry">Creating a virtual environment using poetry</h5>
-<pre><code class="language-sh">cd project_dir
-poetry init
-## walk through the dialogue
-poetry add bpython boto3
-poetry shell  # this spawns a subshell with the new python environment
-## interact with your python environment
-exit
-</code></pre>
-<h3 id="import-module-from-absolute-path">Import module from absolute path</h3>
-<pre><code class="language-py">sys.path.append('/Users/username/code/somedir')
-import module # from somedir
-</code></pre>
-<h3 id="convert-between-character-number-and-string">Convert between character number and string</h3>
+<h5 id="creating-a-virtual-environment-using-poetry">Creating a virtual environment using poetry<a class="headerlink" href="#creating-a-virtual-environment-using-poetry" title="Permanent link">&para;</a></h5>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>project_dir
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>poetry<span class="w"> </span>init
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">## walk through the dialogue</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>poetry<span class="w"> </span>add<span class="w"> </span>bpython<span class="w"> </span>boto3
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>poetry<span class="w"> </span>shell<span class="w">  </span><span class="c1"># this spawns a subshell with the new python environment</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">## interact with your python environment</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">exit</span>
+</span></code></pre></div>
+<h3 id="import-module-from-absolute-path">Import module from absolute path<a class="headerlink" href="#import-module-from-absolute-path" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/Users/username/code/somedir&#39;</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">module</span> <span class="c1"># from somedir</span>
+</span></code></pre></div>
+<h3 id="convert-between-character-number-and-string">Convert between character number and string<a class="headerlink" href="#convert-between-character-number-and-string" title="Permanent link">&para;</a></h3>
 <p>You can use these functions to convert ascii and unicode characters into their numeric representations and back. Technically, <a href="https://docs.python.org/3/library/functions.html#ord"><code>ord</code></a> converts a unicode character into a unicode <a href="https://en.wikipedia.org/wiki/Code_point">code point</a>, and <a href="https://docs.python.org/3/library/functions.html#chr"><code>chr</code></a> does the reverse.</p>
-<pre><code class="language-pycon">&gt;&gt;&gt; ord('🐍')
-128013
-&gt;&gt;&gt; chr(128013)
-'🐍'
-</code></pre>
-<h2 id="benchmarking">Benchmarking</h2>
-<h3 id="links">Links</h3>
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;🐍&#39;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">128013</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">chr</span><span class="p">(</span><span class="mi">128013</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">&#39;🐍&#39;</span>
+</span></code></pre></div>
+<h2 id="benchmarking">Benchmarking<a class="headerlink" href="#benchmarking" title="Permanent link">&para;</a></h2>
+<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://youtu.be/YY7yJHo0M5I">https://youtu.be/YY7yJHo0M5I</a>: Talk - Anthony Shaw: Write faster Python! Common performance anti patterns</li>
 <li><a href="https://pypi.org/project/scalene">https://pypi.org/project/scalene</a></li>
@@ -11141,150 +11163,150 @@ import module # from somedir
 <li><a href="https://docs.python.org/3/library/profile.html">https://docs.python.org/3/library/profile.html</a></li>
 <li><a href="https://docs.python.org/3/library/timeit.html">https://docs.python.org/3/library/timeit.html</a></li>
 </ul>
-<h3 id="show-stats-about-call-count-and-times">Show stats about call count and times</h3>
+<h3 id="show-stats-about-call-count-and-times">Show stats about call count and times<a class="headerlink" href="#show-stats-about-call-count-and-times" title="Permanent link">&para;</a></h3>
 <p>This example shows how to profile a pytest run, and then generate a stats.txt file showing stats sorted by total time:</p>
-<pre><code class="language-sh">python -m cProfile -o output.prof pytest -sv tests
-cat &lt;&lt;EOF | python -m pstats output.prof &gt; stats.txt
-sort time
-stats
-EOF
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>cProfile<span class="w"> </span>-o<span class="w"> </span>output.prof<span class="w"> </span>pytest<span class="w"> </span>-sv<span class="w"> </span>tests
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF | python -m pstats output.prof &gt; stats.txt</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s">sort time</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">stats</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s">EOF</span>
+</span></code></pre></div>
 <p>Yes, that syntax is ugly, and yes, the stats module could use a better CLI, but it works. Creating a function to make the CLI interface better is left as an exercise for the reader.</p>
-<h3 id="generate-a-flame-graph">Generate a flame graph</h3>
+<h3 id="generate-a-flame-graph">Generate a flame graph<a class="headerlink" href="#generate-a-flame-graph" title="Permanent link">&para;</a></h3>
 <p>Until <a href="https://github.com/baverman/flameprof/pull/5">https://github.com/baverman/flameprof/pull/5</a> is merged you may have to edit the installed <code>flameprof</code> shell script.</p>
-<pre><code class="language-sh">pip3 install flameprof
-python -m cProfile -o output.prof myscript.py
-flameprof output.prof &gt; output.svg
-</code></pre>
-<h3 id="_1"></h3>
-<h2 id="debugging">Debugging</h2>
-<h3 id="verbose-environment-var">Verbose environment var</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>flameprof
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>python<span class="w"> </span>-m<span class="w"> </span>cProfile<span class="w"> </span>-o<span class="w"> </span>output.prof<span class="w"> </span>myscript.py
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>flameprof<span class="w"> </span>output.prof<span class="w"> </span>&gt;<span class="w"> </span>output.svg
+</span></code></pre></div>
+<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<h3 id="verbose-environment-var">Verbose environment var<a class="headerlink" href="#verbose-environment-var" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONVERBOSE</a></p>
-<pre><code class="language-sh">export PYTHONVERBOSE=1
-## or...
-python -v pip search beets
-</code></pre>
-<h3 id="follow-the-flow-of-a-python-script">Follow the flow of a python script</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONVERBOSE</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">## or...</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>python<span class="w"> </span>-v<span class="w"> </span>pip<span class="w"> </span>search<span class="w"> </span>beets
+</span></code></pre></div>
+<h3 id="follow-the-flow-of-a-python-script">Follow the flow of a python script<a class="headerlink" href="#follow-the-flow-of-a-python-script" title="Permanent link">&para;</a></h3>
 <p>This is equivalent to <code>bash -x</code> / <code>bash -o xtrace</code>, but is probably even more useful because it prefixes the name of the file and the line number to what is actually being executed, which aids in debugging large projects.</p>
-<pre><code class="language-sh">python -m trace --trace foo.py
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>trace<span class="w"> </span>--trace<span class="w"> </span>foo.py
+</span></code></pre></div>
 <p>You can get the equivalent output for a single function with:</p>
-<pre><code class="language-py">import trace
-tracer = trace.Trace(trace=True)
-tracer.runfunc(some_func_name, 'some_func arg1', 'some_func arg2')
-</code></pre>
-<h3 id="enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends</h3>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">trace</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="n">trace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">tracer</span><span class="o">.</span><span class="n">runfunc</span><span class="p">(</span><span class="n">some_func_name</span><span class="p">,</span> <span class="s1">&#39;some_func arg1&#39;</span><span class="p">,</span> <span class="s1">&#39;some_func arg2&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="enter-an-interactive-prompt-after-script-ends">Enter an interactive prompt after script ends<a class="headerlink" href="#enter-an-interactive-prompt-after-script-ends" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT">https://docs.python.org/3/using/cmdline.html#envvar-PYTHONINSPECT</a></p>
 <p>This works when your code causes an exception, but none of your code will actually be executed, you will simply be dropped into a shell, which is not very useful.</p>
-<pre><code class="language-sh">export PYTHONINSPECT=1
-## or...
-sudo python -i ./ps_mem.py
-</code></pre>
-<h3 id="enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONINSPECT</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">## or...</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>sudo<span class="w"> </span>python<span class="w"> </span>-i<span class="w"> </span>./ps_mem.py
+</span></code></pre></div>
+<h3 id="enter-a-python-terminal-arbitrarily">Enter a python terminal arbitrarily<a class="headerlink" href="#enter-a-python-terminal-arbitrarily" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.python.org/3/library/pdb.html">https://docs.python.org/3/library/pdb.html</a></p>
-<pre><code class="language-py">import pdb; pdb.set_trace()
-</code></pre>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</span></code></pre></div>
 <p>In python 3.6+ you can simply insert <code>breakpoint()</code></p>
 <p>This drops you into a pdb shell. This is not the same as a full python REPL. To get a python REPL, type <code>interact</code>. After you have inspected the current state, you can type <code>continue</code>.</p>
 <p>Alternatively there is the web-pdb package which allows you to debug via a web browser using <code>web_pdb.set_trace</code></p>
-<h3 id="print-variables-from-the-local-scope">Print variables from the local scope</h3>
-<pre><code class="language-py">for var in dir():
-    print(&quot;Debug: {0} = {1}&quot;.format(var,eval(var)))
-</code></pre>
-<h3 id="inspect-things">Inspect things</h3>
-<pre><code class="language-pycon">&gt;&gt;&gt; import inspect
-&gt;&gt;&gt; inspect.getargspec(inspect.getargspec)
-ArgSpec(args=['func'], varargs=None, keywords=None, defaults=None)
-</code></pre>
-<h3 id="create-an-http-server-using-pwd-as-document-root">Create an http server using PWD as document root</h3>
-<pre><code class="language-sh">python3 -m http.server 9980
-</code></pre>
-<h3 id="discover-the-location-for-pip-user-installs">Discover the location for pip --user installs</h3>
-<pre><code class="language-sh">echo $(python -m site --user-base)/bin
-</code></pre>
-<h3 id="add-pythons-pip-install-user-bin-path-to-path">Add python's <code>pip install --user</code> bin path to PATH</h3>
-<pre><code class="language-sh">## ~/.bash_profile
-if PYTHON3_USER_BASE=$(python3 -m site --user-base 2&gt;/dev/null) ; then PATH=&quot;${PYTHON3_USER_BASE}/bin:${PATH}&quot; ; fi
-</code></pre>
-<h3 id="manage-a-requirementstxt-file-like-a-pro">Manage a requirements.txt file like a pro</h3>
+<h3 id="print-variables-from-the-local-scope">Print variables from the local scope<a class="headerlink" href="#print-variables-from-the-local-scope" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">():</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Debug: </span><span class="si">{0}</span><span class="s2"> = </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="nb">eval</span><span class="p">(</span><span class="n">var</span><span class="p">)))</span>
+</span></code></pre></div>
+<h3 id="inspect-things">Inspect things<a class="headerlink" href="#inspect-things" title="Permanent link">&para;</a></h3>
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">getargspec</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getargspec</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="go">ArgSpec(args=[&#39;func&#39;], varargs=None, keywords=None, defaults=None)</span>
+</span></code></pre></div>
+<h3 id="create-an-http-server-using-pwd-as-document-root">Create an http server using PWD as document root<a class="headerlink" href="#create-an-http-server-using-pwd-as-document-root" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">9980</span>
+</span></code></pre></div>
+<h3 id="discover-the-location-for-pip-user-installs">Discover the location for pip --user installs<a class="headerlink" href="#discover-the-location-for-pip-user-installs" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>python<span class="w"> </span>-m<span class="w"> </span>site<span class="w"> </span>--user-base<span class="k">)</span>/bin
+</span></code></pre></div>
+<h3 id="add-pythons-pip-install-user-bin-path-to-path">Add python's <code>pip install --user</code> bin path to PATH<a class="headerlink" href="#add-pythons-pip-install-user-bin-path-to-path" title="Permanent link">&para;</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">## ~/.bash_profile</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">if</span><span class="w"> </span><span class="nv">PYTHON3_USER_BASE</span><span class="o">=</span><span class="k">$(</span>python3<span class="w"> </span>-m<span class="w"> </span>site<span class="w"> </span>--user-base<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PYTHON3_USER_BASE</span><span class="si">}</span><span class="s2">/bin:</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+</span></code></pre></div>
+<h3 id="manage-a-requirementstxt-file-like-a-pro">Manage a requirements.txt file like a pro<a class="headerlink" href="#manage-a-requirementstxt-file-like-a-pro" title="Permanent link">&para;</a></h3>
 <p>Managing requirements.txt manually can lead to a variety of problems related to dependencies and package compatibility. The best way to manage the <code>requirements.txt</code> file is by using the <a href="https://pypi.org/project/pip-tools/">pip-tools</a> command <code>pip-compile</code>, which builds a <code>requirements.in</code> file into a <code>requirements.txt</code>.</p>
 <p>In your requirements.txt you define only your direct dependencies:</p>
-<pre><code class="language-text">pendulum
-typer
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>pendulum
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>typer
+</span></code></pre></div>
 <p>Then you run <code>pip-compile --upgrade requirements.in</code>, which would create a requirements.txt file like:</p>
-<pre><code class="language-text">#
-# This file is autogenerated by pip-compile with Python 3.10
-# by the following command:
-#
-#    pip-compile requirements.in
-#
-click==8.1.3
-    # via typer
-pendulum==2.1.2
-    # via -r requirements.in
-python-dateutil==2.8.2
-    # via pendulum
-pytzdata==2020.1
-    # via pendulum
-six==1.16.0
-    # via python-dateutil
-typer==0.7.0
-    # via -r requirements.in
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>#
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a># This file is autogenerated by pip-compile with Python 3.10
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a># by the following command:
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>#
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>#    pip-compile requirements.in
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>#
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>click==8.1.3
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    # via typer
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>pendulum==2.1.2
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    # via -r requirements.in
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>python-dateutil==2.8.2
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    # via pendulum
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>pytzdata==2020.1
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>    # via pendulum
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>six==1.16.0
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>    # via python-dateutil
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>typer==0.7.0
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>    # via -r requirements.in
+</span></code></pre></div>
 <p>You can also specify <code>--generate-hashes</code> to get a more reliable lockfile style result.</p>
-<h3 id="show-currently-installed-versions-for-all-packages-in-requirementstxt">Show currently installed versions for all packages in requirements.txt</h3>
+<h3 id="show-currently-installed-versions-for-all-packages-in-requirementstxt">Show currently installed versions for all packages in requirements.txt<a class="headerlink" href="#show-currently-installed-versions-for-all-packages-in-requirementstxt" title="Permanent link">&para;</a></h3>
 <p>This can be used to update a requirements.txt file to the exact installed version.</p>
-<pre><code class="language-sh">pip freeze | grep -f &lt;(grep -o '^\w\+' requirements.txt)
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-f<span class="w"> </span>&lt;<span class="o">(</span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;^\w\+&#39;</span><span class="w"> </span>requirements.txt<span class="o">)</span>
+</span></code></pre></div>
 <p>Or auto pin to the current major version</p>
-<pre><code class="language-sh">pip freeze |
-  grep -f &lt;(grep -o '^\w\+' requirements.txt) |
-  sed 's/==/~=/' |
-  awk -F. '{print $1 &quot;.&quot; $2}'
-</code></pre>
-<h3 id="generate-a-tz-aware-datetime-using-only-the-standard-library">Generate a TZ aware datetime using only the standard library</h3>
-<pre><code class="language-py">from datetime import datetime, timezone
-TZ = datetime.now(timezone.utc).astimezone().tzinfo
-datetime.now(TZ).isoformat(timespec='seconds')  # 2023-06-24T12:50:01-04:00
-</code></pre>
-<h3 id="common-date-operations">Common date operations</h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span>grep<span class="w"> </span>-f<span class="w"> </span>&lt;<span class="o">(</span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;^\w\+&#39;</span><span class="w"> </span>requirements.txt<span class="o">)</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>sed<span class="w"> </span><span class="s1">&#39;s/==/~=/&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span>awk<span class="w"> </span>-F.<span class="w"> </span><span class="s1">&#39;{print $1 &quot;.&quot; $2}&#39;</span>
+</span></code></pre></div>
+<h3 id="generate-a-tz-aware-datetime-using-only-the-standard-library">Generate a TZ aware datetime using only the standard library<a class="headerlink" href="#generate-a-tz-aware-datetime-using-only-the-standard-library" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">TZ</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">()</span><span class="o">.</span><span class="n">tzinfo</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">TZ</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="n">timespec</span><span class="o">=</span><span class="s1">&#39;seconds&#39;</span><span class="p">)</span>  <span class="c1"># 2023-06-24T12:50:01-04:00</span>
+</span></code></pre></div>
+<h3 id="common-date-operations">Common date operations<a class="headerlink" href="#common-date-operations" title="Permanent link">&para;</a></h3>
 <p>None of these examples deal with timezones.</p>
-<h4 id="get-the-current-time-and-date">Get the current time and date</h4>
-<pre><code class="language-pycon">&gt;&gt;&gt; from datetime import datetime
-&gt;&gt;&gt; datetime.now().strftime(&quot;%s&quot;)
-'1572039830'  # unix timestamp as a string
-&gt;&gt;&gt; datetime.now().strftime(&quot;%F&quot;)
-'2019-10-25'  # abribrarily formatted timestamp string
-&gt;&gt;&gt; datetime.now()
-datetime.datetime(2019, 10, 25, 14, 49, 49, 175165)  # as a datetime object
-</code></pre>
-<h4 id="convert-from-unix-timestamp">Convert from unix timestamp</h4>
-<pre><code class="language-pycon">&gt;&gt;&gt; from datetime import datetime
-&gt;&gt;&gt; datetime.utcfromtimestamp(1234567890)
-datetime.datetime(2009, 2, 13, 23, 31, 30)  # to a datetime object
-&gt;&gt;&gt; datetime.utcfromtimestamp(1234567890).strftime('%F %T')
-'2009-02-13 23:31:30'  # to a string, via datetime object formatting
-</code></pre>
-<h4 id="convert-from-datetime-string">Convert from datetime string</h4>
-<pre><code class="language-pycon">&gt;&gt;&gt; from datetime import datetime
-&gt;&gt;&gt; datetime.strptime('2019-05-01', &quot;%Y-%m-%d&quot;)  # For some reason you can't use '%F' to describe inputs. Same with %s.
-datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
-&gt;&gt;&gt; datetime.strptime('2019-05-01 10:01:59', &quot;%Y-%m-%d %H:%M:%S&quot;).strftime('%A %B %d, %Y')
-'Wednesday May 01, 2019'  # to a string, via datetime object
-</code></pre>
-<h3 id="install-a-package-from-git">Install a package from git</h3>
+<h4 id="get-the-current-time-and-date">Get the current time and date<a class="headerlink" href="#get-the-current-time-and-date" title="Permanent link">&para;</a></h4>
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="go">&#39;1572039830&#39;  # unix timestamp as a string</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%F</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="go">&#39;2019-10-25&#39;  # abribrarily formatted timestamp string</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="go">datetime.datetime(2019, 10, 25, 14, 49, 49, 175165)  # as a datetime object</span>
+</span></code></pre></div>
+<h4 id="convert-from-unix-timestamp">Convert from unix timestamp<a class="headerlink" href="#convert-from-unix-timestamp" title="Permanent link">&para;</a></h4>
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="go">datetime.datetime(2009, 2, 13, 23, 31, 30)  # to a datetime object</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%F</span><span class="s1"> %T&#39;</span><span class="p">)</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="go">&#39;2009-02-13 23:31:30&#39;  # to a string, via datetime object formatting</span>
+</span></code></pre></div>
+<h4 id="convert-from-datetime-string">Convert from datetime string<a class="headerlink" href="#convert-from-datetime-string" title="Permanent link">&para;</a></h4>
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2019-05-01&#39;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># For some reason you can&#39;t use &#39;%F&#39; to describe inputs. Same with %s.</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="go">datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2019-05-01 10:01:59&#39;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A %B </span><span class="si">%d</span><span class="s1">, %Y&#39;</span><span class="p">)</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="go">&#39;Wednesday May 01, 2019&#39;  # to a string, via datetime object</span>
+</span></code></pre></div>
+<h3 id="install-a-package-from-git">Install a package from git<a class="headerlink" href="#install-a-package-from-git" title="Permanent link">&para;</a></h3>
 <p>This is great for locally developed packages. This also works with <a href="https://pypi.org/project/pipx/">pipx</a>, which will install tools into their own virtualenv.</p>
-<pre><code>pip install git+ssh://gitserver/path/repo.git@git-ref
-</code></pre>
-<h2 id="links_1">Links</h2>
-<h3 id="decorators">Decorators</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>pip install git+ssh://gitserver/path/repo.git@git-ref
+</span></code></pre></div>
+<h2 id="links_1">Links<a class="headerlink" href="#links_1" title="Permanent link">&para;</a></h2>
+<h3 id="decorators">Decorators<a class="headerlink" href="#decorators" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://wiki.python.org/moin/PythonDecoratorLibrary">https://wiki.python.org/moin/PythonDecoratorLibrary</a></li>
 <li><a href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484">http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484</a></li>
 <li><a href="http://ains.co/blog/things-which-arent-magic-flask-part-1.html">http://ains.co/blog/things-which-arent-magic-flask-part-1.html</a></li>
 </ul>
-<h3 id="modules">Modules</h3>
+<h3 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://github.com/jonathanslenders/ptpython">https://github.com/jonathanslenders/ptpython</a>: improved python REPL</li>
 <li><a href="https://docs.python.org/3/library/sched.html">https://docs.python.org/3/library/sched.html</a>: cross-platform cron-like scheduler</li>
@@ -11299,7 +11321,7 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
 <li><a href="https://docs.python.org/3/library/itertools.html">https://docs.python.org/3/library/itertools.html</a></li>
 <li><a href="https://more-itertools.readthedocs.io/en/stable/">https://more-itertools.readthedocs.io/en/stable/</a></li>
 </ul>
-<h2 id="various-links">Various links</h2>
+<h2 id="various-links">Various links<a class="headerlink" href="#various-links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks">A gallery of interesting Jupyter and IPython Notebooks</a></li>
 <li><a href="http://nicolas.kruchten.com/content/2015/09/jupyter_pivottablejs/">Drag'n'drop Pivot Tables and Charts in Jupyter</a></li>
@@ -11348,13 +11370,23 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
 
 
 
+
+
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -11364,23 +11396,15 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Daniel Hoherd
+
+    </div>
+  
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://github.com/danielhoherd" target="_blank" rel="noopener" title="github.com/danielhoherd" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -11398,12 +11422,11 @@ datetime.datetime(2019, 5, 1, 0, 0)  # to a datestamp object
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../static_assets/instant-page.js"></script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>
