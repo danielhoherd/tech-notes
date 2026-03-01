@@ -4149,6 +4149,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-all-characters-that-are-not-valid-in-a-git-branch-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show all characters that are not valid in a git branch name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#disable-fast-forward-merges" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11924,6 +11935,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-all-characters-that-are-not-valid-in-a-git-branch-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show all characters that are not valid in a git branch name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#disable-fast-forward-merges" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -12468,87 +12490,103 @@
 </span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>git<span class="w"> </span>merge<span class="w"> </span>readme-fix-branch
 </span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>readme-fix-branch
 </span></code></pre></div>
+<h4 id="show-all-characters-that-are-not-valid-in-a-git-branch-name">Show all characters that are not valid in a git branch name<a class="headerlink" href="#show-all-characters-that-are-not-valid-in-a-git-branch-name" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c1"># everything before 33 and after 126 is invalid</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">33</span>..126<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="nv">char</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\\x</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%02x&#39;</span><span class="w"> </span><span class="nv">$i</span><span class="k">)</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">    </span>git<span class="w"> </span>check-ref-format<span class="w"> </span>--branch<span class="w"> </span><span class="s2">&quot;foo-</span><span class="si">${</span><span class="nv">char</span><span class="si">}</span><span class="s2">-bar&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%-4s %s is an invalid character\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$char</span><span class="s2">&quot;</span>
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="k">done</span>
+</span></code></pre></div>
+<p>The result is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>42   * is an invalid character
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>58   : is an invalid character
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>63   ? is an invalid character
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>91   [ is an invalid character
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>92   \ is an invalid character
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>94   ^ is an invalid character
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>126  ~ is an invalid character
+</span></code></pre></div>
 <h4 id="disable-fast-forward-merges">disable fast-forward merges<a class="headerlink" href="#disable-fast-forward-merges" title="Permanent link">&para;</a></h4>
 <p>You can control how the history is kept when merging. By default, fast-forward merges occur, which replays the commits on the branch that is being merged into. By disabling this you can see several commits being merged from one branch into another, making it easier to roll back that whole series of commits without digging through the history to see where each commit from the branch came from.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>merge.ff<span class="w"> </span><span class="nb">false</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>merge.ff<span class="w"> </span><span class="nb">false</span>
 </span></code></pre></div>
 <h3 id="git-filter-repo">git filter-repo<a class="headerlink" href="#git-filter-repo" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> is not a standard tool with git, but can be installed separately. It is used for rewriting the history of the git repo, allowing move, rename, merging and trimming operations, rewriting commit IDs, and more. This is a destructive tool, so it should be performed on a fresh clone of the repo while you iterate on finding the right sequence of operations to perform to get to your desired state. The destructive nature is that it rewrites the entire history of the repo, so if your repo depends on specific SHAs or any other specific history, you probably need to take a harder look at how to solve your problem.</p>
 <h4 id="extract-one-subdir-into-its-own-repo-renaming-some-files">Extract one subdir into its own repo, renaming some files<a class="headerlink" href="#extract-one-subdir-into-its-own-repo-renaming-some-files" title="Permanent link">&para;</a></h4>
 <p>This is great if you want to extract part of a repo for public release, or just for organizational purposes.</p>
 <p>Extract the path <code>scratch-work/scripts</code> into <code>bin</code>, removing all other history in the repo.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>git-filter-repo --path scratch-work/scripts --path-rename scratch-work/scripts:bin
 </span></code></pre></div>
 <h3 id="remotes">remotes<a class="headerlink" href="#remotes" title="Permanent link">&para;</a></h3>
 <h4 id="add-a-remote">Add a remote<a class="headerlink" href="#add-a-remote" title="Permanent link">&para;</a></h4>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/danielhoherd/homepass
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/danielhoherd/homepass
 </span></code></pre></div>
 <h4 id="push-to-a-specific-remote">Push to a specific remote<a class="headerlink" href="#push-to-a-specific-remote" title="Permanent link">&para;</a></h4>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c1"># push to the master branch of the remote named upstream</span>
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span>master
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1"># push to the master branch of the remote named upstream</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span>master
 </span></code></pre></div>
 <h4 id="alter-the-source-of-origin">Alter the source of origin<a class="headerlink" href="#alter-the-source-of-origin" title="Permanent link">&para;</a></h4>
 <p>If you move your repo to another location, use this command to change the upstream URL:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>https://user@newhost/newpath/reponame
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>https://user@newhost/newpath/reponame
 </span></code></pre></div>
 <h3 id="git-reset">git reset<a class="headerlink" href="#git-reset" title="Permanent link">&para;</a></h3>
 <p><code>git reset</code> allows you to reset your state to what it was at a previous point.</p>
 <h4 id="reset-to-a-prior-state-based-on-what-has-been-done-locally">Reset to a prior state based on what has been done locally<a class="headerlink" href="#reset-to-a-prior-state-based-on-what-has-been-done-locally" title="Permanent link">&para;</a></h4>
 <p>The reflog is a log of what steps have been performed locally. You can view the reflog, then reset to a prior state.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>git<span class="w"> </span>reflog<span class="w"> </span><span class="c1"># show all HEAD changes</span>
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>45e0ae5<span class="w"> </span><span class="c1"># reset all git tracked state to 45e0ae5</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>git<span class="w"> </span>reflog<span class="w"> </span><span class="c1"># show all HEAD changes</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>45e0ae5<span class="w"> </span><span class="c1"># reset all git tracked state to 45e0ae5</span>
 </span></code></pre></div>
 <p>Alternately, you can use a date:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>git<span class="w"> </span>reflog<span class="w"> </span>--date<span class="o">=</span>iso<span class="w"> </span><span class="c1"># absolute date based reflog references</span>
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>git<span class="w"> </span>reset<span class="w"> </span><span class="s2">&quot;HEAD@{2015-03-25 14:45:30 -0700}&quot;</span><span class="w"> </span>--hard
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>git<span class="w"> </span>reflog<span class="w"> </span>--date<span class="o">=</span>iso<span class="w"> </span><span class="c1"># absolute date based reflog references</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>git<span class="w"> </span>reset<span class="w"> </span><span class="s2">&quot;HEAD@{2015-03-25 14:45:30 -0700}&quot;</span><span class="w"> </span>--hard
 </span></code></pre></div>
 <h4 id="reset-feature-branch-to-state-when-it-was-branched-from-master">Reset feature branch to state when it was branched from master<a class="headerlink" href="#reset-feature-branch-to-state-when-it-was-branched-from-master" title="Permanent link">&para;</a></h4>
 <p>Do this if you want to start your branch over with only the current changes. This is useful if you've been iterating through lots of bad changes that were committed and want to clean them all out. It basically lets you squash to a single commit on your branch.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>git<span class="w"> </span>reset<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>merge-base<span class="w"> </span>master<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">))</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>git<span class="w"> </span>reset<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>merge-base<span class="w"> </span>master<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">))</span>
 </span></code></pre></div>
 <h4 id="hard-reset-of-local-changes">Hard reset of local changes<a class="headerlink" href="#hard-reset-of-local-changes" title="Permanent link">&para;</a></h4>
 <p>This will abandon all local changes and resolve merge conflicts</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
-</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/master
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/master
 </span></code></pre></div>
 <h3 id="git-clean">git clean<a class="headerlink" href="#git-clean" title="Permanent link">&para;</a></h3>
 <h4 id="remove-all-untracked-files-and-directories">Remove all untracked files and directories<a class="headerlink" href="#remove-all-untracked-files-and-directories" title="Permanent link">&para;</a></h4>
 <p>This is useful after your reset to a prior state. It deletes all files and directories that show up in the untracked section of <code>git status</code></p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>git<span class="w"> </span>clean<span class="w"> </span>-ffdx
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>git<span class="w"> </span>clean<span class="w"> </span>-ffdx
 </span></code></pre></div>
 <h3 id="miscellaneous-tricks">Miscellaneous tricks<a class="headerlink" href="#miscellaneous-tricks" title="Permanent link">&para;</a></h3>
 <h4 id="refresh-all-git-repos-in-a-path">Refresh all Git repos in a path<a class="headerlink" href="#refresh-all-git-repos-in-a-path" title="Permanent link">&para;</a></h4>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>find<span class="w"> </span>/var/www/html/mediawiki/<span class="w"> </span>-name<span class="w"> </span>.git<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>X<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">  </span><span class="nb">pushd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">  </span>git<span class="w"> </span>pull<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="w">  </span><span class="nb">popd</span><span class="w"> </span><span class="p">;</span>
-</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>find<span class="w"> </span>/var/www/html/mediawiki/<span class="w"> </span>-name<span class="w"> </span>.git<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>X<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="w">  </span><span class="nb">pushd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="w">  </span>git<span class="w"> </span>pull<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="w">  </span><span class="nb">popd</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
 </span></code></pre></div>
 <h4 id="show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date">Show a numbered list of remote branches sorted by last commit date<a class="headerlink" href="#show-a-numbered-list-of-remote-branches-sorted-by-last-commit-date" title="Permanent link">&para;</a></h4>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>HEAD<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-n1<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>--pretty<span class="o">=</span>format:<span class="s1">&#39;%ad %h%d %an | %s %n&#39;</span><span class="w"> </span>--date<span class="o">=</span>iso<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>nl<span class="w"> </span>-ba
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>HEAD<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>-n1<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>--pretty<span class="o">=</span>format:<span class="s1">&#39;%ad %h%d %an | %s %n&#39;</span><span class="w"> </span>--date<span class="o">=</span>iso<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>nl<span class="w"> </span>-ba
 </span></code></pre></div>
 <h4 id="branch-cleanup">Branch cleanup<a class="headerlink" href="#branch-cleanup" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>git gc --prune=now
-</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>git remote prune origin
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>git gc --prune=now
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>git remote prune origin
 </span></code></pre></div>
 <h4 id="aggressive-repo-state-cleanup">Aggressive repo state cleanup<a class="headerlink" href="#aggressive-repo-state-cleanup" title="Permanent link">&para;</a></h4>
 <p>This aggressively deletes all old refs and then does some garbage collection. On some repos, this can save a significant amount of space. I've been able to reduce some repo size by 92% using these commands:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$whatever_point_you_want_to_be_at</span><span class="s2">&quot;</span>
-</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="c1"># now delete all branches and tags you don&#39;t want to include in your repo state</span>
-</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>git<span class="w"> </span>reflog<span class="w"> </span>expire<span class="w"> </span>--expire<span class="o">=</span>now<span class="w"> </span>--all
-</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>git<span class="w"> </span>gc<span class="w"> </span>--prune<span class="o">=</span>now
-</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>git<span class="w"> </span>gc<span class="w"> </span>--aggressive<span class="w"> </span>--prune<span class="o">=</span>now
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$whatever_point_you_want_to_be_at</span><span class="s2">&quot;</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="c1"># now delete all branches and tags you don&#39;t want to include in your repo state</span>
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>git<span class="w"> </span>reflog<span class="w"> </span>expire<span class="w"> </span>--expire<span class="o">=</span>now<span class="w"> </span>--all
+</span><span id="__span-64-4"><a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a>git<span class="w"> </span>gc<span class="w"> </span>--prune<span class="o">=</span>now
+</span><span id="__span-64-5"><a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>git<span class="w"> </span>gc<span class="w"> </span>--aggressive<span class="w"> </span>--prune<span class="o">=</span>now
 </span></code></pre></div>
 <h3 id="git-grep">git grep<a class="headerlink" href="#git-grep" title="Permanent link">&para;</a></h3>
 <h4 id="find-a-string-in-all-branches">Find a string in all branches<a class="headerlink" href="#find-a-string-in-all-branches" title="Permanent link">&para;</a></h4>
 <p>This finds the word "hunter2" in the tests directory of all branches.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>git<span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;\bhunter2\b&#39;</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;%(refname:short)&#39;</span><span class="k">)</span><span class="w"> </span>tests/
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>git<span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;\bhunter2\b&#39;</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;%(refname:short)&#39;</span><span class="k">)</span><span class="w"> </span>tests/
 </span></code></pre></div>
 <h4 id="exclude-certain-directories-from-git-grep-results">Exclude certain directories from <code>git grep</code> results<a class="headerlink" href="#exclude-certain-directories-from-git-grep-results" title="Permanent link">&para;</a></h4>
 <p>You can accomplish this using pathspec syntax.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>git<span class="w"> </span>grep<span class="w"> </span>searchstring<span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;:!excluded-dir&#39;</span><span class="w"> </span><span class="s1">&#39;:!*junk-glob*&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>git<span class="w"> </span>grep<span class="w"> </span>searchstring<span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;:!excluded-dir&#39;</span><span class="w"> </span><span class="s1">&#39;:!*junk-glob*&#39;</span>
 </span></code></pre></div>
 <p>See the <a href="https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec">pathspec definition in the git glossary</a> for more info.</p>
 
