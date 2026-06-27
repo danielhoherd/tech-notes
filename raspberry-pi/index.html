@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.43">
+      <meta name="generator" content="zensical-0.0.45">
     
     
       
@@ -7360,6 +7360,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GPIO
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#software" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -10069,6 +10080,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GPIO
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#software" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -10205,31 +10227,36 @@
 <h3 id="update-raspberry-pi-os-and-firmware-versions">Update Raspberry Pi OS and firmware versions<a class="headerlink" href="#update-raspberry-pi-os-and-firmware-versions" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt full-upgrade -y
 </span></code></pre></div>
+<h2 id="gpio">GPIO<a class="headerlink" href="#gpio" title="Permanent link">&para;</a></h2>
+<p>The best connector to use for GPIO pins are Dupont connectors.</p>
 <h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h2>
 <h3 id="raspberry-pi-os">Raspberry Pi OS<a class="headerlink" href="#raspberry-pi-os" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dpkg-reconfigure<span class="w"> </span>locales
 </span></code></pre></div>
 <h3 id="hassio">Hass.io<a class="headerlink" href="#hassio" title="Permanent link">&para;</a></h3>
-<p>"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations." - <a href="https://home-assistant.io/hassio/">https://home-assistant.io/hassio/</a></p>
+<p>"Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations." - <a href="https://home-assistant.io/hassio">https://home-assistant.io/hassio</a></p>
 <h3 id="spillpasspi">SpillPassPi<a class="headerlink" href="#spillpasspi" title="Permanent link">&para;</a></h3>
 <p>SpillPassPi is deprecated because Nintendo shut down the Streetpass Relay servers.</p>
 <h4 id="v1">V1<a class="headerlink" href="#v1" title="Permanent link">&para;</a></h4>
 <p>Retired.</p>
-<p>'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake "Nintendo Zone" Hotspot' - <a href="http://www.spillmonkey.com/?page_id=5">http://www.spillmonkey.com/?page_id=5</a></p>
+<p>'A Simple Homebrew Plug and Play 3DS HomePass Relay and Fake "Nintendo Zone" Hotspot' - <code>http://www.spillmonkey.com/?page_id=5</code> (dead link)</p>
 <h4 id="v2">V2<a class="headerlink" href="#v2" title="Permanent link">&para;</a></h4>
-<p>'A Simple Homebrew Plug and Play 2DS/3DS/N3DS StreetPass Relay and Fake "Nintendo Zone" Hotspot' - <a href="http://www.spillmonkey.com/?page_id=169">http://www.spillmonkey.com/?page_id=169</a></p>
+<p>'A Simple Homebrew Plug and Play 2DS/3DS/N3DS StreetPass Relay and Fake "Nintendo Zone" Hotspot' - <code>http://www.spillmonkey.com/?page_id=169</code> (dead link)</p>
 <h3 id="homepass">Homepass<a class="headerlink" href="#homepass" title="Permanent link">&para;</a></h3>
 <p>"Nintendo 3DS homepass resources and software." - <a href="https://github.com/danielhoherd/homepass/tree/master/RaspberryPi">https://github.com/danielhoherd/homepass/tree/master/RaspberryPi</a></p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://www.raspberrypi.com/software/operating-systems">https://www.raspberrypi.com/software/operating-systems</a></li>
-<li><a href="https://www.raspberrypi.com/documentation/computers/os.html">https://www.raspberrypi.com/documentation/computers/os.html</a> Firmware and OS update instructions</li>
 <li><a href="https://www.jeffgeerling.com/blog/2018/raspberry-pi-microsd-card-performance-comparison-2018">https://www.jeffgeerling.com/blog/2018/raspberry-pi-microsd-card-performance-comparison-2018</a></li>
 <li><a href="https://techcrunch.com/2019/07/09/the-raspberry-pi-4-doesnt-work-with-all-usb-c-cables/">https://techcrunch.com/2019/07/09/the-raspberry-pi-4-doesnt-work-with-all-usb-c-cables/</a></li>
 <li><a href="https://curriculum.raspberrypi.org">https://curriculum.raspberrypi.org</a></li>
 <li><a href="https://www.jeffgeerling.com/blog/2020/uasp-makes-raspberry-pi-4-disk-io-50-faster">https://www.jeffgeerling.com/blog/2020/uasp-makes-raspberry-pi-4-disk-io-50-faster</a>: Useful USB info in general, regarding UASP</li>
 <li><a href="https://ptx2.net/posts/unbricking-a-bike-with-a-raspberry-pi/">https://ptx2.net/posts/unbricking-a-bike-with-a-raspberry-pi/</a></li>
 <li><a href="https://www.raspberrypi.com/news/raspberry-pi-build-hat-lego-education/">https://www.raspberrypi.com/news/raspberry-pi-build-hat-lego-education/</a>: Control LEGO motors via Raspberry Pi</li>
+</ul>
+<!-- markdown-link-check-disable -->
+<ul>
+<li><a href="https://www.raspberrypi.com/software/operating-systems">https://www.raspberrypi.com/software/operating-systems</a></li>
+<li><a href="https://www.raspberrypi.com/documentation/computers/os.html">https://www.raspberrypi.com/documentation/computers/os.html</a> Firmware and OS update instructions</li>
 </ul>
 
 
