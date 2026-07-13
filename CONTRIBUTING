@@ -1,4 +1,4 @@
 If you would like to contribute, please open a github issue. Please do not submit
-PRs as they will be auto-closed during 'mkdocs gh-deploy'.
+PRs as they will be auto-closed when a new version of the site is deployed.
 
 https://github.com/danielhoherd/tech-notes/issues
