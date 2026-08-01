@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.45">
+      <meta name="generator" content="zensical-0.0.50">
     
     
       
@@ -34,7 +34,7 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.fba56155.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.62c9b9cc.min.css">
       
         
           
@@ -2387,6 +2387,17 @@
   
     <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tag examples
+      </span>
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#dockerfile-nomenclature" class="md-nav__link">
@@ -10250,6 +10261,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#tag-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tag examples
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dockerfile-nomenclature" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -10581,7 +10603,8 @@
 <li><a href="https://github.com/opencontainers/distribution-spec/issues/279">https://github.com/opencontainers/distribution-spec/issues/279</a></li>
 </ul>
 <h2 id="docker-desktop">Docker Desktop<a class="headerlink" href="#docker-desktop" title="Permanent link">&para;</a></h2>
-<p>In August 2021, Docker pulled a license bait and switch with Docker Desktop. If you want a Docker Desktop alternative on macOS that has a <code>docker</code> command but doesn't use Docker Desktop, you can do the following:</p>
+<p>In August 2021, Docker pulled a license bait and switch with Docker Desktop. If you want a Docker Desktop alternative on macOS that has a <code>docker</code> command but doesn't use Docker Desktop, use <a href="https://orbstack.dev">Orbstack</a>.</p>
+<p>Or, you can do the following:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>install<span class="w"> </span>hyperkit<span class="w"> </span>minikube<span class="w"> </span>docker<span class="w"> </span>kubernetes-cli
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>minikube<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>driver<span class="w"> </span>hyperkit
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>minikube<span class="w"> </span>start
@@ -10590,6 +10613,16 @@
 <p>This will give you <code>docker</code> commands that targets the minikube CRI, and is actually a great dev environment.</p>
 <p>Alternatively, if you have a linux machine that runs docker handy, you can skip the minikube stuff and <code>export DOCKER_HOST=ssh://linux-docker-host</code> to launch containers on the linux dockerd. This has the caveats that you cannot mount local filesystems into the remote docker host, and if you want to use it for building your project directory will be sent over the network to the remote docker host.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="tag-examples">Tag examples<a class="headerlink" href="#tag-examples" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>debian</code></li>
+<li><code>docker.io/debian</code></li>
+<li><code>docker.io/debian:trixie</code></li>
+<li><code>docker.io/debian@sha256:fac46bff2e02f51425b6e33b0e1169f55dfb053d83511ca28aa50c09fd5ed7a4</code></li>
+</ul>
+<p>Beware of the following syntax:</p>
+<p><code>docker.io/debian:trixie@sha256:fac46bff2e02f51425b6e33b0e1169f55dfb053d83511ca28aa50c09fd5ed7a4</code></p>
+<p>The <code>:trixie</code> part is not used in resolving the tag, and is only documentation. Because of this, it can be invalid, or deliberately misleading. There is no way to resolve a tag directly from the sha256, so you may never be able to validate that the given sha256 value ever pointed at the documented tag.</p>
 <h3 id="dockerfile-nomenclature">Dockerfile nomenclature<a class="headerlink" href="#dockerfile-nomenclature" title="Permanent link">&para;</a></h3>
 <p>Docker nomenclature is sometimes unintuitive.</p>
 <p><code>ARG</code> defines an argument that passed when building, not when executing. <a href="https://docs.docker.com/reference/dockerfile#arg">https://docs.docker.com/reference/dockerfile#arg</a></p>
@@ -10809,10 +10842,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.6e5f0216.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7f30b55.min.js"></script>
       
     
   </body>
