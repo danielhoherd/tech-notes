@@ -923,6 +923,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pin-a-boot-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pin a boot image
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rebase
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -6876,6 +6898,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../pi-sugar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  pi-sugar
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pinecil/" class="md-nav__link">
         
   
@@ -8618,32 +8666,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../stoicism/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Stoicism
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../strace/" class="md-nav__link">
         
   
@@ -10002,6 +10024,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pin-a-boot-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pin a boot image
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rebase
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -10047,16 +10091,31 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ujust<span class="w"> </span>update
 </span></code></pre></div>
 <h3 id="show-cached-boot-images">Show cached boot images<a class="headerlink" href="#show-cached-boot-images" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ rpm-ostree status
+<p>Using <code>-v</code> shows the index. IMHO this should be a default behavior.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ rpm-ostree status -v
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>State: idle
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Deployments:
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>● ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck-nvidia:stable
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                   Digest: sha256:372fcf8ee1fe18306cd1097baa9b91c968def197f1396a8f009b0e163d7d463c
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                  Version: 43.20251127 (2025-11-27T17:41:29Z)
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck-nvidia:stable
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                   Digest: sha256:146fe9b1612348777df3cbf8f0f4f700356a689260a3c672a0696590a34c9bb0
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                  Version: 43.20251114.1 (2025-11-15T00:12:03Z)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>AutomaticUpdates: disabled
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Deployments:
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>● ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable (index: 0)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                   Digest: sha256:d63c82406dfb8c0dbd451b579150175fad27a39f9a835f4811d00906b61853b8
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                  Version: 43.20260420 (2026-04-20T05:55:43Z)
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                   Commit: e8d116a6e63e56f3be335296ee4b91f1807afc8e79fe135d6fcdc7f3375f227a
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                   Staged: no
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                StateRoot: default
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:stable (index: 1)
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                   Digest: sha256:1fc15e091b0b668023588ab271a96b90433562bf882fb091888b621dec91496e
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                  Version: 43.20260313 (2026-03-13T08:13:14Z)
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                   Commit: cc9391370e00f3ef7bb8685993e56a0c5d5377fc32b3169b8da906209ee02a4c
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                StateRoot: default
+</span></code></pre></div>
+<h2 id="pin-a-boot-image">Pin a boot image<a class="headerlink" href="#pin-a-boot-image" title="Permanent link">&para;</a></h2>
+<p>This is useful if you want to try rebasing without the risk of losing your previous working base image.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>ostree<span class="w"> </span>admin<span class="w"> </span>pin<span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<h2 id="rebase">Rebase<a class="headerlink" href="#rebase" title="Permanent link">&para;</a></h2>
+<p>Rebasing can be done interactively with <code>brh</code>, or with a command like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brh rebase testing
 </span></code></pre></div>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
