@@ -899,6 +899,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#thoughts-on-the-universal-blue-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Thoughts on the Universal Blue architecture
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -10026,6 +10037,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#thoughts-on-the-universal-blue-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Thoughts on the Universal Blue architecture
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -10133,6 +10155,11 @@
 
 <h1 id="bazzite">bazzite<a class="headerlink" href="#bazzite" title="Permanent link">&para;</a></h1>
 <p>"Bazzite is a custom Fedora Atomic image built with cloud native technology that brings the best of Linux gaming to all of your devices - including your favorite handheld." - <a href="https://bazzite.gg">https://bazzite.gg</a></p>
+<p>Bazzite is based on the Fedora Universal Blue architecture, which has several remixes.</p>
+<h2 id="thoughts-on-the-universal-blue-architecture">Thoughts on the Universal Blue architecture<a class="headerlink" href="#thoughts-on-the-universal-blue-architecture" title="Permanent link">&para;</a></h2>
+<p>Fedora Universal Blue has a significantly different OS lifecycle than traditional linux distro in that it uses OCI containers for its base OS, and most application installations happen outside of the system space, in flatpak, or in user space. This can be a polarizing characteristic because it violates so much precedent and built up intuition about how a linux installation should behave, while at the same time it introduces some undeniable quality of life improvements.</p>
+<p>The idea that applications live in user-space and elevated privileges are not needed to install them is great for security, and potentially for user data portability. Also, the separation of the OS files and update lifecycle into a separate layer from applications does offer a lot of neat aspects, like being able to rebase your OS underneath your user data, and of course being able to roll back to prior versions.</p>
+<p>Installing apps in flatpak and distrobox is a big change from classic deb and rpm distros, and may consume significantly more disk space while also having an inferior or awkward application lifecycle and configuration system.</p>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <p>Based on <a href="https://universal-blue.org">https://universal-blue.org</a>, "The Universal Blue project builds a diverse set of continuously delivered operating system images using bootc. That's nerdspeak for the ultimate Linux client: the reliability of a Chromebook, but with the flexibility and power of a traditional Linux desktop." The base OS is an OCI image, and any customizations that happen to the OS are done in the local filesystem that is layered on top of the base OS.</p>
 <p>Notable, the base OS images are only hosted for 90 days, after which they are deleted.</p>
