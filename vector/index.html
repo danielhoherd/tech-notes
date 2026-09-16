@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -9961,8 +9961,8 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Filename: /tmp/stream-test.sh</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">for</span><span class="w"> </span>_<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is stdout&quot;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is stderr&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"This is stdout"</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"This is stderr"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>sleep<span class="w"> </span><span class="m">0</span>.<span class="k">$((</span><span class="w"> </span><span class="nv">RANDOM</span><span class="w"> </span><span class="k">))</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">done</span>
 </span></code></pre></div>
@@ -10003,22 +10003,22 @@
 </span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">console</span>
 </span></code></pre></div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ vector --config vector.yaml
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2022-06-01T21:29:35.914895Z  INFO vector::app: Log level is enabled. level=&quot;vector=info,codec=info,vrl=info,file_source=info,tower_limit=trace,rdkafka=info,buffers=info,kube=info&quot;
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2022-06-01T21:29:35.915019Z  INFO vector::app: Loading configs. paths=[&quot;vector.yaml&quot;]
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2022-06-01T21:29:35.914895Z  INFO vector::app: Log level is enabled. level="vector=info,codec=info,vrl=info,file_source=info,tower_limit=trace,rdkafka=info,buffers=info,kube=info"
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2022-06-01T21:29:35.915019Z  INFO vector::app: Loading configs. paths=["vector.yaml"]
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2022-06-01T21:29:35.916968Z  INFO vector::topology::running: Running healthchecks.
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>2022-06-01T21:29:35.917095Z  INFO vector: Vector has started. debug=&quot;false&quot; version=&quot;0.22.0&quot; arch=&quot;x86_64&quot; build_id=&quot;5e937e3 2022-06-01&quot;
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>2022-06-01T21:29:35.917095Z  INFO vector: Vector has started. debug="false" version="0.22.0" arch="x86_64" build_id="5e937e3 2022-06-01"
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>2022-06-01T21:29:35.917138Z  INFO vector::app: API is disabled, enable by setting `api.enabled` to `true` and use commands like `vector top`.
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>2022-06-01T21:29:35.917152Z  INFO vector::topology::builder: Healthcheck: Passed.
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>{&quot;message&quot;:&quot;This is stderr&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stderr&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:35.918778044Z&quot;}
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>{&quot;message&quot;:&quot;This is stdout&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stdout&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:35.918821210Z&quot;}
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>{&quot;message&quot;:&quot;This is stderr&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stderr&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:36.679150968Z&quot;}
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>{&quot;message&quot;:&quot;This is stdout&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stdout&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:36.679193905Z&quot;}
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>{&quot;message&quot;:&quot;This is stderr&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stderr&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:36.959284295Z&quot;}
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>{&quot;message&quot;:&quot;This is stdout&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stdout&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:36.959315187Z&quot;}
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>{&quot;message&quot;:&quot;This is stdout&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stdout&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:37.124459926Z&quot;}
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>{&quot;message&quot;:&quot;This is stderr&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stderr&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:37.124598441Z&quot;}
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>{&quot;message&quot;:&quot;This is stderr&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stderr&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:37.241035793Z&quot;}
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>{&quot;message&quot;:&quot;This is stdout&quot;,&quot;pid&quot;:2470931,&quot;stream&quot;:&quot;stdout&quot;,&quot;timestamp&quot;:&quot;2022-06-01T21:29:37.241074381Z&quot;}
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>{"message":"This is stderr","pid":2470931,"stream":"stderr","timestamp":"2022-06-01T21:29:35.918778044Z"}
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>{"message":"This is stdout","pid":2470931,"stream":"stdout","timestamp":"2022-06-01T21:29:35.918821210Z"}
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>{"message":"This is stderr","pid":2470931,"stream":"stderr","timestamp":"2022-06-01T21:29:36.679150968Z"}
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>{"message":"This is stdout","pid":2470931,"stream":"stdout","timestamp":"2022-06-01T21:29:36.679193905Z"}
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>{"message":"This is stderr","pid":2470931,"stream":"stderr","timestamp":"2022-06-01T21:29:36.959284295Z"}
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>{"message":"This is stdout","pid":2470931,"stream":"stdout","timestamp":"2022-06-01T21:29:36.959315187Z"}
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>{"message":"This is stdout","pid":2470931,"stream":"stdout","timestamp":"2022-06-01T21:29:37.124459926Z"}
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>{"message":"This is stderr","pid":2470931,"stream":"stderr","timestamp":"2022-06-01T21:29:37.124598441Z"}
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>{"message":"This is stderr","pid":2470931,"stream":"stderr","timestamp":"2022-06-01T21:29:37.241035793Z"}
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>{"message":"This is stdout","pid":2470931,"stream":"stdout","timestamp":"2022-06-01T21:29:37.241074381Z"}
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>2022-06-01T21:29:37.484711Z  INFO vector::shutdown: All sources have finished.
 </span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>2022-06-01T21:29:37.484751Z  INFO vector: Vector has stopped.
 </span></code></pre></div>
@@ -10105,7 +10105,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

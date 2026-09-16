@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10281,33 +10281,33 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>| metadata type=sourcetypes index=* OR index=_*
 </span></code></pre></div>
 <h3 id="cfengine-runs-per-hour-by-version">CFEngine runs per hour by version<a class="headerlink" href="#cfengine-runs-per-hour-by-version" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>source=&quot;/var/log/messages&quot; OR source=&quot;udp:514&quot; &quot;Starting CFEngine&quot; earliest=&quot;-1w&quot; | rex &quot;Starting CFEngine (?&lt;version&gt;3.[0-9]+.[0-9]+).*&quot; | timechart span=4h usenull=0 dc(host) by version
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>source="/var/log/messages" OR source="udp:514" "Starting CFEngine" earliest="-1w" | rex "Starting CFEngine (?&lt;version&gt;3.[0-9]+.[0-9]+).*" | timechart span=4h usenull=0 dc(host) by version
 </span></code></pre></div>
 <h3 id="strip-domain-from-hostname-for-consistent-uqdns">Strip domain from hostname for consistent UQDNs<a class="headerlink" href="#strip-domain-from-hostname-for-consistent-uqdns" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rex mode=sed field=host &quot;s/\.foo\.example\.com//&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rex mode=sed field=host "s/\.foo\.example\.com//"
 </span></code></pre></div>
 <h3 id="count-of-records-per-hour-by-host">Count of records per hour by host<a class="headerlink" href="#count-of-records-per-hour-by-host" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>earliest=&quot;-7d&quot; | timechart span=1h count(_raw) by host
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>earliest="-7d" | timechart span=1h count(_raw) by host
 </span></code></pre></div>
 <h3 id="count-of-records-per-source-by-5m-with-no-limit-on-list">Count of records per source by 5m with no limit on list<a class="headerlink" href="#count-of-records-per-source-by-5m-with-no-limit-on-list" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>earliest=&quot;-8h&quot; | timechart span=5m count(_raw) by source limit=0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>earliest="-8h" | timechart span=5m count(_raw) by source limit=0
 </span></code></pre></div>
 <h3 id="count-of-records-per-source-with-a-given-list">Count of records per source with a given list<a class="headerlink" href="#count-of-records-per-source-with-a-given-list" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>earliest=&quot;-1d&quot; source=&quot;/var/log/messages&quot; OR source=&quot;udp:10514&quot; OR source=&quot;udp:514&quot; | timechart count by source
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>earliest="-1d" source="/var/log/messages" OR source="udp:10514" OR source="udp:514" | timechart count by source
 </span></code></pre></div>
 <h3 id="count-of-records-per-splunk-server-for-a-given-time-period">Count of records per splunk server for a given time period<a class="headerlink" href="#count-of-records-per-splunk-server-for-a-given-time-period" title="Permanent link">&para;</a></h3>
 <p>Stupidly, splunk doesn't support ISO date format by default (in the version I'm using).</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>earliest=&quot;06/19/2015:3:0:0&quot; latest=&quot;06/19/2015:3:3:0&quot; | timechart count(_raw) by splunk_server
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>earliest="06/19/2015:3:0:0" latest="06/19/2015:3:3:0" | timechart count(_raw) by splunk_server
 </span></code></pre></div>
 <h3 id="order-number-of-hits-for-a-given-string-by-an-extracted-ip-address">Order number of hits for a given string by an extracted IP address<a class="headerlink" href="#order-number-of-hits-for-a-given-string-by-an-extracted-ip-address" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>earliest=&quot;7/6/2015:9:30:0&quot; &quot;verifying pingback from&quot; | rex &quot;verifying pingback from (?&lt;pingback_source_ip&gt;[0-9\.]*)\&quot;&quot; | stats count(_raw) as pingback_source_ip_total by pingback_source_ip | sort pingback_source_ip_total desc
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>earliest="7/6/2015:9:30:0" "verifying pingback from" | rex "verifying pingback from (?&lt;pingback_source_ip&gt;[0-9\.]*)\"" | stats count(_raw) as pingback_source_ip_total by pingback_source_ip | sort pingback_source_ip_total desc
 </span></code></pre></div>
 <h3 id="order-an-rpm-report">Order an RPM report<a class="headerlink" href="#order-an-rpm-report" title="Permanent link">&para;</a></h3>
 <p>Given a report where RPM fields are exported as field="value", such as:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rpm -qa --queryformat &#39;report=&quot;rpm&quot;, name=&quot;%{NAME}&quot;, release=&quot;%{RELEASE}&quot;, version=&quot;%{VERSION}&quot;, packager=&quot;%{PACKAGER}&quot;, url=&quot;%{URL}&quot;, installtime=&quot;%{INSTALLTIME}&quot;\n&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rpm -qa --queryformat 'report="rpm", name="%{NAME}", release="%{RELEASE}", version="%{VERSION}", packager="%{PACKAGER}", url="%{URL}", installtime="%{INSTALLTIME}"\n'
 </span></code></pre></div>
 <p>This search in splunk will show a useful table:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>earliest=&quot;-1d&quot; report=&quot;rpm&quot; | dedup name | eval install_timestamp = strftime(installtime, &quot;%F %T.%3N&quot;) | sort installtime desc | table host,name,version,release,install_timestamp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>earliest="-1d" report="rpm" | dedup name | eval install_timestamp = strftime(installtime, "%F %T.%3N") | sort installtime desc | table host,name,version,release,install_timestamp
 </span></code></pre></div>
 <p>See also:</p>
 <ul>
@@ -10385,7 +10385,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

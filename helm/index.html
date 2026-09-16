@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10283,16 +10283,16 @@
 </span></code></pre></div>
 <h3 id="include-pre-release-versions-in-all-versions">Include pre-release versions in all versions<a class="headerlink" href="#include-pre-release-versions-in-all-versions" title="Permanent link">&para;</a></h3>
 <p>You have to use <a href="https://github.com/Masterminds/semver">mastermind/semver</a> constraints with helm, which dictate that you have to include a pre-release component if you want to match against prereleases:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>repo_name/chart_name<span class="w"> </span>--devel<span class="w"> </span>--versions<span class="w"> </span>--version<span class="w"> </span><span class="s1">&#39;^1.5-0&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>repo_name/chart_name<span class="w"> </span>--devel<span class="w"> </span>--versions<span class="w"> </span>--version<span class="w"> </span><span class="s1">'^1.5-0'</span>
 </span></code></pre></div>
 <p>This would show all versions including prereleases before or equal to 1.5.x. If you only want to show the latest version even if it is a prerelease, leave off <code>--versions</code>.</p>
 <h3 id="get-values-of-a-deployed-chart">Get values of a deployed chart<a class="headerlink" href="#get-values-of-a-deployed-chart" title="Permanent link">&para;</a></h3>
 <p>This only shows values that were passed in, not default values.</p>
 <p><code>$release_name</code> is the NAME column in <code>helm list</code></p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$release_name</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>values.yaml
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="s2">"</span><span class="nv">$release_name</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>values.yaml
 </span></code></pre></div>
 <p>To get a list of all values, use</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--all<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$release_name</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>values.yaml<span class="sb">`</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--all<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="s2">"</span><span class="nv">$release_name</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>values.yaml<span class="sb">`</span>
 </span></code></pre></div>
 <h3 id="show-notes-for-a-deployed-service">Show notes for a deployed service<a class="headerlink" href="#show-notes-for-a-deployed-service" title="Permanent link">&para;</a></h3>
 <p>Notes are printed when you install a service, but they can be viewed again by running <code>helm status &lt;release_name&gt;</code> where <code>&lt;release_name&gt;</code> is one of the releases from <code>helm list</code>.</p>
@@ -10305,17 +10305,17 @@
 </span></code></pre></div>
 <h3 id="show-metadata-about-a-specific-release-in-json">Show metadata about a specific release in json<a class="headerlink" href="#show-metadata-about-a-specific-release-in-json" title="Permanent link">&para;</a></h3>
 <p>You can find the revision in a few places, like <code>helm list -A</code>. Default is to store data about the last 10 releases per release_name.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>helm<span class="w"> </span><span class="nb">history</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NS</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RELEASE_NAME</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[] | select(.revision == 157)&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>helm<span class="w"> </span><span class="nb">history</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$NS</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$RELEASE_NAME</span><span class="s2">"</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | select(.revision == 157)'</span>
 </span></code></pre></div>
 <h3 id="show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release">Show raw data about what helm sent to the k8s server for a recent release<a class="headerlink" href="#show-raw-data-about-what-helm-sent-to-the-k8s-server-for-a-recent-release" title="Permanent link">&para;</a></h3>
 <p>First, find the secret that you will want to search. You can get the release number from <code>helm history -n "$NS" foo</code> or dig in <code>kubectl -n $NS get secret</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ k -n &quot;$NS&quot; get secret | grep sh.helm.release | tail -n 3 | column -t
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ k -n "$NS" get secret | grep sh.helm.release | tail -n 3 | column -t
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sh.helm.release.v1.foo.v338  helm.sh/release.v1  1  14d
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sh.helm.release.v1.foo.v339  helm.sh/release.v1  1  13d
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>sh.helm.release.v1.foo.v340  helm.sh/release.v1  1  4d23h
 </span></code></pre></div>
 <p>Then send that secret into the following command to get the full manifest that was sent to the k8s api:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>k<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NS</span><span class="s2">&quot;</span><span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SECRET</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>go-template<span class="o">=</span><span class="s1">&#39;{{ .data.release | base64decode | base64decode }}&#39;</span><span class="w"> </span><span class="p">|</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>k<span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$NS</span><span class="s2">"</span><span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="s2">"</span><span class="nv">$SECRET</span><span class="s2">"</span><span class="w"> </span>-o<span class="w"> </span>go-template<span class="o">=</span><span class="s1">'{{ .data.release | base64decode | base64decode }}'</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>gzip<span class="w"> </span>-d
 </span></code></pre></div>
 <p>The result is a json blob with all the details of how the helm chart was applied, including hook manifests, app manifests, and other metadata.</p>
@@ -10323,7 +10323,7 @@
 <p>Splaying cron jobs avoids the <a href="https://en.wikipedia.org/wiki/Thundering_herd_problem">thundering herd problem</a> by spreading the jobs out over time with deterministic randomness.</p>
 <p>The functions available when using Helm templates are not as plentiful and general purpose like you would expect in a normal programming language, so we have to get creative for some things. One thing that would be great is if Helm provided a deterministic random feature. It does have randomness, but there is no way to seed the random number generator. To work around this, we can use other functions that do take inputs in order to generate deterministic random-ish numbers. One such example is using <code>adler32sum</code>, which returns a base-10 hash value of an input.</p>
 <p>The following example splays a cron job that runs every 15 minutes from 3-12 inclusive, which should avoid high-demand minutes at the beginning of 0/15, and still give a few minutes for work to complete before coming back around to the next 0/15 interval.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&#39;{{- add 3 (regexFind &quot;.$&quot; (adler32sum .Release.Name)) -}}-59/15 * * * *&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>'{{- add 3 (regexFind ".$" (adler32sum .Release.Name)) -}}-59/15 * * * *'
 </span></code></pre></div>
 <p>This bit of code aler32sums the <code>.Release.Name</code> value, which is expected to be unique for every deployment but may not be in your environment, takes only the right-most digit, which is 0-9, and adds 3 to it, then uses that number as the starting minute in the cron schedule, EG: <code>7-59/* * * * *</code>.</p>
 <p>Here is a python script that shows what minute number would be generated for 235,976 inputs:</p>
@@ -10332,7 +10332,7 @@
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">adler32</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">_input</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/usr/share/dict/words&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">_input</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/usr/share/dict/words"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">_input</span><span class="p">:</span>
@@ -10341,7 +10341,7 @@
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">output</span><span class="p">[</span><span class="n">splay_minute</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>And the output shows a pretty even splay across all minutes, with each minute containing roughly 1/10<sup>th</sup> of the input lines:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ ./test-adler32sum.py
@@ -10360,7 +10360,7 @@
 <h3 id="detect-helm-resources-that-do-not-have-proper-annotations">Detect helm resources that do not have proper annotations<a class="headerlink" href="#detect-helm-resources-that-do-not-have-proper-annotations" title="Permanent link">&para;</a></h3>
 <p>Helm requires that certain annotations exist. This this check will return all deployments that do not contain the required anntoations:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployments<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>jq<span class="w"> </span><span class="s1">&#39;.items[] | select((.metadata.annotations.&quot;meta.helm.sh/release-name&quot; == null) or (.metadata.annotations.&quot;meta.helm.sh/release-namespace&quot; == null)) | .metadata.name&#39;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>jq<span class="w"> </span><span class="s1">'.items[] | select((.metadata.annotations."meta.helm.sh/release-name" == null) or (.metadata.annotations."meta.helm.sh/release-namespace" == null)) | .metadata.name'</span>
 </span></code></pre></div>
 
 
@@ -10429,7 +10429,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

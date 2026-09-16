@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -9955,7 +9955,7 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>2023-01-03 2
 </span></code></pre></div>
 <p>We also use a loop that produces dates that contain the dates missing from <code>dates.txt</code> but do not go back as far in time:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ for OFFSET in {10..0} ; do date -d "-$OFFSET days" "+%F offset=$OFFSET" ; done
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2022-12-24 offset=10
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>2022-12-25 offset=9
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2022-12-26 offset=8
@@ -9969,14 +9969,14 @@
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>2023-01-03 offset=0
 </span></code></pre></div>
 <h2 id="show-only-lines-with-common-columns">Show only lines with common columns<a class="headerlink" href="#show-only-lines-with-common-columns" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ join dates.txt &lt;(for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F $OFFSET&quot; ; done)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ join dates.txt &lt;(for OFFSET in {10..0} ; do date -d "-$OFFSET days" "+%F $OFFSET" ; done)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2022-12-24 5 10
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2023-01-01 6 2
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>2023-01-02 6 1
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2023-01-03 2 0
 </span></code></pre></div>
 <h2 id="show-all-lines-as-long-as-data-is-present-in-file-1">Show all lines, as long as data is present in file 1<a class="headerlink" href="#show-all-lines-as-long-as-data-is-present-in-file-1" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ join -a 1 dates.txt &lt;(for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ join -a 1 dates.txt &lt;(for OFFSET in {10..0} ; do date -d "-$OFFSET days" "+%F offset=$OFFSET" ; done)
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2022-12-21 9
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2022-12-22 2
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2022-12-23 1
@@ -9986,7 +9986,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>2023-01-03 2 offset=0
 </span></code></pre></div>
 <h2 id="show-all-lines-as-long-as-data-is-present-in-file-2">Show all lines, as long as data is present in file 2<a class="headerlink" href="#show-all-lines-as-long-as-data-is-present-in-file-2" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ join -a 2 dates.txt &lt;(for OFFSET in {10..0} ; do date -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ join -a 2 dates.txt &lt;(for OFFSET in {10..0} ; do date -d "-$OFFSET days" "+%F offset=$OFFSET" ; done)
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2022-12-24 5 offset=10
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>2022-12-25 offset=9
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>2022-12-26 offset=8
@@ -10001,7 +10001,7 @@
 </span></code></pre></div>
 <h2 id="only-show-certain-columns-in-the-output">Only show certain columns in the output<a class="headerlink" href="#only-show-certain-columns-in-the-output" title="Permanent link">&para;</a></h2>
 <p>We can specify which columns we want to see in the output, which includes the ability to join on a column that is not shown the output:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ join -o 1.2,2.2 dates.txt &lt;(for OFFSET in {10..0} ; do gdate -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ join -o 1.2,2.2 dates.txt &lt;(for OFFSET in {10..0} ; do gdate -d "-$OFFSET days" "+%F offset=$OFFSET" ; done)
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>5 offset=10
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>6 offset=2
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>6 offset=1
@@ -10009,7 +10009,7 @@
 </span></code></pre></div>
 <h2 id="fill-in-missing-data-an-arbitrary-string">Fill in missing data an arbitrary string<a class="headerlink" href="#fill-in-missing-data-an-arbitrary-string" title="Permanent link">&para;</a></h2>
 <p>We use <code>-e Null</code> to indicate we want to fill in missing values with <code>Null</code>. In order for <code>-e</code> to work right, e have to specify the output columns with <code>-o</code>. We also have to specify <code>-a 2</code> to indicate we want to see all lines from file 2. Because we are showing all lines in file 2, we use <code>-o 2.1</code> instead of <code>-o 1.1</code> so that the date column is not populated with <code>Null</code> values.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ join -e Null -o 2.1,1.2,2.2 -a 2 dates.txt &lt;(for OFFSET in {10..0} ; do gdate -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ join -e Null -o 2.1,1.2,2.2 -a 2 dates.txt &lt;(for OFFSET in {10..0} ; do gdate -d "-$OFFSET days" "+%F offset=$OFFSET" ; done)
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>2022-12-24 5 offset=10
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>2022-12-25 Null offset=9
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>2022-12-26 Null offset=8
@@ -10023,7 +10023,7 @@
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>2023-01-03 2 offset=0
 </span></code></pre></div>
 <p>A practical example of the above is making sure you have an entire sequence filled in, for example when graphing a set where no entry is created for days that have no data points. This ensures we're seeing a complete set, not just the days that have data:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ join -e 0 -o 2.1,1.2 -a 2 dates.txt &lt;(for OFFSET in {13..0} ; do gdate -d &quot;-$OFFSET days&quot; &quot;+%F offset=$OFFSET&quot; ; done) | termgraph --format=&#39;{:.0f}&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ join -e 0 -o 2.1,1.2 -a 2 dates.txt &lt;(for OFFSET in {13..0} ; do gdate -d "-$OFFSET days" "+%F offset=$OFFSET" ; done) | termgraph --format='{:.0f}'
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2022-12-21: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 9
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>2022-12-22: ▇▇▇▇▇▇▇▇▇▇▇ 2
@@ -10107,7 +10107,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

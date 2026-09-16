@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10353,11 +10353,11 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>date -d -2month # two months ago
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>date -d +1hour # one hour in the future
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>date -d +15minute
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>date -d &quot;last week + 1 hour&quot;
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>date -d &quot;january 10 1978 + 5 years&quot; +%a
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>date -d "last week + 1 hour"
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>date -d "january 10 1978 + 5 years" +%a
 </span></code></pre></div>
 <h4 id="convert-a-string-date-to-epoch-seconds">Convert a string date to epoch seconds<a class="headerlink" href="#convert-a-string-date-to-epoch-seconds" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>date -d &quot;Fri Sep  7  2:00 2012&quot; +%s
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>date -d "Fri Sep  7  2:00 2012" +%s
 </span></code></pre></div>
 <h4 id="convert-epoch-seconds-to-string-date">Convert epoch seconds to string date<a class="headerlink" href="#convert-epoch-seconds-to-string-date" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>date -d @1375899534
@@ -10368,28 +10368,28 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>date --rfc-3339=ns
 </span></code></pre></div>
 <h4 id="show-and-number-all-previous-weeks-from-one-year-ago">Show and number all previous weeks from one year ago<a class="headerlink" href="#show-and-number-all-previous-weeks-from-one-year-ago" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>for X in {1..53} ; do printf &quot;%02s &quot; ${X} ; date -d -49weeks-2days+${X}week &quot;+%b %d %Y&quot; ; done ;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>for X in {1..53} ; do printf "%02s " ${X} ; date -d -49weeks-2days+${X}week "+%b %d %Y" ; done ;
 </span></code></pre></div>
 <h4 id="show-and-number-all-weeks-from-the-point-i-started-working-at-zoosk">Show and number all weeks from the point I started working at Zoosk<a class="headerlink" href="#show-and-number-all-weeks-from-the-point-i-started-working-at-zoosk" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>for X in {1..90} ; do printf &quot;%02s &quot; ${X} ; date -d &quot;June 10 2013 - 1 week + ${X} week&quot; &quot;+%a %b %d %Y&quot; ; done ;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>for X in {1..90} ; do printf "%02s " ${X} ; date -d "June 10 2013 - 1 week + ${X} week" "+%a %b %d %Y" ; done ;
 </span></code></pre></div>
 <h4 id="show-how-many-seconds-old-i-am">Show how many seconds old I am<a class="headerlink" href="#show-how-many-seconds-old-i-am" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>echo &quot;$(date +%s) - $(date -d &quot;January 10 1978 7:46pm&quot; +%s)&quot; | bc
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>echo "$(date +%s) - $(date -d "January 10 1978 7:46pm" +%s)" | bc
 </span></code></pre></div>
 <h4 id="show-subsecond-date-without-going-full-nano">Show subsecond date, without going full nano<a class="headerlink" href="#show-subsecond-date-without-going-full-nano" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>for X in {1..100} ; do date +%s.%N | cut -c1-15 ; done ;
 </span></code></pre></div>
 <h4 id="sleep-until-the-next-5-minute-0-seconds-mark">Sleep until the next 5 minute 0 seconds mark<a class="headerlink" href="#sleep-until-the-next-5-minute-0-seconds-mark" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>while sleep $(date &quot;+60 - %S.%N&quot; | bc) 240 ; do date &quot;+%F %T.%N&quot; ; done ;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>while sleep $(date "+60 - %S.%N" | bc) 240 ; do date "+%F %T.%N" ; done ;
 </span></code></pre></div>
 <h4 id="show-all-format-strings-and-their-values">Show all format strings and their values<a class="headerlink" href="#show-all-format-strings-and-their-values" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ man date | awk &#39;/[[:space:]]%/ {X = $1 ; $1 = &quot;&quot; ; print X,$0}&#39; | while read -r Y Z ; do date &quot;+%$Y^$Y^${Z//%/%%}&quot; ; done | column -t -s^
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ man date | awk '/[[:space:]]%/ {X = $1 ; $1 = "" ; print X,$0}' | while read -r Y Z ; do date "+%$Y^$Y^${Z//%/%%}" ; done | column -t -s^
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>%      %                                MON literal %
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>%a     Mon                              locale&#39;s abbreviated weekday name (e.g., Sun)
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>%A     Monday                           locale&#39;s full weekday name (e.g., Sunday)
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>%b     Nov                              locale&#39;s abbreviated month name (e.g., Jan)
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>%B     November                         locale&#39;s full month name (e.g., January)
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>%c     Mon 22 Nov 2021 10:33:55 AM PST  locale&#39;s date and time (e.g., Thu Mar 3 23:05:25 2005)
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>%a     Mon                              locale's abbreviated weekday name (e.g., Sun)
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>%A     Monday                           locale's full weekday name (e.g., Sunday)
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>%b     Nov                              locale's abbreviated month name (e.g., Jan)
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>%B     November                         locale's full month name (e.g., January)
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>%c     Mon 22 Nov 2021 10:33:55 AM PST  locale's date and time (e.g., Thu Mar 3 23:05:25 2005)
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>%C     20                               century; like %Y, except omit last two digits (e.g., 20)
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>%d     22                               day of month (e.g., 01)
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>%D     11/22/21                         date; same as %m/%d/%y
@@ -10407,10 +10407,10 @@
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>%M     33                               minute (00..59)
 </span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>%n                                      a newline
 </span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>%N     258608657                        nanoseconds (000000000..999999999)
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>%p     AM                               locale&#39;s equivalent of either AM or PM; blank if not known
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>%p     AM                               locale's equivalent of either AM or PM; blank if not known
 </span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>%P     am                               like %p, but lower case
 </span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>%q     4                                quarter of year (1..4)
-</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>%r     10:33:55 AM                      locale&#39;s 12-hour clock time (e.g., 11:11:04 PM)
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>%r     10:33:55 AM                      locale's 12-hour clock time (e.g., 11:11:04 PM)
 </span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>%R     10:33                            24-hour hour and minute; same as %H:%M
 </span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>%s     1637606035                       seconds since 1970-01-01 00:00:00 UTC
 </span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>%S     55                               second (00..60)
@@ -10421,8 +10421,8 @@
 </span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a>%V     47                               ISO week number, with Monday as first day of week (01..53)
 </span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>%w     1                                day of week (0..6); 0 is Sunday
 </span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>%W     47                               week number of year, with Monday as first day of week (00..53)
-</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>%x     11/22/2021                       locale&#39;s date representation (e.g., 12/31/99)
-</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>%X     10:33:55 AM                      locale&#39;s time representation (e.g., 23:13:48)
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>%x     11/22/2021                       locale's date representation (e.g., 12/31/99)
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>%X     10:33:55 AM                      locale's time representation (e.g., 23:13:48)
 </span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a>%y     21                               last two digits of year (00..99)
 </span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a>%Y     2021                             year
 </span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a>%z     -0800                            +hhmm numeric time zone (e.g., -0400)
@@ -10512,7 +10512,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

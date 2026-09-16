@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10143,19 +10143,19 @@
 <h3 id="disable-onboard-frame-buffer">Disable onboard frame buffer<a class="headerlink" href="#disable-onboard-frame-buffer" title="Permanent link">&para;</a></h3>
 <p>I used this configuration to get text mode linux to boot on a Mac Mini with a bad graphics card that would not load a desktop environment. The machine was locking up at boot in OS X. Hardware test would boot with a striped color anomalies, but would never finish. Ubuntu Xenial would not boot correctly even to text mode without these settings.</p>
 <p>In <code>/etc/default/grub</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GRUB_CMDLINE_LINUX_DEFAULT=&quot;video=vesafb:off nofb vga=normal nomodeset&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GRUB_CMDLINE_LINUX_DEFAULT="video=vesafb:off nofb vga=normal nomodeset"
 </span></code></pre></div>
 <h3 id="force-brightness-at-boot">Force brightness at boot<a class="headerlink" href="#force-brightness-at-boot" title="Permanent link">&para;</a></h3>
 <p>On a 15" macbook pro, ubuntu 18.04 was giving me a problem where the LCD was set very dim and the keys to change brightness were not working. I had to configure <code>/etc/default/grub</code> with the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GRUB_CMDLINE_LINUX_DEFAULT=&quot;acpi_backlight=video&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GRUB_CMDLINE_LINUX_DEFAULT="acpi_backlight=video"
 </span></code></pre></div>
 <p>An alternate was <code>acpi_backlight=vendor</code>, but for me this was still quite dim. You can also alter your screen brightness on the fly by sending a value between 0-100 like this: <code>echo 0 &gt; /sys/class/backlight/acpi_video0/brightness</code></p>
 <h3 id="serial-over-ipmi">Serial over IPMI<a class="headerlink" href="#serial-over-ipmi" title="Permanent link">&para;</a></h3>
 <p>First, your BMC has to be configured for SOL. If you see POST in an IPMI sol session, this is the next step. Edit /etc/default/grub and add something like the following lines:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s">&quot;console=tty0 console=ttyS1,115200&quot;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">GRUB_TERMINAL_INPUT</span><span class="o">=</span><span class="s">&quot;console serial&quot;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">GRUB_TERMINAL_OUTPUT</span><span class="o">=</span><span class="s">&quot;gfxterm serial&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">GRUB_SERIAL_COMMAND</span><span class="o">=</span><span class="s">&quot;serial --unit=1 --speed=115200&quot;</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s">"console=tty0 console=ttyS1,115200"</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">GRUB_TERMINAL_INPUT</span><span class="o">=</span><span class="s">"console serial"</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">GRUB_TERMINAL_OUTPUT</span><span class="o">=</span><span class="s">"gfxterm serial"</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">GRUB_SERIAL_COMMAND</span><span class="o">=</span><span class="s">"serial --unit=1 --speed=115200"</span>
 </span></code></pre></div>
 <p>This was tested on a SuperMicro running Ubuntu 19.10.</p>
 <h2 id="notable-commands-files-and-dirs">Notable commands, files and dirs<a class="headerlink" href="#notable-commands-files-and-dirs" title="Permanent link">&para;</a></h2>
@@ -10234,7 +10234,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

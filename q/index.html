@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10101,7 +10101,7 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>## -H  = use the headings found in the input csv files
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>## -T  = tab delimited output
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>## -f  = python 2 format strings to be applied to 1-indexed output fields
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>$ q -d, -H -T -f &#39;1=https://pagerduty.com/incidents/%s,2=alerted at %s,3=Description: %s&#39; &#39;select id,created_on,description from incidents.csv order by created_on asc limit 5&#39;
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>$ q -d, -H -T -f '1=https://pagerduty.com/incidents/%s,2=alerted at %s,3=Description: %s' 'select id,created_on,description from incidents.csv order by created_on asc limit 5'
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>https://pagerduty.com/incidents/P66XNLT    alerted at 2017-12-04T00:04:07-08:00    Description: proxy0302: 200 Status Code Proxy Log Watcher: Matches found in last run met or dropped below 0.0, dropping to 0.0 for 10 minutes at 12:00AM https://server.pingdom.com/a/3103869181
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>https://pagerduty.com/incidents/PLUG344    alerted at 2017-12-04T04:14:05-08:00    Description: sandbox-apigateway00: API Gateway Error Watcher: Occurrences met or exceeded 10.00 /min, increasing to 15.82 /min for 10 minutes at 04:10AM https://server.pingdom.com/a/3104379391
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>https://pagerduty.com/incidents/PT13M2B    alerted at 2017-12-04T06:48:14-08:00    Description: hadoop-r21: Hadoop Resource Monitor: Lostnodes met or exceeded 4.0, increasing to 4.0 at 06:47AM https://server.pingdom.com/a/3104686551
@@ -10115,21 +10115,21 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pagerduty-csv-download() {
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  rm -f incidents.csv
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  TZ=America/Los_Angeles
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  past=&quot;$(date -v-7d &quot;+%FT00:00:00&quot;)&quot;
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  present=&quot;$(date &quot;+%FT00:00:00&quot;)&quot;
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  open &quot;$(date &quot;+https://companyname.pagerduty.com/api/v1/reports/raw/incidents.csv?since=${past}&amp;until=${present}&amp;time_zone=${TZ}&quot;)&quot;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  past="$(date -v-7d "+%FT00:00:00")"
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  present="$(date "+%FT00:00:00")"
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  open "$(date "+https://companyname.pagerduty.com/api/v1/reports/raw/incidents.csv?since=${past}&amp;until=${present}&amp;time_zone=${TZ}")"
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>}
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>pagerduty-csv-to-html() {
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  q \
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    -H \
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    -d&#39;,&#39; \
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    -D&#39; &#39; \
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    -f &#39;1=&lt;li&gt;%s,2=&lt;a href \&quot;https://companyname.pagerduty.com/incidents/%s\&quot;&gt;,3=%s&lt;/a&gt;,4=%s&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&#39; \
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    &#39;select substr(created_on,12,5),id,id,description from incidents.csv order by created_on asc&#39; | tail -n 50 | sed &#39;s/href /href=/;s/&gt; /&gt;/&#39;
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    -d',' \
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    -D' ' \
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    -f '1=&lt;li&gt;%s,2=&lt;a href \"https://companyname.pagerduty.com/incidents/%s\"&gt;,3=%s&lt;/a&gt;,4=%s&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;' \
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    'select substr(created_on,12,5),id,id,description from incidents.csv order by created_on asc' | tail -n 50 | sed 's/href /href=/;s/&gt; /&gt;/'
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>}
 </span></code></pre></div>
 <h3 id="select-count-of-daily-alerts-by-date-from-pagerduty-incidentscsv">Select count of daily alerts by date from PagerDuty incidents.csv<a class="headerlink" href="#select-count-of-daily-alerts-by-date-from-pagerduty-incidentscsv" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>q -H --delimiter=&#39;,&#39; -O --output-delimiter=&#39;,&#39; &#39;select substr(created_on,0,11) as date,count(substr(created_on,0,11)) as count from incidents.csv group by date&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>q -H --delimiter=',' -O --output-delimiter=',' 'select substr(created_on,0,11) as date,count(substr(created_on,0,11)) as count from incidents.csv group by date'
 </span></code></pre></div>
 
 
@@ -10198,7 +10198,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10672,8 +10672,8 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>quay.io:443/prometheus/busybox
 </span></code></pre></div>
 <p>And the docker python module shows the entire "image name" when you ask it for the "tag"</p>
-<div class="language-pycon highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;quay.io:443/prometheus/busybox:glibc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tags</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">[&#39;quay.io/prometheus/busybox:glibc&#39;]</span>
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'quay.io:443/prometheus/busybox:glibc'</span><span class="p">)</span><span class="o">.</span><span class="n">tags</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">['quay.io/prometheus/busybox:glibc']</span>
 </span></code></pre></div>
 <p>Other documents list other definitions. I think that the community needs to get this terminology straight in order for us to build consistent, resilient software. There are some discussions open about this topic, but it does not seem to be high priority:</p>
 <ul>
@@ -10708,8 +10708,8 @@
 <p><code>CMD</code> is arguments for the <code>ENTRYPOINT</code> if it exists, otherwise it is the command that should run in the container. <a href="https://docs.docker.com/reference/dockerfile#cmd">https://docs.docker.com/reference/dockerfile#cmd</a></p>
 <p>For example:</p>
 <div class="language-Dockerfile highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c"># Note: these must use double-quotes</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/usr/bin/bash&quot;</span><span class="p">]</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/etc&quot;</span><span class="p">]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">"/usr/bin/bash"</span><span class="p">]</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"-c"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ls"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-l"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/etc"</span><span class="p">]</span>
 </span></code></pre></div>
 <p>With this built container, if you run <code>docker run -ti -c "echo hi"</code> this would run <code>/usr/bin/bash -c "echo hi"</code>. But you can also override the entrypoint with <code>--entrypoint=/usr/bin/python</code> so these mechanics do overlap a bit and don't always make intuitive sense.</p>
 <h3 id="show-help-on-the-run-command">Show help on the run command<a class="headerlink" href="#show-help-on-the-run-command" title="Permanent link">&para;</a></h3>
@@ -10738,18 +10738,18 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>grep<span class="w"> </span>-q<span class="w"> </span>docker<span class="w"> </span>/proc/1/cgroup
 </span></code></pre></div>
 <h3 id="run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name">Run a docker image and assign it a hostname, and a docker name<a class="headerlink" href="#run-a-docker-image-and-assign-it-a-hostname-and-a-docker-name" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--hostname<span class="o">=</span>somehost1<span class="w"> </span>--name<span class="o">=</span><span class="s2">&quot;host1&quot;</span><span class="w"> </span>-ti<span class="w"> </span>centos:centos6<span class="w"> </span>bash
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--hostname<span class="o">=</span>somehost1<span class="w"> </span>--name<span class="o">=</span><span class="s2">"host1"</span><span class="w"> </span>-ti<span class="w"> </span>centos:centos6<span class="w"> </span>bash
 </span></code></pre></div>
 <p>The hostname shows up to the OS. The docker name can be used to interact with the container:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>host1
 </span></code></pre></div>
 <h3 id="show-a-complete-vertically-oriented-list-of-docker-processes">Show a complete vertically oriented list of docker processes<a class="headerlink" href="#show-a-complete-vertically-oriented-list-of-docker-processes" title="Permanent link">&para;</a></h3>
 <p><code>docker ps</code> has no <code>--json</code> flag, but you can work around that with golang style formatting.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>--no-trunc<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;{{ . | json }}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-S<span class="w"> </span>.
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>--no-trunc<span class="w"> </span>--format<span class="o">=</span><span class="s1">'{{ . | json }}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-S<span class="w"> </span>.
 </span></code></pre></div>
 <p>This trick also works with <code>docker images</code>, which also lacks a <code>--json</code> arg.</p>
 <h3 id="show-a-table-of-docker-containers-sorted-by-space-used-in-the-container-not-by-the-image">Show a table of docker containers sorted by space used in the container (not by the image)<a class="headerlink" href="#show-a-table-of-docker-containers-sorted-by-space-used-in-the-container-not-by-the-image" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ docker ps --format=&quot;{{.Size}}\t{{.ID}}\t{{.Image}}\t{{.Names}}&quot; |
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ docker ps --format="{{.Size}}\t{{.ID}}\t{{.Image}}\t{{.Names}}" |
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sort -h -k1 |
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>column -t
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>0B      (virtual  101MB)  2f7ba92f1e66  wan-connection-logger         wan-connection-logger
@@ -10765,18 +10765,18 @@
 </span></code></pre></div>
 <h3 id="run-a-container-with-a-shared-directory">Run a container with a shared directory<a class="headerlink" href="#run-a-container-with-a-shared-directory" title="Permanent link">&para;</a></h3>
 <p>We are specifying :ro to make this a read-only mount. Default is rw.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/www/:/var/www/html/:ro&quot;</span><span class="w"> </span>php:5.4.35-apache
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-v<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/www/:/var/www/html/:ro"</span><span class="w"> </span>php:5.4.35-apache
 </span></code></pre></div>
 <h3 id="show-configuration-parameters-for-a-container">Show configuration parameters for a container<a class="headerlink" href="#show-configuration-parameters-for-a-container" title="Permanent link">&para;</a></h3>
 <p>This shows more things that you can configure, like DNS, DNS search, etc..</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>inspect<span class="w"> </span>host1
 </span></code></pre></div>
 <h3 id="show-what-has-changed-since-a-container-was-started">Show what has changed since a container was started<a class="headerlink" href="#show-what-has-changed-since-a-container-was-started" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>diff<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$some_running_image</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>diff<span class="w"> </span><span class="s2">"</span><span class="nv">$some_running_image</span><span class="s2">"</span>
 </span></code></pre></div>
 <p><a href="https://docs.docker.com/engine/reference/commandline/diff">https://docs.docker.com/engine/reference/commandline/diff</a></p>
 <h3 id="view-the-terminal-scrollback-of-a-a-container">View the terminal scrollback of a a container<a class="headerlink" href="#view-the-terminal-scrollback-of-a-a-container" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>logs<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$some_running_image</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>logs<span class="w"> </span><span class="s2">"</span><span class="nv">$some_running_image</span><span class="s2">"</span>
 </span></code></pre></div>
 <h3 id="list-all-containers-including-ones-that-have-been-stopped">List all containers, including ones that have been stopped<a class="headerlink" href="#list-all-containers-including-ones-that-have-been-stopped" title="Permanent link">&para;</a></h3>
 <p>This allows you to restart previous instances of a container.</p>
@@ -10791,7 +10791,7 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>ttrss
 </span></code></pre></div>
 <h3 id="update-the-restart-policy-on-a-running-container">Update the restart policy on a running container<a class="headerlink" href="#update-the-restart-policy-on-a-running-container" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>update<span class="w"> </span>--restart<span class="o">=</span>unless-stopped<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$some_running_image</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>update<span class="w"> </span>--restart<span class="o">=</span>unless-stopped<span class="w"> </span><span class="s2">"</span><span class="nv">$some_running_image</span><span class="s2">"</span>
 </span></code></pre></div>
 <h3 id="delete-all-unused-stuff">Delete all unused stuff<a class="headerlink" href="#delete-all-unused-stuff" title="Permanent link">&para;</a></h3>
 <p>This will be interactive.</p>
@@ -10800,14 +10800,14 @@
 <h3 id="delete-old-containers">Delete old containers<a class="headerlink" href="#delete-old-containers" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.docker.com/engine/reference/commandline/rm">https://docs.docker.com/engine/reference/commandline/rm</a></p>
 <p>You may have to remove <code>-r</code> from <code>xargs</code> on non-GNU systems.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;{{.ID}} {{.Status}}&quot;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>awk<span class="w"> </span><span class="s1">&#39;$2 == &quot;Exited&quot; &amp;&amp; $5 ~ /(days|weeks|months)/ {print $1}&#39;</span><span class="w"> </span><span class="p">|</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w"> </span>--format<span class="o">=</span><span class="s2">"{{.ID}} {{.Status}}"</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>awk<span class="w"> </span><span class="s1">'$2 == "Exited" &amp;&amp; $5 ~ /(days|weeks|months)/ {print $1}'</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>xargs<span class="w"> </span>-r<span class="w"> </span>docker<span class="w"> </span>rm
 </span></code></pre></div>
 <p>A more systematic approach is to use <a href="https://github.com/Yelp/docker-custodian">Docker Custodian</a>.</p>
 <h3 id="delete-old-images">Delete old images<a class="headerlink" href="#delete-old-images" title="Permanent link">&para;</a></h3>
 <p>This is safe to run as long as valuable containers are running, as it won't delete any images that are attached to running containers.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>rmi<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;^&lt;none&gt;&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>rmi<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'^&lt;none&gt;'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $3}'</span><span class="k">)</span>
 </span></code></pre></div>
 <p><a href="https://docs.docker.com/engine/reference/commandline/rmi">https://docs.docker.com/engine/reference/commandline/rmi</a></p>
 <p>A more systematic approach is to use <a href="https://github.com/Yelp/docker-custodian">Docker Custodian</a>.</p>
@@ -10816,20 +10816,20 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>pgrep<span class="w"> </span>docker<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-n1<span class="w"> </span>pstree
 </span></code></pre></div>
 <h3 id="show-a-list-of-tags-for-a-given-image-on-docker-hub">Show a list of tags for a given image on docker hub<a class="headerlink" href="#show-a-list-of-tags-for-a-given-image-on-docker-hub" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$ curl --silent -f -lSL &quot;https://index.docker.io/v1/repositories/org-name/image-name/tags&quot; |
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>jq &#39;.[].name&#39;
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>&quot;latest&quot;
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>&quot;0.11.1&quot;
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>&quot;1.3.0&quot;
-</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>&quot;1.5.0&quot;
-</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>&quot;2.0.0&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$ curl --silent -f -lSL "https://index.docker.io/v1/repositories/org-name/image-name/tags" |
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>jq '.[].name'
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>"latest"
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>"0.11.1"
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>"1.3.0"
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>"1.5.0"
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>"2.0.0"
 </span></code></pre></div>
 <p><a href="https://docs.quay.io/api/swagger">Quay has a swagger console</a> to discover more API uses</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$ curl --silent -f -lSL &quot;https://quay.io/api/v1/repository/org-name/image-name/tag&quot; |
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>jq &#39;.tags[].name&#39;
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>&quot;2.0.0&quot;
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>&quot;latest&quot;
-</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>&quot;1.3.0&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$ curl --silent -f -lSL "https://quay.io/api/v1/repository/org-name/image-name/tag" |
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>jq '.tags[].name'
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>"2.0.0"
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>"latest"
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>"1.3.0"
 </span></code></pre></div>
 <h3 id="convert-a-docker-composeyml-file-into-other-formats">Convert a docker-compose.yml file into other formats<a class="headerlink" href="#convert-a-docker-composeyml-file-into-other-formats" title="Permanent link">&para;</a></h3>
 <p>By default, the destination format is a kustomize dir:</p>
@@ -10923,7 +10923,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

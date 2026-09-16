@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10173,14 +10173,14 @@
 <p>show filesystem metadata about a file</p>
 <h2 id="gnu-stat-examples">GNU stat examples<a class="headerlink" href="#gnu-stat-examples" title="Permanent link">&para;</a></h2>
 <h3 id="show-permissions-modify-date-ownership-and-long-filename">Show permissions, modify date, ownership and long filename<a class="headerlink" href="#show-permissions-modify-date-ownership-and-long-filename" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>stat -c &quot;%a/%A  %y %G(%g):%U(%u) %N&quot; /srv/log/apache2/
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>stat -c "%a/%A  %y %G(%g):%U(%u) %N" /srv/log/apache2/
 </span></code></pre></div>
 <h3 id="sum-file-sizes">Sum file sizes<a class="headerlink" href="#sum-file-sizes" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>stat -c &#39;%s&#39; *2016* | awk &#39;{sum += $1} END {print sum}&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>stat -c '%s' *2016* | awk '{sum += $1} END {print sum}'
 </span></code></pre></div>
 <h3 id="generate-chown-commands">Generate chown commands<a class="headerlink" href="#generate-chown-commands" title="Permanent link">&para;</a></h3>
 <p>If you've ever messed up permissions on one service or data replica and need to repair them without installing acl for <code>getfacl</code> and <code>setfacl</code>, this can work:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>find<span class="w"> </span>whatever-dir<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;sudo chown %g:%u %N&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>find<span class="w"> </span>whatever-dir<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">"sudo chown %g:%u %N"</span>
 </span></code></pre></div>
 <h2 id="gnu-stat-c-variables">GNU stat -c variables<a class="headerlink" href="#gnu-stat-c-variables" title="Permanent link">&para;</a></h2>
 <p>This section is taken from <code>man stat</code></p>
@@ -10299,7 +10299,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

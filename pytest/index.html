@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10285,7 +10285,7 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pytest<span class="w"> </span>--pdb<span class="w"> </span>tests/test_*.py
 </span></code></pre></div>
 <h3 id="override-test-args">Override test args<a class="headerlink" href="#override-test-args" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTEST_ADDOPTS</span><span class="o">=</span><span class="s1">&#39;--maxfail=1 -v --pdb&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTEST_ADDOPTS</span><span class="o">=</span><span class="s1">'--maxfail=1 -v --pdb'</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pytest<span class="w"> </span>app/tests/test_*.py
 </span></code></pre></div>
 <h3 id="run-only-tests-that-failed-on-the-last-run">Run only tests that failed on the last run<a class="headerlink" href="#run-only-tests-that-failed-on-the-last-run" title="Permanent link">&para;</a></h3>
@@ -10296,11 +10296,11 @@
 </span></code></pre></div>
 <h3 id="run-a-specific-test-case">Run a specific test case<a class="headerlink" href="#run-a-specific-test-case" title="Permanent link">&para;</a></h3>
 <p>You can use python expressions to match more than one test. Each given test is substring matched against available tests. The matching logic can get pretty complicated, so <a href="https://docs.pytest.org/en/latest/example/markers.html#using-k-expr-to-select-tests-based-on-their-name">see the help docs</a>.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pytest<span class="w"> </span>-k<span class="w"> </span><span class="s1">&#39;test_this_specific_thing or that_specific_thing&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pytest<span class="w"> </span>-k<span class="w"> </span><span class="s1">'test_this_specific_thing or that_specific_thing'</span>
 </span></code></pre></div>
 <h3 id="passing-args-via-env-vars">Passing args via ENV vars<a class="headerlink" href="#passing-args-via-env-vars" title="Permanent link">&para;</a></h3>
 <p>You can pass args via the <code>PYTEST_ADDOPTS</code> ENV var. This is useful for instance if you're using make to run tests, and the command line does additional things like source files, enter a venv, or whatever.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">PYTEST_ADDOPTS</span><span class="o">=</span><span class="s2">&quot;--ff --maxfail=1&quot;</span><span class="w"> </span>make<span class="w"> </span><span class="nb">test</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">PYTEST_ADDOPTS</span><span class="o">=</span><span class="s2">"--ff --maxfail=1"</span><span class="w"> </span>make<span class="w"> </span><span class="nb">test</span>
 </span></code></pre></div>
 <h3 id="show-your-fixtures">Show your fixtures<a class="headerlink" href="#show-your-fixtures" title="Permanent link">&para;</a></h3>
 <p>This shows all fixtures that are available for use in your tests.</p>
@@ -10387,7 +10387,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

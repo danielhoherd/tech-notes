@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10212,8 +10212,8 @@
 <h3 id="script-box-updates">Script box updates<a class="headerlink" href="#script-box-updates" title="Permanent link">&para;</a></h3>
 <p>This may fail in some circumstances, I haven't tested it exhaustively.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vagrant<span class="w"> </span>box<span class="w"> </span>outdated<span class="w"> </span>--machine-readable<span class="w"> </span>--global<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;$4 == &quot;warn&quot; {print $5; exit 1}&#39;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>awk<span class="w"> </span>-F<span class="s2">&quot;&#39;&quot;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">'$4 == "warn" {print $5; exit 1}'</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>awk<span class="w"> </span>-F<span class="s2">"'"</span><span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>xargs<span class="w"> </span>-n1<span class="w"> </span>vagrant<span class="w"> </span>box<span class="w"> </span>update<span class="w"> </span>--box
 </span></code></pre></div>
 <h3 id="show-status-of-all-running-vagrant-boxes-not-just-the-one-in-the-cwd">Show status of all running Vagrant boxes, not just the one in the CWD<a class="headerlink" href="#show-status-of-all-running-vagrant-boxes-not-just-the-one-in-the-cwd" title="Permanent link">&para;</a></h3>
@@ -10286,7 +10286,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10669,71 +10669,71 @@
 </span></code></pre></div>
 <h3 id="show-any-host-that-has-had-salt-applied-at-some-point">Show any host that has had salt applied at some point<a class="headerlink" href="#show-any-host-that-has-had-salt-applied-at-some-point" title="Permanent link">&para;</a></h3>
 <p>This shows only accepted keys. Without the <code>jq</code> part, rejected and denied keys would also show up in this list.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>salt-key --out json | jq &#39;.minions[]&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>salt-key --out json | jq '.minions[]'
 </span></code></pre></div>
 <h3 id="accept-a-key-that-has-not-yet-been-accepted">Accept a key that has not yet been accepted<a class="headerlink" href="#accept-a-key-that-has-not-yet-been-accepted" title="Permanent link">&para;</a></h3>
 <p>After finding the hostname in the Unaccepted list returned by <code>salt-key</code>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>salt-key -a hostname.example.com
 </span></code></pre></div>
 <h3 id="show-the-version-of-an-installed-package-on-all-hosts">Show the version of an installed package on all hosts<a class="headerlink" href="#show-the-version-of-an-installed-package-on-all-hosts" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>salt &#39;*&#39; pkg.version bash
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>salt '*' pkg.version bash
 </span></code></pre></div>
 <h3 id="targeting-hosts">Targeting hosts<a class="headerlink" href="#targeting-hosts" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods">https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods</a></li>
 </ul>
 <h4 id="target-using-globs">Target using globs<a class="headerlink" href="#target-using-globs" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>salt &#39;*dev*&#39; pkg.install pre-commit
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>salt '*dev*' pkg.install pre-commit
 </span></code></pre></div>
 <h4 id="target-using-regular-expressions">Target using regular expressions<a class="headerlink" href="#target-using-regular-expressions" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>salt -b1 -E &#39;miner..-aws&#39; cmd.run &#39;service miner restart&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>salt -b1 -E 'miner..-aws' cmd.run 'service miner restart'
 </span></code></pre></div>
 <h4 id="target-an-ip-subnet">Target an IP subnet<a class="headerlink" href="#target-an-ip-subnet" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>salt -t 15 -S &#39;172.21.5.0/24&#39; cmd.run &#39;dpkg -l linux-image&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>salt -t 15 -S '172.21.5.0/24' cmd.run 'dpkg -l linux-image'
 </span></code></pre></div>
 <h3 id="target-a-specific-os">Target a specific OS<a class="headerlink" href="#target-a-specific-os" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.saltstack.com/en/latest/topics/targeting/compound.html">https://docs.saltstack.com/en/latest/topics/targeting/compound.html</a></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>salt -C &#39;G@lsb_distrib_codename:trusty&#39; pkg.install cmatrix
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>salt -C 'G@lsb_distrib_codename:trusty' pkg.install cmatrix
 </span></code></pre></div>
 <h3 id="run-a-command-on-a-subset-of-hosts">Run a command on a subset of hosts<a class="headerlink" href="#run-a-command-on-a-subset-of-hosts" title="Permanent link">&para;</a></h3>
 <p>Check ntp stats on hadoop hosts.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>salt &quot;*hadoop*&quot; cmd.run &quot;ntpq -p&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>salt "*hadoop*" cmd.run "ntpq -p"
 </span></code></pre></div>
 <p>Many more complicated examples of remote command execution: <a href="https://docs.saltstack.com/en/latest/topics/execution/remote_execution.html">https://docs.saltstack.com/en/latest/topics/execution/remote_execution.html</a></p>
 <h3 id="show-ip-addresses">Show IP addresses<a class="headerlink" href="#show-ip-addresses" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.network.html">https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.network.html</a></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>salt &#39;*itni*&#39; network.ip_addrs
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>salt '*itni*' network.ip_addrs
 </span></code></pre></div>
 <h3 id="show-available-grains">Show available grains<a class="headerlink" href="#show-available-grains" title="Permanent link">&para;</a></h3>
 <p>This just lists the grain keys, not the values</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>salt &#39;*minecraft*&#39; grains.ls
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>salt '*minecraft*' grains.ls
 </span></code></pre></div>
 <h3 id="show-grain-data-for-a-subset-of-hosts">Show grain data for a subset of hosts<a class="headerlink" href="#show-grain-data-for-a-subset-of-hosts" title="Permanent link">&para;</a></h3>
 <p>This lists the keys and values</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>salt &#39;*dorks*&#39; grains.items
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>salt '*dorks*' grains.items
 </span></code></pre></div>
 <h3 id="show-one-grain-for-a-subset-of-hosts">Show one grain for a subset of hosts<a class="headerlink" href="#show-one-grain-for-a-subset-of-hosts" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>salt &#39;*elk*&#39; grains.fetch lsb_distrib_release
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>salt '*elk*' grains.fetch lsb_distrib_release
 </span></code></pre></div>
 <p>or...</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>salt &#39;*elk*&#39; grains.item os
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>salt '*elk*' grains.item os
 </span></code></pre></div>
 <h3 id="look-up-grain-data-while-logged-into-a-minion">Look up grain data while logged into a minion<a class="headerlink" href="#look-up-grain-data-while-logged-into-a-minion" title="Permanent link">&para;</a></h3>
 <p>While logged into a minion, you can view what pillar data would be applied:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>salt-call pillar.get users
 </span></code></pre></div>
 <h3 id="append-a-username-to-the-accounts-grain-and-apply-the-users-saltstate">Append a username to the accounts grain and apply the users saltstate<a class="headerlink" href="#append-a-username-to-the-accounts-grain-and-apply-the-users-saltstate" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>salt &#39;*searchstring*&#39; grains.append accounts user-to-add
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>salt &#39;*searchstring*&#39; state.sls users
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>salt &#39;*searchstring*&#39; user.list_users --out yaml &gt; list_users.yaml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>salt '*searchstring*' grains.append accounts user-to-add
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>salt '*searchstring*' state.sls users
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>salt '*searchstring*' user.list_users --out yaml &gt; list_users.yaml
 </span></code></pre></div>
 <p>Or as a function to run locally</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>add_user_via_salt_grains() {
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  new_user=$1
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  id &quot;${new_user}&quot; &amp;&amp; return 0
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  salt-call grains.append accounts &quot;$new_user&quot; &amp;&amp; \
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  id "${new_user}" &amp;&amp; return 0
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  salt-call grains.append accounts "$new_user" &amp;&amp; \
 </span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>  salt-call state.sls users
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>  id &quot;$new_user&quot;
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>  id "$new_user"
 </span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>}
 </span></code></pre></div>
 
@@ -10803,7 +10803,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

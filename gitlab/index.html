@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10353,22 +10353,22 @@
 <h3 id="skip-ci-via-commit-message">Skip CI via commit message<a class="headerlink" href="#skip-ci-via-commit-message" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs">https://docs.gitlab.com/ce/ci/yaml/#skipping-jobs</a></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>##!/usr/bin/env bash
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>## Skip CI if all changed files are inside dir &quot;foo/&quot;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>## Skip CI if all changed files are inside dir "foo/"
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>set -x
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>regex=&#39;^foo\/&#39;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>regex='^foo\/'
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>files=( $(git diff --cached --name-only --diff-filter=ACM ) )
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>for X in &quot;${files[@]}&quot; ; do
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>for X in "${files[@]}" ; do
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  # If any file is not inside dir foo exit 0
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  if [[ ! &quot;$X&quot; =~ $regex ]] ; then
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  if [[ ! "$X" =~ $regex ]] ; then
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    exit 0
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  fi
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>done
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>## If we&#39;ve made it here, all changed files are inside dir foo/
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>## so we append &#39;[no ci]&#39; to commit message to skip CI in Gitlab
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>echo &quot;[no ci]&quot; &gt;&gt; &quot;$1&quot;
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>## If we've made it here, all changed files are inside dir foo/
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>## so we append '[no ci]' to commit message to skip CI in Gitlab
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>echo "[no ci]" &gt;&gt; "$1"
 </span></code></pre></div>
 <h3 id="run-privileged-mode-gitlab-runners-in-gke">Run privileged mode gitlab-runners in GKE<a class="headerlink" href="#run-privileged-mode-gitlab-runners-in-gke" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.gitlab.com/runner/install/kubernetes.html#installing-gitlab-runner-using-the-helm-chart">https://docs.gitlab.com/runner/install/kubernetes.html#installing-gitlab-runner-using-the-helm-chart</a></p>
@@ -10377,28 +10377,28 @@
 </span></code></pre></div>
 <p>Privileged mode is needed to run <code>docker</code> commands, which is useful for building containers, running ansible molecule, etc..</p>
 <p>The <code>runners.tags</code> includes <code>${ORG_NAME}</code> which is great for making sure jobs run on your own runners instead of publicly shared runners. This is important because <code>DOCKER_HOST</code> is different in Kubernetes than it is on public dind runners.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export REGISTRATION_TOKEN=&quot;foobar&quot;
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>export ORG_NAME=&quot;acme&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export REGISTRATION_TOKEN="foobar"
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>export ORG_NAME="acme"
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>helm \
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  install gitlab/gitlab-runner \
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  --name &quot;gitlab-runner-${ORG_NAME}-$(date +%s)&quot; \
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  --set &quot;concurrent=20&quot; \
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  --set &quot;gitlabUrl=https://gitlab.com/&quot; \
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  --set &quot;runnerRegistrationToken=${REGISTRATION_TOKEN}&quot; \
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  --set &quot;runners.builds.cpuRequests=1&quot; \
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  --set &quot;runners.env.DOCKER_HOST=tcp://localhost:2375/&quot; \
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  --set &quot;runners.env.DOCKER_TLS_CERTDIR=&quot; \
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  --set &quot;runners.imagePullPolicy=always&quot; \
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  --set &quot;runners.privileged=true&quot; \
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  --set &quot;runners.request_concurrency=10&quot; \
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  --set &quot;runners.tags=${ORG_NAME}\,dind\,gke&quot;
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  --name "gitlab-runner-${ORG_NAME}-$(date +%s)" \
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  --set "concurrent=20" \
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  --set "gitlabUrl=https://gitlab.com/" \
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  --set "runnerRegistrationToken=${REGISTRATION_TOKEN}" \
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  --set "runners.builds.cpuRequests=1" \
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  --set "runners.env.DOCKER_HOST=tcp://localhost:2375/" \
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  --set "runners.env.DOCKER_TLS_CERTDIR=" \
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  --set "runners.imagePullPolicy=always" \
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  --set "runners.privileged=true" \
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  --set "runners.request_concurrency=10" \
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  --set "runners.tags=${ORG_NAME}\,dind\,gke"
 </span></code></pre></div>
 <p>the <code>runners.privileged=true</code> is the magic that is needed to enable docker commands in your <code>.gitlab-ci.yml</code> files to succeed. this <code>--set</code> flag creates the pod environment:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>spec:
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  containers:
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    env:
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    - name: KUBERNETES_PRIVILEGED
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>      value: &quot;true&quot;
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>      value: "true"
 </span></code></pre></div>
 <p><code>runners.env.DOCKER_TLS_CERTDIR=</code> is required to fix the changes with Docker 19.03 outlined in <a href="https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/">https://about.gitlab.com/2019/07/31/docker-in-docker-with-docker-19-dot-03/</a> and <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/64959">https://gitlab.com/gitlab-org/gitlab-ce/issues/64959</a></p>
 <p>See more variables that you can set by running <code>helm inspect gitlab/gitlab-runner</code></p>
@@ -10413,7 +10413,7 @@
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>/helm list
 </span></code></pre></div>
 <h3 id="show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job">Show kubernetes gitlab runner pods, their age, their job URL, and who started the job<a class="headerlink" href="#show-kubernetes-gitlab-runner-pods-their-age-their-job-url-and-who-started-the-job" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s1">&#39;NAME:.metadata.name,START_TIME:.status.startTime,CI_JOB_URL:.spec.containers[0].env[?(@.name == &quot;CI_JOB_URL&quot;)].value,GITLAB_USER_EMAIL:.spec.containers[0].env[?(@.name == &quot;GITLAB_USER_EMAIL&quot;)].value&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;NAME|jobs&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s1">'NAME:.metadata.name,START_TIME:.status.startTime,CI_JOB_URL:.spec.containers[0].env[?(@.name == "CI_JOB_URL")].value,GITLAB_USER_EMAIL:.spec.containers[0].env[?(@.name == "GITLAB_USER_EMAIL")].value'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'NAME|jobs'</span>
 </span></code></pre></div>
 <p>The output of the above command looks like</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>NAME                                                 START_TIME             CI_JOB_URL                                    GITLAB_USER_EMAIL
@@ -10422,11 +10422,11 @@
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>runner-ppzmy1zx-project-11144552-concurrent-2n84rv   2019-10-23T17:04:19Z   https://gitlab.com/foo/bar/-/jobs/330827587   user1@example.com
 </span></code></pre></div>
 <h3 id="find-k8s-gitlab-runner-pods-that-are-over-1h-old">Find k8s gitlab-runner pods that are over 1h old<a class="headerlink" href="#find-k8s-gitlab-runner-pods-that-are-over-1h-old" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--no-headers<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s2">&quot;NAME:.metadata.name,START_TIME:.status.startTime&quot;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>grep<span class="w"> </span><span class="s1">&#39;^runner-&#39;</span><span class="w"> </span><span class="p">|</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--no-headers<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s2">"NAME:.metadata.name,START_TIME:.status.startTime"</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>grep<span class="w"> </span><span class="s1">'^runner-'</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>pod<span class="w"> </span>starttime<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">$(</span>gdate<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$starttime</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;+%s&quot;</span><span class="k">)</span><span class="w"> </span><span class="k">))</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">3600</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$pod</span><span class="s2">&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">$(</span>gdate<span class="w"> </span>-d<span class="w"> </span><span class="s2">"</span><span class="nv">$starttime</span><span class="s2">"</span><span class="w"> </span><span class="s2">"+%s"</span><span class="k">)</span><span class="w"> </span><span class="k">))</span><span class="s2">"</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">3600</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$pod</span><span class="s2">"</span>
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="k">fi</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">done</span>
 </span></code></pre></div>
@@ -10535,7 +10535,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>
