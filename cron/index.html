@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10303,13 +10303,13 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="quick-and-dirty-realignment">Quick and dirty realignment<a class="headerlink" href="#quick-and-dirty-realignment" title="Permanent link">&para;</a></h3>
 <p>This will definitely fail in some circumstances.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">alias</span><span class="w"> </span>crontab-align<span class="o">=</span><span class="s1">&#39;crontab -l | while read -r a b c d e f ; do</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">  if [[ &quot;$a&quot; =~ ^# ]] ; then</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">    echo &quot;$a $b $c $d $e $f&quot; ;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">alias</span><span class="w"> </span>crontab-align<span class="o">=</span><span class="s1">'crontab -l | while read -r a b c d e f ; do</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">  if [[ "$a" =~ ^# ]] ; then</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">    echo "$a $b $c $d $e $f" ;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s1">  else</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s1">    printf &quot;% -20s %s\n&quot; &quot;$a $b $c $d $e&quot; &quot;$f&quot; ;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s1">    printf "% -20s %s\n" "$a $b $c $d $e" "$f" ;</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s1">  fi ;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s1">done&#39;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s1">done'</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>crontab-align<span class="w"> </span><span class="p">|</span><span class="w"> </span>crontab<span class="w"> </span>-
 </span></code></pre></div>
@@ -10319,28 +10319,28 @@
 </span></code></pre></div>
 <h3 id="programmatic-editing-of-the-crontab">Programmatic editing of the crontab<a class="headerlink" href="#programmatic-editing-of-the-crontab" title="Permanent link">&para;</a></h3>
 <p>This is potentially dangerous because you can wipe out a user's crontab.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>crontab<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/downtime/s/^\#//&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>crontab<span class="w"> </span>-
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;* * * * * /usr/local/bin/every_minute.sh&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>crontab<span class="w"> </span>-
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>crontab<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">'/downtime/s/^\#//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>crontab<span class="w"> </span>-
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"* * * * * /usr/local/bin/every_minute.sh"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>crontab<span class="w"> </span>-
 </span></code></pre></div>
 <h3 id="see-if-and-when-parts-are-running">See if and when parts are running<a class="headerlink" href="#see-if-and-when-parts-are-running" title="Permanent link">&para;</a></h3>
 <p>Put this in <code>/etc/cron.*/01-cron-log</code> and when those parts run you will see the message in syslog.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>logger -t cron Running `basename $PWD`
 </span></code></pre></div>
 <h3 id="os-x-alarm-clock">OS X Alarm Clock<a class="headerlink" href="#os-x-alarm-clock" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>59 5 * * 1-5    /usr/bin/osascript -e &#39;tell application &quot;iTunes&quot;&#39; -e &#39;set the sound volume to 100&#39; -e &#39;end tell&#39;
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>0  6 * * 1-5    /usr/bin/osascript -e &#39;tell application &quot;iTunes&quot;&#39; -e &#39;play playlist &quot;Old Podcasts&quot;&#39; -e &#39;end tell&#39;
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>15 8 * * 1-5    /usr/bin/osascript -e &#39;tell application &quot;iTunes&quot; to stop&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>59 5 * * 1-5    /usr/bin/osascript -e 'tell application "iTunes"' -e 'set the sound volume to 100' -e 'end tell'
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>0  6 * * 1-5    /usr/bin/osascript -e 'tell application "iTunes"' -e 'play playlist "Old Podcasts"' -e 'end tell'
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>15 8 * * 1-5    /usr/bin/osascript -e 'tell application "iTunes" to stop'
 </span></code></pre></div>
 <h3 id="detect-if-you-are-running-in-an-interactive-shell">Detect if you are running in an interactive shell<a class="headerlink" href="#detect-if-you-are-running-in-an-interactive-shell" title="Permanent link">&para;</a></h3>
 <p>When writing scripts to use with crontab, sometimes you want to give different flags if they are given by a human. The most obvious case of this is verbosity, where you may want to be very verbose when a human runs the command but be quiet in cron.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Check if we&#39;re running in an interactive shell</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Check if we're running in an interactive shell</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">verbosity</span><span class="o">=</span><span class="s2">&quot;--verbose&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">verbosity</span><span class="o">=</span><span class="s2">"--verbose"</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">else</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nv">verbosity</span><span class="o">=</span><span class="s2">&quot;--quiet&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nv">verbosity</span><span class="o">=</span><span class="s2">"--quiet"</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">fi</span>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>/usr/bin/some-command<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">verbosity</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>/usr/bin/some-command<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">verbosity</span><span class="si">}</span><span class="s2">"</span>
 </span></code></pre></div>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>Having junk files like temp vim files in /var/cron/tabs can make cron go to 100% cpu usage. Remove all non crontab files and kill cron to fix it.</p>
@@ -10417,7 +10417,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

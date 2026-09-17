@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10195,7 +10195,7 @@
 <p>a command to reboot a *nix server.</p>
 <h2 id="linux-examples">Linux Examples<a class="headerlink" href="#linux-examples" title="Permanent link">&para;</a></h2>
 <h3 id="reboot-a-server-in-5-minutes-with-a-message">Reboot a server in 5 minutes with a message<a class="headerlink" href="#reboot-a-server-in-5-minutes-with-a-message" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>shutdown<span class="w"> </span>-r<span class="w"> </span>+5<span class="w"> </span><span class="s2">&quot;Please announce in #dev if you would like to cancel this reboot&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>shutdown<span class="w"> </span>-r<span class="w"> </span>+5<span class="w"> </span><span class="s2">"Please announce in #dev if you would like to cancel this reboot"</span>
 </span></code></pre></div>
 <h3 id="power-off-a-server-in-5-minutes">Power off a server in 5 minutes<a class="headerlink" href="#power-off-a-server-in-5-minutes" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>shutdown<span class="w"> </span>-P<span class="w"> </span>+5
@@ -10204,15 +10204,15 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>shutdown<span class="w"> </span>-c
 </span></code></pre></div>
 <h3 id="show-when-a-shutdown-will-occur">Show when a shutdown will occur<a class="headerlink" href="#show-when-a-shutdown-will-occur" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>awk<span class="w"> </span>-F<span class="o">=</span><span class="w"> </span><span class="s1">&#39;NR == 1 {print substr($2,0,length($2)-6)}&#39;</span><span class="w"> </span>scheduled<span class="w"> </span><span class="p">|</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>awk<span class="w"> </span>-F<span class="o">=</span><span class="w"> </span><span class="s1">'NR == 1 {print substr($2,0,length($2)-6)}'</span><span class="w"> </span>scheduled<span class="w"> </span><span class="p">|</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>xargs<span class="w"> </span>-I<span class="o">{}</span><span class="w"> </span>date<span class="w"> </span>-d<span class="w"> </span>@<span class="o">{}</span>
 </span></code></pre></div>
 <h2 id="macos-examples">MacOS examples<a class="headerlink" href="#macos-examples" title="Permanent link">&para;</a></h2>
 <h3 id="power-off-a-machine-in-5-minutes">Power off a machine in 5 minutes<a class="headerlink" href="#power-off-a-machine-in-5-minutes" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>shutdown<span class="w"> </span>-h<span class="w"> </span>+5<span class="w"> </span><span class="s2">&quot;Shutting down in 5 minutes&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>shutdown<span class="w"> </span>-h<span class="w"> </span>+5<span class="w"> </span><span class="s2">"Shutting down in 5 minutes"</span>
 </span></code></pre></div>
 <p>or...</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Shutting down in 5 minutes&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>shutdown<span class="w"> </span>-h<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-v<span class="w"> </span>+5M<span class="w"> </span>+%y%m%d%H%M<span class="k">)</span><span class="w"> </span>-
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Shutting down in 5 minutes"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>shutdown<span class="w"> </span>-h<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-v<span class="w"> </span>+5M<span class="w"> </span>+%y%m%d%H%M<span class="k">)</span><span class="w"> </span>-
 </span></code></pre></div>
 <h3 id="other-functions">Other functions<a class="headerlink" href="#other-functions" title="Permanent link">&para;</a></h3>
 <p>Using the above shutdown syntax, you can use <code>-s</code> for sleep, <code>-r</code> for reboot, and others. See <code>man date</code> for more.</p>
@@ -10283,7 +10283,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

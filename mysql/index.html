@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -11026,7 +11026,7 @@
 <h3 id="create-a-table-with-multiple-columns-as-the-primary-key">Create a table with multiple columns as the primary key<a class="headerlink" href="#create-a-table-with-multiple-columns-as-the-primary-key" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>CREATE TABLE `photo_sizes` (
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  `photo_id` char(32) NOT NULL,
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  `format` char(32) NOT NULL DEFAULT &#39;&#39;,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  `format` char(32) NOT NULL DEFAULT '',
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  `width` mediumtext,
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  `height` mediumtext,
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  `source` mediumtext,
@@ -11054,24 +11054,24 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>show GRANTS ;
 </span></code></pre></div>
 <h3 id="create-a-new-user">Create a new user<a class="headerlink" href="#create-a-new-user" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CREATE USER &#39;a_new_user&#39;@&#39;10.0.5.%&#39; IDENTIFIED BY &#39;the_user_password&#39;;
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>GRANT ALL PRIVILEGES ON some_database.* TO &#39;a_new_user&#39;@&#39;10.0.5.%&#39; WITH GRANT OPTION;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CREATE USER 'a_new_user'@'10.0.5.%' IDENTIFIED BY 'the_user_password';
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>GRANT ALL PRIVILEGES ON some_database.* TO 'a_new_user'@'10.0.5.%' WITH GRANT OPTION;
 </span></code></pre></div>
 <h3 id="delete-a-user">Delete a user<a class="headerlink" href="#delete-a-user" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>DELETE from mysql.user where user = &#39;user_name&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>DELETE from mysql.user where user = 'user_name';
 </span></code></pre></div>
 <h3 id="grant-privileges">Grant Privileges<a class="headerlink" href="#grant-privileges" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GRANT ALL ON database.* TO &#39;newuser&#39;@&#39;localhost&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GRANT ALL ON database.* TO 'newuser'@'localhost';
 </span></code></pre></div>
 <h3 id="change-root-password">Change root password<a class="headerlink" href="#change-root-password" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/usr/bin/mysqladmin -u root password &#39;new-password&#39;
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/usr/bin/mysqladmin -u root -h hostname password &#39;new-password&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/usr/bin/mysqladmin -u root password 'new-password'
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/usr/bin/mysqladmin -u root -h hostname password 'new-password'
 </span></code></pre></div>
 <p>or...</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>UPDATE mysql.user
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  SET Password=PASSWORD(&#39;hunter2&#39;)
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  WHERE User=&#39;leroy_jenkins&#39;
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  AND Host=&#39;localhost&#39; ;
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  SET Password=PASSWORD('hunter2')
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  WHERE User='leroy_jenkins'
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  AND Host='localhost' ;
 </span></code></pre></div>
 <h3 id="create-statements">Create statements<a class="headerlink" href="#create-statements" title="Permanent link">&para;</a></h3>
 <h4 id="create-an-index-on-table-images-for-column-rating_count">Create an index on table images for column rating_count<a class="headerlink" href="#create-an-index-on-table-images-for-column-rating_count" title="Permanent link">&para;</a></h4>
@@ -11112,17 +11112,17 @@
 </span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>  url,
 </span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>  source
 </span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>) values (
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  &#39;32704962848&#39;,
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>  &#39;Medium 640&#39;,
-</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>  &#39;427&#39;,
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>  &#39;640&#39;,
-</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>  &#39;https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/&#39;,
-</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>  &#39;https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg&#39;
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  '32704962848',
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>  'Medium 640',
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>  '427',
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>  '640',
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>  'https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/',
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>  'https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg'
 </span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>) ON DUPLICATE KEY UPDATE
-</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>  height=&#39;427&#39;,
-</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>  width=&#39;640&#39;,
-</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>  url=&#39;https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/&#39;,
-</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>  source=&#39;https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg&#39;
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>  height='427',
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>  width='640',
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>  url='https://www.flickr.com/photos/warzauwynn/32704962848/sizes/z/',
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>  source='https://farm5.staticflickr.com/4855/32704962848_3a96b4c635_z.jpg'
 </span></code></pre></div>
 <ul>
 <li><a href="http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html">http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
@@ -11130,10 +11130,10 @@
 <h4 id="update-a-datetime-column-with-a-random-datetime">Update a datetime column with a random datetime<a class="headerlink" href="#update-a-datetime-column-with-a-random-datetime" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>UPDATE flixplor
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>SET last_retrieval = subtime(
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>  concat_ws(&#39; &#39;,&#39;2019-01-01&#39; - interval rand() * 10000 day ,&#39;00:00:00&#39;), -- create a random YYYY-MM-DD within 10k days of given datetime
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>  concat_ws(' ','2019-01-01' - interval rand() * 10000 day ,'00:00:00'), -- create a random YYYY-MM-DD within 10k days of given datetime
 </span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>  sec_to_time(floor(0 + (rand() * 86401))) -- create a random HH:MM:SS within a 24 hour period
 </span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>)
-</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>WHERE last_retrieval &lt; &#39;2019-01-01 00:00:00&#39;;
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>WHERE last_retrieval &lt; '2019-01-01 00:00:00';
 </span></code></pre></div>
 <h3 id="table-selects">Table Selects<a class="headerlink" href="#table-selects" title="Permanent link">&para;</a></h3>
 <h4 id="select-values-and-dont-show-duplicates">Select values and don't show duplicates<a class="headerlink" href="#select-values-and-dont-show-duplicates" title="Permanent link">&para;</a></h4>
@@ -11150,7 +11150,7 @@
 </span></code></pre></div>
 <h4 id="do-some-math-to-create-a-new-column-during-a-select">Do some math to create a new column during a select<a class="headerlink" href="#do-some-math-to-create-a-new-column-during-a-select" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>SELECT photo_id,last_retrieval,o_height,o_width,(o_height * o_width) as pixels from flixplor
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>where last_reposted &lt; from_unixtime(&#39;1384268667&#39;) or last_reposted is NULL
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>where last_reposted &lt; from_unixtime('1384268667') or last_reposted is NULL
 </span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>order by (o_height * o_width) limit 10 ;
 </span></code></pre></div>
 <h4 id="transform-datetime-into-a-date-diff">Transform datetime into a date diff<a class="headerlink" href="#transform-datetime-into-a-date-diff" title="Permanent link">&para;</a></h4>
@@ -11252,7 +11252,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

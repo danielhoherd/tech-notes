@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10363,60 +10363,60 @@
 <p>Also, OS X sed doesn't support case insensitivity! WTF?! We have to use <code>perl -pe 's/foo/bar/i' foo.txt</code> or homebrew's <code>gsed</code>.</p>
 <h3 id="only-print-a-specific-line">Only print a specific line<a class="headerlink" href="#only-print-a-specific-line" title="Permanent link">&para;</a></h3>
 <p>This will print only the second line of the file</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39; 2{p;q;}&#39;</span><span class="w"> </span>foo.txt
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">' 2{p;q;}'</span><span class="w"> </span>foo.txt
 </span></code></pre></div>
 <h3 id="only-print-if-match">Only print if match<a class="headerlink" href="#only-print-if-match" title="Permanent link">&para;</a></h3>
 <p>This will perform a replacement and print the result. Use <code>-i</code> (with caution!) to edit the file at the same time.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;s/\(127.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}\)/\1 localhost localhost4/p&#39;</span><span class="w"> </span>/etc/hosts
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">'s/\(127.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}\)/\1 localhost localhost4/p'</span><span class="w"> </span>/etc/hosts
 </span></code></pre></div>
 <h3 id="add-a-new-line-with-content-after-a-match">Add a new line with content after a match<a class="headerlink" href="#add-a-new-line-with-content-after-a-match" title="Permanent link">&para;</a></h3>
 <p>Since sed can't insert things like \n, this has to take place on multiple lines, so it's a bit funky looking but still functional.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/respawn/a\</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s1">respawn limit 10 5&#39;</span><span class="w"> </span>app_worker_*.conf
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">""</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">'/respawn/a\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s1">respawn limit 10 5'</span><span class="w"> </span>app_worker_*.conf
 </span></code></pre></div>
 <h3 id="print-file-starting-with-first-string-match">Print file starting with first string match<a class="headerlink" href="#print-file-starting-with-first-string-match" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;/ROUTING TABLE/,$p&#39;</span><span class="w"> </span>/etc/openvpn/openvpn-status.log
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">'/ROUTING TABLE/,$p'</span><span class="w"> </span>/etc/openvpn/openvpn-status.log
 </span></code></pre></div>
 <h3 id="print-only-lines-after-a-match">Print only lines after a match<a class="headerlink" href="#print-only-lines-after-a-match" title="Permanent link">&para;</a></h3>
 <p>The syntax in both of these is <code>&lt;sed_address_one&gt;,&lt;sed_address_two&gt; &lt;action&gt;</code></p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>k<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>moms-iot-oven<span class="w"> </span>cookie-baker-2022-proxy<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sed<span class="w"> </span>-ne<span class="w"> </span><span class="s1">&#39;/^Events/,$ p;&#39;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sed<span class="w"> </span>-ne<span class="w"> </span><span class="s1">'/^Events/,$ p;'</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Events:
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>Type<span class="w">    </span>Reason<span class="w">   </span>Age<span class="w">                       </span>From<span class="w">     </span>Message
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>----<span class="w">    </span>------<span class="w">   </span>----<span class="w">                      </span>----<span class="w">     </span>-------
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>Normal<span class="w">  </span>Pulling<span class="w">  </span>56m<span class="w"> </span><span class="o">(</span>x1281<span class="w"> </span>over<span class="w"> </span>4d13h<span class="o">)</span><span class="w">    </span>kubelet<span class="w">  </span>Pulling<span class="w"> </span>image<span class="w"> </span><span class="s2">&quot;ubuntu:2004&quot;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>Normal<span class="w">  </span>BackOff<span class="w">  </span>118s<span class="w"> </span><span class="o">(</span>x29062<span class="w"> </span>over<span class="w"> </span>4d13h<span class="o">)</span><span class="w">  </span>kubelet<span class="w">  </span>Back-off<span class="w"> </span>pulling<span class="w"> </span>image<span class="w"> </span><span class="s2">&quot;ubuntu:2004&quot;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>Normal<span class="w">  </span>Pulling<span class="w">  </span>56m<span class="w"> </span><span class="o">(</span>x1281<span class="w"> </span>over<span class="w"> </span>4d13h<span class="o">)</span><span class="w">    </span>kubelet<span class="w">  </span>Pulling<span class="w"> </span>image<span class="w"> </span><span class="s2">"ubuntu:2004"</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>Normal<span class="w">  </span>BackOff<span class="w">  </span>118s<span class="w"> </span><span class="o">(</span>x29062<span class="w"> </span>over<span class="w"> </span>4d13h<span class="o">)</span><span class="w">  </span>kubelet<span class="w">  </span>Back-off<span class="w"> </span>pulling<span class="w"> </span>image<span class="w"> </span><span class="s2">"ubuntu:2004"</span>
 </span></code></pre></div>
 <p>That says "Do not print each line by default (<code>-n</code>). Start at the sed address which is a 'context address' regex <code>/^Events/</code>, and end at the special sed address <code>$</code> which means the last line of input, and print those lines. (All of this info is in the man page.)</p>
 <p>Or if you don't want to include the match:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;1,/^Events/ d&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">'1,/^Events/ d'</span>
 </span></code></pre></div>
 <p>This says "Start at line one and delete every line up to and including the match <code>^Events</code>."</p>
 <h3 id="print-file-contents-between-two-string-matches">Print file contents between two string matches<a class="headerlink" href="#print-file-contents-between-two-string-matches" title="Permanent link">&para;</a></h3>
 <p>This will print the contents of the log file between <code>ROUTING TABLE</code> and <code>GLOBAL STATS</code> inclusive.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;/^ROUTING TABLE/,/^GLOBAL STATS/p;/^GLOBAL STATS/q&#39;</span><span class="w"> </span>/etc/openvpn/openvpn-status.log
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">'/^ROUTING TABLE/,/^GLOBAL STATS/p;/^GLOBAL STATS/q'</span><span class="w"> </span>/etc/openvpn/openvpn-status.log
 </span></code></pre></div>
 <p>Or as a bash function</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>show-contents-between<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="nv">$1</span><span class="s2">/,/</span><span class="nv">$2</span><span class="s2">/p;/</span><span class="nv">$2</span><span class="s2">/q&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>show-contents-between<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">"/</span><span class="nv">$1</span><span class="s2">/,/</span><span class="nv">$2</span><span class="s2">/p;/</span><span class="nv">$2</span><span class="s2">/q"</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 </span></code></pre></div>
 <h3 id="uncomment-a-line-that-matches-a-regex">Uncomment a line that matches a regex<a class="headerlink" href="#uncomment-a-line-that-matches-a-regex" title="Permanent link">&para;</a></h3>
 <p>This removes the comment and adds wheel to the <a href="../sudo/">sudoers</a> list</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/bin/sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/^#\s\+%wheel\s\+ALL=(ALL)\s\+ALL$/s/^#\s*//&#39;</span><span class="w"> </span>/etc/sudoers
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/bin/sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'/^#\s\+%wheel\s\+ALL=(ALL)\s\+ALL$/s/^#\s*//'</span><span class="w"> </span>/etc/sudoers
 </span></code></pre></div>
 <h3 id="delete-lines-containing-a-string">Delete lines containing a string<a class="headerlink" href="#delete-lines-containing-a-string" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/root/d&#39;</span><span class="w"> </span>asdf.txt
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'/root/d'</span><span class="w"> </span>asdf.txt
 </span></code></pre></div>
 <h3 id="delete-lines-not-containing-a-string">Delete lines not containing a string<a class="headerlink" href="#delete-lines-not-containing-a-string" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/foo/!d&#39;</span><span class="w"> </span>wy.txt
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'/foo/!d'</span><span class="w"> </span>wy.txt
 </span></code></pre></div>
 <p>Or not containing a MAC address:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;/[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}/!d&#39;</span><span class="w"> </span>*
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">''</span><span class="w"> </span>-E<span class="w"> </span><span class="s1">'/[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}/!d'</span><span class="w"> </span>*
 </span></code></pre></div>
 <h3 id="do-a-replacement-on-all-files-in-a-dir">Do a replacement on all files in a dir<a class="headerlink" href="#do-a-replacement-on-all-files-in-a-dir" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/foo/bar/g&quot;</span><span class="w"> </span>/etc/apache2/sites-available/*
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s/foo/bar/g"</span><span class="w"> </span>/etc/apache2/sites-available/*
 </span></code></pre></div>
 <h3 id="switch-all-github-urls-from-http-to-ssh">Switch all github urls from http to ssh<a class="headerlink" href="#switch-all-github-urls-from-http-to-ssh" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sed<span class="w"> </span><span class="s1">&#39;/url = /s%https?://github.com/\([^/]*/[^/]*\)%git@github.com:\1%&#39;</span><span class="w"> </span>~/code/*/.git/config
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sed<span class="w"> </span><span class="s1">'/url = /s%https?://github.com/\([^/]*/[^/]*\)%git@github.com:\1%'</span><span class="w"> </span>~/code/*/.git/config
 </span></code></pre></div>
 <h3 id="word-boundaries">Word boundaries<a class="headerlink" href="#word-boundaries" title="Permanent link">&para;</a></h3>
 <p>Normally, word boundaries look like this:</p>
@@ -10430,7 +10430,7 @@
 </span></code></pre></div>
 <p>Which is just ridiculous, so use homebrew's <code>gsed</code> if you can.</p>
 <h3 id="add-a-bell-to-tail">Add a bell to tail<a class="headerlink" href="#add-a-bell-to-tail" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span>-f<span class="w"> </span>/var/log/messages<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/$/\a&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span>-f<span class="w"> </span>/var/log/messages<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/$/\a'</span>
 </span></code></pre></div>
 <h3 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
@@ -10503,7 +10503,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

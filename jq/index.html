@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10408,53 +10408,53 @@
 <h3 id="select-key-name-with-dots">Select key name with dots<a class="headerlink" href="#select-key-name-with-dots" title="Permanent link">&para;</a></h3>
 <p>The syntax <code>.foo.bar</code> is the same as <code>.["foo"]["bar"]</code>, so to select keys that have dots, you would do <code>.annotations["deployment.kubernetes.io/revision"]</code></p>
 <h3 id="grab-first-element-of-an-array-and-print-the-value-of-timestamp-of-that-element">Grab first element of an array, and print the value of 'timestamp' of that element.<a class="headerlink" href="#grab-first-element-of-an-array-and-print-the-value-of-timestamp-of-that-element" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s1">[</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s1">  {</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">    &quot;foo&quot;: &quot;this is foo string&quot;,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">    &quot;timestamp&quot;: &quot;this is the timestamp&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">    "foo": "this is foo string",</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">    "timestamp": "this is the timestamp"</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s1">  },</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s1">  {</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="s1">    &quot;second element&quot;: &quot;second element value&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="s1">    "second element": "second element value"</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s1">  }</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s1">]&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[0].timestamp&#39;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s1">]'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[0].timestamp'</span>
 </span></code></pre></div>
 <h3 id="construct-flickr-urls-from-an-api-call">Construct Flickr URLs from an API call<a class="headerlink" href="#construct-flickr-urls-from-an-api-call" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.flickr.com/services/rest/?&quot;</span><span class="se">\</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">&quot;&amp;api_key=0123456789abcdef&quot;</span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">&quot;&amp;format=json&quot;</span><span class="se">\</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">&quot;&amp;method=flickr.photos.getRecent&quot;</span><span class="se">\</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">&quot;&amp;nojsoncallback=1&quot;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>jq<span class="w"> </span>-S<span class="w"> </span><span class="s1">&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">"https://api.flickr.com/services/rest/?"</span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">"&amp;api_key=0123456789abcdef"</span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">"&amp;format=json"</span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">"&amp;method=flickr.photos.getRecent"</span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">"&amp;nojsoncallback=1"</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>jq<span class="w"> </span>-S<span class="w"> </span><span class="s1">'</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">    .photos.photo[] |</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s1">    &quot;https://flickr.com/photos/&quot; + .owner + &quot;/&quot; + .id</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1">  &#39;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s1">    "https://flickr.com/photos/" + .owner + "/" + .id</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1">  '</span>
 </span></code></pre></div>
 <h3 id="use-mco-to-find-packages-of-a-certain-version-on-a-certain-os">Use mco to find packages of a certain version on a certain OS<a class="headerlink" href="#use-mco-to-find-packages-of-a-certain-version-on-a-certain-os" title="Permanent link">&para;</a></h3>
 <p>This example could be used as an alternative to grep, where only the value of a key/value pair is matched.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mco<span class="w"> </span>rpc<span class="w"> </span>package<span class="w"> </span>status<span class="w"> </span><span class="nv">package</span><span class="o">=</span>apt<span class="w"> </span>-j<span class="w"> </span>-F<span class="w"> </span><span class="nv">lsbdistcodename</span><span class="o">=</span>trusty<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>jq<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>jq<span class="w"> </span>-c<span class="w"> </span><span class="s1">'</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s1">    .[] |</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s1">    select(.data.ensure == &quot;1.0.1ubuntu2&quot;) | {</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s1">    select(.data.ensure == "1.0.1ubuntu2") | {</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s1">      version: .data.ensure, hostname: .sender</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s1">    }</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s1">  &#39;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s1">  '</span>
 </span></code></pre></div>
 <h3 id="print-only-objects-whose-name-matches-a-string">Print only objects whose name matches a string<a class="headerlink" href="#print-only-objects-whose-name-matches-a-string" title="Permanent link">&para;</a></h3>
 <p>This example echoes some yaml, uses python to convert it to json, then filters matching data using <code>jq</code>. It could be used as an alternative to grep, where only the key of a key/value pair is matched.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s2">data:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s2">  - This is a string, not an object, and contains the substrings foo and bar</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s2">  - name: foo_name</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s2">    value: foo_value</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s2">  - name: bar_name</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="s2">    value: bar_value&quot;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import yaml, sys, json; print(json.dumps(yaml.safe_load(sys.stdin)))&quot;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>jq<span class="w"> </span><span class="s1">&#39;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="s2">    value: bar_value"</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import yaml, sys, json; print(json.dumps(yaml.safe_load(sys.stdin)))"</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>jq<span class="w"> </span><span class="s1">'</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s1">  .data[] |</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="s1">  select(type==&quot;object&quot;) |</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="s1">  select (.name | . and contains(&quot;bar_n&quot;))</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="s1">&#39;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="s1">  select(type=="object") |</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="s1">  select (.name | . and contains("bar_n"))</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="s1">'</span>
 </span></code></pre></div>
 <h3 id="build-a-json-entry-from-scratch">Build a json entry from scratch<a class="headerlink" href="#build-a-json-entry-from-scratch" title="Permanent link">&para;</a></h3>
 <p>This uses bash paramber expansion and subshell syntax, and may not work in other shells.</p>
@@ -10464,23 +10464,23 @@
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">more_stuff</span><span class="o">=</span><span class="si">${</span><span class="nv">3</span><span class="k">:-$(</span>uname<span class="w"> </span>-a<span class="k">)</span><span class="si">}</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nv">json</span><span class="o">=</span><span class="k">$(</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span>jq<span class="w"> </span>-c<span class="w"> </span>-n<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span>--arg<span class="w"> </span>timestamp<span class="w">  </span><span class="s2">&quot;</span><span class="k">$(</span>date<span class="w"> </span><span class="s2">&quot;+%F %T%z&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span>--arg<span class="w"> </span>host<span class="w">       </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">host</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span>--arg<span class="w"> </span>user<span class="w">       </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span>--arg<span class="w"> </span>more_stuff<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">more_stuff</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="s1">&#39;{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span>--arg<span class="w"> </span>timestamp<span class="w">  </span><span class="s2">"</span><span class="k">$(</span>date<span class="w"> </span><span class="s2">"+%F %T%z"</span><span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span>--arg<span class="w"> </span>host<span class="w">       </span><span class="s2">"</span><span class="si">${</span><span class="nv">host</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span>--arg<span class="w"> </span>user<span class="w">       </span><span class="s2">"</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span>--arg<span class="w"> </span>more_stuff<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">more_stuff</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="s1">'{</span>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="s1">        timestamp:  $timestamp,</span>
 </span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s1">        host:       $host,</span>
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="s1">        user:       $user,</span>
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="s1">        more_stuff: $more_stuff</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="s1">      }&#39;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="s1">      }'</span>
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="k">)</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$json</span><span class="s2">&quot;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$json</span><span class="s2">"</span>
 </span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="o">}</span>
 </span></code></pre></div>
 <h3 id="render-yaml-with-anchors-as-json-data">Render yaml with anchors as json data<a class="headerlink" href="#render-yaml-with-anchors-as-json-data" title="Permanent link">&para;</a></h3>
 <p>This example shows how you can use python and jq to view the result of dereferenced yaml anchors, a construct that is not supported by json. This example is less about how to use <code>jq</code> syntaxes, and more about how it can be used to view data that is otherwise difficult to sort through.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s2">job1: &amp;template</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s2">  directory: /tmp</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s2">  extra_parameters: nosuid,noatime</span>
@@ -10492,44 +10492,44 @@
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="s2">job3:</span>
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="s2">  &lt;&lt;: *template</span>
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="s2">  remote_host: 10.3.3.3</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import yaml, sys, json; print(json.dumps(yaml.safe_load(sys.stdin)))&quot;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="s2">"</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import yaml, sys, json; print(json.dumps(yaml.safe_load(sys.stdin)))"</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>jq<span class="w"> </span>-S<span class="w"> </span>.
 </span></code></pre></div>
 <h3 id="select-matches-and-print-a-subset-of-values">Select matches, and print a subset of values<a class="headerlink" href="#select-matches-and-print-a-subset-of-values" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>jq<span class="w"> </span><span class="s1">&#39;.[] | select(.data.ensure != &quot;purged&quot;) | [.sender,.data.ensure]&#39;</span><span class="w"> </span><span class="nv">$*</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>jq<span class="w"> </span><span class="s1">'.[] | select(.data.ensure != "purged") | [.sender,.data.ensure]'</span><span class="w"> </span><span class="nv">$*</span>
 </span></code></pre></div>
 <h3 id="output-bare-values-for-use-as-inputs">Output bare values for use as inputs<a class="headerlink" href="#output-bare-values-for-use-as-inputs" title="Permanent link">&para;</a></h3>
 <p>Use <code>"The value of .key is: \(.key)"</code> to interpolate the value of <code>.key</code> into the string. EG:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ lsblk -J | jq -cr &#39;.blockdevices[0].children[] | &quot;Partition \(.name) has a size of \(.size)&quot;&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ lsblk -J | jq -cr '.blockdevices[0].children[] | "Partition \(.name) has a size of \(.size)"'
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Partition sda1 has a size of 464.8G
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Partition sda2 has a size of 1K
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Partition sda5 has a size of 975M
 </span></code></pre></div>
 <h3 id="show-labels-for-each-locally-stored-docker-sha">Show labels for each locally stored docker SHA<a class="headerlink" href="#show-labels-for-each-locally-stored-docker-sha" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>images<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;{{.ID}}&#39;</span><span class="w"> </span><span class="p">|</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>images<span class="w"> </span>--format<span class="w"> </span><span class="s1">'{{.ID}}'</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>X<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>docker<span class="w"> </span>inspect<span class="w"> </span><span class="nv">$X</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>jq<span class="w"> </span><span class="s1">&#39;.[] | [ .RepoTags, .Config.Labels ]&#39;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>jq<span class="w"> </span><span class="s1">'.[] | [ .RepoTags, .Config.Labels ]'</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">done</span>
 </span></code></pre></div>
 <h3 id="sort-all-json-contents">Sort all JSON contents<a class="headerlink" href="#sort-all-json-contents" title="Permanent link">&para;</a></h3>
 <p>Be aware that sometimes JSON should not be sorted, as arrays are sometimes expected to maintain their order.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>jq<span class="w"> </span>-S<span class="w"> </span><span class="s1">&#39;. | walk( if type == &quot;array&quot; then sort else . end )&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>jq<span class="w"> </span>-S<span class="w"> </span><span class="s1">'. | walk( if type == "array" then sort else . end )'</span>
 </span></code></pre></div>
 <p>Or set up a shell alias</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">jqsort</span><span class="o">=</span><span class="s2">&quot;jq -S &#39;. | walk( if type == \&quot;array\&quot; then sort else . end )&#39;&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">jqsort</span><span class="o">=</span><span class="s2">"jq -S '. | walk( if type == \"array\" then sort else . end )'"</span>
 </span></code></pre></div>
 <h3 id="store-a-value-as-a-variable">Store a value as a variable<a class="headerlink" href="#store-a-value-as-a-variable" title="Permanent link">&para;</a></h3>
 <p>When creating long pipelines, it's useful to be able to store a deep value as a variable. In the following example we store <code>.metadata.namespace</code> as <code>$namespace</code> and <code>.metadata.name</code> as <code>$podname</code> before digging into <code>.status</code> where we would no longer have access to <code>.metadata</code>:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-A<span class="w"> </span>-l<span class="w"> </span>k8s-app<span class="o">=</span>kube-dns<span class="w"> </span>-o<span class="o">=</span>json<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s1">  .items[] |</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s1">  .metadata.namespace as $namespace |</span>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s1">  .metadata.name as $podname |</span>
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s1">  .status.containerStatuses[] |</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s1">  &quot;\($namespace) \($podname) \(.name) \(.restartCount)&quot;</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s1">&#39;</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s1">  "\($namespace) \($podname) \(.name) \(.restartCount)"</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s1">'</span><span class="w"> </span><span class="p">|</span>
 </span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>column<span class="w"> </span>-t
 </span></code></pre></div>
 <p>The output of this command is something like:</p>
@@ -10543,40 +10543,40 @@
 </span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>kube-system  kube-dns-66f64447b8-b2jsf  sidecar           0
 </span></code></pre></div>
 <h3 id="default-value-for-missing-keys">Default value for missing keys<a class="headerlink" href="#default-value-for-missing-keys" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ echo &#39;{&quot;foo&quot;: 1, &quot;bar&quot;: 2}&#39; | jq &#39;[.foo // &quot;missing&quot;, .bar // &quot;missing&quot;, .baz // &quot;missing&quot;]&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ echo '{"foo": 1, "bar": 2}' | jq '[.foo // "missing", .bar // "missing", .baz // "missing"]'
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  1,
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  2,
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  &quot;missing&quot;
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  "missing"
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>]
 </span></code></pre></div>
 <h3 id="craft-json-data-for-use-with-curl">Craft json data for use with curl<a class="headerlink" href="#craft-json-data-for-use-with-curl" title="Permanent link">&para;</a></h3>
 <p>When using <code>curl --data</code>, in-line JSON can get out of hand real quick. To avoid confusing syntaxes, use <code>jq</code> to create a temp file, then reference that file in <code>curl</code>:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">JSON_DATA</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="k">)</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>jq<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;{service_account: env.SERVICE_ACCOUNT_ID, secret_key: env.SERVICE_ACCOUNT_KEY}&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JSON_DATA</span><span class="s2">&quot;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>jq<span class="w"> </span>-n<span class="w"> </span><span class="s1">'{service_account: env.SERVICE_ACCOUNT_ID, secret_key: env.SERVICE_ACCOUNT_KEY}'</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$JSON_DATA</span><span class="s2">"</span>
 </span></code></pre></div>
 <p>The above commands create a temporary file with the correct and valid JSON:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$ cat &quot;$JSON_DATA&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$ cat "$JSON_DATA"
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>{
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>  &quot;service_account&quot;: &quot;whoever@serviceaccount.example.com&quot;,
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  &quot;secret_key&quot;: &quot;abc123&quot;
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>  "service_account": "whoever@serviceaccount.example.com",
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  "secret_key": "abc123"
 </span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>}
 </span></code></pre></div>
 <p>Then reference that in curl:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ curl -s --request POST --header &quot;content-type: application/json&quot; --data &quot;@${JSON_DATA}&quot; https://httpbin.org/anything
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ curl -s --request POST --header "content-type: application/json" --data "@${JSON_DATA}" https://httpbin.org/anything
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>{
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  &quot;args&quot;: {},
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  &quot;data&quot;: &quot;{  \&quot;service_account\&quot;: \&quot;whoever@serviceaccount.example.com\&quot;,  \&quot;secret_key\&quot;: \&quot;abc123\&quot;}&quot;,
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  &quot;files&quot;: {},
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>  &quot;form&quot;: {},
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>  &quot;headers&quot;: {
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    &quot;Accept&quot;: &quot;*/*&quot;,
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    &quot;Content-Length&quot;: &quot;84&quot;,
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  "args": {},
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  "data": "{  \"service_account\": \"whoever@serviceaccount.example.com\",  \"secret_key\": \"abc123\"}",
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  "files": {},
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>  "form": {},
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>  "headers": {
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    "Accept": "*/*",
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    "Content-Length": "84",
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>...
 </span></code></pre></div>
 <h3 id="get-the-most-recently-dated-blob">Get the most recently dated blob<a class="headerlink" href="#get-the-most-recently-dated-blob" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>curl<span class="w"> </span>-fssL<span class="w"> </span>https://storage.googleapis.com/updates.astronomer.io/astronomer-certified<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>jq<span class="w"> </span><span class="s1">&#39;.available_releases | sort_by(.release_date)[-1]&#39;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>jq<span class="w"> </span><span class="s1">'.available_releases | sort_by(.release_date)[-1]'</span>
 </span></code></pre></div>
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
@@ -10649,7 +10649,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

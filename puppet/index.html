@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10788,15 +10788,15 @@
 </span></code></pre></div>
 <h4 id="show-the-puppet-code-that-will-create-a-resource">Show the puppet code that will create a resource<a class="headerlink" href="#show-the-puppet-code-that-will-create-a-resource" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ puppet resource file /etc/hosts
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>file { &#39;/etc/hosts&#39;:
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  ensure  =&gt; &#39;file&#39;,
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  content =&gt; &#39;{md5}9ffbd726fd5b15de760cc0150d607628&#39;,
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  ctime   =&gt; &#39;Wed Apr 01 17:05:59 -0700 2015&#39;,
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  group   =&gt; &#39;0&#39;,
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  mode    =&gt; &#39;644&#39;,
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  mtime   =&gt; &#39;Wed Apr 01 17:05:59 -0700 2015&#39;,
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  owner   =&gt; &#39;0&#39;,
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  type    =&gt; &#39;file&#39;,
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>file { '/etc/hosts':
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  ensure  =&gt; 'file',
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  content =&gt; '{md5}9ffbd726fd5b15de760cc0150d607628',
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  ctime   =&gt; 'Wed Apr 01 17:05:59 -0700 2015',
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  group   =&gt; '0',
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  mode    =&gt; '644',
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  mtime   =&gt; 'Wed Apr 01 17:05:59 -0700 2015',
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  owner   =&gt; '0',
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  type    =&gt; 'file',
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>}
 </span></code></pre></div>
 <h3 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h3>
@@ -10827,21 +10827,21 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mco filemgr -f /srv/nginx status
 </span></code></pre></div>
 <h4 id="use-fstat-and-md5-to-detect-files-needing-repair">Use fstat and md5 to detect files needing repair<a class="headerlink" href="#use-fstat-and-md5-to-detect-files-needing-repair" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mco find -S &quot;fstat(&#39;/srv/somedir/somefile&#39;).md5=/af6db18c6dfa81c294895003e13a2eef/&quot; &gt; files_needing_attention.txt
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>pssh -h files_needing_attention.txt) &#39;do_something_to_the_file&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mco find -S "fstat('/srv/somedir/somefile').md5=/af6db18c6dfa81c294895003e13a2eef/" &gt; files_needing_attention.txt
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>pssh -h files_needing_attention.txt) 'do_something_to_the_file'
 </span></code></pre></div>
 <h4 id="use-fstat-to-find-hosts-where-a-directory-has-not-been-modified-recently">Use fstat to find hosts where a directory has not been modified recently<a class="headerlink" href="#use-fstat-to-find-hosts-where-a-directory-has-not-been-modified-recently" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mco find -S &quot;fstat(&#39;/srv&#39;).mtime_seconds&lt;$(date +%s -d &#39;-8 hours&#39;)&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mco find -S "fstat('/srv').mtime_seconds&lt;$(date +%s -d '-8 hours')"
 </span></code></pre></div>
 <h4 id="show-stats-about-which-oses-you-have">Show stats about which OSes you have<a class="headerlink" href="#show-stats-about-which-oses-you-have" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mco facts lsbdistdescription
 </span></code></pre></div>
 <h4 id="show-all-ip-addresses-on-all-hosts-where-a-configured-ip-address-matches-a-regex">Show all ip addresses on all hosts where a configured IP address matches a regex<a class="headerlink" href="#show-all-ip-addresses-on-all-hosts-where-a-configured-ip-address-matches-a-regex" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mco facts all_ipaddresses -F &#39;all_ipaddresses=~10\.(56|29)\.&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mco facts all_ipaddresses -F 'all_ipaddresses=~10\.(56|29)\.'
 </span></code></pre></div>
 <h4 id="show-a-report-about-uptimes-over-a-year">Show a report about uptimes over a year<a class="headerlink" href="#show-a-report-about-uptimes-over-a-year" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mco facts uptime -F &#39;uptime_days&gt;365&#39; |
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>awk &#39;$2 == &quot;days&quot; {print}&#39; |
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mco facts uptime -F 'uptime_days&gt;365' |
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>awk '$2 == "days" {print}' |
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>sort -n -k1 |
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>column -t
 </span></code></pre></div>
@@ -10858,7 +10858,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mco facts role --with-fact lsbdistcodename=lucid -v
 </span></code></pre></div>
 <h4 id="find-ec2-hosts-with-low-uptime">Find ec2 hosts with low uptime<a class="headerlink" href="#find-ec2-hosts-with-low-uptime" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mco find -W &#39;is_ec2=true uptime_seconds&lt;7200&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mco find -W 'is_ec2=true uptime_seconds&lt;7200'
 </span></code></pre></div>
 <h4 id="show-detailed-info-about-a-node">Show detailed info about a node<a class="headerlink" href="#show-detailed-info-about-a-node" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mco inventory fqdn.example.com
@@ -10871,22 +10871,22 @@
 </span></code></pre></div>
 <h4 id="kick-off-a-puppet-run-on-all-hosts-of-a-certain-class">Kick off a puppet run on all hosts of a certain class<a class="headerlink" href="#kick-off-a-puppet-run-on-all-hosts-of-a-certain-class" title="Permanent link">&para;</a></h4>
 <p>The following two syntaxes are essentially the same, using the same <code>puppet</code> agent of <code>mco</code>. The only differences are the use of <code>runall</code> vs <code>runonce</code>, and the method that performs parallel execution. I'm not sure what difference there is in the code path.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>mco rpc    -C &quot;class_boolean&quot; -F &quot;fact_name=fact_value&quot; --batch 10 --agent puppet --action runonce
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>mco puppet -C &quot;class_boolean&quot; -F &quot;fact_name=fact_value&quot; runall 10
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>mco rpc    -C "class_boolean" -F "fact_name=fact_value" --batch 10 --agent puppet --action runonce
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>mco puppet -C "class_boolean" -F "fact_name=fact_value" runall 10
 </span></code></pre></div>
 <h4 id="show-the-status-and-puppet-policy-about-a-package-on-all-hosts">Show the status and puppet policy about a package on all hosts<a class="headerlink" href="#show-the-status-and-puppet-policy-about-a-package-on-all-hosts" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>mco rpc package status package=openssh-client --discovery-timeout 60 --json
 </span></code></pre></div>
 <h4 id="upgrade-an-installed-package-on-10-random-web-hosts">Upgrade an installed package on 10 random web hosts<a class="headerlink" href="#upgrade-an-installed-package-on-10-random-web-hosts" title="Permanent link">&para;</a></h4>
 <p>This upgrades, but does not install if the package is not already present.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>mco package update &#39;nginx&#39; -I &#39;/web/&#39; --limit=10
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>mco package update 'nginx' -I '/web/' --limit=10
 </span></code></pre></div>
 <h4 id="show-breakdown-of-hosts-by-os-version-by-role">Show breakdown of hosts by OS version by role<a class="headerlink" href="#show-breakdown-of-hosts-by-os-version-by-role" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>mco facts -v --wc role::mon lsbdistdescription
 </span></code></pre></div>
 <h3 id="use-mco-to-find-packages-of-a-certain-version-on-a-certain-os">Use mco to find packages of a certain version on a certain OS<a class="headerlink" href="#use-mco-to-find-packages-of-a-certain-version-on-a-certain-os" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>mco rpc package status package=apt -j -F lsbdistcodename=trusty &gt; cache.json
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>jq -c &#39;.[] | select(.data.ensure == &quot;1.0.1ubuntu2&quot;) | { version: .data.ensure, hostname: .sender }&#39; cache.json
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>jq -c '.[] | select(.data.ensure == "1.0.1ubuntu2") | { version: .data.ensure, hostname: .sender }' cache.json
 </span></code></pre></div>
 <h2 id="hiera">Hiera<a class="headerlink" href="#hiera" title="Permanent link">&para;</a></h2>
 <p>"Hiera is a key/value lookup tool for configuration data, built to make Puppet better and let you set node-specific data without repeating yourself." - <a href="http://docs.puppetlabs.com/hiera/latest/">http://docs.puppetlabs.com/hiera/latest/</a></p>
@@ -10963,7 +10963,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

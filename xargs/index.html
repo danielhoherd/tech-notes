@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10119,7 +10119,7 @@
 <h3 id="handle-spaces-and-use-the-arg-as-something-other-than-the-last-token">Handle spaces and use the arg as something other than the last token<a class="headerlink" href="#handle-spaces-and-use-the-arg-as-something-other-than-the-last-token" title="Permanent link">&para;</a></h3>
 <p>The <code>-I</code> argument takes a string to use as a delimiter for any input. The <code>-print0</code> arg causes <code>find</code> to terminate each result with a null, which allows it to handle filename with characters that might not play nicely with the shell. We have to then use <code>xargs -0</code> to make it also handle the null terminated lines. Lots of commands have a feature like this, so be on the lookout for it.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>find<span class="w"> </span>.<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>mv<span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="w"> </span>~/some/dir/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>mv<span class="w"> </span><span class="s2">"{}"</span><span class="w"> </span>~/some/dir/
 </span></code></pre></div>
 <h3 id="tun-3-concurrent-processes-each-consuming-5-results">Tun 3 concurrent processes, each consuming 5 results<a class="headerlink" href="#tun-3-concurrent-processes-each-consuming-5-results" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>find<span class="w"> </span>/dir/with/large/files<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
@@ -10129,12 +10129,12 @@
 <h3 id="use-sed-to-change-git-files-containing-a-certain-string">use sed to change git files containing a certain string<a class="headerlink" href="#use-sed-to-change-git-files-containing-a-certain-string" title="Permanent link">&para;</a></h3>
 <p>This uses GNU <code>sed -i</code>, on macOS you should use <code>sed -i ''</code> or <code>gsed -i</code>. The <code>-z</code> on <code>git grep</code> causes it to null terminate the entries so <code>xargs -0</code> will work.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>grep<span class="w"> </span>-z<span class="w"> </span>-l<span class="w"> </span><span class="m">192</span>.168.5<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/192.168.5/172.18.0/g&#39;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'s/192.168.5/172.18.0/g'</span>
 </span></code></pre></div>
 <h3 id="issue-the-same-command-several-times-in-parallel">Issue the same command several times in parallel<a class="headerlink" href="#issue-the-same-command-several-times-in-parallel" title="Permanent link">&para;</a></h3>
 <p>This takes 1 directory as input and starts a sub-shell that cd's to the directory and runs a command. Up to 4 subhells are run in parallel. This is very similar to the <a href="https://www.gnu.org/software/parallel/">GNU parallel</a> command.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>find<span class="w"> </span>~/code/<span class="w"> </span>-mindepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>-n1<span class="w"> </span>-P4<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd {} ; make install-hooks ;&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>xargs<span class="w"> </span>-0<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>-n1<span class="w"> </span>-P4<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd {} ; make install-hooks ;"</span>
 </span></code></pre></div>
 
 
@@ -10203,7 +10203,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

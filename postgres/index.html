@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10405,7 +10405,7 @@
 <p>"PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance." - <a href="https://www.postgresql.org">https://www.postgresql.org</a></p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <h3 id="connect-to-a-database">Connect to a database<a class="headerlink" href="#connect-to-a-database" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>psql<span class="w"> </span><span class="s2">&quot;postgres://</span><span class="si">${</span><span class="nv">POSTGRES_USER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">POSTGRES_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">POSTGRES_HOSTNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">POSTGRES_PORT</span><span class="k">:-</span><span class="nv">5432</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">POSTGRES_DB</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>psql<span class="w"> </span><span class="s2">"postgres://</span><span class="si">${</span><span class="nv">POSTGRES_USER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">POSTGRES_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">POSTGRES_HOSTNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">POSTGRES_PORT</span><span class="k">:-</span><span class="nv">5432</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">POSTGRES_DB</span><span class="si">}</span><span class="s2">"</span>
 </span></code></pre></div>
 <h3 id="meta-commands">Meta Commands<a class="headerlink" href="#meta-commands" title="Permanent link">&para;</a></h3>
 <p>psql shell has a lot of meta commands. See <a href="https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMANDS">https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMANDS</a> for full descriptions.</p>
@@ -10459,7 +10459,7 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>(1 row)
 </span></code></pre></div>
 <h3 id="enable-query-logging">Enable query logging<a class="headerlink" href="#enable-query-logging" title="Permanent link">&para;</a></h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">log_statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">log_statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'all'</span><span class="p">;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">log_min_duration_statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_reload_conf</span><span class="p">();</span>
 </span></code></pre></div>
@@ -10468,7 +10468,7 @@
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="p">;</span>
 </span></code></pre></div>
 <p>or</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">usename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;airflow&#39;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- note this is usename, not useRname</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">usename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'airflow'</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- note this is usename, not useRname</span>
 </span></code></pre></div>
 <p>or a more refined view</p>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">select</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">process_id</span><span class="p">,</span>
@@ -10480,12 +10480,12 @@
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">       </span><span class="k">state</span><span class="p">,</span>
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">       </span><span class="n">state_change</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">where</span><span class="w"> </span><span class="k">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;idle&#39;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">where</span><span class="w"> </span><span class="k">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'idle'</span><span class="w"> </span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="terminate-all-processes-connected-to-a-given-database">Terminate all processes connected to a given database<a class="headerlink" href="#terminate-all-processes-connected-to-a-given-database" title="Permanent link">&para;</a></h3>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">select</span><span class="w"> </span><span class="n">pg_terminate_backend</span><span class="p">(</span><span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">pid</span><span class="p">)</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">where</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">datname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;some_db_name&#39;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">where</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">datname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'some_db_name'</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="k">and</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">pg_backend_pid</span><span class="p">();</span>
 </span></code></pre></div>
 <h2 id="postgres-in-docker">Postgres in Docker<a class="headerlink" href="#postgres-in-docker" title="Permanent link">&para;</a></h2>
@@ -10495,42 +10495,42 @@
 <p>Some of these syntaxes apply to non-docker interactions too, so long as you remove the docker-isms from them.</p>
 <h3 id="example-docker-compose-file-for-local-development">Example docker-compose file for local development<a class="headerlink" href="#example-docker-compose-file-for-local-development" title="Permanent link">&para;</a></h3>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">## https://docs.docker.com/compose/compose-file/</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.7&quot;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">"3.7"</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">services</span><span class="p">:</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="c1"># https://hub.docker.com/_/postgres</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres:latest&quot;</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;always&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">"postgres:latest"</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s">"always"</span>
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span><span class="w"> </span><span class="c1"># Should contain POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1"># Uncomment the &#39;command&#39; line to enable postgres query logging to the terminal</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1"># Uncomment the 'command' line to enable postgres query logging to the terminal</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1"># https://www.postgresql.org/docs/18/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1"># command: [ &quot;postgres&quot;, &quot;-c&quot;, &quot;log_destination=stderr&quot;, &quot;-c&quot;, &quot;log_min_messages=debug&quot;, &quot;-c&quot;, &quot;log_min_error_statement=debug&quot; ]</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1"># command: [ "postgres", "-c", "log_destination=stderr", "-c", "log_min_messages=debug", "-c", "log_min_error_statement=debug" ]</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="nt">expose</span><span class="p">:</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432&quot;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432"</span>
 </span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432:5432"</span>
 </span></code></pre></div>
 <h3 id="dump-a-database">Dump a database<a class="headerlink" href="#dump-a-database" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.postgresql.org/docs/18/app-pgdump.html">https://www.postgresql.org/docs/18/app-pgdump.html</a></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker exec &quot;${POSTGRES_CONTAINER}&quot; pg_dump -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker exec "${POSTGRES_CONTAINER}" pg_dump -U "${POSTGRES_USER}" "${POSTGRES_DB}"
 </span></code></pre></div>
 <p>Full backups should be performed with <a href="https://www.postgresql.org/docs/18/app-pg-dumpall.html">pg_dumpall</a>.</p>
 <h3 id="load-local-data-into-a-db">Load local data into a db<a class="headerlink" href="#load-local-data-into-a-db" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.postgresql.org/docs/18/app-psql.html">https://www.postgresql.org/docs/18/app-psql.html</a></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat foo.sql |
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>docker exec -i &quot;${POSTGRES_CONTAINER}&quot; \
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  psql -U &quot;${POSTGRES_USER}&quot; &quot;${POSTGRES_DB}&quot;
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>docker exec -i "${POSTGRES_CONTAINER}" \
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  psql -U "${POSTGRES_USER}" "${POSTGRES_DB}"
 </span></code></pre></div>
 <h2 id="example-queries">Example queries<a class="headerlink" href="#example-queries" title="Permanent link">&para;</a></h2>
 <h3 id="set-variables-for-use-in-a-query">Set variables for use in a query<a class="headerlink" href="#set-variables-for-use-in-a-query" title="Permanent link">&para;</a></h3>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- Note there is no = and no ;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="err">\</span><span class="k">set</span><span class="w"> </span><span class="n">cat_photo</span><span class="w"> </span><span class="s1">&#39;cat.jpg&#39;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="err">\</span><span class="k">set</span><span class="w"> </span><span class="n">max_resolution</span><span class="w"> </span><span class="s1">&#39;1024x768&#39;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="err">\</span><span class="k">set</span><span class="w"> </span><span class="n">cat_photo</span><span class="w"> </span><span class="s1">'cat.jpg'</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="err">\</span><span class="k">set</span><span class="w"> </span><span class="n">max_resolution</span><span class="w"> </span><span class="s1">'1024x768'</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="ss">&quot;best_photos&quot;</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">(</span><span class="ss">&quot;filename&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;small&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;large&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;xlarge&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;xxlarge&quot;</span><span class="p">)</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">values</span><span class="w"> </span><span class="p">(:</span><span class="s1">&#39;cat_photo&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;800x600&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="s1">&#39;max_resolution&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="s1">&#39;max_resolution&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="s1">&#39;max_resolution&#39;</span><span class="p">);</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="ss">"best_photos"</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">(</span><span class="ss">"filename"</span><span class="p">,</span><span class="w"> </span><span class="ss">"small"</span><span class="p">,</span><span class="w"> </span><span class="ss">"large"</span><span class="p">,</span><span class="w"> </span><span class="ss">"xlarge"</span><span class="p">,</span><span class="w"> </span><span class="ss">"xxlarge"</span><span class="p">)</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">values</span><span class="w"> </span><span class="p">(:</span><span class="s1">'cat_photo'</span><span class="p">,</span><span class="w"> </span><span class="s1">'800x600'</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="s1">'max_resolution'</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="s1">'max_resolution'</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="s1">'max_resolution'</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="show-sizes-for-all-dbs-in-a-given-server">Show sizes for all DBs in a given server<a class="headerlink" href="#show-sizes-for-all-dbs-in-a-given-server" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pokemon_collector=&gt; SELECT
@@ -10556,7 +10556,7 @@
 <h3 id="show-all-of-the-table-sizes-for-a-given-schema">Show all of the table sizes for a given schema<a class="headerlink" href="#show-all-of-the-table-sizes-for-a-given-schema" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sunny_moon_4257_airflow=&gt; SELECT table_name, pg_total_relation_size(table_name), pg_size_pretty(pg_total_relation_size(table_name))
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>FROM sunny_moon_4257_airflow.information_schema.tables
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>where table_schema = &#39;airflow&#39;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>where table_schema = 'airflow'
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>ORDER BY pg_total_relation_size(table_name) desc ;
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>          table_name           | pg_total_relation_size | pg_size_pretty
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>-------------------------------+------------------------+----------------
@@ -10689,7 +10689,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

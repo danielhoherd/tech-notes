@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10203,7 +10203,7 @@
 <h3 id="conditional-formatting">Conditional Formatting<a class="headerlink" href="#conditional-formatting" title="Permanent link">&para;</a></h3>
 <h4 id="regex-matching-to-color">Regex matching to color<a class="headerlink" href="#regex-matching-to-color" title="Permanent link">&para;</a></h4>
 <p>Colorize rows with conditional formatting by using an expression like this:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>=REGEXMATCH($E:$E, &quot;some_regex&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>=REGEXMATCH($E:$E, "some_regex")
 </span></code></pre></div>
 <p>This regex is not anchored, so there is no need to prepend or append <code>.*</code></p>
 <p>Cell references in this case are relative unless prepended by a <code>\$</code>. So, if you want to match the cell you are working on you would use <code>A1:A1</code>.</p>
@@ -10211,14 +10211,14 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=MOD(ROW(),2)
 </span></code></pre></div>
 <h3 id="import-an-rss-feed">Import an RSS feed<a class="headerlink" href="#import-an-rss-feed" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=IMPORTFEED(&quot;https://api.flickr.com/services/feeds/photos_public.gne&quot;, B2, TRUE, 10)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=IMPORTFEED("https://api.flickr.com/services/feeds/photos_public.gne", B2, TRUE, 10)
 </span></code></pre></div>
 <h3 id="sum-lines-that-match-a-string">Sum lines that match a string<a class="headerlink" href="#sum-lines-that-match-a-string" title="Permanent link">&para;</a></h3>
 <p>This uses syntax similar to a glob search, but uses ~ instead of \</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>=COUNTIF(D:D,&quot;3*&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>=COUNTIF(D:D,"3*")
 </span></code></pre></div>
 <h3 id="automatically-resolve-the-dow-from-a-date">Automatically resolve the DOW from a date<a class="headerlink" href="#automatically-resolve-the-dow-from-a-date" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>=CHOOSE( weekday(A4), &quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>=CHOOSE( weekday(A4), "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 </span></code></pre></div>
 
 
@@ -10287,7 +10287,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

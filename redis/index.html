@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10097,7 +10097,7 @@
 <h3 id="solve-memory-allocation-problems">Solve memory allocation problems<a class="headerlink" href="#solve-memory-allocation-problems" title="Permanent link">&para;</a></h3>
 <p>Errors like this can cause the disk to fill up over long periods of time:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[2535] 02 Jan 19:58:52.376 * Starting automatic rewriting of AOF on 7885% growth
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[2535] 02 Jan 19:58:52.376 # Can&#39;t rewrite append only file in background: fork: Cannot allocate memory
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[2535] 02 Jan 19:58:52.376 # Can't rewrite append only file in background: fork: Cannot allocate memory
 </span></code></pre></div>
 <p>This problem can be solved without restarting anything:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>## df -h .
@@ -10108,9 +10108,9 @@
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>## echo 1 &gt; /proc/sys/vm/overcommit_memory
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>## tail  redis.log
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>[2535] 02 Jan 22:03:23.707 * Starting automatic rewriting of AOF on 7885% growth
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>[2535] 02 Jan 22:03:23.707 # Can&#39;t rewrite append only file in background: fork: Cannot allocate memory
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>[2535] 02 Jan 22:03:23.707 # Can't rewrite append only file in background: fork: Cannot allocate memory
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>[2535] 02 Jan 22:03:23.807 * Starting automatic rewriting of AOF on 7885% growth
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>[2535] 02 Jan 22:03:23.807 # Can&#39;t rewrite append only file in background: fork: Cannot allocate memory
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>[2535] 02 Jan 22:03:23.807 # Can't rewrite append only file in background: fork: Cannot allocate memory
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>[2535] 02 Jan 22:03:23.907 * Starting automatic rewriting of AOF on 7885% growth
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>[2535] 02 Jan 22:03:23.926 * Background append only file rewriting started by pid 27302
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>[27302] 02 Jan 22:04:05.337 * SYNC append only file rewrite performed
@@ -10197,7 +10197,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

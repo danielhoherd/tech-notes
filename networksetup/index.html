@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10204,16 +10204,16 @@
 <h3 id="modify-dns-for-a-device">Modify DNS for a device<a class="headerlink" href="#modify-dns-for-a-device" title="Permanent link">&para;</a></h3>
 <p>Using <code>Empty</code> is pretty unintuitive. This is used in a few other places in <code>networksetup</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ networksetup -getdnsservers Wi-Fi
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>There aren&#39;t any DNS Servers set on Wi-Fi.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>There aren't any DNS Servers set on Wi-Fi.
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$ networksetup -setdnsservers Wi-Fi 8.8.8.8
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>$ networksetup -getdnsservers Wi-Fi
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>8.8.8.8
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>$ networksetup -setdnsservers Wi-Fi Empty
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>$ networksetup -getdnsservers Wi-Fi
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>There aren&#39;t any DNS Servers set on Wi-Fi.
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>There aren't any DNS Servers set on Wi-Fi.
 </span></code></pre></div>
 <h3 id="show-info-for-the-device-named-wi-fi">Show info for the device named Wi-Fi<a class="headerlink" href="#show-info-for-the-device-named-wi-fi" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>networksetup<span class="w"> </span>-getinfo<span class="w"> </span><span class="s2">&quot;Wi-Fi&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>networksetup<span class="w"> </span>-getinfo<span class="w"> </span><span class="s2">"Wi-Fi"</span>
 </span></code></pre></div>
 <h3 id="show-all-connected-hardware-ports">Show all connected hardware ports<a class="headerlink" href="#show-all-connected-hardware-ports" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>networksetup<span class="w"> </span>-listallhardwareports
@@ -10221,16 +10221,16 @@
 <h3 id="show-all-search-domains">Show all search domains<a class="headerlink" href="#show-all-search-domains" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>networksetup<span class="w"> </span>-listallnetworkservices<span class="w"> </span><span class="p">|</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>tail<span class="w"> </span>-n<span class="w"> </span>+2<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>xargs<span class="w"> </span>-I<span class="w"> </span>::<span class="w"> </span>networksetup<span class="w"> </span>-getsearchdomains<span class="w"> </span><span class="s2">&quot;::&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>xargs<span class="w"> </span>-I<span class="w"> </span>::<span class="w"> </span>networksetup<span class="w"> </span>-getsearchdomains<span class="w"> </span><span class="s2">"::"</span>
 </span></code></pre></div>
 <h3 id="create-a-bunch-of-vlan-interfaces">Create a bunch of VLAN interfaces<a class="headerlink" href="#create-a-bunch-of-vlan-interfaces" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..32<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>sudo<span class="w"> </span>networksetup<span class="w"> </span>-createVLAN<span class="w"> </span><span class="s2">&quot;vlan</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>en3<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>sudo<span class="w"> </span>networksetup<span class="w"> </span>-createVLAN<span class="w"> </span><span class="s2">"vlan</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>en3<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="delete-a-bunch-of-vlan-interfaces">Delete a bunch of VLAN interfaces<a class="headerlink" href="#delete-a-bunch-of-vlan-interfaces" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">for</span><span class="w"> </span>X<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..32<span class="o">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>sudo<span class="w"> </span>networksetup<span class="w"> </span>-deleteVLAN<span class="w"> </span><span class="s2">&quot;vlan</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>en3<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>sudo<span class="w"> </span>networksetup<span class="w"> </span>-deleteVLAN<span class="w"> </span><span class="s2">"vlan</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>en3<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">X</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">;</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">done</span><span class="w"> </span><span class="p">;</span>
 </span></code></pre></div>
 
@@ -10300,7 +10300,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

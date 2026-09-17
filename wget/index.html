@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10140,12 +10140,12 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="mirror-site-for-local-viewing">Mirror site for local viewing<a class="headerlink" href="#mirror-site-for-local-viewing" title="Permanent link">&para;</a></h3>
 <p>From the man page: to download a single page and all its requisites (even if they exist on separate websites), and make sure the lot displays properly locally, this author likes to use a few options in addition to -p:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>-E<span class="w"> </span>-H<span class="w"> </span>-k<span class="w"> </span>-K<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;https://</span><span class="nv">$site</span><span class="s2">/</span><span class="nv">$dir</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>-E<span class="w"> </span>-H<span class="w"> </span>-k<span class="w"> </span>-K<span class="w"> </span>-p<span class="w"> </span><span class="s2">"https://</span><span class="nv">$site</span><span class="s2">/</span><span class="nv">$dir</span><span class="s2">"</span>
 </span></code></pre></div>
 <h3 id="download-all-images-from-a-site">Download all images from a site<a class="headerlink" href="#download-all-images-from-a-site" title="Permanent link">&para;</a></h3>
 <p>To politely download all images from within a current remote directory:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>wget<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--accept<span class="w"> </span><span class="s2">&quot;.jpg&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--accept<span class="w"> </span><span class="s2">".jpg"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--adjust-extension<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--continue<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>--no-parent<span class="w"> </span><span class="se">\</span>
@@ -10155,12 +10155,12 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span>--tries<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span>--wait<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span>--waitretry<span class="o">=</span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="s2">&quot;https://</span><span class="nv">$site</span><span class="s2">/</span><span class="nv">$dir</span><span class="s2">/&quot;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="s2">"https://</span><span class="nv">$site</span><span class="s2">/</span><span class="nv">$dir</span><span class="s2">/"</span>
 </span></code></pre></div>
 <h3 id="simple-use-of-cookies">Simple use of cookies<a class="headerlink" href="#simple-use-of-cookies" title="Permanent link">&para;</a></h3>
 <p>Some servers that need referrers and cookies can be accessed by doing:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>--save-cookies<span class="o">=</span><span class="s2">&quot;cookies.txt&quot;</span><span class="w"> </span><span class="s2">&quot;foo.html&quot;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>wget<span class="w"> </span>--load-cookies<span class="o">=</span><span class="s2">&quot;cookies.txt&quot;</span><span class="w"> </span>--referer<span class="o">=</span><span class="s2">&quot;foo.html&quot;</span><span class="w"> </span><span class="s2">&quot;foo.mp3&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>--save-cookies<span class="o">=</span><span class="s2">"cookies.txt"</span><span class="w"> </span><span class="s2">"foo.html"</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>wget<span class="w"> </span>--load-cookies<span class="o">=</span><span class="s2">"cookies.txt"</span><span class="w"> </span>--referer<span class="o">=</span><span class="s2">"foo.html"</span><span class="w"> </span><span class="s2">"foo.mp3"</span>
 </span></code></pre></div>
 <h3 id="set-default-behavior">Set default behavior<a class="headerlink" href="#set-default-behavior" title="Permanent link">&para;</a></h3>
 <p><code>~/.wgetrc</code> sets default parameter values</p>
@@ -10240,7 +10240,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.59">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.5da3a30f.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
       
       
 
@@ -10254,35 +10254,35 @@
 </span></code></pre></div>
 <h3 id="show-the-http-code-for-a-given-request">Show the HTTP code for a given request<a class="headerlink" href="#show-the-http-code-for-a-given-request" title="Permanent link">&para;</a></h3>
 <p>Use the http method <code>HEAD</code> to only the headers of the remote URI and shows the HTTP code. This is useful for efficiently checking the existence of a URI that would be a large download.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>--head<span class="w"> </span>-s<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}\n&quot;</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>http://www.example.com/
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>--head<span class="w"> </span>-s<span class="w"> </span>-w<span class="w"> </span><span class="s2">"%{http_code}\n"</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>http://www.example.com/
 </span></code></pre></div>
 <p>Not all HTTP servers support the <code>HEAD</code> method though, so a slightly worse alternative is:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>--max-filesize<span class="w"> </span><span class="m">1</span><span class="w"> </span>-s<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}\n&quot;</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>http://www.example.com/
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>--max-filesize<span class="w"> </span><span class="m">1</span><span class="w"> </span>-s<span class="w"> </span>-w<span class="w"> </span><span class="s2">"%{http_code}\n"</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>http://www.example.com/
 </span></code></pre></div>
 <p><code>--max-filesize 1</code> will download something more than 0 bytes, though usually not the whole file. Notable is that curl does not seem to tell the truth about how many bytes were actually downloaded when using <code>--max-filesize 1 -w '%{size_download}'</code>. This can be verified by opening a simple http server (eg: <code>python3 -m http.server</code>), then running <code>tcpflow -c</code>, and then requesting the root dir of your simple http server. You will see the directory listing being sent across the wire, but curl will report 0 bytes being downloaded. The true download size depends on what file is being downloaded and how big it is. For large binary files, I have observed this as being 0 bytes.</p>
 <h3 id="request-a-specific-vhost-from-a-server">Request a specific vhost from a server<a class="headerlink" href="#request-a-specific-vhost-from-a-server" title="Permanent link">&para;</a></h3>
 <p>This is useful for testing production code on non-production multi-tennant name based virtual hosts.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Host: www.domain.com&#39;</span><span class="w"> </span>http://example.com
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Host: www.domain.com'</span><span class="w"> </span>http://example.com
 </span></code></pre></div>
 <h3 id="get-the-length-of-the-file-to-be-downloaded">Get the length of the file to be downloaded<a class="headerlink" href="#get-the-length-of-the-file-to-be-downloaded" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-qI<span class="w">  </span>https://www.google.com/index.php<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/Length/ {print $2}&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-qI<span class="w">  </span>https://www.google.com/index.php<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'/Length/ {print $2}'</span>
 </span></code></pre></div>
 <h3 id="fetch-only-http-headers-not-content">Fetch only HTTP headers, not content<a class="headerlink" href="#fetch-only-http-headers-not-content" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-I<span class="w"> </span>http://www.example.com/some_huge_file.iso
 </span></code></pre></div>
 <h3 id="send-post-variables">Send POST variables<a class="headerlink" href="#send-post-variables" title="Permanent link">&para;</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>--data<span class="w"> </span><span class="s2">&quot;user=foo&amp;pass=bar&quot;</span><span class="w"> </span>http://example.com/login.php
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>--data<span class="w"> </span><span class="s2">"user=foo&amp;pass=bar"</span><span class="w"> </span>http://example.com/login.php
 </span></code></pre></div>
 <h3 id="scrape-urls-from-a-page">Scrape URLs from a page<a class="headerlink" href="#scrape-urls-from-a-page" title="Permanent link">&para;</a></h3>
 <p>This appears to have problems with some strings. For instance, this doesn't catch the full <a href="https://accounts.google.com">https://accounts.google.com</a> string. The regex is correct according to <a href="http://regexpal.com">http://regexpal.com</a>, but egrep is apparently not handling it correctly.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl -s http://www.google.com | egrep -o &#39;(((https?|ftp|gopher)://|(mailto|file|news):)[^’ &lt;&gt;\n&quot;]+|(www|web|w3)\.[-a-z0-9.]+)[^’ .,;&lt;&gt;&quot;:]&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl -s http://www.google.com | egrep -o '(((https?|ftp|gopher)://|(mailto|file|news):)[^’ &lt;&gt;\n"]+|(www|web|w3)\.[-a-z0-9.]+)[^’ .,;&lt;&gt;":]'
 </span></code></pre></div>
 <h3 id="use-curl-to-fetch-the-current-rfc-2822-time">Use curl to fetch the current RFC 2822 time<a class="headerlink" href="#use-curl-to-fetch-the-current-rfc-2822-time" title="Permanent link">&para;</a></h3>
 <p>If you don't have NTP you can use this to manually feed the current time into <code>date -s</code> to set your system clock to within a few seconds of accuracy.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-sIH<span class="w"> </span><span class="s1">&#39;Cache-Control: no-cache&#39;</span><span class="w"> </span>example.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;^Date&#39;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-sIH<span class="w"> </span><span class="s1">'Cache-Control: no-cache'</span><span class="w"> </span>example.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'^Date'</span>
 </span></code></pre></div>
 <p>Using GNU <code>cut</code> and <code>date</code> (IE: on linux, like on a Raspberry Pi image that does not have NTP properly set up) you can set your time using this command:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-sIH<span class="w"> </span><span class="s1">&#39;Cache-Control: no-cache&#39;</span><span class="w"> </span>example.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;^Date:&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span>--complement<span class="k">)</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-sIH<span class="w"> </span><span class="s1">'Cache-Control: no-cache'</span><span class="w"> </span>example.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'^Date:'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">' '</span><span class="w"> </span>--complement<span class="k">)</span><span class="s2">"</span>
 </span></code></pre></div>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
@@ -10362,7 +10362,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.6970bfe9.min.js"></script>
       
     
   </body>
