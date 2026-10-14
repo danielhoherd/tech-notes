@@ -10977,19 +10977,19 @@
 
 
 <h1 id="google-cloud">Google Cloud<a class="headerlink" href="#google-cloud" title="Permanent link">&para;</a></h1>
-<p>"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK" - <a href="https://cloud.google.com/sdk/docs/">https://cloud.google.com/sdk/docs/</a></p>
+<p>"Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform. These include the gcloud, gsutil, and bq command line tools. The gcloud command-line tool is downloaded along with the Cloud SDK" - <a href="https://docs.cloud.google.com/sdk/docs">https://docs.cloud.google.com/sdk/docs</a></p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://cloud.google.com/compute/docs/ssh-in-browser">https://cloud.google.com/compute/docs/ssh-in-browser</a></li>
-<li><a href="https://cloud.google.com/container-builder/docs/build-config">https://cloud.google.com/container-builder/docs/build-config</a></li>
-<li><a href="https://cloud.google.com/container-builder/docs/create-custom-build-steps">https://cloud.google.com/container-builder/docs/create-custom-build-steps</a></li>
-<li><a href="https://cloud.google.com/container-registry/docs/quickstart">https://cloud.google.com/container-registry/docs/quickstart</a></li>
-<li><a href="https://cloud.google.com/docs">https://cloud.google.com/docs</a></li>
-<li><a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference</a></li>
+<li><a href="https://docs.cloud.google.com/compute/docs/connect/ssh-in-browser">https://docs.cloud.google.com/compute/docs/connect/ssh-in-browser</a></li>
+<li><a href="https://docs.cloud.google.com/build/docs/build-config-file-schema">https://docs.cloud.google.com/build/docs/build-config-file-schema</a></li>
+<li><a href="https://docs.cloud.google.com/build/docs/configuring-builds/use-community-and-custom-builders">https://docs.cloud.google.com/build/docs/configuring-builds/use-community-and-custom-builders</a></li>
+<li><a href="https://docs.cloud.google.com/artifact-registry/docs/docker/store-docker-container-images">https://docs.cloud.google.com/artifact-registry/docs/docker/store-docker-container-images</a></li>
+<li><a href="https://docs.cloud.google.com/docs">https://docs.cloud.google.com/docs</a></li>
+<li><a href="https://docs.cloud.google.com/sdk/gcloud/reference">https://docs.cloud.google.com/sdk/gcloud/reference</a></li>
 <li><a href="https://github.com/GoogleCloudPlatform/cloud-builders">https://github.com/GoogleCloudPlatform/cloud-builders</a></li>
-<li><a href="https://cloud.google.com/iam/docs/permissions-reference">https://cloud.google.com/iam/docs/permissions-reference</a> (Large download)</li>
-<li><a href="https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type">https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type</a></li>
-<li><a href="https://cloud.google.com/container-optimized-os/docs/how-to/toolbox">https://cloud.google.com/container-optimized-os/docs/how-to/toolbox</a></li>
+<li><a href="https://docs.cloud.google.com/iam/docs/roles-permissions">https://docs.cloud.google.com/iam/docs/roles-permissions</a></li>
+<li><a href="https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type">https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type</a></li>
+<li><a href="https://docs.cloud.google.com/container-optimized-os/docs/how-to/toolbox">https://docs.cloud.google.com/container-optimized-os/docs/how-to/toolbox</a></li>
 </ul>
 <h2 id="gcloud-cli-examples">gcloud CLI Examples<a class="headerlink" href="#gcloud-cli-examples" title="Permanent link">&para;</a></h2>
 <h3 id="working-with-gcloud-configurations">Working with gcloud configurations<a class="headerlink" href="#working-with-gcloud-configurations" title="Permanent link">&para;</a></h3>
@@ -11014,7 +11014,7 @@
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>gke-dev-cluster-terraform-20210624231-9d581566-1oo9  us-east4-a     n1-standard-8                10.0.0.56                    RUNNING
 </span></code></pre></div>
 <h3 id="launch-cloud-shell-from-cli">Launch cloud shell from CLI<a class="headerlink" href="#launch-cloud-shell-from-cli" title="Permanent link">&para;</a></h3>
-<p><a href="https://cloud.google.com/shell">Google Cloud Shell</a> is a free VM in GCP that you can use to access GCP cli tools, or do whatever else you might want to do in a free VM. The home directory is kept for like 6 months or something, so configuring your shell and storing useful scripts isn't a bad idea.</p>
+<p><a href="https://docs.cloud.google.com/shell/docs">Google Cloud Shell</a> is a free VM in GCP that you can use to access GCP cli tools, or do whatever else you might want to do in a free VM. The home directory is kept for like 6 months or something, so configuring your shell and storing useful scripts isn't a bad idea.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gcloud<span class="w"> </span>cloud-shell<span class="w"> </span>ssh<span class="w"> </span>--authorize-session
 </span></code></pre></div>
 <h3 id="use-vscode-with-cloud-shell">Use vscode with cloud-shell<a class="headerlink" href="#use-vscode-with-cloud-shell" title="Permanent link">&para;</a></h3>
@@ -11084,7 +11084,7 @@
 </span></code></pre></div>
 <p>To connect to VMs that don't have a public ip address, you need to give <code>--tunnel-through-iap</code> on the CLI and also have <code>IAP-secured Tunnel User</code> permission.</p>
 <h3 id="add-an-eks-context-to-kubectl">Add an EKS context to kubectl<a class="headerlink" href="#add-an-eks-context-to-kubectl" title="Permanent link">&para;</a></h3>
-<p><a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials">https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials</a></p>
+<p><a href="https://docs.cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials">https://docs.cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials</a></p>
 <p>This adds the cluster to your <code>.kube/config</code> with authentication done via an access token.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nv">CLUSTER_NAME</span><span class="o">=</span><span class="s1">'foo-dev'</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nv">PROJECT_NAME</span><span class="o">=</span><span class="s1">'some-project'</span>
@@ -11124,7 +11124,7 @@
 <h3 id="control-access-to-registries">Control access to registries<a class="headerlink" href="#control-access-to-registries" title="Permanent link">&para;</a></h3>
 <p>"Container Registry uses a Cloud Storage bucket as the backend for serving container images. You can control who has access to your Container Registry images by adjusting permissions for the Cloud Storage bucket.</p>
 <p>Caution: Container Registry only recognizes permissions set on the Cloud Storage bucket. Container Registry will ignore permissions set on individual objects within the Cloud Storage bucket.</p>
-<p>You manage access control in Cloud Storage by using the GCP Console or the <code>gsutil</code> command-line tool. Refer to the <code>gsutil acl</code> and <code>gsutil defacl</code> documentation for more information." - <a href="https://cloud.google.com/container-registry/docs/access-control">https://cloud.google.com/container-registry/docs/access-control</a></p>
+<p>You manage access control in Cloud Storage by using the GCP Console or the <code>gsutil</code> command-line tool. Refer to the <code>gsutil acl</code> and <code>gsutil defacl</code> documentation for more information." - <a href="https://docs.cloud.google.com/artifact-registry/docs/access-control">https://docs.cloud.google.com/artifact-registry/docs/access-control</a></p>
 <h3 id="authenticate-a-private-gcr-registry-in-kubernetes">Authenticate a private GCR registry in kubernetes<a class="headerlink" href="#authenticate-a-private-gcr-registry-in-kubernetes" title="Permanent link">&para;</a></h3>
 <p>This is likely not copy/paste material, but the flow is generally correct.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">PARTNER</span><span class="o">=</span>other_company
@@ -11205,8 +11205,8 @@
 </span><span id="__span-25-32"><a id="__codelineno-25-32" name="__codelineno-25-32" href="#__codelineno-25-32"></a>full-back-up-20190227040035/: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 283.44M
 </span></code></pre></div>
 <h3 id="set-maintenance-window-on-a-gke-cluster">Set maintenance window on a GKE cluster<a class="headerlink" href="#set-maintenance-window-on-a-gke-cluster" title="Permanent link">&para;</a></h3>
-<p>This syntax is a bit difficult to work with. It must be given in <a href="https://datatracker.ietf.org/doc/html/rfc5545">RFC-5545 (iCal)</a>, but GCP only supports a subset of the spec. Most frustratingly, GCP doesn't support timezones. <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions#using-gcloud-init">They warn you about this</a>, saying the "timezone will not be stored", so if you want to start something at Wednesday 03:00:00+0600 you have to specify that as Tuesday 21:00:00. 🙄</p>
-<p><em>N.B.: in my testing while writing this, local TZ was used if not TZ was sent, so it looks like their docs may be wrong and maybe the conversion step can be avoided.</em></p>
+<p>This syntax is a bit difficult to work with. The docs say that it must be given in <a href="https://datatracker.ietf.org/doc/html/rfc5545">RFC-5545 (iCal)</a>, but GCP only supports a subset of the spec. Most frustratingly, as of 2022 GCP doesn't support timezones. <a href="https://docs.cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions#maintenance-window-existing_cluster">They warn you about this</a>, saying the "timezone will not be stored", so if you want to start something at Wednesday 03:00:00+0600 you have to specify that as Tuesday 21:00:00. 🙄 However, as of 2026, the docs still say to use RFC-5545, but the example is ISO8601.</p>
+<p><em>N.B.: in my testing while writing this, local TZ was used if no TZ was sent, so it looks like their docs may be wrong and maybe the conversion step can be avoided.</em></p>
 <h4 id="convert-local-time-to-rfc-5545-utc">Convert local time to rfc-5545 UTC<a class="headerlink" href="#convert-local-time-to-rfc-5545-utc" title="Permanent link">&para;</a></h4>
 <p>So if you want to start your maintenance on Thursday at 5am Pacific time and end at Thursday 5pm Pacific time, the first step is to figure out what the rfc-5545 UTC format would be:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$ TZ=Z gdate '+%Y%m%dT%H%M%SZ %A' -d 2021-05-20T05:00:00-0800
@@ -11246,7 +11246,7 @@
 <h2 id="gcloud-web-console-examples">gcloud web console examples<a class="headerlink" href="#gcloud-web-console-examples" title="Permanent link">&para;</a></h2>
 <h3 id="logs-explorer-examples">Logs Explorer examples<a class="headerlink" href="#logs-explorer-examples" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://cloud.google.com/logging/docs/view/query-library-preview">Sample queries using the Logs Explorer</a></li>
+<li><a href="https://docs.cloud.google.com/logging/docs/view/query-library">Sample queries using the Logs Explorer</a></li>
 </ul>
 <h3 id="show-namespace-deletions">Show namespace deletions<a class="headerlink" href="#show-namespace-deletions" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>protoPayload.methodName="io.k8s.core.v1.namespaces.delete"
@@ -11265,21 +11265,21 @@
 <li><a href="https://console.cloud.google.com/logs/query;query=%20%20resource.type%3D%22k8s_pod%22%0A%20%20jsonPayload.reason%3D%22Pulling%22">https://console.cloud.google.com/logs/query;query=%20%20resource.type%3D%22k8s_pod%22%0A%20%20jsonPayload.reason%3D%22Pulling%22</a></li>
 </ul>
 <h2 id="cloud-sql-examples">Cloud SQL examples<a class="headerlink" href="#cloud-sql-examples" title="Permanent link">&para;</a></h2>
-<p>Docs are here: <a href="https://cloud.google.com/sql/docs/postgres/">https://cloud.google.com/sql/docs/postgres/</a></p>
+<p>Docs are here: <a href="https://docs.cloud.google.com/sql/docs/postgres">https://docs.cloud.google.com/sql/docs/postgres</a></p>
 <h3 id="list-instances">List instances<a class="headerlink" href="#list-instances" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>list
 </span></code></pre></div>
 <h3 id="create-a-new-postgres-db-instance">Create a new postgres db instance<a class="headerlink" href="#create-a-new-postgres-db-instance" title="Permanent link">&para;</a></h3>
-<p>In the following example, the tier is custom, with 24 cpu cores and 122880mb of memory. You can see the standard tiers that are available with <code>gcloud sql tiers list</code>. Also, this creates an instance of <code>POSTGRES_14</code>, but other versions are listed here: <a href="https://cloud.google.com/sql/docs/postgres/create-instance#gcloud">https://cloud.google.com/sql/docs/postgres/create-instance#gcloud</a></p>
+<p>In the following example, the tier is custom, with 24 cpu cores and 122880mb of memory. You can see the standard tiers that are available with <code>gcloud sql tiers list</code>. Also, this creates an instance of <code>POSTGRES_14</code>, but other versions are listed here: <a href="https://docs.cloud.google.com/sql/docs/postgres/create-instance#gcloud">https://docs.cloud.google.com/sql/docs/postgres/create-instance#gcloud</a></p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">GCP_PROJECT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">  </span>--region<span class="o">=</span><span class="si">${</span><span class="nv">INSTANCE_REGION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">  </span>--database-version<span class="o">=</span>POSTGRES_14<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">GCP_PROJECT</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">  </span>--region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">INSTANCE_REGION</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">  </span>--database-version<span class="o">=</span>POSTGRES_17<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">  </span>--tier<span class="o">=</span>db-custom-24-122880<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">  </span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">  </span><span class="s2">"</span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">"</span>
 </span></code></pre></div>
 <h3 id="upgrade-postgres-to-a-new-version-in-place">Upgrade postgres to a new version in-place<a class="headerlink" href="#upgrade-postgres-to-a-new-version-in-place" title="Permanent link">&para;</a></h3>
-<p><a href="https://cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace">https://cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace</a></p>
+<p><a href="https://docs.cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace">https://docs.cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace</a></p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>gcloud<span class="w"> </span>beta<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>patch<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--database-version<span class="o">=</span>POSTGRES_14
 </span></code></pre></div>
 <h3 id="list-backups-for-an-instance">List backups for an instance<a class="headerlink" href="#list-backups-for-an-instance" title="Permanent link">&para;</a></h3>
