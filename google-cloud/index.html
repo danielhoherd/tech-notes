@@ -4000,6 +4000,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#customize-gcloud-python-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Customize gcloud python interpreter
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10925,6 +10936,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#customize-gcloud-python-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Customize gcloud python interpreter
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11284,6 +11306,9 @@
 </span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">  </span>--verbosity<span class="w"> </span>debug
 </span></code></pre></div>
 <p>Add <code>--async</code> if you just want it to go to the background and return you to your shell prompt.</p>
+<h3 id="customize-gcloud-python-interpreter">Customize gcloud python interpreter<a class="headerlink" href="#customize-gcloud-python-interpreter" title="Permanent link">&para;</a></h3>
+<p>Your gcloud installation will probably some day give you errors that are caused by a bad python interpreter. To work around this you can configure a different interpreter with <code>export CLOUDSDK_PYTHON=${HOME}/.local/bin/python3.14</code></p>
+<p>And of course if you need to install a compatible version of python, use <code>uv install python 3.14 ; uv python list</code> (<a href="https://docs.astral.sh/uv">https://docs.astral.sh/uv</a>)</p>
 
 
 
