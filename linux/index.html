@@ -13,6 +13,7 @@
       
       
       
+      
         <link rel="prev" href="../linux-performance-monitoring/">
       
       
@@ -23,7 +24,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.67">
+      <meta name="generator" content="zensical-0.0.70">
     
     
       
@@ -34,12 +35,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e442bf79.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
       
       
 
@@ -79,14 +80,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#linux" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -5188,6 +5186,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-vulnerabilities-of-the-hardware-you-are-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Show vulnerabilities of the hardware you are running
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10279,6 +10288,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-vulnerabilities-of-the-hardware-you-are-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Show vulnerabilities of the hardware you are running
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10454,6 +10474,7 @@
 
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
 
@@ -10491,6 +10512,10 @@
 <p>This should work on other unixes too.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">trap</span><span class="w"> </span>-l
 </span></code></pre></div>
+<h3 id="show-vulnerabilities-of-the-hardware-you-are-running">Show vulnerabilities of the hardware you are running<a class="headerlink" href="#show-vulnerabilities-of-the-hardware-you-are-running" title="Permanent link">&para;</a></h3>
+<p>Files in <code>/sys/devices/system/cpu/vulnerabilities/</code> show the status of your hardware's succeptibility to a variety of hardware vulnerabilities. The best way to see all of them is:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>grep<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span>/sys/devices/system/cpu/vulnerabilities/
+</span></code></pre></div>
 <h2 id="kernel-namespaces">Kernel namespaces<a class="headerlink" href="#kernel-namespaces" title="Permanent link">&para;</a></h2>
 <p>"A namespace wraps a global system resource in an abstraction that makes it appear to the processes within the namespace that they have their own isolated instance of the global resource. Changes to the global resource are visible to other processes that are members of the namespace, but are invisible to other processes. One use of namespaces is to implement containers." - <code>man namespaces</code></p>
 <p>"Control cgroups, usually referred to as cgroups, are a Linux kernel feature which allow processes to be organized into hierarchical groups whose usage of various types of resources can then be limited and monitored." - <code>man cgroups</code></p>
@@ -10508,42 +10533,42 @@
 </ul>
 <h3 id="various-namespace-aware-tool-examples">Various namespace-aware tool examples<a class="headerlink" href="#various-namespace-aware-tool-examples" title="Permanent link">&para;</a></h3>
 <h4 id="ps-cgroup-output">ps cgroup output<a class="headerlink" href="#ps-cgroup-output" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ps -o pid,ppid,user,comm,flags,%cpu,sz,%mem,cgname
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ps -o pid,ppid,user,comm,flags,%cpu,sz,%mem,cgname
 </span></code></pre></div>
 <h4 id="run-a-process-in-another-namespace">Run a process in another namespace<a class="headerlink" href="#run-a-process-in-another-namespace" title="Permanent link">&para;</a></h4>
 <p>With <code>nsenter</code> you specify a target pid to reference, and then specify which namespaces of its you want to enter.</p>
 <p>On Ubuntu 18.04, <code>udev</code> mounts devices in a non-global namespace, which prevents normal users from viewing those mounts. You must use <code>nsenter</code> to enter the udevd namespaces to view the mounts, using either <code>--all</code> to get all namespaces of udevd, or <code>--mount</code> for just that one required namespace:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>root@bionic:~# lsblk -o NAME,MOUNTPOINT /dev/sdc
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>NAME   MOUNTPOINT
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sdc
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>└─sdc1
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>root@bionic:~# nsenter --all -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>NAME   MOUNTPOINT
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>sdc
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>root@bionic:~# nsenter --mount -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>NAME   MOUNTPOINT
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>sdc
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@bionic:~# lsblk -o NAME,MOUNTPOINT /dev/sdc
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>NAME   MOUNTPOINT
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sdc
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>└─sdc1
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>root@bionic:~# nsenter --all -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>NAME   MOUNTPOINT
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sdc
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>root@bionic:~# nsenter --mount -t $(pgrep systemd-udevd) lsblk -o NAME,MOUNTPOINT /dev/sdc
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>NAME   MOUNTPOINT
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>sdc
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>└─sdc1 /mnt/adea64ca-e340-4961-8a4d-75d8a5970664
 </span></code></pre></div>
 <p>See <a href="../udev/">udev</a> for one permanent fix for this.</p>
 <h4 id="find-the-path-to-a-namespace">Find the path to a namespace<a class="headerlink" href="#find-the-path-to-a-namespace" title="Permanent link">&para;</a></h4>
 <p>The path to a namespace can be used in some instances instead of the pid. We can discover the path to a namespace by using <code>lsns</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@bionic:~# lsns -p $(pgrep udevd) -o +PATH
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        NS TYPE   NPROCS   PID USER COMMAND                    PATH
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>4026531835 cgroup    173     1 root /sbin/init                 /proc/1/ns/cgroup
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>4026531836 pid       173     1 root /sbin/init                 /proc/1/ns/pid
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>4026531837 user      173     1 root /sbin/init                 /proc/1/ns/user
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>4026531838 uts       173     1 root /sbin/init                 /proc/1/ns/uts
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>4026531839 ipc       173     1 root /sbin/init                 /proc/1/ns/ipc
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>4026532009 net       173     1 root /sbin/init                 /proc/1/ns/net
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>4026532286 mnt         1  5480 root /lib/systemd/systemd-udevd /proc/5480/ns/mnt
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>root@bionic:~# lsns -p $(pgrep udevd) -o +PATH
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        NS TYPE   NPROCS   PID USER COMMAND                    PATH
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>4026531835 cgroup    173     1 root /sbin/init                 /proc/1/ns/cgroup
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>4026531836 pid       173     1 root /sbin/init                 /proc/1/ns/pid
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>4026531837 user      173     1 root /sbin/init                 /proc/1/ns/user
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>4026531838 uts       173     1 root /sbin/init                 /proc/1/ns/uts
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>4026531839 ipc       173     1 root /sbin/init                 /proc/1/ns/ipc
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>4026532009 net       173     1 root /sbin/init                 /proc/1/ns/net
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>4026532286 mnt         1  5480 root /lib/systemd/systemd-udevd /proc/5480/ns/mnt
 </span></code></pre></div>
 <h3 id="access-network-sockets-from-the-command-line">Access network sockets from the command line<a class="headerlink" href="#access-network-sockets-from-the-command-line" title="Permanent link">&para;</a></h3>
 <p>This is a poor man's <code>netcat</code>, useful for when there is no <code>netcat</code>:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">echo</span><span class="w"> </span>asdf<span class="w"> </span>&gt;<span class="w"> </span>/dev/tcp/<span class="si">${</span><span class="nv">REMOTE_IP_ADDRESS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">REMOTE_PORT</span><span class="si">}</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">echo</span><span class="w"> </span>asdf<span class="w"> </span>&gt;<span class="w"> </span>/dev/tcp/<span class="si">${</span><span class="nv">REMOTE_IP_ADDRESS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">REMOTE_PORT</span><span class="si">}</span>
 </span></code></pre></div>
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <h3 id="distros">Distros<a class="headerlink" href="#distros" title="Permanent link">&para;</a></h3>
@@ -10568,7 +10593,7 @@
 <ul>
 <li><a href="https://blog.quarkslab.com/digging-into-linux-namespaces-part-1.html">https://blog.quarkslab.com/digging-into-linux-namespaces-part-1.html</a></li>
 <li><a href="https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html">https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Cgroups">https://wiki.archlinux.org/index.php/Cgroups</a></li>
+<li><a href="https://wiki.archlinux.org/title/Cgroups">https://wiki.archlinux.org/title/Cgroups</a></li>
 <li><a href="https://poor.dev/blog/terminal-anatomy">https://poor.dev/blog/terminal-anatomy</a></li>
 <li><a href="https://www.linusakesson.net/programming/tty">https://www.linusakesson.net/programming/tty</a></li>
 <li><a href="https://www.sobyte.net/post/2022-05/tty/">https://www.sobyte.net/post/2022-05/tty/</a></li>
@@ -10649,10 +10674,10 @@
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","header.autohide","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      <script src="../assets/javascripts/bundle.a2388154.min.js"></script>
       
     
   </body>
